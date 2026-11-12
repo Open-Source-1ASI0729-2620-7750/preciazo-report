@@ -2394,6 +2394,37 @@ Durante el Sprint 2, el equipo **PeruTech** continuó aplicando el flujo de trab
 
 Las entrevistas de validación de usabilidad se programarán al concluir la implementación del prototipo funcional e interactivo de la aplicación web en los sprints posteriores. Dichas sesiones se estructurarán aplicando el protocolo de pruebas de usabilidad guiadas y evaluación heurística basada en las 10 heurísticas de Jakob Nielsen.
 
+### 5.3.1. Diseño de Entrevistas
+
+#### A. Segmento 1: Compradores Independientes
+
+  1. ¿Qué tan claro le resulta identificar de qué trata Preciazo y cómo le ayuda a ahorrar en su canasta básica?
+  2. *Utilizando el buscador y la sección "Mis Listas", intente agregar un producto y defina un presupuesto máximo* ¿Tuvo alguna dificultad para ubicar los controles o entender los campos?
+  3. *Visualice la tabla de "Comparar Precios".* ¿Comprende con facilidad cuál es el establecimiento más económico para su lista y qué elementos faltan o sobran?
+  4. *Visualice la "Ruta de Compra".* ¿Las indicaciones del mapa y el orden de las paradas le resultan intuitivas para decidir a qué tienda ir a pie o en transporte?
+  5. ¿Encontró algún texto confuso, botones sin respuesta o elementos difíciles de leer desde su dispositivo?
+
+#### B. Segmento 2: Comerciantes Minoristas y Administradores de Tiendas Locales
+
+  1. *Al revisar la sección para comerciantes en la Landing Page* ¿le interesaría afiliar su bodega o minimarket bajo este esquema?
+  2. *Ingresado al panel de control* ¿cómo interpreta los indicadores de tráfico mensual y visitas a su tienda?
+  3. *Diríjase al módulo "Inventario y Precios" y cambie el estado de un producto a "Agotado" o modifique su precio* ¿El proceso le pareció lo suficientemente rápido para su rutina diaria en el mostrador?
+  4. *Intente crear una nueva "Oferta Relámpago" para liquidar un producto próximo a vencer* ¿Los pasos del formulario son claros o le demandan demasiado tiempo?
+  5. ¿Qué le faltaría a esta consola web para animarse a actualizar sus precios y stock de manera diaria?
+
+---
+
+### 5.3.2. Registro de Entrevistas
+
+
+[Contenido]
+
+
+### 5.3.3. Evaluaciones según heurísticas
+
+
+[Contenido]
+
 ## 5.4. Video About-the-Product
 
 *Espacio reservado para la incorporación del enlace audiovisual de demostración del producto funcional final.*
