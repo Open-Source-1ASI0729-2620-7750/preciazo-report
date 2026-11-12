@@ -2356,6 +2356,40 @@ Durante el Sprint 2, el equipo **PeruTech** continuó aplicando el flujo de trab
   <p><em>Figura 5.5: Evidencia del trabajo colaborativo y estadísticas del equipo durante el Sprint 2.</em></p>
 </div>
 
+### 5.2.3. Sprint 3
+
+#### 5.2.3.1. Sprint Planning 3
+
+[Contenido]
+
+#### 5.2.3.2. Aspect Leaders and Collaborators
+
+[Contenido]
+
+#### 5.2.3.3. Sprint Backlog 3
+
+[Contenido]
+
+#### 5.2.3.4. Development Evidence for Sprint Review
+
+[Contenido]
+
+#### 5.2.3.5. Execution Evidence for Sprint Review
+
+[Contenido]
+
+#### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+[Contenido]
+
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+[Contenido]
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint
+
+[Contenido]
+
 ## 5.3. Validation Interviews
 
 Las entrevistas de validación de usabilidad se programarán al concluir la implementación del prototipo funcional e interactivo de la aplicación web en los sprints posteriores. Dichas sesiones se estructurarán aplicando el protocolo de pruebas de usabilidad guiadas y evaluación heurística basada en las 10 heurísticas de Jakob Nielsen.
