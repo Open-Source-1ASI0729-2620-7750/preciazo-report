@@ -2416,12 +2416,131 @@ Las entrevistas de validación de usabilidad se programarán al concluir la impl
 
 ### 5.3.2. Registro de Entrevistas
 
+Para cada segmento se realizaron tres entrevistas de validación cumpliendo con las directrices metodológicas y de formato establecidas.
 
-[Contenido]
+#### 1. Segmento 1
 
+* **Entrevista 1:**
+  * **Nombre y Apellidos:** [Nombre del Entrevistado 1]
+  * **Edad:** [Edad] años
+  * **Distrito de residencia:** [Distrito, Lima]
+  * **Ocupación:** [Ocupación o Profesión]
+  * **Plataforma de video:** [Microsoft Stream / YouTube]
+  * **Enlace de Video:** [Insertar Enlace al Video]
+  * **Marca de tiempo (Timing de inicio):** `[00:00]`
+  * **Duración:** `[05:00 min]`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* [Describir dispositivos]
+    * *Navegador de preferencia:* [Navegador]
+    * *Canales digitales e influencias:* [Canales y herramientas]
+    * *Rasgos de personalidad:* [Rasgos principales]
+  * **Resumen descriptivo:** 
+
+![Screenshot Entrevista 1](../assets/validation/Entrevista1.png)
+
+---
+
+* **Entrevista 2:**
+  * **Nombre y Apellidos:** [Nombre del Entrevistado 2]
+  * **Edad:** [Edad] años
+  * **Distrito de residencia:** [Distrito, Lima]
+  * **Ocupación:** [Ocupación o Profesión]
+  * **Plataforma de video:** [Microsoft Stream / YouTube]
+  * **Enlace de Video:** [Insertar Enlace al Video]
+  * **Marca de tiempo (Timing de inicio):** `[05:00]`
+  * **Duración:** `[05:00 min]`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* [Describir dispositivos]
+    * *Navegador de preferencia:* [Navegador]
+    * *Canales digitales e influencias:* [Canales y herramientas]
+    * *Rasgos de personalidad:* [Rasgos principales]
+  * **Resumen descriptivo:** 
+
+![Screenshot Entrevista 2](../assets/validation/Entrevista2.png)
+
+---
+
+* **Entrevista 3:**
+  * **Nombre y Apellidos:** [Nombre del Entrevistado 3]
+  * **Edad:** [Edad] años
+  * **Distrito de residencia:** [Distrito, Lima]
+  * **Ocupación:** [Ocupación o Profesión]
+  * **Plataforma de video:** [Microsoft Stream / YouTube]
+  * **Enlace de Video:** [Insertar Enlace al Video]
+  * **Marca de tiempo (Timing de inicio):** `[10:00]`
+  * **Duración:** `[05:00 min]`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* [Describir dispositivos]
+    * *Navegador de preferencia:* [Navegador]
+    * *Canales digitales e influencias:* [Canales y herramientas]
+    * *Rasgos de personalidad:* [Rasgos principales]
+  * **Resumen descriptivo:** 
+
+![Screenshot Entrevista 3](../assets/validation/Entrevista3.png)
+
+---
+
+#### 2. Segmento 2
+
+* **Entrevista 1:**
+  * **Nombre y Apellidos:** [Nombre del Comerciante 1]
+  * **Edad:** [Edad] años
+  * **Distrito de residencia:** [Distrito, Lima]
+  * **Ocupación:** [Ocupación o Rol en el Negocio]
+  * **Plataforma de video:** [Microsoft Stream / YouTube]
+  * **Enlace de Video:** [Insertar Enlace al Video]
+  * **Marca de tiempo (Timing de inicio):** `[00:00]`
+  * **Duración:** `[05:00 min]`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* [Describir dispositivos]
+    * *Navegador de preferencia:* [Navegador]
+    * *Canales digitales e influencias:* [Canales y herramientas comerciales]
+    * *Rasgos de personalidad:* [Rasgos principales]
+  * **Resumen descriptivo:** 
+
+![Screenshot Entrevista 4](../assets/validation/Entrevista4.png)
+
+---
+
+* **Entrevista 2:**
+  * **Nombre y Apellidos:** [Nombre del Comerciante 2]
+  * **Edad:** [Edad] años
+  * **Distrito de residencia:** [Distrito, Lima]
+  * **Ocupación:** [Ocupación o Rol en el Negocio]
+  * **Plataforma de video:** [Microsoft Stream / YouTube]
+  * **Enlace de Video:** [Insertar Enlace al Video]
+  * **Marca de tiempo (Timing de inicio):** `[05:00]`
+  * **Duración:** `[05:00 min]`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* [Describir dispositivos]
+    * *Navegador de preferencia:* [Navegador]
+    * *Canales digitales e influencias:* [Canales y herramientas comerciales]
+    * *Rasgos de personalidad:* [Rasgos principales]
+  * **Resumen descriptivo:** 
+
+![Screenshot Entrevista 5](../assets/validation/Entrevista5.png)
+
+---
+
+* **Entrevista 3:**
+  * **Nombre y Apellidos:** [Nombre del Comerciante 3]
+  * **Edad:** [Edad] años
+  * **Distrito de residencia:** [Distrito, Lima]
+  * **Ocupación:** [Ocupación o Rol en el Negocio]
+  * **Plataforma de video:** [Microsoft Stream / YouTube]
+  * **Enlace de Video:** [Insertar Enlace al Video]
+  * **Marca de tiempo (Timing de inicio):** `[10:00]`
+  * **Duración:** `[05:00 min]`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* [Describir dispositivos]
+    * *Navegador de preferencia:* [Navegador]
+    * *Canales digitales e influencias:* [Canales y herramientas comerciales]
+    * *Rasgos de personalidad:* [Rasgos principales]
+  * **Resumen descriptivo:** 
+
+![Screenshot Entrevista 6](../assets/validation/Entrevista6.png)
 
 ### 5.3.3. Evaluaciones según heurísticas
-
 
 [Contenido]
 
