@@ -2438,215 +2438,354 @@ Durante el Sprint 2, el equipo **PeruTech** continuó aplicando el flujo de trab
 
 ### 5.2.3. Sprint 3
 
+El Sprint 3 comprende la tercera iteración del proyecto (correspondiente al entregable **AV2**), orientada a la implementación y despliegue de los **RESTful Web Services** en Spring Boot bajo arquitectura Domain-Driven Design (DDD), su documentación en **OpenAPI / Swagger UI** y su integración con el **Frontend Web Application** en Angular.
+
 #### 5.2.3.1. Sprint Planning 3
 
-[Contenido]
+A continuación, se presenta el cuadro resumen de la planificación del Sprint 3 siguiendo la estructura oficial del curso y el formato de **Sprint Goal** de Scrum.org:
+
+| Campo | Descripción |
+| :--- | :--- |
+| **Sprint #** | Sprint 3 |
+| **Sprint Planning Background** | [Por completar: resumen del contexto de planificación del Sprint 3 y subsanación de observaciones] |
+| **Date** | [AAAA-MM-DD] |
+| **Time** | [HH:MM PM] |
+| **Location** | Reunión virtual vía Google Meet / Discord |
+| **Prepared By** | [Apellidos, Nombres] |
+| **Attendees (to planning meeting)** | Becerra Durand, Sebastian Uriel / Capillo Lema, Mía Valentina / Casós Torre, Miguel André / Miranda Romero, Sergio Luis / Pardo Chumpitazi, Kevin Patrick |
+| **Sprint 2 Review Summary** | [Por completar: resumen de la revisión de lo entregado en el Sprint 2] |
+| **Sprint 2 Retrospective Summary** | [Por completar: acuerdos de mejora del equipo para el Sprint 3] |
+| **Sprint Goal & User Stories** | **User & Technical Stories Incluidas:** [Por completar: ej. `US14`, `US21`, `TS01`, `TS02`...] |
+| **Sprint 3 Goal** | **Our focus is on** [completar objetivo principal del Sprint 3 en inglés].<br>**We believe it delivers** [completar valor entregado] **to** [completar segmentos objetivo].<br>**This will be confirmed when** [completar criterio medible de confirmación]. |
+| **Sprint 3 Velocity** | [X] Story Points |
+| **Sum of Story Points** | [X] Story Points |
 
 #### 5.2.3.2. Aspect Leaders and Collaborators
 
-[Contenido]
+En esta sección se presenta la matriz **Leadership-and-Collaboration (LACX)** del Sprint 3, indicando quién lidera (`L`) y quién colabora (`C`) en cada aspecto del desarrollo:
+
+| Team Member (Last Name, First Name) | GitHub Username | Aspect 1: SCM & Cloud Deployment Leader (L) / Collaborator (C) | Aspect 2: Core Bounded Contexts API Leader (L) / Collaborator (C) | Aspect 3: Supporting & IAM API Leader (L) / Collaborator (C) | Aspect 4: Frontend-Backend Integration Leader (L) / Collaborator (C) | Aspect 5: UX Validation & Heuristics Leader (L) / Collaborator (C) |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| **Pardo Chumpitazi, Kevin Patrick** | `Kevinyin11` | [L/C] | [L/C] | [L/C] | [L/C] | [L/C] |
+| **Capillo Lema, Mía Valentina** | `MiaCL-5` | [L/C] | [L/C] | [L/C] | [L/C] | [L/C] |
+| **Miranda Romero, Sergio Luis** | `dym4njiroo` | [L/C] | [L/C] | [L/C] | [L/C] | [L/C] |
+| **Casós Torre, Miguel André** | `mcasos` | [L/C] | [L/C] | [L/C] | [L/C] | [L/C] |
+| **Becerra Durand, Sebastian Uriel** | `sebasdev28` | [L/C] | [L/C] | [L/C] | [L/C] | [L/C] |
 
 #### 5.2.3.3. Sprint Backlog 3
 
-[Contenido]
+Se detallan a continuación los *Work-Items / Tasks* del Sprint 3 (recuerden mantener la estimación en el rango de **4 a 8 horas por tarea** según la rúbrica):
+
+* **Enlace Público al Sprint 3 Board en Trello:** [https://trello.com/b/NhH0tIyG/product](https://trello.com/b/NhH0tIyG/product)
+
+<!-- Reemplazar ruta cuando suban la captura del tablero Trello del Sprint 3 -->
+<!-- ![Sprint Backlog 3 en Trello](../assets/sprint-3/Trello.png) -->
+
+| Sprint # | Sprint 3 | | | | | | |
+| :--- | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
+| **User Story** | | **Work-Item / Task** | | | | | |
+| **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Hours)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
+| **[US/TS]** | [Título de la historia] | T01 | [Título de tarea] | [Descripción técnica de la tarea] | [4 - 8] | [Apellidos, Nombres] | [Status] |
+| **[US/TS]** | [Título de la historia] | T02 | [Título de tarea] | [Descripción técnica de la tarea] | [4 - 8] | [Apellidos, Nombres] | [Status] |
+| **[US/TS]** | [Título de la historia] | T03 | [Título de tarea] | [Descripción técnica de la tarea] | [4 - 8] | [Apellidos, Nombres] | [Status] |
+| **[US/TS]** | [Título de la historia] | T04 | [Título de tarea] | [Descripción técnica de la tarea] | [4 - 8] | [Apellidos, Nombres] | [Status] |
+| **[US/TS]** | [Título de la historia] | T05 | [Título de tarea] | [Descripción técnica de la tarea] | [4 - 8] | [Apellidos, Nombres] | [Status] |
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
-[Contenido]
+A continuación, se registran los commits reales realizados por el equipo durante el Sprint 3 en los repositorios del proyecto:
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :---: | :--- | :--- | :---: |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `feature/[rama]` | `[hash]` | `[feat/fix(scope): summary en inglés]` | `[Descripción del commit en inglés]` | [DD/MM/2026] |
+| `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `feature/[rama]` | `[hash]` | `[feat/fix(scope): summary en inglés]` | `[Descripción del commit en inglés]` | [DD/MM/2026] |
+| `Open-Source-1ASI0729-2620-7750/preciazo-landing-page` | `feature/[rama]` | `[hash]` | `[feat/fix(scope): summary en inglés]` | `[Descripción del commit en inglés]` | [DD/MM/2026] |
+| `Open-Source-1ASI0729-2620-7750/preciazo-report` | `feature/[rama]` | `[hash]` | `[docs/fix(scope): summary en inglés]` | `[Descripción del commit en inglés]` | [DD/MM/2026] |
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
-[Contenido]
+[Por completar: breve descripción de las pruebas de ejecución logradas en el Sprint 3 integrando Landing Page, Frontend Web Application y RESTful Web Services].
+
+* **Enlace al Video de Demostración de Ejecución (Sprint 3):** [Pegar enlace de Microsoft Stream]
+
+<!-- Descomentar cuando suban las capturas de ejecución del Sprint 3 -->
+<!-- ![Ejecución Sprint 3](../assets/sprint-3/execution-evidence.png) -->
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
-[Contenido]
+Se presenta la evidencia de documentación interactiva de los endpoints del Backend en **OpenAPI / Swagger UI**, organizados por Bounded Contexts:
+
+* **URL de Documentación OpenAPI / Swagger UI:** [Pegar URL pública de `/swagger-ui/index.html`]
+
+<!-- Descomentar cuando suban la captura de Swagger UI -->
+<!-- ![Swagger UI Documentation](../assets/sprint-3/swagger-evidence.png) -->
+
+| Bounded Context (Tag OpenAPI) | Método HTTP & Endpoint | Descripción del Servicio | Códigos HTTP |
+| :--- | :--- | :--- | :---: |
+| **Catalog and Pricing** *(Core)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 400]` |
+| **Route Planning** *(Core)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 422]` |
+| **Shopping Planning** *(Core)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 201]` |
+| **Merchant Management** *(Soporte)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 201]` |
+| **Community Price Verification** *(Soporte)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 201]` |
+| **Analytics and Engagement** *(Soporte)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 404]` |
+| **Identity and Access** *(Genérico)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 401]` |
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
-[Contenido]
+Se detallan los enlaces y evidencias de despliegue en la nube correspondientes al cierre del Sprint 3:
+
+* **Landing Page Desplegada:** [https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/](https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/)
+* **Frontend Web Application Desplegada:** [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net)
+* **Backend RESTful Web Services Desplegado:** [Pegar URL pública del Backend desplegado]
+
+<!-- Descomentar cuando suban la captura del despliegue del Backend / Azure -->
+<!-- ![Deployment Evidence Sprint 3](../assets/sprint-3/deployment-evidence.png) -->
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
-[Contenido]
+[Por completar: breve párrafo sobre la participación de los integrantes en los repositorios durante el Sprint 3].
+
+<!-- Descomentar cuando suban las capturas de GitHub Pulse / Contributors del Sprint 3 -->
+<!-- ![Team Collaboration Sprint 3](../assets/sprint-3/collaboration-sprint3.png) -->
+
+---
 
 ## 5.3. Validation Interviews
 
-Las entrevistas de validación de usabilidad se programarán al concluir la implementación del prototipo funcional e interactivo de la aplicación web en los sprints posteriores. Dichas sesiones se estructurarán aplicando el protocolo de pruebas de usabilidad guiadas y evaluación heurística basada en las 10 heurísticas de Jakob Nielsen.
-
 ### 5.3.1. Diseño de Entrevistas
 
-#### A. Segmento 1: Compradores Independientes
+Con el propósito de validar la usabilidad, claridad visual y el valor percibido de los prototipos y de la aplicación web desplegada de **Preciazo**, se diseñó una guía de entrevista estructurada orientada a nuestros dos segmentos objetivo. El objetivo principal de estas sesiones fue observar la interacción directa de los usuarios con las interfaces propuestas y evaluar si los flujos diseñados resuelven de manera intuitiva sus necesidades reales de planificación de compras y gestión comercial.
 
-  1. ¿Qué tan claro le resulta identificar de qué trata Preciazo y cómo le ayuda a ahorrar en su canasta básica?
-  2. *Utilizando el buscador y la sección "Mis Listas", intente agregar un producto y defina un presupuesto máximo* ¿Tuvo alguna dificultad para ubicar los controles o entender los campos?
-  3. *Visualice la tabla de "Comparar Precios".* ¿Comprende con facilidad cuál es el establecimiento más económico para su lista y qué elementos faltan o sobran?
-  4. *Visualice la "Ruta de Compra".* ¿Las indicaciones del mapa y el orden de las paradas le resultan intuitivas para decidir a qué tienda ir a pie o en transporte?
-  5. ¿Encontró algún texto confuso, botones sin respuesta o elementos difíciles de leer desde su dispositivo?
+A continuación, se detallan las preguntas formuladas durante las sesiones de validación para cada segmento:
 
-#### B. Segmento 2: Comerciantes Minoristas y Administradores de Tiendas Locales
+#### Segmento 1: Compradores Independientes
 
-  1. *Al revisar la sección para comerciantes en la Landing Page* ¿le interesaría afiliar su bodega o minimarket bajo este esquema?
-  2. *Ingresado al panel de control* ¿cómo interpreta los indicadores de tráfico mensual y visitas a su tienda?
-  3. *Diríjase al módulo "Inventario y Precios" y cambie el estado de un producto a "Agotado" o modifique su precio* ¿El proceso le pareció lo suficientemente rápido para su rutina diaria en el mostrador?
-  4. *Intente crear una nueva "Oferta Relámpago" para liquidar un producto próximo a vencer* ¿Los pasos del formulario son claros o le demandan demasiado tiempo?
-  5. ¿Qué le faltaría a esta consola web para animarse a actualizar sus precios y stock de manera diaria?
+**Sobre la Experiencia y Usabilidad (Interacción con la Interfaz):**
+1. Al observar la pantalla de inicio y el módulo de **"Mis Listas"**, ¿qué tan intuitivo te resulta el flujo para buscar un producto, agregarlo a tu canasta y fijar un presupuesto límite?
+2. Al pasar a la **"Matriz Comparativa Multitienda"**, ¿la forma en que se distribuyen los precios y el ahorro total entre comercios es clara a primera vista o sientes que algún elemento visual genera confusión?
+3. Respecto a la pantalla de **"Ruta de Compra"**, ¿se comprende fácilmente el orden de las paradas sugeridas en el mapa y qué productos específicos debes comprar en cada local?
+4. ¿Encontraste algún botón, ícono o texto dentro del recorrido que no entendieras para qué servía?
+
+**Sobre el Valor Percibido y Funcionalidades:**
+5. ¿Qué opinas de la barra de presupuesto en tiempo real y del **"Modo Compra Interactivo"** (marcar productos con *checkboxes* mientras estás en la tienda)? ¿Te ayudaría a controlar mejor tus gastos?
+6. En la sección de **"Verificación Comunitaria"**, ¿te resultaría sencillo y rápido reportar un precio distinto en góndola o confirmar el stock que otro usuario subió?
+
+**Sobre el Impacto y Disposición de Uso:**
+7. Del 1 al 5, ¿qué tan fácil de usar calificarías esta aplicación web y qué le cambiarías o agregarías antes de usarla en tus compras reales de la semana?
+
+---
+
+#### Segmento 2: Comerciantes Minoristas
+
+**Sobre la Experiencia y Usabilidad (Interacción con el Panel):**
+1. Al ingresar al **"Dashboard de Métricas"**, ¿los indicadores mostrados (visitas a tienda, comparaciones realizadas y ventas perdidas por falta de stock) se entienden con facilidad?
+2. En el módulo de **"Inventario y Precios"**, ¿consideras que el uso de interruptores (*switches*) para activar o desactivar el stock y la edición rápida de precios es lo suficientemente ágil para el ritmo de trabajo diario de tu negocio?
+3. Al revisar el formulario para crear una **"Nueva Promoción"**, ¿los pasos para seleccionar el producto, definir el precio de oferta y programar las fechas son claros y directos?
+
+**Sobre el Valor Percibido y Confianza:**
+4. ¿Qué te parece la sección de **"Datos del Establecimiento"** donde se muestra tu RUC verificado y tus horarios de atención? ¿Crees que esto transmitirá mayor confianza a los compradores de tu zona?
+5. Considerando el poco tiempo libre que tienes al atender tu local, ¿sientes que este panel te permitiría actualizar tus precios y ofertas en pocos minutos sin complicarte?
+
+**Sobre el Impacto y Disposición de Uso:**
+6. Del 1 al 5, ¿qué tan útil y manejable te parece esta herramienta para atraer más clientes a tu negocio, y qué mejora le harías a las pantallas que acabas de probar?
 
 ---
 
 ### 5.3.2. Registro de Entrevistas
 
-Para cada segmento se realizaron tres entrevistas de validación cumpliendo con las directrices metodológicas y de formato establecidas.
+A continuación, se presenta la documentación y evidencia de las entrevistas de validación realizadas con usuarios reales pertenecientes a ambos segmentos objetivo, consolidadas en un único video continuo alojado en Microsoft Stream.
 
-#### 1. Segmento 1
+---
+
+#### Segmento 1: Compradores Independientes
 
 * **Entrevista 1:**
-  * **Nombre y Apellidos:** [Nombre del Entrevistado 1]
-  * **Edad:** [Edad] años
-  * **Distrito de residencia:** [Distrito, Lima]
-  * **Ocupación:** [Ocupación o Profesión]
-  * **Plataforma de video:** [Microsoft Stream / YouTube]
-  * **Enlace de Video:** [Insertar Enlace al Video]
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[05:00 min]`
+  * **Nombre y Apellidos:** `[Ingresar nombre completo]`
+  * **Edad:** `[XX]` años
+  * **Distrito de residencia:** `[Ingresar distrito, Lima]`
+  * **Ocupación:** `[Ingresar ocupación]`
+  * **Fecha de entrevista:** `[DD/MM/2026]`
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** `[Ver Registro Consolidado de Validación en Microsoft Stream](PEGAR_URL_AQUI)`
+  * **Código de acceso (si aplica):** `[Ingresar código o N/A]`
+  * **Timing de inicio y término:** `00:00 - XX:XX`
+  * **Duración:** `XX:XX min`
   * **Perfil técnico y entorno digital:**
-    * *Dispositivos habituales:* [Describir dispositivos]
-    * *Navegador de preferencia:* [Navegador]
-    * *Canales digitales e influencias:* [Canales y herramientas]
-    * *Rasgos de personalidad:* [Rasgos principales]
-  * **Resumen descriptivo:** 
+    * *Dispositivos habituales:* `[Ej. Smartphone Android y Laptop]`
+    * *Navegador de preferencia:* `[Ej. Google Chrome]`
+    * *Canales digitales e influencias:* `[Ej. Yape, Plin, redes sociales]`
+  * **Captura de evidencia:**
 
-![Screenshot Entrevista 1](../assets/validation/Entrevista1.png)
+    `![Evidencia Entrevista 1 Comprador](../assets/validacion/comprador_entrevista1.png)`
 
----
+  * **Resumen de los principales aportes:**
+    > `[Redactar un párrafo resumiendo cómo interactuó el usuario con la interfaz, qué secciones le parecieron más fáciles de usar, si entendió el comparador/rutas y qué sugerencias de mejora brindó.]`
+
+<br>
 
 * **Entrevista 2:**
-  * **Nombre y Apellidos:** [Nombre del Entrevistado 2]
-  * **Edad:** [Edad] años
-  * **Distrito de residencia:** [Distrito, Lima]
-  * **Ocupación:** [Ocupación o Profesión]
-  * **Plataforma de video:** [Microsoft Stream / YouTube]
-  * **Enlace de Video:** [Insertar Enlace al Video]
-  * **Marca de tiempo (Timing de inicio):** `[05:00]`
-  * **Duración:** `[05:00 min]`
+  * **Nombre y Apellidos:** `[Ingresar nombre completo]`
+  * **Edad:** `[XX]` años
+  * **Distrito de residencia:** `[Ingresar distrito, Lima]`
+  * **Ocupación:** `[Ingresar ocupación]`
+  * **Fecha de entrevista:** `[DD/MM/2026]`
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** `[Ver Registro Consolidado de Validación en Microsoft Stream](PEGAR_URL_AQUI)`
+  * **Código de acceso (si aplica):** `[Ingresar código o N/A]`
+  * **Timing de inicio y término:** `XX:XX - YY:YY`
+  * **Duración:** `XX:XX min`
   * **Perfil técnico y entorno digital:**
-    * *Dispositivos habituales:* [Describir dispositivos]
-    * *Navegador de preferencia:* [Navegador]
-    * *Canales digitales e influencias:* [Canales y herramientas]
-    * *Rasgos de personalidad:* [Rasgos principales]
-  * **Resumen descriptivo:** 
+    * *Dispositivos habituales:* `[Ej. Smartphone iOS / Android y PC]`
+    * *Navegador de preferencia:* `[Ej. Google Chrome / Safari]`
+    * *Canales digitales e influencias:* `[Ej. Yape, WhatsApp, catálogos digitales]`
+  * **Captura de evidencia:**
 
-![Screenshot Entrevista 2](../assets/validation/Entrevista2.png)
+    `![Evidencia Entrevista 2 Comprador](../assets/validacion/comprador_entrevista2.png)`
 
----
+  * **Resumen de los principales aportes:**
+    > `[Redactar un párrafo resumiendo la experiencia del usuario con las pantallas, su opinión sobre el control de presupuesto/modo compra y sus recomendaciones de mejora visual o funcional.]`
+
+<br>
 
 * **Entrevista 3:**
-  * **Nombre y Apellidos:** [Nombre del Entrevistado 3]
-  * **Edad:** [Edad] años
-  * **Distrito de residencia:** [Distrito, Lima]
-  * **Ocupación:** [Ocupación o Profesión]
-  * **Plataforma de video:** [Microsoft Stream / YouTube]
-  * **Enlace de Video:** [Insertar Enlace al Video]
-  * **Marca de tiempo (Timing de inicio):** `[10:00]`
-  * **Duración:** `[05:00 min]`
+  * **Nombre y Apellidos:** `[Ingresar nombre completo]`
+  * **Edad:** `[XX]` años
+  * **Distrito de residencia:** `[Ingresar distrito, Lima]`
+  * **Ocupación:** `[Ingresar ocupación]`
+  * **Fecha de entrevista:** `[DD/MM/2026]`
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** `[Ver Registro Consolidado de Validación en Microsoft Stream](PEGAR_URL_AQUI)`
+  * **Código de acceso (si aplica):** `[Ingresar código o N/A]`
+  * **Timing de inicio y término:** `YY:YY - ZZ:ZZ`
+  * **Duración:** `XX:XX min`
   * **Perfil técnico y entorno digital:**
-    * *Dispositivos habituales:* [Describir dispositivos]
-    * *Navegador de preferencia:* [Navegador]
-    * *Canales digitales e influencias:* [Canales y herramientas]
-    * *Rasgos de personalidad:* [Rasgos principales]
-  * **Resumen descriptivo:** 
+    * *Dispositivos habituales:* `[Ej. Smartphone Android y Laptop]`
+    * *Navegador de preferencia:* `[Ej. Google Chrome]`
+    * *Canales digitales e influencias:* `[Ej. Redes sociales, billeteras digitales]`
+  * **Captura de evidencia:**
 
-![Screenshot Entrevista 3](../assets/validation/Entrevista3.png)
+    `![Evidencia Entrevista 3 Comprador](../assets/validacion/comprador_entrevista3.png)`
+
+  * **Resumen de los principales aportes:**
+    > `[Redactar un párrafo resumiendo la validación de la interfaz por parte del usuario, su percepción sobre la verificación comunitaria y su calificación general de usabilidad.]`
 
 ---
 
-#### 2. Segmento 2
+#### Segmento 2: Comerciantes Minoristas
 
-* **Entrevista 1:**
-  * **Nombre y Apellidos:** [Nombre del Comerciante 1]
-  * **Edad:** [Edad] años
-  * **Distrito de residencia:** [Distrito, Lima]
-  * **Ocupación:** [Ocupación o Rol en el Negocio]
-  * **Plataforma de video:** [Microsoft Stream / YouTube]
-  * **Enlace de Video:** [Insertar Enlace al Video]
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[05:00 min]`
+* **Entrevista 4:**
+  * **Nombre y Apellidos:** `[Ingresar nombre completo]`
+  * **Edad:** `[XX]` años
+  * **Distrito de residencia:** `[Ingresar distrito, Lima]`
+  * **Ocupación / Rubro del Comercio:** `[Ej. Propietario y Administrador de Bodega]`
+  * **Fecha de entrevista:** `[DD/MM/2026]`
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** `[Ver Registro Consolidado de Validación en Microsoft Stream](PEGAR_URL_AQUI)`
+  * **Código de acceso (si aplica):** `[Ingresar código o N/A]`
+  * **Timing de inicio y término:** `ZZ:ZZ - AA:AA`
+  * **Duración:** `XX:XX min`
   * **Perfil técnico y entorno digital:**
-    * *Dispositivos habituales:* [Describir dispositivos]
-    * *Navegador de preferencia:* [Navegador]
-    * *Canales digitales e influencias:* [Canales y herramientas comerciales]
-    * *Rasgos de personalidad:* [Rasgos principales]
-  * **Resumen descriptivo:** 
+    * *Dispositivos habituales:* `[Ej. Smartphone Android y Laptop]`
+    * *Navegador de preferencia:* `[Ej. Google Chrome]`
+    * *Canales digitales e influencias:* `[Ej. Yape, Plin, WhatsApp Business]`
+  * **Captura de evidencia:**
 
-![Screenshot Entrevista 4](../assets/validation/Entrevista4.png)
+    `![Evidencia Entrevista 1 Comerciante](../assets/validacion/comerciante_entrevista1.png)`
+
+  * **Resumen de los principales aportes:**
+    > `[Redactar un párrafo detallando qué tan fácil le resultó al comerciante entender el dashboard de métricas, el manejo de inventario con switches y qué ajustes sugirió para su trabajo diario.]`
+
+<br>
+
+* **Entrevista 5:**
+  * **Nombre y Apellidos:** `[Ingresar nombre completo]`
+  * **Edad:** `[XX]` años
+  * **Distrito de residencia:** `[Ingresar distrito, Lima]`
+  * **Ocupación / Rubro del Comercio:** `[Ej. Administrador de Minimarket Familiar]`
+  * **Fecha de entrevista:** `[DD/MM/2026]`
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** `[Ver Registro Consolidado de Validación en Microsoft Stream](PEGAR_URL_AQUI)`
+  * **Código de acceso (si aplica):** `[Ingresar código o N/A]`
+  * **Timing de inicio y término:** `AA:AA - BB:BB`
+  * **Duración:** `XX:XX min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* `[Ej. Smartphone Android y PC]`
+    * *Navegador de preferencia:* `[Ej. Google Chrome]`
+    * *Canales digitales e influencias:* `[Ej. Yape, redes sociales, grupos vecinales]`
+  * **Captura de evidencia:**
+
+    `![Evidencia Entrevista 2 Comerciante](../assets/validacion/comerciante_entrevista2.png)`
+
+  * **Resumen de los principales aportes:**
+    > `[Redactar un párrafo detallando la reacción del comerciante ante el módulo de creación de promociones, la validación por RUC y el tiempo que estima que le tomaría usar la plataforma.]`
+
+<br>
+
+* **Entrevista 6:**
+  * **Nombre y Apellidos:** `[Ingresar nombre completo]`
+  * **Edad:** `[XX]` años
+  * **Distrito de residencia:** `[Ingresar distrito, Lima]`
+  * **Ocupación / Rubro del Comercio:** `[Ej. Propietario y Administrador de Bodega]`
+  * **Fecha de entrevista:** `[DD/MM/2026]`
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** `[Ver Registro Consolidado de Validación en Microsoft Stream](PEGAR_URL_AQUI)`
+  * **Código de acceso (si aplica):** `[Ingresar código o N/A]`
+  * **Timing de inicio y término:** `BB:BB - CC:CC`
+  * **Duración:** `XX:XX min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* `[Ej. Smartphone Android y Laptop]`
+    * *Navegador de preferencia:* `[Ej. Google Chrome]`
+    * *Canales digitales e influencias:* `[Ej. Yape, redes sociales (WhatsApp, TikTok, Facebook)]`
+  * **Captura de evidencia:**
+
+    `![Evidencia Entrevista 3 Comerciante](../assets/validacion/comerciante_entrevista3.png)`
+
+  * **Resumen de los principales aportes:**
+    > `[Redactar un párrafo detallando la valoración general del comerciante sobre la utilidad del panel para atraer clientes de la zona y sus sugerencias finales sobre la interfaz.]`
 
 ---
-
-* **Entrevista 2:**
-  * **Nombre y Apellidos:** [Nombre del Comerciante 2]
-  * **Edad:** [Edad] años
-  * **Distrito de residencia:** [Distrito, Lima]
-  * **Ocupación:** [Ocupación o Rol en el Negocio]
-  * **Plataforma de video:** [Microsoft Stream / YouTube]
-  * **Enlace de Video:** [Insertar Enlace al Video]
-  * **Marca de tiempo (Timing de inicio):** `[05:00]`
-  * **Duración:** `[05:00 min]`
-  * **Perfil técnico y entorno digital:**
-    * *Dispositivos habituales:* [Describir dispositivos]
-    * *Navegador de preferencia:* [Navegador]
-    * *Canales digitales e influencias:* [Canales y herramientas comerciales]
-    * *Rasgos de personalidad:* [Rasgos principales]
-  * **Resumen descriptivo:** 
-
-![Screenshot Entrevista 5](../assets/validation/Entrevista5.png)
-
----
-
-* **Entrevista 3:**
-  * **Nombre y Apellidos:** [Nombre del Comerciante 3]
-  * **Edad:** [Edad] años
-  * **Distrito de residencia:** [Distrito, Lima]
-  * **Ocupación:** [Ocupación o Rol en el Negocio]
-  * **Plataforma de video:** [Microsoft Stream / YouTube]
-  * **Enlace de Video:** [Insertar Enlace al Video]
-  * **Marca de tiempo (Timing de inicio):** `[10:00]`
-  * **Duración:** `[05:00 min]`
-  * **Perfil técnico y entorno digital:**
-    * *Dispositivos habituales:* [Describir dispositivos]
-    * *Navegador de preferencia:* [Navegador]
-    * *Canales digitales e influencias:* [Canales y herramientas comerciales]
-    * *Rasgos de personalidad:* [Rasgos principales]
-  * **Resumen descriptivo:** 
-
-![Screenshot Entrevista 6](../assets/validation/Entrevista6.png)
 
 ### 5.3.3. Evaluaciones según heurísticas
 
-[Contenido]
+Se presenta la matriz de evaluación de usabilidad basada en las **10 Heurísticas de Jakob Nielsen** para el Landing Page y el Frontend Web Application:
+
+<!-- Si utilizan la plantilla Excel/imagen de heurísticas del curso, descomentar la línea inferior -->
+<!-- ![Evaluación Heurística](../assets/sprint-3/heuristic-evaluation.png) -->
+
+| # | Heurística de Usabilidad (Jakob Nielsen) | Observaciones / Evidencia Evaluada | Severidad (0-4) | Acción de Mejora Propuesta | Puntaje (%) |
+| :---: | :--- | :--- | :---: | :--- | :---: |
+| **H01** | **Visibilidad del estado del sistema** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
+| **H02** | **Relación entre el sistema y el mundo real** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
+| **H03** | **Control y libertad del usuario** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
+| **H04** | **Consistencia y estándares** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
+| **H05** | **Prevención de errores** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
+| **H06** | **Reconocimiento antes que recuerdo** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
+| **H07** | **Flexibilidad y eficiencia de uso** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
+| **H08** | **Diseño estético y minimalista** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
+| **H09** | **Ayudar a reconocer, diagnosticar y recuperarse de errores** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
+| **H10** | **Ayuda y documentación** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
+| | **Promedio General de Usabilidad** | | | | **`[%]`** |
+
+---
 
 ## 5.4. Video About-the-Product
 
-*Espacio reservado para la incorporación del enlace audiovisual de demostración del producto funcional final.*
+En esta sección se enlaza el video **About-the-Product**, el cual presenta el propósito de **Preciazo**, una demostración de las funcionalidades principales implementadas y fragmentos de las entrevistas de validación:
+
+* **Plataforma de Video:** YouTube / Microsoft Stream
+* **Enlace al Video About-the-Product (YouTube):** [Pegar URL de YouTube]
+* **Enlace al Video About-the-Product (Microsoft Stream):** [Pegar URL de Microsoft Stream]
+
+<!-- Descomentar cuando tengan la captura del video About-the-Product -->
+<!-- ![Video About-the-Product](../assets/sprint-3/about-the-product.png) -->
 
 ---
 
 # Conclusiones
 
-1. La plataforma web **Preciazo**, desarrollada por la startup **PeruTech**, aborda directamente la asimetría de precios y la dispersión geográfica comercial en Lima Metropolitana, articulando una solución de ahorro integral que combina costos reales de góndola con optimización de traslados urbanos.
-2. La aplicación de Domain-Driven Design (DDD) facilitó la descomposición estratégica del dominio en siete Bounded Contexts independientes, garantizando un bajo acoplamiento entre el núcleo de compras y los módulos comerciales para bodegas de barrio.
-3. El despliegue de la Landing Page en GitHub Pages durante el Sprint 1 demostró la viabilidad del enfoque *Mobile-First*, alcanzando puntajes superiores al 95% en rendimiento, accesibilidad y SEO bajo auditorías de Google Lighthouse.
-
-# Conclusiones y recomendaciones
-
-* **Recomendaciones Técnicas:** Se recomienda implementar mecanismos de caché distribuida en el Backend para acelerar las consultas de canastas en distritos de alta densidad comercial y reducir el consumo de recursos de base de datos.
-* **Recomendaciones de Negocio:** Se sugiere promover campañas de fidelización barrial que incentiven a los compradores a verificar precios de anaquel, aumentando la exactitud de los datos colaborativos sin elevar los costos de supervisión en campo.
-
-# Video About-the-Team
-
-El video institucional de presentación del equipo PeruTech resume la conformación de los integrantes, la asignación de roles técnicos y la visión estratégica del producto Preciazo:
-
-* **Enlace al Video del Equipo:** [Ver Video About-the-Team en Microsoft Stream / OneDrive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221a525_upc_edu_pe/IQALn1WCs-n2RKG7i-4XYYVKAYtnp2Uw9sig9WHpe8BqaZc)
-
+1. **[Conclusión sobre validación y valor de negocio]:** [Por completar con el equipo al cierre de las pruebas de validación].
+2. **[Conclusión sobre arquitectura DDD e implementación Full-Stack]:** [Por completar con el equipo tras el despliegue de los RESTful Web Services y su integración con Angular].
+3. **[Conclusión sobre gestión del proyecto, GitFlow y trabajo colaborativo]:** [Por completar con el equipo al cierre del Sprint 3].
 # Bibliografía
 
 * Banco Central de Reserva del Perú. (2025). *Reporte de Inflación: Panorama actual y proyecciones macroeconómicas*. https://www.bcrp.gob.pe/publicaciones/reporte-de-inflacion.html
