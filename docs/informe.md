@@ -1319,7 +1319,7 @@ El sistema de etiquetado utiliza términos breves, claros y estrictamente unific
 | **`<meta name="keywords">`** | `Preciazo Merchant, PeruTech, comercio minorista, ofertas relampago, precio unitario, reporte de trafico, venta perdida, reputacion comercio` |
 | **`<meta name="author">`** | `PeruTech Team` |
 
-##### **ASO (App Store & Google Play - Adaptación PWA / Móvil)**
+##### **ASO (Adaptación PWA / Móvil)**
 
 * **App Buyer — "Preciazo":**
   * **Título:** `Preciazo — Compras y Ahorro Neto`
@@ -1356,7 +1356,7 @@ Estructura de desplazamiento y recorrido del usuario en las diferentes plataform
 
 ##### **Mapa de Navegación y Estructuras**
 
-* **Landing Page (Web Estática):** Barra superior fija con desplazamientos suaves (*anchor links*) a `#producto`, `#como-funciona`, `#descargar` y `#contacto`.
+* **Landing Page (Web Estática):** Barra superior fija con desplazamientos suaves (*anchor links*) a `#producto`, `#como-funciona`, `#empezar` y `#contacto`.
 * **App Buyer (Móvil / Web Responsive):** Navegación primaria mediante **Tab Bar inferior** (*Inicio*, *Canasta / Lista*, *Ruta Multiparada*, *Perfil*). Flujos secundarios en *stack modal* (Sugerencia de Bien Sustituto, Reportar Discrepancia) y asistente para planificación del Presupuesto y Ruta Multiparada.
 * **Portal Merchant (Web/App):** Menú lateral persistente (*Sidebar*) con acceso a *Panel de Métricas* (Tráfico y Venta Perdida), *Catálogo*, *Ofertas Relámpago*, *Reportes de Reputación* y *Configuración de Sede*.
 
