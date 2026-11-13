@@ -5,19 +5,22 @@
   <br><br>
 
   <h3><strong>Universidad Peruana de Ciencias Aplicadas</strong></h3>
+  <p><strong>Facultad de Ingeniería</strong></p>
   <p><strong>Carrera de Ingeniería de Software</strong></p>
+  <p><strong>Ciclo 2026-20</strong></p>
 
   <br>
 
+  <p><strong>Curso:</strong> 1ASI0729 - Desarrollo de Aplicaciones Open Source</p>
   <p><strong>NRC:</strong> 7750</p>
 
-  <h2><strong>Informe del Trabajo Final</strong></h2>
+  <h2><strong>Informe de Trabajo Final</strong></h2>
 
-  <p><strong>Docente:</strong><br>Bautista Ubillús, Efrain Ricardo</p>
+  <p><strong>Docente:</strong><br>Bautista Ubillús, Efraín Ricardo</p>
 
-  <p><strong>Equipo:</strong><br>PeruTech</p>
+  <p><strong>Startup:</strong><br>PeruTech</p>
 
-  <p><strong>Proyecto:</strong><br>Preciazo</p>
+  <p><strong>Producto:</strong><br>Preciazo</p>
 
   <br>
 
@@ -32,7 +35,7 @@
     </thead>
     <tbody>
       <tr style="border: none !important; background: transparent !important;">
-        <td style="text-align: left; padding: 4px 30px 4px 0; border: none !important; background: transparent !important;">u20241c101</td>
+        <td style="text-align: left; padding: 4px 30px 4px 0; border: none !important; background: transparent !important;">U20241C101</td>
         <td style="text-align: left; padding: 4px 0; border: none !important; background: transparent !important;">Capillo Lema, Mía Valentina</td>
       </tr>
       <tr style="border: none !important; background: transparent !important;">
@@ -49,19 +52,19 @@
       </tr>
       <tr style="border: none !important; background: transparent !important;">
         <td style="text-align: left; padding: 4px 30px 4px 0; border: none !important; background: transparent !important;">U202124030</td>
-        <td style="text-align: left; padding: 4px 0; border: none !important; background: transparent !important;">Casos Torre, Miguel Andre</td>
+        <td style="text-align: left; padding: 4px 0; border: none !important; background: transparent !important;">Casós Torre, Miguel André</td>
       </tr>
     </tbody>
   </table>
 
   <br><br>
 
-  <p><strong>Período 202620</strong></p>
-  <p><strong>Septiembre 2026</strong></p>
+  <p><strong>Noviembre 2026</strong></p>
 
 </div>
 
 <div style="page-break-after: always;"></div>
+
 ---
 
 # Registro de Versiones del Informe
@@ -70,7 +73,7 @@
 | :---: | :---: | :--- | :--- |
 | **1.0** | 06/09/2026 | Capillo Lema, Mía Valentina | Creación inicial de la estructura del informe y lineamientos de estilo. |
 | **1.1** | 18/09/2026 | Becerra Durand, Sebastian Uriel | Incorporación del registro de entrevista al segmento de comerciantes minoristas en la sección 2.2.2. |
-| **1.2** | 18/09/2026 | Miranda Romero, Sergio Luis | Especificación de requerimientos del Capítulo III (User Stories, Impact Mapping y Product Backlog). |
+| **1.2** | 18/09/2026 | Miranda Romero, Sergio Luis | Especificación de requisitos del Capítulo III (User Stories, Impact Mapping y Product Backlog). |
 | **1.3** | 18/09/2026 | Casós Torre, Miguel André | Realización de entrevista, diagramas DDD y aportes de arquitectura al Capítulo IV. |
 | **1.4** | 18/09/2026 | Capillo Lema, Mía Valentina | Desarrollo de Style Guidelines, Wireframes y Mockups de la aplicación. |
 | **1.5** | 19/09/2026 | Pardo Chumpitazi, Kevin Patrick | Corrección y estandarización integral del Capítulo I (Startup Profile, Solution Profile, Lean UX Process y criterios ABET). |
@@ -78,6 +81,8 @@
 | **1.7** | 19/09/2026 | Pardo Chumpitazi, Kevin Patrick | Revisión de consistencia, formato y enlaces técnicos en el Capítulo III. |
 | **1.8** | 20/09/2026 | Pardo Chumpitazi, Kevin Patrick | Subsanación de observaciones de rúbrica: corrección de formato de carátula institucional, separación de páginas y corrección de rutas relativas de recursos multimedia. |
 | **1.9** | 20/09/2026 | Pardo Chumpitazi, Kevin Patrick | Reestructuración del Capítulo I: compleción de perfiles profesionales del equipo, reformulación de Lean UX Problem Statement alineado al 5W+2H y actualización de hipótesis con enlace funcional al Lean UX Canvas. |
+| **2.0** | 11/10/2026 | Pardo Chumpitazi, Kevin Patrick | Actualización para entrega TB1: incorporación de ejecución del Sprint 2, métricas de contribución en repositorio y despliegue preliminar de Frontend Web Application. |
+| **2.1** | 13/11/2026 | Pardo Chumpitazi, Kevin Patrick | Subsanación de observaciones de TB1 para entrega AV2: corrección de formato de carátula, actualización de acciones ABET Student Outcome (TB1 y AV2) y estandarización terminológica según Anexo E. |
 
 <div style="page-break-before: always;"></div>
 
@@ -85,19 +90,61 @@
 
 # Project Report Collaboration Insights
 
-Para evidenciar la participación equitativa y la trazabilidad en la redacción de la documentación técnica del proyecto, el desarrollo del presente informe se gestionó de manera colaborativa a través del repositorio oficial de GitHub **preciazo-report**, aplicando flujo de ramas GitFlow y registro individual de aportes mediante commits descriptivos.
+Para evidenciar la participación equitativa y la trazabilidad en la redacción de la documentación técnica del proyecto, el desarrollo del presente informe se gestionó de manera colaborativa a través del repositorio oficial de GitHub **preciazo-report**, aplicando el flujo de ramas GitFlow y el registro individual de aportes mediante commits descriptivos.
 
 * **Repositorio de Documentación:** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report)
 
-A continuación, se detalla la distribución de contribuciones y elaboración de artefactos técnicos por cada miembro del equipo durante el desarrollo del entregable:
+### Evolución Colaborativa por Entregable (AV1, TB1 y AV2)
+
+* **Entrega AV1:** El equipo estructuró la línea base del informe distribuyendo los capítulos iniciales mediante ramas `feature/` por capítulo, definiendo el perfil de la startup, el proceso de Needfinding, el Product Backlog inicial, el diseño UX/UI y la configuración del despliegue del Sprint 1.
+* **Entrega TB1:** Se incorporó la documentación de ejecución del Sprint 2 (maquetación del Frontend Web Application e internacionalización i18n), refinando los artefactos de usuario en torno a los arquetipos del dominio y consolidando las métricas del repositorio.
+* **Entrega AV2:** Se ejecutó la subsanación integral de las observaciones de revisión técnica a lo largo de los Capítulos I al V (formato institucional, acciones ABET, jerarquización de Bounded Contexts en historias y diagramas, reformulación de Sprint Goals y estandarización terminológica), además de incorporar la documentación del Sprint 3 y el diseño de las entrevistas de validación.
+
+A continuación, se detalla la distribución de contribuciones, mantenimiento y corrección de artefactos técnicos por cada miembro del equipo:
 
 | Integrante | Capítulos y Secciones a Cargo | Rol Principal en Documentación |
 | :--- | :--- | :--- |
-| **Capillo Lema, Mía Valentina** | Capítulo I (Estilos iniciales), Capítulo IV (Style Guidelines, UI Design, Wireframes y Mockups). | Diseño de interfaces e identidad visual del producto. |
-| **Pardo Chumpitazi, Kevin Patrick** | Capítulo I (Lean UX y Problem Statement), Capítulo V (Software Configuration, Backlog, Sprint 1 y Consolidación General). | Control de versiones, estructuración técnica del reporte y gestión de despliegue. |
-| **Becerra Durand, Sebastian Uriel** | Capítulo II (Registro y análisis de entrevistas al sector minorista), Capítulo V (Soporte en maquetación de artefactos). | Elicitación de requerimientos empíricos y documentación de campo. |
-| **Miranda Romero, Sergio Luis** | Capítulo III (Especificación de requisitos: User Stories Gherkin, Impact Mapping y Product Backlog). | Modelado de requisitos funcionales y gestión ágil Scrum. |
-| **Casós Torre, Miguel André** | Capítulo II (Event Storming Big Picture), Capítulo IV (Domain-Driven Design, C4 Model y Class Diagrams). | Modelado estratégico de dominio y arquitectura de software. |
+| **Capillo Lema, Mía Valentina** | Capítulo I (Estilos iniciales), Capítulo IV (Style Guidelines, UI Design, Wireframes, Mockups, Wireflows y User Flows), Capítulo V (Evidencias UX en Sprints 1-3 y estructura de Validation Interviews). | Diseño de interfaces, flujos interactivos e identidad visual del producto. |
+| **Pardo Chumpitazi, Kevin Patrick** | Capítulo I (Lean UX, Problem Statement y ABET Student Outcome), Capítulo V (Software Configuration Management y Sprints 1, 2 y 3), y **Subsanación transversal de observaciones y estandarización técnica de los Capítulos I, II, III, IV y V (TB1 y AV2)**. | Liderazgo en control de versiones, revisión de calidad, corrección integral del informe y gestión de despliegue. |
+| **Becerra Durand, Sebastian Uriel** | Capítulo II (Registro y análisis de entrevistas), Capítulo V (Documentación de soporte i18n, accesibilidad a11y en Sprints 1-3 y registro de validación). | Obtención de requisitos empíricos, internacionalización y documentación de campo. |
+| **Miranda Romero, Sergio Luis** | Capítulo III (Especificación de requisitos: User Stories Gherkin, Impact Mapping y Product Backlog), Capítulo V (Desglose de Sprint Backlogs 1-3 y tableros Trello). | Modelado de requisitos funcionales y gestión ágil Scrum. |
+| **Casós Torre, Miguel André** | Capítulo II (Big Picture Event Storming y Ubiquitous Language), Capítulo IV (Domain-Driven Design, C4 Model, Class Diagrams y Database Diagrams), Capítulo V (Documentación de arquitectura y servicios en Sprints 1-3). | Modelado estratégico de dominio y arquitectura de software. |
+
+---
+
+### Métricas de Contribución por Integrante (Entrega TB1)
+
+A partir del historial analítico de GitHub en la rama principal durante la entrega TB1, se consolidaron las siguientes métricas cuantitativas de desarrollo documental:
+
+| Integrante | Usuario GitHub | Commits | Líneas Agregadas (++) | Líneas Eliminadas (--) |
+| :--- | :--- | :---: | :---: | :---: |
+| **Capillo Lema, Mía Valentina** | MiaCL-5 | 46 | +2,458 | -651 |
+| **Casós Torre, Miguel André** | mcasos | 45 | +3,182 | -641 |
+| **Pardo Chumpitazi, Kevin Patrick** | Kevinyin11 | 39 | +3,651 | -3,364 |
+| **Becerra Durand, Sebastian Uriel** | sebasdev28 | 16 | +337 | -235 |
+| **Miranda Romero, Sergio Luis** | dym4njiroo | 10 | +994 | -145 |
+
+---
+
+### Evidencias de Trabajo Colaborativo en Repositorio (Entrega TB1)
+
+![Métricas de contribuciones por colaborador](../assets/git%201.png)
+
+*Figura 0.1. Métricas de contribución global y distribución cuantitativa de commits, adiciones y eliminaciones por colaborador en preciazo-report durante la entrega TB1.*
+
+---
+
+![Grafo de red GitFlow](../assets/git%202.png)
+
+*Figura 0.2. Network Graph del repositorio preciazo-report evidenciando la integración de ramas feature, develop y main bajo el modelo GitFlow durante la entrega TB1.*
+
+---
+
+### Evidencias de Trabajo Colaborativo en Repositorio (Entrega AV2)
+
+> *[Pendiente: Insertar tabla actualizada de commits y capturas de GitHub Insights (Contributors y Network Graph) correspondientes a la entrega AV2 al finalizar la integración de las ramas de los Capítulos I al V].*
+
+<div style="page-break-before: always;"></div>
 
 ---
 
@@ -195,6 +242,15 @@ A continuación, se detalla la distribución de contribuciones y elaboración de
       - [5.2.2.6. Services Documentation Evidence for Sprint Review](#5226-services-documentation-evidence-for-sprint-review)
       - [5.2.2.7. Software Deployment Evidence for Sprint Review](#5227-software-deployment-evidence-for-sprint-review)
       - [5.2.2.8. Team Collaboration Insights during Sprint](#5228-team-collaboration-insights-during-sprint)
+    - [5.2.3. Sprint 3](#523-sprint-3)
+      - [5.2.3.1. Sprint Planning 3](#5231-sprint-planning-3)
+      - [5.2.3.2. Aspect Leaders and Collaborators](#5232-aspect-leaders-and-collaborators)
+      - [5.2.3.3. Sprint Backlog 3](#5233-sprint-backlog-3)
+      - [5.2.3.4. Development Evidence for Sprint Review](#5234-development-evidence-for-sprint-review)
+      - [5.2.3.5. Execution Evidence for Sprint Review](#5235-execution-evidence-for-sprint-review)
+      - [5.2.3.6. Services Documentation Evidence for Sprint Review](#5236-services-documentation-evidence-for-sprint-review)
+      - [5.2.3.7. Software Deployment Evidence for Sprint Review](#5237-software-deployment-evidence-for-sprint-review)
+      - [5.2.3.8. Team Collaboration Insights during Sprint](#5238-team-collaboration-insights-during-sprint)
   - [5.3. Validation Interviews](#53-validation-interviews)
     - [5.3.1. Diseño de Entrevistas](#531-diseño-de-entrevistas)
     - [5.3.2. Registro de Entrevistas](#532-registro-de-entrevistas)
@@ -206,6 +262,8 @@ A continuación, se detalla la distribución de contribuciones y elaboración de
 - [Video About-the-Team](#video-about-the-team)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
+
+<div style="page-break-before: always;"></div>
 
 ---
 
