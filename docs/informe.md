@@ -805,14 +805,14 @@ Los hallazgos empíricos confirman la problemática central abordada: la reducci
 
 * **Segmento 1: Compradores Independientes (Compradores Multitienda y Optimizadores de Desplazamiento):**
   * **Comparación multiestablecimiento ágil y centralizada:** Necesidad de cotejar precios actualizados entre mercados zonales, cadenas de supermercados y minimarkets de proximidad antes de salir del domicilio, evitando desplazamientos ineficientes a ciegas.
-  * **Optimización de trayectos y cálculo de ahorro neto:** Requerimiento de trazar itinerarios que minimicen el tiempo de exposición al tráfico vehicular de Lima y reduzcan el gasto en transporte (pasajes, combustible o taxis de aplicativo), asegurando que el costo de movilidad no supere el descuento obtenido en el ticket de compra.
+  * **Optimización de trayectos y cálculo de ahorro neto:** Necesidad de trazar itinerarios que minimicen el tiempo de exposición al tráfico vehicular de Lima y reduzcan el gasto en transporte (pasajes, combustible o taxis por aplicación), asegurando que el costo de movilidad no supere el descuento obtenido en el ticket de compra.
   * **Cálculo presupuestario anticipado:** Necesidad de computar el costo total consolidado de la lista de compras antes del pago en caja para respetar los techos presupuestarios familiares o mensuales.
   * **Acceso web liviano y multiplataforma:** Demanda de una herramienta accesible de forma inmediata desde navegadores móviles (*Mobile-First*) y de escritorio, sin requerir descargas de aplicaciones nativas pesadas ni registros invasivos.
 
 * **Segmento 2: Comerciantes Minoristas y Administradores de Tiendas Locales:**
   * **Visibilidad digital hiperlocal de bajo costo:** Necesidad de posicionar sus productos, ofertas del día y liquidaciones de inventario directamente en el radar de los consumidores que circulan o viven en su misma zona urbana.
   * **Competitividad comercial sin intermediación onerosa:** Demanda de un canal de promoción directo que no merme sus márgenes de ganancia con las comisiones abusivas (15% a 25%) de las aplicaciones de delivery convencionales.
-  * **Consola de gestión ágil y amigable:** Requerimiento de un panel administrativo simplificado que permita actualizar precios y registrar artículos agotados en pocos segundos desde un teléfono móvil o laptop, adaptado a comercios que gestionan su negocio mediante libretas o cuadernos manuales.
+  * **Consola de gestión ágil y amigable:** Necesidad de contar con un panel administrativo simplificado que permita actualizar precios y registrar artículos agotados en pocos segundos desde un teléfono móvil o laptop, adaptado a comercios que gestionan su negocio mediante libretas o cuadernos manuales.
   * **Tracción y atracción al local físico:** Necesidad de que el establecimiento se integre en los mapas de compras y rutas de optimización de los vecinos, incrementando el tráfico peatonal presencial hacia el punto de venta.
 
 ---
@@ -925,7 +925,7 @@ El mapa de empatía de Alberto documenta las presiones comerciales y operativas 
 
 ## 2.4. Big Picture Event Storming
 
-Para modelar la complejidad del dominio de negocio y comprender integralmente los flujos operativos de la plataforma **Preciazo**, el equipo de la startup **PeruTech** llevó a cabo un taller colaborativo de *Big Picture Event Storming* siguiendo la guía metodológica de Domain-Driven Design (DDD). Esta dinámica visual de alto nivel facilitó un entendimiento compartido entre los desarrolladores de software y los requerimientos del negocio, permitiendo explorar exhaustivamente el *landscape* comercial, mapear los procesos fundamentales de aprovisionamiento y comercialización, y evidenciar de forma temprana los puntos críticos, riesgos y oportunidades de innovación tecnológica para ambos segmentos objetivo.
+Para modelar la complejidad del dominio de negocio y comprender integralmente los flujos operativos de la plataforma **Preciazo**, el equipo de la startup **PeruTech** llevó a cabo un taller colaborativo de *Big Picture Event Storming* siguiendo la guía metodológica de Domain-Driven Design (DDD). Esta dinámica visual de alto nivel facilitó un entendimiento compartido entre los desarrolladores de software y los requisitos del negocio, permitiendo explorar exhaustivamente el *landscape* comercial, mapear los procesos fundamentales de aprovisionamiento y comercialización, y evidenciar de forma temprana los puntos críticos, riesgos y oportunidades de innovación tecnológica para ambos segmentos objetivo.
 
 A continuación, se detalla el desarrollo secuencial del taller a través de sus fases progresivas:
 
