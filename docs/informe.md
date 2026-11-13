@@ -1401,12 +1401,12 @@ Estructura para la creación y gestión de listas personalizadas, permitiendo al
 #### 1.3. Módulo de Comparación Multitienda
 Diseño de la matriz comparativa que distribuye productos y precios en columnas para evaluar de forma explícita las diferencias de costo entre comercios.
 
-![Wireframe - Comparar Precios](../assets/wireframe-app/COMPARAR.png)
+![Wireframe - Comparar Precios](../assets/wireframe-app/comparar.png)
 
 #### 1.4. Módulo de Optimización de Ruta de Compra
 Interfaz que combina la representación del trayecto óptimo sobre un plano/mapa en la parte superior con el desglose secuencial de paradas y productos en la parte inferior.
 
-![Wireframe - Ruta de Compra](../assets/wireframe-app/RUTA.png)
+![Wireframe - Ruta de Compra](../assets/wireframe-app/ruta.png)
 
 #### 1.5. Módulo de Verificación Comunitaria
 Esquema de la sección interactiva donde los usuarios reportan variaciones de precios, confirman stock en tienda y participan en la validación colaborativa de ofertas.
@@ -1460,7 +1460,7 @@ A continuación, se presentan los diagramas de Wireflow estructurados por segmen
 - **Paso 2 (Consolidación en Mis Listas):**  
   ![Paso 2 - Mis Listas](../assets/wireframe-app/LISTAS.png)
 - **Paso 3 (Resultado de Comparación):**  
-  ![Paso 3 - Comparar Precios](../assets/wireframe-app/COMPARAR.png)
+  ![Paso 3 - Comparar Precios](../assets/wireframe-app/comparar.png)
 
 ---
 
@@ -1475,9 +1475,9 @@ A continuación, se presentan los diagramas de Wireflow estructurados por segmen
 - **Task Flow (Diagrama de Tareas):**  
   ![Task Flow - Ruta Óptima](../assets/taskflows/taskflow_comprador_goal2.png)
 - **Paso 1 (Selección en Comparador):**  
-  ![Paso 1 - Comparar Precios](../assets/wireframe-app/COMPARAR.png)
+  ![Paso 1 - Comparar Precios](../assets/wireframe-app/comparar.png)
 - **Paso 2 (Ruta Optimizada Renderizada):**  
-  ![Paso 2 - Ruta de Compra](../assets/wireframe-app/RUTA.png)
+  ![Paso 2 - Ruta de Compra](../assets/wireframe-app/ruta.png)
 
 ---
 
@@ -1518,7 +1518,7 @@ A continuación, se presentan los diagramas de Wireflow estructurados por segmen
 #### User Goal 5: Publicar promociones temporales y validar datos del negocio
 
 ##### Explicación del Wireflow
-1. **Estado Inicial (Panel de Promociones):** El usuario ingresa al módulo **Promociones**  y activa el formulario para programar un nuevo descuento.
+1. **Estado Inicial (Panel de Promociones):** El usuario ingresa al módulo **Promociones** y activa el formulario para programar un nuevo descuento.
 2. **Transición a Verificación de Negocio:** Una vez configurada la oferta, navega al módulo **Datos del Establecimiento (RUC)** para confirmar que la información fiscal, dirección y horarios de atención estén alineados con la promoción.
 
 ##### Secuencia:
@@ -1582,7 +1582,7 @@ Vista optimizada de la lista activa durante el recorrido en tienda, que añade c
 #### 2.7. Módulo de Comparativa de Precios por Tienda
 Tabla comparativa multi-tienda que consolida la lista de compras completa ("Canasta Quincenal"), evaluando en tiempo real disponibilidad de stock, precios por producto, la tienda con el costo total más bajo y la opción de reportar inconsistencias en góndola.
 
-![Comparativa de Precios](../assets/mockups-app/COMPARAR.png)
+![Comparativa de Precios](../assets/mockups-app/comparar.png)
 
 #### 2.8. Filtros de la Tabla Comparativa
 Opciones de filtrado avanzado dentro del comparador que permiten ajustar el radio máximo de distancia (en km), seleccionar o desestimar establecimientos específicos y alternar la visualización entre precio por empaque o precio por unidad de medida.
@@ -1597,7 +1597,7 @@ Ventana emergente que permite al comprador registrar una discrepancia entre el p
 #### 2.10. Optimización de Ruta de Compras
 Mapa interactivo e itinerario paso a paso que calcula la ruta más eficiente entre múltiples supermercados, mostrando tiempo estimado de traslado, modo de transporte y ahorro total acumulado.
 
-![Ruta de Compras Optimizada](../assets/mockups-app/RUTA.png)
+![Ruta de Compras Optimizada](../assets/mockups-app/ruta.png)
 
 #### 2.11. Detalle de Parada en Ruta Seleccionada
 Vista desplegada de un punto específico del itinerario que muestra el desglose de productos a adquirir en dicho establecimiento, con opciones para confirmar o saltar la parada.
@@ -1669,7 +1669,7 @@ A continuación, se presentan los diagramas de User Flow para la aplicación web
 - **Paso 1 (Catálogo General):**  
   ![Mockup - Catálogo Principal](../assets/mockups-app/INICIO.png)
 - **Paso 2 (Matriz Comparativa):**  
-  ![Mockup - Comparador Precios](../assets/mockups-app/COMPARAR.png)
+  ![Mockup - Comparador Precios](../assets/mockups-app/comparar.png)
 - **Paso 3 (Módulo Comunitario):**  
   ![Mockup - Reportes Comunitarios](../assets/mockups-app/VERIFICACION.png)
 
@@ -1683,9 +1683,9 @@ A continuación, se presentan los diagramas de User Flow para la aplicación web
 
 ##### Secuencia de Mockups del User Flow
 - **Paso 1 (Matriz Comparativa de Selección):**  
-  ![Mockup - Comparar Precios](../assets/mockups-app/COMPARAR.png)
+  ![Mockup - Comparar Precios](../assets/mockups-app/comparar.png)
 - **Paso 2 (Mapa y Ruta de Compra):**  
-  ![Mockup - Ruta Optimizada](../assets/mockups-app/RUTA.png)
+  ![Mockup - Ruta Optimizada](../assets/mockups-app/ruta.png)
 
 ---
 
