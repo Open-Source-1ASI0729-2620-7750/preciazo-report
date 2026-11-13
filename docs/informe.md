@@ -564,7 +564,7 @@ A partir del diagnóstico FODA cruzado y el mapeo del entorno competitivo, la st
 ## 2.2. Entrevistas
 ### 2.2.1. Diseño de entrevistas
 
-El diseño del instrumento cualitativo desarrollado por **PeruTech** se fundamenta en el enfoque de Diseño Centrado en el Usuario (UCD) para recopilar evidencia empírica directa y validar los requerimientos de la plataforma **Preciazo**. Esta información sustenta la construcción técnica de los arquetipos (*User Personas*), mapas de empatía (*Empathy Maps*) y recorridos de usuario (*User Journey Maps*).
+El diseño del instrumento cualitativo desarrollado por **PeruTech** se fundamenta en el enfoque de Diseño Centrado en el Usuario (UCD) para recopilar evidencia empírica directa y validar los requisitos de la plataforma **Preciazo**. Esta información sustenta la construcción técnica de los arquetipos (*User Personas*), mapas de empatía (*Empathy Maps*) y recorridos de usuario (*User Journey Maps*).
 
 El instrumento integra variables demográficas, competencias digitales y dinámicas operativas adaptadas a cada perfil objetivo. Para el segmento del consumidor final, las preguntas indagan en los hábitos de abastecimiento, sensibilidad al precio, planificación de rutas y control de gastos; mientras que, para el segmento del comerciante minorista o administrador de tienda, el cuestionario se orienta a comprender los mecanismos de fijación de precios, la difusión de promociones y las barreras de visibilidad frente a las grandes cadenas minoristas. Las preguntas se estructuran rigurosamente en principales (orientadas a validar los problemas clave y la viabilidad de la solución) y complementarias (enfocadas en profundizar en variables de personalidad, hábitos cotidianos y fricciones operativas).
 
@@ -616,14 +616,13 @@ El instrumento integra variables demográficas, competencias digitales y dinámi
   2. ¿Qué opina sobre las comisiones y condiciones de las aplicaciones de delivery tradicionales (como Rappi o PedidosYa)? ¿Considera que benefician o perjudican el margen de ganancia de un comercio local?
   3. ¿Utiliza actualmente algún software de punto de venta (POS), hojas de cálculo en Excel o registros manuales (cuadernos) para administrar las ventas y el flujo de caja de su negocio?
 
-  
-### 2.2.2. Registro de entrevistas
-
-A continuación, se presenta la bitácora de las entrevistas cualitativas realizadas a los representantes de los segmentos objetivo. Los datos recopilados documentan las características demográficas, hábitos tecnológicos, canales de interacción, dispositivos y factores psicográficos requeridos para la formulación formal de los arquetipos de usuario.
-
 ---
 
+### 2.2.2. Registro de entrevistas
 
+A continuación, se presenta la bitácora de las seis entrevistas cualitativas realizadas a los representantes de ambos segmentos objetivo, consolidadas en un único registro audiovisual compilado en Microsoft Stream, especificando la marca de tiempo exacta de inicio, término y duración de cada sesión. Los datos recopilados documentan las características demográficas, hábitos tecnológicos, canales de interacción, dispositivos y factores psicográficos requeridos para la formulación formal de los arquetipos de usuario.
+
+---
 
 #### Segmento 1: Compradores Multitienda y Optimizadores de Desplazamiento
 
@@ -633,9 +632,9 @@ A continuación, se presenta la bitácora de las entrevistas cualitativas realiz
   * **Distrito de residencia:** San Miguel, Lima
   * **Ocupación:** Desarrollador de Software / Profesional Independiente
   * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** [Ver Registro en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221a525_upc_edu_pe/IQALn1WCs-n2RKG7i-4XYYVKAYtnp2Uw9sig9WHpe8BqaZc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=K0Fd6F)
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[04:30 min]`
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221a525_upc_edu_pe/IQALn1WCs-n2RKG7i-4XYYVKAYtnp2Uw9sig9WHpe8BqaZc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=K0Fd6F)
+  * **Timing de inicio y término:** `00:00 - 04:30`
+  * **Duración:** `04:30 min`
   * **Perfil técnico y entorno digital:**
     * *Dispositivos habituales:* Smartphone Android (gama media-alta) y Laptop personal.
     * *Navegador de preferencia:* Google Chrome.
@@ -645,55 +644,49 @@ A continuación, se presenta la bitácora de las entrevistas cualitativas realiz
   * **Nota sobre el registro audiovisual:** Durante la sesión, el participante solicitó mantener la cámara desactivada por motivos personales y de privacidad visual, autorizando únicamente el registro de audio para fines académicos de investigación cualitativa.
 
 ![Screenshot Entrevista 1 - Fernando Justiniano](../assets/Entrevista1.png)
-> *Figura 2.1: Registro audiovisual de la entrevista cualitativa a Fernando Justiniano Vega.*
+> *Figura 2.1: Registro audiovisual de la entrevista cualitativa a Fernando Justiniano Vega (Segmento 1).*
 
-- **Entrevista 2:**
-  - **Nombre y Apellidos:** Laura Gamarra
-  - **Edad:** 23 años
-  - **Distrito de residencia:** Ate
-  - **Ocupación:** Coordinadora General de una empresa familiar de transporte de carga a nivel nacional
-  - **Grado de instrucción:** Estudiante universitaria de noveno ciclo de Negocios Internacionales
-  - **Plataforma de video:** Microsoft Stream
-  - **Enlace de Video:** [Ver entrevista](https://1drv.ms/v/c/33e54e659b0ea103/IQA5hhx1fJT0Q7aLNoTW3LBlAaVE9gRm6ooCZK9alOX3WCY?e=hjJT6B)
-  - **Marca de tiempo (Timing de inicio):** `00:00`
-  - **Duración:** `08:23 min`
-  - **Perfil técnico y entorno digital:**
-    - *Dispositivos habituales:* Smartphone y laptop.
-    - *Canales digitales e influencias:* Instagram, TikTok, Yape, banca móvil, PedidosYa y aplicaciones de tiendas por departamento como Falabella y Ripley.
-    - *Hábitos digitales relacionados con compras:* Consulta precios y disponibilidad de productos mediante Internet antes de desplazarse a los establecimientos.
-    - *Rasgos inferidos a partir de la entrevista:* Planificada, sensible al precio y orientada a optimizar tanto el presupuesto como el costo de desplazamiento.
+---
 
-  - **Resumen descriptivo:** Laura, de 23 años, se encarga habitualmente de realizar las compras de su hogar. Antes de realizar una compra consulta precios en Internet y compara distintos establecimientos para identificar dónde puede adquirir los productos que necesita a menor costo. No suele visitar varios locales durante un mismo día; distribuye sus compras en diferentes días dependiendo de los precios y de la disponibilidad de los productos.
-Además del precio directo de los productos, considera los beneficios asociados a sus tarjetas bancarias, tales como promociones y descuentos disponibles en determinados establecimientos o días de la semana. Para trasladarse habitualmente utiliza Uber, por lo que la distancia y el costo del transporte influyen de manera directa en su decisión de compra.
-Uno de sus principales puntos de frustración es el tráfico y el costo de movilidad. Cuando no cuenta con promociones o descuentos en el servicio de transporte, puede incluso postergar una compra debido al aumento del costo total del desplazamiento.
-Para controlar sus gastos establece un presupuesto aproximado de S/600 a S/700. Antes de comprar revisa qué productos necesita y consulta sus precios en la web. Cuando el monto total supera el presupuesto disponible, prioriza las compras urgentes y posterga otros productos para el siguiente mes.
-Frente a una plataforma de comparación de precios y optimización de rutas, manifestó interés en identificar establecimientos cercanos que ofrezcan precios convenientes. También propuso considerar los descuentos y beneficios asociados a tarjetas bancarias y días específicos de promoción, permitiendo generar una planificación semanal de compras.
-Laura prefiere realizar sus compras durante días laborables y aproximadamente entre las 11:00 a. m. y las 4:00 p. m., evitando los horarios de mayor congestión. Cuando encuentra una oferta en un establecimiento distante, evalúa el costo del transporte de ida y vuelta y considera qué otros productos podría adquirir en el mismo lugar para determinar si el desplazamiento realmente resulta conveniente. Asimismo, comparte regularmente información sobre precios y promociones con familiares.
+* **Entrevista 2:**
+  * **Nombre y Apellidos:** Laura Gamarra
+  * **Edad:** 23 años
+  * **Distrito de residencia:** Ate, Lima
+  * **Ocupación:** Coordinadora General en empresa de transporte de carga y estudiante de 9.° ciclo de Negocios Internacionales
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://1drv.ms/v/c/33e54e659b0ea103/IQA5hhx1fJT0Q7aLNoTW3LBlAaVE9gRm6ooCZK9alOX3WCY?e=hjJT6B)
+  * **Timing de inicio y término:** `04:30 - 12:53`
+  * **Duración:** `08:23 min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* Smartphone y Laptop personal.
+    * *Navegador de preferencia:* Google Chrome / Safari.
+    * *Canales digitales e influencias:* Instagram, TikTok, Yape, banca móvil, PedidosYa y aplicaciones de tiendas por departamento como Falabella y Ripley.
+    * *Rasgos de personalidad:* Planificada, sensible al precio y orientada a optimizar tanto el presupuesto como el costo de desplazamiento.
+  * **Resumen descriptivo:** Laura se encarga habitualmente de realizar las compras de su hogar. Antes de salir, consulta precios en Internet y compara distintos establecimientos para identificar dónde adquirir los productos a menor costo, distribuyendo sus compras en diferentes días según la disponibilidad y ofertas. Además del precio directo, evalúa los descuentos asociados a sus tarjetas bancarias. Para trasladarse utiliza Uber, por lo que la distancia y el costo del transporte influyen directamente en su decisión de compra, llegando a postergar salidas cuando la tarifa de movilidad se incrementa por el tráfico. Controla sus gastos con un presupuesto mensual de S/ 600 a S/ 700, priorizando compras urgentes cuando el monto proyectado supera dicho límite. Manifestó alto interés en una plataforma web que identifique locales cercanos económicos e integre alertas de promociones bancarias, prefiriendo comprar en días laborables entre las 11:00 a. m. y las 4:00 p. m. para evitar la congestión.
 
-![Screenshot Entrevista 2](../assets/entrevista-laura.png)
+![Screenshot Entrevista 2 - Laura Gamarra](../assets/entrevista-laura.png)
+> *Figura 2.2: Registro audiovisual de la entrevista cualitativa a Laura Gamarra (Segmento 1).*
 
-> *Figura 2.2: Registro audiovisual de la entrevista cualitativa a Laura Gamarra, representante del Segmento 1.*
+---
 
 * **Entrevista 3:**
-  * **Nombre y Apellidos:** `Danella Palacios`
-  * **Edad:** `19`
-  * **Distrito de residencia:** `Surco`
-  * **Ocupación:** `Estudiante`
+  * **Nombre y Apellidos:** Danella Palacios
+  * **Edad:** 19 años
+  * **Distrito de residencia:** Santiago de Surco, Lima
+  * **Ocupación:** Estudiante universitaria
   * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQBeRZULw_NIRK4BLM-8WdSdAVL58Y-wToNe5CeY1_QLawc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=kw5w1B)
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[03:43]`
-  * **Perfil técnico y entorno digital:** 
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQBeRZULw_NIRK4BLM-8WdSdAVL58Y-wToNe5CeY1_QLawc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=kw5w1B)
+  * **Timing de inicio y término:** `12:53 - 16:36`
+  * **Duración:** `03:43 min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* Smartphone y Computadora/Laptop.
+    * *Navegador de preferencia:* Google Chrome (uso frecuente de hojas de cálculo en línea).
+    * *Canales digitales e influencias:* Redes sociales (Instagram) y billeteras digitales (Yape).
+    * *Rasgos de personalidad:* Organizada con el presupuesto, enfocada en el ahorro mediante promociones y prioriza la eficiencia en el uso de su tiempo.
+  * **Resumen descriptivo:** Danella prefiere concentrar sus compras en una misma salida para optimizar su tiempo. Antes de salir de casa, busca ofertas y promociones activas mediante redes sociales como Instagram y promociones en Yape. Realiza sus traslados en vehículo propio, identificando la congestión vehicular nocturna en Lima como su principal punto de dolor. Demuestra un alto nivel de organización financiera al gestionar el presupuesto familiar a través de un formulario integrado con Excel. Respecto a la adopción de una plataforma de comparación de precios y diseño de rutas, expresa interés condicionado a que la herramienta cuente con una interfaz intuitiva, sencilla y de rápida consulta para su rutina diaria.
 
-  * **Dispositivos:** Celular y Computadora/Laptop.
-  * **Navegador:** Navegador web estándar (acceso a herramientas de hoja de cálculo).
-  * **Canales:** Redes sociales (Instagram) y aplicaciones financieras/comerciales (Yape).
-  * **Personalidad:** Organizada con el presupuesto, enfocada en el ahorro mediante promociones y prioriza la eficiencia en el uso de su tiempo.
-  * **Resumen descriptivo:** 
-  Prefiere concentrar todas sus compras en un solo establecimiento en una misma salida para optimizar su tiempo. Antes de salir de casa, busca ofertas y promociones activas mediante redes sociales (Instagram) y aplicaciones financieras como Yape. Realiza sus traslados en vehículo propio; por ello, el tiempo de viaje o la distancia no representan una limitante crítica, aunque identifica la congestión vehicular (tráfico nocturno en Lima) como su principal punto de dolor. Demuestra un alto nivel de organización financiera al gestionar el presupuesto familiar a través de un formulario integrado con Excel. Respecto a la adopción de una plataforma de comparación de precios y diseño de rutas, expresa interés condicionado a que la herramienta cuente con una interfaz intuitiva, sencilla y de fácil uso para su rutina diaria.
-
-![Screenshot Entrevista 3](../assets/entrevista-3.png)
-> *Figura 2.3: Registro audiovisual de la entrevista cualitativa 3.*
+![Screenshot Entrevista 3 - Danella Palacios](../assets/entrevista-3.png)
+> *Figura 2.3: Registro audiovisual de la entrevista cualitativa a Danella Palacios (Segmento 1).*
 
 ---
 
@@ -705,20 +698,20 @@ Laura prefiere realizar sus compras durante días laborables y aproximadamente e
   * **Distrito de residencia:** Santa Anita, Lima
   * **Ocupación:** Propietario y Administrador de Bodega
   * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** [Ver Registro en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221b756_upc_edu_pe/IQCGCWoyG5FVQbEdtq6CSFwOAYcuD4-mK4BqWpmAxF6fwL8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=6KWDyr)
-  * **Marca de tiempo (Timing de inicio):** `[00:28]`
-  * **Duración:** `[03:53 min]`
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221b756_upc_edu_pe/IQCGCWoyG5FVQbEdtq6CSFwOAYcuD4-mK4BqWpmAxF6fwL8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=6KWDyr)
+  * **Timing de inicio y término:** `16:36 - 20:29`
+  * **Duración:** `03:53 min`
   * **Perfil técnico y entorno digital:**
     * *Dispositivos habituales:* Smartphone y Laptop personal.
     * *Navegador de preferencia:* Google Chrome.
     * *Canales digitales e influencias:* WhatsApp, Facebook, TikTok, Yape, PedidosYa, Rappi y portales web de retail.
     * *Rasgos de personalidad:* Analítico, precavido en adquisiciones de mercadería y enfocado en la rentabilidad de su establecimiento.
   * **Resumen descriptivo:** Daniel es propietario y administra una bodega comercial en Santa Anita. Difunde promociones principalmente mediante carteles en la fachada y mensajes por WhatsApp, dependiendo fuertemente de la clientela recurrente del barrio debido a la alta competencia zonal. Actualiza tarifas de forma reactiva ante variaciones comunicadas por los distribuidores mayoristas y gestiona el inventario manualmente mediante un cuaderno de apuntes. Señaló que sus pérdidas de ventas se deben principalmente a quiebres imprevistos de stock y a la asimetría de precios frente a otros negocios. Expresó amplio interés en adoptar Preciazo para publicar ofertas y recibir avisos de productos agotados, señalando como indispensable una interfaz intuitiva, accesible desde cualquier dispositivo y sin comisiones abusivas de intermediación.
-  * **Nota sobre el registro audiovisual:** La sesión se realizó de manera virtual mediante videollamada síncrona, contando con la autorización del participante para fines académicos de investigación y diseño UX.
 
 ![Screenshot Entrevista 4 - Daniel Palomino](../assets/entrevista-4.png)
-> *Figura 2.4: Registro audiovisual de la entrevista cualitativa a Daniel Stalin Palomino Murga.*
+> *Figura 2.4: Registro audiovisual de la entrevista cualitativa a Daniel Stalin Palomino Murga (Segmento 2).*
 
+---
 
 * **Entrevista 5:**
   * **Nombre y Apellidos:** Joan Smit Rodríguez Rodríguez
@@ -726,45 +719,45 @@ Laura prefiere realizar sus compras durante días laborables y aproximadamente e
   * **Distrito de residencia:** Santiago de Surco, Lima
   * **Ocupación:** Administrador y Encargado Comercial de Minimarket
   * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** [Ver Registro en Microsoft Stream](https://upcedupe-my.sharepoint.com/personal/u20221a525_upc_edu_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu20221a525%5Fupc%5Fedu%5Fpe%2FDocuments%2FEntrevista%20%2D%20Segmento%202%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Eab7529d8%2D396c%2D4efe%2Dabb8%2D3e7ccfced5d5)
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[05:45 min]`
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/personal/u20221a525_upc_edu_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu20221a525%5Fupc%5Fedu%5Fpe%2FDocuments%2FEntrevista%20%2D%20Segmento%202%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Eab7529d8%2D396c%2D4efe%2Dabb8%2D3e7ccfced5d5)
+  * **Timing de inicio y término:** `20:29 - 26:14`
+  * **Duración:** `05:45 min`
   * **Perfil técnico y entorno digital:**
     * *Dispositivos habituales:* Smartphone Android y Laptop en punto de venta.
     * *Navegador de preferencia:* Google Chrome.
     * *Canales digitales e influencias:* WhatsApp Business, Yape, Plin, banca móvil BCP, redes sociales (Instagram, TikTok).
     * *Rasgos de personalidad:* Proactivo, dinámico, enfocado en la rentabilidad del negocio y abierto a la digitalización comercial.
   * **Resumen descriptivo:** Joan administra y gestiona las operaciones de un minimarket familiar con 3 años de antigüedad en Surco. Para comunicar ofertas y promociones utiliza pizarras de tiza en la fachada del local y estados de WhatsApp dirigidos a clientes recurrentes, reconociendo que carece de alcance hacia nuevos transeúntes del sector. Ajusta precios de productos de alta rotación una o dos veces por semana según los cambios tarifarios de los distribuidores mayoristas, buscando competir frente a cadenas de conveniencia. Realiza el control de inventario de forma visual cada dos días, ubicando artículos próximos a caducar en zonas de remate para prevenir mermas. Manifiesta que los compradores de la zona asumen erróneamente que las bodegas son más costosas que los supermercados por falta de transparencia digital. Expresó alta disposición a afiliar su negocio a Preciazo para ganar visibilidad barrial, requiriendo una interfaz ágil desde el teléfono móvil para actualizar precios y reportar quiebres de stock sin incurrir en altas comisiones de intermediación.
-  * **Nota sobre el registro audiovisual:** La sesión se desarrolló mediante videollamada síncrona, registrando el consentimiento del participante para el uso del material audiovisual con fines académicos de investigación y diseño UX.
 
 ![Screenshot Entrevista 5 - Joan Smit](../assets/entrevista%202.png)
+> *Figura 2.5: Registro audiovisual de la entrevista cualitativa a Joan Smit Rodríguez Rodríguez (Segmento 2).*
 
-> *Figura 2.5: Registro audiovisual de la entrevista cualitativa a Joan Smit.*
+---
 
-* **Entrevista 5:**
+* **Entrevista 6:**
   * **Nombre y Apellidos:** Nicolas Alejandro Quinto Rosales
   * **Edad:** 29 años
-  * **Distrito de residencia:** San Juan De Miraflores, Lima
-  * **Ocupación:** Propietario y administrador de una bodega 
-  * **Plataforma de video:** One Drive
-  * **Enlace de Video:** [Ver Registro en One Drive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231b331_upc_edu_pe/IQBGQTv_Sn14S7IsyEcKvJ5FAS-LxKTV7r_8nbi29KaD_7I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=XMJsDK)
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[06:16 min]`
+  * **Distrito de residencia:** San Juan de Miraflores, Lima
+  * **Ocupación:** Propietario y Administrador de Bodega
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231b331_upc_edu_pe/IQBGQTv_Sn14S7IsyEcKvJ5FAS-LxKTV7r_8nbi29KaD_7I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=XMJsDK)
+  * **Timing de inicio y término:** `26:14 - 32:30`
+  * **Duración:** `06:16 min`
   * **Perfil técnico y entorno digital:**
     * *Dispositivos habituales:* Smartphone Android y Laptop.
-    * *Canales digitales e influencias:*  Yape, redes sociales (WhatsApp, TikTok, Facebook) y Didi o Rappi.
+    * *Navegador de preferencia:* Google Chrome.
+    * *Canales digitales e influencias:* Yape, redes sociales (WhatsApp, TikTok, Facebook) y plataformas de reparto (Didi, Rappi).
     * *Rasgos de personalidad:* Proactivo, enfocado en la prosperidad del negocio y abierto al uso de nuevas aplicaciones web.
-  * **Resumen descriptivo:**
-    Nicolas administra y gestiona las operaciones de una bodega la cual lleva 5 años en servicio. Se considera alguien que se adapta con suma facilidad a las nuevas tecnologías. Usa las redes sociales para promocionar su bodega y suele hacer uso de aplicaciones de delivery como Didi o Rappi. Para comunicar promociones, exhibe carteles a las afueras de su tienda  y hace uso de los estados de WhatsApp para notificar a sus clientes recurrentes. Ajusta los precios de sus productos de acuerdo a los cambios tarifarios de los distribuidores mayoristas para no perder su margen de ganancia. Expresó disposición a hacer uso de Preciazo para alzar la imagen su bodega y obtener mas clientes frecuentes, requiriendo una interfaz intuitiva para no tener que disponer de mucho tiempo para estar actualizando el stock de sus productos y sus precios.
-  * **Nota sobre el registro audiovisual:** La sesión se desarrolló mediante videollamada síncrona, registrando el consentimiento del participante para el uso del material audiovisual con fines académicos de investigación y diseño UX.
+  * **Resumen descriptivo:** Nicolas administra y gestiona las operaciones de una bodega con 5 años de servicio en San Juan de Miraflores. Se adapta con facilidad a las tecnologías digitales, empleando redes sociales para promocionar su negocio. Para comunicar promociones del día, exhibe carteles en el exterior de su tienda y publica estados de WhatsApp para notificar a sus clientes frecuentes. Ajusta los precios de sus productos de acuerdo con los cambios tarifarios de los distribuidores mayoristas para resguardar su margen de ganancia. Expresó alta disposición a utilizar Preciazo para posicionar la visibilidad de su bodega y captar más clientes en su zona, destacando como requisito contar con una interfaz intuitiva que demande poco tiempo operativo al actualizar stock y precios.
 
-![Screenshot Entrevista 5 - Nicolas Alejandro Quinto Rosales](../assets/entrevista-203.png)
+![Screenshot Entrevista 6 - Nicolas Alejandro Quinto Rosales](../assets/entrevista-203.png)
+> *Figura 2.6: Registro audiovisual de la entrevista cualitativa a Nicolas Alejandro Quinto Rosales (Segmento 2).*
 
-> *Figura 2.6: Registro audiovisual de la entrevista cualitativa a Nicolas Alejandro Quinto Rosales.*
+---
 
 ### 2.2.3. Análisis de entrevistas
 
-A partir de la triangulación cualitativa y la cuantificación de las respuestas de las 4 entrevistas realizadas, se sintetizan las variables objetivas y subjetivas más representativas de cada segmento objetivo. Este análisis constituye el sustento empírico y estadístico directo para la modelación de los arquetipos (*User Personas*), mapas de empatía y matrices de tareas de la plataforma **Preciazo**.
+A partir de la triangulación cualitativa y la cuantificación de las respuestas de las **6 entrevistas realizadas** (3 por cada segmento objetivo), se sintetizan las variables objetivas y subjetivas más representativas de cada grupo. Este análisis constituye el sustento empírico y estadístico directo para la modelación de los arquetipos (*User Personas*), mapas de empatía y matrices de tareas de la plataforma **Preciazo**.
 
 ---
 
@@ -776,30 +769,30 @@ A partir de la triangulación cualitativa y la cuantificación de las respuestas
   * **Multidispositivo con predominancia móvil (100%):** Los 3 entrevistados operan tanto desde su smartphone como desde laptops para coordinar sus actividades y consultar información web.
   * **Búsqueda previa de precios y ofertas (100%):** El 100% de la muestra busca activamente información de precios o promociones antes o durante sus compras (mediante redes sociales como Instagram, aplicaciones bancarias, catálogos web o consulta directa en tienda).
   * **Sensibilidad al impacto del transporte en el gasto final (100%):** El 100% identifica el desplazamiento como un factor crítico en sus decisiones de aprovisionamiento, ya sea evaluando el costo de movilidad versus el descuento (Uber en Laura, pasajes en Fernando) o el tiempo perdido en el tráfico de Lima (Danella y Fernando).
-  * **Estrategias de control presupuestario formal o semiestructurado (66.7%):** 2 de los 3 entrevistados (Laura y Danella) manejan rangos presupuestarios definidos (presupuesto tope de S/600 a S/700 o matrices en hojas de cálculo como Excel), mientras que 1 entrevistado (Fernando, 33.3%) utiliza registros no estructurados en bloc de notas.
-  * **Segmentación de compras multitienda (66.7%):** 2 de 3 usuarios distribuyen sus compras entre distintos puntos (mercados zonales y cadenas de autoservicio o visitas escalonadas por días de oferta), mientras que el 33.3% (Danella) prefiere centralizar en un solo lugar para optimizar tiempo.
+  * **Estrategias de control presupuestario formal o semiestructurado (66.7%):** 2 de los 3 entrevistados (Laura y Danella) manejan rangos presupuestarios definidos (presupuesto tope de S/ 600 a S/ 700 o matrices en hojas de cálculo como Excel), mientras que 1 entrevistado (Fernando, 33.3%) utiliza registros rápidos en bloc de notas móvil.
+  * **Segmentación de compras multitienda (66.7%):** 2 de 3 usuarios distribuyen sus compras entre distintos puntos (mercados zonales y cadenas de autoservicio o visitas escalonadas por días de oferta), mientras que el 33.3% (Danella) prefiere centralizar en un solo establecimiento para optimizar tiempo.
 
 * **Variables Subjetivas (Psicográficas, Motivaciones y Frustraciones):**
   * **Frustración por la congestión vehicular y tiempo de traslado (100%):** La totalidad de los entrevistados identifica el tráfico caótico y las demoras en el transporte urbano como el punto de dolor más severo de su experiencia de compra presencial.
   * **Interés condicionado por interfaces intuitivas y de bajo esfuerzo (100%):** El 100% expresó disposición para adoptar una plataforma como Preciazo, enfatizando como requisito indispensable que la interfaz sea minimalista, ágil y de rápida consulta.
   * **Rechazo a la asimetría de precios y al gasto imprevisto (66.7%):** El 66.7% (Fernando y Laura) manifiesta frustración ante compras no planificadas o la falta de transparencia de ofertas reales al llegar al establecimiento físico.
-  * **Aprovechamiento de beneficios financieros externos (33.3%):** Se identificó una conducta orientada al beneficio de tarjetas de crédito/débito y promociones por días específicos de la semana (Laura), lo que representa una oportunidad para el motor de recomendaciones de la plataforma.
+  * **Aprovechamiento de beneficios financieros externos (33.3%):** Se identificó una conducta orientada al beneficio de tarjetas bancarias y promociones por días específicos de la semana (Laura), lo que representa una oportunidad de valor agregado para la plataforma.
 
 ---
 
 #### Segmento 2: Comerciantes Minoristas y Administradores de Tiendas Locales
-*(Análisis cuantitativo sustentado en la muestra de 1 entrevistado: Daniel Stalin Palomino Murga, propietario de bodega en Santa Anita)*
+*(Análisis cuantitativo sustentado en la muestra de 3 entrevistados: Daniel Palomino Murga, Joan Smit Rodríguez y Nicolas Quinto Rosales)*
 
 * **Variables Objetivas (Demográficas, Operativas y Técnicas):**
-  * **Gestión analógica y rudimentaria del negocio (100%):** El 100% (1 de 1) administra su inventario, pedidos críticos y control de flujo de caja de manera física mediante un **cuaderno o libreta de notas**, careciendo de sistemas POS o software de gestión comercial.
-  * **Comunicación de ofertas restringida al ámbito inmediato (100%):** Utiliza únicamente canales básicos y locales (carteles físicos en la entrada del local y mensajes por WhatsApp a su círculo de contactos), lo que limita la atracción a los vecinos que ya transitan por la cuadra.
-  * **Adopción de herramientas digitales cotidianas (100%):** El comerciante opera activamente con smartphone y laptop, utilizando redes sociales (Facebook, TikTok) y billeteras móviles (Yape) para transacciones comerciales básicas.
-  * **Mecanismo reactivo de fijación de precios (100%):** La actualización de precios se efectúa exclusivamente cuando los proveedores mayoristas incrementan el costo de la mercancía, sin un monitoreo sistemático de las tarifas del entorno.
+  * **Comunicación de ofertas restringida a medios físicos y mensajería cerrada (100%):** El 100% (3 de 3) utiliza carteles o pizarras de tiza en la fachada del local combinados con estados o mensajes de WhatsApp, limitando su alcance a clientes ya registrados o peatones de la misma cuadra.
+  * **Mecanismo reactivo de fijación de precios según mayoristas (100%):** La totalidad de los entrevistados (3 de 3) actualiza los precios de sus productos de alta rotación en función de las variaciones tarifarias de los distribuidores mayoristas para proteger su margen operativo.
+  * **Adopción de dispositivos móviles, laptops y pagos digitales (100%):** El 100% opera a diario con smartphone y laptop, utilizando billeteras digitales (Yape/Plin) y redes sociales (WhatsApp, TikTok, Facebook) en su gestión comercial.
+  * **Control de inventario manual o visual sin sistema POS integrado (100%):** Los 3 comerciantes administran sus existencias mediante cuadernos de apuntes o inspecciones visuales periódicas en estantería, careciendo de alertas automatizadas de quiebre de stock o caducidad.
 
 * **Variables Subjetivas (Psicográficas, Percepciones y Expectativas):**
-  * **Presión competitiva y dependencia de clientela fija (100%):** Reconoce como principal amenaza la alta densidad de negocios competidores en su zona y la fuga de clientes hacia locales que ofrecen precios más bajos, sufriendo por la falta de canales para captar nuevos transeúntes.
-  * **Fricción por quiebre de stock y pérdida de ventas (100%):** Identifica el agotamiento no advertido de productos y la discrepancia de precios como los dos factores determinantes en la pérdida de clientes habituales.
-  * **Disposición a la digitalización ágil y económica (100%):** Expresó total apertura a registrar su catálogo y ofertas en Preciazo, siempre y cuando la consola web sea rápida de utilizar desde el celular, no requiera una curva técnica compleja, ofrezca alertas de existencias agotadas y mantenga un esquema de costos accesible sin comisiones desproporcionadas.
+  * **Presión competitiva y necesidad de captar nuevos transeúntes (100%):** El 100% (3 de 3) identifica como principal desafío la competencia de cadenas de conveniencia o comercios cercanos y la falta de visibilidad digital para desmitificar que las bodegas son más caras que los supermercados.
+  * **Disposición a la digitalización ágil y sin comisiones abusivas (100%):** La totalidad de la muestra expresó apertura inmediata para afiliar su local a Preciazo, exigiendo una consola web rápida de actualizar desde el celular y libre de los altos porcentajes de comisión de las plataformas de delivery.
+  * **Preocupación por pérdida de ventas debido a quiebres de stock y mermas (66.7%):** El 66.7% (Daniel y Joan) destaca la urgencia de contar con avisos de productos agotados y promociones rápidas para liquidar mercadería próxima a vencer.
 
 
 ## 2.3. Needfinding
