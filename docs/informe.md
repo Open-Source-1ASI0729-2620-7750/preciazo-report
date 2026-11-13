@@ -1749,19 +1749,19 @@ La arquitectura de **Preciazo** (desarrollada por **PeruTech**) se diseña sigui
 
 El análisis del dominio permitió identificar los principales procesos asociados a los dos segmentos objetivo de la solución: los compradores que buscan optimizar el costo y desplazamiento de sus compras, y los comerciantes minoristas que requieren administrar la información de sus establecimientos, precios, disponibilidad y promociones.
 
-A partir del refinamiento de los eventos, comandos, reglas y conceptos identificados previamente, el dominio de **Preciazo** se organiza en Bounded Contexts con responsabilidades claramente delimitadas. Esta separación permite reducir el acoplamiento entre capacidades de negocio y facilita posteriormente la implementación modular de la Single Page Application (SPA) y de los RESTful Web Services.
+A partir del refinamiento de los eventos, comandos, reglas y conceptos identificados previamente, el dominio de **Preciazo** se organiza en Bounded Contexts con responsabilidades claramente delimitadas, clasificados y ordenados jerárquicamente en **Core (Núcleo del negocio)**, **Supporting (Soporte)** y **Generic (Genéricos)**. Esta separación permite reducir el acoplamiento entre capacidades de negocio y facilita posteriormente la implementación modular de la Web Application, la Single Page Application (SPA) y de los RESTful Web Services.
 
 Los Bounded Contexts identificados son:
 
-| Bounded Context | Responsabilidad principal |
-|---|---|
-| Identity and Access | Gestionar autenticación, identidad, roles y autorización de compradores y comerciantes mediante tokens JWT. |
-| Shopping Planning | Gestionar listas de compra, cantidades, presupuesto y progreso de la jornada de compra. |
-| Catalog and Pricing | Gestionar productos, precios, disponibilidad y comparación entre establecimientos. |
-| Route Planning | Calcular y optimizar rutas de compra entre múltiples establecimientos considerando localización y desplazamiento. |
-| Merchant Management | Gestionar afiliación de comercios, información del establecimiento, catálogo local, inventario y promociones. |
-| Community Price Verification | Gestionar discrepancias, reportes y confirmaciones comunitarias sobre precios observados. |
-| Analytics and Engagement | Consolidar métricas de interacción y rendimiento relevantes para los comerciantes y generar información de seguimiento. |
+| Bounded Context | Clasificación DDD | Responsabilidad principal |
+|---|---|---|
+| **Catalog and Pricing** | **Core** | Gestionar productos, precios, disponibilidad y comparación entre establecimientos. |
+| **Route Planning** | **Core** | Calcular y optimizar rutas de compra entre múltiples establecimientos considerando localización y desplazamiento. |
+| **Shopping Planning** | **Core** | Gestionar listas de compra, cantidades, presupuesto y progreso de la jornada de compra. |
+| **Merchant Management** | **Supporting** | Gestionar afiliación de comercios, información del establecimiento, catálogo local, inventario y promociones. |
+| **Community Price Verification** | **Supporting** | Gestionar discrepancias, reportes y confirmaciones comunitarias sobre precios observados. |
+| **Analytics and Engagement** | **Supporting** | Consolidar métricas de interacción y rendimiento relevantes para los comerciantes y generar información de seguimiento. |
+| **Identity and Access** | **Generic** | Gestionar autenticación, identidad, roles y autorización de compradores y comerciantes mediante tokens JWT. |
 
 Estos contextos se comunican mediante contratos explícitos, evitando que un módulo modifique directamente las reglas internas de otro contexto.
 
@@ -1782,101 +1782,105 @@ Para facilitar la lectura del modelo se utilizó la siguiente convención visual
 - **External System:** rosa.
 - **Hotspot:** rojo.
 
-El resultado del proceso permitió organizar el dominio en siete Bounded Contexts: Identity and Access, Shopping Planning, Catalog and Pricing, Route Planning, Merchant Management, Community Price Verification y Analytics and Engagement.
+El resultado del proceso permitió organizar el dominio en siete Bounded Contexts ordenados jerárquicamente según su valor estratégico: **Catalog and Pricing**, **Route Planning** y **Shopping Planning** (Core); **Merchant Management**, **Community Price Verification** y **Analytics and Engagement** (Soporte); e **Identity and Access** (Genérico).
 
 El modelo se presenta en siete vistas independientes. Cada fila se lee de izquierda a derecha: Actor → Command → Aggregate → Domain Event y, cuando corresponde, Policy y acciones posteriores. Las consultas se distinguen de los comandos; Analytics también muestra flujos iniciados por eventos. Se conservan los Hotspots del modelo como decisiones pendientes, sin inventar respuestas.
 
-#### Identity and Access
+#### Catalog and Pricing (Core Bounded Context)
 
-![Preciazo Identity and Access Design-Level Event Storming](../assets/architecture/event-storming/identity-access.png)
-
-#### Shopping Planning
-
-![Preciazo Shopping Planning Design-Level Event Storming](../assets/architecture/event-storming/shopping-planning.png)
-
-#### Catalog and Pricing
+Modela la indexación de productos, actualización de precios en anaquel y el cálculo comparativo de canastas mediante los agregados `Product` y `StoreCatalogEntry`. Los comandos `RegisterProduct`, `UpdateStorePrice` y `CompareBasketPrices` producen los eventos `StorePriceUpdated` y `BasketComparisonCalculated`, activando la política `PriceSnapshotPolicy` y alimentando el modelo de lectura `StoreBasketComparisonReadModel`.
 
 ![Preciazo Catalog and Pricing Design-Level Event Storming](../assets/architecture/event-storming/catalog-pricing.png)
 
-#### Route Planning
+#### Route Planning (Core Bounded Context)
+
+Modela el cálculo algorítmico de itinerarios óptimos y la estimación de ahorro neto a través del agregado `MultiStopRoute` y la integración con el sistema externo `Mapping & Routing Service`. El actor Buyer ejecuta `GenerateOptimalRoute` y `RecalculateRouteOnSkippedStop`, emitiendo los eventos `OptimalRouteGenerated` y `RouteStopSkipped` bajo la política `AutomaticRouteRecalculationPolicy`.
 
 ![Preciazo Route Planning Design-Level Event Storming](../assets/architecture/event-storming/route-planning.png)
 
-#### Merchant Management
+#### Shopping Planning (Core Bounded Context)
+
+Modela la estructuración de listas de compras, plantillas quincenales y el control del techo presupuestario familiar mediante los agregados `ShoppingList` y `PurchaseBudget`. Los comandos `CreateShoppingList`, `AddShoppingItem`, `DefineBudgetLimit` y `MarkItemAsPurchased` emiten los eventos `ShoppingItemAdded`, `BudgetThresholdExceeded` y `ShoppingTripCompleted`, evaluados por `BudgetOverrunAlertPolicy`.
+
+![Preciazo Shopping Planning Design-Level Event Storming](../assets/architecture/event-storming/shopping-planning.png)
+
+#### Merchant Management (Supporting Bounded Context)
+
+Modela el ciclo de afiliación comercial, validación fiscal con el sistema externo `SUNAT RUC Service`, administración de inventario local y campañas promocionales mediante los agregados `MerchantProfile` y `RetailStore`. El actor Merchant ejecuta `RequestStoreAffiliation`, `PublishStorePromotion` y `MarkProductOutOfStock`, generando los eventos `MerchantRucVerified`, `PromotionPublished` e `InventoryStockDepleted` gobernados por `PromotionExpirationPolicy`.
 
 ![Preciazo Merchant Management Design-Level Event Storming](../assets/architecture/event-storming/merchant-management.png)
 
-#### Community Price Verification
+#### Community Price Verification (Supporting Bounded Context)
+
+Modela la validación colaborativa de precios en góndola y la reputación de los usuarios mediante los agregados `PriceDiscrepancy` y `TrustProfile`. Los comandos `ReportPriceDiscrepancy` y `ConfirmPriceObservation` producen los eventos `DiscrepancyReported`, `ObservationConfirmed` y `DiscrepancyValidated`, disparando la política de consenso `ConsensusPriceUpdatePolicy`.
 
 ![Preciazo Community Price Verification Design-Level Event Storming](../assets/architecture/event-storming/community-price-verification.png)
 
-#### Analytics and Engagement
+#### Analytics and Engagement (Supporting Bounded Context)
+
+Modela la captura de eventos de interacción y el cálculo de indicadores de desempeño comercial mediante los agregados `MetricEvent` y `MerchantReport`. Las políticas reactivas (`StoreInteractionTrackingPolicy`) disparan `RecordAnalyticsEvent`, generando `MetricEventRecorded` y actualizando el modelo de lectura `MerchantKpiDashboardReadModel`.
 
 ![Preciazo Analytics and Engagement Design-Level Event Storming](../assets/architecture/event-storming/analytics-engagement.png)
 
+#### Identity and Access (Generic Bounded Context)
+
+Modela la seguridad transversal, el registro de cuentas, la asignación de roles (`ROLE_BUYER`, `ROLE_MERCHANT`) y la emisión de sesiones JWT mediante los agregados `User` y `AuthSession`. Los comandos `RegisterUserAccount`, `AuthenticateUser` y `RevokeSession` generan los eventos `UserRegistered`, `JwtSessionIssued` y `AccountLockedOnFailedAttempts` bajo `AccountLockoutPolicy`.
+
+![Preciazo Identity and Access Design-Level Event Storming](../assets/architecture/event-storming/identity-access.png)
+
 ### 4.6.2. Software Architecture Context Diagram
+
+El diagrama de contexto C4 muestra el sistema **Preciazo** como elemento central rodeado por los usuarios (**Independent Buyer** y **Retail Merchant**) y los sistemas externos con los que interactúa (**Mapping & Routing Service** y **RUC Verification Service**).
 
 ![Preciazo Software Architecture Context Diagram](../assets/architecture/c4-context.png)
 
 ### 4.6.3. Software Architecture Container Diagrams
 
-El diagrama de contenedores describe la arquitectura lógica de **Preciazo**. La Landing Page presenta el producto y proporciona acceso a la **Single-Page Application (SPA)** desarrollada con Angular, TypeScript y Angular Material para compradores y comerciantes. La SPA consume mediante HTTPS / JSON los endpoints de **Preciazo REST API**, una aplicación modular en Java / Spring Boot que persiste los datos operacionales en una base de datos relacional y se integra con Mapping & Routing Service y RUC Verification Service.
+El diagrama de contenedores describe la arquitectura lógica y las unidades de despliegue independientes de **Preciazo**. La **Landing Page** presenta el producto y proporciona acceso a la **Web Application**, contenedor web servidor encargado de entregar la **Single-Page Application (SPA)** desarrollada con Angular, TypeScript y Angular Material al navegador de los compradores y comerciantes. La SPA consume mediante HTTPS / JSON los endpoints de **Preciazo REST API**, una aplicación modular en Java / Spring Boot que persiste los datos operacionales en una base de datos relacional (**Database**) y se integra con **Mapping & Routing Service** y **RUC Verification Service**.
 
 ![Preciazo Software Architecture Container Diagram](../assets/architecture/c4-container.png)
 
 ### 4.6.4. Software Architecture Components Diagrams
 
-Los diagramas de componentes detallan por separado la estructura interna de la **Single-Page Application (SPA)** y de **Preciazo REST API**, manteniendo los siete Bounded Contexts definidos mediante Domain-Driven Design.
+Los diagramas de componentes detallan por separado la estructura interna de la **Web Application / Single-Page Application (SPA)** y de **Preciazo REST API**, manteniendo los siete Bounded Contexts definidos mediante Domain-Driven Design (ordenados de Core a Genérico) y nombrando cada módulo por su Bounded Context sin emplear el sufijo "UI".
 
-En la SPA, compradores y comerciantes acceden a las funcionalidades mediante Router / Guards, que organiza la navegación según el rol del usuario. Las funcionalidades de cada contexto utilizan componentes de UI compartidos y servicios de aplicación que encapsulan las llamadas HTTP a la REST API.
+En la SPA, compradores y comerciantes acceden a las funcionalidades mediante `Router / Guards`, que organiza la navegación según el rol del usuario. La aplicación se descompone en módulos de componentes por cada Bounded Context (**Catalog and Pricing Component**, **Route Planning Component**, **Shopping Planning Component**, **Merchant Management Component**, **Community Price Verification Component**, **Analytics and Engagement Component** e **Identity and Access Component**), los cuales utilizan el módulo transversal `Shared Component` y servicios de aplicación que encapsulan las llamadas HTTP hacia la REST API.
 
 ![Preciazo Frontend Component Diagram](../assets/architecture/c4-components-frontend.png)
 
-En el backend, la capa REST delega los casos de uso a los componentes de aplicación y dominio de los siete contextos. El Persistence Adapter implementa el acceso a repositorios mediante Spring Data JPA. Route Planning utiliza Mapping & Routing Adapter para las consultas de rutas, mientras que Merchant Management utiliza RUC Verification Adapter para la validación fiscal. Ambos adaptadores se comunican con sus respectivos servicios externos mediante HTTPS / REST API.
+En el backend, la capa REST delega los casos de uso a los componentes de aplicación y dominio de los siete contextos, estructurados internamente bajo las cuatro capas tácticas de DDD (*Interfaces Layer*, *Application Layer*, *Domain Layer* e *Infrastructure Layer*). El `Persistence Adapter` implementa el acceso a repositorios mediante Spring Data JPA. **Route Planning** utiliza `Mapping & Routing Adapter` para las consultas de rutas, mientras que **Merchant Management** utiliza `RUC Verification Adapter` para la validación fiscal. Ambos adaptadores se comunican con sus respectivos servicios externos mediante HTTPS / REST API.
+
+| Bounded Context (Orden DDD) | Interfaces Layer (REST Controllers) | Application Layer (Command & Query Services) | Domain Layer (Aggregates) | Infrastructure Layer (JPA & Adapters) |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Catalog and Pricing** *(Core)* | `ProductsController`, `BasketComparisonController` | `ProductCommandServiceImpl`, `CatalogQueryServiceImpl` | `Product`, `StoreProduct` | `ProductJpaRepository`, `CatalogEntryJpaRepository` |
+| **2. Route Planning** *(Core)* | `RoutesController` | `RouteCommandServiceImpl`, `RouteQueryServiceImpl` | `MultiStopRoute` | `RouteJpaRepository`, `MappingRoutingRestAdapter` |
+| **3. Shopping Planning** *(Core)* | `ShoppingListsController`, `BudgetsController` | `ShoppingListCommandServiceImpl`, `BudgetQueryServiceImpl` | `ShoppingList`, `PurchaseBudget` | `ShoppingListJpaRepository`, `PurchaseBudgetJpaRepository` |
+| **4. Merchant Management** *(Soporte)* | `MerchantsController`, `StoresController`, `PromotionsController` | `MerchantCommandServiceImpl`, `InventoryQueryServiceImpl` | `MerchantProfile`, `RetailStore` | `MerchantJpaRepository`, `SunatRucVerificationAdapter` |
+| **5. Community Price Verification** *(Soporte)* | `PriceDiscrepanciesController` | `DiscrepancyCommandServiceImpl`, `VerificationQueryServiceImpl` | `PriceDiscrepancy`, `TrustProfile` | `DiscrepancyJpaRepository`, `TrustProfileJpaRepository` |
+| **6. Analytics and Engagement** *(Soporte)* | `MerchantAnalyticsController` | `AnalyticsCommandServiceImpl`, `MetricsQueryServiceImpl` | `MetricEvent`, `MerchantReport` | `AnalyticsEventJpaRepository`, `MerchantMetricsJpaRepository` |
+| **7. Identity and Access** *(Genérico)* | `AuthenticationController`, `UsersController` | `UserCommandServiceImpl`, `RoleQueryServiceImpl` | `User`, `AuthSession`, `Role` | `UserJpaRepository`, `RoleJpaRepository`, `JwtTokenServiceAdapter` |
 
 ![Preciazo Backend Component Diagram](../assets/architecture/c4-components-backend.png)
 
 ## 4.7. Software Object-Oriented Design
 
-En esta sección se presenta el diseño orientado a objetos de **Preciazo** a partir de los Bounded Contexts identificados durante el proceso de Domain-Driven Design.
+En esta sección se presenta el diseño orientado a objetos de **Preciazo** a partir de los Bounded Contexts identificados durante el proceso de Domain-Driven Design, ordenados jerárquicamente en **Core**, **Soporte** y **Genéricos**.
 
 Con el objetivo de evitar un único modelo de clases excesivamente acoplado, el diseño se divide de acuerdo con los siete Bounded Contexts definidos previamente. Cada contexto mantiene sus propias entidades, servicios, interfaces, políticas, objetos de valor y enumeraciones, permitiendo representar de manera explícita sus responsabilidades y reglas de negocio.
 
 Asimismo, cuando un contexto necesita información perteneciente a otro dominio, se utilizan referencias locales basadas en identificadores u objetos específicos del contexto, evitando compartir directamente las entidades internas de otros Bounded Contexts. Este criterio permite conservar límites claros entre los modelos y reducir dependencias innecesarias. Los identificadores numéricos se representan como `Long` en los diagramas de clases y como `BIGINT` en persistencia.
 
-Los diagramas incluyen atributos y operaciones relevantes del dominio, visibilidad UML, relaciones nombradas y multiplicidades. Los **Value Objects** se identifican con el estereotipo `Value Object` y atributos `readOnly`; sus notas explicitan restricciones y criterios de igualdad por valor. Se utilizan `EmailAddress`, `Ruc`, `Address`, `Quantity`, `UnitPrice`, `Money`, `GeoPoint`, `Distance` y `ReportingPeriod`, además de referencias locales y criterios de consulta inmutables. Las operaciones que cambian un valor devuelven uno nuevo en lugar de modificar el existente.
+Los diagramas incluyen atributos y operaciones relevantes del dominio, visibilidad UML, relaciones nombradas, multiplicidades y asociaciones explícitas hacia cada `<<enumeration>>` (evitando enumeraciones sueltas sin relacionar). Los **Value Objects** se identifican con el estereotipo `Value Object` y atributos `readOnly`; sus notas explicitan restricciones y criterios de igualdad por valor. Se utilizan `EmailAddress`, `Ruc`, `Address`, `Quantity`, `UnitPrice`, `Money`, `GeoPoint`, `Distance` y `ReportingPeriod`, además de referencias locales y criterios de consulta inmutables. Las operaciones que cambian un valor devuelven uno nuevo en lugar de modificar el existente.
 
 ### 4.7.1. Class Diagrams
 
-Los Class Diagrams de **Preciazo** se organizan por Bounded Context con el propósito de representar de forma independiente las principales estructuras y comportamientos de cada parte del dominio.
+Los Class Diagrams de **Preciazo** se organizan por Bounded Context (iniciando por los contextos Core, seguidos de Soporte y finalmente Genérico) con el propósito de representar de forma independiente las principales estructuras y comportamientos de cada parte del dominio.
 
-#### Identity and Access
-
-El Bounded Context **Identity and Access** concentra las responsabilidades relacionadas con autenticación, sesiones, roles y autorización.
-
-La clase `User` representa la identidad principal del sistema y permite realizar operaciones como autenticarse, asignar roles, desactivar la cuenta y comprobar permisos. Las sesiones generadas se representan mediante `AuthSession`, mientras que `Role` y `Permission` modelan el esquema de autorización.
-
-Las interfaces `IdentityRepository` y `AccessPolicy` abstraen respectivamente la persistencia de identidades y las reglas utilizadas para determinar si una operación está autorizada. `EmailAddress` encapsula el correo y su validación de formato, y se utiliza tanto en `User` como en las operaciones de búsqueda y autenticación.
-
-![Identity and Access Class Diagram](../assets/architecture/classes/identity-access.png)
-
-#### Shopping Planning
-
-El Bounded Context **Shopping Planning** administra la planificación de compras del Buyer.
-
-`ShoppingList` funciona como el elemento central del modelo y agrupa múltiples `ShoppingListItem`. Entre sus responsabilidades se encuentran agregar y eliminar ítems, marcar productos como comprados, calcular el costo estimado y completar una lista.
-
-`PurchaseBudget` representa el presupuesto asociado a la planificación y encapsula operaciones como reservar o liberar importes y comprobar si un determinado gasto puede ser asumido. El Value Object `Money` encapsula importes y exige una misma moneda para operar. `Quantity` representa cantidades no negativas con su unidad; las cantidades solicitadas deben ser positivas. `UnitPrice` combina un importe y la cantidad de referencia para calcular costos con unidades compatibles.
-
-`ProductRequirement` permite referenciar un producto requerido sin introducir directamente el modelo interno de Catalog and Pricing dentro de este Bounded Context.
-
-![Shopping Planning Class Diagram](../assets/architecture/classes/shopping-planning.png)
-
-#### Catalog and Pricing
+#### Catalog and Pricing (Core Bounded Context)
 
 El Bounded Context **Catalog and Pricing** modela la consulta y comparación de productos, precios y disponibilidad entre establecimientos.
 
-`Product` representa la información propia del catálogo, mientras que `StoreProduct` mantiene los datos asociados a un producto ofrecido por un establecimiento, tales como precio unitario, disponibilidad y fecha de actualización.
+`Product` representa la información propia del catálogo y se relaciona explícitamente con las enumeraciones `ProductCategory` y `MeasurementUnit`, mientras que `StoreProduct` mantiene los datos asociados a un producto ofrecido por un establecimiento, tales como precio unitario, estado de disponibilidad (`AvailabilityStatus`) y fecha de actualización.
 
 La clase `CatalogPricingService` proporciona operaciones de búsqueda, comparación de precios y selección de ofertas. Por otro lado, `PriceComparisonPolicy` encapsula la regla utilizada para determinar la alternativa más conveniente.
 
@@ -1884,11 +1888,11 @@ La clase `CatalogPricingService` proporciona operaciones de búsqueda, comparaci
 
 ![Catalog and Pricing Class Diagram](../assets/architecture/classes/catalog-pricing.png)
 
-#### Route Planning
+#### Route Planning (Core Bounded Context)
 
 El Bounded Context **Route Planning** representa la generación y optimización de recorridos entre múltiples establecimientos.
 
-El aggregate `MultiStopRoute` administra las diferentes paradas mediante objetos `RouteStop` y contiene las operaciones necesarias para agregar, eliminar y reordenar establecimientos, además de calcular el ahorro neto asociado a una ruta.
+El aggregate `MultiStopRoute` administra las diferentes paradas mediante objetos `RouteStop`, relacionándose explícitamente con las enumeraciones `TransportMode` y `RouteStatus`, y contiene las operaciones necesarias para agregar, eliminar y reordenar establecimientos, además de calcular el ahorro neto asociado a una ruta.
 
 `RoutePlanningService` coordina la generación, recálculo y confirmación de rutas, mientras que `RoutingGateway` abstrae el acceso al servicio externo de mapas y ruteo.
 
@@ -1896,47 +1900,69 @@ Para mantener el aislamiento del contexto, conceptos pertenecientes a otros domi
 
 ![Route Planning Class Diagram](../assets/architecture/classes/route-planning.png)
 
-#### Merchant Management
+#### Shopping Planning (Core Bounded Context)
+
+El Bounded Context **Shopping Planning** administra la planificación de compras del Buyer.
+
+`ShoppingList` funciona como el elemento central del modelo, se asocia con la enumeración `ShoppingListStatus` y agrupa múltiples `ShoppingListItem` (relacionados con `ItemPurchaseStatus`). Entre sus responsabilidades se encuentran agregar y eliminar ítems, marcar productos como comprados, calcular el costo estimado y completar una lista.
+
+`PurchaseBudget` representa el presupuesto asociado a la planificación (vinculado a la enumeración `BudgetStatus`) y encapsula operaciones como reservar o liberar importes y comprobar si un determinado gasto puede ser asumido. El Value Object `Money` encapsula importes y exige una misma moneda para operar. `Quantity` representa cantidades no negativas con su unidad; las cantidades solicitadas deben ser positivas. `UnitPrice` combina un importe y la cantidad de referencia para calcular costos con unidades compatibles.
+
+`ProductRequirement` permite referenciar un producto requerido sin introducir directamente el modelo interno de Catalog and Pricing dentro de este Bounded Context.
+
+![Shopping Planning Class Diagram](../assets/architecture/classes/shopping-planning.png)
+
+#### Merchant Management (Supporting Bounded Context)
 
 El Bounded Context **Merchant Management** concentra las capacidades relacionadas con la afiliación y administración de establecimientos.
 
-`MerchantProfile` representa el perfil comercial y mantiene su estado de verificación. Un Merchant puede administrar uno o varios objetos `RetailStore`, los cuales contienen los elementos de inventario y promociones correspondientes.
+`MerchantProfile` representa el perfil comercial y mantiene su estado de verificación mediante su relación con la enumeración `VerificationStatus`. Un Merchant puede administrar uno o varios objetos `RetailStore` (vinculados a `StoreType` y `StoreOperationalStatus`), los cuales contienen los elementos de inventario y promociones correspondientes.
 
-`InventoryItem` encapsula operaciones relacionadas con stock y precio, mientras que `Promotion` representa ofertas con un período de vigencia definido.
+`InventoryItem` encapsula operaciones relacionadas con stock y precio asociándose con la enumeración `StockStatus`, mientras que `Promotion` representa ofertas con un período de vigencia definido y estado `PromotionStatus`.
 
 La interfaz `RucVerificationGateway` abstrae la comunicación con el servicio externo utilizado para validar la información fiscal del Merchant. `Ruc` encapsula el formato del identificador; la verificación fiscal permanece en el gateway. `Address` representa la dirección como un valor completo; `Quantity` y `UnitPrice` expresan el stock y el precio por cantidad de referencia.
 
 ![Merchant Management Class Diagram](../assets/architecture/classes/merchant-management.png)
 
-#### Community Price Verification
+#### Community Price Verification (Supporting Bounded Context)
 
 El Bounded Context **Community Price Verification** administra las observaciones y discrepancias de precios reportadas por los usuarios.
 
-`PriceDiscrepancy` representa una diferencia detectada entre un precio esperado y uno observado y puede recibir múltiples `PriceObservation` y `VerificationConfirmation`.
+`PriceDiscrepancy` representa una diferencia detectada entre un precio esperado y uno observado (asociada a la enumeración `DiscrepancyStatus`) y puede recibir múltiples `PriceObservation` y `VerificationConfirmation` (vinculada a la enumeración `VoteType`).
 
-La clase `TrustProfile` mantiene información local relacionada con la confiabilidad de las contribuciones realizadas por un usuario. Por otro lado, `VerificationPolicy` encapsula las reglas necesarias para aceptar, rechazar o solicitar revisión adicional de una discrepancia.
+La clase `TrustProfile` mantiene información local relacionada con la confiabilidad de las contribuciones realizadas por un usuario mediante la enumeración `TrustLevel`. Por otro lado, `VerificationPolicy` encapsula las reglas necesarias para aceptar, rechazar o solicitar revisión adicional de una discrepancia.
 
 Los Value Objects `UserRef` y `StoreProductRef` actúan como referencias inmutables hacia Identity and Access y Catalog and Pricing sin introducir sus modelos internos directamente. Los precios esperados y observados utilizan `Money`.
 
 ![Community Price Verification Class Diagram](../assets/architecture/classes/community-price-verification.png)
 
-#### Analytics and Engagement
+#### Analytics and Engagement (Supporting Bounded Context)
 
 El Bounded Context **Analytics and Engagement** se encarga de registrar eventos relevantes y transformarlos en métricas útiles para los comerciantes.
 
-`MetricEvent` representa interacciones como visitas a establecimientos, visualizaciones de productos, comparaciones de precios, ventas perdidas e interacciones con promociones.
+`MetricEvent` representa interacciones como visitas a establecimientos, visualizaciones de productos, comparaciones de precios, ventas perdidas e interacciones con promociones, clasificadas mediante su relación con la enumeración `MetricEventType`.
 
-`AnalyticsService` registra dichos eventos y genera posteriormente objetos `MerchantMetrics` y `MerchantReport`. La interfaz `MetricsCalculator` abstrae la lógica utilizada para calcular las métricas correspondientes a un período determinado.
+`AnalyticsService` registra dichos eventos y genera posteriormente objetos `MerchantMetrics` y `MerchantReport` (vinculado a la enumeración `ReportType`). La interfaz `MetricsCalculator` abstrae la lógica utilizada para calcular las métricas correspondientes a un período determinado.
 
 `ReportingPeriod` encapsula un intervalo inmutable cuyo inicio no supera el fin y se utiliza para consultar y evaluar eventos. `Money` expresa el importe de ventas perdidas. De esta manera, el contexto mantiene separada la recopilación de eventos de la generación de información analítica destinada al Merchant.
 
 ![Analytics and Engagement Class Diagram](../assets/architecture/classes/analytics-engagement.png)
 
+#### Identity and Access (Generic Bounded Context)
+
+El Bounded Context **Identity and Access** concentra las responsabilidades relacionadas con autenticación, sesiones, roles y autorización.
+
+La clase `User` representa la identidad principal del sistema (vinculada a la enumeración `AccountStatus`) y permite realizar operaciones como autenticarse, asignar roles, desactivar la cuenta y comprobar permisos. Las sesiones generadas se representan mediante `AuthSession` (asociada a `SessionStatus`), mientras que `Role` (vinculada a `RoleName`) y `Permission` modelan el esquema de autorización.
+
+Las interfaces `IdentityRepository` y `AccessPolicy` abstraen respectivamente la persistencia de identidades y las reglas utilizadas para determinar si una operación está autorizada. `EmailAddress` encapsula el correo y su validación de formato, y se utiliza tanto en `User` como en las operaciones de búsqueda y autenticación.
+
+![Identity and Access Class Diagram](../assets/architecture/classes/identity-access.png)
+
 En conjunto, los Class Diagrams permiten representar la estructura interna de cada Bounded Context sin construir un único modelo global compartido. Esta separación mantiene alineado el diseño orientado a objetos con las fronteras establecidas mediante Domain-Driven Design y facilita que cada módulo evolucione manteniendo responsabilidades claramente delimitadas.
 
 ## 4.8. Database Design
 
-El diseño de base de datos de **Preciazo** se organiza siguiendo los límites definidos previamente mediante Domain-Driven Design. En lugar de representar el almacenamiento únicamente como un modelo relacional global, se presentan vistas específicas para cada Bounded Context con el objetivo de evidenciar qué información pertenece a cada parte del dominio.
+El diseño de base de datos de **Preciazo** se organiza siguiendo los límites definidos previamente mediante Domain-Driven Design y respetando la jerarquía **Core → Soporte → Genérico**. En lugar de representar el almacenamiento únicamente como un modelo relacional global, se presentan vistas específicas para cada Bounded Context con el objetivo de evidenciar qué información pertenece a cada parte del dominio.
 
 Cada diagrama identifica las entidades persistentes, sus atributos principales, claves primarias, claves foráneas, restricciones de unicidad y relaciones. Para atender la observación del profesor, **las claves primarias (PK) utilizan `BIGINT`** y sus claves foráneas (FK) y referencias externas (REF) mantienen el mismo tipo. Las claves simples se generan en persistencia mediante identidad o secuencia; las claves compuestas de tablas de asociación conservan los identificadores de las entidades relacionadas. La sintaxis de generación se definirá según el motor relacional elegido.
 
@@ -1944,7 +1970,7 @@ Cuando un contexto necesita referenciar información perteneciente a otro Bounde
 
 ### 4.8.1. Database Diagrams
 
-Los Database Diagrams de **Preciazo** se presentan primero mediante una vista general y posteriormente mediante vistas específicas para cada Bounded Context.
+Los Database Diagrams de **Preciazo** se presentan primero mediante una vista general y posteriormente mediante vistas específicas para cada Bounded Context, ordenadas de Core a Genérico.
 
 #### Database Overview
 
@@ -1954,29 +1980,7 @@ La vista global también evidencia restricciones importantes del modelo, como la
 
 ![Preciazo Database Overview](../assets/architecture/database/database-overview.png)
 
-#### Identity and Access
-
-El modelo de persistencia de **Identity and Access** administra la información necesaria para la identificación, autorización y manejo de sesiones.
-
-La tabla `users` almacena las cuentas registradas, mientras que `roles` y `permissions` representan los mecanismos de autorización. Las tablas intermedias `user_roles` y `role_permissions` modelan las relaciones de muchos a muchos existentes entre usuarios, roles y permisos.
-
-Finalmente, `auth_sessions` registra las sesiones asociadas a cada usuario, incluyendo su fecha de emisión, expiración y estado de revocación.
-
-![Identity and Access Database Diagram](../assets/architecture/database/identity-access.png)
-
-#### Shopping Planning
-
-El Bounded Context **Shopping Planning** persiste la información relacionada con la planificación de compras.
-
-`shopping_lists` representa las listas creadas por los usuarios, mientras que `shopping_list_items` almacena los productos requeridos, cantidades, precios estimados y estado de compra.
-
-La tabla `shopping_list_members` permite relacionar otros usuarios con una lista determinada y `purchase_budgets` almacena los presupuestos asociados a cada planificación.
-
-Los identificadores de usuario son referencias hacia Identity and Access y los identificadores de producto corresponden a información administrada por Catalog and Pricing.
-
-![Shopping Planning Database Diagram](../assets/architecture/database/shopping-planning.png)
-
-#### Catalog and Pricing
+#### Catalog and Pricing (Core Bounded Context)
 
 El modelo de **Catalog and Pricing** almacena los productos disponibles y la información necesaria para realizar comparaciones de precios.
 
@@ -1988,7 +1992,7 @@ La combinación entre establecimiento y producto debe ser única dentro de `cata
 
 ![Catalog and Pricing Database Diagram](../assets/architecture/database/catalog-pricing.png)
 
-#### Route Planning
+#### Route Planning (Core Bounded Context)
 
 El Bounded Context **Route Planning** mantiene la información relacionada con las rutas calculadas para una planificación de compras.
 
@@ -2000,7 +2004,19 @@ La combinación entre una ruta y su número de secuencia debe ser única. `shopp
 
 ![Route Planning Database Diagram](../assets/architecture/database/route-planning.png)
 
-#### Merchant Management
+#### Shopping Planning (Core Bounded Context)
+
+El Bounded Context **Shopping Planning** persiste la información relacionada con la planificación de compras.
+
+`shopping_lists` representa las listas creadas por los usuarios, mientras que `shopping_list_items` almacena los productos requeridos, cantidades, precios estimados y estado de compra.
+
+La tabla `shopping_list_members` permite relacionar otros usuarios con una lista determinada y `purchase_budgets` almacena los presupuestos asociados a cada planificación.
+
+Los identificadores de usuario son referencias hacia Identity and Access y los identificadores de producto corresponden a información administrada por Catalog and Pricing.
+
+![Shopping Planning Database Diagram](../assets/architecture/database/shopping-planning.png)
+
+#### Merchant Management (Supporting Bounded Context)
 
 El Bounded Context **Merchant Management** persiste la información necesaria para administrar comerciantes y establecimientos.
 
@@ -2014,7 +2030,7 @@ El campo `product_id` de inventario funciona como una referencia hacia Catalog a
 
 ![Merchant Management Database Diagram](../assets/architecture/database/merchant-management.png)
 
-#### Community Price Verification
+#### Community Price Verification (Supporting Bounded Context)
 
 El modelo de persistencia de **Community Price Verification** permite almacenar reportes y evidencias relacionadas con discrepancias de precios.
 
@@ -2026,7 +2042,7 @@ Las referencias hacia productos y usuarios pertenecen respectivamente a Catalog 
 
 ![Community Price Verification Database Diagram](../assets/architecture/database/community-price-verification.png)
 
-#### Analytics and Engagement
+#### Analytics and Engagement (Supporting Bounded Context)
 
 El Bounded Context **Analytics and Engagement** almacena eventos de interacción y los resultados analíticos generados a partir de ellos.
 
@@ -2040,7 +2056,18 @@ Los identificadores de establecimiento utilizados por métricas y reportes actú
 
 ![Analytics and Engagement Database Diagram](../assets/architecture/database/analytics-engagement.png)
 
+#### Identity and Access (Generic Bounded Context)
+
+El modelo de persistencia de **Identity and Access** administra la información necesaria para la identificación, autorización y manejo de sesiones.
+
+La tabla `users` almacena las cuentas registradas, mientras que `roles` y `permissions` representan los mecanismos de autorización. Las tablas intermedias `user_roles` y `role_permissions` modelan las relaciones de muchos a muchos existentes entre usuarios, roles y permisos.
+
+Finalmente, `auth_sessions` registra las sesiones asociadas a cada usuario, incluyendo su fecha de emisión, expiración y estado de revocación.
+
+![Identity and Access Database Diagram](../assets/architecture/database/identity-access.png)
+
 En conjunto, estos diagramas permiten mantener una visión global de la persistencia de **Preciazo** y, al mismo tiempo, conservar los límites definidos entre los Bounded Contexts. Las referencias externas entre contextos se representan mediante identificadores, mientras que las relaciones internas utilizan claves primarias, claves foráneas y restricciones propias de cada modelo.
+
 
 <div style="page-break-before: always;"></div>
 
