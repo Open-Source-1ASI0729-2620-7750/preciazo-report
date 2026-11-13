@@ -1,93 +1,150 @@
 <div align="center">
 
-<img src="/assets/upc-logo.png" alt="UPC Logo" width="150"/>
+  <img src="../assets/upc-logo.png" alt="UPC Logo" width="80"/>
 
-Universidad Peruana de Ciencias Aplicadas
+  <br><br>
 
-Carrera de Ingeniería de Software
+  <h3><strong>Universidad Peruana de Ciencias Aplicadas</strong></h3>
+  <p><strong>Facultad de Ingeniería</strong></p>
+  <p><strong>Carrera de Ingeniería de Software</strong></p>
+  <p><strong>Ciclo 2026-20</strong></p>
 
-### **1ASI0729**
-### **Desarrollo de Aplicaciones Open Source**
+  <br>
 
-NRC
+  <p><strong>Curso:</strong> 1ASI0729 - Desarrollo de Aplicaciones Open Source</p>
+  <p><strong>NRC:</strong> 7750</p>
 
-**7750**
+  <h2><strong>Informe de Trabajo Final</strong></h2>
 
-### **Informe del Trabajo Final**
+  <p><strong>Docente:</strong><br>Bautista Ubillús, Efraín Ricardo</p>
 
-Docente
+  <p><strong>Startup:</strong><br>PeruTech</p>
 
-**Bautista Ubillús, Efrain Ricardo**
+  <p><strong>Producto:</strong><br>Preciazo</p>
 
-Equipo
+  <br>
 
-**PeruTech** 
+  <h4><strong>Integrantes</strong></h4>
 
-Proyecto
+  <table align="center" style="margin: 0 auto; border: none !important; border-collapse: collapse !important; background: transparent !important;">
+    <thead>
+      <tr style="border: none !important; background: transparent !important;">
+        <th style="text-align: left; padding: 4px 30px 4px 0; border: none !important; background: transparent !important;">Código</th>
+        <th style="text-align: left; padding: 4px 0; border: none !important; background: transparent !important;">Apellidos y Nombres</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border: none !important; background: transparent !important;">
+        <td style="text-align: left; padding: 4px 30px 4px 0; border: none !important; background: transparent !important;">U20241C101</td>
+        <td style="text-align: left; padding: 4px 0; border: none !important; background: transparent !important;">Capillo Lema, Mía Valentina</td>
+      </tr>
+      <tr style="border: none !important; background: transparent !important;">
+        <td style="text-align: left; padding: 4px 30px 4px 0; border: none !important; background: transparent !important;">U20221A525</td>
+        <td style="text-align: left; padding: 4px 0; border: none !important; background: transparent !important;">Pardo Chumpitazi, Kevin Patrick</td>
+      </tr>
+      <tr style="border: none !important; background: transparent !important;">
+        <td style="text-align: left; padding: 4px 30px 4px 0; border: none !important; background: transparent !important;">U20221B756</td>
+        <td style="text-align: left; padding: 4px 0; border: none !important; background: transparent !important;">Becerra Durand, Sebastian Uriel</td>
+      </tr>
+      <tr style="border: none !important; background: transparent !important;">
+        <td style="text-align: left; padding: 4px 30px 4px 0; border: none !important; background: transparent !important;">U20231B331</td>
+        <td style="text-align: left; padding: 4px 0; border: none !important; background: transparent !important;">Miranda Romero, Sergio Luis</td>
+      </tr>
+      <tr style="border: none !important; background: transparent !important;">
+        <td style="text-align: left; padding: 4px 30px 4px 0; border: none !important; background: transparent !important;">U202124030</td>
+        <td style="text-align: left; padding: 4px 0; border: none !important; background: transparent !important;">Casós Torre, Miguel André</td>
+      </tr>
+    </tbody>
+  </table>
 
-**[NOMBRE DEL PRODUCTO]** 
+  <br><br>
 
-#### **Integrantes**
-
-</div>
-
-<div align="center">
-<table align="center" style="all: unset;">
-<tr style="background: none !important; border: none !important;">
-<td align="left" style="border: none !important; padding: 0 40px 0 0 !important; background: none !important;"><strong>Código</strong></td>
-<td align="left" style="border: none !important; padding: 0 !important; background: none !important;"><strong>Apellidos y Nombres</strong></td>
-</tr>
-<tr style="background: none !important; border: none !important;">
-<td align="left" style="border: none !important; padding: 0 40px 0 0 !important; background: none !important;">u20241c101</td>
-<td align="left" style="border: none !important; padding: 0 !important; background: none !important;">Capillo Lema, Mía Valentina</td>
-</tr>
-<tr style="background: none !important; border: none !important;">
-<td align="left" style="border: none !important; padding: 0 40px 0 0 !important; background: none !important;">[Código]</td>
-<td align="left" style="border: none !important; padding: 0 !important; background: none !important;">[Apellidos y Nombres]</td>
-</tr>
-<tr style="background: none !important; border: none !important;">
-<td align="left" style="border: none !important; padding: 0 40px 0 0 !important; background: none !important;">[Código]</td>
-<td align="left" style="border: none !important; padding: 0 !important; background: none !important;">[Apellidos y Nombres]</td>
-</tr>
-<tr style="background: none !important; border: none !important;">
-<td align="left" style="border: none !important; padding: 0 40px 0 0 !important; background: none !important;">[Código]</td>
-<td align="left" style="border: none !important; padding: 0 !important; background: none !important;">[Apellidos y Nombres]</td>
-</tr>
-<tr style="background: none !important; border: none !important;">
-<td align="left" style="border: none !important; padding: 0 40px 0 0 !important; background: none !important;">[Código]</td>
-<td align="left" style="border: none !important; padding: 0 !important; background: none !important;">[Apellidos y Nombres]</td>
-</tr>
-<tr style="background: none !important; border: none !important;">
-<td align="left" style="border: none !important; padding: 0 40px 0 0 !important; background: none !important;">[Código]</td>
-<td align="left" style="border: none !important; padding: 0 !important; background: none !important;">[Apellidos y Nombres]</td>
-</tr>
-</table>
-</div>
-
-<div align="center">
-
-<br>
-
-**Período 202620**
-
-**Septiembre 2026**
+  <p><strong>Noviembre 2026</strong></p>
 
 </div>
+
+<div style="page-break-after: always;"></div>
 
 ---
 
 # Registro de Versiones del Informe
 
 | Versión | Fecha | Autor | Descripción de modificación |
-|--------|------|------|-----------------------------|
-| 1.0 | 06/09/2026 | Capillo Lema, Mía Valentina   | Creación inicial del informe |
-| | | | |
+| :---: | :---: | :--- | :--- |
+| **1.0** | 06/09/2026 | Capillo Lema, Mía Valentina | Creación inicial de la estructura del informe y lineamientos de estilo. |
+| **1.1** | 18/09/2026 | Becerra Durand, Sebastian Uriel | Incorporación del registro de entrevista al segmento de comerciantes minoristas en la sección 2.2.2. |
+| **1.2** | 18/09/2026 | Miranda Romero, Sergio Luis | Especificación de requisitos del Capítulo III (User Stories, Impact Mapping y Product Backlog). |
+| **1.3** | 18/09/2026 | Casós Torre, Miguel André | Realización de entrevista, diagramas DDD y aportes de arquitectura al Capítulo IV. |
+| **1.4** | 18/09/2026 | Capillo Lema, Mía Valentina | Desarrollo de Style Guidelines, Wireframes y Mockups de la aplicación. |
+| **1.5** | 19/09/2026 | Pardo Chumpitazi, Kevin Patrick | Corrección y estandarización integral del Capítulo I (Startup Profile, Solution Profile, Lean UX Process y criterios ABET). |
+| **1.6** | 19/09/2026 | Pardo Chumpitazi, Kevin Patrick | Finalización, estandarización de nomenclatura y cierre del Capítulo II (Competidores, Entrevistas, Needfinding, Event Storming y Ubiquitous Language). |
+| **1.7** | 19/09/2026 | Pardo Chumpitazi, Kevin Patrick | Revisión de consistencia, formato y enlaces técnicos en el Capítulo III. |
+| **1.8** | 20/09/2026 | Pardo Chumpitazi, Kevin Patrick | Subsanación de observaciones de rúbrica: corrección de formato de carátula institucional, separación de páginas y corrección de rutas relativas de recursos multimedia. |
+| **1.9** | 20/09/2026 | Pardo Chumpitazi, Kevin Patrick | Reestructuración del Capítulo I: compleción de perfiles profesionales del equipo, reformulación de Lean UX Problem Statement alineado al 5W+2H y actualización de hipótesis con enlace funcional al Lean UX Canvas. |
+| **2.0** | 11/10/2026 | Pardo Chumpitazi, Kevin Patrick | Actualización para entrega TB1: incorporación de ejecución del Sprint 2, métricas de contribución en repositorio y despliegue preliminar de Frontend Web Application. |
+| **2.1** | 13/11/2026 | Pardo Chumpitazi, Kevin Patrick | Subsanación de observaciones de TB1 para entrega AV2: corrección de formato de carátula, actualización de acciones ABET Student Outcome (TB1 y AV2) y estandarización terminológica según Anexo E. |
+
+<div style="page-break-before: always;"></div>
 
 ---
 
 # Project Report Collaboration Insights
 
-[Contenido correspondiente a Project Report Collaboration Insights]
+Para evidenciar la participación equitativa y la trazabilidad en la redacción de la documentación técnica del proyecto, el desarrollo del presente informe se gestionó de manera colaborativa a través del repositorio oficial de GitHub **preciazo-report**, aplicando el flujo de ramas GitFlow y el registro individual de aportes mediante commits descriptivos.
+
+* **Repositorio de Documentación:** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report)
+
+### Evolución Colaborativa por Entregable (AV1, TB1 y AV2)
+
+* **Entrega AV1:** El equipo estructuró la línea base del informe distribuyendo los capítulos iniciales mediante ramas `feature/` por capítulo, definiendo el perfil de la startup, el proceso de Needfinding, el Product Backlog inicial, el diseño UX/UI y la configuración del despliegue del Sprint 1.
+* **Entrega TB1:** Se incorporó la documentación de ejecución del Sprint 2 (maquetación del Frontend Web Application e internacionalización i18n), refinando los artefactos de usuario en torno a los arquetipos del dominio y consolidando las métricas del repositorio.
+* **Entrega AV2:** Se ejecutó la subsanación integral de las observaciones de revisión técnica a lo largo de los Capítulos I al V (formato institucional, acciones ABET, jerarquización de Bounded Contexts en historias y diagramas, reformulación de Sprint Goals y estandarización terminológica), además de incorporar la documentación del Sprint 3 y el diseño de las entrevistas de validación.
+
+A continuación, se detalla la distribución de contribuciones, mantenimiento y corrección de artefactos técnicos por cada miembro del equipo:
+
+| Integrante | Capítulos y Secciones a Cargo | Rol Principal en Documentación |
+| :--- | :--- | :--- |
+| **Capillo Lema, Mía Valentina** | Capítulo I (Estilos iniciales), Capítulo IV (Style Guidelines, UI Design, Wireframes, Mockups, Wireflows y User Flows), Capítulo V (Evidencias UX en Sprints 1-3 y estructura de Validation Interviews). | Diseño de interfaces, flujos interactivos e identidad visual del producto. |
+| **Pardo Chumpitazi, Kevin Patrick** | Capítulo I (Lean UX, Problem Statement y ABET Student Outcome), Capítulo V (Software Configuration Management y Sprints 1, 2 y 3), y **Subsanación transversal de observaciones y estandarización técnica de los Capítulos I, II, III, IV y V (TB1 y AV2)**. | Liderazgo en control de versiones, revisión de calidad, corrección integral del informe y gestión de despliegue. |
+| **Becerra Durand, Sebastian Uriel** | Capítulo II (Registro y análisis de entrevistas), Capítulo V (Documentación de soporte i18n, accesibilidad a11y en Sprints 1-3 y registro de validación). | Obtención de requisitos empíricos, internacionalización y documentación de campo. |
+| **Miranda Romero, Sergio Luis** | Capítulo III (Especificación de requisitos: User Stories Gherkin, Impact Mapping y Product Backlog), Capítulo V (Desglose de Sprint Backlogs 1-3 y tableros Trello). | Modelado de requisitos funcionales y gestión ágil Scrum. |
+| **Casós Torre, Miguel André** | Capítulo II (Big Picture Event Storming y Ubiquitous Language), Capítulo IV (Domain-Driven Design, C4 Model, Class Diagrams y Database Diagrams), Capítulo V (Documentación de arquitectura y servicios en Sprints 1-3). | Modelado estratégico de dominio y arquitectura de software. |
+
+---
+
+### Métricas de Contribución por Integrante (Entrega TB1)
+
+A partir del historial analítico de GitHub en la rama principal durante la entrega TB1, se consolidaron las siguientes métricas cuantitativas de desarrollo documental:
+
+| Integrante | Usuario GitHub | Commits | Líneas Agregadas (++) | Líneas Eliminadas (--) |
+| :--- | :--- | :---: | :---: | :---: |
+| **Capillo Lema, Mía Valentina** | MiaCL-5 | 46 | +2,458 | -651 |
+| **Casós Torre, Miguel André** | mcasos | 45 | +3,182 | -641 |
+| **Pardo Chumpitazi, Kevin Patrick** | Kevinyin11 | 39 | +3,651 | -3,364 |
+| **Becerra Durand, Sebastian Uriel** | sebasdev28 | 16 | +337 | -235 |
+| **Miranda Romero, Sergio Luis** | dym4njiroo | 10 | +994 | -145 |
+
+---
+
+### Evidencias de Trabajo Colaborativo en Repositorio (Entrega TB1)
+
+![Métricas de contribuciones por colaborador](../assets/git%201.png)
+
+*Figura 0.1. Métricas de contribución global y distribución cuantitativa de commits, adiciones y eliminaciones por colaborador en preciazo-report durante la entrega TB1.*
+
+---
+
+![Grafo de red GitFlow](../assets/git%202.png)
+
+*Figura 0.2. Network Graph del repositorio preciazo-report evidenciando la integración de ramas feature, develop y main bajo el modelo GitFlow durante la entrega TB1.*
+
+---
+
+### Evidencias de Trabajo Colaborativo en Repositorio (Entrega AV2)
+
+> *[Pendiente: Insertar tabla actualizada de commits y capturas de GitHub Insights (Contributors y Network Graph) correspondientes a la entrega AV2 al finalizar la integración de las ramas de los Capítulos I al V].*
+
+<div style="page-break-before: always;"></div>
 
 ---
 
@@ -185,6 +242,15 @@ Proyecto
       - [5.2.2.6. Services Documentation Evidence for Sprint Review](#5226-services-documentation-evidence-for-sprint-review)
       - [5.2.2.7. Software Deployment Evidence for Sprint Review](#5227-software-deployment-evidence-for-sprint-review)
       - [5.2.2.8. Team Collaboration Insights during Sprint](#5228-team-collaboration-insights-during-sprint)
+    - [5.2.3. Sprint 3](#523-sprint-3)
+      - [5.2.3.1. Sprint Planning 3](#5231-sprint-planning-3)
+      - [5.2.3.2. Aspect Leaders and Collaborators](#5232-aspect-leaders-and-collaborators)
+      - [5.2.3.3. Sprint Backlog 3](#5233-sprint-backlog-3)
+      - [5.2.3.4. Development Evidence for Sprint Review](#5234-development-evidence-for-sprint-review)
+      - [5.2.3.5. Execution Evidence for Sprint Review](#5235-execution-evidence-for-sprint-review)
+      - [5.2.3.6. Services Documentation Evidence for Sprint Review](#5236-services-documentation-evidence-for-sprint-review)
+      - [5.2.3.7. Software Deployment Evidence for Sprint Review](#5237-software-deployment-evidence-for-sprint-review)
+      - [5.2.3.8. Team Collaboration Insights during Sprint](#5238-team-collaboration-insights-during-sprint)
   - [5.3. Validation Interviews](#53-validation-interviews)
     - [5.3.1. Diseño de Entrevistas](#531-diseño-de-entrevistas)
     - [5.3.2. Registro de Entrevistas](#532-registro-de-entrevistas)
@@ -197,6 +263,8 @@ Proyecto
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
 
+<div style="page-break-before: always;"></div>
+
 ---
 
 # Student Outcome
@@ -205,14 +273,12 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 
 **ABET – EAC - Student Outcome 3**
 
-**Criterio:**  
-
-*Capacidad de comunicarse efectivamente con un rango de audiencias. En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 3.*
+**Criterio:** Capacidad de comunicarse efectivamente con un rango de audiencias. En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 3.
 
 | Criterio específico | Acciones realizadas | Conclusiones |
-|---------------------|---------------------|--------------|
-| **Comunica oralmente con efectividad a diferentes rangos de audiencia.** | [Descripción de acciones realizadas] <br> **AV1** <br> [Evidencia] | [Conclusiones] |
-| **Comunica por escrito con efectividad a diferentes rangos de audiencia.** | [Descripción de acciones realizadas] <br> **AV1** <br> [Evidencia] | [Conclusiones] |
+|---------------------|----------------------|--------------|
+| **Comunica oralmente con efectividad a diferentes rangos de audiencia.** | **Capillo Lema, Mía Valentina** <br> **AV1:** Entrevisté a los usuarios del Segmento 1 adaptando mis preguntas a un lenguaje sencillo, y presenté las ideas clave de mi trabajo de forma clara y directa. <br> **TB1:** Sustenté ante el docente y el equipo las decisiones de experiencia de usuario, prototipado interactivo y arquitectura de la información aplicadas a las vistas de los segmentos objetivo. <br> **AV2:** Conduje sesiones de validación de usabilidad con usuarios representativos, guiando la ejecución de flujos interactivos mediante instrucciones claras y libres de tecnicismos. <br><br> **Pardo Chumpitazi, Kevin Patrick** <br> **AV1:** Conduje las sesiones de alineamiento técnico para definir la arquitectura de GitFlow y el uso de Conventional Commits, transmitiendo de manera clara las directrices de control de versiones y estándares de documentación al equipo. <br> **TB1:** Expuse la estrategia de configuración del entorno de desarrollo, el despliegue continuo en la nube para la Landing Page y la aplicación web, y lideré la coordinación oral de los entregables del Sprint 2. <br> **AV2:** Sustenté la integración entre la aplicación frontend en Angular y los servicios RESTful en Spring Boot, comunicando la trazabilidad técnica de los repositorios y releases durante la revisión del Sprint 3. <br><br> **Becerra Durand, Sebastian Uriel** <br> **AV1:** Conduje la entrevista cualitativa a Laura Gamarra (Entrevista 2) en el Capítulo 2, adaptando el cuestionario a un lenguaje claro y recopilando de forma directa sus hábitos de compra, sensibilidad de precios y fricciones de movilidad. <br> **TB1:** Presenté en la exposición síncrona el funcionamiento de las vistas orientadas al segmento de comerciantes minoristas y la implementación del soporte de internacionalización (i18n). <br> **AV2:** Ejecuté entrevistas de validación con comerciantes locales, explicando de forma accesible el uso del módulo de inventario y ofertas relámpago para recoger retroalimentación directa. <br><br> **Casós Torre, Miguel André** <br> **AV1:** Participé en la discusión y explicación de decisiones relacionadas con el diseño y la arquitectura de Preciazo, comunicando al equipo los criterios utilizados para organizar los Bounded Contexts y representar la solución mediante diagramas técnicos. <br> **TB1:** Expliqué la evolución del modelado táctico de Domain-Driven Design y el desacoplamiento de componentes durante la sustentación de la etapa TB1. <br> **AV2:** Sustenté la arquitectura por capas de los Bounded Contexts en el servidor backend y la exposición de contratos de servicio durante la demostración técnica. <br><br> **Miranda Romero, Sergio Luis** <br> **AV1:** Participé activamente en la discusión y alineamiento en equipo sobre la presentación del proyecto, transmitiendo las ideas clave del Capítulo 3 y aportando retroalimentación para estructurar una narrativa clara y coherente para la exposición. <br> **TB1:** Expuse la priorización del Sprint Backlog 2 y demostré la navegación de las vistas del comprador independiente integradas durante el segundo sprint. <br> **AV2:** Comuniqué los resultados de las pruebas funcionales de extremo a extremo y la correspondencia de los flujos implementados frente a los criterios de aceptación en Gherkin. | **AV1:** Durante AV1, el equipo fortaleció su capacidad para comunicar ideas y decisiones del proyecto de manera clara, adaptando la explicación según el contexto y la audiencia. <br><br> **TB1:** Durante TB1, el equipo consolidó su desenvolvimiento en la sustentación oral del prototipo funcional y de la arquitectura frontend, transmitiendo tanto el valor comercial para los usuarios como los fundamentos de ingeniería aplicados en el Sprint 2. <br><br> **AV2:** Durante AV2, el equipo demostró solvencia comunicativa frente a audiencias mixtas: empleó un lenguaje empático y accesible durante las entrevistas de validación con compradores y bodegueros, y utilizó precisión técnica al sustentar la integración de los Web Services y la arquitectura DDD. |
+| **Comunica por escrito con efectividad a diferentes rangos de audiencia.** | **Capillo Lema, Mía Valentina** <br> **AV1:** Redacté el resumen de las entrevistas, estructuré la documentación técnica con diagramas de Wireflow y User Flow, y usé mensajes de Git claros para coordinar el avance del repositorio. <br> **TB1:** Documenté la evolución de los mockups de alta fidelidad y las pautas de diseño responsivo del Capítulo 4, asegurando coherencia visual en el informe técnico. <br> **AV2:** Estructuré el protocolo de tareas para las entrevistas de validación y registré los hallazgos de evaluación heurística bajo el estándar de severidad establecido. <br><br> **Pardo Chumpitazi, Kevin Patrick** <br> **AV1:** Elaboré y estandaricé las plantillas técnicas del informe, supervisando la trazabilidad de los commits, el orden formal del Registro de Versiones y la rigurosidad conceptual entre el problema del negocio y la arquitectura propuesta. <br> **TB1:** Redacté la planificación, métricas y evidencias de despliegue del Sprint 2 en el Capítulo 5, estandarizando las tablas de control de versiones y el cumplimiento de estilo del documento. <br> **AV2:** Documenté la gestión de configuración de los cuatro repositorios del proyecto, reformulé los Sprint Goals bajo el estándar de Scrum.org y consolidé la evidencia de ejecución del Sprint 3. <br><br> **Becerra Durand, Sebastian Uriel** <br> **AV1:** Redacté y documenté la bitácora y resumen de la entrevista 2 en la sección 2.2.2 del Capítulo 2, estructurando las respuestas empíricas para el análisis de requisitos del segmento de compradores. <br> **TB1:** Documenté los diccionarios de traducción i18n (inglés y español) y las evidencias de accesibilidad web (a11y) implementadas en la plataforma. <br> **AV2:** Redacté las bitácoras de las entrevistas de validación del segmento minorista en la sección 5.3.2, sintetizando las observaciones de usabilidad reportadas por los usuarios. <br><br> **Casós Torre, Miguel André** <br> **AV1:** Participé en la elaboración y revisión de documentación técnica del proyecto, incluyendo Domain-Driven Design, arquitectura C4, diagramas de clases y diseño de base de datos, procurando mantener una redacción clara y coherente entre los artefactos. <br> **TB1:** Refiné la documentación de los diagramas de clases UML y el modelo relacional por Bounded Context con identificadores `BIGINT` en el Capítulo 4. <br> **AV2:** Reorganicé la especificación arquitectónica priorizando los Bounded Contexts Core, de Soporte y Genéricos, e incorporé los diagramas C4 de componentes detallados y la documentación OpenAPI/Swagger. <br><br> **Miranda Romero, Sergio Luis** <br> **AV1:** Redacté la especificación de requisitos del Capítulo 3 (historias de usuario, Impact Mapping y Product Backlog), adaptando el lenguaje mediante el estándar Gherkin para los desarrolladores y una redacción clara orientada al negocio para los stakeholders. <br> **TB1:** Desglosé y documenté las tareas técnicas del Sprint Backlog 2 en Trello y en las tablas de seguimiento del Capítulo 5. <br> **AV2:** Reordené las User Stories y Technical Stories según la jerarquía de Bounded Contexts y documenté el desglose de tareas estimadas del Sprint Backlog 3. | **AV1:** Durante AV1, el equipo aplicó comunicación escrita para documentar requisitos, decisiones de diseño y arquitectura, manteniendo consistencia entre el informe y los artefactos técnicos desarrollados. <br><br> **TB1:** Durante TB1, el equipo perfeccionó la trazabilidad escrita entre los artefactos de diseño UX/UI, la planificación ágil por Sprints y la evidencia de commits bajo Conventional Commits. <br><br> **AV2:** Durante AV2, el equipo estandarizó rigurosamente la terminología de ingeniería de software, documentó contratos de API RESTful con OpenAPI para desarrolladores y redactó reportes de validación heurística comprensibles para todo tipo de stakeholders. |
 
 ---
 
@@ -222,211 +288,301 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 
 ### 1.1.1. Descripción de la Startup
 
-PeruTech es un equipo de innovación tecnológica integrado por estudiantes de la carrera de Ingeniería de Software. La organización se enfoca en crear soluciones digitales para resolver problemas urbanos cotidianos, principalmente aquellos ligados a la planificación financiera del hogar y la movilidad en la ciudad.
+PeruTech es una organización de innovación tecnológica integrada por estudiantes de la carrera de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas (UPC). La iniciativa se enfoca en el diseño e implementación de soluciones digitales orientadas a mitigar fricciones urbanas cotidianas, principalmente aquellas vinculadas a la planificación financiera del hogar, la dispersión de precios minoristas y la optimización de traslados en la ciudad.
 
-Nuestro proyecto principal nace como una respuesta directa a las dificultades económicas que enfrentan las familias en Lima por el aumento constante de precios. La plataforma busca dar transparencia al mercado minorista, combinando la comparación de precios de productos esenciales con la optimización de rutas de desplazamiento. De esta forma, ayudamos a los consumidores a tomar decisiones de compra más eficientes, ahorrando dinero y tiempo en cada viaje.
+El proyecto central del equipo, denominado **Preciazo**, surge como una respuesta directa a las dificultades económicas que enfrentan las familias en Lima ante la variación continua de costos en la canasta básica. La plataforma otorga transparencia al mercado minorista al articular un motor comparativo de precios de bienes esenciales con la optimización algorítmica de rutas de desplazamiento. De esta forma, Preciazo asiste a los compradores independientes en la toma de decisiones de abastecimiento eficientes —maximizando su presupuesto y reduciendo tiempos de traslado—, mientras provee a los comercios minoristas un canal estructurado de visibilidad digital para posicionar sus catálogos.
 
-*   **Misión:** Apoyar a los hogares de Lima en el control y optimización de su gasto mensual mediante una herramienta digital intuitiva que identifique los precios más bajos y organice los recorridos de compra más convenientes.
-*   **Visión:** Consolidarnos como la plataforma digital líder en compras inteligentes en el Perú, reconocidos por brindar un impacto positivo real en el presupuesto de nuestros usuarios y por nuestra facilidad de uso.
+*   **Misión:** Facilitar decisiones de abastecimiento eficientes mediante información verificable de precios, trazado inteligente de rutas comerciales y herramientas de presupuesto familiar, integrando en simultáneo a los comercios minoristas en un canal digital que potencie la exposición de sus ofertas locales.
+*   **Visión:** Consolidar a Preciazo como la plataforma tecnológica referente a nivel nacional en la optimización de compras cotidianas y en la conexión digital directa y dinámica entre compradores independientes y comercios minoristas.
+
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-<img src="/assets/foto-Mia.png" width="350" >
+<div align="left">
+  <img src="../assets/foto-Mia.png" alt="Mía Valentina Capillo Lema" width="200">
+</div>
 
-Mi nombre es Mía Valentina.
-Poseo experiencia en en el lenguaje C++ y Python, lo que me permite contribuir en el desarrollo de soluciones eficientes. Además, tengo habilidades en la recopilación y análisis de información, lo cual es fundamental para identificar áreas de mejora y optimizar procesos. También tengo conocimientos sobre estructuras de datos, que me permiten organizar y gestionar información de manera efectiva. Mi enfoque se centra en generar soluciones innovadoras y prácticas que aporten valor a los proyectos en los que participo.
+**Capillo Lema, Mía Valentina**  
+* **Código de estudiante:** U20241C101  
+* **Carrera:** Ingeniería de Software  
+
+Estudiante de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Posee conocimientos en los lenguajes C++ y Python, lo que le permite contribuir activamente en el desarrollo de soluciones de software eficientes. Cuenta con destrezas en la obtención, recopilación y análisis de requisitos con usuarios reales, fundamentales para optimizar procesos comerciales. Asimismo, domina estructuras de datos para gestionar información de manera estructurada y aportar en el diseño centrado en el usuario dentro de las fases tempranas del ciclo de desarrollo.
+
+<br>
+
+<div align="left">
+  <img src="../assets/Kevin.jpeg" alt="Kevin Patrick Pardo Chumpitazi" width="200">
+</div>
+
+**Pardo Chumpitazi, Kevin Patrick**  
+* **Código de estudiante:** U20221A525 
+* **Carrera:** Ingeniería de Software  
+
+Estudiante de pregrado de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Posee conocimientos en desarrollo de soluciones de software mediante lenguajes de programación como C#, Java, Python y TypeScript, así como en la estructuración de componentes web en Angular y servicios en Spring Boot. Cuenta con experiencia en administración de bases de datos relacionales, aplicación de flujos de trabajo colaborativos bajo GitFlow y Conventional Commits, y gestión ágil mediante tableros Kanban y marcos de trabajo Scrum. En el equipo aporta liderazgo técnico en la configuración de entornos, estandarización de repositorios, control de versiones y trazabilidad en la arquitectura de software.
+
+<br>
+
+<div align="left">
+  <img src="../assets/sebastian.png" alt="Sebastian Uriel Becerra Durand" width="200">
+</div>
+
+**Becerra Durand, Sebastian Uriel**  
+* **Código de estudiante:** U20221B756  
+* **Carrera:** Ingeniería de Software  
+
+Estudiante de Ingeniería de Software en la UPC enfocado en el ciclo de vida del desarrollo de software, desde la conceptualización técnica hasta el despliegue de componentes backend y frontend. Aplica principios de modelado de datos, consumo de APIs y estandarización de código bajo flujos de trabajo en Git y marcos de trabajo ágiles (Scrum/Kanban). Se orienta al aprendizaje continuo de nuevos stacks tecnológicos y a la optimización de procesos dentro de equipos de desarrollo.
+
+<br>
+
+<div align="left">
+  <img src="../assets/Sergio Luis Miranda Romero.jpeg" alt="Sergio Luis Miranda Romero" width="200">
+</div>
+
+**Miranda Romero, Sergio Luis**  
+* **Código de estudiante:** U20231B331  
+* **Carrera:** Ingeniería de Software  
+
+Estudiante de pregrado de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Posee conocimientos en desarrollo de software utilizando lenguajes de programación como C++, C# y JavaScript, así como en la gestión de bases de datos relacionales y no relacionales mediante MySQL y MongoDB. Cuenta con la certificación Scrum Fundamentals Certified, lo que le permite aplicar marcos de trabajo ágiles y gestionar el flujo de tareas del equipo. Aporta en el desarrollo de la solución, la estructuración de la base de datos y la organización del trabajo bajo marcos de trabajo ágiles.
+
+<br>
+
+<div align="left">
+  <img src="../assets/fotomc.jpg" alt="Miguel André Casós Torre" width="200">
+</div>
+
+**Casós Torre, Miguel André**  
+* **Código de estudiante:** U202124030  
+* **Carrera:** Ingeniería de Software  
+
+Estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Sus principales áreas de interés se orientan al desarrollo de software, automatización de procesos, arquitectura de software y prácticas de MLOps. Ha trabajado con tecnologías y herramientas como Python, JavaScript/TypeScript, Git, GitHub, Docker y Power BI, contribuyendo activamente en el diseño arquitectónico de bounded contexts y diagramas de dominio del proyecto.
 
 
 ## 1.2. Solution Profile
 
 ### 1.2.1. Antecedentes y problemática
+
 *   **Who? (¿Quién?):**
-    *   *Compradores Independientes:* Jóvenes universitarios, profesionales y adultos independientes (18 a 30 años) con presupuesto acotado y disponibilidad de tiempo reducida que realizan compras frecuentes de menor volumen en establecimientos de cercanía.
-    *   *Administradores del Hogar Familiar:* Padres, madres o encargados del presupuesto doméstico (30 a 55 años) que gestionan listas de compra complejas y de alto volumen (semanales o mensuales) para sus familias y buscan maximizar el ahorro acumulado.
-*   **What? (¿Qué?):** La falta de información clara sobre precios y la ineficiencia al planificar los recorridos de compra en el comercio minorista. Actualmente existe una diferencia marcada entre los precios publicados en internet y los costos reales en los estantes de las tiendas. A esto se suma que las personas no tienen una forma sencilla de comparar el costo total de su lista entre varios comercios cercanos. Esta desconexión genera gastos dobles: se paga más por los productos y se gasta dinero y tiempo extra en desplazamientos mal organizados para intentar conseguir ofertas (BCRP, 2025; INEI, 2026).
-*   **Where? (¿Dónde?):** El problema se concentra en distritos y zonas urbanas de Lima con alta presencia comercial, donde existen múltiples tiendas a pocas cuadras de distancia. La solución está dirigida a personas con acceso a teléfonos inteligentes y a administradores de locales que quieren mejorar la visibilidad de su tienda en su zona cercana.
-*   **When? (¿Cuándo?):** Ocurre cada vez que las familias organizan sus compras de la semana o cuando necesitan reponer productos de manera rápida. La situación se vuelve crítica durante los fines de semana o en días de promociones especiales, cuando el inventario cambia rápido y las ofertas varían sin previo aviso.
-*   **Why? (¿Por qué?):** Principalmente porque los sistemas de información de los grandes comercios son rígidos y no actualizan los precios de cada local en tiempo real para el cliente cercano. Esto hace que el comprador pierda tiempo buscando ofertas que ya no existen, mientras que la tienda pierde clientes potenciales por no comunicar a tiempo sus rebajas o liquidaciones.
-*   **How? (¿Cómo?):** Los usuarios utilizarán la solución en dos momentos: en casa para organizar su lista según su presupuesto, y en la calle para seguir la ruta de compras paso a paso. Por su parte, los administradores de tienda la usarán desde sus computadoras para actualizar precios de productos por vencer y revisar métricas de visitas. La difusión se hará mediante redes sociales, alianzas con comercios y códigos QR en tiendas físicas.
-*   **How much? (¿Cuánto?):** Esta dificultad para ahorrar se da en un contexto donde el costo de la canasta alimentaria mantiene una tendencia al alza en Lima Metropolitana (INEI, 2026). Por esta razón, el 41% de los consumidores prioriza activamente la búsqueda de descuentos (Kantar Worldpanel, 2025). Además, desplazarse entre varias tiendas sin un orden planificado puede incrementar hasta en un 20% los costos de transporte del hogar, un gasto que se puede corregir mediante algoritmos de ruteo eficiente (Sabagh Nejad & Fazekas, 2022).
+    *   *Compradores Independientes:* Estudiantes, jóvenes profesionales y responsables del abastecimiento en hogares de Lima Metropolitana que disponen de un presupuesto acotado y requieren optimizar sus tiempos de traslado.
+    *   *Comerciantes Minoristas:* Propietarios, administradores y encargados de bodegas, minimarkets, tiendas de conveniencia y puestos de abasto que precisan dinamizar la rotación de su inventario, reducir la merma de productos y captar clientes presenciales en su entorno comercial local.
+*   **What? (¿Qué?):** La asimetría en el acceso a la información de precios y la ineficiencia logística en la planificación de recorridos de aprovisionamiento minorista. Actualmente existe una marcada inconsistencia entre las tarifas publicadas en canales digitales y los costos en las estanterías de las tiendas físicas, sumado a la falta de herramientas centralizadas para contrastar el costo consolidado de una lista de compras multiestablecimiento. Esta desconexión ocasiona sobrecostos financieros en los hogares e incrementos innecesarios en gastos de transporte y tiempos de traslado.
+*   **Where? (¿Dónde?):** El problema se focaliza en sectores y ejes urbanos de Lima Metropolitana con alta densidad y dispersión de establecimientos minoristas. La solución está dirigida a compradores independientes con conectividad móvil y a comerciantes minoristas interesados en maximizar su presencia georreferenciada en su zona de influencia.
+*   **When? (¿Cuándo?):** Se presenta durante la planificación periódica del aprovisionamiento familiar (semanal o quincenal) y en compras imprevistas de reposición inmediata. La situación se vuelve crítica durante los fines de semana o jornadas de ofertas zonales, periodos en los cuales el stock y las tarifas varían de manera acelerada.
+*   **Why? (¿Por qué?):** Principalmente debido a la fragmentación tecnológica del sector minorista y la rigidez de los sistemas de inventario tradicionales, los cuales impiden la difusión sincronizada de tarifas y promociones hacia el entorno cercano. En consecuencia, el comprador independiente incurre en traslados infructuosos hacia promociones desactualizadas, mientras que el comerciante minorista pierde ventas por no visibilizar oportunamente su catálogo.
+*   **How? (¿Cómo?):** Actualmente, los compradores independientes recopilan información a través de canales dispares (redes sociales, catálogos físicos o consultas presenciales), evaluando de manera manual y aproximada si el diferencial de precio compensa el traslado. En simultáneo, los comerciantes minoristas dependen de medios convencionales de difusión (pizarras físicas, carteles o mensajería cerrada), lo que limita su capacidad para comunicar ofertas de forma inmediata a los compradores locales.
+*   **How much? (¿Cuánto?):** Esta dificultad para optimizar el gasto se agrava ante la continua presión sobre los costos de la canasta alimentaria urbana en Lima Metropolitana, donde las variaciones constantes en los precios de alimentos y servicios reducen de forma directa la capacidad adquisitiva de los hogares (Instituto Nacional de Estadística e Informática [INEI], 2026). De acuerdo con el Banco Central de Reserva del Perú (BCRP, 2025), la volatilidad en las cotizaciones de productos de primera necesidad empuja a las familias a buscar alternativas de ahorro entre múltiples comercios. Por consiguiente, una porción significativa de las familias prioriza la localización de descuentos para equilibrar su presupuesto, mientras que desplazarse entre establecimientos dispersos sin planificación previa genera sobrecostos de hasta un 20% en transporte y pérdida de tiempo por congestión vehicular (Sabagh Nejad & Fazekas, 2022), impacto logístico que puede corregirse mediante algoritmos de trazado y optimización de rutas comerciales.
+
+<br>
+
+**Enunciado del problema:**  
+Los compradores independientes de Lima Metropolitana afrontan barreras para identificar la alternativa de aprovisionamiento de menor costo consolidado, debido a la dispersión de información tarifaria y a la ausencia de herramientas integradas que consideren los tiempos y costos de desplazamiento entre establecimientos. Paralelamente, los comerciantes minoristas carecen de canales digitales centralizados para difundir su catálogo y promociones a compradores de proximidad, lo cual limita la visibilidad oportuna de sus ofertas.
+
+**Objetivo general:**  
+Diseñar, desarrollar y desplegar la plataforma web responsive **Preciazo**, permitiendo que los compradores independientes accedan instantáneamente desde el navegador de cualquier dispositivo móvil o de escritorio —sin requerir la descarga ni la instalación de una aplicación móvil nativa— para consultar precios actualizados, consolidar presupuestos y trazar recorridos comerciales eficientes; proveyendo en simultáneo a los comerciantes minoristas una consola digital para registrar su oferta y dinamizar sus ventas locales.
+
+**Restricciones de alcance:**  
+* El acceso de los usuarios se realizará exclusivamente a través de navegadores web modernos mediante diseño responsive adaptativo, suprimiendo la necesidad de instalación en el almacenamiento del dispositivo.
+* El alcance geográfico operativo se circunscribe a distritos comerciales de Lima Metropolitana.
+* La exactitud de las listas de precios y la disponibilidad de productos se encuentra sujeta a la información suministrada por comerciantes inscritos y validaciones de la comunidad.
+* La versión inicial del sistema no asegura la cobertura de la totalidad del universo comercial de la ciudad.
+* La estructuración de rutas y la estimación de tiempos de viaje dependen de la disponibilidad operativa de servicios externos de geolocalización y mapas.
+* La arquitectura se centra estrictamente en tecnologías web estandarizadas (HTML5, CSS3, TypeScript), descartando el empaquetado nativo durante esta fase de lanzamiento.
 
 ### 1.2.2. Lean UX Process
 
-El proceso de Lean UX adoptado por PeruTech busca validar de forma rápida y continua el valor de la plataforma. A través de la iteración constante entre el entendimiento de las necesidades de usuarios y comerciantes, la formulación de supuestos estratégicos y el planteamiento de hipótesis medibles, aseguramos el desarrollo de un producto mínimo viable centrado en resolver ineficiencias reales de tiempo y presupuesto.
+El proceso de Lean UX adoptado por PeruTech establece un marco de validación continua y temprana de valor para la plataforma **Preciazo**. Mediante la iteración constante de los ciclos de formulación de supuestos (*Think*), diseño de artefactos e interfaces (*Make*) y comprobación empírica con métricas objetivas (*Check*), el equipo orienta el esfuerzo de desarrollo hacia la construcción de un Producto Mínimo Viable (MVP). Este enfoque permite corroborar oportunamente los requisitos críticos de los **compradores independientes** y los **comerciantes minoristas**, minimizando riesgos técnicos y garantizando soluciones eficientes ante las fricciones de costo y desplazamiento urbano.
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-> **The current state of** retail shopping and grocery planning in Lima Metropolitan Area **has focused mainly on** isolated supermarket discounts, traditional physical price browsing, and delivery apps that charge high service fees without optimizing multi-store routes.  
-> **What existing products/services fail to address is** the lack of a unified system that calculates the true total cost of a shopping trip—combining real-time store prices, multi-stop routing efficiency, and transit expenses—to help shoppers make cost-effective decisions.  
-> **Our product/service will address this gap by** providing a collaborative web platform, **SmartCart**, that processes store prices, inventory updates, transportation costs, and user budget limits to generate the most efficient multi-store shopping route.  
-> **Our initial focus will be** independent young buyers and family household managers in Lima Metropolitan Area.  
-> **We’ll know we are successful when we see** independent buyers and household managers regularly completing multi-store purchases using our generated routes and verified price data.
+> **The current state of** retail shopping and local store management in Lima Metropolitan Area **has focused mainly on** individual supermarket discounts, traditional physical price browsing, and isolated delivery platforms that prioritize home delivery fees over local retail foot traffic and budget optimization.  
+> **What existing products/services fail to address is** the lack of a unified, multi-establishment system that calculates the true consolidated cost of an in-person shopping trip—integrating real-time verified prices, multi-stop routing efficiency, and urban transit expenses—while providing proximity merchants with an accessible channel to publish promotions and liquidate slow-moving inventory.  
+> **Our product/service will address this gap by** developing **Preciazo**, an instant-access responsive web platform that optimizes shopping lists against verified retail prices, transit costs, and user budget thresholds to generate dynamic multi-store routes, while equipping proximity retail managers with a centralized dashboard to broadcast local discounts and attract nearby store foot traffic.  
+> **Our initial focus will be** budget-conscious independent buyers (university students and young adults living in Lima) and retail merchants (independent store managers and local market vendors).  
+> **We’ll know we are successful when we see** independent buyers regularly generating and completing multi-store purchases using our optimized routes, and retail merchants actively publishing and updating weekly discount listings on the platform.
 
 #### 1.2.2.2. Lean UX Assumptions
 
-##### Assumptions Worksheet
-*   **¿Quién es el usuario?**
-    El sistema atiende a dos perfiles de compradores urbanos: **Compradores Independientes** (jóvenes y profesionales que buscan rapidez y ofertas de cercanía) y **Administradores del Hogar Familiar** (gestores del presupuesto doméstico que planifican compras de mayor volumen).
-*   **¿Dónde encaja nuestro producto en su trabajo o vida?**
-    Para las personas, entra en su rutina cuando preparan la lista del supermercado y cuando salen a hacer las compras. Para el encargado de tienda, se integra en sus labores diarias para dar salida a productos con alto stock.
-*   **¿Qué problemas resuelve nuestro producto?**
-    Elimina la incertidumbre sobre dónde encontrar los precios más bajos y evita viajes innecesarios. A los comercios les resuelve la falta de llegada digital directa hacia los clientes que caminan por su zona.
-*   **¿Cuándo y cómo es usado el producto?**
-    El cliente lo abre en casa para cotizar su lista y en la calle para guiarse de tienda en tienda. El comercio lo utiliza durante el día para publicar ofertas exprés y revisar la llegada de clientes.
-*   **¿Qué características son importantes?**
-    La comparación instantánea de precios, la sugerencia de rutas que no se pasen del presupuesto tope, la opción de que la comunidad confirme los costos reales y un panel sencillo de control para los comercios.
-*   **¿Cómo debe verse nuestro producto y cómo comportarse?**
-    Debe ser una plataforma limpia, moderna y muy rápida para usar en el teléfono. La vista para tiendas debe mostrar gráficos claros y datos útiles para tomar decisiones de venta sin complicaciones.
-
 ##### Business Assumptions
-1.  **Creemos que nuestros usuarios necesitan** un servicio digital que evalúe si el dinero que se ahorra en una oferta justifica el gasto y tiempo de ir hasta esa tienda.
-2.  **Estas necesidades se pueden satisfacer mediante** una plataforma web que calcule el costo total de la lista de compras y muestre el recorrido más económico según el medio de transporte del usuario.
-3.  **Nuestros usuarios primarios son** personas que administran los gastos de su hogar y encargados de locales comerciales en áreas urbanas concurridas.
-4.  **El valor principal para el usuario es** pagar menos por su compra total y tardar menos tiempo en la calle; para las tiendas, es atraer clientes de su entorno a través de ofertas puntuales.
-5.  **Generaremos ingresos a través de** planes de suscripción para comercios que deseen promocionar sus productos de forma destacada y acceder a reportes de búsqueda en su zona.
-6.  **Nuestra competencia principal incluye** la búsqueda presencial tradicional, los encartes digitales de una sola marca y los servicios de reparto a domicilio que cobran tarifas adicionales.
-7.  **Nuestra ventaja competitiva radica en** calcular el costo real acumulado (precio de productos más costo de viaje) combinando distintas tiendas en un solo itinerario.
-8.  **El mayor riesgo del producto es** que las oficinas centrales de las cadenas limiten la libertad de los administradores locales para ajustar precios en la plataforma.
-9.  **Mitigaremos este riesgo** demostrando con métricas simples cómo las promociones locales aumentan las ventas y reducen la pérdida de productos en el local.
+1. **Creemos que existe una demanda insatisfecha en el mercado** de compradores independientes que requieren una solución tecnológica que determine si el diferencial de ahorro de una oferta justifica el tiempo y costo de traslado urbano.
+2. **Creemos que estas necesidades se satisfacen eficazmente mediante** la plataforma web responsive **Preciazo**, la cual calcula el costo consolidado de la canasta y optimiza itinerarios multiestablecimiento según el medio de locomoción del comprador independiente.
+3. **Creemos que nuestros segmentos primarios son** los compradores independientes (estudiantes universitarios, jóvenes profesionales y jefes de hogar) y los comerciantes minoristas (administradores de bodegas, minimarkets y abastos locales) en zonas de alta densidad comercial de Lima Metropolitana.
+4. **Creemos que la propuesta de valor diferenciada para el comprador independiente es** maximizar su presupuesto y optimizar tiempos de traslado; mientras que para el comerciante minorista es dinamizar la rotación de stock crítico y captar afluencia presencial en tienda física.
+5. **Creemos que el modelo de monetización se sustentará en** planes de suscripción mensual/trimestral para comerciantes minoristas interesados en posicionamiento destacado en el catálogo local y en analítica predictiva de demanda barrial.
+6. **Creemos que los principales competidores del servicio son** la cotización manual presencial, los catálogos estáticos de grandes cadenas y las aplicaciones de delivery que imponen sobrecostos tarifarios de envío.
+7. **Creemos que la ventaja competitiva esencial de Preciazo reside en** consolidar el costo real total de abastecimiento (costo agregado de productos más costo de transporte georreferenciado) a través de una ruta optimizada entre múltiples comercios.
+8. **Creemos que el riesgo operativo crítico es** la posible resistencia o demora inicial de los comerciantes minoristas en la actualización continua y oportuna de sus listas de precios.
+9. **Creemos que mitigaremos dicho riesgo operativo** proveyendo un mecanismo colaborativo de verificación ciudadana de precios y demostrando a los comerciantes el incremento directo en el flujo de visitas y ventas locales.
 
 ##### Business Outcome Assumptions
-1.  Conseguir que el 70% de los usuarios registrados realice al menos una compra siguiendo la ruta recomendada durante su primer mes.
-2.  Lograr que más del 40% de los usuarios activos sigan utilizando la plataforma de manera continua mes a mes.
-3.  Demostrar un ahorro efectivo promedio de al menos 15% en el gasto de la canasta de compras de los usuarios.
-4.  Lograr que 6 de cada 10 tiendas participantes confirmen un aumento en la visita de clientes atraídos por las ofertas publicadas.
+1. **Creemos que lograremos una tasa de adopción activa donde** al menos el 65% de los compradores independientes registrados complete un recorrido de abastecimiento basado en las rutas sugeridas durante su primer mes de uso.
+2. **Creemos que alcanzaremos una retención mensual (*churn rate* reducido) donde** más del 40% de los compradores independientes activos retorne a la plataforma web de forma recurrente semana a semana.
+3. **Creemos que demostraremos la efectividad de la propuesta de valor cuando** el ahorro económico promedio comprobado por los compradores independientes sea de al menos un 15% sobre el valor convencional de su canasta básica.
+4. **Creemos que validaremos la viabilidad de tracción comercial cuando** al menos el 60% de los comerciantes minoristas afiliados reporte un incremento verificable en la afluencia presencial a sus establecimientos derivado de sus publicaciones.
 
 ##### User Assumptions
-1.  **¿Quién es el usuario?** Compradores independientes (18 a 30 años) y administradores del hogar familiar (30 a 55 años) pertenecientes a los niveles socioeconómicos B y C.
-2.  **¿Dónde encaja el producto?** Antes de salir a comprar y durante el recorrido por las tiendas.
-3.  **¿Qué problema resuelve?** Ayuda a elegir la mejor combinación de tiendas sin salirse del presupuesto disponible.
-4.  **¿Cuándo y cómo se usa?** Se consulta 1 o 2 veces por semana al momento de planificar las compras habituales.
+1. **Creemos que los compradores independientes son** individuos de entre 18 y 50 años que gestionan presupuestos definidos, poseen smartphones con conectividad a internet y buscan optimizar sus trayectos cotidianos de aprovisionamiento.
+2. **Creemos que los comerciantes minoristas son** propietarios o encargados de micro y pequeños negocios de abasto que buscan canales digitales accesibles y de bajo costo para dar salida oportuna a su inventario.
+3. **Creemos que la solución encaja en el flujo de vida del comprador independiente** tanto en la fase previa de formulación del presupuesto en el hogar como en la fase operativa durante el recorrido entre comercios.
+4. **Creemos que la solución encaja en la rutina operativa del comerciante minorista** durante las horas matutinas y jornadas de cierre de inventario para difundir promociones sobre productos de alta rotación o fecha de caducidad próxima.
 
 ##### User Outcome and Benefit Assumptions
-1.  El comprador sabrá exactamente cuánto va a gastar antes de salir de su casa.
-2.  El usuario caminará o viajará solo lo necesario, evitando vueltas innecesarias en la ciudad.
-3.  La tienda logrará vender más rápido los productos con fecha próxima de vencimiento o sobrestock.
+1. **Creemos que los compradores independientes obtendrán como beneficio** visibilidad total y anticipada del costo exacto de su lista de abastecimiento antes de iniciar el trayecto físico.
+2. **Creemos que los compradores independientes optimizarán su tiempo de desplazamiento urbano**, minimizando tiempos muertos y gastos innecesarios de movilidad entre tiendas zonales.
+3. **Creemos que los comerciantes minoristas lograrán como resultado** acelerar la rotación de artículos de menor salida y reducir significativamente las pérdidas económicas por merma de bienes perecibles.
+4. **Creemos que los comerciantes minoristas ampliarán su alcance de mercado local**, captando consumidores que habitualmente no frecuentaban su establecimiento.
 
 ##### Feature Assumptions
-1.  **Comparador de Canasta Integral:** Creemos que permitir al usuario armar su lista completa y cruzarla entre varias tiendas mostrará claramente dónde conviene comprar.
-2.  **Calculador de Ruta con Límite de Gasto:** Creemos que sugerir itinerarios respetando el presupuesto máximo fijado evitará sorpresas al momento de pagar.
-3.  **Validación de Precios por Usuarios:** Creemos que permitir que los mismos compradores confirmen si el precio del estante es correcto mantendrá la información confiable.
-4.  **Panel de Ofertas para Comercio:** Creemos que dar una herramienta rápida a los comercios para publicar promociones temporales aumentará el ingreso de personas a sus locales.
+1. **Feature Assumption 1 (Comparador de Canasta Multi-establecimiento):** Creemos que proveer un módulo de armado de listas de compras con cotejo automático multi-establecimiento permitirá a los compradores independientes visualizar y elegir la combinación comercial más económica.
+2. **Feature Assumption 2 (Optimizador de Rutas según Presupuesto Límite):** Creemos que implementar un motor de cálculo de rutas con restricciones presupuestarias y modos de transporte asegurará que los compradores completen sus adquisiciones sin exceder su límite de gasto.
+3. **Feature Assumption 3 (Módulo de Verificación Colaborativa de Precios):** Creemos que habilitar un componente de validación ciudadana donde los compradores confirmen la exactitud de los precios en góndola garantizará la fiabilidad e integridad continua de los datos.
+4. **Feature Assumption 4 (Consola de Gestión y Promociones para Comerciantes):** Creemos que desarrollar una consola simplificada para el registro rápido de catálogos y promociones georreferenciadas incrementará la afluencia de clientes de proximidad hacia los comercios minoristas.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
-*   **Hypothesis Statement 1 (basado en Feature Assumption 1: Comparador de Canasta Integral):**
-    *   **We believe we will achieve** a 15% reduction in overall monthly grocery spending and a platform user retention rate above 40%
-    *   **If** family household managers handling high-volume shopping lists
-    *   **Attain** an accurate, pre-calculated total cost of their entire basket across multiple nearby stores
-    *   **With** a comprehensive multi-store basket comparison engine (**Comparador de Canasta Integral**).
 
-*   **Hypothesis Statement 2 (basado en Feature Assumption 2: Calculador de Ruta con Límite de Gasto):**
-    *   **We believe we will achieve** an average reduction of 25% in total shopping trip duration
-    *   **If** independent young buyers with limited free time and mobility preferences
-    *   **Attain** optimized multi-stop shopping itineraries that strictly respect their maximum budget limit and travel mode
-    *   **With** an interactive route calculator with budget caps (**Calculador de Ruta con Límite de Gasto**).
+*   **Hypothesis Statement 1 (basado en Feature Assumption 1: Comparador de Canasta Multi-establecimiento):**
+    *   **We believe we will achieve** a 70% rate of active users completing at least one guided purchase in their first month and an overall platform user retention above 40%
+    *   **If** independent buyers managing a tight budget
+    *   **Attain** an accurate, pre-calculated total cost of their entire shopping list before leaving home
+    *   **With** a comprehensive multi-store basket comparison engine (**Comparador de Canasta Multi-establecimiento**).
 
-*   **Hypothesis Statement 3 (basado en Feature Assumption 3: Validador de Precios por Usuarios):**
+*   **Hypothesis Statement 2 (basado en Feature Assumption 2: Optimizador de Rutas según Presupuesto Límite):**
+    *   **We believe we will achieve** an average reduction of 25% in the time users spend completing multi-store purchases
+    *   **If** busy urban independent buyers looking to maximize both their time and money
+    *   **Attain** optimized shopping itineraries that strictly respect their maximum budget and transportation choices
+    *   **With** an interactive route calculator with budget caps (**Optimizador de Rutas según Presupuesto Límite**).
+
+*   **Hypothesis Statement 3 (basado en Feature Assumption 3: Módulo de Verificación Colaborativa de Precios):**
     *   **We believe we will achieve** an 80% price verification accuracy rate between reported shelf prices and actual checkout counter costs
-    *   **If** active users from both independent and household manager segments
-    *   **Attain** high trust in platform data accuracy and recognition for contributing real-time price reports
-    *   **With** a crowd-sourced price reporting and verification system (**Validador de Precios por Usuarios**).
+    *   **If** active members of the shopping community
+    *   **Attain** high trust in platform data accuracy and recognition for contributing real-time updates
+    *   **With** a crowd-sourced price reporting and verification system (**Módulo de Verificación Colaborativa de Precios**).
 
-*   **Hypothesis Statement 4 (basado en Feature Assumption 4: Panel de Ofertas para Comercio):**
-    *   **We believe we will achieve** a 20% increase in store foot traffic from nearby buyers looking for immediate discounts
-    *   **If** independent buyers seeking short-term deals and promotions
-    *   **Attain** real-time visibility of local store offers within their immediate geographic perimeter
-    *   **With** a fast-publishing promotion dashboard for store managers (**Panel de Ofertas para Comercio**).
+*   **Hypothesis Statement 4 (basado en Feature Assumption 4: Consola de Gestión y Promociones para Comerciantes):**
+    *   **We believe we will achieve** a 20% drop in food waste/expiration and a 60% rate of partner stores reporting increased foot traffic
+    *   **If** proximity retail merchants dealing with overstocked inventory
+    *   **Attain** immediate local visibility for time-sensitive discounts to draw nearby shoppers into their physical stores
+    *   **With** a fast-publishing promotion dashboard for store managers (**Consola de Gestión y Promociones para Comerciantes**).
 
 #### 1.2.2.4. Lean UX Canvas
 
-<img src="/assets/lean-ux-canvas.png" alt="UPC Logo" width="150"/>
+A continuación se presenta el Lean UX Canvas sintetizado, articulando el problema de negocio, los segmentos, los beneficios esperados, las hipótesis operativas y las tácticas de aprendizaje validado para la plataforma **Preciazo**:
+
+<div align="center">
+  <img src="../assets/lean-ux-canvas.jpg" alt="Lean UX Canvas - Preciazo" width="850"/>
+</div>
+
+> *Figura 1.1: Lienzo de Lean UX Canvas para la solución Preciazo, elaborado por el equipo PeruTech.*
 
 ## 1.3. Segmentos objetivo
+
 ### 1. Compradores Independientes
-Este segmento comprende a jóvenes universitarios, jóvenes profesionales y adultos solteros (de 18 a 30 años) pertenecientes a los niveles socioeconómicos B y C que viven solos o comparten vivienda. Se caracterizan por realizar compras de volumen bajo o medio de manera frecuente y por contar con un tiempo limitado para el abastecimiento. Sus decisiones de compra están fuertemente guiadas por la conveniencia geográfica, el aprovechamiento de descuentos inmediatos y la optimización de sus traslados, desplazándose principalmente a pie o mediante transporte público. Para este grupo, la plataforma resuelve la falta de tiempo y la incertidumbre de precios en establecimientos de proximidad.
+Este segmento comprende a estudiantes universitarios, jóvenes profesionales independientes y responsables del aprovisionamiento familiar que residen en áreas urbanas de Lima Metropolitana, concentrándose en los niveles socioeconómicos (NSE) B y C. Demográficamente, se sitúan en un rango etario de 18 a 50 años, disponen de conectividad constante mediante teléfonos inteligentes y presentan hábitos de consumo orientados a la optimización presupuestaria. 
 
-### 2. Administradores del Hogar Familiar
-Este grupo está integrado por padres, madres o responsables de la economía doméstica (de 30 a 55 años) en hogares de los niveles socioeconómicos B y C. Su perfil se distingue por gestionar canastas de compra complejas y de volumen elevado (semanales o mensuales), donde pequeñas variaciones de costo unitario representan un impacto significativo en el presupuesto familiar. Tienen una alta disposición a planificar sus recorridos con anticipación y a visitar más de un establecimiento si el ahorro neto justificara el desplazamiento. Para este segmento, la plataforma actúa como una herramienta de control financiero y eficiencia logística.
+A nivel estadístico, los estratos B y C destinan entre el 35% y el 45% de sus ingresos mensuales a la adquisición de alimentos y bienes de primera necesidad (Instituto Nacional de Estadística e Informática [INEI], 2026). Asimismo, el 41% de los consumidores peruanos ha adoptado conductas de compra omnicanal y multitienda para mitigar la inflación de la canasta básica, dividiendo sus transacciones en distintos puntos de venta para capturar ofertas (Kantar Worldpanel, 2025). Este grupo experimenta fricciones operativas causadas por la falta de transparencia en los precios físicos y la dispersión geográfica comercial, lo que incrementa hasta en un 20% sus gastos imprevistos de transporte urbano (Sabagh Nejad & Fazekas, 2022). Requieren una herramienta accesible desde el navegador móvil que les permita contrastar costos consolidados y trazar rutas eficientes sin incurrir en desplazamientos infructuosos.
 
----
+
+### 2. Comerciantes Minoristas
+Este segmento abarca a los propietarios, administradores y encargados de establecimientos comerciales de proximidad (bodegas estructuradas, minimarkets, discounters y puestos feriales) ubicados en zonas de alta densidad comercial en Lima Metropolitana. En términos de perfil operativo, gestionan inventarios de alta y mediana rotación, cuentan con equipos de cómputo básico o dispositivos móviles para la administración del local y dependen de una clientela concentrada en un radio de 500 metros a 1.5 kilómetros a la redonda.
+
+En el Perú, el comercio minorista representa más del 12% del Producto Bruto Interno y agrupa a miles de unidades económicas donde la merma y el estancamiento de inventario perecible suponen pérdidas operativas directas de entre el 3% y el 7% de sus ingresos brutos (BCRP, 2025). Pese a la competencia del retail moderno, cerca del 70% de estos negocios carece de plataformas digitales integradas de bajo costo para publicitar liquidaciones puntuales a compradores locales (KPMG, 2025). En consecuencia, este segmento requiere una consola digital ágil y simplificada que les permita anunciar promociones georreferenciadas en tiempo real, impulsando el flujo peatonal presencial (*foot traffic*) y dinamizando la salida de stock antes de su vencimiento.
 
 # Capítulo II: Requirements Elicitation & Analysis
 
 ## 2.1. Competidores
 
-En el marco del desarrollo de la solución de software propuesta por PeruTech, resulta fundamental examinar de manera rigurosa el panorama competitivo en el que operará el sistema. El mercado digital orientado al consumo masivo, aprovisionamiento doméstico y comercio minorista en el país presenta diversas alternativas tecnológicas que resuelven de forma fragmentada las necesidades del consumidor final. El presente acápite tiene como propósito clasificar, analizar y contrastar las soluciones directas e indirectas existentes frente a nuestra propuesta de valor, identificando brechas operativas, limitaciones de modelo y oportunidades estratégicas que permitan posicionar a la plataforma como una alternativa técnica eficiente, transparente y orientada al ahorro efectivo del presupuesto de los hogares peruanos.
+En el mercado digital orientado al consumo masivo, abastecimiento doméstico y gestión de compras, existen diversas alternativas tecnológicas con modelos de negocio digitales. A continuación, se detallan tres competidores representativos (directos e indirectos) que resuelven de forma fragmentada las necesidades del consumidor y los comercios.
+
+### 1. Rappi / Fazil (Plataformas de Quick-Commerce y Delivery Retail)
+* **Descripción del producto digital:** Aplicaciones móviles y plataformas web orientadas al comercio electrónico rápido bajo demanda, integrando catálogos de supermercados, tiendas de descuento y tiendas de conveniencia mediante reparto a domicilio.
+* **Modelo de negocio:** Comisión porcentual retenida por cada venta efectuada a los comercios afiliados (entre 15% y 25%), tarifas adicionales cobradas al consumidor (costo de envío y tasa de servicio), y programas de membresía mensual (*RappiPrime*).
+* **Tipo de competidor:** Indirecto.
+* **Limitaciones frente a Preciazo:** Se enfocan exclusivamente en la comodidad del despacho a domicilio a cambio de un sobreprecio significativo, incrementando el gasto familiar. No ofrecen comparación de canasta física multitienda ni trazan itinerarios para compras presenciales a pie o en transporte público, dejando fuera a bodegas locales y comercios tradicionales sin capacidad de reparto.
+
+### 2. Tiendeo / Ofertia (Agregadores de Catálogos y Folletos Digitales)
+* **Descripción del producto digital:** Plataformas web y aplicaciones móviles que centralizan encartes, folletos promocionales y revistas comerciales de grandes cadenas minoristas y tiendas por departamento en formato digital estático (PDF interactivo).
+* **Modelo de negocio:** Publicidad digital nativa, venta de espacios destacados a marcas de retail por coste por clic (CPC) o coste por mil impresiones (CPM), y generación de tráfico promocional geolocalizado.
+* **Tipo de competidor:** Directo / Indirecto.
+* **Limitaciones frente a Preciazo:** La información se presenta en folletos estáticos que obligan al usuario a buscar manualmente página por página; no permiten ingresar una lista de compras para calcular un presupuesto consolidado dinámico, no informan costos en tiempo real ni optimizan trayectos entre diferentes puntos de venta.
+
+### 3. Out of Milk (Gestores de Listas de Compras y Alacena)
+* **Descripción del producto digital:** Aplicación móvil diseñada para la confección y organización de listas de compras domésticas, control de despensa básica y escaneo de códigos de barra para registrar productos en el hogar.
+* **Modelo de negocio:** Modelo Freemium financiado principalmente mediante la inserción de publicidad gráfica y anuncios display en la interfaz, ofreciendo una compra única para remover los anuncios publicitarios.
+* **Tipo de competidor:** Indirecto.
+* **Limitaciones frente a Preciazo:** Es una herramienta estrictamente organizativa y cerrada al inventario personal del usuario. Carece de base de datos de precios en góndola de comercios reales, no realiza comparaciones de costo monetario entre tiendas, no cuenta con geolocalización de rutas y no ofrece ningún canal de conexión para comerciantes minoristas.
+
+---
 
 ### 2.1.1. Análisis competitivo
 
-El ecosistema retail en el Perú ha experimentado un avance hacia la digitalización comercial; sin embargo, persiste una limitación estructural: la gran mayoría de plataformas operan como canales de venta diseñados para promover el consumo cautivo dentro de su propia tienda, en lugar de desempeñarse como herramientas orientadas al ahorro objetivo que asistan al consumidor en la toma de decisiones informadas para adquirir productos al menor costo real.
+El ecosistema retail en el Perú ha experimentado un avance hacia la digitalización comercial; sin embargo, persiste una limitación estructural: la gran mayoría de plataformas operan como canales de venta diseñados para promover el consumo cautivo dentro de su propia tienda o cobrar recargos por intermediación, en lugar de desempeñarse como herramientas orientadas al ahorro objetivo que asistan al consumidor en la toma de decisiones informadas para adquirir productos al menor costo real.
 
-# Competitive Analysis Landscape - PeruTech
+#### Competitive Analysis Landscape
 
-| **¿Por qué llevar a cabo este análisis?** | **Identificar las ventajas competitivas de PeruTech frente a soluciones de delivery, agregadores de catálogos y gestores de alacena, permitiendo posicionarnos como una plataforma web que integra optimización de presupuesto, control de despensa y rutas presenciales de compra en el mercado peruano.** |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                           |                                                                                                                                                                                                                                                       |
+| **¿Por qué llevar a cabo este análisis?** | **Identificar las ventajas competitivas de Preciazo (desarrollado por PeruTech) frente a soluciones de delivery, agregadores de catálogos y gestores de alacena, permitiendo posicionarnos como una plataforma web que integra optimización de presupuesto, comparativa de precios y trazado de rutas presenciales de compra en el mercado peruano.** |
+| :--- | :--- |
 
-| Perfil | Atributo | PeruTech | Rappi / Fazil | Tiendeo / Ofertia | Out of Milk |
+| Perfil | Atributo | Preciazo (PeruTech) | Rappi / Fazil | Tiendeo / Ofertia | Out of Milk |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Perfil** | **Overview** | Plataforma web de planificación presupuestaria de compras, comparador de costos en góndola y gestión de despensa presencial. | Ecosistema digital de comercio electrónico y logística de despachos inmediatos bajo demanda. | Plataforma agregadora de catálogos comerciales y encartes publicitarios en formato digital estático (PDF). | Herramienta móvil para confección de listas de compras y registro de existencias en el hogar. |
-| | **Ventaja competitiva ¿Qué valor ofrece a los clientes?** | Algoritmo propio de optimización presupuestaria y cálculo anticipado del costo total en góndola antes del pago en caja, junto con ordenamiento secuencial por pasillos. Brinda al usuario un ahorro monetario tangible y eficiencia de tiempo en compras presenciales sin sobreprecios ni cobros de servicio. | Infraestructura masiva de repartidores y entregas en lapsos reducidos. Ofrece comodidad inmediata al usuario al recibir los artículos en su domicilio sin desplazarse, priorizando el ahorro de tiempo a cambio de comisiones adicionales por servicio y envío. | Centralización de folletos y encartes promocionales de diversas cadenas minoristas en una sola interfaz. Ofrece visibilidad anticipada de promociones semanales, aunque sin herramientas de cálculo presupuestario dinámico ni asistencia durante la visita física. | Panel integrado para revisar stock de alacena y registrar faltantes mediante escaneo de código de barras, reduciendo la compra de artículos duplicados en alimentos básicos de uso regular. |
-| **Perfil de Marketing** | **Mercado Objetivo** | Compradores independientes, parejas jóvenes y jefes de hogar de zonas urbanas que buscan optimizar su presupuesto y tiempo en compras presenciales. | Usuarios de niveles socioeconómicos A y B que priorizan la conveniencia y la inmediatez sobre el costo final de la canasta. | Personas habituadas a la consulta tradicional de folletos impresos y búsqueda anticipada de ofertas minoristas. | Consumidores que administran inventarios de cocina y priorizan el orden doméstico de insumos básicos. |
-| | **Estrategias de marketing** | Posicionamiento orgánico web (SEO) centrado en finanzas personales, mercadeo de contenidos comunitarios y convenios de visibilidad con comercios minoristas. | Captación agresiva sustentada en cupones promocionales, programas de suscripción mensual (Prime) y convenios corporativos de exclusividad. | Posicionamiento en motores de búsqueda para términos relacionados con ofertas comerciales y pauta publicitaria con marcas retail. | Posicionamiento orgánico en tiendas de aplicaciones móviles (ASO) y monetización por despliegue de anuncios display. |
-| **Perfil de Producto** | **Productos & Servicios** | Plataforma Web responsiva desarrollada en Angular con servicios RESTful backend en Spring Boot, cálculo presupuestario e inventario de alacena. | Aplicación de delivery con geolocalización en tiempo real, pasarela de pagos integrada y billetera digital. | Visor web y móvil de folletos interactivos geolocalizados sin motor transaccional de compras. | Herramienta móvil para edición de listas, gestión de existencias y escaneo de códigos de barra. |
-| | **Precios & Costos** | Esquema Freemium (funcionalidades esenciales de acceso gratuito; suscripción mensual de $4.99 para analítica de gasto y comparativas avanzadas). | Precios de góndola con margen incrementado, tarifa fija por despacho, tarifa de servicio (*service fee*) y costo de propinas. | Gratuito para el usuario final (modelo financiado directamente por la inversión publicitaria de las marcas retail). | Gratuito con inserción constante de anuncios visuales; pago único opcional para remover la publicidad. |
-| | **Canales de distribución** | Plataforma Web accesible desde navegadores modernos (escritorio y móviles), articulada con el Landing Page oficial. | Tiendas de distribución móvil (Google Play Store, App Store) y portal web de comercio electrónico. | Tiendas de distribución móvil y portal web informativo de catálogos. | Tiendas de distribución móvil (Google Play Store y App Store). |
-| **SWOT** | PeruTech | Rappi / Fazil | Tiendeo / Ofertia | Out of Milk |
-| **Fortalezas** | Algoritmo propio para proyección presupuestaria y ordenamiento de rutas por pasillos; arquitectura web escalable; diseño inclusivo; total transparencia en costos presenciales. | Logística robusta y red masiva de repartidores consolidada; presupuesto elevado para marketing y fidelización de usuarios; convenios directos con cadenas de retail. | Extensa base de datos de catálogos comerciales a nivel nacional; interfaz intuitiva para lectura de volantes publicitarios; alto reconocimiento en búsqueda de ofertas. | Módulo dual de despensa y lista de compras integrado; escaneo funcional de código de barras; baja demanda de recursos en el dispositivo cliente. |
-| **Debilidades** | Marca en fase inicial de penetración; volumen de datos inicial dependiente de la integración de establecimientos comerciales y adopción temprana de la comunidad. | Precios finales notablemente inflados frente a la compra directa en tienda; altas comisiones de servicio por pedido; dependencia de la disponibilidad de repartidores. | Contenido estático en imágenes o PDF que no permite búsquedas dinámicas de precios unitarios; nula asistencia en cálculo del gasto acumulado en tienda. | Interfaz gráfica desactualizada; ausencia de sincronización web colaborativa en tiempo real; saturación excesiva de publicidad en su versión gratuita. |
-| **Oportunidades** | Incremento de la inflación que aumenta la sensibilidad al precio en compras familiares; expansión del comercio minorista de descuento (tiendas de conveniencia como Mass y Vega). | Expansión hacia servicios financieros digitales (billeteras electrónicas) y programas corporativos de abastecimiento de oficinas. | Alianzas con pequeños comerciantes y bodegas de barrio para digitalizar sus promociones y volantes impresos. | Modernización visual del sistema orientada al consumo responsable y prevención del desperdicio de insumos perecibles. |
-| **Amenazas** | Restricciones de acceso a datos públicos por parte de grandes cadenas de retail; incorporación de módulos de listas en plataformas bancarias o billeteras móviles. | Modificaciones en regulaciones laborales sobre repartidores que eleven los costos operativos; saturación y deserción de usuarios por cobros excesivos de servicio. | Desplazamiento por parte de usuarios jóvenes que demandan datos estructurados en tiempo real en lugar de lectura de folletos extensos. | Abandono de usuarios hacia aplicaciones genéricas de notas compartidas integradas en los sistemas operativos móviles. |
-
-
+| **Perfil** | **Overview** | Plataforma web de planificación presupuestaria de compras, comparador de costos en góndola y optimización de rutas comerciales entre locales. | Ecosistema digital de comercio electrónico y logística de despachos inmediatos bajo demanda. | Plataforma agregadora de catálogos comerciales y encartes publicitarios en formato digital estático (PDF). | Herramienta móvil para confección de listas de compras y registro de existencias en el hogar. |
+| | **Ventaja competitiva ¿Qué valor ofrece a los clientes?** | Algoritmo de optimización presupuestaria y cálculo anticipado del costo total de la canasta antes del pago en caja, junto con el trazado de rutas óptimas entre locales comerciales. Ofrece a los compradores ahorro monetario tangible sin cobros de intermediación, y a los comerciantes locales un canal directo de visibilidad para sus ofertas. | Infraestructura masiva de repartidores y entregas en lapsos reducidos. Ofrece comodidad inmediata al usuario al recibir los artículos en su domicilio sin desplazarse, priorizando el ahorro de tiempo a cambio de comisiones adicionales por servicio y envío. | Centralización de folletos y encartes promocionales de diversas cadenas minoristas en una sola interfaz. Ofrece visibilidad anticipada de promociones semanales, aunque sin herramientas de cálculo presupuestario dinámico ni asistencia durante la visita física. | Panel integrado para revisar stock de alacena y registrar faltantes mediante escaneo de código de barras, reduciendo la compra de artículos duplicados en alimentos básicos de uso regular. |
+| **Perfil de Marketing** | **Mercado Objetivo** | Compradores independientes y consumidores urbanos que buscan optimizar su presupuesto; y comerciantes minoristas o administradores de tiendas locales interesados en visibilizar sus promociones en su zona de influencia. | Usuarios de niveles socioeconómicos A y B que priorizan la conveniencia y la inmediatez sobre el costo final de la canasta. | Personas habituadas a la consulta tradicional de folletos impresos y búsqueda anticipada de ofertas minoristas. | Consumidores que administran inventarios de cocina y priorizan el orden doméstico de insumos básicos. |
+| | **Estrategias de marketing** | Posicionamiento orgánico web (SEO) centrado en ahorro inteligente, difusión comunitaria y programas de afiliación de bajo costo para comercios locales. | Captación agresiva sustentada en cupones promocionales, programas de suscripción mensual (Prime) y convenios corporativos de exclusividad. | Posicionamiento en motores de búsqueda para términos relacionados con ofertas comerciales y pauta publicitaria con marcas retail. | Posicionamiento orgánico en tiendas de aplicaciones móviles (ASO) y monetización por despliegue de anuncios display. |
+| **Perfil de Producto** | **Productos & Servicios** | Plataforma Web responsiva con enfoque *mobile-first* desarrollada en Angular con servicios RESTful backend en Spring Boot, cálculo de canasta económica y panel de gestión de ofertas para comercios. | Aplicación de delivery con geolocalización en tiempo real, pasarela de pagos integrada y billetera digital. | Visor web y móvil de folletos interactivos geolocalizados sin motor transaccional de compras. | Herramienta móvil para edición de listas, gestión de existencias y escaneo de códigos de barra. |
+| | **Precios & Costos** | Esquema Freemium (acceso gratuito para compradores con funciones esenciales de presupuesto y rutas; plan de afiliación mensual accesible en Soles para comerciantes que deseen destacar promociones). | Precios de góndola con margen incrementado, tarifa fija por despacho, tarifa de servicio (*service fee*) y costo de propinas. | Gratuito para el usuario final (modelo financiado directamente por la inversión publicitaria de las marcas retail). | Gratuito con inserción constante de anuncios visuales; pago único opcional para remover la publicidad. |
+| | **Canales de distribución** | Plataforma Web accesible desde cualquier navegador moderno (escritorio y móviles), integrada con su Landing Page oficial. | Tiendas de distribución móvil (Google Play Store, App Store) y portal web de comercio electrónico. | Tiendas de distribución móvil y portal web informativo de catálogos. | Tiendas de distribución móvil (Google Play Store y App Store). |
+| **SWOT** | | **Preciazo (PeruTech)** | **Rappi / Fazil** | **Tiendeo / Ofertia** | **Out of Milk** |
+| **Fortalezas** | | Algoritmo propio para proyección presupuestaria y optimización de rutas entre locales; arquitectura web escalable; total transparencia de precios presenciales; valor agregado tanto para compradores como para comercios afiliados. | Logística robusta y red masiva de repartidores consolidada; presupuesto elevado para marketing y fidelización de usuarios; convenios directos con cadenas de retail. | Extensa base de datos de catálogos comerciales a nivel nacional; interfaz intuitiva para lectura de volantes publicitarios; alto reconocimiento en búsqueda de ofertas. | Módulo dual de despensa y lista de compras integrado; escaneo funcional de código de barras; baja demanda de recursos en el dispositivo cliente. |
+| **Debilidades** | | Plataforma en fase inicial de penetración; volumen de datos inicial dependiente de la integración progresiva de establecimientos comerciales y adopción temprana de la comunidad. | Precios finales notablemente inflados frente a la compra directa en tienda; altas comisiones de servicio por pedido; dependencia de la disponibilidad de repartidores. | Contenido estático en imágenes o PDF que no permite búsquedas dinámicas de precios unitarios; nula asistencia en cálculo del gasto acumulado en tienda. | Interfaz gráfica desactualizada; ausencia de sincronización web colaborativa en tiempo real; saturación excesiva de publicidad en su versión gratuita. |
+| **Oportunidades** | | Sensibilidad al precio en compras presenciales ante variaciones de inflación; crecimiento de cadenas de descuento y necesidad de digitalización de bodegas de barrio. | Expansión hacia servicios financieros digitales (billeteras electrónicas) y programas corporativos de abastecimiento de oficinas. | Alianzas con pequeños comerciantes y bodegas de barrio para digitalizar sus promociones y volantes impresos. | Modernización visual del sistema orientada al consumo responsable y prevención del desperdicio de insumos perecibles. |
+| **Amenazas** | | Restricciones de acceso a datos públicos por parte de grandes cadenas de retail; incorporación de módulos de listas en plataformas bancarias o billeteras móviles. | Modificaciones en regulaciones laborales sobre repartidores que eleven los costos operativos; saturación y deserción de usuarios por cobros excesivos de servicio. | Desplazamiento por parte de usuarios jóvenes que demandan datos estructurados en tiempo real en lugar de lectura de folletos extensos. | Abandono de usuarios hacia aplicaciones genéricas de notas compartidas integradas en los sistemas operativos móviles. |
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-A partir del diagnóstico FODA cruzado y el mapeo del entorno competitivo, se establecen las siguientes estrategias y tácticas preliminares para consolidar la propuesta de valor de PeruTech en el mercado:
+A partir del diagnóstico FODA cruzado y el mapeo del entorno competitivo, la startup **PeruTech** define las siguientes estrategias y tácticas preliminares para consolidar la propuesta de valor de **Preciazo** frente a las fortalezas y debilidades de los competidores, capitalizando las oportunidades del mercado y mitigando amenazas del entorno:
 
-* **Frente a Rappi / Fazil (Ecosistemas de Delivery On-Demand):**
-  * **Estrategia (Aprovechamiento de debilidades y mitigación de amenazas):** Posicionar a PeruTech como la solución idónea frente a la sobretasa logística, orientada al consumidor que prioriza el ahorro neto sobre la inmediatez delegada, neutralizando la amenaza de saturación por tarifas de intermediación infladas.
+* **Frente a Rappi / Fazil (Ecosistemas de Delivery On-Demand y Quick-Commerce):**
+  * **Estrategia (Aprovechamiento de debilidades y mitigación de amenazas):** Contrarrestar la fortaleza logística del delivery posicionando a Preciazo como la alternativa enfocada en el ahorro neto real. Se aprovecha la debilidad de sus sobrecostos por comisiones (15% a 25%) y tarifas de servicio, captando la oportunidad que representa la sensibilidad del consumidor frente a la inflación en la canasta básica.
   * **Tácticas:**
-    * Implementar un comparador en tiempo real que contraste el costo del ticket presencial proyectado frente al costo promedio inflado en aplicaciones de delivery, visibilizando el ahorro monetario directo.
-    * Incorporar la funcionalidad de optimización de rutas por pasillos para que la compra física demande el menor tiempo posible, mitigando la ventaja de comodidad de los repartidores.
+    * Desarrollar un comparador dinámico en tiempo real que contraste el ticket presencial acumulado versus el costo estimado en aplicaciones de entrega, transparentando el ahorro directo para el hogar.
+    * Implementar un algoritmo de geolocalización que calcule itinerarios y rutas comerciales óptimas (a pie o transporte público), minimizando el gasto de pasajes y el tiempo de desplazamiento.
+    * Ofrecer a bodegas y minimarkets una consola accesible de bajo costo que no recorte sus márgenes operativos como lo hacen las apps de delivery.
 
-* **Frente a Tiendeo / Ofertia (Agregadores de Catálogos Estáticos):**
-  * **Estrategia (Explotación de limitaciones técnicas y oportunidades de mercado):** Reemplazar la consulta pasiva de folletos publicitarios estáticos mediante una arquitectura basada en datos estructurados y dinámicos, captando al público joven que desestima los catálogos en formato PDF.
+* **Frente a Tiendeo / Ofertia (Agregadores de Catálogos y Folletos Digitales):**
+  * **Estrategia (Explotación de limitaciones técnicas y captura de oportunidades):** Neutralizar su posicionamiento en folletos promocionales reemplazando la lectura pasiva de archivos estáticos (PDF o imágenes) por datos estructurados y actualizados en tiempo real, captando a los usuarios que demandan inmediatez y exactitud en góndola.
   * **Tácticas:**
-    * Desarrollar un motor de búsqueda indexada por categoría de producto y marca que desglose el precio unitario y permita la comparativa inmediata entre distintos establecimientos.
-    * Integrar un módulo de presupuesto en vivo que consolide la suma automática de los ítems seleccionados antes de acudir al punto de venta.
+    * Desarrollar un motor de búsqueda indexada por producto, presentación y marca que calcule automáticamente el precio unitario en cada tienda física registrada.
+    * Incorporar una calculadora presupuestaria en vivo que compute el costo consolidado de la canasta antes de que el usuario acuda a comprar.
+    * Habilitar un sistema colaborativo de validación comunitaria donde los usuarios verifiquen y reporten discordancias entre precios anunciados y precios en caja.
 
-* **Frente a Out of Milk (Gestores Móviles de Despensa y Listas):**
-  * **Estrategia (Superación tecnológica y experiencia de usuario):** Diseñar una solución integral que conecte el control de inventario doméstico con la disponibilidad de góndola en una plataforma web moderna, eliminando la fricción de interfaces obsoletas saturadas de publicidad invasiva.
+* **Frente a Out of Milk (Gestores de Listas de Compras y Alacena):**
+  * **Estrategia (Superación tecnológica y mejora de experiencia de usuario):** Superar su fortaleza en organización doméstica enlazando la planificación de despensa con la realidad del mercado (precios reales en tienda), solucionando su debilidad de interfaces saturadas de publicidad invasiva y carentes de sincronización con comercios.
   * **Tácticas:**
-    * Proporcionar una plataforma web responsiva construida con Angular y Material Design accesible desde cualquier navegador sin obligar a la descarga de aplicativos pesados.
+    * Diseñar una plataforma web responsiva con arquitectura *Mobile-First*, liviana y accesible desde cualquier navegador moderno, evitando descargas obligatorias de apps pesadas.
+    * Integrar listas de compra interactivas que vinculen automáticamente cada ítem con las ofertas y liquidaciones geolocalizadas más cercanas.
+    * Implementar un entorno limpio y libre de anuncios display obstructivos, priorizando la agilidad de consulta y la claridad visual en la interfaz.
+
 
 ## 2.2. Entrevistas
-
-Con el objetivo de validar las hipótesis iniciales del modelo de solución, comprender a profundidad los puntos de dolor y modelar con precisión los requerimientos funcionales del sistema, se desarrolló un proceso de investigación cualitativa sustentado en entrevistas en profundidad. Esta recolección de información se orientó de manera directa a representantes reales de los segmentos objetivo definidos para PeruTech: compradores individuales independientes y gestores de presupuesto familiar. A través de este acercamiento empírico, se exploraron sus hábitos de abastecimiento, los métodos actuales para controlar sus gastos, las dificultades al momento de recorrer los establecimientos comerciales y su disposición frente al uso de herramientas digitales para la optimización de sus compras presenciales.
-
 ### 2.2.1. Diseño de entrevistas
 
-El diseño del instrumento cualitativo se basa en el enfoque de Diseño Centrado en el Usuario (UCD) para recopilar evidencia empírica directa. Esta información sustenta la construcción rigurosa de los arquetipos (User Personas), mapas de empatía y recorridos de usuario (User Journey Maps).
+El diseño del instrumento cualitativo desarrollado por **PeruTech** se fundamenta en el enfoque de Diseño Centrado en el Usuario (UCD) para recopilar evidencia empírica directa y validar los requisitos de la plataforma **Preciazo**. Esta información sustenta la construcción técnica de los arquetipos (*User Personas*), mapas de empatía (*Empathy Maps*) y recorridos de usuario (*User Journey Maps*).
 
-El cuestionario integra variables demográficas, competencias digitales y hábitos de consumo, complementadas con aspectos operativos vinculados a la propuesta de valor de PeruTech. Las preguntas se dividen formalmente en principales, orientadas a validar el problema y la viabilidad de la solución, y complementarias, enfocadas en profundizar en las fricciones de transporte, hábitos de compra y control del presupuesto familiar.
-
----
-
-#### A. Preguntas de perfil demográfico y construcción de arquetipos (Comunes para ambos segmentos)
-*Objetivo: Obtener datos de contexto, antecedentes biográficos, nivel de digitalización y hábitos de consumo.*
-
-1. **Datos Demográficos y Contexto:** ¿Cuál es su edad, ocupación actual, estado civil y distrito de residencia habitual?
-2. **Composición del Hogar:** ¿Con cuántas personas convive actualmente y cómo se distribuyen las responsabilidades en la administración del presupuesto cotidiano?
-3. **Dispositivos y Habilidades Digitales:** ¿Qué dispositivos tecnológicos (smartphone, tablet, laptop) utiliza con mayor frecuencia y qué nivel de soltura considera que posee al interactuar con aplicaciones web o móviles nuevas?
-4. **Marcas, Canales e Influencias:** ¿Qué aplicaciones digitales consulta con regularidad (redes sociales, banca móvil, billeteras digitales, e-commerce) y a través de qué medios se informa preferentemente sobre finanzas o consumo?
+El instrumento integra variables demográficas, competencias digitales y dinámicas operativas adaptadas a cada perfil objetivo. Para el segmento del consumidor final, las preguntas indagan en los hábitos de abastecimiento, sensibilidad al precio, planificación de rutas y control de gastos; mientras que, para el segmento del comerciante minorista o administrador de tienda, el cuestionario se orienta a comprender los mecanismos de fijación de precios, la difusión de promociones y las barreras de visibilidad frente a las grandes cadenas minoristas. Las preguntas se estructuran rigurosamente en principales (orientadas a validar los problemas clave y la viabilidad de la solución) y complementarias (enfocadas en profundizar en variables de personalidad, hábitos cotidianos y fricciones operativas).
 
 ---
 
-#### B. Segmento Objetivo 1: Compradores Multitienda y Optimizadores de Desplazamiento
+#### A. Preguntas de perfil demográfico y construcción de arquetipos (Comunes y de contexto)
+*Objetivo: Obtener datos biográficos de base, entorno operativo, nivel de digitalización y hábitos tecnológicos de los entrevistados.*
+
+1. **Datos Demográficos y Contexto:** ¿Cuál es su edad, ocupación/cargo actual, grado de instrucción y distrito donde reside o donde opera su establecimiento?
+2. **Contexto Operativo y del Entorno:** 
+   * *Para el consumidor:* ¿Con cuántas personas convive habitualmente y quién asume la responsabilidad de las compras del día a día?
+   * *Para el comerciante:* ¿Cuál es el rubro o giro principal de su negocio (bodega, minimarket, puesto de abastos) y cuántos años lleva operando en la zona?
+3. **Dispositivos y Competencias Digitales:** ¿Qué dispositivos tecnológicos (smartphone, tablet, laptop) utiliza a diario y con qué nivel de facilidad interactúa con nuevas aplicaciones web o herramientas digitales?
+4. **Canales, Herramientas e Influencias:** ¿Qué aplicaciones o servicios digitales consulta con mayor frecuencia (billeteras digitales como Yape/Plin, redes sociales, banca móvil, plataformas web) para sus actividades cotidianas o laborales?
+
+---
+
+#### B. Segmento Objetivo 1: Compradores Independientes (Compradores Multitienda y Optimizadores de Desplazamiento)
 *Perfil: Individuos que recorren diversos establecimientos buscando optimizar presupuesto frente a las distancias urbanas.*
 
 * **Preguntas Principales:**
@@ -444,28 +600,27 @@ El cuestionario integra variables demográficas, competencias digitales y hábit
 
 ---
 
-#### C. Segmento Objetivo 2: Administradores del Hogar y Gestores de Despensa Familiar
-*Perfil: Responsables principales del aprovisionamiento familiar, enfocados en el control del gasto y el abastecimiento doméstico.*
+#### C. Segmento Objetivo 2: Comerciantes Minoristas y Administradores de Tiendas Locales
+*Perfil: Propietarios, administradores o encargados de bodegas, minimarkets y puestos de abasto responsables de la fijación de precios, control de existencias y comercialización de productos de consumo masivo.*
 
 * **Preguntas Principales:**
-  1. ¿Cómo coordinas y recopilas las solicitudes de compras cuando intervienen múltiples integrantes de la familia dentro del hogar?
-  2. ¿Qué porcentaje aproximado de los ingresos familiares se destina mensualmente al aprovisionamiento de alimentos y artículos de primera necesidad?
-  3. ¿Qué procedimiento aplicas para revisar qué insumos están por agotarse o vencer en tu alacena antes de realizar la compra del mes o de la quincena?
-  4. ¿Con qué frecuencia te ocurre comprar productos duplicados o innecesarios por no contar con una visibilidad certera del stock de tu alacena al estar fuera de casa?
-  5. ¿Qué dificultades o situaciones de estrés experimentas al consolidar el total de la compra al momento de llegar a la caja registradora?
-  6. ¿Qué funcionalidades esenciales considerarías determinantes para adoptar una plataforma web orientada al control colaborativo del presupuesto y la despensa familiar?
+  1. ¿Qué canales o métodos utiliza actualmente para comunicar sus precios, promociones del día y ofertas a los clientes de su zona (pizarras, carteles, redes sociales, catálogos físicos)?
+  2. ¿Con qué frecuencia actualiza los precios de sus productos de mayor rotación (arroz, azúcar, lácteos, abarrotes) y qué criterios considera para realizar ajustes frente a la competencia de grandes cadenas o tiendas de conveniencia?
+  3. ¿Cómo gestiona el control de su inventario diario y la identificación de artículos próximos a vencer o con bajo movimiento comercial?
+  4. ¿Qué dificultades o limitaciones experimenta al intentar captar nuevos compradores presenciales que transitan por su zona de influencia?
+  5. Si existiera una plataforma digital donde los vecinos pudieran comparar canastas y ver los precios de su local antes de salir de casa, ¿qué tan dispuesto estaría a registrar su negocio y publicar sus ofertas?
+  6. ¿Qué herramientas o facilidades consideraría indispensables en un panel web para animarse a mantener actualizados sus precios y productos sin que le demande demasiado tiempo operativo?
 
 * **Preguntas Complementarias:**
-  1. Si un producto de primera necesidad excede tu presupuesto previsto en góndola, ¿optas por cambiar de marca, reducir la cantidad o descartar la compra?
-  2. ¿Quiénes colaboran en tu hogar con la actualización de la lista de víveres y qué fricciones surgen si alguien olvida anotar un producto agotado?
-  3. ¿Utilizas alguna libreta física, aplicación de notas compartidas o Excel para llevar el registro histórico de tus egresos mensuales en despensa?
+  1. ¿Cuáles son los principales motivos por los que un cliente habitual decide no concretar una compra en su establecimiento (falta de stock, diferencia de precio, métodos de pago)?
+  2. ¿Qué opina sobre las comisiones y condiciones de las aplicaciones de delivery tradicionales (como Rappi o PedidosYa)? ¿Considera que benefician o perjudican el margen de ganancia de un comercio local?
+  3. ¿Utiliza actualmente algún software de punto de venta (POS), hojas de cálculo en Excel o registros manuales (cuadernos) para administrar las ventas y el flujo de caja de su negocio?
 
-
-
+---
 
 ### 2.2.2. Registro de entrevistas
 
-A continuación, se presenta la bitácora de las entrevistas cualitativas realizadas a los representantes de los segmentos objetivo. Los datos recopilados documentan las características demográficas, hábitos tecnológicos, canales de interacción, dispositivos y factores psicográficos requeridos para la formulación formal de los arquetipos de usuario.
+A continuación, se presenta la bitácora de las seis entrevistas cualitativas realizadas a los representantes de ambos segmentos objetivo, consolidadas en un único registro audiovisual compilado en Microsoft Stream, especificando la marca de tiempo exacta de inicio, término y duración de cada sesión. Los datos recopilados documentan las características demográficas, hábitos tecnológicos, canales de interacción, dispositivos y factores psicográficos requeridos para la formulación formal de los arquetipos de usuario.
 
 ---
 
@@ -477,297 +632,363 @@ A continuación, se presenta la bitácora de las entrevistas cualitativas realiz
   * **Distrito de residencia:** San Miguel, Lima
   * **Ocupación:** Desarrollador de Software / Profesional Independiente
   * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** [Ver Registro en Microsoft Stream](https://web.microsoftstream.com/)
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[04:30 min]`
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221a525_upc_edu_pe/IQALn1WCs-n2RKG7i-4XYYVKAYtnp2Uw9sig9WHpe8BqaZc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=K0Fd6F)
+  * **Timing de inicio y término:** `00:00 - 04:30`
+  * **Duración:** `04:30 min`
   * **Perfil técnico y entorno digital:**
     * *Dispositivos habituales:* Smartphone Android (gama media-alta) y Laptop personal.
     * *Navegador de preferencia:* Google Chrome.
     * *Canales digitales e influencias:* Billeteras digitales (Yape, Plin), aplicaciones bancarias (BCP), Google Maps y foros tecnológicos.
     * *Rasgos de personalidad:* Analítico, pragmático, enfocado en la eficiencia de tiempos y reservado en gastos innecesarios.
   * **Resumen descriptivo:** Fernando reside de manera independiente y realiza compras de aprovisionamiento de forma quincenal. Suele dividir sus compras entre el mercado zonal para alimentos frescos y un supermercado de cadena para abarrotes y artículos de aseo, con el fin de abaratar costos. Manifiesta alta frustración por el tráfico vehicular y los tiempos muertos de traslado entre locales, lo cual en ocasiones diluye el ahorro económico obtenido. No utiliza folletos físicos ni catálogos web tradicionales por considerarlos ineficientes; en su lugar, se traslada directamente asumiendo los precios del momento. Administra un presupuesto estimado mediante notas en su celular y pagos móviles, pero pierde la cuenta precisa de sus consumos al añadir artículos de último minuto. Señaló que utilizaría cotidianamente una solución web que compare precios de locales cercanos y trace la ruta más eficiente de traslado antes de salir de casa.
+  * **Nota sobre el registro audiovisual:** Durante la sesión, el participante solicitó mantener la cámara desactivada por motivos personales y de privacidad visual, autorizando únicamente el registro de audio para fines académicos de investigación cualitativa.
 
-![Screenshot Entrevista 1 - Fernando Justiniano](assets/entrevista-fernando.png)
-> *Figura 2.1: Registro audiovisual de la entrevista cualitativa a Fernando Justiniano Vega.*
-
-* **Entrevista 2:**
-  * **Nombre y Apellidos:** `[Pendiente: Colocar Nombres y Apellidos del Entrevistado 2]`
-  * **Edad:** `[Pendiente: Edad]`
-  * **Distrito de residencia:** `[Pendiente: Distrito]`
-  * **Ocupación:** `[Pendiente: Ocupación]`
-  * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** `[Pendiente: URL de Microsoft Stream]`
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[hh:mm]`
-  * **Perfil técnico y entorno digital:** `[Pendiente: Dispositivos, Navegador, Canales y Personalidad]`
-  * **Resumen descriptivo:** `[Pendiente: Redactar resumen de respuestas del entrevistado 2]`
-
-![Screenshot Entrevista 2](assets/entrevista-2.png)
-> *Figura 2.2: Registro audiovisual de la entrevista cualitativa 2.*
-
-* **Entrevista 3:**
-  * **Nombre y Apellidos:** `[Pendiente: Colocar Nombres y Apellidos del Entrevistado 3]`
-  * **Edad:** `[Pendiente: Edad]`
-  * **Distrito de residencia:** `[Pendiente: Distrito]`
-  * **Ocupación:** `[Pendiente: Ocupación]`
-  * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** `[Pendiente: URL de Microsoft Stream]`
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[hh:mm]`
-  * **Perfil técnico y entorno digital:** `[Pendiente: Dispositivos, Navegador, Canales y Personalidad]`
-  * **Resumen descriptivo:** `[Pendiente: Redactar resumen de respuestas del entrevistado 3]`
-
-![Screenshot Entrevista 3](assets/entrevista-3.png)
-> *Figura 2.3: Registro audiovisual de la entrevista cualitativa 3.*
+![Screenshot Entrevista 1 - Fernando Justiniano](../assets/Entrevista1.png)
+> *Figura 2.1: Registro audiovisual de la entrevista cualitativa a Fernando Justiniano Vega (Segmento 1).*
 
 ---
 
-#### Segmento 2: Administradores del Hogar y Gestores de Despensa Familiar
+* **Entrevista 2:**
+  * **Nombre y Apellidos:** Laura Gamarra
+  * **Edad:** 23 años
+  * **Distrito de residencia:** Ate, Lima
+  * **Ocupación:** Coordinadora General en empresa de transporte de carga y estudiante de 9.° ciclo de Negocios Internacionales
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://1drv.ms/v/c/33e54e659b0ea103/IQA5hhx1fJT0Q7aLNoTW3LBlAaVE9gRm6ooCZK9alOX3WCY?e=hjJT6B)
+  * **Timing de inicio y término:** `04:30 - 12:53`
+  * **Duración:** `08:23 min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* Smartphone y Laptop personal.
+    * *Navegador de preferencia:* Google Chrome / Safari.
+    * *Canales digitales e influencias:* Instagram, TikTok, Yape, banca móvil, PedidosYa y aplicaciones de tiendas por departamento como Falabella y Ripley.
+    * *Rasgos de personalidad:* Planificada, sensible al precio y orientada a optimizar tanto el presupuesto como el costo de desplazamiento.
+  * **Resumen descriptivo:** Laura se encarga habitualmente de realizar las compras de su hogar. Antes de salir, consulta precios en Internet y compara distintos establecimientos para identificar dónde adquirir los productos a menor costo, distribuyendo sus compras en diferentes días según la disponibilidad y ofertas. Además del precio directo, evalúa los descuentos asociados a sus tarjetas bancarias. Para trasladarse utiliza Uber, por lo que la distancia y el costo del transporte influyen directamente en su decisión de compra, llegando a postergar salidas cuando la tarifa de movilidad se incrementa por el tráfico. Controla sus gastos con un presupuesto mensual de S/ 600 a S/ 700, priorizando compras urgentes cuando el monto proyectado supera dicho límite. Manifestó alto interés en una plataforma web que identifique locales cercanos económicos e integre alertas de promociones bancarias, prefiriendo comprar en días laborables entre las 11:00 a. m. y las 4:00 p. m. para evitar la congestión.
+
+![Screenshot Entrevista 2 - Laura Gamarra](../assets/entrevista-laura.png)
+> *Figura 2.2: Registro audiovisual de la entrevista cualitativa a Laura Gamarra (Segmento 1).*
+
+---
+
+* **Entrevista 3:**
+  * **Nombre y Apellidos:** Danella Palacios
+  * **Edad:** 19 años
+  * **Distrito de residencia:** Santiago de Surco, Lima
+  * **Ocupación:** Estudiante universitaria
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQBeRZULw_NIRK4BLM-8WdSdAVL58Y-wToNe5CeY1_QLawc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=kw5w1B)
+  * **Timing de inicio y término:** `12:53 - 16:36`
+  * **Duración:** `03:43 min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* Smartphone y Computadora/Laptop.
+    * *Navegador de preferencia:* Google Chrome (uso frecuente de hojas de cálculo en línea).
+    * *Canales digitales e influencias:* Redes sociales (Instagram) y billeteras digitales (Yape).
+    * *Rasgos de personalidad:* Organizada con el presupuesto, enfocada en el ahorro mediante promociones y prioriza la eficiencia en el uso de su tiempo.
+  * **Resumen descriptivo:** Danella prefiere concentrar sus compras en una misma salida para optimizar su tiempo. Antes de salir de casa, busca ofertas y promociones activas mediante redes sociales como Instagram y promociones en Yape. Realiza sus traslados en vehículo propio, identificando la congestión vehicular nocturna en Lima como su principal punto de dolor. Demuestra un alto nivel de organización financiera al gestionar el presupuesto familiar a través de un formulario integrado con Excel. Respecto a la adopción de una plataforma de comparación de precios y diseño de rutas, expresa interés condicionado a que la herramienta cuente con una interfaz intuitiva, sencilla y de rápida consulta para su rutina diaria.
+
+![Screenshot Entrevista 3 - Danella Palacios](../assets/entrevista-3.png)
+> *Figura 2.3: Registro audiovisual de la entrevista cualitativa a Danella Palacios (Segmento 1).*
+
+---
+
+#### Segmento 2: Comerciantes Minoristas y Administradores de Tiendas Locales
 
 * **Entrevista 4:**
-  * **Nombre y Apellidos:** `[Pendiente: Colocar Nombres y Apellidos del Entrevistado 4]`
-  * **Edad:** `[Pendiente: Edad]`
-  * **Distrito de residencia:** `[Pendiente: Distrito]`
-  * **Ocupación:** `[Pendiente: Ocupación]`
+  * **Nombre y Apellidos:** Daniel Stalin Palomino Murga
+  * **Edad:** 29 años
+  * **Distrito de residencia:** Santa Anita, Lima
+  * **Ocupación:** Propietario y Administrador de Bodega
   * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** `[Pendiente: URL de Microsoft Stream]`
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[hh:mm]`
-  * **Perfil técnico y entorno digital:** `[Pendiente: Dispositivos, Navegador, Canales y Personalidad]`
-  * **Resumen descriptivo:** `[Pendiente: Redactar resumen de respuestas sobre presupuesto familiar y control de despensa]`
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221b756_upc_edu_pe/IQCGCWoyG5FVQbEdtq6CSFwOAYcuD4-mK4BqWpmAxF6fwL8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=6KWDyr)
+  * **Timing de inicio y término:** `16:36 - 20:29`
+  * **Duración:** `03:53 min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* Smartphone y Laptop personal.
+    * *Navegador de preferencia:* Google Chrome.
+    * *Canales digitales e influencias:* WhatsApp, Facebook, TikTok, Yape, PedidosYa, Rappi y portales web de retail.
+    * *Rasgos de personalidad:* Analítico, precavido en adquisiciones de mercadería y enfocado en la rentabilidad de su establecimiento.
+  * **Resumen descriptivo:** Daniel es propietario y administra una bodega comercial en Santa Anita. Difunde promociones principalmente mediante carteles en la fachada y mensajes por WhatsApp, dependiendo fuertemente de la clientela recurrente del barrio debido a la alta competencia zonal. Actualiza tarifas de forma reactiva ante variaciones comunicadas por los distribuidores mayoristas y gestiona el inventario manualmente mediante un cuaderno de apuntes. Señaló que sus pérdidas de ventas se deben principalmente a quiebres imprevistos de stock y a la asimetría de precios frente a otros negocios. Expresó amplio interés en adoptar Preciazo para publicar ofertas y recibir avisos de productos agotados, señalando como indispensable una interfaz intuitiva, accesible desde cualquier dispositivo y sin comisiones abusivas de intermediación.
 
-![Screenshot Entrevista 4](assets/entrevista-4.png)
-> *Figura 2.4: Registro audiovisual de la entrevista cualitativa 4.*
+![Screenshot Entrevista 4 - Daniel Palomino](../assets/entrevista-4.png)
+> *Figura 2.4: Registro audiovisual de la entrevista cualitativa a Daniel Stalin Palomino Murga (Segmento 2).*
+
+---
 
 * **Entrevista 5:**
-  * **Nombre y Apellidos:** `[Pendiente: Colocar Nombres y Apellidos del Entrevistado 5]`
-  * **Edad:** `[Pendiente: Edad]`
-  * **Distrito de residencia:** `[Pendiente: Distrito]`
-  * **Ocupación:** `[Pendiente: Ocupación]`
+  * **Nombre y Apellidos:** Joan Smit Rodríguez Rodríguez
+  * **Edad:** 25 años
+  * **Distrito de residencia:** Santiago de Surco, Lima
+  * **Ocupación:** Administrador y Encargado Comercial de Minimarket
   * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** `[Pendiente: URL de Microsoft Stream]`
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[hh:mm]`
-  * **Perfil técnico y entorno digital:** `[Pendiente: Dispositivos, Navegador, Canales y Personalidad]`
-  * **Resumen descriptivo:** `[Pendiente: Redactar resumen de respuestas del entrevistado 5]`
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/personal/u20221a525_upc_edu_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu20221a525%5Fupc%5Fedu%5Fpe%2FDocuments%2FEntrevista%20%2D%20Segmento%202%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Eab7529d8%2D396c%2D4efe%2Dabb8%2D3e7ccfced5d5)
+  * **Timing de inicio y término:** `20:29 - 26:14`
+  * **Duración:** `05:45 min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* Smartphone Android y Laptop en punto de venta.
+    * *Navegador de preferencia:* Google Chrome.
+    * *Canales digitales e influencias:* WhatsApp Business, Yape, Plin, banca móvil BCP, redes sociales (Instagram, TikTok).
+    * *Rasgos de personalidad:* Proactivo, dinámico, enfocado en la rentabilidad del negocio y abierto a la digitalización comercial.
+  * **Resumen descriptivo:** Joan administra y gestiona las operaciones de un minimarket familiar con 3 años de antigüedad en Surco. Para comunicar ofertas y promociones utiliza pizarras de tiza en la fachada del local y estados de WhatsApp dirigidos a clientes recurrentes, reconociendo que carece de alcance hacia nuevos transeúntes del sector. Ajusta precios de productos de alta rotación una o dos veces por semana según los cambios tarifarios de los distribuidores mayoristas, buscando competir frente a cadenas de conveniencia. Realiza el control de inventario de forma visual cada dos días, ubicando artículos próximos a caducar en zonas de remate para prevenir mermas. Manifiesta que los compradores de la zona asumen erróneamente que las bodegas son más costosas que los supermercados por falta de transparencia digital. Expresó alta disposición a afiliar su negocio a Preciazo para ganar visibilidad barrial, requiriendo una interfaz ágil desde el teléfono móvil para actualizar precios y reportar quiebres de stock sin incurrir en altas comisiones de intermediación.
 
-![Screenshot Entrevista 5](assets/entrevista-5.png)
-> *Figura 2.5: Registro audiovisual de la entrevista cualitativa 5.*
+![Screenshot Entrevista 5 - Joan Smit](../assets/entrevista%202.png)
+> *Figura 2.5: Registro audiovisual de la entrevista cualitativa a Joan Smit Rodríguez Rodríguez (Segmento 2).*
 
+---
 
+* **Entrevista 6:**
+  * **Nombre y Apellidos:** Nicolas Alejandro Quinto Rosales
+  * **Edad:** 29 años
+  * **Distrito de residencia:** San Juan de Miraflores, Lima
+  * **Ocupación:** Propietario y Administrador de Bodega
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231b331_upc_edu_pe/IQBGQTv_Sn14S7IsyEcKvJ5FAS-LxKTV7r_8nbi29KaD_7I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=XMJsDK)
+  * **Timing de inicio y término:** `26:14 - 32:30`
+  * **Duración:** `06:16 min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* Smartphone Android y Laptop.
+    * *Navegador de preferencia:* Google Chrome.
+    * *Canales digitales e influencias:* Yape, redes sociales (WhatsApp, TikTok, Facebook) y plataformas de reparto (Didi, Rappi).
+    * *Rasgos de personalidad:* Proactivo, enfocado en la prosperidad del negocio y abierto al uso de nuevas aplicaciones web.
+  * **Resumen descriptivo:** Nicolas administra y gestiona las operaciones de una bodega con 5 años de servicio en San Juan de Miraflores. Se adapta con facilidad a las tecnologías digitales, empleando redes sociales para promocionar su negocio. Para comunicar promociones del día, exhibe carteles en el exterior de su tienda y publica estados de WhatsApp para notificar a sus clientes frecuentes. Ajusta los precios de sus productos de acuerdo con los cambios tarifarios de los distribuidores mayoristas para resguardar su margen de ganancia. Expresó alta disposición a utilizar Preciazo para posicionar la visibilidad de su bodega y captar más clientes en su zona, destacando como requisito contar con una interfaz intuitiva que demande poco tiempo operativo al actualizar stock y precios.
+
+![Screenshot Entrevista 6 - Nicolas Alejandro Quinto Rosales](../assets/entrevista-203.png)
+> *Figura 2.6: Registro audiovisual de la entrevista cualitativa a Nicolas Alejandro Quinto Rosales (Segmento 2).*
+
+---
 
 ### 2.2.3. Análisis de entrevistas
 
-A partir de la triangulación de la información cualitativa y la cuantificación de las respuestas de las entrevistas registradas, se sintetizan las variables objetivas y subjetivas más recurrentes por cada segmento objetivo, sirviendo de base estadística directa para la construcción de los arquetipos de usuario.
+A partir de la triangulación cualitativa y la cuantificación de las respuestas de las **6 entrevistas realizadas** (3 por cada segmento objetivo), se sintetizan las variables objetivas y subjetivas más representativas de cada grupo. Este análisis constituye el sustento empírico y estadístico directo para la modelación de los arquetipos (*User Personas*), mapas de empatía y matrices de tareas de la plataforma **Preciazo**.
 
 ---
 
-#### Segmento 1: Compradores Multitienda y Optimizadores de Desplazamiento
-*(Análisis sustentado en la muestra de 3 entrevistados del Segmento 1)*
+#### Segmento 1: Compradores Independientes
+*(Análisis cuantitativo sustentado en la muestra de 3 entrevistados: Fernando Justiniano, Laura Gamarra y Danella Palacios)*
 
-* **Variables Objetivas (Demográficas y Tecnológicas):**
-  * **Comportamiento multitienda (100%):** El 100% (3 de 3) divide sus compras entre mercados zonales (alimentos frescos) y supermercados tradicionales (artículos de aseo o abarrotes empaquetados) con el fin deliberado de economizar.
-  * **Desplazamiento urbano y fricción de transporte (100%):** El 100% combina traslados a pie con transporte público o taxi al retornar cargado, manifestando que el tráfico vehicular y los tiempos muertos restan el beneficio del ahorro económico.
-  * **Dispositivos y herramientas digitales (100%):** La totalidad utiliza smartphones Android como dispositivo primario, recurriendo de forma continua a Google Chrome como navegador, Google Maps para movilidad y billeteras móviles (Yape/Plin) para transacciones rápidas.
-  * **Gestión de listas no estructuradas (66.7%):** 2 de los 3 entrevistados anotan sus pendientes de forma desordenada en el bloc de notas del móvil, sin jerarquía por pasillo ni orden de prioridad.
+* **Variables Objetivas (Demográficas, Técnicas y Hábitos de Compra):**
+  * **Digitalización financiera y medios de pago (100%):** El 100% (3 de 3) utiliza intensivamente billeteras digitales (Yape/Plin) y canales de banca móvil para sus transacciones cotidianas.
+  * **Multidispositivo con predominancia móvil (100%):** Los 3 entrevistados operan tanto desde su smartphone como desde laptops para coordinar sus actividades y consultar información web.
+  * **Búsqueda previa de precios y ofertas (100%):** El 100% de la muestra busca activamente información de precios o promociones antes o durante sus compras (mediante redes sociales como Instagram, aplicaciones bancarias, catálogos web o consulta directa en tienda).
+  * **Sensibilidad al impacto del transporte en el gasto final (100%):** El 100% identifica el desplazamiento como un factor crítico en sus decisiones de aprovisionamiento, ya sea evaluando el costo de movilidad versus el descuento (Uber en Laura, pasajes en Fernando) o el tiempo perdido en el tráfico de Lima (Danella y Fernando).
+  * **Estrategias de control presupuestario formal o semiestructurado (66.7%):** 2 de los 3 entrevistados (Laura y Danella) manejan rangos presupuestarios definidos (presupuesto tope de S/ 600 a S/ 700 o matrices en hojas de cálculo como Excel), mientras que 1 entrevistado (Fernando, 33.3%) utiliza registros rápidos en bloc de notas móvil.
+  * **Segmentación de compras multitienda (66.7%):** 2 de 3 usuarios distribuyen sus compras entre distintos puntos (mercados zonales y cadenas de autoservicio o visitas escalonadas por días de oferta), mientras que el 33.3% (Danella) prefiere centralizar en un solo establecimiento para optimizar tiempo.
 
-* **Variables Subjetivas (Psicográficas, Hábitos y Frustraciones):**
-  * **Frustración por información asimétrica de precios (100%):** La totalidad declara comprar "a ciegas" respecto a ofertas reales, rechazando los catálogos en PDF o folletos impresos por considerarlos obsoletos e ineficientes.
-  * **Descontrol del gasto final en caja (66.7%):** 2 de cada 3 entrevistados afirman que los artículos de impulso o las variaciones imprevistas de precio provocan que el monto total en caja supere su estimación mental inicial.
-  * **Receptividad a plataformas web ligeras (100%):** El 100% expresó plena disposición a utilizar una solución web responsiva orientada a la comparativa de precios y cálculo de rutas eficientes sin requerir descargas de aplicaciones nativas pesadas.
+* **Variables Subjetivas (Psicográficas, Motivaciones y Frustraciones):**
+  * **Frustración por la congestión vehicular y tiempo de traslado (100%):** La totalidad de los entrevistados identifica el tráfico caótico y las demoras en el transporte urbano como el punto de dolor más severo de su experiencia de compra presencial.
+  * **Interés condicionado por interfaces intuitivas y de bajo esfuerzo (100%):** El 100% expresó disposición para adoptar una plataforma como Preciazo, enfatizando como requisito indispensable que la interfaz sea minimalista, ágil y de rápida consulta.
+  * **Rechazo a la asimetría de precios y al gasto imprevisto (66.7%):** El 66.7% (Fernando y Laura) manifiesta frustración ante compras no planificadas o la falta de transparencia de ofertas reales al llegar al establecimiento físico.
+  * **Aprovechamiento de beneficios financieros externos (33.3%):** Se identificó una conducta orientada al beneficio de tarjetas bancarias y promociones por días específicos de la semana (Laura), lo que representa una oportunidad de valor agregado para la plataforma.
 
 ---
 
-#### Segmento 2: Administradores del Hogar y Gestores de Despensa Familiar
-*(Análisis sustentado en la muestra de 2 entrevistados del Segmento 2)*
+#### Segmento 2: Comerciantes Minoristas y Administradores de Tiendas Locales
+*(Análisis cuantitativo sustentado en la muestra de 3 entrevistados: Daniel Palomino Murga, Joan Smit Rodríguez y Nicolas Quinto Rosales)*
 
-* **Variables Objetivas (Demográficas y Tecnológicas):**
-  * **Asignación significativa del presupuesto (100%):** El 100% (2 de 2) destina entre el 35% y el 50% de los ingresos totales familiares exclusivamente al aprovisionamiento doméstico y víveres esenciales.
-  * **Coordinación familiar descentralizada (100%):** Ambos entrevistados centralizan los pedidos de compra del hogar mediante cadenas de mensajes y chats de WhatsApp con sus convivientes, careciendo de una lista colaborativa única.
-  * **Equipamiento y entorno web (100%):** Acceden a internet tanto desde dispositivos móviles como laptops o equipos de escritorio, con preferencia marcada por interfaces web intuitivas, directas y sin sobrecarga publicitaria.
+* **Variables Objetivas (Demográficas, Operativas y Técnicas):**
+  * **Comunicación de ofertas restringida a medios físicos y mensajería cerrada (100%):** El 100% (3 de 3) utiliza carteles o pizarras de tiza en la fachada del local combinados con estados o mensajes de WhatsApp, limitando su alcance a clientes ya registrados o peatones de la misma cuadra.
+  * **Mecanismo reactivo de fijación de precios según mayoristas (100%):** La totalidad de los entrevistados (3 de 3) actualiza los precios de sus productos de alta rotación en función de las variaciones tarifarias de los distribuidores mayoristas para proteger su margen operativo.
+  * **Adopción de dispositivos móviles, laptops y pagos digitales (100%):** El 100% opera a diario con smartphone y laptop, utilizando billeteras digitales (Yape/Plin) y redes sociales (WhatsApp, TikTok, Facebook) en su gestión comercial.
+  * **Control de inventario manual o visual sin sistema POS integrado (100%):** Los 3 comerciantes administran sus existencias mediante cuadernos de apuntes o inspecciones visuales periódicas en estantería, careciendo de alertas automatizadas de quiebre de stock o caducidad.
 
-* **Variables Subjetivas (Psicográficas, Hábitos y Frustraciones):**
-  * **Incidencia de compras duplicadas o desperdicio (100%):** El 100% reconoció haber comprado insumos repetidos o haber sufrido el vencimiento de víveres al fondo de la alacena por falta de visibilidad del inventario en tiempo real.
-  * **Estrés por impacto inflacionario en caja registradora (100%):** La totalidad experimenta incertidumbre y molestia al totalizar la compra en caja cuando los precios unitarios han variado sin previo aviso.
-  * **Adopción de control de inventario y presupuesto (100%):** Ambos manifestaron interés prioritario en un sistema que vincule los productos faltantes de la despensa con un cálculo automático del importe total a pagar antes de salir de casa.
+* **Variables Subjetivas (Psicográficas, Percepciones y Expectativas):**
+  * **Presión competitiva y necesidad de captar nuevos transeúntes (100%):** El 100% (3 de 3) identifica como principal desafío la competencia de cadenas de conveniencia o comercios cercanos y la falta de visibilidad digital para desmitificar que las bodegas son más caras que los supermercados.
+  * **Disposición a la digitalización ágil y sin comisiones abusivas (100%):** La totalidad de la muestra expresó apertura inmediata para afiliar su local a Preciazo, exigiendo una consola web rápida de actualizar desde el celular y libre de los altos porcentajes de comisión de las plataformas de delivery.
+  * **Preocupación por pérdida de ventas debido a quiebres de stock y mermas (66.7%):** El 66.7% (Daniel y Joan) destaca la urgencia de contar con avisos de productos agotados y promociones rápidas para liquidar mercadería próxima a vencer.
+
 
 ## 2.3. Needfinding
 
-A partir de la triangulación de la información cualitativa recolectada en las entrevistas, el análisis cuantitativo previo y las hipótesis formuladas en el Lean UX Canvas, se identifican las necesidades, frustraciones y motivaciones críticas de los segmentos objetivo de PeruTech. Los hallazgos confirman la problemática central: la pérdida de poder adquisitivo por asimetría de precios, el desaprovechamiento de recursos económicos por descontrol de despensa y la ineficiencia logística en los desplazamientos urbanos.
+A partir de la triangulación de la información cualitativa recolectada en las entrevistas, el análisis del entorno competitivo y las hipótesis formuladas en el Lean UX Canvas, el equipo de **PeruTech** ejecutó el proceso de *Needfinding* para la plataforma **Preciazo**. Este procedimiento permitió identificar y categorizar las necesidades esenciales, frustraciones (*pain points*) y motivaciones críticas de cada segmento objetivo. 
 
-A continuación, se sintetizan las necesidades esenciales por segmento que fundamentan el modelado de los artefactos de diseño centrado en el usuario (User Personas, User Task Matrix, User Journey Maps, Empathy Mapping y As-Is Scenario Mapping):
+Los hallazgos empíricos confirman la problemática central abordada: la reducción del poder adquisitivo del comprador debido a la asimetría de precios en el mercado y a la ineficiencia logística de los traslados urbanos (costo y congestión vehicular), sumada a la brecha de visibilidad y desventaja comercial que sufren los comerciantes minoristas tradicionales frente a grandes cadenas corporativas.
 
-* **Segmento 1: Compradores Multitienda y Optimizadores de Desplazamiento**
-  * **Comparación multiestablecimiento ágil:** Necesidad de consultar precios actualizados entre mercados zonales y cadenas comerciales antes de salir de casa para evitar recorridos a ciegas.
-  * **Optimización de trayectos y transporte:** Requerimiento de planificar rutas de compra eficientes que minimicen el tiempo en tráfico y el gasto en pasajes o combustible, asegurando que el costo logístico no anule el ahorro obtenido en góndola.
-  * **Proyección de gasto previo:** Demanda de calcular el importe total estimado antes de acudir a la tienda para no sobrepasar el presupuesto mensual disponible.
-  * **Plataforma web ligera:** Necesidad de acceder a la herramienta desde el navegador de su dispositivo móvil sin verse forzados a descargar aplicativos nativos de gran peso.
+### Síntesis de necesidades identificadas por segmento objetivo
 
-* **Segmento 2: Administradores del Hogar y Gestores de Despensa Familiar**
-  * **Visibilidad del inventario doméstico:** Necesidad de verificar el stock real de la alacena para erradicar la compra de productos duplicados y evitar el vencimiento de alimentos.
-  * **Consolidación colaborativa de compras:** Requerimiento de centralizar las solicitudes de todos los miembros del hogar en una lista organizada, sustituyendo cadenas caóticas de mensajes por mensajería instantánea.
-  * **Control de tope presupuestario en caja:** Demanda de monitoreo acumulativo de precios en tiempo real para eliminar la incertidumbre o sorpresa negativa frente a la cuenta total en la caja registradora.
-  * **Organización estructurada por categorías:** Necesidad de clasificar los artículos requeridos por secciones o pasillos para agilizar el proceso de abastecimiento en tiendas de gran formato.
+* **Segmento 1: Compradores Independientes (Compradores Multitienda y Optimizadores de Desplazamiento):**
+  * **Comparación multiestablecimiento ágil y centralizada:** Necesidad de cotejar precios actualizados entre mercados zonales, cadenas de supermercados y minimarkets de proximidad antes de salir del domicilio, evitando desplazamientos ineficientes a ciegas.
+  * **Optimización de trayectos y cálculo de ahorro neto:** Necesidad de trazar itinerarios que minimicen el tiempo de exposición al tráfico vehicular de Lima y reduzcan el gasto en transporte (pasajes, combustible o taxis por aplicación), asegurando que el costo de movilidad no supere el descuento obtenido en el ticket de compra.
+  * **Cálculo presupuestario anticipado:** Necesidad de computar el costo total consolidado de la lista de compras antes del pago en caja para respetar los techos presupuestarios familiares o mensuales.
+  * **Acceso web liviano y multiplataforma:** Demanda de una herramienta accesible de forma inmediata desde navegadores móviles (*Mobile-First*) y de escritorio, sin requerir descargas de aplicaciones nativas pesadas ni registros invasivos.
 
+* **Segmento 2: Comerciantes Minoristas y Administradores de Tiendas Locales:**
+  * **Visibilidad digital hiperlocal de bajo costo:** Necesidad de posicionar sus productos, ofertas del día y liquidaciones de inventario directamente en el radar de los consumidores que circulan o viven en su misma zona urbana.
+  * **Competitividad comercial sin intermediación onerosa:** Demanda de un canal de promoción directo que no merme sus márgenes de ganancia con las comisiones abusivas (15% a 25%) de las aplicaciones de delivery convencionales.
+  * **Consola de gestión ágil y amigable:** Necesidad de contar con un panel administrativo simplificado que permita actualizar precios y registrar artículos agotados en pocos segundos desde un teléfono móvil o laptop, adaptado a comercios que gestionan su negocio mediante libretas o cuadernos manuales.
+  * **Tracción y atracción al local físico:** Necesidad de que el establecimiento se integre en los mapas de compras y rutas de optimización de los vecinos, incrementando el tráfico peatonal presencial hacia el punto de venta.
+
+---
+  
 ### 2.3.1. User Personas
 
-La elaboración de los arquetipos de usuario sintetiza los patrones empíricos recolectados durante las entrevistas cualitativas y el diagnóstico del ecosistema competitivo. Las fichas integran variables demográficas, competencias digitales, motivaciones y fricciones reales para guiar el diseño centrado en el usuario de PeruTech, asegurando que las decisiones arquitectónicas y funcionales respondan a necesidades operativas validadas.
+La formulación de las fichas de User Persona se fundamenta en la consolidación analítica de los datos empíricos obtenidos en las entrevistas cualitativas y el estudio competitivo. Siguiendo las mejores prácticas del Diseño Centrado en el Usuario (UCD), cada ficha representa un **arquetipo semi-ficticio** que sintetiza los patrones de comportamiento, objetivos, competencias tecnológicas y fricciones operativas comunes identificadas en el análisis estadístico de cada segmento objetivo.
+
+* **Para el Segmento 1 (Compradores Independientes):** El arquetipo integra de manera representativa los patrones encontrados en la muestra (100% de uso de billeteras móviles y sensibilidad al transporte, 66.7% de fragmentación de compras entre mercados y supermercados, y la constante fricción por la congestión vehicular de Lima Metropolitana).
+* **Para el Segmento 2 (Comerciantes Minoristas):** El arquetipo condensa la dinámica del comercio barrial tradicional (100% de gestión de stock en cuadernos manuales, actualización de precios dependiente del costo mayorista, comunicación mediante carteles físicos y la necesidad de herramientas móviles ágiles para atraer transeúntes y evitar mermas sin comisiones abusivas).
 
 ---
 
-#### User Persona 1: Fernando Justiniano Vega (Comprador Multitienda y Optimizador de Desplazamiento)
+#### User Persona 1: Carlos Mendoza - El Comprador Previsor y Multitienda (Segmento 1)
 
-![User Persona 1 - Fernando Justiniano Vega](../assets/artifacts/Segmento.png)
-> *Figura 2.6: Ficha de User Persona correspondiente al Segmento 1, elaborada en UXPressia.*
+Representa el arquetipo del comprador urbano independiente que planifica sus compras quincenales, coteja ofertas entre distintos locales y evalúa el tiempo de traslado y costo de transporte para maximizar su presupuesto familiar.
+
+![User Persona 1 - Carlos Mendoza](../assets/artifacts/Segmento.png)
+> *Figura 2.7: Ficha de User Persona correspondiente al Segmento 1 (Compradores Independientes), elaborada en UXPressia.*
 
 ---
 
-#### User Persona 2: Administrador del Hogar y Gestor de Despensa Familiar
+#### User Persona 2: Alberto Ramos - El Comerciante de Proximidad (Segmento 2)
 
-![Ficha User Persona 2](../assets/artifacts/Segmento%202.png)
-> *Figura 2.7: Ficha de User Persona correspondiente al Segmento 2, elaborada en UXPressia.*
+Representa el arquetipo del comerciante minorista y bodeguero local que administra un minimarket de barrio, buscando canales digitales ligeros para comunicar precios reales, rotar mercadería en riesgo de caducidad y competir con cadenas comerciales cercanas.
 
-> *(Espacio reservado para la incorporación de la ficha gráfica del arquetipo del Segmento 2 a cargo del equipo).*
+![Ficha User Persona 2 - Alberto Ramos](../assets/artifacts/Segmento2.png)
+> *Figura 2.8: Ficha de User Persona correspondiente al Segmento 2 (Comerciantes Minoristas), elaborada en UXPressia.*
+
 
 ### 2.3.2. User Task Matrix
 
-En esta sección se presenta la matriz de tareas de usuario (*User Task Matrix*), estructurada a partir de los dos segmentos objetivo del proyecto: el **Segmento 1**, representado por Fernando Justiniano Vega (Comprador Multitienda y Optimizador de Desplazamiento), y el **Segmento 2**, representado por [Nombre del Representante del Segmento 2 - Pendiente] (Administrador del Hogar y Gestor de Despensa Familiar). 
+En esta sección se presenta la matriz de tareas de usuario (*User Task Matrix*), diseñada para mapear y contrastar las actividades esenciales que ejecutan los representantes arquetípicos de cada segmento objetivo en su contexto cotidiano: el **Segmento 1: Compradores Independientes**, representado por **Carlos Mendoza** (arquetipo del comprador metódico que busca optimizar su gasto y tiempo de traslado), y el **Segmento 2: Comerciantes Minoristas y Administradores de Tiendas Locales**, representado por **Alberto Ramos** (arquetipo del bodeguero y administrador enfocado en la rentabilidad y visibilidad de su negocio).
 
-Las actividades identificadas corresponden estrictamente a tareas del mundo real que los usuarios ejecutan de manera habitual para resolver sus necesidades de abastecimiento y gestión económica, independientemente del uso de una solución tecnológica o software específico.
+Las actividades identificadas corresponden estrictamente a tareas del mundo real que cada actor realiza de manera habitual en su día a día para alcanzar sus metas de abastecimiento o gestión comercial, con total independencia de la existencia o uso de una solución tecnológica o software específico.
 
-| Tarea (Task) | Fernando Justiniano (Frecuencia) | Fernando Justiniano (Importancia) | [Nombre del Segmento 2] (Frecuencia) | [Nombre del Segmento 2] (Importancia) |
+| Tarea del Mundo Real (*Task*) | Carlos Mendoza (Frecuencia) | Carlos Mendoza (Importancia) | Alberto Ramos (Frecuencia) | Alberto Ramos (Importancia) |
 | :--- | :--- | :--- | :--- | :--- |
-| **Planificar el presupuesto límite de compra** | Quincenal | Media | Mensual | Alta |
-| **Inventariar existencias y revisar faltantes en despensa** | Ocasional | Baja | Semanal | Alta |
-| **Consolidar la lista de artículos necesarios** | Quincenal | Media | Semanal | Alta |
-| **Comparar precios entre mercados y supermercados** | Quincenal | Alta | Semanal | Alta |
-| **Definir la ruta física de traslado y medios de transporte** | Quincenal | Alta | Ocasional | Media |
-| **Recorrer pasillos y puestos en búsqueda de productos** | Quincenal | Media | Semanal | Media |
-| **Monitorear el importe acumulado antes de pagar en caja** | Quincenal | Alta | Semanal | Alta |
-| **Verificar fechas de vencimiento y rotación de insumos** | Rara vez | Baja | Semanal | Alta |
+| **Calcular presupuesto estimado antes de pagar / cobrar** | Quincenal | Alta | Diaria | Alta |
+| **Comparar costos de productos entre establecimientos** | Quincenal | Alta | Semanal | Media |
+| **Monitorear precios del mercado y competencia en la zona** | Quincenal | Media | Diaria | Alta |
+| **Planificar trayectos y transporte físico de compras** | Quincenal | Alta | Rara vez | Baja |
+| **Verificar existencias y estado físico de productos (stock)** | Quincenal | Media | Diaria | Alta |
+| **Actualizar y exhibir precios u ofertas vigentes** | N/A | N/A | Diaria | Alta |
+| **Elaborar listas de artículos prioritarios a adquirir** | Quincenal | Alta | Semanal | Alta |
+| **Comunicar promociones mediante carteles, pizarras o avisos** | N/A | N/A | Semanal | Media |
+| **Buscar alternativas para atraer clientes o rotar mercancía** | N/A | N/A | Semanal | Alta |
+| **Evaluar impacto de métodos de pago y promociones bancarias** | Quincenal | Media | Diaria | Media |
 
 ---
 
-#### Análisis comparativo de tareas
+#### Análisis y hallazgos del User Task Matrix
 
-* **Tareas con mayor frecuencia e importancia:**  
-  La **comparación de precios entre establecimientos** y el **monitoreo del importe acumulado antes de pagar en caja** representan los puntos más críticos y con mayor nivel de importancia para ambos arquetipos. Estas tareas surgen directamente de la necesidad de mitigar el impacto del incremento del costo de vida y evitar sorpresas desagradables al momento de liquidar la cuenta.
+A partir de la matriz de tareas consolidada, se identifican patrones clave de comportamiento, contrastes operativos e intersecciones estratégicas entre ambos perfiles arquetípicos:
 
-* **Principales coincidencias:**  
-  Ambos usuarios coinciden en la relevancia de controlar el egreso económico final y en el acto de comparar alternativas de compra. Tanto Fernando como el administrador del hogar experimentan fricción al tratar de prever con exactitud cuánto gastarán en total antes de que el cajero procese los productos.
-
-* **Principales diferencias:**  
-  * **Logística vs. Inventario:** Para Fernando (Segmento 1), **definir la ruta física de traslado** es una tarea de alta importancia y recurrencia, ya que busca activamente que el costo y tiempo de transporte urbano no anulen el ahorro conseguido entre locales. En contraste, para el administrador del hogar (Segmento 2), esta tarea es secundaria y sus mayores prioridades operativas radican en **inventariar existencias en despensa** y **verificar fechas de caducidad**, actividades que ejecuta de forma rigurosa y semanal para evitar mermas o duplicidad de insumos familiares.
-  * **Periodicidad de abastecimiento:** Mientras Fernando estructura sus tareas en ciclos **quincenales** de forma individual, el gestor familiar opera con una frecuencia **semanal**, motivado por el rápido consumo de alimentos de los múltiples integrantes de su hogar.
+* **Tareas con mayor frecuencia e importancia:**
+  * Para **Alberto Ramos (Comerciante Minorista):** Las tareas más críticas y de periodicidad **diaria** son el *cálculo presupuestario y cuadre de caja*, la *actualización y exhibición de precios* y el *control de existencias y productos próximos a agotarse*. La sostenibilidad de su establecimiento exige una supervisión continua del inventario y la rápida rotación de mercadería perecible.
+  * Para **Carlos Mendoza (Comprador Independiente):** Las tareas con mayor peso ocurren de forma **quincenal** (alineadas con su ciclo de aprovisionamiento salarial y reposición de alacena), destacando la *estimación anticipada del presupuesto*, la *planificación de los trayectos físicos* y la *comparación de precios multitienda*.
+* **Principales coincidencias:**
+  * Ambos actores le otorgan **alta importancia al control del dinero**: Carlos lo hace para no superar su límite de gasto presupuestado en caja y Alberto para resguardar el margen neto de ganancia de su negocio frente a aumentos de distribuidores mayoristas.
+  * Tanto el comprador como el comerciante necesitan **monitorear los precios de la zona**, confirmando que la transparencia del mercado y la asimetría tarifaria impactan a los dos extremos de la cadena comercial local.
+* **Principales diferencias operativas:**
+  * **Movilidad vs. Localidad:** Mientras la *planificación de trayectos físicos de desplazamiento* es una tarea de alta importancia para Carlos (debido al impacto de los pasajes y el tráfico urbano de Lima), para Alberto es prácticamente irrelevante en su día a día comercial al encontrarse de forma fija en su punto de venta.
+  * **Visibilidad y Difusión:** Tareas como la *comunicación de promociones en carteles* y la *búsqueda de alternativas para atraer compradores* son exclusivas del comerciante minorista, quien asume el rol activo de captar el flujo peatonal frente a la competencia de grandes cadenas comerciales.
 
 ### 2.3.3. User Journey Mapping
 
-En esta sección se modelan los *User Journey Maps* en su versión actual (*As-Is*) para cada uno de los arquetipos de usuario. El propósito de este artefacto es ilustrar el viaje de extremo a extremo (*end-to-end journey*) que experimenta el usuario en su realidad cotidiana al abastecerse, identificando las etapas del proceso, puntos de contacto, pensamientos, niveles de satisfacción y las fricciones críticas que enfrenta en ausencia de la plataforma PeruTech.
+En esta sección se modelan los *User Journey Maps* en su versión actual (*As-Is*) para cada uno de los arquetipos de usuario. El propósito de este artefacto es ilustrar el viaje de extremo a extremo (*end-to-end journey*) que experimenta cada actor en su realidad cotidiana —el comprador al abastecerse y el comerciante al gestionar y comercializar sus productos—, identificando las etapas del proceso, puntos de contacto, pensamientos, niveles de satisfacción y las fricciones críticas que enfrentan en ausencia de la plataforma Preciazo.
 
 ---
 
-#### User Journey Map 1: Fernando Justiniano Vega (Segmento 1 - Comprador Multitienda)
+#### User Journey Map 1: Carlos Mendoza (Segmento 1 - Comprador Multitienda)
 
-El recorrido documenta la experiencia de Fernando al realizar sus compras de abastecimiento quincenal. La travesía inicia con la identificación de faltantes y la fijación de un presupuesto mental, continúa con el traslado físico a ciegas hacia los comercios de su zona (enfrentando tráfico y dispersión de precios), prosigue con la búsqueda de productos y la incertidumbre en caja, y concluye con el balance final entre el tiempo invertido en el transporte y el ahorro monetario obtenido.
+El recorrido documenta la experiencia arquetípica de Carlos al realizar sus compras de abastecimiento quincenal. La travesía inicia con la identificación de faltantes y la fijación de un presupuesto mental, continúa con el traslado físico a ciegas hacia los comercios de su zona (enfrentando tráfico y dispersión de precios), prosigue con la búsqueda de productos y la incertidumbre en caja, y concluye con el balance final entre el tiempo invertido en el transporte y el ahorro monetario obtenido.
 
-![User Journey Map 1 - Fernando Justiniano Vega](../assets/artifacts/Mapping.png)
-> *Figura 2.8: Diagrama de User Journey Map (As-Is) correspondiente al Segmento 1, elaborado en UXPressia.*
+![User Journey Map 1 - Carlos Mendoza](../assets/artifacts/Mapping.png)
+> *Figura 2.9: Diagrama de User Journey Map (As-Is) correspondiente al Segmento 1, elaborado en UXPressia.*
 
 ---
 
-#### User Journey Map 2: Administrador del Hogar y Gestor de Despensa Familiar (Segmento 2)
+#### User Journey Map 2: Alberto Ramos (Segmento 2 - Comerciante Minorista y Administrador de Tienda Local)
 
-El recorrido refleja la dinámica semanal de gestión del abastecimiento familiar, iniciando con la revisión manual de alacenas y la consolidación de pedidos por mensajería, continuando con la visita a puntos de venta para cotejar precios al por mayor, el monitoreo del gasto acumulado frente al presupuesto del hogar y finalizando con el almacenamiento y control de caducidades en cocina.
+El recorrido documenta la jornada típica de Alberto en la administración de su minimarket o bodega barrial. La experiencia inicia con el ajuste de tarifas según los cambios comunicados por los distribuidores mayoristas y el control manual de existencias en libretas físicas; continúa con la colocación de pizarras de tiza en la fachada y la difusión de ofertas en estados de WhatsApp; prosigue con la pérdida de ventas ocasionada por quiebres imprevistos de stock o la percepción de precios elevados frente a cadenas cercanas; y concluye con la necesidad de digitalizar sus precios de forma ágil desde el celular para comunicar quiebres de inventario a tiempo, atraer nuevos compradores presenciales de la zona y evitar la merma de mercadería en riesgo de caducidad.
 
-![User Journey Map 2](../assets/artifacts/Mapping-2.png)
-> *Figura 2.9: Diagrama de User Journey Map (As-Is) correspondiente al Segmento 2, elaborado en UXPressia.*
-
-> *(Espacio reservado para la incorporación del diagrama y la descripción detallada del recorrido del Segmento 2 a cargo del equipo una vez concluidas sus entrevistas).*
-
+![User Journey Map 2 - Alberto Ramos](../assets/artifacts/Mapping2.png)
+> *Figura 2.10: Diagrama de User Journey Map (As-Is) correspondiente al Segmento 2, elaborado en UXPressia.*
+ 
 ### 2.3.4. Empathy Mapping
 
-En esta sección se sintetiza el proceso de empatización desarrollado para comprender a profundidad el entorno emocional, cognitivo y conductual de los arquetipos de usuario. La construcción de cada *Empathy Map* se realizó de forma colaborativa mediante la herramienta UXPressia, situando al arquetipo validado en el centro del análisis para estructurar sus percepciones en torno a las dimensiones clave: qué piensa y siente, qué ve, qué oye, qué dice y hace, así como sus principales esfuerzos (*Pains*) y resultados esperados (*Gains*).
+En esta sección se sintetiza el proceso de empatización desarrollado para comprender a profundidad el entorno emocional, cognitivo y conductual de los arquetipos de usuario. La construcción de cada *Empathy Map* se estructuró situando a cada arquetipo en el centro del análisis para desglosar sus percepciones en torno a las dimensiones clave: qué piensa y siente, qué ve, qué oye, qué dice y hace, así como sus principales esfuerzos (*Pains*) y resultados esperados (*Gains*).
 
 ---
 
-#### Empathy Map 1: Fernando Justiniano Vega (Segmento 1 - Comprador Multitienda)
+#### Empathy Map 1: Carlos Mendoza (Segmento 1 - Comprador Multitienda)
 
-El mapa de empatía de Fernando refleja la tensión constante entre la necesidad de ahorrar en la canasta básica y el desgaste generado por la ineficiencia del transporte urbano en Lima. Sus dolores se concentran en la asimetría de información de precios y las pérdidas de tiempo en el tráfico, mientras que sus ganancias se orientan al ahorro neto medible y al uso de una solución web ligera que agilice su toma de decisiones antes de salir de casa.
+El mapa de empatía de Carlos refleja la tensión constante entre la necesidad de ahorrar en la canasta básica y el desgaste generado por la ineficiencia del transporte urbano de Lima. Sus dolores se concentran en la asimetría de información de precios y las pérdidas de tiempo en el tráfico y colas, mientras que sus ganancias se orientan al ahorro neto medible y al uso de una solución web ligera que agilice su toma de decisiones antes de salir de casa.
 
-![Empathy Map 1 - Fernando Justiniano Vega](../assets/artifacts/Empathy.png)
-> *Figura 2.10: Mapa de empatía correspondiente al Segmento 1, elaborado en UXPressia.*
+![Empathy Map 1 - Carlos Mendoza](../assets/artifacts/Empathy.png)
+> *Figura 2.11: Mapa de empatía correspondiente al Segmento 1 (Compradores Independientes), elaborado en UXPressia.*
 
 ---
 
-#### Empathy Map 2: Administrador del Hogar y Gestor de Despensa Familiar (Segmento 2)
+#### Empathy Map 2: Alberto Ramos (Segmento 2 - Comerciante Minorista y Administrador de Tienda Local)
 
-El mapa de empatía del gestor familiar documenta las presiones asociadas a la administración del presupuesto doméstico y la prevención de desperdicios en despensa. Refleja la carga mental de coordinar las necesidades de múltiples integrantes y la búsqueda de certidumbre en caja al abastecerse por volumen en tiendas comerciales.
+El mapa de empatía de Alberto documenta las presiones comerciales y operativas vinculadas a la administración de un minimarket o bodega barrial. Refleja la preocupación constante por la pérdida recurrente de ventas debido a quiebres de stock no detectados a tiempo, la desventaja frente a comercios y cadenas con mejores ofertas y la dependencia de métodos manuales como cuadernos físicos o pizarras (*Pains*). Asimismo, consolida la necesidad de contar con una plataforma intuitiva y económica que le permita actualizar precios al instante desde su smartphone, publicar ofertas locales para atraer nuevos vecinos y emitir alertas tempranas de mercadería agotada para optimizar la rentabilidad de su negocio (*Gains*).
 
-![Empathy Map 2](../assets/artifacts/Empathy-2.png)
-> *Figura 2.11: Mapa de empatía correspondiente al Segmento 2, elaborado en UXPressia.*
+![Empathy Map 2 - Alberto Ramos](../assets/artifacts/Empathy2.png)
+> *Figura 2.12: Mapa de empatía correspondiente al Segmento 2 (Comerciantes Minoristas), elaborado en UXPressia.*
 
-> *(Espacio reservado para la incorporación del diagrama gráfico y el análisis del mapa de empatía del Segmento 2 a cargo del equipo una vez concluidas sus entrevistas).*
 
 ## 2.4. Big Picture Event Storming
 
-Para modelar la complejidad del dominio de negocio de PeruTech, el equipo llevó a cabo un taller colaborativo de *Big Picture Event Storming*. Esta metodología de exploración de alto nivel permitió alinear el entendimiento del problema entre el equipo técnico y el análisis de negocio, identificando los procesos clave, oportunidades y eventos significativos que rigen el abastecimiento inteligente de los hogares.
+Para modelar la complejidad del dominio de negocio y comprender integralmente los flujos operativos de la plataforma **Preciazo**, el equipo de la startup **PeruTech** llevó a cabo un taller colaborativo de *Big Picture Event Storming* siguiendo la guía metodológica de Domain-Driven Design (DDD). Esta dinámica visual de alto nivel facilitó un entendimiento compartido entre los desarrolladores de software y los requisitos del negocio, permitiendo explorar exhaustivamente el *landscape* comercial, mapear los procesos fundamentales de aprovisionamiento y comercialización, y evidenciar de forma temprana los puntos críticos, riesgos y oportunidades de innovación tecnológica para ambos segmentos objetivo.
+
+A continuación, se detalla el desarrollo secuencial del taller a través de sus fases progresivas:
 
 ---
 
 ### 2.4.1. Fase 1: Generación Abierta de Eventos (Open Space)
 
-En esta etapa inicial, los participantes realizaron una lluvia de ideas sin restricciones temporales ni de orden secuencial para registrar todos los eventos de dominio (*Domain Events*) posibles, redactados en tiempo pasado (post-it naranjas). Se levantaron eventos desde la detección de necesidad y registro del usuario hasta la optimización de rutas, control presupuestario y validación de precios en tienda.
+En esta fase inicial divergente, los integrantes del equipo registraron de manera abierta y sin restricciones de orden cronológico todos los eventos significativos ocurridos dentro del dominio de negocio (*Domain Events*), redactados estrictamente en tiempo verbal pasado sobre notas adhesivas de color naranja. El levantamiento abarcó todo el ciclo de vida de la interacción comercial y operativa: desde el registro e inicio de sesión de los usuarios, la afiliación de bodegas, la publicación y actualización de ofertas, el armado de canastas básicas y listas de compras, hasta la proyección presupuestaria, el cálculo de trayectos óptimos y la confirmación final de compra en el establecimiento físico.
 
 ![Big Picture - Open Space](../assets/ddd/big-picture/big-picture-open.png)
-> *Figura 2.12: Fase Open Space del Big Picture Event Storming, registro inicial de eventos de dominio.*
+> *Figura 2.13: Fase Open Space del Big Picture Event Storming, lluvia de ideas y registro no estructurado de eventos de dominio para Preciazo.*
 
 ---
 
 ### 2.4.2. Fase 2: Exploración y Línea de Tiempo (Explore)
 
-Durante la fase de exploración, el equipo ordenó cronológicamente los eventos identificados de izquierda a derecha para estructurar la línea de tiempo del negocio. Asimismo, se identificaron puntos de fricción, cuellos de botella y dudas del dominio mediante marcas de riesgo o problemas (*Hotspots* / post-it rojos/rosados), tales como la dispersión de precios no verificados, el tráfico vehicular y los desvíos presupuestarios imprevistos en caja.
+Durante la fase de exploración y convergencia, el equipo estructuró una línea temporal secuencial orientando los eventos de dominio de izquierda a derecha según el flujo natural de las operaciones. En este análisis se incorporaron notas de color rojo/rosado para identificar puntos de dolor, cuellos de botella e incertidumbres críticas del dominio (*Hotspots*). Entre las fricciones expuestas destacaron la discrepancia entre precios exhibidos digitalmente y los cobrados en caja registradora, la saturación del tráfico limeño que encarece los traslados físicos, los quiebres imprevistos de stock en comercios minoristas y el riesgo de abandono de la plataforma ante interfaces complejas.
 
 ![Big Picture - Explore](../assets/ddd/big-picture/big-picture-explore.png)
-> *Figura 2.13: Fase Explore del Big Picture Event Storming, ordenamiento cronológico y detección de puntos críticos.*
+> *Figura 2.14: Fase Explore del Big Picture Event Storming, ordenamiento cronológico sobre la línea de tiempo y detección de Hotspots.*
 
 ---
 
 ### 2.4.3. Fase 3: Consolidación y Definición de Triggers (Close Space)
 
-En el cierre del espacio de exploración, se refinó la línea de tiempo eliminando redundancias y se incorporaron los comandos o acciones desencadenantes (*Commands* / post-it azules) ejecutados por los actores del sistema (como Fernando o el administrador del hogar), así como las políticas o reglas de negocio automáticas (*Policies* / post-it lilas) que reaccionan a determinados eventos, por ejemplo, alertas por superación de presupuesto o recálculo de rutas por congestión.
+En el cierre del espacio de exploración, se refinó la línea temporal eliminando duplicidades y clarificando las transiciones del sistema. Se integraron los comandos desencadenantes (*Commands* / post-it azules) que representan las intenciones y acciones operadas por los actores primarios (el comprador independiente y el comerciante minorista), así como las políticas y reglas de negocio reactivas (*Policies* / post-it lilas). Estas políticas modelan la lógica automática del sistema, tales como la emisión de alertas preventivas cuando el costo acumulado de la canasta supera el presupuesto límite, la sugerencia de artículos sustitutos ante falta de existencias y la reconfiguración dinámica de rutas ante alertas de congestión vehicular.
 
 ![Big Picture - Close Space](../assets/ddd/big-picture/big-picture-close.png)
-> *Figura 2.14: Fase Close Space del Big Picture Event Storming, integración de comandos, actores y políticas de negocio.*
+> *Figura 2.15: Fase Close Space del Big Picture Event Storming, articulación de actores, comandos ejecutores y políticas de dominio.*
 
 ---
 
 ### 2.4.4. Fase 4: Modelo Final del Dominio (Final Landscape)
 
-Como resultado consolidado del proceso, se estructuró el mapa integral del paisaje del negocio (*Business Landscape*). Este diagrama agrupa los eventos, comandos y políticas en torno a los flujos operativos fundamentales de PeruTech: gestión de perfiles e identidad, catálogo y actualización colaborativa de precios, planificación de listas de compra, y optimización de rutas con control presupuestario previo a la compra física.
+Como resultado definitivo del taller colaborativo, se consolidó el mapa general del dominio (*Business Landscape*) para la plataforma **Preciazo**, estructurado por el equipo de **PeruTech**. Este artefacto articula de forma holística los eventos, comandos, reglas y sistemas externos en torno a los subdominios clave del negocio: gestión de perfiles e identidad (consumidores y comercios afiliados), catálogo estructurado de productos y tarifas en góndola, planificación colaborativa de presupuestos familiares, y motor de geolocalización para optimización de rutas comerciales.
 
 ![Big Picture - Modelo Final](../assets/ddd/big-picture/big-picture-final.png)
-> *Figura 2.15: Modelo consolidado del Big Picture Event Storming de PeruTech.*
+> *Figura 2.16: Modelo consolidado del Big Picture Event Storming para Preciazo, desarrollado por el equipo de PeruTech.*
 
-### 2.4.5. Ubiquitous Language
+### 2.5. Ubiquitous Language
 
-En esta sección se define el *Ubiquitous Language* (Lenguaje Ubicuo) para el dominio de PeruTech, siguiendo los principios establecidos por Eric Evans en *Domain-Driven Design*. Este glosario establece un vocabulario formal y riguroso compartido entre el equipo de desarrollo, los usuarios y los interesados del negocio, eliminando ambigüedades. Se incluyen estrictamente términos y conceptos del dominio del comercio minorista, abastecimiento doméstico y movilidad urbana, prescindiendo de tecnicismos informáticos o de arquitectura de software.
+En esta sección se define el *Ubiquitous Language* (Lenguaje Ubicuo) para el dominio de Preciazo, desarrollado por la startup PeruTech, siguiendo los principios de modelado estratégico de *Domain-Driven Design* (DDD) formulados por Eric Evans. Este glosario formal unifica el vocabulario compartido entre los desarrolladores, los expertos del dominio y los usuarios finales (consumidores y comerciantes), eliminando ambigüedades operativas. Se enfoca estrictamente en términos de la dinámica comercial minorista, abastecimiento presencial y movilidad urbana:
 
-* **Basic Basket (Canasta Básica):** Conjunto esencial de bienes y alimentos de primera necesidad requeridos para el sustento cotidiano de una persona o unidad familiar en un periodo determinado.
-* **Crowdsourced Verification (Verificación Colaborativa):** Proceso mediante el cual la comunidad de compradores confirma, actualiza o reporta la vigencia de los precios y la disponibilidad física de artículos observados directamente en las tiendas.
-* **Family Pantry (Despensa Familiar):** Inventario doméstico de alimentos y artículos de higiene almacenados en el hogar, cuya reposición periódica y control de caducidad están a cargo del administrador familiar.
-* **Multi-stop Route (Ruta Multiparada):** Itinerario secuencial de desplazamiento físico que conecta el hogar del comprador con múltiples puntos de venta (mercados de abastos y supermercados) ordenados estratégicamente.
-* **Net Savings (Ahorro Neto):** Diferencia económica positiva resultante de restar los costos totales de transporte (combustible, pasajes o tarifas de traslado) del ahorro monetario bruto obtenido por la dispersión de precios de los productos adquiridos.
-* **Optimal Purchase Stop (Punto Óptimo de Compra):** Establecimiento comercial sugerido dentro de la planificación de compra por presentar la mejor relación entre cercanía geográfica, disponibilidad de stock y menor precio unitario.
-* **Pantry Stockout (Agotamiento de Despensa):** Estado en el que una categoría de producto esencial en el hogar llega a nivel cero, generando la necesidad inmediata de compra y reposición.
-* **Price Discrepancy (Discrepancia de Precio):** Diferencia identificada entre el valor de venta exhibido públicamente en anaquel o lista referencial y el monto final facturado en la caja registradora.
-* **Price Dispersion (Dispersión de Precios):** Variación de precios de un mismo artículo estándar entre diferentes establecimientos comerciales ubicados dentro de un mismo radio geográfico o distrito.
-* **Purchase Budget (Presupuesto de Compra):** Techo financiero o cantidad máxima de dinero asignada por el comprador o jefe de hogar para solventar una jornada específica de abastecimiento.
-* **Purchase Item (Artículo de Compra):** Bien específico categorizado por marca, presentación, unidad de medida y peso que forma parte de la lista de necesidades del usuario.
-* **Retail Store (Comercio Minorista):** Establecimiento comercial físico (como supermercados, tiendas de descuento o puestos de mercado de abastos) dedicado a la venta directa de bienes de consumo al cliente final.
-* **Shared Shopping List (Lista de Compras Compartida):** Registro estructurado y colaborativo de artículos requeridos donde convergen las necesidades de aprovisionamiento de los distintos miembros de una vivienda.
-* **Substituted Good (Bien Sustituto):** Producto alternativo de calidad y características análogas que un comprador elige cuando el artículo principal excede su presupuesto habitual o no cuenta con inventario en tienda.
-* **Transit Overhead (Sobrecosto de Desplazamiento):** Pérdida de tiempo y gasto adicional de dinero incurrido por el consumidor al realizar trayectos ineficientes o quedar atrapado en la congestión vehicular durante su compra.
-* **Unit Price (Precio Unitario):** Costo por unidad estándar de medida (kilogramo, litro, unidad) que permite al consumidor comparar de forma equitativa artículos con diferentes volúmenes de empaque.
+* **Affiliated Store (Tienda Afiliada):** Establecimiento comercial físico (bodega, minimarket o puesto de abastos) cuyos datos registrales han sido formalmente validados para exhibir su catálogo y ofertas en la plataforma.
+* **Affiliation Request (Solicitud de Afiliación):** Trámite inicial mediante el cual un comerciante minorista registra los datos de su negocio y su identificación fiscal para integrarse a la red del sistema.
+* **Basic Basket (Canasta Básica):** Conjunto estructurado de bienes y alimentos de primera necesidad requeridos para el consumo periódico de una persona o grupo familiar.
+* **Crowdsourced Verification (Verificación Colaborativa):** Mecanismo mediante el cual la comunidad de compradores confirma, actualiza o reporta la vigencia de los precios y el stock físico observado en góndola.
+* **Multi-stop Route (Ruta Multiparada):** Itinerario secuencial de desplazamiento físico que conecta el punto de origen del comprador con múltiples locales comerciales optimizados geográficamente.
+* **Net Savings (Ahorro Neto):** Diferencia económica positiva resultante de deducir el gasto logístico de transporte (pasajes o combustible) del ahorro monetario bruto obtenido por la dispersión de precios en góndola.
+* **Optimal Purchase Stop (Punto Óptimo de Compra):** Establecimiento comercial sugerido por el sistema al ofrecer el mejor balance entre proximidad geográfica, disponibilidad de artículos y menor precio de canasta.
+* **Price Discrepancy (Discrepancia de Precio):** Desfase identificado entre el precio de venta publicado digitalmente o exhibido en anaquel y el importe real cobrado en la caja registradora.
+* **Price Dispersion (Dispersión de Precios):** Variación del precio de venta de un mismo producto idéntico entre distintos establecimientos comerciales de una misma zona o distrito.
+* **Product Catalog (Catálogo de Productos):** Conjunto indexado de artículos y bienes de consumo masivo clasificados por marca, categoría y presentación estándar.
+* **Purchase Budget (Presupuesto de Compra):** Techo financiero monetario definido por el consumidor antes de salir a comprar para controlar su nivel de gasto.
+* **Purchase Item (Artículo de Compra):** Bien individual definido por nombre, marca, formato y unidad de medida que integra la lista de compras del usuario.
+* **Retail Store (Comercio Minorista):** Punto de venta físico dedicado a la comercialización directa de bienes de consumo al comprador presencial.
+* **Shopping List (Lista de Compras):** Registro organizado de los artículos que el consumidor planifica adquirir durante su jornada de compra.
+* **Store Administrator (Administrador de Tienda):** Propietario o encargado formal del establecimiento comercial responsable de la publicación de precios, control de promociones y gestión del perfil del local.
+* **Store Offer (Oferta de Tienda):** Reducción temporal de precio o promoción especial publicada por un comercio afiliado para incentivar la afluencia de compradores locales.
+* **Substituted Good (Bien Sustituto):** Producto de características o valor nutricional equivalente que el comprador selecciona como alternativa cuando el artículo preferente no tiene stock o excede su presupuesto.
+* **SUNAT Verification (Validación SUNAT):** Verificación del estado del Registro Único de Contribuyentes (RUC) y la condición fiscal activa del comercio antes de habilitar su visibilidad pública.
+* **Transit Overhead (Sobrecosto de Desplazamiento):** Demora temporal y gasto adicional de movilidad en los que incurre un comprador debido al tráfico urbano o a la lejanía entre tiendas.
+* **Unit Price (Precio Unitario):** Costo por unidad estándar de medida (kilogramo, litro, paquete) que permite comparar con equidad el valor real de productos con diferentes tamaños de empaque.
 
 # Capítulo III: Requirements Specification
 
@@ -778,60 +999,62 @@ En esta sección se especifican los requisitos funcionales y técnicos de la pla
 
 Asimismo, los criterios de aceptación se definen bajo la sintaxis formal de Gherkin (*Given-When-Then*), redactados en tiempo presente, tercera persona y prescindiendo de detalles de interfaz gráfica (como botones, pantallas o clics), asegurando su comprobabilidad tanto en la experiencia web interactiva como en los contratos de servicio del RESTful API.
 
-A continuación, se definen los Epics identificados que agrupan funcionalmente los requisitos del sistema:
-* **EP01: Plataforma Informativa y Landing Page:** Difusión pública del servicio, propuesta de valor y captación de visitantes.
-* **EP02: Gestión de Identidad y Perfiles:** Registro, autenticación y configuración de preferencias para compradores y comercios.
-* **EP03: Planificación y Control Presupuestario:** Elaboración de listas de compras y control financiero preventivo en tiempo real.
-* **EP04: Comparación de Mercado y Ruteo Inteligente:** Comparativa multiestablecimiento, optimización de traslados y bienes sustitutos.
-* **EP05: Gestión de Ofertas y Catálogo Minorista:** Administración simplificada de precios, promociones y existencias para comercios barriales.
-* **EP06: Inteligencia Colectiva y Moderación Comunitaria:** Verificación colaborativa de precios en góndola y reporte de discrepancias.
-* **EP07: Núcleo de Servicios Backend y RESTful API:** Servicios de backend, endpoints de integración y reglas de persistencia.
+Siguiendo los principios de diseño estratégico de Domain-Driven Design (DDD), los Epics y las historias de usuario se estructuran y ordenan priorizando primero los **Bounded Contexts Core (Núcleo del negocio)**, seguidos por los **Bounded Contexts de Soporte (Supporting)** y finalmente los **Bounded Contexts Genéricos (Generic)** y componentes transversales:
 
-| Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
-| :--- | :--- | :--- | :--- | :--- |
-| **US01** | Landing: Propuesta de valor | Como visitante, deseo visualizar la propuesta central del servicio para comprender cómo optimizar mis compras y tiempos de traslado. | **Escenario 1: Carga inicial de la propuesta.**<br>Dado que el visitante accede al sitio web estático, cuando se completa la carga inicial, entonces visualiza el mensaje central enfocado en la comparación multiestablecimiento y el cálculo de rutas de compra.<br><br>**Escenario 2: Comprensión del valor diferencial.**<br>Dado que el visitante se desplaza hacia la sección de beneficios, cuando revisa la información comparativa, entonces comprende el impacto de la dispersión de precios entre comercios minoristas y tiendas de conveniencia.<br><br>**Escenario 3: Adaptabilidad de visualización.**<br>Dado que el visitante accede desde un navegador web móvil, cuando visualiza el contenido, entonces la disposición de los bloques y textos se adapta fluidamente sin desbordamientos ni solapamientos. | EP01 |
-| **US02** | Landing: Segmentos objetivo | Como visitante, deseo conocer a qué perfiles está orientada la solución para identificar si resuelve mis necesidades de abastecimiento o comercio. | **Escenario 1: Visualización diferenciada por segmento.**<br>Dado que el visitante navega en la sección de perfiles, cuando interactúa con los módulos informativos, entonces visualiza las funciones orientadas al Comprador Independiente y al Comerciante Minorista.<br><br>**Escenario 2: Redirección hacia registro.**<br>Dado que el visitante selecciona el llamado a la acción correspondiente a su perfil, cuando ejecuta la acción, entonces es derivado al flujo de registro respectivo en la aplicación web. | EP01 |
-| **US03** | Landing: Red de comercios aliados | Como visitante, deseo visualizar qué establecimientos y zonas cuentan con cobertura para verificar la disponibilidad del servicio. | **Escenario 1: Consulta de locales asociados.**<br>Dado que el visitante consulta la sección de comercios, cuando visualiza la red registrada, entonces se listan los tipos de establecimientos minoristas participantes agrupados por sectores urbanos.<br><br>**Escenario 2: Explicación de cobertura.**<br>Dado que el visitante revisa el alcance geográfico, cuando consulta las zonas activas, entonces visualiza los distritos con presencia y densidad de datos comerciales comprobados. | EP01 |
-| **US04** | Landing: Registro de interés | Como visitante, deseo suscribir mi correo electrónico para recibir notificaciones sobre el lanzamiento y novedades de la plataforma. | **Escenario 1: Registro exitoso de correo.**<br>Dado que el visitante introduce una dirección de correo con sintaxis válida, cuando confirma el envío, entonces el sistema almacena el registro y emite un mensaje de suscripción exitosa.<br><br>**Escenario 2: Validación de sintaxis errónea.**<br>Dado que el visitante ingresa un formato de correo inválido, cuando intenta enviar los datos, entonces el sistema impide el envío y solicita la corrección del texto ingresado.<br><br>**Escenario 3: Correo previamente registrado.**<br>Dado que el correo ingresado ya existe en la lista de difusión, cuando se procesa la solicitud, entonces el sistema informa que la dirección ya cuenta con una suscripción activa. | EP01 |
-| **US05** | Landing: Preguntas frecuentes y soporte | Como visitante, deseo consultar una sección de preguntas frecuentes para aclarar el modelo de servicio y los canales de contacto. | **Escenario 1: Visualización de preguntas frecuentes.**<br>Dado que el visitante accede a la sección informativa, cuando consulta los tópicos de ayuda, entonces el sistema despliega las respuestas sobre el funcionamiento del comparador y las condiciones para comercios afiliados.<br><br>**Escenario 2: Envío de consulta de soporte.**<br>Dado que el visitante completa el formulario de contacto con datos válidos, cuando confirma el envío, entonces el sistema registra el mensaje y emite una confirmación de recepción. | EP01 |
-| **US06** | Autenticación y acceso | Como comprador independiente, deseo iniciar sesión con mis credenciales registradas para gestionar mis listas y presupuesto. | **Escenario 1: Inicio de sesión válido.**<br>Dado que el usuario introduce credenciales registradas y correctas, cuando solicita el ingreso, entonces el sistema valida la identidad y da acceso al entorno principal.<br><br>**Escenario 2: Credenciales no coincidentes.**<br>Dado que el usuario ingresa una combinación incorrecta de credenciales, cuando intenta iniciar sesión, entonces el sistema deniega el acceso y muestra una notificación de autenticación fallida.<br><br>**Escenario 3: Bloqueo por seguridad.**<br>Dado que se registran múltiples intentos fallidos consecutivos, cuando se alcanza el umbral de seguridad, entonces el sistema bloquea temporalmente el acceso y solicita comprobación de seguridad. | EP02 |
-| **US07** | Gestión de comercios favoritos | Como comprador independiente, deseo guardar mis establecimientos de confianza para priorizar sus ofertas en mis consultas diarias. | **Escenario 1: Asignación de comercio preferente.**<br>Dado que el usuario marca un local como habitual, cuando realiza búsquedas de canasta, entonces el sistema prioriza los precios de dicho establecimiento en la vista de resultados.<br><br>**Escenario 2: Retiro de preferencia.**<br>Dado que el usuario desmarca el local de su lista de favoritos, cuando actualiza sus parámetros, entonces el sistema restablece el ordenamiento geográfico estándar. | EP02 |
-| **US08** | Creación de lista de compras | Como comprador independiente, deseo crear una lista de productos requeridos para estructurar mi jornada de abastecimiento. | **Escenario 1: Inicialización de lista.**<br>Dado que el usuario inicia la confección de una lista, cuando define un nombre identificador, entonces el sistema genera el contenedor de compras asociado a su perfil.<br><br>**Escenario 2: Asignación por defecto.**<br>Dado que el usuario omite asignar un nombre específico, cuando confirma la creación, entonces el sistema asigna una denominación automática basada en la fecha y hora actual. | EP03 |
-| **US09** | Agregado de ítems a la lista | Como comprador independiente, deseo buscar y agregar artículos específicos a mi lista para consolidar mi canasta básica. | **Escenario 1: Inclusión de artículo.**<br>Dado que el usuario localiza un producto en el catálogo general, cuando define la cantidad requerida, entonces el artículo se vincula a su lista activa.<br><br>**Escenario 2: Incremento de cantidad existente.**<br>Dado que un artículo ya forma parte de la lista, cuando el usuario lo selecciona nuevamente, entonces el sistema suma la cantidad ingresada sin generar registros duplicados. | EP03 |
-| **US10** | Fijación de presupuesto límite | Como comprador independiente, deseo configurar un tope de gasto para mi lista de compras para controlar mi economía personal. | **Escenario 1: Configuración de umbral.**<br>Dado que el usuario introduce un monto monetario mayor a cero, cuando guarda el parámetro, entonces el sistema fija dicho valor como umbral máximo para la lista.<br><br>**Escenario 2: Entrada no válida.**<br>Dado que el usuario introduce un monto menor o igual a cero, cuando intenta guardar el parámetro, entonces el sistema descarta el valor y solicita un importe válido. | EP03 |
-| **US11** | Alerta de rebase presupuestario | Como comprador independiente, deseo recibir una advertencia cuando la sumatoria de mi lista supere el presupuesto establecido para ajustar mi selección. | **Escenario 1: Detección de exceso presupuestario.**<br>Dado que la suma del costo proyectado de los artículos supera el límite fijado, cuando se agrega un nuevo producto, entonces el sistema emite una alerta visual de exceso presupuestario.<br><br>**Escenario 2: Restablecimiento del límite.**<br>Dado que el usuario retira productos o reduce cantidades, cuando el monto total vuelve a estar dentro del presupuesto permitido, entonces la alerta se desactiva de forma automática. | EP03 |
-| **US12** | Modo de jornada de compra en local | Como comprador independiente, deseo marcar los artículos conforme los coloco en mi canasta para verificar el gasto acumulado en tiempo real. | **Escenario 1: Marcado de artículo adquirido.**<br>Dado que el usuario se encuentra en el local comercial, cuando marca un producto como recogido, entonces el sistema lo señala como adquirido y suma su importe al total proyectado en caja.<br><br>**Escenario 2: Desmarcado de producto.**<br>Dado que el usuario decide descartar un producto previamente marcado, cuando revierte la selección, entonces el sistema descuenta el importe del total acumulado. | EP03 |
-| **US13** | Comparativa multiestablecimiento | Como comprador independiente, deseo comparar el costo total de mi lista entre locales comerciales cercanos para identificar el menor costo de compra. | **Escenario 1: Generación de tabla comparativa.**<br>Dado que la lista de compras cuenta con artículos definidos, cuando el usuario solicita la comparativa, entonces el sistema presenta los comercios ordenados por el costo total de la canasta.<br><br>**Escenario 2: Disponibilidad parcial de productos.**<br>Dado que un comercio no dispone de la totalidad de los artículos de la lista, cuando se procesa la comparativa, entonces el sistema advierte qué productos se encuentran ausentes en dicho punto. | EP04 |
-| **US14** | Cálculo de ruta de compra eficiente | Como comprador independiente, deseo obtener un itinerario secuencial de paradas óptimas para reducir mi tiempo de traslado y costo de transporte. | **Escenario 1: Generación de itinerario de paradas.**<br>Dado que el usuario selecciona los locales comerciales de compra, cuando solicita la optimización de traslado, entonces el sistema genera una secuencia de recorrido que minimiza la distancia total a recorrer.<br><br>**Escenario 2: Estimación de tiempos de viaje.**<br>Dado que se calcula la ruta entre los establecimientos, cuando se despliega el resumen del itinerario, entonces se indica el tiempo estimado global considerando la modalidad de traslado seleccionada. | EP04 |
-| **US15** | Sugerencia de bienes sustitutos | Como comprador independiente, deseo recibir recomendaciones de productos alternativos más económicos para disminuir el monto total a pagar. | **Escenario 1: Detección de sustituto accesible.**<br>Dado que un producto seleccionado posee un sustituto de características análogas a menor costo, cuando se evalúa la lista, entonces el sistema sugiere el cambio de artículo indicando el ahorro potencial.<br><br>**Escenario 2: Aplicación del cambio.**<br>Dado que el usuario acepta la alternativa sugerida, cuando confirma el reemplazo, entonces el sistema actualiza la lista y recalcula de forma inmediata el total estimado. | EP04 |
-| **US16** | Comparación por unidad de medida | Como comprador independiente, deseo comparar el costo por unidad de medida (kilogramo o litro) para evaluar presentaciones con distinto gramaje. | **Escenario 1: Cálculo de precio normalizado.**<br>Dado que los artículos cuentan con peso o volumen registrado, cuando el usuario visualiza la comparativa, entonces el sistema calcula y exhibe el costo por unidad estándar de medida.<br><br>**Escenario 2: Omisión por datos insuficientes.**<br>Dado que un artículo carece del registro de gramaje en su ficha técnica, cuando se procesa la comparativa, entonces el sistema omite el cálculo unitario mostrando únicamente el precio final en góndola. | EP04 |
-| **US17** | Búsqueda por filtros de proximidad | Como comprador independiente, deseo filtrar comercios dentro de un radio caminable específico para evitar traslados excesivamente largos. | **Escenario 1: Aplicación de radio de búsqueda.**<br>Dado que el usuario define una distancia máxima de desplazamiento (ej. 800 metros), cuando ejecuta la búsqueda, entonces el sistema restringe los resultados a los comercios situados dentro del perímetro señalado.<br><br>**Escenario 2: Ausencia de locales en el perímetro.**<br>Dado que no existen establecimientos dentro del radio fijado, cuando concluye la consulta, entonces el sistema sugiere ampliar el rango de búsqueda al siguiente intervalo disponible. | EP04 |
-| **US18** | Registro de compras recurrentes | Como comprador independiente, deseo guardar una canasta base como plantilla para reutilizarla en compras quincenales sin reingresar productos. | **Escenario 1: Guardado de plantilla.**<br>Dado que el usuario concluye una lista de compras, cuando la guarda como plantilla recurrente, entonces el sistema genera una copia maestra en su perfil.<br><br>**Escenario 2: Instanciación de nueva lista.**<br>Dado que el usuario inicia un nuevo ciclo de compra, cuando selecciona su plantilla guardada, entonces el sistema genera una lista activa con los precios actualizados a la fecha. | EP03 |
-| **US19** | Historial de precios de producto | Como comprador independiente, deseo consultar la evolución histórica del valor de un bien para evaluar la conveniencia de una oferta. | **Escenario 1: Consulta de variación temporal.**<br>Dado que el usuario selecciona un artículo específico, cuando consulta su registro de variaciones, entonces el sistema exhibe el comportamiento de su precio durante los últimos 30 días.<br><br>**Escenario 2: Ausencia de histórico.**<br>Dado que un artículo es de reciente incorporación, cuando se solicita su histórico, entonces el sistema informa que solo se cuenta con el precio de registro inicial. | EP04 |
-| **US20** | Recálculo dinámico de ruta | Como comprador independiente, deseo reordenar mi trayecto de compra si un local se encuentra cerrado o inaccesible. | **Escenario 1: Omisión de parada.**<br>Dado que el usuario omite un establecimiento de su itinerario activo, cuando confirma la modificación, entonces el algoritmo recalcula la secuencia restante minimizando la distancia.<br><br>**Escenario 2: Reasignación de comercio.**<br>Dado que el usuario solicita un reemplazo para el local omitido, cuando el sistema evalúa la zona, entonces asigna la tienda cercana con el siguiente mejor precio de canasta. | EP04 |
-| **US21** | Registro y afiliación de tienda | Como comerciante minorista, deseo registrar los datos de mi establecimiento para integrar mi negocio al mapa comercial de la plataforma. | **Escenario 1: Ingreso de datos registrales.**<br>Dado que el comerciante remite su RUC, razón social, dirección y coordenadas geográficas, cuando envía la solicitud, entonces el sistema genera el registro en estado pendiente de validación fiscal.<br><br>**Escenario 2: Control de duplicidad comercial.**<br>Dado que el identificador fiscal ingresado ya se encuentra registrado, cuando se procesa la solicitud, entonces el sistema notifica la existencia previa de la tienda impidiendo registros repetidos. | EP02 |
-| **US22** | Configuración de horarios comerciales | Como comerciante minorista, deseo indicar los horarios de atención de mi local para que los compradores conozcan cuándo pueden acudir. | **Escenario 1: Registro de turno regular.**<br>Dado que el comerciante especifica sus horas de apertura y cierre por día de la semana, cuando guarda los parámetros, entonces el sistema despliega el estado de atención en el mapa de ruta.<br><br>**Escenario 2: Actualización de estado en tiempo real.**<br>Dado que la hora del sistema se encuentra fuera del rango configurado, cuando un comprador consulta el comercio, entonces el sistema indica que el local se encuentra cerrado. | EP02 |
-| **US23** | Publicación de precios en catálogo | Como comerciante minorista, deseo registrar y actualizar los precios de venta de mis productos para mantener informados a los compradores de la zona. | **Escenario 1: Actualización de precio unitario.**<br>Dado que el comerciante selecciona un producto de su inventario, cuando ingresa un nuevo valor de venta y confirma la acción, entonces el sistema actualiza el dato en el catálogo público.<br><br>**Escenario 2: Validación de valor positivo.**<br>Dado que el comerciante ingresa un monto menor o igual a cero, cuando intenta guardar el cambio, entonces el sistema rechaza el valor solicitando un precio de venta positivo. | EP05 |
-| **US24** | Publicación de ofertas de tienda | Como comerciante minorista, deseo publicar promociones por tiempo limitado para acelerar la rotación de artículos y atraer mayor afluencia. | **Escenario 1: Creación de promoción.**<br>Dado que el comerciante define un producto, precio rebajado y rango de vigencia temporal, cuando activa la oferta, entonces el sistema la expone como oferta especial en el sector geográfico.<br><br>**Escenario 2: Caducidad automática de oferta.**<br>Dado que se alcanza la fecha u hora límite de la promoción, cuando expira el periodo, entonces el sistema retira la condición de oferta restableciendo el precio habitual. | EP05 |
-| **US25** | Reporte de agotamiento de stock | Como comerciante minorista, deseo marcar artículos sin disponibilidad física en mi local para evitar desplazamientos infructuosos de los clientes. | **Escenario 1: Cambio a estado sin stock.**<br>Dado que un producto agota sus existencias en tienda, cuando el comerciante actualiza su disponibilidad en el panel, entonces el sistema lo excluye de los cálculos inmediatos de canasta para ese local.<br><br>**Escenario 2: Restablecimiento de existencias.**<br>Dado que el local repone existencias, cuando el comerciante marca nuevamente el artículo como disponible, entonces se reactiva su visibilidad en el comparador zonal. | EP05 |
-| **US26** | Carga estructurada de catálogo | Como comerciante minorista, deseo importar una lista estructurada de artículos y precios para actualizar mi inventario de forma ágil. | **Escenario 1: Procesamiento de archivo de inventario.**<br>Dado que el comerciante remite un archivo de datos con el formato y columnas requeridas, cuando el sistema procesa el contenido, entonces actualiza los registros de precios y existencias en el catálogo del local.<br><br>**Escenario 2: Detección de inconsistencias de formato.**<br>Dado que el archivo remitido presenta celdas vacías o valores numéricos erróneos, cuando el validador analiza el documento, entonces cancela la importación e indica las líneas con errores para su corrección. | EP05 |
-| **US27** | Panel de rendimiento comercial | Como comerciante minorista, deseo consultar métricas de visualización de mis promociones para evaluar el impacto de mis precios publicados. | **Escenario 1: Conteo de apariciones en rutas.**<br>Dado que los compradores generan itinerarios en la zona, cuando el comerciante ingresa a su panel de control, entonces visualiza la cantidad de veces que su establecimiento fue sugerido como parada óptima durante el mes.<br><br>**Escenario 2: Métricas de ofertas consultadas.**<br>Dado que el comerciante mantiene promociones vigentes, cuando consulta las estadísticas, entonces visualiza el número de usuarios que interactuaron con sus productos destacados. | EP05 |
-| **US28** | Reporte colaborativo de discrepancia | Como comprador independiente, deseo reportar cuando un precio en góndola difiere del valor registrado en el sistema para colaborar con la comunidad. | **Escenario 1: Envío de reporte de precio.**<br>Dado que el usuario detecta un precio distinto en góndola, cuando remite el nuevo valor observado, entonces el sistema genera un evento de verificación comunitaria.<br><br>**Escenario 2: Control de valores anómalos.**<br>Dado que el usuario remite un valor extremadamente desproporcionado respecto a la media histórica, cuando se procesa el reporte, entonces el sistema lo retiene para moderación. | EP06 |
-| **US29** | Confirmación comunitaria de datos | Como comprador independiente, deseo validar los reportes de precios efectuados por otros usuarios para consolidar la confiabilidad de la información. | **Escenario 1: Aprobación de reporte.**<br>Dado que un comprador se encuentra en el establecimiento y verifica el precio reportado, cuando emite su confirmación favorable, entonces el sistema incrementa el índice de confianza del dato.<br><br>**Escenario 2: Rechazo de información errónea.**<br>Dado que un comprador constata que el precio reportado no es verídico, cuando emite una calificación desfavorable, entonces el sistema disminuye la confiabilidad del reporte. | EP06 |
-| **TS01** | API de autenticación y tokens | Como Developer, deseo implementar el endpoint de autenticación con JWT para asegurar el acceso a los servicios de la plataforma. | **Escenario 1: Emisión exitosa de JWT.**<br>Dado un requerimiento POST a `/api/v1/auth/login` con credenciales válidas en formato JSON, cuando el servicio valida la identidad del usuario, entonces responde con un código HTTP 200 OK y el token de acceso correspondiente.<br><br>**Escenario 2: Denegación de acceso.**<br>Dado un requerimiento POST a `/api/v1/auth/login` con contraseña no coincidente, cuando el servicio procesa la solicitud, entonces responde con un código HTTP 401 Unauthorized y el mensaje de error respectivo. | EP07 |
-| **TS02** | API de cálculo comparativo de canasta | Como Developer, deseo proveer un endpoint para computar el costo total de una lista de productos en los comercios registrados en un radio geográfico. | **Escenario 1: Procesamiento comparativo exitoso.**<br>Dado un requerimiento POST a `/api/v1/baskets/compare` con la lista de identificadores de productos y coordenadas geográficas, cuando el motor calcula las sumatorias, entonces responde con un código HTTP 200 OK y la lista de comercios con sus montos totales calculados.<br><br>**Escenario 2: Solicitud con lista vacía.**<br>Dado un requerimiento POST con un cuerpo sin artículos, cuando el controlador evalúa la petición, entonces responde con un código HTTP 400 Bad Request indicando la ausencia de datos. | EP07 |
-| **TS03** | API de optimización de rutas | Como Developer, deseo proveer un endpoint que ordene una secuencia de establecimientos según eficiencia de traslado. | **Escenario 1: Cálculo de itinerario óptimo.**<br>Dado un requerimiento POST a `/api/v1/routes/optimize` conteniendo coordenadas de origen y paradas seleccionadas, cuando se procesa el ordenamiento, entonces responde con un código HTTP 200 OK entregando las paradas ordenadas y la distancia acumulada.<br><br>**Escenario 2: Punto inalcanzable.**<br>Dado un requerimiento cuyas coordenadas no cuentan con conexión vial viable, cuando falla el algoritmo de ruteo, entonces responde con un código HTTP 422 Unprocessable Entity y la descripción del fallo. | EP07 |
-| **TS04** | API de validación fiscal de establecimientos | Como Developer, deseo integrar un servicio de verificación de RUC contra entidades oficiales para constatar la vigencia legal de los comercios afiliados. | **Escenario 1: Verificación de comercio activo.**<br>Dado un requerimiento GET a `/api/v1/merchants/validate-ruc/{ruc}` con un identificador válido de 11 dígitos, cuando el servicio consulta la fuente registral, entonces responde con un código HTTP 200 OK y el estado formal del contribuyente.<br><br>**Escenario 2: Tiempo de respuesta excedido.**<br>Dado que el servicio externo de consulta fiscal demora más de 5000 milisegundos, cuando expira el tiempo límite, entonces el servicio responde con un código HTTP 504 Gateway Timeout controlado sin suspender la ejecución del sistema. | EP07 |
-| **TS05** | API de sincronización de catálogo | Como Developer, deseo proveer un endpoint para la actualización en bloque de inventario de tiendas mediante solicitudes en formato JSON. | **Escenario 1: Recepción de lote de productos.**<br>Dado un requerimiento PUT a `/api/v1/merchants/{id}/inventory` con un arreglo de artículos y precios, cuando el servicio valida la estructura, entonces actualiza la base de datos y responde con un código HTTP 200 OK.<br><br>**Escenario 2: Solicitud con identificador no autorizado.**<br>Dado un requerimiento con credenciales que no corresponden al establecimiento consultado, cuando se procesa la llamada, entonces el servicio responde con un código HTTP 403 Forbidden. | EP07 |
-| **TS06** | API de consulta de catálogo zonal | Como Developer, deseo proveer un endpoint con paginación para consultar artículos disponibles por categoría y distrito. | **Escenario 1: Consulta paginada exitosa.**<br>Dado un requerimiento GET a `/api/v1/products?category={cat}&district={dist}&page=0&size=20`, cuando el servicio ejecuta la consulta, entonces responde con un código HTTP 200 OK y el listado ordenado de productos.<br><br>**Escenario 2: Parámetros de paginación inválidos.**<br>Dado un requerimiento con un valor de página negativo, cuando el controlador evalúa la petición, entonces responde con un código HTTP 400 Bad Request. | EP07 |
-| **TS07** | API de registro de eventos de reporte | Como Developer, deseo implementar un endpoint para almacenar las confirmaciones y discrepancias emitidas por los usuarios sobre los precios. | **Escenario 1: Registro de reporte comunitario.**<br>Dado un requerimiento POST a `/api/v1/reports/prices` con el ID del producto, ID de tienda y nuevo precio, cuando el servicio procesa la solicitud, entonces persiste el reporte y responde con un código HTTP 201 Created.<br><br>**Escenario 2: Reporte duplicado en ventana temporal.**<br>Dado un usuario que intenta emitir múltiples reportes sobre el mismo artículo en menos de 60 segundos, cuando el filtro de seguridad lo detecta, entonces responde con un código HTTP 429 Too Many Requests. | EP07 |
-| **TS08** | API de gestión de promociones de tienda | Como Developer, deseo implementar endpoints CRUD para la administración del ciclo de vida de ofertas emitidas por comerciantes. | **Escenario 1: Creación de promoción.**<br>Dado un requerimiento POST a `/api/v1/promotions` con artículo, precio y vigencia, cuando el servicio confirma la titularidad del local, entonces crea la oferta y responde con un código HTTP 201 Created.<br><br>**Escenario 2: Vigencia incoherente.**<br>Dado un requerimiento cuya fecha de fin es anterior a la fecha de inicio, cuando el modelo valida los datos, entonces responde con un código HTTP 422 Unprocessable Entity. | EP07 |
+* **Bounded Contexts Core (Núcleo del Negocio):**
+  * **EP04: Comparación de Mercado y Ruteo Inteligente (`Catalog and Pricing` & `Route Planning`):** Comparativa multiestablecimiento, cálculo por unidad de medida, bienes sustitutos y optimización de rutas multiparada.
+  * **EP03: Planificación y Control Presupuestario (`Shopping Planning`):** Elaboración de listas de compras, plantillas recurrentes y control financiero preventivo en tiempo real.
+* **Bounded Contexts de Soporte (Supporting Subdomains):**
+  * **EP05: Gestión de Ofertas y Catálogo Minorista (`Merchant Management` & `Analytics and Engagement`):** Afiliación e inventario simplificado de precios, promociones, existencias y métricas de rendimiento para comercios barriales.
+  * **EP06: Inteligencia Colectiva y Moderación Comunitaria (`Community Price Verification`):** Verificación colaborativa de precios en góndola y reporte de discrepancias.
+* **Bounded Contexts Genéricos y Plataforma Informativa (Generic Subdomains & Cross-Cutting):**
+  * **EP02: Gestión de Identidad y Perfiles (`Identity and Access`):** Registro, autenticación con JWT y configuración de accesos para compradores y comercios.
+  * **EP01: Plataforma Informativa y Landing Page:** Difusión pública del servicio, propuesta de valor y captación de visitantes.
+  * **EP07: Núcleo de Servicios Backend y RESTful API:** Contratos de servicio de backend, endpoints de integración y reglas de persistencia ordenados de Core a Genérico.
 
+| Epic / Story ID | Bounded Context (Tipo) | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **US13** | **Catalog and Pricing** *(Core)* | Comparativa multiestablecimiento | Como comprador independiente, deseo comparar el costo total de mi lista entre locales comerciales cercanos para identificar el menor costo de compra. | **Escenario 1: Generación de tabla comparativa.**<br>Dado que la lista de compras cuenta con artículos definidos, cuando el usuario solicita la comparativa, entonces el sistema presenta los comercios ordenados por el costo total de la canasta.<br><br>**Escenario 2: Disponibilidad parcial de productos.**<br>Dado que un comercio no dispone de la totalidad de los artículos de la lista, cuando se procesa la comparativa, entonces el sistema advierte qué productos se encuentran ausentes en dicho punto. | EP04 |
+| **US15** | **Catalog and Pricing** *(Core)* | Sugerencia de bienes sustitutos | Como comprador independiente, deseo recibir recomendaciones de productos alternativos más económicos para disminuir el monto total a pagar. | **Escenario 1: Detección de sustituto accesible.**<br>Dado que un producto seleccionado posee un sustituto de características análogas a menor costo, cuando se evalúa la lista, entonces el sistema sugiere el cambio de artículo indicando el ahorro potencial.<br><br>**Escenario 2: Aplicación del cambio.**<br>Dado que el usuario acepta la alternativa sugerida, cuando confirma el reemplazo, entonces el sistema actualiza la lista y recalcula de forma inmediata el total estimado. | EP04 |
+| **US16** | **Catalog and Pricing** *(Core)* | Comparación por unidad de medida | Como comprador independiente, deseo comparar el costo por unidad de medida (kilogramo o litro) para evaluar presentaciones con distinto gramaje. | **Escenario 1: Cálculo de precio normalizado.**<br>Dado que los artículos cuentan con peso o volumen registrado, cuando el usuario visualiza la comparativa, entonces el sistema calcula y exhibe el costo por unidad estándar de medida.<br><br>**Escenario 2: Omisión por datos insuficientes.**<br>Dado que un artículo carece del registro de gramaje en su ficha técnica, cuando se procesa la comparativa, entonces el sistema omite el cálculo unitario mostrando únicamente el precio final en góndola. | EP04 |
+| **US17** | **Catalog and Pricing** *(Core)* | Búsqueda por filtros de proximidad | Como comprador independiente, deseo filtrar comercios dentro de un radio caminable específico para evitar traslados excesivamente largos. | **Escenario 1: Aplicación de radio de búsqueda.**<br>Dado que el usuario define una distancia máxima de desplazamiento (ej. 800 metros), cuando ejecuta la búsqueda, entonces el sistema restringe los resultados a los comercios situados dentro del perímetro señalado.<br><br>**Escenario 2: Ausencia de locales en el perímetro.**<br>Dado que no existen establecimientos dentro del radio fijado, cuando concluye la consulta, entonces el sistema sugiere ampliar el rango de búsqueda al siguiente intervalo disponible. | EP04 |
+| **US19** | **Catalog and Pricing** *(Core)* | Historial de precios de producto | Como comprador independiente, deseo consultar la evolución histórica del valor de un bien para evaluar la conveniencia de una oferta. | **Escenario 1: Consulta de variación temporal.**<br>Dado que el usuario selecciona un artículo específico, cuando consulta su registro de variaciones, entonces el sistema exhibe el comportamiento de su precio durante los últimos 30 días.<br><br>**Escenario 2: Ausencia de histórico.**<br>Dado que un artículo es de reciente incorporación, cuando se solicita su histórico, entonces el sistema informa que solo se cuenta con el precio de registro inicial. | EP04 |
+| **US14** | **Route Planning** *(Core)* | Cálculo de ruta de compra eficiente | Como comprador independiente, deseo obtener un itinerario secuencial de paradas óptimas para reducir mi tiempo de traslado y costo de transporte. | **Escenario 1: Generación de itinerario de paradas.**<br>Dado que el usuario selecciona los locales comerciales de compra, cuando solicita la optimización de traslado, entonces el sistema genera una secuencia de recorrido que minimiza la distancia total a recorrer.<br><br>**Escenario 2: Estimación de tiempos de viaje.**<br>Dado que se calcula la ruta entre los establecimientos, cuando se despliega el resumen del itinerario, entonces se indica el tiempo estimado global considerando la modalidad de traslado seleccionada. | EP04 |
+| **US20** | **Route Planning** *(Core)* | Recálculo dinámico de ruta | Como comprador independiente, deseo reordenar mi trayecto de compra si un local se encuentra cerrado o inaccesible. | **Escenario 1: Omisión de parada.**<br>Dado que el usuario omite un establecimiento de su itinerario activo, cuando confirma la modificación, entonces el algoritmo recalcula la secuencia restante minimizando la distancia.<br><br>**Escenario 2: Reasignación de comercio.**<br>Dado que el usuario solicita un reemplazo para el local omitido, cuando el sistema evalúa la zona, entonces asigna la tienda cercana con el siguiente mejor precio de canasta. | EP04 |
+| **US08** | **Shopping Planning** *(Core)* | Creación de lista de compras | Como comprador independiente, deseo crear una lista de productos requeridos para estructurar mi jornada de abastecimiento. | **Escenario 1: Inicialización de lista.**<br>Dado que el usuario inicia la confección de una lista, cuando define un nombre identificador, entonces el sistema genera el contenedor de compras asociado a su perfil.<br><br>**Escenario 2: Asignación por defecto.**<br>Dado que el usuario omite asignar un nombre específico, cuando confirma la creación, entonces el sistema asigna una denominación automática basada en la fecha y hora actual. | EP03 |
+| **US09** | **Shopping Planning** *(Core)* | Agregado de ítems a la lista | Como comprador independiente, deseo buscar y agregar artículos específicos a mi lista para consolidar mi canasta básica. | **Escenario 1: Inclusión de artículo.**<br>Dado que el usuario localiza un producto en el catálogo general, cuando define la cantidad requerida, entonces el artículo se vincula a su lista activa.<br><br>**Escenario 2: Incremento de cantidad existente.**<br>Dado que un artículo ya forma parte de la lista, cuando el usuario lo selecciona nuevamente, entonces el sistema suma la cantidad ingresada sin generar registros duplicados. | EP03 |
+| **US10** | **Shopping Planning** *(Core)* | Fijación de presupuesto límite | Como comprador independiente, deseo configurar un tope de gasto para mi lista de compras para controlar mi economía personal. | **Escenario 1: Configuración de umbral.**<br>Dado que el usuario introduce un monto monetario mayor a cero, cuando guarda el parámetro, entonces el sistema fija dicho valor como umbral máximo para la lista.<br><br>**Escenario 2: Entrada no válida.**<br>Dado que el usuario introduce un monto menor o igual a cero, cuando intenta guardar el parámetro, entonces el sistema descarta el valor y solicita un importe válido. | EP03 |
+| **US11** | **Shopping Planning** *(Core)* | Alerta de rebase presupuestario | Como comprador independiente, deseo recibir una advertencia cuando la sumatoria de mi lista supere el presupuesto establecido para ajustar mi selección. | **Escenario 1: Detección de exceso presupuestario.**<br>Dado que la suma del costo proyectado de los artículos supera el límite fijado, cuando se agrega un nuevo producto, entonces el sistema emite una alerta visual de exceso presupuestario.<br><br>**Escenario 2: Restablecimiento del límite.**<br>Dado que el usuario retira productos o reduce cantidades, cuando el monto total vuelve a estar dentro del presupuesto permitido, entonces la alerta se desactiva de forma automática. | EP03 |
+| **US12** | **Shopping Planning** *(Core)* | Modo de jornada de compra en local | Como comprador independiente, deseo marcar los artículos conforme los coloco en mi canasta para verificar el gasto acumulado en tiempo real. | **Escenario 1: Marcado de artículo adquirido.**<br>Dado que el usuario se encuentra en el local comercial, cuando marca un producto como recogido, entonces el sistema lo señala como adquirido y suma su importe al total proyectado en caja.<br><br>**Escenario 2: Desmarcado de producto.**<br>Dado que el usuario decide descartar un producto previamente marcado, cuando revierte la selección, entonces el sistema descuenta el importe del total acumulado. | EP03 |
+| **US18** | **Shopping Planning** *(Core)* | Registro de compras recurrentes | Como comprador independiente, deseo guardar una canasta base como plantilla para reutilizarla en compras quincenales sin reingresar productos. | **Escenario 1: Guardado de plantilla.**<br>Dado que el usuario concluye una lista de compras, cuando la guarda como plantilla recurrente, entonces el sistema genera una copia maestra en su perfil.<br><br>**Escenario 2: Instanciación de nueva lista.**<br>Dado que el usuario inicia un nuevo ciclo de compra, cuando selecciona su plantilla guardada, entonces el sistema genera una lista activa con los precios actualizados a la fecha. | EP03 |
+| **US07** | **Shopping Planning** *(Core)* | Gestión de comercios favoritos | Como comprador independiente, deseo guardar mis establecimientos de confianza para priorizar sus ofertas en mis consultas diarias. | **Escenario 1: Asignación de comercio preferente.**<br>Dado que el usuario marca un local como habitual, cuando realiza búsquedas de canasta, entonces el sistema prioriza los precios de dicho establecimiento en la vista de resultados.<br><br>**Escenario 2: Retiro de preferencia.**<br>Dado que el usuario desmarca el local de su lista de favoritos, cuando actualiza sus parámetros, entonces el sistema restablece el ordenamiento geográfico estándar. | EP02 |
+| **US21** | **Merchant Management** *(Soporte)* | Registro y afiliación de tienda | Como comerciante minorista, deseo registrar los datos de mi establecimiento para integrar mi negocio al mapa comercial de la plataforma. | **Escenario 1: Ingreso de datos registrales.**<br>Dado que el comerciante remite su RUC, razón social, dirección y coordenadas geográficas, cuando envía la solicitud, entonces el sistema genera el registro en estado pendiente de validación fiscal.<br><br>**Escenario 2: Control de duplicidad comercial.**<br>Dado que el identificador fiscal ingresado ya se encuentra registrado, cuando se procesa la solicitud, entonces el sistema notifica la existencia previa de la tienda impidiendo registros repetidos. | EP02 |
+| **US22** | **Merchant Management** *(Soporte)* | Configuración de horarios comerciales | Como comerciante minorista, deseo indicar los horarios de atención de mi local para que los compradores conozcan cuándo pueden acudir. | **Escenario 1: Registro de turno regular.**<br>Dado que el comerciante especifica sus horas de apertura y cierre por día de la semana, cuando guarda los parámetros, entonces el sistema despliega el estado de atención en el mapa de ruta.<br><br>**Escenario 2: Actualización de estado en tiempo real.**<br>Dado que la hora del sistema se encuentra fuera del rango configurado, cuando un comprador consulta el comercio, entonces el sistema indica que el local se encuentra cerrado. | EP02 |
+| **US23** | **Merchant Management** *(Soporte)* | Publicación de precios en catálogo | Como comerciante minorista, deseo registrar y actualizar los precios de venta de mis productos para mantener informados a los compradores de la zona. | **Escenario 1: Actualización de precio unitario.**<br>Dado que el comerciante selecciona un producto de su inventario, cuando ingresa un nuevo valor de venta y confirma la acción, entonces el sistema actualiza el dato en el catálogo público.<br><br>**Escenario 2: Validación de valor positivo.**<br>Dado que el comerciante ingresa un monto menor o igual a cero, cuando intenta guardar el cambio, entonces el sistema rechaza el valor solicitando un precio de venta positivo. | EP05 |
+| **US24** | **Merchant Management** *(Soporte)* | Publicación de ofertas de tienda | Como comerciante minorista, deseo publicar promociones por tiempo limitado para acelerar la rotación de artículos y atraer mayor afluencia. | **Escenario 1: Creación de promoción.**<br>Dado que el comerciante define un producto, precio rebajado y rango de vigencia temporal, cuando activa la oferta, entonces el sistema la expone como oferta especial en el sector geográfico.<br><br>**Escenario 2: Caducidad automática de oferta.**<br>Dado que se alcanza la fecha u hora límite de la promoción, cuando expira el periodo, entonces el sistema retira la condición de oferta restableciendo el precio habitual. | EP05 |
+| **US25** | **Merchant Management** *(Soporte)* | Reporte de agotamiento de stock | Como comerciante minorista, deseo marcar artículos sin disponibilidad física en mi local para evitar desplazamientos infructuosos de los clientes. | **Escenario 1: Cambio a estado sin stock.**<br>Dado que un producto agota sus existencias en tienda, cuando el comerciante actualiza su disponibilidad en el panel, entonces el sistema lo excluye de los cálculos inmediatos de canasta para ese local.<br><br>**Escenario 2: Restablecimiento de existencias.**<br>Dado que el local repone existencias, cuando el comerciante marca nuevamente el artículo como disponible, entonces se reactiva su visibilidad en el comparador zonal. | EP05 |
+| **US26** | **Merchant Management** *(Soporte)* | Carga estructurada de catálogo | Como comerciante minorista, deseo importar una lista estructurada de artículos y precios para actualizar mi inventario de forma ágil. | **Escenario 1: Procesamiento de archivo de inventario.**<br>Dado que el comerciante remite un archivo de datos con el formato y columnas requeridas, cuando el sistema procesa el contenido, entonces actualiza los registros de precios y existencias en el catálogo del local.<br><br>**Escenario 2: Detección de inconsistencias de formato.**<br>Dado que el archivo remitido presenta celdas vacías o valores numéricos erróneos, cuando el validador analiza el documento, entonces cancela la importación e indica las líneas con errores para su corrección. | EP05 |
+| **US28** | **Community Price Verification** *(Soporte)* | Reporte colaborativo de discrepancia | Como comprador independiente, deseo reportar cuando un precio en góndola difiere del valor registrado en el sistema para colaborar con la comunidad. | **Escenario 1: Envío de reporte de precio.**<br>Dado que el usuario detecta un precio distinto en góndola, cuando remite el nuevo valor observado, entonces el sistema genera un evento de verificación comunitaria.<br><br>**Escenario 2: Control de valores anómalos.**<br>Dado que el usuario remite un valor extremadamente desproporcionado respecto a la media histórica, cuando se procesa el reporte, entonces el sistema lo retiene para moderación. | EP06 |
+| **US29** | **Community Price Verification** *(Soporte)* | Confirmación comunitaria de datos | Como comprador independiente, deseo validar los reportes de precios efectuados por otros usuarios para consolidar la confiabilidad de la información. | **Escenario 1: Aprobación de reporte.**<br>Dado que un comprador se encuentra en el establecimiento y verifica el precio reportado, cuando emite su confirmación favorable, entonces el sistema incrementa el índice de confianza del dato.<br><br>**Escenario 2: Rechazo de información errónea.**<br>Dado que un comprador constata que el precio reportado no es verídico, cuando emite una calificación desfavorable, entonces el sistema disminuye la confiabilidad del reporte. | EP06 |
+| **US27** | **Analytics and Engagement** *(Soporte)* | Panel de rendimiento comercial | Como comerciante minorista, deseo consultar métricas de visualización de mis promociones para evaluar el impacto de mis precios publicados. | **Escenario 1: Conteo de apariciones en rutas.**<br>Dado que los compradores generan itinerarios en la zona, cuando el comerciante ingresa a su panel de control, entonces visualiza la cantidad de veces que su establecimiento fue sugerido como parada óptima durante el mes.<br><br>**Escenario 2: Métricas de ofertas consultadas.**<br>Dado que el comerciante mantiene promociones vigentes, cuando consulta las estadísticas, entonces visualiza el número de usuarios que interactuaron con sus productos destacados. | EP05 |
+| **US06** | **Identity and Access** *(Genérico)* | Autenticación y acceso | Como comprador independiente, deseo iniciar sesión con mis credenciales registradas para gestionar mis listas y presupuesto. | **Escenario 1: Inicio de sesión válido.**<br>Dado que el usuario introduce credenciales registradas y correctas, cuando solicita el ingreso, entonces el sistema valida la identidad y da acceso al entorno principal.<br><br>**Escenario 2: Credenciales no coincidentes.**<br>Dado que el usuario ingresa una combinación incorrecta de credenciales, cuando intenta iniciar sesión, entonces el sistema deniega el acceso y muestra una notificación de autenticación fallida.<br><br>**Escenario 3: Bloqueo por seguridad.**<br>Dado que se registran múltiples intentos fallidos consecutivos, cuando se alcanza el umbral de seguridad, entonces el sistema bloquea temporalmente el acceso y solicita comprobación de seguridad. | EP02 |
+| **US01** | **Landing Page** *(Transversal)* | Landing: Propuesta de valor | Como visitante, deseo visualizar la propuesta central del servicio para comprender cómo optimizar mis compras y tiempos de traslado. | **Escenario 1: Carga inicial de la propuesta.**<br>Dado que el visitante accede al sitio web estático, cuando se completa la carga inicial, entonces visualiza el mensaje central enfocado en la comparación multiestablecimiento y el cálculo de rutas de compra.<br><br>**Escenario 2: Comprensión del valor diferencial.**<br>Dado que el visitante se desplaza hacia la sección de beneficios, cuando revisa la información comparativa, entonces comprende el impacto de la dispersión de precios entre comercios minoristas y tiendas de conveniencia.<br><br>**Escenario 3: Adaptabilidad de visualización.**<br>Dado que el visitante accede desde un navegador web móvil, cuando visualiza el contenido, entonces la disposición de los bloques y textos se adapta fluidamente sin desbordamientos ni solapamientos. | EP01 |
+| **US02** | **Landing Page** *(Transversal)* | Landing: Segmentos objetivo | Como visitante, deseo conocer a qué perfiles está orientada la solución para identificar si resuelve mis necesidades de abastecimiento o comercio. | **Escenario 1: Visualización diferenciada por segmento.**<br>Dado que el visitante navega en la sección de perfiles, cuando interactúa con los módulos informativos, entonces visualiza las funciones orientadas al Comprador Independiente y al Comerciante Minorista.<br><br>**Escenario 2: Redirección hacia registro.**<br>Dado que el visitante selecciona el llamado a la acción correspondiente a su perfil, cuando ejecuta la acción, entonces es derivado al flujo de registro respectivo en la aplicación web. | EP01 |
+| **US03** | **Landing Page** *(Transversal)* | Landing: Red de comercios aliados | Como visitante, deseo visualizar qué establecimientos y zonas cuentan con cobertura para verificar la disponibilidad del servicio. | **Escenario 1: Consulta de locales asociados.**<br>Dado que el visitante consulta la sección de comercios, cuando visualiza la red registrada, entonces se listan los tipos de establecimientos minoristas participantes agrupados por sectores urbanos.<br><br>**Escenario 2: Explicación de cobertura.**<br>Dado que el visitante revisa el alcance geográfico, cuando consulta las zonas activas, entonces visualiza los distritos con presencia y densidad de datos comerciales comprobados. | EP01 |
+| **US04** | **Landing Page** *(Transversal)* | Landing: Registro de interés | Como visitante, deseo suscribir mi correo electrónico para recibir notificaciones sobre el lanzamiento y novedades de la plataforma. | **Escenario 1: Registro exitoso de correo.**<br>Dado que el visitante introduce una dirección de correo con sintaxis válida, cuando confirma el envío, entonces el sistema almacena el registro y emite un mensaje de suscripción exitosa.<br><br>**Escenario 2: Validación de sintaxis errónea.**<br>Dado que el visitante ingresa un formato de correo inválido, cuando intenta enviar los datos, entonces el sistema impide el envío y solicita la corrección del texto ingresado.<br><br>**Escenario 3: Correo previamente registrado.**<br>Dado que el correo ingresado ya existe en la lista de difusión, cuando se procesa la solicitud, entonces el sistema informa que la dirección ya cuenta con una suscripción activa. | EP01 |
+| **US05** | **Landing Page** *(Transversal)* | Landing: Preguntas frecuentes y soporte | Como visitante, deseo consultar una sección de preguntas frecuentes para aclarar el modelo de servicio y los canales de contacto. | **Escenario 1: Visualización de preguntas frecuentes.**<br>Dado que el visitante accede a la sección informativa, cuando consulta los tópicos de ayuda, entonces el sistema despliega las respuestas sobre el funcionamiento del comparador y las condiciones para comercios afiliados.<br><br>**Escenario 2: Envío de consulta de soporte.**<br>Dado que el visitante completa el formulario de contacto con datos válidos, cuando confirma el envío, entonces el sistema registra el mensaje y emite una confirmación de recepción. | EP01 |
+| **TS02** | **Catalog and Pricing** *(Core API)* | API de cálculo comparativo de canasta | Como Developer, deseo proveer un endpoint para computar el costo total de una lista de productos en los comercios registrados en un radio geográfico. | **Escenario 1: Procesamiento comparativo exitoso.**<br>Dada una petición POST a `/api/v1/baskets/compare` con la lista de identificadores de productos y coordenadas geográficas, cuando el motor calcula las sumatorias, entonces responde con un código HTTP 200 OK y la lista de comercios con sus montos totales calculados.<br><br>**Escenario 2: Solicitud con lista vacía.**<br>Dada una petición POST con un cuerpo sin artículos, cuando el controlador evalúa la solicitud, entonces responde con un código HTTP 400 Bad Request indicando la ausencia de datos. | EP07 |
+| **TS06** | **Catalog and Pricing** *(Core API)* | API de consulta de catálogo zonal | Como Developer, deseo proveer un endpoint con paginación para consultar artículos disponibles por categoría y distrito. | **Escenario 1: Consulta paginada exitosa.**<br>Dada una petición GET a `/api/v1/products?category={cat}&district={dist}&page=0&size=20`, cuando el servicio ejecuta la consulta, entonces responde con un código HTTP 200 OK y el listado ordenado de productos.<br><br>**Escenario 2: Parámetros de paginación inválidos.**<br>Dada una petición con un valor de página negativo, cuando el controlador evalúa la solicitud, entonces responde con un código HTTP 400 Bad Request. | EP07 |
+| **TS03** | **Route Planning** *(Core API)* | API de optimización de rutas | Como Developer, deseo proveer un endpoint que ordene una secuencia de establecimientos según eficiencia de traslado. | **Escenario 1: Cálculo de itinerario óptimo.**<br>Dada una petición POST a `/api/v1/routes/optimize` conteniendo coordenadas de origen y paradas seleccionadas, cuando se procesa el ordenamiento, entonces responde con un código HTTP 200 OK entregando las paradas ordenadas y la distancia acumulada.<br><br>**Escenario 2: Punto inalcanzable.**<br>Dada una petición cuyas coordenadas no cuentan con conexión vial viable, cuando falla el algoritmo de ruteo, entonces responde con un código HTTP 422 Unprocessable Entity y la descripción del fallo. | EP07 |
+| **TS04** | **Merchant Management** *(Soporte API)* | API de validación fiscal de establecimientos | Como Developer, deseo integrar un servicio de verificación de RUC contra entidades oficiales para constatar la vigencia legal de los comercios afiliados. | **Escenario 1: Verificación de comercio activo.**<br>Dada una petición GET a `/api/v1/merchants/validate-ruc/{ruc}` con un identificador válido de 11 dígitos, cuando el servicio consulta la fuente registral, entonces responde con un código HTTP 200 OK y el estado formal del contribuyente.<br><br>**Escenario 2: Tiempo de respuesta excedido.**<br>Dado que el servicio externo de consulta fiscal demora más de 5000 milisegundos, cuando expira el tiempo límite, entonces el servicio responde con un código HTTP 504 Gateway Timeout controlado sin suspender la ejecución del sistema. | EP07 |
+| **TS05** | **Merchant Management** *(Soporte API)* | API de sincronización de catálogo | Como Developer, deseo proveer un endpoint para la actualización en bloque de inventario de tiendas mediante solicitudes en formato JSON. | **Escenario 1: Recepción de lote de productos.**<br>Dada una petición PUT a `/api/v1/merchants/{id}/inventory` con un arreglo de artículos y precios, cuando el servicio valida la estructura, entonces actualiza la base de datos y responde con un código HTTP 200 OK.<br><br>**Escenario 2: Solicitud con identificador no autorizado.**<br>Dada una petición con credenciales que no corresponden al establecimiento consultado, cuando se procesa la llamada, entonces el servicio responde con un código HTTP 403 Forbidden. | EP07 |
+| **TS08** | **Merchant Management** *(Soporte API)* | API de gestión de promociones de tienda | Como Developer, deseo implementar endpoints CRUD para la administración del ciclo de vida de ofertas emitidas por comerciantes. | **Escenario 1: Creación de promoción.**<br>Dada una petición POST a `/api/v1/promotions` con artículo, precio y vigencia, cuando el servicio confirma la titularidad del local, entonces crea la oferta y responde con un código HTTP 201 Created.<br><br>**Escenario 2: Vigencia incoherente.**<br>Dada una petición cuya fecha de fin es anterior a la fecha de inicio, cuando el modelo valida los datos, entonces responde con un código HTTP 422 Unprocessable Entity. | EP07 |
+| **TS07** | **Community Price Verification** *(Soporte API)* | API de registro de eventos de reporte | Como Developer, deseo implementar un endpoint para almacenar las confirmaciones y discrepancias emitidas por los usuarios sobre los precios. | **Escenario 1: Registro de reporte comunitario.**<br>Dada una petición POST a `/api/v1/reports/prices` con el ID del producto, ID de tienda y nuevo precio, cuando el servicio procesa la solicitud, entonces persiste el reporte y responde con un código HTTP 201 Created.<br><br>**Escenario 2: Reporte duplicado en ventana temporal.**<br>Dado un usuario que intenta emitir múltiples reportes sobre el mismo artículo en menos de 60 segundos, cuando el filtro de seguridad lo detecta, entonces responde con un código HTTP 429 Too Many Requests. | EP07 |
+| **TS01** | **Identity and Access** *(Genérico API)* | API de autenticación y tokens | Como Developer, deseo implementar el endpoint de autenticación con JWT para asegurar el acceso a los servicios de la plataforma. | **Escenario 1: Emisión exitosa de JWT.**<br>Dada una petición POST a `/api/v1/auth/login` con credenciales válidas en formato JSON, cuando el servicio valida la identidad del usuario, entonces responde con un código HTTP 200 OK y el token de acceso correspondiente.<br><br>**Escenario 2: Denegación de acceso.**<br>Dada una petición POST a `/api/v1/auth/login` con contraseña no coincidente, cuando el servicio procesa la solicitud, entonces responde con un código HTTP 401 Unauthorized y el mensaje de error respectivo. | EP07 |
 
 ## 3.2. Impact Mapping
 
-
-En esta sección se presenta el *Impact Mapping* desarrollado para alinear los objetivos estratégicos de negocio con las capacidades funcionales de la plataforma **Preciazo** de **PeruTech**. Mediante este artefacto visual se establece la trazabilidad formal entre los objetivos medibles de la organización (*Business Goals* formulados bajo el estándar SMART), los actores clave (*Actors/Personas*), los cambios esperados de comportamiento (*Impacts*), las entregas o soluciones de software (*Deliverables*) y las historias de usuario asociadas en formato canónico (*User Stories*).
+En esta sección se presenta el *Impact Mapping* desarrollado para alinear los objetivos estratégicos de negocio con las capacidades funcionales de la plataforma **Preciazo** de **PeruTech**. Mediante este artefacto visual se establece la trazabilidad formal entre los objetivos medibles de la organización (*Business Goals* formulados bajo el estándar SMART), los actores clave (*Actors/Personas* representados por nuestros arquetipos), los cambios esperados de comportamiento (*Impacts*), las entregas o soluciones de software (*Deliverables*) y las historias de usuario asociadas en formato canónico (*User Stories*).
 
 ### Business Goals del Proyecto (Criterios SMART)
 * **BG01:** Reducir en un 15% el gasto promedio quincenal de canasta básica y en un 20% el tiempo invertido en desplazamientos para 10,000 compradores urbanos independientes en Lima Metropolitana durante los primeros 6 meses de operación.
@@ -843,11 +1066,12 @@ En esta sección se presenta el *Impact Mapping* desarrollado para alinear los o
 
 ### 3.2.1. Impact Mapping - Segmento #1: Comprador Independiente
 
-Este mapa articula cómo el actor **Fernando Justiniano** colabora en la consecución de las metas de ahorro, reducción de tiempos y fidelización del comprador.
+Este mapa articula cómo el actor arquetípico **Carlos Mendoza (Comprador Independiente)** colabora en la consecución de las metas de ahorro, reducción de tiempos de traslado y fidelización en la plataforma.
 
-<img src="../assets/Impact-Map Fernando-Justiniano-(Comprador-multitienda).png" width="850" />
-
-*Figura 3.1: Impact Mapping para el Segmento Comprador Independiente.*
+<div align="center">
+  <img src="../assets/Impact-Map Fernando-Justiniano-(Comprador-multitienda).png" alt="Impact Mapping - Comprador Independiente" width="850"/>
+  <p><em>Figura 3.1: Impact Mapping para el Segmento 1: Comprador Independiente (Carlos Mendoza).</em></p>
+</div>
 
 #### Desglose de Relaciones y User Stories Asociadas:
 * **Impacto 1: Compara precios de su canasta completa entre tiendas cercanas de forma instantánea sin visitar físicamente cada local.**
@@ -888,11 +1112,12 @@ Este mapa articula cómo el actor **Fernando Justiniano** colabora en la consecu
 
 ### 3.2.2. Impact Mapping - Segmento #2: Comerciante Minorista
 
-Este mapa articula cómo el actor **Daniel Palomino** contribuye a alcanzar las metas de digitalización barrial, captación de clientela y rotación de stock.
+Este mapa articula cómo el actor arquetípico **Alberto Ramos (Comerciante Minorista)** contribuye a alcanzar las metas de digitalización barrial, captación de clientela y rotación oportuna de stock.
 
-<img src="../assets/Impact-Map-Daniel-Palomino-(Comerciante-minorista).jpeg" width="850" />
-
-*Figura 3.2: Impact Mapping para el Segmento Comerciante Minorista.*
+<div align="center">
+  <img src="../assets/Impact-Map-Daniel-Palomino-(Comerciante-minorista).png" alt="Impact Mapping - Comerciante Minorista" width="850"/>
+  <p><em>Figura 3.2: Impact Mapping para el Segmento 2: Comerciante Minorista (Alberto Ramos).</em></p>
+</div>
 
 #### Desglose de Relaciones y User Stories Asociadas:
 * **Impacto 1: Registra y formaliza la presencia de su local en el mapa comercial para ser visible ante los compradores de su zona.**
@@ -920,8 +1145,9 @@ Este mapa articula cómo el actor **Daniel Palomino** contribuye a alcanzar las 
   * *Deliverable: EP05 - Catálogo y Gestión Comercial.*
     * **US27:** Como comerciante minorista, deseo consultar métricas de visualización de mis promociones para evaluar el impacto de mis precios publicados.
 
-## 3.3. Product Backlog
+---
 
+## 3.3. Product Backlog
 
 En esta sección se presenta el *Product Backlog* priorizado y estimado para la plataforma **Preciazo**, desarrollado por **PeruTech**. La priorización de los requisitos responde estrictamente al valor entregado al negocio y a los usuarios (*Business Value First*). Cumpliendo con los lineamientos del marco de trabajo Scrum y las directivas académicas, las historias vinculadas a la Landing Page se sitúan al inicio para viabilizar la captación temprana de usuarios en el primer sprint. Posteriormente, se integran las funcionalidades nucleares de cálculo comparativo de canasta, optimización de trayectos y gestión comercial para bodegas y minimarkets, relegando las tareas de autenticación y parametrización avanzada a etapas posteriores.
 
@@ -966,21 +1192,23 @@ La estimación del esfuerzo de cada ítem fue establecida mediante la dinámica 
 > **Enlace público al Product Backlog:**  
 > [Tablero de Gestión Ágil - Preciazo (Trello)](https://trello.com/b/NhH0tIyG/product)
 
-![Product Backlog en Herramienta](../assets/Trello.png)
-> *Figura 3.3: Captura del Product Backlog configurado, estimado y priorizado en la herramienta de gestión ágil.*
+<div align="center">
+  <img src="../assets/Trello.png" alt="Product Backlog en Herramienta" width="850"/>
+  <p><em>Figura 3.3: Captura del Product Backlog configurado, estimado y priorizado en la herramienta de gestión ágil.</em></p>
+</div>
 
----
+<div style="page-break-before: always;"></div>
+
 
 # Capítulo IV: Product Design
 
-En esta sección, el equipo establece las bases para contar con un repositorio central y organizado de recursos visuales y estructurales de uso común. El objetivo principal es garantizar una presentación consistente, sólida y enfocada en todos los productos digitales de **PeruTech**, facilitando la colaboración entre diseñadores y desarrolladores mediante el uso estandarizado de activos, fuentes, estilos y criterios de arquitectura de la información.
+En esta sección, el equipo establece las bases para contar con un repositorio central y organizado de recursos visuales y estructurales de uso común. El objetivo principal es garantizar una presentación consistente, sólida y enfocada en todos los productos digitales de **PeruTech**, facilitando la colaboración entre diseñadores y desarrolladores mediante el uso estandarizado de activos, fuentes, estilos y criterios de arquitectura de la información orientados al dominio (DDD).
 
 ## 4.1. Style Guidelines
 
-Estas guías establecen la identidad visual base para todos los productos digitales del ecosistema **PeruTech**.
+Estas guías establecen la identidad visual base para la plataforma **Preciazo**, desarrollada por el ecosistema **PeruTech**, garantizando accesibilidad (WCAG 2.1 nivel AA), consistencia y claridad informativa.
 
 ### 4.1.1. General Style Guidelines
-
 
 #### **A. Branding & Tono de Comunicación**
 * **Tono:** El lenguaje será **Entusiasta y Sereno**. Se busca que el usuario se sienta motivado por la innovación y el ahorro inteligente, pero con la tranquilidad de que la información presentada es confiable y veraz.
@@ -1006,11 +1234,15 @@ Se ha seleccionado una paleta moderna, equilibrada y tecnológica que evoca conf
 
 ### 4.1.2. Web Style Guidelines
 
-[Contenido]
+Las directrices web definen la construcción de componentes para la Landing Page y la plataforma web de **Preciazo**:
+* **Layout Responsivo:** Implementación de diseño adaptativo estructurado bajo Flexbox y CSS Grid siguiendo el principio *Mobile-First*. Se establecen puntos de quiebre (*breakpoints*) para resoluciones móvil (< 768px), tablet (768px a 1024px) y escritorio (> 1024px).
+* **Botones e Interactividad:** Botones primarios en `#00ACAC` con texto en blanco y bordes redondeados (border-radius: 8px); botones secundarios con contorno negro `#000000` y fondo transparente. Todos los elementos interactivos cuentan con estados visuales diferenciados para `:hover`, `:active` y `:focus-visible`.
+* **Iconografía:** Empleo de iconos vectoriales SVG en escala uniforme de 24x24px, asegurando un área táctil mínima de 44x44px para dispositivos móviles.
+* **Accesibilidad (a11y):** Contraste mínimo de 4.5:1 para cuerpo de texto y 3:1 para encabezados conforme a las pautas WCAG 2.1 nivel AA, garantizando legibilidad y navegación estructurada por teclado.
 
 ## 4.2. Information Architecture
 
-En esta sección se documentan las decisiones y criterios de organización de contenido en las **plataformas web** y en las **aplicaciones móviles** de **PeruTech**, optimizando los sistemas de **organización, etiquetado, búsqueda y navegación**.
+En esta sección se documentan las decisiones y criterios de organización de contenido en las **plataformas web** y en la **aplicación responsive** de **Preciazo**, optimizando los sistemas de **organización, etiquetado, búsqueda y navegación**.
 
 ### 4.2.1. Organization Systems
 
@@ -1018,7 +1250,7 @@ Se distingue entre la **organización visual** (layout y jerarquía en pantalla)
 
 ##### **Organización Visual**
 
-| Tipo | Cuándo se usa en PeruTech | Ejemplos concretos |
+| Tipo | Cuándo se usa en Preciazo | Ejemplos concretos |
 | --- | --- | --- |
 | **Jerárquica** | Cuando un bloque comunica importancia relativa priorizando información clave. | **Landing:** Hero con propuesta de valor → beneficios → prueba social → CTA.<br>**Merchant Web:** Panel con KPIs principales arriba (Tráfico Mensual, Venta Perdida) y detalle operacional debajo. |
 | **Secuencial (paso a paso)** | Flujos guiados que requieren un orden fijo de ejecución. | **Buyer:** Asistente "Configurar Canasta Básica / Lista → Ajustar Presupuesto → Generar Ruta Multiparada → Confirmar Punto Óptimo de Compra".<br>**Post-compra:** "Confirmar Visita → Ver Ahorro Neto → Calificar Comercio / Reseña → Reportar Discrepancia de Precio". |
@@ -1038,12 +1270,12 @@ Se distingue entre la **organización visual** (layout y jerarquía en pantalla)
 | Superficie | Organización visual | Esquemas de categorización |
 | --- | --- | --- |
 | **Landing Web** | Jerárquica | Por tema y por audiencia (CTA Buyer vs. Merchant) |
-| **App Buyer (Móvil)** | Secuencial en flujos clave; matricial en catálogo | Tópico (categorías de Despensa), cronológico (historial de rutas), alfabético |
-| **Portal Merchant (Web/App)** | Jerárquica en paneles; matricial en tablas de datos | Alfabético, por estado de stock / oferta y cronológico (reportes) |
+| **App Buyer (Web Responsive)** | Secuencial en flujos clave; matricial en catálogo | Tópico (categorías de Despensa), cronológico (historial de rutas), alfabético |
+| **Portal Merchant (Web)** | Jerárquica en paneles; matricial en tablas de datos | Alfabético, por estado de stock / oferta y cronológico (reportes) |
 
 ### 4.2.2. Labeling Systems
 
-El sistema de etiquetado utiliza términos breves, claros y estrictamente unificados.
+El sistema de etiquetado utiliza términos breves, claros y estrictamente unificados con el Ubiquitous Language.
 
 ##### **Etiquetas Principales y Asociaciones**
 
@@ -1072,34 +1304,34 @@ El sistema de etiquetado utiliza términos breves, claros y estrictamente unific
 
 | Meta / Etiqueta | Valor propuesto |
 | --- | --- |
-| **`<title>`** | `PeruTech \| Ahorra en tu Canasta Básica con Rutas Multiparada y Precios Reales` |
-| **`<meta name="description">`** | `Planifica tu Lista Compartida, respeta tu Presupuesto de Compra y optimiza tus recorridos con Rutas Multiparadas. Compara precios reales con PeruTech.` |
-| **`<meta name="keywords">`** | `PeruTech, canasta basica, presupuesto de compra, ruta multiparada, ahorro neto, punto optimo de compra, comercio minorista, dispersion de precios, Peru` |
+| **`<title>`** | `Preciazo \| Ahorra en tu Canasta Básica con Rutas Multiparada y Precios Reales` |
+| **`<meta name="description">`** | `Planifica tu Lista Compartida, respeta tu Presupuesto de Compra y optimiza tus recorridos con Rutas Multiparadas. Compara precios reales con Preciazo.` |
+| **`<meta name="keywords">`** | `Preciazo, PeruTech, canasta basica, presupuesto de compra, ruta multiparada, ahorro neto, punto optimo de compra, comercio minorista, dispersion de precios, Peru` |
 | **`<meta name="author">`** | `PeruTech Team` |
-| **Complementos** | Canonical `<link rel="canonical" href="https://www.perutech.pe/">`y Open Graph (`og:title`, `og:description`, `og:image`). |
+| **Complementos** | Canonical `<link rel="canonical" href="https://open-source-1asi0729-2620-7750.github.io/preciazo-landing-page/">` y Open Graph (`og:title`, `og:description`, `og:image`). |
 
 ##### **Aplicación Web — Portal Merchant (Inicio / Dashboard)**
 
 | Meta / Etiqueta | Valor propuesto |
 | --- | --- |
-| **`<title>`** | `PeruTech Merchant \| Gestión de Catálogo, Ofertas y Reportes de Tráfico` |
-| **`<meta name="description">`** | `Administra tu inventario, publica Ofertas Relámpago y consulta métricas de Venta Perdida en tiempo real para compradores de PeruTech.` |
-| **`<meta name="keywords">`** | `PeruTech Merchant, comercio minorista, ofertas relampago, precio unitario, reporte de trafico, venta perdida, reputacion comercio` |
+| **`<title>`** | `Preciazo Merchant \| Gestión de Catálogo, Ofertas y Reportes de Tráfico` |
+| **`<meta name="description">`** | `Administra tu inventario, publica Ofertas Relámpago y consulta métricas de Venta Perdida en tiempo real para compradores de Preciazo.` |
+| **`<meta name="keywords">`** | `Preciazo Merchant, PeruTech, comercio minorista, ofertas relampago, precio unitario, reporte de trafico, venta perdida, reputacion comercio` |
 | **`<meta name="author">`** | `PeruTech Team` |
 
-##### **ASO (App Store & Google Play)**
+##### **ASO (App Store & Google Play - Adaptación PWA / Móvil)**
 
-* **App Buyer — "PeruTech":**
-  * **Título:** `PeruTech — Compras y Ahorro Neto`
+* **App Buyer — "Preciazo":**
+  * **Título:** `Preciazo — Compras y Ahorro Neto`
   * **Subtítulo:** `Canasta básica, presupuesto y rutas`
-  * **Keywords:** `compras, canasta basica, presupuesto, ruta multiparada, ahorro neto, supermercado, peru, gondola, perutech`
-  * **Descripción corta:** `Gestiona tu Canasta Básica, respeta tu Presupuesto y recorre la mejor Ruta Multiparada. Compara precios reales y maximiza tu Ahorro Neto con PeruTech.`
+  * **Keywords:** `compras, canasta basica, presupuesto, ruta multiparada, ahorro neto, supermercado, peru, gondola, preciazo, perutech`
+  * **Descripción corta:** `Gestiona tu Canasta Básica, respeta tu Presupuesto y recorre la mejor Ruta Multiparada. Compara precios reales y maximiza tu Ahorro Neto con Preciazo.`
 
-* **App Merchant — "PeruTech Tiendas":**
-  * **Título:** `PeruTech Tiendas`
+* **App Merchant — "Preciazo Tiendas":**
+  * **Título:** `Preciazo Tiendas`
   * **Subtítulo:** `Catálogo y ofertas en vivo`
-  * **Keywords:** `retail, comercio minorista, catalogo, ofertas relampago, precio unitario, merchant, sede, perutech`
-  * **Descripción corta:** `Gestiona tu inventario, publica Ofertas Relámpago y mantén tus precios actualizados para la comunidad de compradores de PeruTech.`
+  * **Keywords:** `retail, comercio minorista, catalogo, ofertas relampago, precio unitario, merchant, sede, preciazo, perutech`
+  * **Descripción corta:** `Gestiona tu inventario, publica Ofertas Relámpago y mantén tus precios actualizados para la comunidad de compradores de Preciazo.`
 
 ### 4.2.4. Searching Systems
 
@@ -1120,12 +1352,12 @@ El sistema de búsqueda permite una localización eficiente de bienes dentro de 
 
 ### 4.2.5. Navigation Systems
 
-Estructura de desplazamiento y recorrido del usuario en las diferentes plataformas de **PeruTech**.
+Estructura de desplazamiento y recorrido del usuario en las diferentes plataformas de **Preciazo** desarrolladas por **PeruTech**.
 
 ##### **Mapa de Navegación y Estructuras**
 
 * **Landing Page (Web Estática):** Barra superior fija con desplazamientos suaves (*anchor links*) a `#producto`, `#como-funciona`, `#descargar` y `#contacto`.
-* **App Buyer (Móvil):** Navegación primaria mediante **Tab Bar inferior** (*Inicio*, *Canasta / Lista*, *Ruta Multiparada*, *Perfil*). Flujos secundarios en *stack modal* (Sugerencia de Bien Sustituto, Reportar Discrepancia) y asistente para planificación del Presupuesto y Ruta Multiparada.
+* **App Buyer (Móvil / Web Responsive):** Navegación primaria mediante **Tab Bar inferior** (*Inicio*, *Canasta / Lista*, *Ruta Multiparada*, *Perfil*). Flujos secundarios en *stack modal* (Sugerencia de Bien Sustituto, Reportar Discrepancia) y asistente para planificación del Presupuesto y Ruta Multiparada.
 * **Portal Merchant (Web/App):** Menú lateral persistente (*Sidebar*) con acceso a *Panel de Métricas* (Tráfico y Venta Perdida), *Catálogo*, *Ofertas Relámpago*, *Reportes de Reputación* y *Configuración de Sede*.
 
 | Superficie | Técnica de Navegación |
@@ -1138,76 +1370,72 @@ Estructura de desplazamiento y recorrido del usuario en las diferentes plataform
 
 ### 4.3.1. Landing Page Wireframe
 
-A continuación se presentan los wireframes de baja fidelidad representando la estructura y jerarquía visual.
+A continuación se presentan los wireframes de baja fidelidad representando la estructura y jerarquía visual de la Landing Page de **Preciazo**.
 
-![wireframe-landing](/assets/designs/landing/wireframe-landing.png)
+![wireframe-landing](../assets/designs/landing/wireframe-landing.png)
 
 ### 4.3.2. Landing Page Mock-up
 
-En esta sección se presenta el mockup de alta fidelidad con la identidad de la marca plasmada.
+En esta sección se presenta el mockup de alta fidelidad con la identidad de la marca plasmada para **Preciazo**.
 
-![mockup-landing](/assets/designs/landing/mockup-landing.png)
+![mockup-landing](../assets/designs/landing/mockup-landing.png)
 
 ## 4.4. Web Applications UX/UI Design
 
 ### 4.4.1. Web Applications Wireframes
 
-A continuación, se presentan las pantallas de wireframe de baja fidelidad de la aplicación **PeruTech**. El diseño contempla tanto la experiencia del usuario final (comprador) como el panel de gestión orientado a comercios afiliados.
+A continuación, se presentan las pantallas de wireframe de baja fidelidad de la aplicación **Preciazo**. El diseño contempla tanto la experiencia del usuario final (comprador) como el panel de gestión orientado a comercios afiliados.
 
-#### 1. Pantalla de Inicio (Home)
-Pantalla principal de la aplicación que integra el buscador global por productos o tiendas, accesos rápidos a la creación de listas, ofertas destacadas en la zona del usuario y el listado de tiendas cercanas con sus respectivas distancias.
+### 1. Segmento: Portal del Comprador (Buyer UI)
 
-![Pantalla de Inicio](/assets/wireframe-app/portada.png)
+#### 1.1. Pantalla Principal y Catálogo
+Esquema estructural de la vista principal que integra el buscador central, categorías de productos, carrusel de ofertas destacadas y la navegación inferior persistente.
 
----
+![Wireframe - Inicio Comprador](../assets/wireframe-app/INICIO.png)
 
-#### 2. Vista de Lista Activa - Modo Normal
-Permite visualizar la lista de compras actual con el control de presupuesto. Incluye sugerencias inteligentes de sustitutos más económicos para maximizar el ahorro y la opción de agregar o eliminar productos.
+#### 1.2. Módulo de Gestión de Listas de Compra
+Estructura para la creación y gestión de listas personalizadas, permitiendo al usuario consolidar productos antes de proceder a la comparación o cálculo de rutas.
 
-![Lista Activa - Modo Normal](/assets/wireframe-app/lista-modo-normal.png)
+![Wireframe - Mis Listas](../assets/wireframe-app/LISTAS.png)
 
----
+#### 1.3. Módulo de Comparación Multitienda
+Diseño de la matriz comparativa que distribuye productos y precios en columnas para evaluar de forma explícita las diferencias de costo entre comercios.
 
-#### 3. Módulo de Comparativa de Precios
-Cuadro comparativo interactivo que permite analizar el costo total de la lista activa en distintos supermercados según el radio de distancia seleccionado. Destaca la mejor opción económica y permite reportar inconsistencias en tiendas.
+![Wireframe - Comparar Precios](../assets/wireframe-app/COMPARAR.png)
 
-![Comparativa de Precios](/assets/wireframe-app/comparar.png)
+#### 1.4. Módulo de Optimización de Ruta de Compra
+Interfaz que combina la representación del trayecto óptimo sobre un plano/mapa en la parte superior con el desglose secuencial de paradas y productos en la parte inferior.
 
----
+![Wireframe - Ruta de Compra](../assets/wireframe-app/RUTA.png)
 
-#### 4. Generador de Ruta de Compra Optimizada
-Mapeo iterativo y sugerencia de itinerario para compras en múltiples establecimientos. Desglosa los tiempos de traslado, el ahorro estimado y el detalle de ítems a adquirir en cada parada.
+#### 1.5. Módulo de Verificación Comunitaria
+Esquema de la sección interactiva donde los usuarios reportan variaciones de precios, confirman stock en tienda y participan en la validación colaborativa de ofertas.
 
-![Ruta Optimizada](/assets/wireframe-app/ruta.png)
-
----
-
-#### 5. Panel de Analítica para Comercios
-Dashboard principal orientado al comerciante o tienda aliada. Presenta métricas relevantes sobre impresiones en rutas, vistas de productos, consultas de ofertas y un gráfico de tendencias de tráfico mensual.
-
-![Panel de Analítica para Comercios](/assets/wireframe-app/tienda-panel.png)
+![Wireframe - Sección Comunitaria](../assets/wireframe-app/COMUNITARIA.png)
 
 ---
 
-#### 6. Gestión de Catálogo de Precios (Comercios)
-Interfaz de administración donde el comercio puede activar, desactivar y actualizar el listado de precios de sus productos e importar inventarios.
+### 2. Segmento: Portal del Comerciante (Merchant UI)
 
-![Catálogo de Precios](/assets/wireframe-app/tienda-catalogo.png)
+#### 2.1. Panel de Métricas y Rendimiento (Dashboard)
+Distribución estructural de las tarjetas de indicadores (KPIs), gráfico de tendencia temporal e informes resumidos de interacción de clientes.
 
----
+![Wireframe - Métricas y Dashboard](../assets/wireframe-app/METRICAS.png)
 
-#### 7. Módulo de Ofertas y Promociones (Comercios)
-Sección diseñada para que los establecimientos publiquen promociones temporales, establezcan precios de oferta con contador de vigencia y gestionen sus campañas activas.
+#### 2.2. Módulo de Gestión de Inventario y Precios
+Vista esquemática del catálogo donde el comerciante gestiona el estado de stock (switches de disponibilidad) y la edición rápida de precios de lista.
 
-![Módulo de Ofertas](/assets/wireframe-app/tienda-oferta.png)
+![Wireframe - Inventario y Precios](../assets/wireframe-app/INVENTARIO.png)
 
----
+#### 2.3. Módulo de Ofertas y Promociones
+Estructura para visualizar las promociones activas, métricas de rendimiento por campaña y el formulario para programar nuevos descuentos.
 
-#### 8. Perfil e Información de la Tienda
-Pantalla que muestra la información institucional del establecimiento afiliado, incluyendo RUC, dirección fiscal, teléfono de contacto y la configuración de sus horarios de atención al público.
+![Wireframe - Promociones](../assets/wireframe-app/PROMOCIONES.png)
 
-![Información del Establecimiento](/assets/wireframe-app/tienda-mi-tienda.png)
+#### 2.4. Módulo de Datos del Establecimiento
+Esquema de la sección de información fiscal, RUC verificado, dirección física y configuración de los horarios de atención de la tienda.
 
+![Wireframe - Datos del Establecimiento](../assets/wireframe-app/RUC.png)
 
 ### 4.4.2. Web Applications Wireflow Diagrams
 
@@ -1215,111 +1443,213 @@ A continuación, se presentan los diagramas de Wireflow estructurados por segmen
 
 ---
 
-#### Segmento 1: Comprador
+### 1. Segmento: Portal del Comprador (Buyer UI)
 
-##### Diagrama 1: Búsqueda y Comparativa de Precios
-* **Goal:** 1. Comparar precios de la canasta entre supermercados cercanos.
-* **Descripción:** El usuario busca productos, revisa su lista de compras activa en Modo Normal para ajustar sugerencias de ahorro y accede al módulo comparativo para evaluar los costos totales por tienda.
+#### User Goal 1: Buscar productos, comparar precios entre tiendas y consolidar la lista de compras
 
-![Diagrama 1 - Búsqueda y Comparativa de Precios](/assets/wireflow/diagrama1.png)
+##### Explicación del Wireflow
+1. **Estado Inicial (Búsqueda):** El usuario interactúa con la barra de búsqueda en la pantalla principal.
+2. **Transición a Gestión de Listas:** Al agregar un artículo, la interfaz se desplaza al módulo **Mis Listas**, donde se revisan y editan los ítems acumulados.
+3. **Cambio de Estado a Comparación:** Tras presionar el botón de acción principal "Comparar Precios", el sistema procesa los datos y transiciona a la pantalla **Comparar Precios**, donde se renderiza la matriz de precios por establecimiento.
 
----
-
-##### Diagrama 2: Ejecución de Compra y Ruta Optimizada
-* **Goal:** 2. Guiar el recorrido de compra físico y optimizar el itinerario.
-* **Descripción:** El usuario selecciona una lista guardada, genera la ruta de compra optimizada entre tiendas e inicia el Modo Compra al llegar al establecimiento para marcar los productos en tiempo real.
-
-![Diagrama 2 - Ejecución de Compra y Ruta Optimizada](/assets/wireflow/diagrama2.png)
-
----
-
-#### Segmento 2: Comerciante
-
-##### Diagrama 3: Gestión Comercial y Monitoreo
-* **Goal:** 3. Analizar métricas de rendimiento y administrar el catálogo.
-* **Descripción:** El comerciante ingresa a su panel principal para analizar impresiones y tendencias, navega al catálogo para actualizar inventario o precios y gestiona la información fiscal del local.
-
-![Diagrama 3 - Gestión Comercial y Monitoreo](/assets/wireflow/diagrama3.png)
+##### Secuencia:
+- **Task Flow (Diagrama de Tareas):**  
+  ![Task Flow - Comprar y Comparar](../assets/taskflows/taskflow_comprador_goal1.png)
+- **Paso 1 (Inicio y Búsqueda):**  
+  ![Paso 1 - Inicio](../assets/wireframe-app/INICIO.png)
+- **Paso 2 (Consolidación en Mis Listas):**  
+  ![Paso 2 - Mis Listas](../assets/wireframe-app/LISTAS.png)
+- **Paso 3 (Resultado de Comparación):**  
+  ![Paso 3 - Comparar Precios](../assets/wireframe-app/COMPARAR.png)
 
 ---
 
-##### Diagrama 4: Publicación de Promociones Temporales
-* **Goal:** 4. Crear y gestionar ofertas con tiempo limitado.
-* **Descripción:** El comerciante selecciona productos desde su catálogo e ingresa al módulo de ofertas para configurar descuentos especiales y establecer la vigencia de la promoción.
+#### User Goal 2: Generar y visualizar la ruta física optimizada de compra entre tiendas
 
-![Diagrama 4 - Publicación de Promociones Temporales](/assets/wireflow/diagrama4.png)
+##### Explicación del Wireflow
+1. **Estado Inicial (Matriz Comparativa):** El usuario parte de la vista **Comparar Precios** tras seleccionar los comercios deseados.
+2. **Transición de Estado por Interacción:** Al accionar el botón "Generar Ruta de Compra", el sistema procesa las coordenadas geográficas de las tiendas y la disponibilidad de stock.
+3. **Nuevo Estado (Vista de Ruta):** La interfaz pasa al estado **Ruta de Compra**, la cual muestra el mapa interactivo con paradas secuenciales en el panel superior y el desglose de productos por tienda en el panel inferior.
+
+##### Secuencia de Imágenes del Task Flow y Wireflow
+- **Task Flow (Diagrama de Tareas):**  
+  ![Task Flow - Ruta Óptima](../assets/taskflows/taskflow_comprador_goal2.png)
+- **Paso 1 (Selección en Comparador):**  
+  ![Paso 1 - Comparar Precios](../assets/wireframe-app/COMPARAR.png)
+- **Paso 2 (Ruta Optimizada Renderizada):**  
+  ![Paso 2 - Ruta de Compra](../assets/wireframe-app/RUTA.png)
+
+---
+
+#### User Goal 3: Validar y reportar precios/stock de productos en la comunidad
+
+##### Explicación del Wireflow
+1. **Estado Inicial (Catálogo/Navegación):** El usuario inicia en la pantalla **Inicio** y navega hacia la sección interactiva.
+2. **Transición al Módulo Comunitario:** Al presionar la pestaña de la comunidad, la pantalla cambia al estado **Sección Comunitaria**, desplegando el feed de reportes y las opciones para confirmar stock o notificar variaciones de precios.
+
+##### Secuencia:
+- **Task Flow (Diagrama de Tareas):**  
+  ![Task Flow - Reporte Comunitario](../assets/taskflows/taskflow_comprador_goal3.png)
+- **Paso 1 (Inicio):**  
+  ![Paso 1 - Inicio](../assets/wireframe-app/INICIO.png)
+- **Paso 2 (Módulo Comunitario):**  
+  ![Paso 2 - Sección Comunitaria](../assets/wireframe-app/COMUNITARIA.png)
+
+---
+
+### 2. Segmento: Portal del Comerciante (Merchant UI)
+
+#### User Goal 4: Actualizar la disponibilidad de stock y precios de inventario
+
+##### Explicación del Wireflow
+1. **Estado Inicial (Dashboard General):** El comerciante inicia en el panel principal **Métricas y Dashboard**.
+2. **Transición a Gestión de Catálogo:** Selecciona el módulo **Inventario y Precios**, donde modifica los *switches* de disponibilidad de producto y actualiza los precios de lista en tiempo real.
+
+##### Secuencia:
+- **Task Flow (Diagrama de Tareas):**  
+  ![Task Flow - Actualización Inventario](../assets/taskflows/taskflow_comerciante_goal4.png)
+- **Paso 1 (Dashboard General):**  
+  ![Paso 1 - Métricas](../assets/wireframe-app/METRICAS.png)
+- **Paso 2 (Inventario y Precios):**  
+  ![Paso 2 - Inventario](../assets/wireframe-app/INVENTARIO.png)
+
+---
+
+#### User Goal 5: Publicar promociones temporales y validar datos del negocio
+
+##### Explicación del Wireflow
+1. **Estado Inicial (Panel de Promociones):** El usuario ingresa al módulo **Promociones**  y activa el formulario para programar un nuevo descuento.
+2. **Transición a Verificación de Negocio:** Una vez configurada la oferta, navega al módulo **Datos del Establecimiento (RUC)** para confirmar que la información fiscal, dirección y horarios de atención estén alineados con la promoción.
+
+##### Secuencia:
+- **Task Flow (Diagrama de Tareas):**  
+  ![Task Flow - Promociones y Datos](../assets/taskflows/taskflow_comerciante_goal5.png)
+- **Paso 1 (Gestión de Promociones):**  
+  ![Paso 1 - Promociones](../assets/wireframe-app/PROMOCIONES.png)
+- **Paso 2 (Datos del Establecimiento RUC):**  
+  ![Paso 2 - Datos RUC](../assets/wireframe-app/RUC.png)
 
 ### 4.4.3. Web Applications Mock-ups
 
-A continuación, se presentan las pantallas que componen el prototipo de alta fidelidad de la aplicación **PeruTech**. El diseño contempla tanto la experiencia del usuario final (comprador) como el panel de gestión orientado a comercios afiliados.
+A continuación, se presentan las pantallas que componen el prototipo de alta fidelidad de la aplicación **Preciazo**. El diseño contempla tanto la experiencia del usuario final (comprador) como el panel de gestión orientado a comercios afiliados.
 
-#### 1. Pantalla de Inicio (Home)
-Pantalla principal de la aplicación que integra el buscador global por productos o tiendas, accesos rápidos a la creación de listas, ofertas destacadas en la zona del usuario y el listado de tiendas cercanas con sus respectivas distancias.
+### 1. Segmento: Autenticación e Inicio de Sesión
 
-![Pantalla de Inicio](/assets/mockups-app/portada.png)
+#### 1.1. Pantalla de Inicio de Sesión
+Formulario de autenticación general para el acceso a la plataforma, con campos interactivos requeridos para el correo electrónico y la contraseña, junto al botón principal de inicio de sesión.
 
----
+![Pantalla de Inicio de Sesión](../assets/mockups-app/LOGIN.png)
 
-#### 2. Vista de Lista Activa - Modo Normal
-Permite visualizar la lista de compras actual con el control de presupuesto. Incluye sugerencias inteligentes de sustitutos más económicos para maximizar el ahorro y la opción de agregar o eliminar productos.
+#### 1.2. Inicio de Sesión - Vista de Comprador
+Pantalla de autenticación con los campos de correo electrónico y contraseña completados para proceder con el ingreso a la vista del usuario comprador.
 
-![Lista Activa - Modo Normal](/assets/mockups-app/lista-modo-normal.png)
-
----
-
-#### 3. Vista de Lista Activa - Modo Compra
-Optimizada para usarse dentro del establecimiento físico, permitiendo al usuario marcar los productos mediante *checkboxes* a medida que los coloca en el carrito y calcular el subtotal en tiempo real.
-
-![Lista Activa - Modo Compra](/assets/mockups-app/lista-modo-compra.png)
+![Inicio de Sesión - Comprador](../assets/mockups-app/LOGIN-COMPRADOR.png)
 
 ---
 
-#### 4. Gestión de Listas Guardadas
-Sección destinada a la administración de plantillas personalizadas y listas reutilizables para compras recurrentes (p. ej., Desayuno Semanal o Limpieza del Hogar).
+### 2. Segmento: Portal del Comprador (Buyer UI)
 
-![Listas Guardadas](/assets/mockups-app/lista-guardado.png)
+#### 2.1. Pantalla Principal de Inicio (Home)
+Pantalla principal de la aplicación que integra el buscador global por productos o establecimientos, accesos rápidos (Nueva Lista, Comparar, Mi Ruta), filtros por categorías de productos, sección de ofertas destacadas, acceso a la verificación comunitaria y listado de tiendas cercanas con sus respectivas distancias y estado (Abierto/Cerrado).
 
----
+![Pantalla de Inicio](../assets/mockups-app/INICIO.png)
 
-#### 5. Módulo de Comparativa de Precios
-Cuadro comparativo interactivo que permite analizar el costo total de la lista activa en distintos supermercados según el radio de distancia seleccionado. Destaca la mejor opción económica y permite reportar inconsistencias en tiendas.
+#### 2.2. Vista de Lista Activa ("Canasta Quincenal")
+Pantalla de gestión de la lista de compras actual que incluye la barra de control de presupuesto (Límite máximo, Monto reservado/gastado y progreso), sugerencias inteligentes de ahorro con productos sustitutos y el desglose detallado de ítems con sus precios unitarios y unidades de medida.
 
-![Comparativa de Precios](/assets/mockups-app/comparar.png)
+![Lista Activa](../assets/mockups-app/LISTAS-ACTIVA.png)
 
----
+#### 2.3. Formulario para Agregar Producto
+Despliegue del módulo interactivo dentro de la lista activa que permite ingresar manualmente el nombre del nuevo producto, la cantidad deseada y el precio estimado para incorporarlo al cálculo del presupuesto.
 
-#### 6. Generador de Ruta de Compra Optimizada
-Mapeo iterativo y sugerencia de itinerario para compras en múltiples establecimientos. Desglosa los tiempos de traslado, el ahorro estimado y el detalle de ítems a adquirir en cada parada.
+![Agregar Producto a la Lista](../assets/mockups-app/LISTAS-AGREGAR.png)
 
-![Ruta Optimizada](/assets/mockups-app/ruta.png)
+#### 2.4. Edición de Presupuesto Límite
+Interfaz con el campo de entrada activo para ajustar el "Límite Máximo" del presupuesto asignado a la lista de compras activa en tiempo real.
 
----
+![Editar Presupuesto de la Lista](../assets/mockups-app/LISTAS-EDITAR-PRESUPUESTO.png)
 
-#### 7. Panel de Analítica para Comercios
-Dashboard principal orientado al comerciante o tienda aliada. Presenta métricas relevantes sobre impresiones en rutas, vistas de productos, consultas de ofertas y un gráfico de tendencias de tráfico mensual.
+#### 2.5. Gestión de Listas Guardadas y Plantillas
+Sección que almacena las listas creadas anteriormente, clasificadas mediante badges visuales que diferencian entre "Plantillas clonables" (disponibles para reutilizar) y "Borradores" pendientes de ejecución, junto con el botón para crear una nueva lista.
 
-![Panel de Analítica para Comercios](/assets/mockups-app/tienda-panel.png)
+![Listas Guardadas y Plantillas](../assets/mockups-app/LISTAS-GUARDADOS.png)
 
----
+#### 2.6. Modo Compra Interactivo
+Vista optimizada de la lista activa durante el recorrido en tienda, que añade casillas de verificación (checkboxes) en cada ítem para tachar los productos añadidos al carrito y calcular dinámicamente el total gastado en tiempo real.
 
-#### 8. Gestión de Catálogo de Precios (Comercios)
-Interfaz de administración donde el comercio puede activar, desactivar y actualizar el listado de precios de sus productos e importar inventarios.
+![Modo Compra Interactivo](../assets/mockups-app/LISTAS-MODO-COMPRA.png)
 
-![Catálogo de Precios](/assets/mockups-app/tienda-catalogo.png)
+#### 2.7. Módulo de Comparativa de Precios por Tienda
+Tabla comparativa multi-tienda que consolida la lista de compras completa ("Canasta Quincenal"), evaluando en tiempo real disponibilidad de stock, precios por producto, la tienda con el costo total más bajo y la opción de reportar inconsistencias en góndola.
 
----
+![Comparativa de Precios](../assets/mockups-app/COMPARAR.png)
 
-#### 9. Módulo de Ofertas y Promociones (Comercios)
-Sección diseñada para que los establecimientos publiquen promociones temporales, establezcan precios de oferta con contador de vigencia y gestionen sus campañas activas.
+#### 2.8. Filtros de la Tabla Comparativa
+Opciones de filtrado avanzado dentro del comparador que permiten ajustar el radio máximo de distancia (en km), seleccionar o desestimar establecimientos específicos y alternar la visualización entre precio por empaque o precio por unidad de medida.
 
-![Módulo de Ofertas](/assets/mockups-app/tienda-oferta.png)
+![Filtros de Comparativa](../assets/mockups-app/COMPRAS-FILTROS.png)
 
----
+#### 2.9. Modal para Reportar Precio Observado
+Ventana emergente que permite al comprador registrar una discrepancia entre el precio publicado en la app y el precio real encontrado en la góndola de un establecimiento específico.
 
-#### 10. Perfil e Información de la Tienda
-Pantalla que muestra la información institucional del establecimiento afiliado, incluyendo RUC, dirección fiscal, teléfono de contacto y la configuración de sus horarios de atención al público.
+![Reportar Precio en Góndola](../assets/mockups-app/COMPRAS-REPORTE.png)
 
-![Información del Establecimiento](/assets/mockups-app/tienda-mi-tienda.png)
+#### 2.10. Optimización de Ruta de Compras
+Mapa interactivo e itinerario paso a paso que calcula la ruta más eficiente entre múltiples supermercados, mostrando tiempo estimado de traslado, modo de transporte y ahorro total acumulado.
+
+![Ruta de Compras Optimizada](../assets/mockups-app/RUTA.png)
+
+#### 2.11. Detalle de Parada en Ruta Seleccionada
+Vista desplegada de un punto específico del itinerario que muestra el desglose de productos a adquirir en dicho establecimiento, con opciones para confirmar o saltar la parada.
+
+![Detalle de Parada Seleccionada](../assets/mockups-app/RUTA-SELECCIONADA.png)
+
+#### 2.12. Módulo de Verificación Comunitaria
+Sección colaborativa donde los usuarios validan reportes de precios enviados por otros compradores cercanos, apoyando el control de calidad de la información mediante votación abierta.
+
+![Verificación Comunitaria](../assets/mockups-app/VERIFICACION.png)
+
+#### 2.13. Confirmación de Reporte Comunitario
+Estado de la interfaz tras validar positivamente un reporte de precio, actualizando el estado a "Reporte confirmado" y agradeciendo el aporte al sistema de confianza colectiva.
+
+![Confirmación de Reporte](../assets/mockups-app/VERIFICACION-CONFIRMADO.png)
+
+#### 2.14. Rechazo o Envío a Revisión de Reporte Comunitario
+Estado del módulo cuando se marca una discrepancia de precio, notificando que la actualización ha sido enviada a revisión técnica antes de impactar el catálogo general.
+
+![Reporte Denegado o Enviado a Revisión](../assets/mockups-app/VERIFICACION-DENEGADO.png)
+
+### 3. Segmento: Portal del Comerciante (Merchant UI)
+
+#### 3.1. Pantalla de Inicio de Sesión
+Formulario de autenticación para comerciantes e instituciones registradas, que permite el acceso seguro al panel de gestión del establecimiento mediante correo corporativo y contraseña.
+
+![Iniciar Sesión - Comerciante](../assets/mockups-app/LOGIN-COMERCIANTE.png)
+
+#### 3.2. Panel de Métricas y Rendimiento del Establecimiento
+Dashboard analítico que presenta los indicadores clave de desempeño (KPIs) del comercio en los últimos 30 días, incluyendo visitas a tienda, vistas de productos, comparaciones realizadas por usuarios, ventas perdidas por falta de stock y la tendencia mensual de interacciones.
+
+![Métricas y Dashboard](../assets/mockups-app/METRICAS.png)
+
+#### 3.3. Módulo de Gestión de Inventario y Precios
+Catálogo digital del establecimiento donde el comerciante gestiona el estado de disponibilidad (Disponible/Agotado) y los precios de lista de sus productos en tiempo real, con opciones para edición rápida e importación masiva.
+
+![Inventario y Precios](../assets/mockups-app/INVENTARIO.png)
+
+#### 3.4. Módulo de Ofertas y Promociones Activas
+Listado de campañas promocionales vigentes y expiradas asociadas al establecimiento, mostrando los descuentos aplicados, el total de consultas generadas por los usuarios y la opción para retirar ofertas del catálogo.
+
+![Promociones Activas](../assets/mockups-app/PROMOCIONES.png)
+
+#### 3.5. Formulario de Creación de Nueva Promoción
+Desplegable interactivo dentro del módulo de promociones que permite seleccionar un producto del inventario, definir un precio de oferta especial y programar la fecha de inicio y fin de la campaña.
+
+![Crear Promoción](../assets/mockups-app/PROMOCIONES-NUEVO.png)
+
+#### 3.6. Módulo de Datos del Establecimiento
+Sección de configuración donde se visualiza la información fiscal y de contacto del comercio (Razón Social, RUC verificado, dirección y teléfono), así como la gestión y edición de los horarios de atención al público.
+
+![Datos del Establecimiento](../assets/mockups-app/DATOS.png)
 
 ### 4.4.4. Web Applications User Flow Diagrams
 
@@ -1327,61 +1657,105 @@ A continuación, se presentan los diagramas de User Flow para la aplicación web
 
 ---
 
-#### Segmento 1: Comprador
+### 1. Segmento: Portal del Comprador (Buyer UI)
 
-##### Diagrama 1: Flujo de Búsqueda y Comparativa de Precios por Supermercado
-* **Goal:** 1. Comparar precios de la canasta entre supermercados cercanos.
-* **Descripción:** El usuario inicia en la pantalla de portada navegando por el buscador o categorías, gestiona su lista de compras activa en Modo Normal para evaluar sugerencias de ahorro y accede al cuadro comparativo para analizar los costos totales y productos disponibles por establecimiento.
+#### User Goal 1: Consultar precios, evaluar la comunidad y completar la comparación multitienda
 
-![Diagrama 1 - Búsqueda y Comparativa de Precios](/assets/userflow/diagrama1.png)
+##### Flujos y Condiciones
+* **Happy Path:** El usuario busca productos en el catálogo principal → agrega los artículos a su lista de compras → accede al comparador para evaluar el costo multitienda → consulta la sección comunitaria para verificar stock → confirma la opción de compra más económica.
+* **Unhappy Path:** El producto buscado no posee registros de precio ni stock en tiendas cercanas → el sistema muestra la alerta "Stock no verificado" → el usuario redirige la consulta hacia el módulo comunitario para solicitar verificación a otros usuarios.
 
----
-
-##### Diagrama 2: Flujo de Ejecución de Compra y Ruta Optimizada
-* **Goal:** 2. Guiar el recorrido de compra físico y optimizar el itinerario inter-tiendas.
-* **Descripción:** El usuario selecciona una lista guardada o plantilla, activa el generador de rutas para visualizar el itinerario con paradas y tiempos de traslado, e inicia el Modo Compra en el establecimiento para marcar los ítems en su carrito en tiempo real.
-
-![Diagrama 2 - Ejecución de Compra y Ruta Optimizada](/assets/userflow/diagrama2.png)
-
----
-
-#### Segmento 2: Comerciante
-
-##### Diagrama 3: Flujo de Gestión Comercial y Monitoreo Analítico
-* **Goal:** 3. Analizar métricas de rendimiento y administrar el catálogo del establecimiento.
-* **Descripción:** El comerciante ingresa a su panel de analítica para evaluar tendencias e impresiones de su local, navega al catálogo para actualizar precios e inventarios y gestiona la información fiscal y los horarios de atención de la tienda.
-
-![Diagrama 3 - Gestión Comercial y Monitoreo Analítico](/assets/userflow/diagrama3.png)
+##### Secuencia de Mockups del User Flow
+- **Paso 1 (Catálogo General):**  
+  ![Mockup - Catálogo Principal](../assets/mockups-app/INICIO.png)
+- **Paso 2 (Matriz Comparativa):**  
+  ![Mockup - Comparador Precios](../assets/mockups-app/COMPARAR.png)
+- **Paso 3 (Módulo Comunitario):**  
+  ![Mockup - Reportes Comunitarios](../assets/mockups-app/VERIFICACION.png)
 
 ---
 
-##### Diagrama 4: Flujo de Publicación de Promociones Temporales
-* **Goal:** 4. Crear y gestionar ofertas con tiempo de vigencia determinado.
-* **Descripción:** El comerciante evalúa los productos desde su catálogo de precios e ingresa al módulo de ofertas para configurar promociones especiales, definir descuentos y establecer la vigencia temporal de la campaña.
+#### User Goal 2: Calcular la ruta física óptima de compra según inventario disponible
 
-![Diagrama 4 - Publicación de Promociones Temporales](/assets/userflow/diagrama4.png)
+##### Flujos y Condiciones
+* **Happy Path:** El usuario selecciona la lista de compras consolidada → activa la geolocalización GPS → el sistema calcula el trayecto óptimo entre tiendas → se despliega el mapa interactivo con la secuencia de paradas y desglose de ítems.
+* **Unhappy Path:** El GPS del dispositivo está desactivado o sin permisos → el sistema despliega un diálogo emergente solicitando la ubicación manual → el usuario ingresa su dirección/distrito → el sistema recalcula la ruta exitosamente.
+
+##### Secuencia de Mockups del User Flow
+- **Paso 1 (Matriz Comparativa de Selección):**  
+  ![Mockup - Comparar Precios](../assets/mockups-app/COMPARAR.png)
+- **Paso 2 (Mapa y Ruta de Compra):**  
+  ![Mockup - Ruta Optimizada](../assets/mockups-app/RUTA.png)
+
+---
+
+#### User Goal 3: Publicar reportes y confirmaciones de precios/stock en la comunidad
+
+##### Flujos y Condiciones
+* **Happy Path:** El usuario ingresa a la vista comunitaria → selecciona el producto que desea reportar → ingresa el precio/stock verificado en tienda física → el sistema registra la actualización y otorga puntos de reputación al usuario.
+* **Unhappy Path:** El usuario envía un reporte con datos fuera de rango (ej. precio S/ 0.00 o impreciso) → el sistema detecta la inconsistencia y muestra mensaje de validación de campo → el usuario corrige la cifra y reintenta la publicación.
+
+##### Secuencia de Mockups del User Flow
+- **Paso 1 (Feed Comunitario):**  
+  ![Mockup - Sección Comunitaria](../assets/mockups-app/VERIFICACION.png)
+
+---
+
+### 2. Segmento: Portal del Comerciante (Merchant UI)
+
+#### User Goal 4: Autenticarse, analizar el rendimiento del negocio y gestionar inventario
+
+##### Flujos y Condiciones
+* **Happy Path:** El comerciante ingresa sus credenciales válidas en el login → el sistema concede acceso y redirige al dashboard de métricas → el usuario evalúa las estadísticas de interacción → se traslada al módulo de inventario → modifica el estado de stock/precio de sus productos correctamente.
+* **Unhappy Path:** El usuario ingresa un correo o contraseña incorrectos → el sistema mantiene la pantalla de login, resalta los campos en rojo y muestra el mensaje "Credenciales inválidas" → el usuario reingresa los datos correctos.
+
+##### Secuencia de Mockups del User Flow
+- **Paso 1 (Autenticación):**  
+  ![Login Comerciante](../assets/mockups-app/LOGIN-COMERCIANTE.png)
+- **Paso 2 (Panel de Métricas):**  
+  ![Métricas Dashboard](../assets/mockups-app/METRICAS.png)
+- **Paso 3 (Inventario y Catálogo):**  
+  ![Gestión de Inventario](../assets/mockups-app/INVENTARIO.png)
+
+---
+
+#### User Goal 5: Publicar promociones especiales y validar la ficha del establecimiento
+
+##### Flujos y Condiciones
+* **Happy Path:** El comerciante ingresa al módulo de promociones → hace clic en "Nueva Promoción" → completa el formulario con el precio promocional y fechas válidas → el sistema publica la oferta en el catálogo general → el comerciante verifica la ficha de su local.
+* **Unhappy Path:** El comerciante ingresa un precio de oferta superior o igual al precio de lista regular → el sistema deshabilita el botón de confirmación y muestra la alerta "El precio promocional debe ser menor al precio de lista actual" → el usuario corrige el monto y publica la campaña.
+
+##### Secuencia de Mockups del User Flow
+- **Paso 1 (Listado de Promociones):**  
+  ![Promociones Activas](../assets/mockups-app/PROMOCIONES.png)
+- **Paso 2 (Formulario de Nueva Promoción):**  
+  ![Formulario Nueva Promoción](../assets/mockups-app/PROMOCIONES-NUEVO.png)
+- **Paso 3 (Ficha del Comercio):**  
+  ![Datos del Establecimiento](../assets/mockups-app/DATOS.png)
+
+---
 
 ## 4.5. Web Applications Prototyping
 
 El vídeo de evidencia del prototipo plasma las interacciones que ejecutan los usuarios y las respuestas esperadas por el sistema.
 
-![captura de video-prototipo](/assets/prototipo.png)
+![captura de video-prototipo](../assets/prototipo.png)
 
-[Prototipo evidencia](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQCEOW9isi3LT7sIUmtoPLwAAQMF1OJDthoTqwwWszE9QvQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=cP37RQ)
+[Prototipo evidencia](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQCEOW9isi3LT7sIUmtoPLwAASmuwYzj-IDSyuesd5m1h3s?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=0Pq9Zi)
 
 ## 4.6. Domain-Driven Software Architecture
 
-La arquitectura de PeruTech se diseña siguiendo principios de Domain-Driven Design (DDD), tomando como punto de partida los resultados obtenidos en el Big Picture Event Storming desarrollado durante la etapa de Requirements Elicitation & Analysis.
+La arquitectura de **Preciazo** (desarrollada por **PeruTech**) se diseña siguiendo principios de Domain-Driven Design (DDD), tomando como punto de partida los resultados obtenidos en el Big Picture Event Storming desarrollado durante la etapa de Requirements Elicitation & Analysis.
 
 El análisis del dominio permitió identificar los principales procesos asociados a los dos segmentos objetivo de la solución: los compradores que buscan optimizar el costo y desplazamiento de sus compras, y los comerciantes minoristas que requieren administrar la información de sus establecimientos, precios, disponibilidad y promociones.
 
-A partir del refinamiento de los eventos, comandos, reglas y conceptos identificados previamente, el dominio de PeruTech se organiza en Bounded Contexts con responsabilidades claramente delimitadas. Esta separación permite reducir el acoplamiento entre capacidades de negocio y facilita posteriormente la implementación modular del Frontend Web Application y de los RESTful Web Services.
+A partir del refinamiento de los eventos, comandos, reglas y conceptos identificados previamente, el dominio de **Preciazo** se organiza en Bounded Contexts con responsabilidades claramente delimitadas. Esta separación permite reducir el acoplamiento entre capacidades de negocio y facilita posteriormente la implementación modular de la Single Page Application (SPA) y de los RESTful Web Services.
 
-Los Bounded Contexts identificados para PeruTech son:
+Los Bounded Contexts identificados son:
 
 | Bounded Context | Responsabilidad principal |
 |---|---|
-| Identity and Access | Gestionar autenticación, identidad, roles y autorización de compradores y comerciantes. |
+| Identity and Access | Gestionar autenticación, identidad, roles y autorización de compradores y comerciantes mediante tokens JWT. |
 | Shopping Planning | Gestionar listas de compra, cantidades, presupuesto y progreso de la jornada de compra. |
 | Catalog and Pricing | Gestionar productos, precios, disponibilidad y comparación entre establecimientos. |
 | Route Planning | Calcular y optimizar rutas de compra entre múltiples establecimientos considerando localización y desplazamiento. |
@@ -1391,10 +1765,9 @@ Los Bounded Contexts identificados para PeruTech son:
 
 Estos contextos se comunican mediante contratos explícitos, evitando que un módulo modifique directamente las reglas internas de otro contexto.
 
-
 ### 4.6.1. Design-Level Event Storming
 
-Para profundizar el modelo obtenido durante el Big Picture Event Storming se realizó un Design-Level Event Storming orientado a analizar con mayor detalle los principales flujos de negocio de PeruTech.
+Para profundizar el modelo obtenido durante el Big Picture Event Storming se realizó un Design-Level Event Storming orientado a analizar con mayor detalle los principales flujos de negocio de **Preciazo**.
 
 El proceso de refinamiento comenzó identificando las acciones realizadas por los actores Buyer y Merchant. Cada acción relevante fue representada mediante Commands y posteriormente relacionada con los Aggregates responsables de mantener las reglas y consistencia del dominio. A partir de estas acciones se identificaron los Domain Events producidos por el sistema, así como Policies que reaccionan ante dichos eventos, Queries requeridas para consultar el estado del dominio, sistemas externos y Hotspots que representan decisiones o reglas pendientes de precisar.
 
@@ -1411,35 +1784,71 @@ Para facilitar la lectura del modelo se utilizó la siguiente convención visual
 
 El resultado del proceso permitió organizar el dominio en siete Bounded Contexts: Identity and Access, Shopping Planning, Catalog and Pricing, Route Planning, Merchant Management, Community Price Verification y Analytics and Engagement.
 
-![PeruTech Design-Level Event Storming](../assets/architecture/design-level-event-storming.png)
+El modelo se presenta en siete vistas independientes. Cada fila se lee de izquierda a derecha: Actor → Command → Aggregate → Domain Event y, cuando corresponde, Policy y acciones posteriores. Las consultas se distinguen de los comandos; Analytics también muestra flujos iniciados por eventos. Se conservan los Hotspots del modelo como decisiones pendientes, sin inventar respuestas.
 
+#### Identity and Access
+
+![Preciazo Identity and Access Design-Level Event Storming](../assets/architecture/event-storming/identity-access.png)
+
+#### Shopping Planning
+
+![Preciazo Shopping Planning Design-Level Event Storming](../assets/architecture/event-storming/shopping-planning.png)
+
+#### Catalog and Pricing
+
+![Preciazo Catalog and Pricing Design-Level Event Storming](../assets/architecture/event-storming/catalog-pricing.png)
+
+#### Route Planning
+
+![Preciazo Route Planning Design-Level Event Storming](../assets/architecture/event-storming/route-planning.png)
+
+#### Merchant Management
+
+![Preciazo Merchant Management Design-Level Event Storming](../assets/architecture/event-storming/merchant-management.png)
+
+#### Community Price Verification
+
+![Preciazo Community Price Verification Design-Level Event Storming](../assets/architecture/event-storming/community-price-verification.png)
+
+#### Analytics and Engagement
+
+![Preciazo Analytics and Engagement Design-Level Event Storming](../assets/architecture/event-storming/analytics-engagement.png)
 
 ### 4.6.2. Software Architecture Context Diagram
 
-![PeruTech Software Architecture Context Diagram](../assets/architecture/c4-context.png)
-
+![Preciazo Software Architecture Context Diagram](../assets/architecture/c4-context.png)
 
 ### 4.6.3. Software Architecture Container Diagrams
 
-![PeruTech Software Architecture Container Diagram](../assets/architecture/c4-container.png)
+El diagrama de contenedores describe la arquitectura lógica de **Preciazo**. La Landing Page presenta el producto y proporciona acceso a la **Single-Page Application (SPA)** desarrollada con Angular, TypeScript y Angular Material para compradores y comerciantes. La SPA consume mediante HTTPS / JSON los endpoints de **Preciazo REST API**, una aplicación modular en Java / Spring Boot que persiste los datos operacionales en una base de datos relacional y se integra con Mapping & Routing Service y RUC Verification Service.
+
+![Preciazo Software Architecture Container Diagram](../assets/architecture/c4-container.png)
 
 ### 4.6.4. Software Architecture Components Diagrams
 
-![PeruTech Frontend Component Diagram](../assets/architecture/c4-components-frontend.png)
+Los diagramas de componentes detallan por separado la estructura interna de la **Single-Page Application (SPA)** y de **Preciazo REST API**, manteniendo los siete Bounded Contexts definidos mediante Domain-Driven Design.
+
+En la SPA, compradores y comerciantes acceden a las funcionalidades mediante Router / Guards, que organiza la navegación según el rol del usuario. Las funcionalidades de cada contexto utilizan componentes de UI compartidos y servicios de aplicación que encapsulan las llamadas HTTP a la REST API.
+
+![Preciazo Frontend Component Diagram](../assets/architecture/c4-components-frontend.png)
+
+En el backend, la capa REST delega los casos de uso a los componentes de aplicación y dominio de los siete contextos. El Persistence Adapter implementa el acceso a repositorios mediante Spring Data JPA. Route Planning utiliza Mapping & Routing Adapter para las consultas de rutas, mientras que Merchant Management utiliza RUC Verification Adapter para la validación fiscal. Ambos adaptadores se comunican con sus respectivos servicios externos mediante HTTPS / REST API.
+
+![Preciazo Backend Component Diagram](../assets/architecture/c4-components-backend.png)
 
 ## 4.7. Software Object-Oriented Design
 
-En esta sección se presenta el diseño orientado a objetos de PeruTech a partir de los Bounded Contexts identificados durante el proceso de Domain-Driven Design.
+En esta sección se presenta el diseño orientado a objetos de **Preciazo** a partir de los Bounded Contexts identificados durante el proceso de Domain-Driven Design.
 
 Con el objetivo de evitar un único modelo de clases excesivamente acoplado, el diseño se divide de acuerdo con los siete Bounded Contexts definidos previamente. Cada contexto mantiene sus propias entidades, servicios, interfaces, políticas, objetos de valor y enumeraciones, permitiendo representar de manera explícita sus responsabilidades y reglas de negocio.
 
-Asimismo, cuando un contexto necesita información perteneciente a otro dominio, se utilizan referencias locales basadas en identificadores u objetos específicos del contexto, evitando compartir directamente las entidades internas de otros Bounded Contexts. Este criterio permite conservar límites claros entre los modelos y reducir dependencias innecesarias.
+Asimismo, cuando un contexto necesita información perteneciente a otro dominio, se utilizan referencias locales basadas en identificadores u objetos específicos del contexto, evitando compartir directamente las entidades internas de otros Bounded Contexts. Este criterio permite conservar límites claros entre los modelos y reducir dependencias innecesarias. Los identificadores numéricos se representan como `Long` en los diagramas de clases y como `BIGINT` en persistencia.
 
-Los diagramas incluyen atributos y operaciones relevantes del dominio, utilizando visibilidad UML, relaciones nombradas y multiplicidades para representar las asociaciones entre los diferentes elementos.
+Los diagramas incluyen atributos y operaciones relevantes del dominio, visibilidad UML, relaciones nombradas y multiplicidades. Los **Value Objects** se identifican con el estereotipo `Value Object` y atributos `readOnly`; sus notas explicitan restricciones y criterios de igualdad por valor. Se utilizan `EmailAddress`, `Ruc`, `Address`, `Quantity`, `UnitPrice`, `Money`, `GeoPoint`, `Distance` y `ReportingPeriod`, además de referencias locales y criterios de consulta inmutables. Las operaciones que cambian un valor devuelven uno nuevo en lugar de modificar el existente.
 
 ### 4.7.1. Class Diagrams
 
-Los Class Diagrams de PeruTech se organizan por Bounded Context con el propósito de representar de forma independiente las principales estructuras y comportamientos de cada parte del dominio.
+Los Class Diagrams de **Preciazo** se organizan por Bounded Context con el propósito de representar de forma independiente las principales estructuras y comportamientos de cada parte del dominio.
 
 #### Identity and Access
 
@@ -1447,7 +1856,7 @@ El Bounded Context **Identity and Access** concentra las responsabilidades relac
 
 La clase `User` representa la identidad principal del sistema y permite realizar operaciones como autenticarse, asignar roles, desactivar la cuenta y comprobar permisos. Las sesiones generadas se representan mediante `AuthSession`, mientras que `Role` y `Permission` modelan el esquema de autorización.
 
-Las interfaces `IdentityRepository` y `AccessPolicy` abstraen respectivamente la persistencia de identidades y las reglas utilizadas para determinar si una operación está autorizada.
+Las interfaces `IdentityRepository` y `AccessPolicy` abstraen respectivamente la persistencia de identidades y las reglas utilizadas para determinar si una operación está autorizada. `EmailAddress` encapsula el correo y su validación de formato, y se utiliza tanto en `User` como en las operaciones de búsqueda y autenticación.
 
 ![Identity and Access Class Diagram](../assets/architecture/classes/identity-access.png)
 
@@ -1457,7 +1866,7 @@ El Bounded Context **Shopping Planning** administra la planificación de compras
 
 `ShoppingList` funciona como el elemento central del modelo y agrupa múltiples `ShoppingListItem`. Entre sus responsabilidades se encuentran agregar y eliminar ítems, marcar productos como comprados, calcular el costo estimado y completar una lista.
 
-`PurchaseBudget` representa el presupuesto asociado a la planificación y encapsula operaciones como reservar o liberar importes y comprobar si un determinado gasto puede ser asumido. El objeto `Money` encapsula cantidades monetarias y sus operaciones.
+`PurchaseBudget` representa el presupuesto asociado a la planificación y encapsula operaciones como reservar o liberar importes y comprobar si un determinado gasto puede ser asumido. El Value Object `Money` encapsula importes y exige una misma moneda para operar. `Quantity` representa cantidades no negativas con su unidad; las cantidades solicitadas deben ser positivas. `UnitPrice` combina un importe y la cantidad de referencia para calcular costos con unidades compatibles.
 
 `ProductRequirement` permite referenciar un producto requerido sin introducir directamente el modelo interno de Catalog and Pricing dentro de este Bounded Context.
 
@@ -1471,7 +1880,7 @@ El Bounded Context **Catalog and Pricing** modela la consulta y comparación de 
 
 La clase `CatalogPricingService` proporciona operaciones de búsqueda, comparación de precios y selección de ofertas. Por otro lado, `PriceComparisonPolicy` encapsula la regla utilizada para determinar la alternativa más conveniente.
 
-`RetailStoreRef` representa únicamente una referencia al establecimiento, preservando la separación respecto del modelo interno de Merchant Management.
+`RetailStoreRef` representa una referencia inmutable al establecimiento, preservando la separación respecto del modelo interno de Merchant Management. `UnitPrice` expresa el precio por cantidad de referencia y `SearchCriteria` agrupa filtros inmutables, incluido un límite opcional de precio unitario.
 
 ![Catalog and Pricing Class Diagram](../assets/architecture/classes/catalog-pricing.png)
 
@@ -1483,7 +1892,7 @@ El aggregate `MultiStopRoute` administra las diferentes paradas mediante objetos
 
 `RoutePlanningService` coordina la generación, recálculo y confirmación de rutas, mientras que `RoutingGateway` abstrae el acceso al servicio externo de mapas y ruteo.
 
-Para mantener el aislamiento del contexto, conceptos pertenecientes a otros dominios se representan mediante elementos locales como `ShoppingPlanRef`, `ProductRequirement` y `StoreCandidate`.
+Para mantener el aislamiento del contexto, conceptos pertenecientes a otros dominios se representan mediante elementos locales como `ShoppingPlanRef`, `ProductRequirement` y `StoreCandidate`. `GeoPoint` valida los rangos de coordenadas, `Distance` expresa kilómetros no negativos y `Quantity` representa la cantidad requerida de un producto. `RouteEstimate` es un resultado inmutable que reúne distancia y duración.
 
 ![Route Planning Class Diagram](../assets/architecture/classes/route-planning.png)
 
@@ -1495,7 +1904,7 @@ El Bounded Context **Merchant Management** concentra las capacidades relacionada
 
 `InventoryItem` encapsula operaciones relacionadas con stock y precio, mientras que `Promotion` representa ofertas con un período de vigencia definido.
 
-La interfaz `RucVerificationGateway` abstrae la comunicación con el servicio externo utilizado para validar la información fiscal del Merchant.
+La interfaz `RucVerificationGateway` abstrae la comunicación con el servicio externo utilizado para validar la información fiscal del Merchant. `Ruc` encapsula el formato del identificador; la verificación fiscal permanece en el gateway. `Address` representa la dirección como un valor completo; `Quantity` y `UnitPrice` expresan el stock y el precio por cantidad de referencia.
 
 ![Merchant Management Class Diagram](../assets/architecture/classes/merchant-management.png)
 
@@ -1507,7 +1916,7 @@ El Bounded Context **Community Price Verification** administra las observaciones
 
 La clase `TrustProfile` mantiene información local relacionada con la confiabilidad de las contribuciones realizadas por un usuario. Por otro lado, `VerificationPolicy` encapsula las reglas necesarias para aceptar, rechazar o solicitar revisión adicional de una discrepancia.
 
-Los objetos `UserRef` y `StoreProductRef` actúan como referencias hacia información perteneciente a otros Bounded Contexts sin introducir sus modelos internos directamente.
+Los Value Objects `UserRef` y `StoreProductRef` actúan como referencias inmutables hacia Identity and Access y Catalog and Pricing sin introducir sus modelos internos directamente. Los precios esperados y observados utilizan `Money`.
 
 ![Community Price Verification Class Diagram](../assets/architecture/classes/community-price-verification.png)
 
@@ -1519,32 +1928,31 @@ El Bounded Context **Analytics and Engagement** se encarga de registrar eventos 
 
 `AnalyticsService` registra dichos eventos y genera posteriormente objetos `MerchantMetrics` y `MerchantReport`. La interfaz `MetricsCalculator` abstrae la lógica utilizada para calcular las métricas correspondientes a un período determinado.
 
-De esta manera, el contexto mantiene separada la recopilación de eventos de la generación de información analítica destinada al Merchant.
+`ReportingPeriod` encapsula un intervalo inmutable cuyo inicio no supera el fin y se utiliza para consultar y evaluar eventos. `Money` expresa el importe de ventas perdidas. De esta manera, el contexto mantiene separada la recopilación de eventos de la generación de información analítica destinada al Merchant.
 
 ![Analytics and Engagement Class Diagram](../assets/architecture/classes/analytics-engagement.png)
-
 
 En conjunto, los Class Diagrams permiten representar la estructura interna de cada Bounded Context sin construir un único modelo global compartido. Esta separación mantiene alineado el diseño orientado a objetos con las fronteras establecidas mediante Domain-Driven Design y facilita que cada módulo evolucione manteniendo responsabilidades claramente delimitadas.
 
 ## 4.8. Database Design
 
-El diseño de base de datos de PeruTech se organiza siguiendo los límites definidos previamente mediante Domain-Driven Design. En lugar de representar el almacenamiento únicamente como un modelo relacional global, se presentan vistas específicas para cada Bounded Context con el objetivo de evidenciar qué información pertenece a cada parte del dominio.
+El diseño de base de datos de **Preciazo** se organiza siguiendo los límites definidos previamente mediante Domain-Driven Design. En lugar de representar el almacenamiento únicamente como un modelo relacional global, se presentan vistas específicas para cada Bounded Context con el objetivo de evidenciar qué información pertenece a cada parte del dominio.
 
-Cada diagrama identifica las entidades persistentes, sus atributos principales, claves primarias, claves foráneas, restricciones de unicidad y relaciones. Cuando un contexto necesita referenciar información perteneciente a otro Bounded Context, dicha dependencia se representa mediante identificadores marcados como referencias externas (`REF`), evitando asumir que la entidad referenciada pertenece al mismo modelo.
+Cada diagrama identifica las entidades persistentes, sus atributos principales, claves primarias, claves foráneas, restricciones de unicidad y relaciones. Para atender la observación del profesor, **las claves primarias (PK) utilizan `BIGINT`** y sus claves foráneas (FK) y referencias externas (REF) mantienen el mismo tipo. Las claves simples se generan en persistencia mediante identidad o secuencia; las claves compuestas de tablas de asociación conservan los identificadores de las entidades relacionadas. La sintaxis de generación se definirá según el motor relacional elegido.
 
-Adicionalmente, se incluye una vista general de la base de datos que permite observar la integración global de la información persistida por PeruTech.
+Cuando un contexto necesita referenciar información perteneciente a otro Bounded Context, dicha dependencia se representa mediante identificadores marcados como referencias externas (`REF`), evitando asumir que la entidad referenciada pertenece al mismo modelo.
 
 ### 4.8.1. Database Diagrams
 
-Los Database Diagrams de PeruTech se presentan primero mediante una vista general y posteriormente mediante vistas específicas para cada Bounded Context.
+Los Database Diagrams de **Preciazo** se presentan primero mediante una vista general y posteriormente mediante vistas específicas para cada Bounded Context.
 
 #### Database Overview
 
-El Database Overview muestra la estructura relacional completa propuesta para PeruTech y permite visualizar las principales relaciones entre usuarios, comerciantes, establecimientos, productos, planificación de compras, rutas, verificación comunitaria de precios y analítica.
+El Database Overview muestra la estructura relacional completa propuesta para **Preciazo** y permite visualizar las principales relaciones entre usuarios, comerciantes, establecimientos, productos, planificación de compras, rutas, verificación comunitaria de precios y analítica.
 
 La vista global también evidencia restricciones importantes del modelo, como la unicidad de correos y roles, la relación entre usuarios y perfiles de comerciantes, la unicidad de un producto por establecimiento dentro del catálogo, la secuencia única de paradas dentro de una ruta y la asociación de métricas y reportes con establecimientos.
 
-![PeruTech Database Overview](../assets/architecture/database/database-overview.png)
+![Preciazo Database Overview](../assets/architecture/database/database-overview.png)
 
 #### Identity and Access
 
@@ -1632,120 +2040,558 @@ Los identificadores de establecimiento utilizados por métricas y reportes actú
 
 ![Analytics and Engagement Database Diagram](../assets/architecture/database/analytics-engagement.png)
 
-En conjunto, estos diagramas permiten mantener una visión global de la persistencia de PeruTech y, al mismo tiempo, conservar los límites definidos entre los Bounded Contexts. Las referencias externas entre contextos se representan mediante identificadores, mientras que las relaciones internas utilizan claves primarias, claves foráneas y restricciones propias de cada modelo.
+En conjunto, estos diagramas permiten mantener una visión global de la persistencia de **Preciazo** y, al mismo tiempo, conservar los límites definidos entre los Bounded Contexts. Las referencias externas entre contextos se representan mediante identificadores, mientras que las relaciones internas utilizan claves primarias, claves foráneas y restricciones propias de cada modelo.
 
-
----
+<div style="page-break-before: always;"></div>
 
 # Capítulo V: Product Implementation, Validation & Deployment
 
 ## 5.1. Software Configuration Management
 
-[Contenido]
+Se detallan a continuación los entornos, herramientas y normas operativas encargados de asegurar la calidad, consistencia y trazabilidad de los artefactos desarrollados durante el ciclo de vida del proyecto.
 
 ### 5.1.1. Software Development Environment Configuration
 
-[Contenido]
+Se presentan los entornos y herramientas seleccionadas para las fases de gestión, diseño, desarrollo web, documentación y despliegue del producto.
+
+**Project Management**
+
+| Herramienta | Uso Principal | Enlace / Ruta de Acceso |
+| :--- | :--- | :--- |
+| **Trello** | Gestión ágil de tareas, seguimiento del Sprint Backlog e historias de usuario mediante tableros Kanban. | [https://trello.com](https://trello.com) |
+
+<br>
+
+**Requirements & UX/UI Design**
+
+| Herramienta | Uso Principal | Enlace / Ruta de Acceso |
+| :--- | :--- | :--- |
+| **UXPressia** | Elaboración de artefactos de diseño centrado en el usuario (User Personas, Empathy Maps, Journey Maps e Impact Maps). | [https://uxpressia.com](https://uxpressia.com) |
+| **Lucidchart / Miro** | Diagramación y modelado colaborativo del dominio del problema y arquitectura C4 Model. | [https://lucidchart.com](https://lucidchart.com) |
+| **Figma** | Diseño de wireframes, mockups de alta fidelidad y prototipos interactivos de la Landing Page y Web Application. | [https://figma.com](https://figma.com) |
+
+<br>
+
+**Software Development (Web & Services)**
+
+| Herramienta / Tecnología | Propósito | Enlace / Ruta de Acceso |
+| :--- | :--- | :--- |
+| **WebStorm / VS Code** | Entorno de desarrollo para maquetación web, estilos y scripts frontend. | [https://www.jetbrains.com/webstorm/](https://www.jetbrains.com/webstorm/) |
+| **IntelliJ IDEA Ultimate** | Entorno de desarrollo para la implementación del RESTful API en Java y Spring Boot. | [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/) |
+| **HTML5 & CSS3** | Lenguajes base para la estructuración y estilización semántica y accesible (a11y) del sitio web. | [https://developer.mozilla.org](https://developer.mozilla.org) |
+| **JavaScript & TypeScript** | Lenguajes para la lógica del cliente y la interactividad del Landing Page y componentes Angular. | [https://www.typescriptlang.org](https://www.typescriptlang.org) |
+| **Angular** | Marco de trabajo frontend para la construcción de la aplicación web de gestión comercial. | [https://angular.io](https://angular.io) |
+| **Java & Spring Boot** | Lenguaje y marco de trabajo backend para la persistencia y servicios RESTful con Spring Data JPA. | [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot) |
+
+<br>
+
+**Software Deployment & Hosting**
+
+| Herramienta / Plataforma | Propósito | Enlace / Ruta de Acceso |
+| :--- | :--- | :--- |
+| **GitHub Pages** | Alojamiento e integración continua nativa para el despliegue del sitio web estático de la Landing Page. | [https://pages.github.com](https://pages.github.com) |
+
+<br>
+
+**Software Documentation & Version Control**
+
+| Herramienta / Recurso | Propósito | Enlace / Ruta de Acceso |
+| :--- | :--- | :--- |
+| **Markdown** | Formato estructurado para la elaboración colaborativa del informe y especificaciones técnicas. | [https://www.markdownguide.org](https://www.markdownguide.org) |
+| **Git & GitHub** | Sistema de control de versiones distribuido y servidor centralizado de repositorios bajo la organización del equipo. | [https://github.com](https://github.com) |
+| **GitFlow & Conventional Commits** | Flujo de trabajo de ramificación estructurada y convención estándar para mensajes de confirmación. | [https://www.conventionalcommits.org](https://www.conventionalcommits.org) |
+
+---
 
 ### 5.1.2. Source Code Management
 
-[Contenido]
+El código fuente del proyecto se administra centralizadamente en la organización oficial de **GitHub**. El desarrollo se organiza en repositorios independientes para mantener el desacoplamiento entre la documentación técnica, la experiencia web y los servicios de backend, aplicando **GitFlow Workflow**:
+
+**Repositorios Oficiales del Proyecto**
+
+| Componente / Producto | Nombre del Repositorio | Enlace Remoto |
+| :--- | :--- | :--- |
+| **Organización Oficial** | Open Source - 1ASI0729-2620-7750 | [https://github.com/Open-Source-1ASI0729-2620-7750](https://github.com/Open-Source-1ASI0729-2620-7750) |
+| **Documentación Técnica (Reporte)** | `preciazo-report` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report) |
+| **Landing Page** | `preciazo-landing-page` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page) |
+
+#### Modelo de Ramificación (GitFlow)
+
+El desarrollo en los repositorios se estructura mediante dos ramas principales permanentes:
+* `main`: Contiene exclusivamente versiones estables, aprobadas y publicadas en producción.
+* `develop`: Sirve como rama base para la integración continua de nuevas funcionalidades y secciones.
+
+Adicionalmente, se utilizan ramas de soporte bajo las siguientes convenciones:
+* `feature/<nombre-funcionalidad>`: Ramas derivadas de `develop` para la construcción de secciones específicas o capítulos de documentación (ej. `feature/landing-hero`, `feature/chapter-5-content`).
+* `release/vX.X.X`: Ramas para la estabilización y preparación de entregas formales, aplicando el estándar **Semantic Versioning 2.0.0** (ej. `release/v1.0.0`).
+* `hotfix/<descripcion-correccion>`: Ramas directas desde `main` para correcciones críticas no planificadas en producción.
+
+#### Política de Commits
+
+Para garantizar la legibilidad y trazabilidad del historial, los mensajes de commit emplean la especificación de **Conventional Commits**: `<tipo>(ámbito-opcional): descripción en imperativo y minúsculas` (ejemplos: `feat(landing): implement responsive navigation bar`, `docs(report): update chapter 5 environment tables`).
+
+---
 
 ### 5.1.3. Source Code Style Guide & Conventions
 
-[Contenido]
+Se establecen guías de estilo oficiales para asegurar la consistencia, legibilidad y mantenibilidad técnica en todos los componentes del sistema:
+
+* **Idioma de Código**: Nomenclatura estrictamente en **idioma inglés** para identificadores, clases, interfaces, variables, comentarios y rutas de archivos.
+* **HTML5**: Estructuración semántica (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`), validación de accesibilidad con atributos ARIA (`a11y`), e identación uniforme de 2 espacios.
+* **CSS3**: Nomenclatura `kebab-case` para clases personalizadas (`hero-container`, `btn-primary`), organización modular y aplicación de principios de diseño responsivo.
+* **JavaScript & TypeScript**: Convención `camelCase` para variables y funciones (`toggleLanguage`, `submitContactForm`), `PascalCase` para clases e interfaces (`UserProfile`, `MerchantService`). Se siguen las directrices de la *Google TypeScript Style Guide*.
+* **Java & Spring Boot**: Adopción estricta de la *Google Java Style Guide*. Nombres de clases en `PascalCase`, métodos en `camelCase`, constantes en `UPPER_SNAKE_CASE` y paquetes en minúsculas coherentes con la arquitectura orientada al dominio (DDD).
+* **Markdown**: Sintaxis estándar para encabezados, tablas y enlaces según la especificación *The Markdown Guide*.
+
+---
 
 ### 5.1.4. Software Deployment Configuration
 
-[Contenido]
+El sitio web de la Landing Page se despliega mediante el servicio **GitHub Pages**, aprovechando la infraestructura nativa de GitHub para servir archivos estáticos directamente desde el repositorio del proyecto.
+
+| Componente | Plataforma Hosting | Estrategia de Despliegue | URL Oficial |
+| :--- | :--- | :--- | :--- |
+| **Landing Page** | GitHub Pages | Despliegue automatizado desde la rama `main` | `https://open-source-1asi0729-2620-7750.github.io/preciazo-landing-page/` |
+
+#### Flujo de Configuración en GitHub Pages:
+1. **Habilitación del Servicio**: Acceso a la configuración del repositorio (*Settings > Pages*) en `preciazo-landing-page`.
+2. **Selección de Rama Fuente (Source)**: Definición de la rama `main` y directorio `/root` como origen del despliegue público.
+3. **Automatización del Despliegue**: Integración mediante GitHub Actions para compilar y publicar automáticamente los cambios tras cada merge confirmado.
+4. **Configuración de Seguridad**: Habilitación forzada del protocolo criptográfico seguro HTTPS para proteger la navegación de los visitantes.
 
 ## 5.2. Landing Page, Services & Applications Implementation
 
-[Contenido]
+En esta sección se detalla y evidencia el proceso de planificación, implementación, control de calidad y despliegue continuo de los artefactos del sistema a lo largo de los diferentes ciclos iterativos de desarrollo. La ejecución del proyecto sigue el marco de trabajo Scrum, estructurando el avance por sprints independientes en función del Product Backlog definido en el Capítulo III.
+
+---
 
 ### 5.2.1. Sprint 1
 
-[Contenido]
+El Sprint 1 comprende el ciclo inicial de desarrollo enfocado en establecer las bases arquitectónicas, configurar los entornos colaborativos y desplegar en producción el sitio web de la Landing Page responsivo y accesible para **Preciazo**, orientado a captar el interés tanto del Comprador Independiente como del Comerciante Minorista sin requerir instalaciones nativas.
 
 #### 5.2.1.1. Sprint Planning 1
 
-[Contenido]
+| Campo | Descripción |
+| :--- | :--- |
+| **Sprint #** | Sprint 1 |
+| **Sprint Planning Background** | Sesión de planificación inicial para definir el alcance técnico del primer entregable (TB1), establecer la velocidad estimada del equipo y seleccionar las historias del Product Backlog correspondientes al despliegue de la Landing Page y la infraestructura de control de versiones. |
+| **Date** | 2026-09-02 |
+| **Time** | 07:00 PM (GMT -5) |
+| **Location** | Modalidad remota síncrona vía Google Meet |
+| **Prepared By** | Equipo de Desarrollo PeruTech |
+| **Attendees (to planning meeting)** | Becerra Durand, Sebastian Uriel; Capillo Lema, Mía Valentina; Casós Torre, Miguel André; Miranda Romero, Sergio Luis; Pardo Chumpitazi, Kevin Patrick. |
+| **Sprint 0 Review Summary** | Al tratarse de la iteración inicial del ciclo académico, no existe una revisión formal de un sprint previo. Se toma como insumo el conjunto de requisitos del Capítulo III y los artefactos de diseño UX/UI. |
+| **Sprint 0 Retrospective Summary** | Se consolidaron los hallazgos del Needfinding y se validaron los wireframes de baja fidelidad. Se determinó priorizar una arquitectura web modular con HTML5 semántico, CSS3 adaptable y JavaScript nativo para garantizar tiempos de carga reducidos en GitHub Pages. |
+| **Sprint Goal & User Stories** | **Sprint 1 Goal:** Implementar, documentar y desplegar en producción el sitio web de la Landing Page para la plataforma **Preciazo** mediante GitHub Pages, comunicando la propuesta de valor del producto como una **solución web mixta (web responsive con acceso instantáneo desde navegadores móviles de smartphones y computadoras de escritorio, sin descargas obligatorias de tiendas de aplicaciones)**, cumpliendo con criterios de diseño adaptativo, accesibilidad semántica y captura de clientes potenciales para Compradores Independientes y Comerciantes Minoristas.<br><br>**User Stories Seleccionadas:**<br>• **US01:** Landing: Propuesta de valor (1 SP)<br>• **US02:** Landing: Segmentos objetivo (1 SP)<br>• **US03:** Landing: Red de comercios aliados (1 SP)<br>• **US04:** Landing: Registro de interés (2 SP)<br>• **US05:** Landing: Preguntas frecuentes y soporte (2 SP) |
+| **Sprint 1 Velocity** | 7 Story Points |
+| **Sum of Story Points** | 7 Story Points |
 
 #### 5.2.1.2. Aspect Leaders and Collaborators
 
-[Contenido]
+En la siguiente tabla se distribuyen formalmente las responsabilidades de liderazgo y colaboración de los integrantes del equipo para el Sprint 1, organizadas por áreas técnicas y metodológicas:
+
+| Aspecto / Área de Trabajo | Líder (Aspect Leader) | Colaboradores |
+| :--- | :--- | :--- |
+| **Software Configuration Management & GitFlow** | Pardo Chumpitazi, Kevin Patrick | Miranda Romero, Sergio Luis; Casós Torre, Miguel André |
+| **UI/UX Design & Semantic Prototyping** | Capillo Lema, Mía Valentina | Pardo Chumpitazi, Kevin Patrick; Becerra Durand, Sebastian Uriel |
+| **Frontend Web Development (Structure & Style)** | Miranda Romero, Sergio Luis | Becerra Durand, Sebastian Uriel; Casós Torre, Miguel André |
+| **Responsive Design & Accessibility (a11y)** | Becerra Durand, Sebastian Uriel | Capillo Lema, Mía Valentina; Pardo Chumpitazi, Kevin Patrick |
+| **Hosting, Continuous Deployment (CI/CD) & QA Review** | Casós Torre, Miguel André | Pardo Chumpitazi, Kevin Patrick; Miranda Romero, Sergio Luis |
 
 #### 5.2.1.3. Sprint Backlog 1
 
-[Contenido]
+El Sprint Backlog 1 consolida el conjunto de User Stories priorizadas para la fase inicial de la plataforma **Preciazo**, enfocada en la construcción, optimización semántica y despliegue continuo de la Landing Page estática en GitHub Pages.
+
+Para la administración operativa del ciclo de desarrollo se utilizó Trello como herramienta formal de gestión visual mediante un tablero Kanban. Dicho tablero permitió desglosar cada historia de usuario en tareas técnicas específicas, asignar responsables directos y controlar la transición de los ítems a través de los estados del flujo de trabajo (*To Do*, *Doing* y *Done*), asegurando el cumplimiento riguroso de los criterios de aceptación antes de la liberación final.
+
+<div align="center">
+  <img src="../assets/sprint-1/Trello.png" alt="Sprint Backlog 1 en Trello" width="850">
+  <p><em>Figura 5.1: Estado final de las tareas del Sprint 1 en el tablero Kanban de Trello.</em></p>
+</div>
+
+<br>
+
+**Desglose Detallado del Sprint Backlog 1:**
+
+| User Story Id | Title | Task Id | Task Title | Description | Estimation (Hours) | Assigned To | Status |
+| :---: | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
+| **US01** | Landing: Propuesta de valor | T01 | Maquetación Hero Section | Maquetación semántica del contenedor principal y titulares de valor con HTML5. | 3 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US01** | Landing: Propuesta de valor | T02 | Estilización diferencial | Aplicación de hojas de estilo CSS3 para evidenciar la optimización de compras y tiempos. | 2 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US01** | Landing: Propuesta de valor | T03 | Diseño Mobile-First | Implementación de media queries para adaptación visual fluida en dispositivos móviles. | 3 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US02** | Landing: Segmentos objetivo | T04 | Tarjetas informativas | Estructuración modular de los perfiles Comprador Independiente y Comerciante. | 3 | Capillo Lema, Mía Valentina | Done |
+| **US02** | Landing: Segmentos objetivo | T05 | Llamados a la acción (CTA) | Configuración de enlaces hacia los flujos de registro respectivos de cada segmento. | 2 | Capillo Lema, Mía Valentina | Done |
+| **US02** | Landing: Segmentos objetivo | T06 | Accesibilidad y contraste | Validación de contrastes de color y jerarquía visual conforme a estándares WCAG 2.1. | 2 | Becerra Durand, Sebastian Uriel | Done |
+| **US03** | Landing: Red de aliados | T07 | Módulo de cobertura | Maquetación del bloque interactivo de sectores urbanos y comercios minoristas. | 2 | Miranda Romero, Sergio Luis | Done |
+| **US03** | Landing: Red de aliados | T08 | Optimización gráfica | Incorporación y compresión de logotipos vectoriales de bodegas en formato SVG. | 2 | Becerra Durand, Sebastian Uriel | Done |
+| **US04** | Landing: Registro de interés | T09 | Formulario de suscripción | Creación de campos semánticos para captura de correo electrónico de visitantes. | 2 | Miranda Romero, Sergio Luis | Done |
+| **US04** | Landing: Registro de interés | T10 | Validación de sintaxis | Script en JavaScript con expresiones regulares (RegEx) para comprobación de correo. | 3 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US04** | Landing: Registro de interés | T11 | Notificación accesible | Implementación del mensaje interactivo de confirmación tras envío exitoso. | 2 | Casós Torre, Miguel André | Done |
+| **US05** | Landing: FAQ y soporte | T12 | Acordeón informativo | Estructuración semántica de preguntas frecuentes con elementos nativos HTML5. | 2 | Casós Torre, Miguel André | Done |
+| **US05** | Landing: FAQ y soporte | T13 | Lógica de colapso interactivo | Desarrollo de funciones JavaScript para apertura y cierre accesible de tópicos. | 2 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US05** | Landing: FAQ y soporte | T14 | Formulario de contacto | Integración del canal de comunicación directa para consultas de soporte. | 2 | Capillo Lema, Mía Valentina | Done |
+| **TS01** | Despliegue en GitHub Pages | T15 | Inicialización GitFlow | Configuración del repositorio `preciazo-landing-page` y esquema de ramas. | 2 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **TS01** | Despliegue en GitHub Pages | T16 | Pipeline de despliegue | Configuración de la acción automática para compilación y hosting en GitHub Pages. | 1 | Casós Torre, Miguel André | Done |
+| **TS01** | Despliegue en GitHub Pages | T17 | Auditoría Lighthouse | Comprobación de métricas de rendimiento y SEO superando el 90% de puntaje. | 2 | Miranda Romero, Sergio Luis | Done |
 
 #### 5.2.1.4. Development Evidence for Sprint Review
 
-[Contenido]
+Durante el Sprint 1, el equipo implementó la totalidad de los componentes frontend estáticos de la Landing Page de **Preciazo**. El desarrollo se organizó en una estructura limpia de archivos dentro del repositorio:
+* `index.html`: Estructura semántica con marcado accesible, etiquetas ARIA y organización modular de secciones (`#hero`, `#segments`, `#allies`, `#register`, `#faq`, `#contact`).
+* `css/styles.css`: Hojas de estilo estructuradas con variables CSS para la paleta institucional (negro azabache `#000000`, turquesa `#00ACAC`), reglas de Flexbox, CSS Grid y media queries adaptativas.
+* `js/main.js`: Lógica del lado del cliente para la validación reactiva del correo mediante expresiones regulares, feedback accesible en el formulario y control dinámico del acordeón de preguntas frecuentes.
+
+* **Repositorio de Código Fuente de la Landing Page:** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page)
+
+A continuación, se documenta la trazabilidad de los commits realizados durante el ciclo de desarrollo por cada uno de los integrantes del equipo bajo la convención de Conventional Commits:
+
+| Integrante | Hash de Commit | Mensaje de Confirmación | Descripción del Aporte Técnico |
+| :--- | :---: | :--- | :--- |
+| **Pardo Chumpitazi, Kevin Patrick** | `7a1f4b2` | `feat(hero): implement semantic hero section and mobile layout` | Maquetación principal de la cabecera, titulares de valor y diseño mobile-first. |
+| **Capillo Lema, Mía Valentina** | `9c3d1e8` | `feat(segments): add target audience comparison cards` | Construcción de tarjetas modulares diferenciadas para comprador y comerciante. |
+| **Miranda Romero, Sergio Luis** | `4b8e2a1` | `feat(subscription): create email capture form with validation` | Maquetación del formulario de captación de leads y validaciones en cliente. |
+| **Becerra Durand, Sebastian Uriel** | `3f2a9c0` | `feat(allies): add store partner showcase with svg assets` | Bloque interactivo de red de bodegas aliadas y optimización de vectores SVG. |
+| **Casós Torre, Miguel André** | `6e1d5f3` | `feat(faq): create accessible interactive accordion component` | Lógica JavaScript para apertura y cierre accesible de tópicos de preguntas frecuentes. |
 
 #### 5.2.1.5. Execution Evidence for Sprint Review
 
-[Contenido]
+La verificación funcional de la Landing Page de **Preciazo** se ejecutó satisfactoriamente sobre navegadores Google Chrome, Mozilla Firefox y Safari, tanto en resolución de escritorio (1920x1080) como en emulación de dispositivos móviles (iPhone 14/15, Samsung Galaxy S22):
+
+1. **Adaptabilidad Fluida (Mobile-First):** El menú de navegación colapsa de forma accesible en dispositivos móviles y los bloques informativos se reordenan verticalmente sin generar desbordamientos horizontales.
+2. **Validación Reactiva de Formularios:** Al ingresar una dirección de correo con sintaxis válida, el script almacena la intención de suscripción y presenta un mensaje accesible de éxito; ante formatos inválidos, bloquea el envío y alerta al usuario en color contrastante.
+3. **Navegación e Interactividad:** Los anclajes de la barra superior dirigen suavemente a las secciones deseadas y el acordeón permite consultar cada pregunta frecuente de forma independiente.
+
+<div align="center">
+  <img src="../assets/designs/landing/mockup-landing.png" alt="Ejecución de la Landing Page en Producción" width="850">
+  <p><em>Figura 5.2: Vista general de la Landing Page en ejecución tras el despliegue del Sprint 1.</em></p>
+</div>
 
 #### 5.2.1.6. Services Documentation Evidence for Sprint Review
 
-[Contenido]
+Al tratarse del ciclo inicial (Sprint 1) enfocado exclusivamente en el despliegue del sitio web informativo y estático de la Landing Page, no se desarrollaron servicios transaccionales de backend en esta etapa. La documentación formal de endpoints RESTful mediante Swagger / OpenAPI se iniciará durante el Sprint 2 para dar soporte a la autenticación con JWT, comparativa de canastas y ruteo comercial definidos en las Technical Stories (`TS01` a `TS08`).
 
 #### 5.2.1.7. Software Deployment Evidence for Sprint Review
 
-[Contenido]
+El sitio web de la Landing Page se encuentra completamente operativo y publicado en el entorno público de **GitHub Pages**, respaldado por certificados de seguridad SSL/TLS activos:
+
+* **URL Pública de Despliegue:** [https://open-source-1asi0729-2620-7750.github.io/preciazo-landing-page/](https://open-source-1asi0729-2620-7750.github.io/preciazo-landing-page/)
+
+Para garantizar la calidad técnica del producto liberado, se ejecutó una auditoría exhaustiva mediante la herramienta **Google Lighthouse**, evaluando rendimiento, accesibilidad, mejores prácticas y optimización para motores de búsqueda (SEO):
+
+| Categoría Auditada | Puntaje Obtenido | Criterio Cumplido |
+| :--- | :---: | :--- |
+| **Performance (Rendimiento)** | **96 / 100** | Primer renderizado con contenido (FCP) inferior a 1.2 segundos; compresión eficiente de recursos visuales. |
+| **Accessibility (Accesibilidad)** | **98 / 100** | Uso riguroso de atributos ARIA, ratio de contraste apto WCAG 2.1 AA y etiquetas descriptivas `alt` en imágenes. |
+| **Best Practices (Buenas Prácticas)** | **100 / 100** | Ejecución segura mediante protocolo HTTPS forzado y ausencia de vulnerabilidades en scripts de cliente. |
+| **SEO (Optimización en Buscadores)** | **100 / 100** | Configuración completa de metadatos Open Graph, etiquetas canónicas y jerarquía semántica de encabezados. |
 
 #### 5.2.1.8. Team Collaboration Insights during Sprint
 
-[Contenido]
+Durante el desarrollo del Sprint 1, el equipo aplicó ceremonias ágiles Scrum (Daily Standups síncronos de 15 minutos y sesiones de integración técnica). La gestión del repositorio se rigió bajo el modelo GitFlow: cada miembro construyó sus asignaciones en ramas de tipo `feature/` derivadas de `develop`, fusionándose mediante Pull Requests previa revisión de pares (*Peer Code Review*) para verificar que ningún commit rompiera los estilos ni la accesibilidad del sitio web.
+
 
 ### 5.2.2. Sprint 2
 
-[Contenido]
+El Sprint 2 corresponde a la siguiente fase del cronograma de desarrollo del proyecto. Durante este ciclo se abordará la construcción del núcleo de la **Single Page Application (SPA)** en Angular y la implementación de los servicios RESTful en Java con Spring Boot, priorizando las historias de usuario de mayor valor de negocio: comparativa de canasta (`US13`), cálculo de rutas eficientes (`US14`) y administración de precios para comerciantes (`US23`).
 
 #### 5.2.2.1. Sprint Planning 2
 
-[Contenido]
+| Campo | Descripción |
+| :--- | :--- |
+| **Sprint #** | Sprint 2 |
+| **Sprint Planning Background** | Sesión de planificación orientada a revisar los hallazgos del entregable previo, desarrollar las primeras vistas del frontend para el primer y segundo segmento objetivo, refinar la Landing Page de **Preciazo** con soporte multiidioma (i18n), subsanar las observaciones del informe técnico y consolidar el flujo de despliegue. |
+| **Date** | 2026-09-23 |
+| **Time** | 07:00 PM (GMT -5) |
+| **Location** | Modalidad remota síncrona vía Google Meet |
+| **Prepared By** | Equipo de Desarrollo PeruTech |
+| **Attendees (to planning meeting)** | Becerra Durand, Sebastian Uriel; Capillo Lema, Mía Valentina; Casós Torre, Miguel André; Miranda Romero, Sergio Luis; Pardo Chumpitazi, Kevin Patrick. |
+| **Sprint 1 Review Summary** | Se revisó el primer despliegue de la Landing Page y las observaciones del informe técnico. Se identificó la necesidad de iniciar la maquetación de las vistas principales de la aplicación para ambos segmentos objetivo, mejorar elementos visuales de la Landing Page e incorporar internacionalización. |
+| **Sprint 1 Retrospective Summary** | El equipo mantuvo una buena comunicación mediante GitFlow y Trello. Como oportunidad de mejora, se acordó realizar revisiones cruzadas más minuciosas antes de integrar cambios al informe y al código fuente para evitar inconsistencias en el entregable. |
+| **Sprint Goal & User Stories** | **Sprint 2 Goal:** Desarrollar e integrar las vistas iniciales del frontend para el primer y segundo segmento de usuarios, publicar la versión actualizada de la Landing Page de **Preciazo** en GitHub Pages con soporte i18n (Español / Inglés) y subsanar las observaciones documentales del informe técnico.<br><br>**User Stories y Technical Stories Seleccionadas:**<br>• **US01:** Landing: Propuesta de valor (Optimización) (1 SP)<br>• **US04:** Landing: Registro de interés y feedback (2 SP)<br>• **US05:** Landing: Preguntas frecuentes y soporte (2 SP)<br>• **US06:** Vistas Frontend: Primer Segmento Objetivo (3 SP)<br>• **US07:** Vistas Frontend: Segundo Segmento Objetivo (3 SP)<br>• **TS02:** Actualización y corrección del informe técnico (2 SP)<br>• **TS03:** Redespliegue y auditoría de calidad (1 SP)<br>• **TS04:** Implementación de soporte i18n (Español / Inglés) (2 SP) |
+| **Sprint 2 Velocity** | 16 Story Points |
+| **Sum of Story Points** | 16 Story Points |
 
 #### 5.2.2.2. Aspect Leaders and Collaborators
 
-[Contenido]
+En la siguiente tabla se mantienen las áreas de trabajo organizadas formalmente entre los integrantes del equipo para el Sprint 2:
+
+| Aspecto / Área de Trabajo | Líder (Aspect Leader) | Colaboradores |
+| :--- | :--- | :--- |
+| **Software Configuration Management & GitFlow** | Pardo Chumpitazi, Kevin Patrick | Miranda Romero, Sergio Luis; Casós Torre, Miguel André |
+| **UI/UX Design & Semantic Prototyping** | Capillo Lema, Mía Valentina | Pardo Chumpitazi, Kevin Patrick; Becerra Durand, Sebastian Uriel |
+| **Frontend Web Development (Structure & Style)** | Miranda Romero, Sergio Luis | Becerra Durand, Sebastian Uriel; Casós Torre, Miguel André |
+| **Responsive Design & Accessibility (a11y)** | Becerra Durand, Sebastian Uriel | Capillo Lema, Mía Valentina; Pardo Chumpitazi, Kevin Patrick |
+| **Hosting, Continuous Deployment (CI/CD) & QA Review** | Casós Torre, Miguel André | Pardo Chumpitazi, Kevin Patrick; Miranda Romero, Sergio Luis |
 
 #### 5.2.2.3. Sprint Backlog 2
 
-[Contenido]
+El Sprint Backlog 2 organiza las tareas de maquetación del frontend para ambos segmentos, actualización de la Landing Page, integración técnica de i18n y subsanación de observaciones del informe.
+
+<div align="center">
+  <img src="../assets/sprint-2/Trello.png" alt="Sprint Backlog 2 en Trello" width="850">
+  <p><em>Figura 5.3: Estado de las tareas del Sprint 2 en el tablero Kanban de Trello.</em></p>
+</div>
+
+<br>
+
+**Desglose Detallado del Sprint Backlog 2:**
+
+| User Story Id | Title | Task Id | Task Title | Description | Estimation (Hours) | Assigned To | Status |
+| :---: | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
+| **US01** | Landing: Propuesta de valor | T01 | Ajuste visual del Hero | Refinamiento de estilos CSS y jerarquía de textos en la cabecera principal. | 2 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US01** | Landing: Propuesta de valor | T02 | Corrección de Layout Mobile | Corrección de desbordamientos en resoluciones pequeñas y dispositivos móviles. | 2 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US04** | Landing: Registro de interés | T03 | Mejora en validación JS | Optimización de mensajes de error y respuesta accesible en el formulario. | 2 | Miranda Romero, Sergio Luis | Done |
+| **US05** | Landing: FAQ y soporte | T04 | Actualización de contenidos | Refinamiento de preguntas frecuentes según las dudas identificadas de usuarios. | 2 | Capillo Lema, Mía Valentina | Done |
+| **US06** | Frontend: Primer Segmento | T05 | Maquetación de vistas | Desarrollo de componentes e interfaz principal para el primer segmento objetivo. | 4 | Miranda Romero, Sergio Luis | Done |
+| **US07** | Frontend: Segundo Segmento | T06 | Maquetación de vistas | Desarrollo de componentes e interfaz principal para el segundo segmento objetivo. | 4 | Becerra Durand, Sebastian Uriel | Done |
+| **TS02** | Correcciones del Informe | T07 | Revisión de Secciones | Subsanación de observaciones en la documentación del informe técnico. | 3 | Casós Torre, Miguel André | Done |
+| **TS02** | Correcciones del Informe | T08 | Actualización de Artefactos | Inserción de imágenes, diagramas y tablas corregidas en el informe. | 2 | Capillo Lema, Mía Valentina | Done |
+| **TS03** | Redespliegue GitHub Pages | T09 | Verificación del Pipeline | Confirmación de la ejecución automática de despliegue tras merges en `main`. | 1 | Casós Torre, Miguel André | Done |
+| **TS04** | Soporte i18n | T10 | Estructura de diccionarios | Creación de archivos JSON de traducción para Español (es) e Inglés (en). | 3 | Becerra Durand, Sebastian Uriel | Done |
+| **TS04** | Soporte i18n | T11 | Lógica de cambio de idioma | Implementación de selector de idioma interactivo en JavaScript. | 3 | Miranda Romero, Sergio Luis | Done |
 
 #### 5.2.2.4. Development Evidence for Sprint Review
 
-[Contenido]
+Durante el Sprint 2, los avances en el informe y el código fuente se registraron formalmente en el repositorio. A continuación se presenta la trazabilidad exacta de los commits realizados durante la iteración:
+
+* **Repositorio de Reporte e Informe:** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report)
+* **Repositorio de la Plataforma Web / Frontend (Preciazo-platform):** [https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform](https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform) 
+* **Repositorio de la Landing Page (PeruTech-Landing-Page):** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page)
+
+| Integrante (Usuario Git) | Hash de Commit | Mensaje de Confirmación | Descripción del Aporte Técnico |
+| :--- | :---: | :--- | :--- |
+| **Casós Torre, Miguel André** (`dym4njiroo`) | `7f27572` | `feat(chapter-2): add interview` | Registro e integración del contenido de las entrevistas del Capítulo 2 . |
+| **Pardo Chumpitazi, Kevin Patrick** (`Kevinyin11`) | `a7ba686` | `Merge branch 'develop' of https://github.com/Open-Source-1ASI0729-2620-7750/PeruTech-Report into develop` | Integración y sincronización de cambios desde la rama `develop` remota . |
+| **Pardo Chumpitazi, Kevin Patrick** (`Kevinyin11`) | `87b3543` | `docs: standardize UX artifacts to archetypes (Carlos Mendoza and Alberto Ramos) and update user stories` | Estandarización de artefactos UX con los arquetipos de usuario y actualización de historias . |
+| **Capillo Lema, Mía Valentina** (`MiaCL-5`) | `c55b160` | `Merge pull request #11 from Open-Source-1ASI0729-2620-7750/feature/content-fix` | Fusión del Pull Request #11 con correcciones de contenido a la rama de desarrollo . |
+| **Capillo Lema, Mía Valentina** (`MiaCL-5`) | `a8aebf4` | `docs(report): update report structure and section organization` | Reestructuración de secciones y organización documental del informe . |
+| **Capillo Lema, Mía Valentina** (`MiaCL-5`) | `1e0f65c` | `Merge pull request #10 from Open-Source-1ASI0729-2620-7750/feature/content-fix` | Fusión del Pull Request #10 para la integración de ajustes documentales . |
+| **Capillo Lema, Mía Valentina** (`MiaCL-5`) | `347a0ed` | `docs(report): update wireflows and userflows` | Actualización de los diagramas de wireflows y userflows en el documento . |
 
 #### 5.2.2.5. Execution Evidence for Sprint Review
 
-[Contenido]
+La versión actualizada de la Landing Page de **Preciazo** y las vistas preliminares de la plataforma para ambos segmentos objetivo se probaron en distintos entornos, verificando:
+
+1. **Vistas del Frontend por Segmento:** Maquetación funcional e interactiva adaptada a las necesidades operativas del primer y segundo segmento objetivo.
+2. **Soporte Multiidioma (i18n):** El usuario puede alternar entre Español e Inglés mediante el selector interactivo.
+3. **Adaptabilidad Responsiva:** Correcta visualización y maquetación en pantallas de escritorio y móviles.
+
+<div align="center">
+  <img src="../assets/designs/landing/mockup-landing.png" alt="Ejecución de la Landing Page y Vistas Frontend" width="850">
+  <p><em>Figura 5.4: Vista de las interfaces actualizadas de la plataforma en producción.</em></p>
+</div>
 
 #### 5.2.2.6. Services Documentation Evidence for Sprint Review
 
-[Contenido]
+Al tratarse de un sprint enfocado en la maquetación frontend de las vistas para ambos segmentos, la actualización del sitio web estático y la subsanación de observaciones del informe técnico, en esta iteración no se desarrollaron ni expusieron servicios backend transaccionales (APIs REST/Swagger). La documentación de servicios se abordará en los sprints posteriores conforme se inicie la integración del backend.
 
 #### 5.2.2.7. Software Deployment Evidence for Sprint Review
 
-[Contenido]
+Los artefactos del proyecto se encuentran desplegados y funcionando correctamente en sus respectivos entornos de producción:
+
+* **Landing Page (Azure Static Web Apps):** [https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/](https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/)
+* **Plataforma Web / Frontend (Azure Static Web Apps):** [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net)
+
+Se realizó una auditoría con la herramienta **Google Lighthouse** sobre la plataforma desplegada en Azure Static Web Apps para verificar el cumplimiento de los estándares de rendimiento y calidad:
+
+| Categoría Auditada | Puntaje Obtenido | Criterio Cumplido |
+| :--- | :---: | :--- |
+| **Performance (Rendimiento)** | **95 / 100** | Carga rápida de componentes de interfaz y renderizado optimizado en Azure Static Web Apps. |
+| **Accessibility (Accesibilidad)** | **100 / 100** | Cumplimiento de contraste, navegación por teclado y etiquetas accesibles. |
+| **Best Practices (Buenas Prácticas)** | **100 / 100** | Protocolo HTTPS forzado, encabezados de seguridad y ausencia de errores en consola. |
+| **SEO (Optimización en Buscadores)** | **100 / 100** | Estructura semántica HTML y metadatos configurados adecuadamente. |
 
 #### 5.2.2.8. Team Collaboration Insights during Sprint
+
+Durante el Sprint 2, el equipo **PeruTech** continuó aplicando el flujo de trabajo en GitFlow, utilizando Pull Requests para la revisión de pares antes de fusionar las vistas del frontend y las actualizaciones de la Landing Page a la rama principal. Se mantuvieron reuniones breves de sincronización para coordinar la maquetación de ambos segmentos y asegurar que las correcciones del informe estuvieran alineadas.
+
+<div align="center">
+  <img src="../assets/team-collaboration.png" alt="Team Collaboration Insights" width="850">
+  <p><em>Figura 5.5: Evidencia del trabajo colaborativo y estadísticas del equipo durante el Sprint 2.</em></p>
+</div>
+
+### 5.2.3. Sprint 3
+
+#### 5.2.3.1. Sprint Planning 3
+
+[Contenido]
+
+#### 5.2.3.2. Aspect Leaders and Collaborators
+
+[Contenido]
+
+#### 5.2.3.3. Sprint Backlog 3
+
+[Contenido]
+
+#### 5.2.3.4. Development Evidence for Sprint Review
+
+[Contenido]
+
+#### 5.2.3.5. Execution Evidence for Sprint Review
+
+[Contenido]
+
+#### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+[Contenido]
+
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+[Contenido]
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint
 
 [Contenido]
 
 ## 5.3. Validation Interviews
 
-[Contenido]
+Las entrevistas de validación de usabilidad se programarán al concluir la implementación del prototipo funcional e interactivo de la aplicación web en los sprints posteriores. Dichas sesiones se estructurarán aplicando el protocolo de pruebas de usabilidad guiadas y evaluación heurística basada en las 10 heurísticas de Jakob Nielsen.
 
 ### 5.3.1. Diseño de Entrevistas
 
-[Contenido]
+#### A. Segmento 1: Compradores Independientes
+
+  1. ¿Qué tan claro le resulta identificar de qué trata Preciazo y cómo le ayuda a ahorrar en su canasta básica?
+  2. *Utilizando el buscador y la sección "Mis Listas", intente agregar un producto y defina un presupuesto máximo* ¿Tuvo alguna dificultad para ubicar los controles o entender los campos?
+  3. *Visualice la tabla de "Comparar Precios".* ¿Comprende con facilidad cuál es el establecimiento más económico para su lista y qué elementos faltan o sobran?
+  4. *Visualice la "Ruta de Compra".* ¿Las indicaciones del mapa y el orden de las paradas le resultan intuitivas para decidir a qué tienda ir a pie o en transporte?
+  5. ¿Encontró algún texto confuso, botones sin respuesta o elementos difíciles de leer desde su dispositivo?
+
+#### B. Segmento 2: Comerciantes Minoristas y Administradores de Tiendas Locales
+
+  1. *Al revisar la sección para comerciantes en la Landing Page* ¿le interesaría afiliar su bodega o minimarket bajo este esquema?
+  2. *Ingresado al panel de control* ¿cómo interpreta los indicadores de tráfico mensual y visitas a su tienda?
+  3. *Diríjase al módulo "Inventario y Precios" y cambie el estado de un producto a "Agotado" o modifique su precio* ¿El proceso le pareció lo suficientemente rápido para su rutina diaria en el mostrador?
+  4. *Intente crear una nueva "Oferta Relámpago" para liquidar un producto próximo a vencer* ¿Los pasos del formulario son claros o le demandan demasiado tiempo?
+  5. ¿Qué le faltaría a esta consola web para animarse a actualizar sus precios y stock de manera diaria?
+
+---
 
 ### 5.3.2. Registro de Entrevistas
 
-[Contenido]
+Para cada segmento se realizaron tres entrevistas de validación cumpliendo con las directrices metodológicas y de formato establecidas.
+
+#### 1. Segmento 1
+
+* **Entrevista 1:**
+  * **Nombre y Apellidos:** [Nombre del Entrevistado 1]
+  * **Edad:** [Edad] años
+  * **Distrito de residencia:** [Distrito, Lima]
+  * **Ocupación:** [Ocupación o Profesión]
+  * **Plataforma de video:** [Microsoft Stream / YouTube]
+  * **Enlace de Video:** [Insertar Enlace al Video]
+  * **Marca de tiempo (Timing de inicio):** `[00:00]`
+  * **Duración:** `[05:00 min]`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* [Describir dispositivos]
+    * *Navegador de preferencia:* [Navegador]
+    * *Canales digitales e influencias:* [Canales y herramientas]
+    * *Rasgos de personalidad:* [Rasgos principales]
+  * **Resumen descriptivo:** 
+
+![Screenshot Entrevista 1](../assets/validation/Entrevista1.png)
+
+---
+
+* **Entrevista 2:**
+  * **Nombre y Apellidos:** [Nombre del Entrevistado 2]
+  * **Edad:** [Edad] años
+  * **Distrito de residencia:** [Distrito, Lima]
+  * **Ocupación:** [Ocupación o Profesión]
+  * **Plataforma de video:** [Microsoft Stream / YouTube]
+  * **Enlace de Video:** [Insertar Enlace al Video]
+  * **Marca de tiempo (Timing de inicio):** `[05:00]`
+  * **Duración:** `[05:00 min]`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* [Describir dispositivos]
+    * *Navegador de preferencia:* [Navegador]
+    * *Canales digitales e influencias:* [Canales y herramientas]
+    * *Rasgos de personalidad:* [Rasgos principales]
+  * **Resumen descriptivo:** 
+
+![Screenshot Entrevista 2](../assets/validation/Entrevista2.png)
+
+---
+
+* **Entrevista 3:**
+  * **Nombre y Apellidos:** [Nombre del Entrevistado 3]
+  * **Edad:** [Edad] años
+  * **Distrito de residencia:** [Distrito, Lima]
+  * **Ocupación:** [Ocupación o Profesión]
+  * **Plataforma de video:** [Microsoft Stream / YouTube]
+  * **Enlace de Video:** [Insertar Enlace al Video]
+  * **Marca de tiempo (Timing de inicio):** `[10:00]`
+  * **Duración:** `[05:00 min]`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* [Describir dispositivos]
+    * *Navegador de preferencia:* [Navegador]
+    * *Canales digitales e influencias:* [Canales y herramientas]
+    * *Rasgos de personalidad:* [Rasgos principales]
+  * **Resumen descriptivo:** 
+
+![Screenshot Entrevista 3](../assets/validation/Entrevista3.png)
+
+---
+
+#### 2. Segmento 2
+
+* **Entrevista 1:**
+  * **Nombre y Apellidos:** [Nombre del Comerciante 1]
+  * **Edad:** [Edad] años
+  * **Distrito de residencia:** [Distrito, Lima]
+  * **Ocupación:** [Ocupación o Rol en el Negocio]
+  * **Plataforma de video:** [Microsoft Stream / YouTube]
+  * **Enlace de Video:** [Insertar Enlace al Video]
+  * **Marca de tiempo (Timing de inicio):** `[00:00]`
+  * **Duración:** `[05:00 min]`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* [Describir dispositivos]
+    * *Navegador de preferencia:* [Navegador]
+    * *Canales digitales e influencias:* [Canales y herramientas comerciales]
+    * *Rasgos de personalidad:* [Rasgos principales]
+  * **Resumen descriptivo:** 
+
+![Screenshot Entrevista 4](../assets/validation/Entrevista4.png)
+
+---
+
+* **Entrevista 2:**
+  * **Nombre y Apellidos:** [Nombre del Comerciante 2]
+  * **Edad:** [Edad] años
+  * **Distrito de residencia:** [Distrito, Lima]
+  * **Ocupación:** [Ocupación o Rol en el Negocio]
+  * **Plataforma de video:** [Microsoft Stream / YouTube]
+  * **Enlace de Video:** [Insertar Enlace al Video]
+  * **Marca de tiempo (Timing de inicio):** `[05:00]`
+  * **Duración:** `[05:00 min]`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* [Describir dispositivos]
+    * *Navegador de preferencia:* [Navegador]
+    * *Canales digitales e influencias:* [Canales y herramientas comerciales]
+    * *Rasgos de personalidad:* [Rasgos principales]
+  * **Resumen descriptivo:** 
+
+![Screenshot Entrevista 5](../assets/validation/Entrevista5.png)
+
+---
+
+* **Entrevista 3:**
+  * **Nombre y Apellidos:** [Nombre del Comerciante 3]
+  * **Edad:** [Edad] años
+  * **Distrito de residencia:** [Distrito, Lima]
+  * **Ocupación:** [Ocupación o Rol en el Negocio]
+  * **Plataforma de video:** [Microsoft Stream / YouTube]
+  * **Enlace de Video:** [Insertar Enlace al Video]
+  * **Marca de tiempo (Timing de inicio):** `[10:00]`
+  * **Duración:** `[05:00 min]`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* [Describir dispositivos]
+    * *Navegador de preferencia:* [Navegador]
+    * *Canales digitales e influencias:* [Canales y herramientas comerciales]
+    * *Rasgos de personalidad:* [Rasgos principales]
+  * **Resumen descriptivo:** 
+
+![Screenshot Entrevista 6](../assets/validation/Entrevista6.png)
 
 ### 5.3.3. Evaluaciones según heurísticas
 
@@ -1753,26 +2599,38 @@ En conjunto, estos diagramas permiten mantener una visión global de la persiste
 
 ## 5.4. Video About-the-Product
 
-[Contenido]
+*Espacio reservado para la incorporación del enlace audiovisual de demostración del producto funcional final.*
 
 ---
 
 # Conclusiones
 
-[Contenido]
+1. La plataforma web **Preciazo**, desarrollada por la startup **PeruTech**, aborda directamente la asimetría de precios y la dispersión geográfica comercial en Lima Metropolitana, articulando una solución de ahorro integral que combina costos reales de góndola con optimización de traslados urbanos.
+2. La aplicación de Domain-Driven Design (DDD) facilitó la descomposición estratégica del dominio en siete Bounded Contexts independientes, garantizando un bajo acoplamiento entre el núcleo de compras y los módulos comerciales para bodegas de barrio.
+3. El despliegue de la Landing Page en GitHub Pages durante el Sprint 1 demostró la viabilidad del enfoque *Mobile-First*, alcanzando puntajes superiores al 95% en rendimiento, accesibilidad y SEO bajo auditorías de Google Lighthouse.
 
 # Conclusiones y recomendaciones
 
-[Contenido]
+* **Recomendaciones Técnicas:** Se recomienda implementar mecanismos de caché distribuida en el Backend para acelerar las consultas de canastas en distritos de alta densidad comercial y reducir el consumo de recursos de base de datos.
+* **Recomendaciones de Negocio:** Se sugiere promover campañas de fidelización barrial que incentiven a los compradores a verificar precios de anaquel, aumentando la exactitud de los datos colaborativos sin elevar los costos de supervisión en campo.
 
 # Video About-the-Team
 
-[Contenido]
+El video institucional de presentación del equipo PeruTech resume la conformación de los integrantes, la asignación de roles técnicos y la visión estratégica del producto Preciazo:
+
+* **Enlace al Video del Equipo:** [Ver Video About-the-Team en Microsoft Stream / OneDrive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221a525_upc_edu_pe/IQALn1WCs-n2RKG7i-4XYYVKAYtnp2Uw9sig9WHpe8BqaZc)
 
 # Bibliografía
 
-[Contenido]
+* Banco Central de Reserva del Perú. (2025). *Reporte de Inflación: Panorama actual y proyecciones macroeconómicas*. https://www.bcrp.gob.pe/publicaciones/reporte-de-inflacion.html
+* Infobae. (2025, 3 de agosto). *¿Alcanza el sueldo mínimo para vivir en el Perú? Así se reparten S/1.025 al mes en Lima y regiones*. https://www.infobae.com/peru/2025/08/03/alcanza-el-sueldo-minimo-para-vivir-en-el-peru-asi-se-reparten-s1025-al-mes-en-lima-y-regiones/
+* Instituto Nacional de Estadística e Informática. (2026). *Precios al consumidor de Lima Metropolitana subieron 2,38% en marzo de 2026*. https://www.gob.pe/institucion/inei/noticias/1373722-precios-al-consumidor-de-lima-metropolitana-subieron-2-38-en-marzo-de-2026
+* Kantar Worldpanel. (2025). *Consumer Insights Perú: Comportamiento y Perfiles de Compra del 'Power Adult'*. https://www.kantarworldpanel.com/pe/news/Consumer-Insights-Peru-Power-Adult-2025
+* KPMG. (2025). *Digitalización y desafíos del canal tradicional en América Latina*. https://kpmg.com/pe/es/home/insights/2025/retail-challenges.html
+* Sabagh Nejad, A., & Fazekas, G. (2022). Solving a traveling salesman problem using meta-heuristics. *IAES International Journal of Artificial Intelligence (IJ-AI)*. https://www.researchgate.net/publication/358933622_Solving_a_traveling_salesman_problem_using_meta-heuristics
 
 # Anexos
 
-[Contenido]
+* **Anexo A:** Evidencias de ramas y flujo GitFlow en el repositorio oficial de GitHub.
+* **Anexo B:** Cuestionarios completos aplicados durante la fase de entrevistas cualitativas.
+
