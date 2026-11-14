@@ -2600,26 +2600,25 @@ A continuación, se presenta la documentación y evidencia de las entrevistas de
 #### Segmento 1: Compradores Independientes
 
 * **Entrevista 1:**
-  * **Nombre y Apellidos:** `[Ingresar nombre completo]`
-  * **Edad:** `[XX]` años
-  * **Distrito de residencia:** `[Ingresar distrito, Lima]`
-  * **Ocupación:** `[Ingresar ocupación]`
-  * **Fecha de entrevista:** `[DD/MM/2026]`
+  * **Nombre y Apellidos:** `Avril Camila Lagos Arauco`
+  * **Edad:** `20` años
+  * **Distrito de residencia:** `[Salamaca, Lima]`
+  * **Ocupación:** `[Estudiate]`
+  * **Fecha de entrevista:** `[11/11/2026]`
   * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video Compilado:** `[Ver Registro Consolidado de Validación en Microsoft Stream](PEGAR_URL_AQUI)`
-  * **Código de acceso (si aplica):** `[Ingresar código o N/A]`
+  * **Enlace de Video Compilado:** [Ver Registro de Validación en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQC2EuYnDSstTb_WgZ7D9qPpAe2Y03qWWd-eGEnVOAetcIE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=Jz0xPI)
   * **Timing de inicio y término:** `00:00 - XX:XX`
-  * **Duración:** `XX:XX min`
+  * **Duración:** `09:51 min`
   * **Perfil técnico y entorno digital:**
-    * *Dispositivos habituales:* `[Ej. Smartphone Android y Laptop]`
-    * *Navegador de preferencia:* `[Ej. Google Chrome]`
-    * *Canales digitales e influencias:* `[Ej. Yape, Plin, redes sociales]`
+    * *Dispositivos habituales:* `[Smartphone Android, tablet y Laptop]`
+    * *Navegador de preferencia:* `[ Google Chrome]`
+    * *Canales digitales e influencias:* `[Tiktok, youtube, x, yape]`
   * **Captura de evidencia:**
 
-    `![Evidencia Entrevista 1 Comprador](../assets/validacion/comprador_entrevista1.png)`
+    ![Evidencia Entrevista 1 Comprador](../assets/validacion/comprador_entrevista1.png)
 
   * **Resumen de los principales aportes:**
-    > `[Redactar un párrafo resumiendo cómo interactuó el usuario con la interfaz, qué secciones le parecieron más fáciles de usar, si entendió el comparador/rutas y qué sugerencias de mejora brindó.]`
+    > `[Durante la sesión, el usuario indicó que los colores utilizados en la interfaz son amigables y generan una experiencia visual agradable. Asimismo, señaló que el desplazamiento y la navegación a través de las distintas secciones de la plataforma resultaron claros e intuitivos, permitiendo ubicar la información de manera precisa. Tras explorar los flujos principales, manifestó que por el momento no halló fallas ni errores críticos en el funcionamiento del sistema.]`
 
 <br>
 
