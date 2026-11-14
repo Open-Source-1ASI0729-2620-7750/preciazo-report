@@ -1788,7 +1788,11 @@ El modelo se presenta en siete vistas independientes. Cada fila se lee de izquie
 
 #### Catalog and Pricing (Core Bounded Context)
 
-Modela la indexación de productos, actualización de precios en anaquel y el cálculo comparativo de canastas mediante los agregados `Product` y `StoreCatalogEntry`. Los comandos `RegisterProduct`, `UpdateStorePrice` y `CompareBasketPrices` producen los eventos `StorePriceUpdated` y `BasketComparisonCalculated`, activando la política `PriceSnapshotPolicy` y alimentando el modelo de lectura `StoreBasketComparisonReadModel`.
+La propuesta AV2 sigue **Guía event storming**, pasos 5–9: el modelo de lectura informa al actor, el comando expresa una intención y el aggregate produce un evento en pasado. Se representan registrar productos, publicar una oferta de tienda, cambiar su precio, actualizar su disponibilidad y definir candidatos sustitutos. Un ingreso interno de datos de referencia conserva identificadores, ubicación, titularidad y afiliación de las tiendas, sin introducir ACL ni dependencias hacia modelos internos de otros contextos.
+
+La búsqueda, comparación de canastas, normalización por kilogramo o litro, sugerencia de sustitutos y consulta del histórico se representan como Queries que producen Read Models. Estas consultas no registran cambios de dominio ni eventos persistidos de comparación. El precio inicial y cada cambio efectivo generan una instantánea histórica en la misma transacción de la oferta, sin una política asíncrona que pueda perder el registro inicial.
+
+**Catalog and Pricing** mantiene el precio de venta público y la disponibilidad utilizada en las comparaciones; **Merchant Management** conserva las cantidades físicas de inventario. Las vistas de inventario dejan de representar una segunda fuente editable del precio. El mecanismo de coordinación entre estos datos, la provisión de referencias de tienda y las garantías de actualización se conservan como decisiones de integración pendientes. El Event Storming no presenta esa integración como implementada.
 
 ![Preciazo Catalog and Pricing Design-Level Event Storming](../assets/architecture/event-storming/catalog-pricing.png)
 
@@ -1858,7 +1862,7 @@ En el backend, la capa REST delega los casos de uso a los componentes de aplicac
 
 | Bounded Context (Orden DDD) | Interfaces Layer (REST Controllers) | Application Layer (Command & Query Services) | Domain Layer (Aggregates) | Infrastructure Layer (JPA & Adapters) |
 | :--- | :--- | :--- | :--- | :--- |
-| **1. Catalog and Pricing** *(Core)* | `ProductsController`, `BasketComparisonController` | `ProductCommandServiceImpl`, `CatalogQueryServiceImpl` | `Product`, `StoreProduct` | `ProductJpaRepository`, `CatalogEntryJpaRepository` |
+| **1. Catalog and Pricing** *(Core)* | `ProductsController`, `StoreProductsController`, `BasketComparisonController` | `CatalogCommandServiceImpl`, `CatalogQueryServiceImpl` | `Product`, `StoreProduct`, `CatalogStoreReference` | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository` y `*PersistenceAssembler` |
 | **2. Route Planning** *(Core)* | `RoutesController` | `RouteCommandServiceImpl`, `RouteQueryServiceImpl` | `MultiStopRoute` | `RouteJpaRepository`, `MappingRoutingRestAdapter` |
 | **3. Shopping Planning** *(Core)* | `ShoppingListsController`, `BudgetsController` | `ShoppingListCommandServiceImpl`, `ShoppingListQueryServiceImpl` | `ShoppingList` (aggregate), `ShoppingListItem` y `PurchaseBudget` (entidades internas) | `ShoppingListRepositoryImpl`, `ShoppingListPersistenceRepository`, `ShoppingListPersistenceAssembler` |
 | **4. Merchant Management** *(Soporte)* | `MerchantsController`, `StoresController`, `PromotionsController` | `MerchantCommandServiceImpl`, `InventoryQueryServiceImpl` | `MerchantProfile`, `RetailStore` | `MerchantJpaRepository`, `SunatRucVerificationAdapter` |
@@ -1884,15 +1888,72 @@ Los Class Diagrams de **Preciazo** se organizan por Bounded Context (iniciando p
 
 #### Catalog and Pricing (Core Bounded Context)
 
-El Bounded Context **Catalog and Pricing** modela la consulta y comparación de productos, precios y disponibilidad entre establecimientos.
+La propuesta del backend sigue **Learning Center Platform Guide**, ADR-0001, ADR-0002, ADR-0003, ADR-0005 y ADR-0007: contratos de comandos y consultas separados, records inmutables como entradas, resultados de escritura `Result<Long, ApplicationError>`, dominio sin anotaciones JPA y adaptadores/assemblers de persistencia. `CatalogCommandServiceImpl` y `CatalogQueryServiceImpl` utilizan los puertos `ProductRepository`, `StoreProductRepository` y `CatalogStoreReferenceRepository`; las clases `*PersistenceEntity` pertenecen exclusivamente a infraestructura. Las consultas no persisten comparaciones ni publican eventos por el hecho de leer datos.
 
-`Product` representa la información propia del catálogo y se relaciona explícitamente con las enumeraciones `ProductCategory` y `MeasurementUnit`, mientras que `StoreProduct` mantiene los datos asociados a un producto ofrecido por un establecimiento, tales como precio unitario, estado de disponibilidad (`AvailabilityStatus`) y fecha de actualización.
+`Product` describe nombre, marca, categoría, unidad de venta y contenido neto opcional. La categoría y las unidades se representan mediante valores validados y coherentes con los datos almacenados. `StoreProduct` es el aggregate de la oferta de un producto en una tienda y posee precio de venta (`Money`), `StockStatus`, fecha de actualización y versión. `RetailStoreRef` conserva únicamente el identificador externo. `PriceSnapshot` captura precio, moneda, unidad de venta, contenido neto disponible y fecha del servidor, permitiendo interpretar históricamente cada importe.
 
-La clase `CatalogPricingService` proporciona operaciones de búsqueda, comparación de precios y selección de ofertas. Por otro lado, `PriceComparisonPolicy` encapsula la regla utilizada para determinar la alternativa más conveniente.
+`Money` representa moneda e importe; los precios publicados son estrictamente positivos según US23. `Quantity` representa una cantidad con unidad y `UnitPrice` se utiliza para el resultado normalizado cuando existe contenido neto compatible. Si una presentación de 500 g cuesta S/ 4, la consulta devuelve S/ 8 por kg; conserva además S/ 4 como precio de venta de esa presentación. Sin contenido neto se devuelve el precio de venta y un valor normalizado ausente; no se inventa gramaje, no se devuelve cero y no se comparan masa con volumen.
 
-`RetailStoreRef` representa una referencia inmutable al establecimiento, preservando la separación respecto del modelo interno de Merchant Management. `UnitPrice` expresa el precio por cantidad de referencia y `SearchCriteria` agrupa filtros inmutables, incluido un límite opcional de precio unitario.
+`PriceComparisonPolicy` calcula totales completos y normalizaciones con datos del dominio; el servicio de consulta construye los Read Models. `BasketComparisonView` distingue tiendas completas de incompletas. `availableSubtotal` solo suma los artículos disponibles; `completeBasketTotal` está ausente si falta algún producto. Las tiendas completas se ordenan por total y, ante empate, por identificador; las incompletas se presentan separadas con los artículos faltantes y nunca se anuncian como la canasta más barata por tener un subtotal menor. `OUT_OF_STOCK` se excluye del cálculo como producto faltante; `AVAILABLE` y `LOW` pueden participar.
+
+Los sustitutos se registran como relaciones explícitas entre productos; compartir categoría no basta para inferir equivalencia. La consulta solo propone alternativas disponibles, compatibles en unidad/cantidad y más económicas para la cantidad solicitada. Aceptar una sugerencia y reemplazar un artículo pertenece a Shopping Planning y queda como coordinación pendiente de US15; la Query de Catálogo no modifica una lista ajena a su contexto. Catálogo tampoco decide las paradas ni calcula rutas: esa responsabilidad permanece en Route Planning.
+
+`CatalogStoreReference` es una instantánea local de datos de tienda, con versión de origen, fecha, ubicación, afiliación y propietario. Permite filtrar y comprobar titularidad por identificador; no es una entidad de Merchant Management compartida. Su carga solo se permite a un proceso interno confiable; no se expone al Buyer ni al Merchant un endpoint para alterar el propietario o la afiliación. La provisión de esa instantánea y su coordinación con cambios de inventario siguen pendientes; no se incorpora ACL ni una sincronización automática ficticia.
 
 ![Catalog and Pricing Class Diagram](../assets/architecture/classes/catalog-pricing.png)
+
+#### Contratos propuestos de Catálogo y Precios
+
+El modelo de dominio y los contratos de aplicación/persistencia se presentan en vistas separadas para mantener su legibilidad.
+
+![Catalog and Pricing Backend Contracts and Persistence](../assets/architecture/classes/catalog-pricing-backend.png)
+
+Los usuarios y tiendas se identifican por IDs. El servidor obtiene `actorId` del principal autenticado; los permisos y la titularidad no se aceptan desde el cuerpo HTTP. Los Commands devuelven `Result<Long, ApplicationError>`; los Query handlers devuelven sus Read Models sin efectos de escritura. Las validaciones de las entradas de lectura se realizan en los Resources REST y records Query, como parte de la frontera de aplicación.
+
+| Command | Datos de entrada | Autorización y evento |
+| :--- | :--- | :--- |
+| `RegisterProductCommand` | `actorId`, `name`, `brand`, `category`, `saleUnit`, `netContent` opcional | Editor con permiso propuesto `catalog:manage-products`; produce `ProductRegistered`. No agrega un rol nuevo. |
+| `PublishStoreProductCommand` | `actorId`, `storeId`, `productId`, `sellingPrice`, `currency`, `stockStatus` | Merchant titular de una tienda afiliada según la referencia local confiable; crea oferta y snapshot inicial; `StoreProductPublished`. |
+| `ChangeStoreProductPriceCommand` | `actorId`, `catalogEntryId`, `sellingPrice`, `currency`, `expectedVersion` | Titular; precio positivo, versión vigente y misma moneda que la oferta. Un cambio real produce `StoreProductPriceChanged` y snapshot atómico. |
+| `UpdateStoreProductAvailabilityCommand` | `actorId`, `catalogEntryId`, `stockStatus`, `expectedVersion` | Titular; produce `StoreProductAvailabilityChanged` solo si el estado cambia. No modifica por sí solo la cantidad física de Inventario. |
+| `DefineProductSubstituteCommand` | `actorId`, `productId`, `substituteProductId` | Permiso `catalog:manage-products`; productos existentes y distintos; `ProductSubstituteDefined` únicamente al crear una relación nueva. |
+| `RefreshCatalogStoreReferenceCommand` | `storeId`, `ownerId`, `district`, `latitude`, `longitude`, `affiliated`, `sourceVersion`, `capturedAt` | Solo proceso interno confiable; no es un endpoint público. Versiones repetidas o antiguas no reemplazan datos; `CatalogStoreReferenceRefreshed` solo ante una actualización aceptada. |
+
+| Query | Datos de entrada | Comportamiento |
+| :--- | :--- | :--- |
+| `SearchProductsQuery` | Texto y categoría opcionales, distrito opcional, origen/radio opcionales, `page`, `size` | Consulta productos con ofertas disponibles de tiendas afiliadas que cumplen los filtros. Retorna `ProductPageView` con paginación y radio sugerido opcional. |
+| `CompareShoppingBasketQuery` | Artículos (`productId`, cantidad/unidad), origen, radio positivo, moneda | Retorna `BasketComparisonView` con canastas completas, incompletas y productos faltantes. No recibe un precio confiable desde el cliente. |
+| `GetNormalizedUnitPriceQuery` | `catalogEntryId` | Retorna el precio publicado y, si el contenido es conocido y compatible, el precio por kg o litro. |
+| `GetProductSubstitutesQuery` | `productId`, `storeId`, cantidad/unidad, moneda | Solo candidatos explícitos, disponibles y de menor costo para una cantidad comparable. No reemplaza artículos en Shopping Planning. |
+| `GetPriceHistoryQuery` | `catalogEntryId` | Snapshots de los últimos 30 días y, si existe, último snapshot anterior como referencia inicial de la ventana. |
+| `GetStoreProductByIdQuery` | `catalogEntryId` | `Optional<StoreProduct>`; la capa REST transforma el resultado en un Resource, nunca en una entidad JPA serializada. |
+
+La combinación de filtros se aplica como intersección, antes de contar y paginar; el orden es estable por identificador de producto. Para esta propuesta, `page >= 0` y `1 <= size <= 100`, con tamaño por defecto 20. Un radio exige coordenadas válidas; latitud entre -90 y 90 y longitud entre -180 y 180. La proximidad se calcula como distancia geográfica entre coordenadas: no se presenta como distancia real de una ruta peatonal. Si no hay tiendas dentro del radio, se conserva la búsqueda original y puede sugerirse el radio mínimo que alcance la siguiente tienda candidata; nunca se amplía silenciosamente. Sin datos de referencia suficientes no se inventan tiendas, ubicación o titularidad.
+
+Para TS02, la lista no puede estar vacía, las cantidades son positivas y las unidades deben coincidir con `saleUnit` o tener una conversión expresamente soportada. Las líneas repetidas del mismo producto se consolidan sumando cantidades compatibles. No se redondean envases ni se presupone venta fraccionada: esas reglas deben definirse antes de aceptar cantidades que lo requieran. No se hace conversión de moneda. Una oferta sin disponibilidad o con moneda incompatible se informa como faltante/no comparable; la respuesta debe distinguir ambos motivos. Una moneda incompatible no equivale a un precio cero.
+
+US19 se consulta por oferta producto/tienda, evitando mezclar el histórico de comercios diferentes. La ventana usa el reloj del servidor y timestamps consistentes. La referencia anterior al inicio se identifica como baseline, sin mover su fecha; si solo existe el registro inicial, se indica esa condición. Los snapshots guardan el contenido de la presentación para no recalcular el pasado usando datos nuevos. La respuesta muestra `updatedAt` y fecha de captura; el umbral de caducidad de precios todavía es un Hotspot y no se define un vencimiento arbitrario.
+
+Los eventos de escritura incluyen `eventId`, ID del aggregate, versión y fecha del servidor. El adaptador guarda cambios y snapshots antes de invocar `DomainEventPublisher.publishAndClearEvents(saved)`, siguiendo ADR-0005 de Learning Center. No se agrega un manejador de eventos para las comparaciones ni una tabla de comparaciones persistidas. Una operación sin cambio no publica un segundo evento. El control de versión y las restricciones únicas respaldan la concurrencia; el diseño no afirma entrega durable de eventos ni sincronización automática entre contextos.
+
+#### Contratos HTTP propuestos para Catálogo
+
+| Método y recurso | Resultado | Acceso |
+| :--- | :--- | :--- |
+| `GET /api/v1/products?category={cat}&district={dist}&page=0&size=20` | `200 OK`, Resource paginado; conserva TS06 y admite filtros opcionales de proximidad | Usuario autenticado. |
+| `POST /api/v1/baskets/compare` | `200 OK`, comparación calculada sin persistirla; conserva TS02 | Usuario autenticado. |
+| `GET /api/v1/catalog-entries/{id}` | `200 OK`, oferta y fecha de actualización | Usuario autenticado. |
+| `GET /api/v1/catalog-entries/{id}/unit-price` | `200 OK`, precio de venta y normalizado opcional | Usuario autenticado. |
+| `GET /api/v1/catalog-entries/{id}/price-history` | `200 OK`, histórico y baseline | Usuario autenticado. |
+| `GET /api/v1/products/{id}/substitutes?storeId={storeId}` | `200 OK`, sugerencias compatibles con cantidad/unidad/moneda recibidas como parámetros | Usuario autenticado. |
+| `POST /api/v1/products` | `201 Created`, Resource y `Location` | Permiso `catalog:manage-products`. |
+| `POST /api/v1/stores/{storeId}/catalog-entries` | `201 Created`, oferta y `Location` | Merchant titular de tienda afiliada. |
+| `PUT /api/v1/catalog-entries/{id}/price` | `200 OK`, oferta actualizada o sin cambio si el precio ya coincide | Merchant titular; versión vigente. |
+| `PUT /api/v1/catalog-entries/{id}/availability` | `200 OK`, oferta actualizada o sin cambio | Merchant titular; versión vigente. |
+| `POST /api/v1/products/{id}/substitutes` | `201 Created` al crear; `200 OK` al repetir una relación existente, sin otra mutación ni evento | Permiso `catalog:manage-products`. |
+
+Los cuerpos se transforman en Commands/Queries mediante assemblers y los resultados en Resources REST. Los errores siguen `ApplicationError` y `ProblemDetail` de Learning Center: 400 para lista vacía, precio no positivo, paginación, coordenadas o unidades inválidas; 401 para token ausente/inválido; 403 para permisos o titularidad insuficientes; 404 para producto/oferta inexistente; 409 para oferta duplicada por tienda/producto o conflicto de versión. Se propone `CATALOG_FORBIDDEN` con mapeo explícito a 403, y códigos con sufijos `_NOT_FOUND` y `_CONFLICT` para los casos correspondientes. La falta de provisión de una referencia necesaria para autorizar una escritura debe producir `CATALOG_REFERENCE_UNAVAILABLE` con mapeo explícito a 503; no se acepta la escritura usando datos inventados. Los mensajes deben localizarse en los recursos de idioma. Estas son especificaciones para implementar en Spring Boot; este repositorio sigue siendo documentación y diseño.
+
 
 #### Route Planning (Core Bounded Context)
 
@@ -1930,9 +1991,9 @@ El Bounded Context **Merchant Management** concentra las capacidades relacionada
 
 `MerchantProfile` representa el perfil comercial y mantiene su estado de verificación mediante su relación con la enumeración `VerificationStatus`. Un Merchant puede administrar uno o varios objetos `RetailStore` (vinculados a `StoreType` y `StoreOperationalStatus`), los cuales contienen los elementos de inventario y promociones correspondientes.
 
-`InventoryItem` encapsula operaciones relacionadas con stock y precio asociándose con la enumeración `StockStatus`, mientras que `Promotion` representa ofertas con un período de vigencia definido y estado `PromotionStatus`.
+`InventoryItem` encapsula cantidades físicas de stock mediante `Quantity`. Su disponibilidad operativa no sustituye la disponibilidad pública de `StoreProduct` en Catalog and Pricing; el precio público también pertenece a Catálogo. `Promotion` conserva el período de vigencia previsto; su refinamiento queda para la revisión de Merchant Management.
 
-La interfaz `RucVerificationGateway` abstrae la comunicación con el servicio externo utilizado para validar la información fiscal del Merchant. `Ruc` encapsula el formato del identificador; la verificación fiscal permanece en el gateway. `Address` representa la dirección como un valor completo; `Quantity` y `UnitPrice` expresan el stock y el precio por cantidad de referencia.
+La interfaz `RucVerificationGateway` abstrae la comunicación con el servicio externo utilizado para validar la información fiscal del Merchant. `Ruc` encapsula el formato del identificador; la verificación fiscal permanece en el gateway. `Address` representa la dirección como un valor completo; `Quantity` expresa el stock con su unidad; los precios públicos y su normalización se modelan en Catalog and Pricing.
 
 ![Merchant Management Class Diagram](../assets/architecture/classes/merchant-management.png)
 
@@ -2079,13 +2140,13 @@ La vista global también evidencia restricciones importantes del modelo, como la
 
 #### Catalog and Pricing (Core Bounded Context)
 
-El modelo de **Catalog and Pricing** almacena los productos disponibles y la información necesaria para realizar comparaciones de precios.
+`products` conserva nombre, marca, categoría, `sale_unit` y el par opcional `net_content_quantity` / `net_content_unit`. Ambos campos de contenido están presentes o ausentes conjuntamente; si existen, la cantidad es positiva. `catalog_entries` conserva la oferta canónica mediante `sale_price`, `currency`, `stock_status`, fecha de actualización y versión, con `UNIQUE(store_id, product_id)`.
 
-La tabla `products` contiene la información base de cada producto. `catalog_entries` representa la oferta de un producto dentro de un establecimiento determinado e incluye su precio unitario, disponibilidad y fecha de actualización.
+`price_snapshots` conserva el precio inicial y cada cambio efectivo, con su moneda, unidad de venta y contenido neto disponible en ese momento. Su inserción y la modificación de la oferta son atómicas; repetir el mismo precio no añade otro snapshot. El índice `(catalog_entry_id, captured_at, id)` permite ordenar y consultar el histórico de US19. No se generan muestras diarias ficticias ni se atribuye una fecha de actualización nueva a un precio que no cambió.
 
-Adicionalmente, `price_snapshots` permite conservar registros históricos de precios asociados a una entrada del catálogo.
+`product_substitutions` registra candidatos direccionales explícitos mediante una clave compuesta y prohíbe la relación de un producto consigo mismo. La compatibilidad se comprueba antes de sugerir una alternativa. `catalog_store_references` contiene los datos locales necesarios para distrito, proximidad, afiliación y titularidad; `store_id` es único, mientras que la clave primaria mantiene el tipo `BIGINT`. La carga acepta únicamente versiones de origen posteriores y coordenadas válidas.
 
-La combinación entre establecimiento y producto debe ser única dentro de `catalog_entries`. El identificador del establecimiento actúa como referencia hacia Merchant Management.
+Esta vista y el Database Overview usan el mismo esquema. `inventory_items` de Merchant Management conserva cantidad y unidad física, sin duplicar `sale_price` ni `stock_status` públicos. La coordinación operativa entre inventario y catálogo todavía requiere un diseño de integración; no basta con compartir identificadores para garantizar consistencia automática.
 
 ![Catalog and Pricing Database Diagram](../assets/architecture/database/catalog-pricing.png)
 
@@ -2121,7 +2182,7 @@ El Bounded Context **Merchant Management** persiste la información necesaria pa
 
 `merchant_profiles` representa el perfil comercial y su estado de verificación fiscal. Un perfil puede administrar múltiples registros `retail_stores`, los cuales almacenan datos del establecimiento y su ubicación.
 
-`inventory_items` representa los productos gestionados dentro de cada establecimiento, incluyendo stock, precio y estado de disponibilidad.
+`inventory_items` representa las cantidades físicas de productos dentro de cada establecimiento mediante `stock` y `stock_unit`. No almacena un segundo precio público ni otro `stock_status` del comparador; ambos pertenecen a `catalog_entries`. Su coordinación con el inventario no se supone automática y permanece pendiente de integración, sin introducir ACL.
 
 Finalmente, `promotions` registra las promociones asociadas a elementos del inventario y mantiene sus períodos de vigencia.
 

@@ -30,8 +30,7 @@ entity inventory_items {
     store_id : BIGINT <<FK>>
     product_id : BIGINT <<REF>>
     stock : DECIMAL
-    unit_price : DECIMAL
-    stock_status : VARCHAR
+    stock_unit : VARCHAR
 }
 
 entity promotions {
@@ -48,8 +47,11 @@ retail_stores ||--o{ inventory_items
 inventory_items ||--o{ promotions
 
 note right of inventory_items
-  product_id belongs to
-  Catalog and Pricing.
+  product_id belongs to Catalog and Pricing.
+  stock >= 0; stock_unit is required; UNIQUE(store_id, product_id).
+  Inventory stores physical quantities, not another public price/status.
+  Published selling price and availability belong to catalog_entries.
+  Coordination with Catalog is pending; no automatic synchronization is assumed.
 end note
 
 note right of merchant_profiles

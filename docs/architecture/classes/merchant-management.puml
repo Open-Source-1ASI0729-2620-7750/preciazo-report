@@ -42,10 +42,8 @@ class RetailStore {
 class InventoryItem {
     -id: Long
     -stock: Quantity
-    -unitPrice: UnitPrice
     +increaseStock(quantity: Quantity): void
     +decreaseStock(quantity: Quantity): void
-    +updatePrice(price: UnitPrice): void
     +isAvailable(): Boolean
 }
 
@@ -101,7 +99,6 @@ MerchantProfile "1" *-- "1..*" RetailStore : manages
 RetailStore "1" *-- "0..*" InventoryItem : holds
 InventoryItem "*" --> "1" StoreProduct : represents
 StoreProduct "1" o-- "0..*" Promotion : has
-InventoryItem "1" --> "1" UnitPrice : priced at
 InventoryItem "1" --> "1" Quantity : stock
 
 class Quantity <<Value Object>> {
@@ -168,6 +165,13 @@ RucVerificationGateway ..> Ruc : verifies
 
 note right of VerificationResult
   Immutable response value from fiscal verification.
+end note
+
+note bottom of InventoryItem
+  Operational stock only; quantity is nonnegative.
+  isAvailable() describes physical inventory, not published catalog availability.
+  Selling price and public availability are owned by Catalog and Pricing.
+  Coordination between contexts is pending; no ACL is introduced.
 end note
 
 @enduml

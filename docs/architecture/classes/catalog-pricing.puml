@@ -1,59 +1,72 @@
 @startuml Preciazo_Catalog_Pricing_Classes
-
-title Preciazo - Catalog and Pricing Class Diagram
-
+title Preciazo - Catalog and Pricing Domain Classes (AV2)
+set namespaceSeparator none
 skinparam classAttributeIconSize 0
 skinparam shadowing false
 skinparam linetype ortho
+scale max 3200 width
 
-interface CatalogRepository {
-    +findProduct(id: Long): Product
-    +findStoreProduct(storeId: Long, productId: Long): StoreProduct
-}
-
-interface PriceComparisonPolicy {
-    +selectBestOffer(offers: List<StoreProduct>): StoreProduct
-}
-
-class CatalogPricingService {
-    +search(criteria: SearchCriteria): List<Product>
-    +compare(productId: Long, storeIds: List<Long>): List<StoreProduct>
-    +selectOptimalStop(offers: List<StoreProduct>): StoreProduct
-}
-
-class Product {
-    -id: Long
-    -name: String
-    -brand: String
-    -category: String
-    -unit: String
-    +isSubstituteFor(other: Product): Boolean
-    +matches(criteria: SearchCriteria): Boolean
-}
-
-class RetailStoreRef <<Value Object>> {
-    -storeId: Long {readOnly}
-    +identifies(storeId: Long): Boolean
-}
-
-class StoreProduct {
-    -id: Long
-    -unitPrice: UnitPrice
-    -stockStatus: StockStatus
-    -updatedAt: DateTime
-    +changeUnitPrice(price: UnitPrice): void
-    +updateStock(status: StockStatus): void
-    +isAvailable(): Boolean
-    +priceAt(moment: DateTime): UnitPrice
-}
-
-class SearchCriteria <<Value Object>> {
-    -text: String {readOnly}
-    -category: String {readOnly}
-    -maximumUnitPrice: UnitPrice {readOnly}
-    +matches(product: Product): Boolean
-}
-
+ class Product <<Aggregate>> {
+  -id: Long
+  -name: String
+  -brand: String
+  -category: String
+  -saleUnit: String
+  -netContent: Quantity [0..1]
+  -substituteProductIds: Set<Long>
+  +defineSubstitute(productId: Long): void
+ }
+ class StoreProduct <<Aggregate>> {
+  -id: Long
+  -productId: Long
+  -store: RetailStoreRef
+  -sellingPrice: Money
+  -stockStatus: StockStatus
+  -updatedAt: DateTime
+  -version: Long
+  +changeSellingPrice(price: Money): void
+  +updateAvailability(status: StockStatus): void
+  +isAvailable(): Boolean
+ }
+ class PriceSnapshot {
+  -id: Long
+  -sellingPrice: Money
+  -saleUnit: String
+  -netContent: Quantity [0..1]
+  -capturedAt: DateTime
+ }
+ class CatalogStoreReference <<Aggregate>> {
+  -id: Long
+  -storeId: Long
+  -ownerId: Long
+  -district: String
+  -location: GeoPoint
+  -affiliated: Boolean
+  -capturedAt: DateTime
+  -sourceVersion: Long
+  +isOwnedBy(userId: Long): Boolean
+ }
+ class GeoPoint <<Value Object>> {
+  -latitude: Decimal {readOnly}
+  -longitude: Decimal {readOnly}
+  +distanceMetersTo(other: GeoPoint): Decimal
+ }
+ class RetailStoreRef <<Value Object>> {
+  -storeId: Long {readOnly}
+ }
+ interface PriceComparisonPolicy <<domain policy>> {
+  +totalFor(items: List<BasketItem>, offers: List<StoreProduct>): Optional<Money>
+  +normalize(price: Money, content: Quantity): Optional<UnitPrice>
+ }
+ class BasketItem <<Value Object>> {
+  -productId: Long {readOnly}
+  -quantity: Quantity {readOnly}
+ }
+ enum StockStatus {
+  AVAILABLE
+  LOW
+  OUT_OF_STOCK
+ }
 class Money <<Value Object>> {
     -amount: Decimal {readOnly}
     -currency: String {readOnly}
@@ -71,21 +84,6 @@ note right of Money
   Arithmetic and comparisons require the same currency.
   Operations return new values.
 end note
-
-enum StockStatus {
-    AVAILABLE
-    LOW
-    OUT_OF_STOCK
-}
-
-CatalogPricingService ..> CatalogRepository : reads catalog
-CatalogPricingService ..> PriceComparisonPolicy : compares offers
-RetailStoreRef "1" ..> "0..*" StoreProduct : identifies offers from
-StoreProduct "*" --> "1" Product : references
-CatalogPricingService ..> Product : searches
-CatalogPricingService ..> StoreProduct : compares
-StoreProduct "1" --> "1" UnitPrice : current price
-SearchCriteria "1" --> "0..1" UnitPrice : price ceiling
 
 class Quantity <<Value Object>> {
     -amount: Decimal {readOnly}
@@ -119,13 +117,30 @@ end note
 UnitPrice "1" --> "1" Money : monetary value
 UnitPrice "1" --> "1" Quantity : priced quantity
 
-note right of RetailStoreRef
-  Immutable local reference to Merchant Management.
-  Equality by storeId.
-end note
 
-note right of SearchCriteria
-  Immutable search filters; equality by field values.
-end note
+ Product "1" --> "0..1" Quantity : net content
+ StoreProduct "1" *-- "1..*" PriceSnapshot : price history
+ StoreProduct "*" --> "1" RetailStoreRef
+ StoreProduct "1" --> "1" Money : selling price
+ StoreProduct ..> StockStatus
+ BasketItem "1" --> "1" Quantity
+ note bottom of StoreProduct
+  Canonical published selling price and availability live here.
+  Price > 0; one offer per store and product.
+  Creation and each actual price change save a snapshot in the same transaction.
+  Same price: no duplicate snapshot or Price Changed event.
+ end note
+ note bottom of Product
+  netContent is optional; if supplied, quantity is positive and unit is known.
+  Missing content -> no normalized kg/litre value; retain shelf price.
+  Substitutes are explicitly defined, never inferred from category alone.
+ end note
 
+StoreProduct ..> Product : product identifier
+CatalogStoreReference "1" --> "1" GeoPoint : location
+PriceComparisonPolicy ..> StoreProduct : evaluates
+PriceComparisonPolicy ..> UnitPrice : normalizes
+PriceComparisonPolicy ..> BasketItem : requested quantities
+Product -[hidden]down-> StoreProduct
+StoreProduct -[hidden]down-> CatalogStoreReference
 @enduml

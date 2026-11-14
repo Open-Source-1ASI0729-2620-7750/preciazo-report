@@ -1,0 +1,144 @@
+@startuml Preciazo_Catalog_Pricing_Backend
+title Preciazo - Catalog and Pricing Backend Contracts and Persistence (AV2)
+set namespaceSeparator none
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+package "application.commandservices" as Commands {
+ interface CatalogCommandService <<service>> {
+  +handle(command: RegisterProductCommand): Result<Long, ApplicationError>
+  +handle(command: PublishStoreProductCommand): Result<Long, ApplicationError>
+  +handle(command: ChangeStoreProductPriceCommand): Result<Long, ApplicationError>
+  +handle(command: UpdateStoreProductAvailabilityCommand): Result<Long, ApplicationError>
+  +handle(command: DefineProductSubstituteCommand): Result<Long, ApplicationError>
+  +handle(command: RefreshCatalogStoreReferenceCommand): Result<Long, ApplicationError>
+ }
+}
+package "application.queryservices" as Queries {
+ interface CatalogQueryService <<service>> {
+  +handle(query: SearchProductsQuery): ProductPageView
+  +handle(query: CompareShoppingBasketQuery): BasketComparisonView
+  +handle(query: GetNormalizedUnitPriceQuery): Optional<UnitPriceView>
+  +handle(query: GetProductSubstitutesQuery): List<SubstituteSuggestionView>
+  +handle(query: GetPriceHistoryQuery): PriceHistoryView
+  +handle(query: GetStoreProductByIdQuery): Optional<StoreProduct>
+ }
+}
+package "application.internal" as Services {
+ class CatalogCommandServiceImpl <<service>>
+ class CatalogQueryServiceImpl <<service>>
+}
+package "application.readmodels" as Views {
+ class ProductPageView <<Read Model>> {
+  +products: List<Product>
+  +page: Integer
+  +size: Integer
+  +totalElements: Long
+  +suggestedRadiusMeters: Decimal [0..1]
+ }
+ class BasketComparisonView <<Read Model>> {
+  +completeStores: List<StoreBasketView>
+  +incompleteStores: List<StoreBasketView>
+  +suggestedRadiusMeters: Decimal [0..1]
+ }
+ class StoreBasketView <<Read Model>> {
+  +storeId: Long
+  +availableSubtotal: Money
+  +completeBasketTotal: Money [0..1]
+  +missingProductIds: List<Long>
+  +missingReasons: Map<Long, String>
+ }
+ class UnitPriceView <<Read Model>> {
+  +sellingPrice: Money
+  +normalizedUnitPrice: UnitPrice [0..1]
+ }
+ class SubstituteSuggestionView <<Read Model>> {
+  +productId: Long
+  +alternativeProductId: Long
+  +estimatedSavings: Money
+ }
+ class PriceHistoryView <<Read Model>> {
+  +catalogEntryId: Long
+  +snapshots: List<PriceSnapshot>
+  +baselineBeforeWindow: PriceSnapshot [0..1]
+ }
+}
+package "domain.repositories" as Ports {
+ interface ProductRepository <<port>> {
+  +findById(id: Long): Optional<Product>
+  +search(text: String, category: String, storeIds: List<Long>, page: Integer, size: Integer): List<Product>
+  +count(text: String, category: String, storeIds: List<Long>): Long
+  +findSubstitutes(productId: Long): List<Product>
+  +save(product: Product): Product
+ }
+ interface StoreProductRepository <<port>> {
+  +findById(id: Long): Optional<StoreProduct>
+  +findByStoreAndProduct(storeId: Long, productId: Long): Optional<StoreProduct>
+  +findForStoresAndProducts(storeIds: List<Long>, productIds: List<Long>): List<StoreProduct>
+  +findLastSnapshotBefore(entryId: Long, instant: DateTime): Optional<PriceSnapshot>
+  +findHistory(entryId: Long, from: DateTime, to: DateTime): List<PriceSnapshot>
+  +save(offer: StoreProduct): StoreProduct
+ }
+ interface CatalogStoreReferenceRepository <<port>> {
+  +findByStoreId(storeId: Long): Optional<CatalogStoreReference>
+  +findCandidates(district: String, origin: GeoPoint, radiusMeters: Decimal): List<CatalogStoreReference>
+  +save(reference: CatalogStoreReference): CatalogStoreReference
+ }
+}
+package "domain.model" as Domain {
+ class Product <<Aggregate>>
+ class StoreProduct <<Aggregate>>
+ class CatalogStoreReference <<Aggregate>>
+ interface PriceComparisonPolicy <<domain policy>>
+}
+package "infrastructure.persistence.jpa" as Persistence {
+ class ProductRepositoryImpl <<adapter>>
+ interface ProductPersistenceRepository <<Spring Data JPA>>
+ class ProductPersistenceAssembler <<mapper>>
+ class ProductPersistenceEntity <<JPA Entity>>
+ class ProductSubstitutionPersistenceEntity <<JPA Entity>>
+ class StoreProductRepositoryImpl <<adapter>>
+ interface StoreProductPersistenceRepository <<Spring Data JPA>>
+ class StoreProductPersistenceAssembler <<mapper>>
+ class StoreProductPersistenceEntity <<JPA Entity>>
+ class PriceSnapshotPersistenceEntity <<JPA Entity>>
+ class CatalogStoreReferenceRepositoryImpl <<adapter>>
+ interface CatalogStoreReferencePersistenceRepository <<Spring Data JPA>>
+ class CatalogStoreReferencePersistenceAssembler <<mapper>>
+ class CatalogStoreReferencePersistenceEntity <<JPA Entity>>
+}
+CatalogCommandServiceImpl ..|> CatalogCommandService
+CatalogQueryServiceImpl ..|> CatalogQueryService
+CatalogCommandServiceImpl ..> ProductRepository
+CatalogCommandServiceImpl ..> StoreProductRepository
+CatalogCommandServiceImpl ..> CatalogStoreReferenceRepository
+CatalogQueryServiceImpl ..> ProductRepository
+CatalogQueryServiceImpl ..> StoreProductRepository
+CatalogQueryServiceImpl ..> CatalogStoreReferenceRepository
+CatalogQueryServiceImpl ..> PriceComparisonPolicy
+CatalogQueryServiceImpl ..> BasketComparisonView : derives without persistence
+BasketComparisonView "1" *-- "0..*" StoreBasketView
+ProductPersistenceEntity "1" *-- "0..*" ProductSubstitutionPersistenceEntity
+ProductRepositoryImpl ..|> ProductRepository
+ProductRepositoryImpl ..> ProductPersistenceRepository
+ProductRepositoryImpl ..> ProductPersistenceAssembler
+ProductPersistenceAssembler ..> Product
+ProductPersistenceAssembler ..> ProductPersistenceEntity
+StoreProductRepositoryImpl ..|> StoreProductRepository
+StoreProductRepositoryImpl ..> StoreProductPersistenceRepository
+StoreProductRepositoryImpl ..> StoreProductPersistenceAssembler
+StoreProductPersistenceAssembler ..> StoreProduct
+StoreProductPersistenceAssembler ..> StoreProductPersistenceEntity
+StoreProductPersistenceEntity "1" *-- "1..*" PriceSnapshotPersistenceEntity
+CatalogStoreReferenceRepositoryImpl ..|> CatalogStoreReferenceRepository
+CatalogStoreReferenceRepositoryImpl ..> CatalogStoreReferencePersistenceRepository
+CatalogStoreReferenceRepositoryImpl ..> CatalogStoreReferencePersistenceAssembler
+CatalogStoreReferencePersistenceAssembler ..> CatalogStoreReference
+CatalogStoreReferencePersistenceAssembler ..> CatalogStoreReferencePersistenceEntity
+Commands -[hidden]right-> Queries
+Commands -[hidden]down-> Services
+Services -[hidden]down-> Ports
+Ports -[hidden]down-> Domain
+Domain -[hidden]down-> Persistence
+Queries -[hidden]down-> Views
+@enduml
