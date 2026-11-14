@@ -2821,7 +2821,7 @@ la escala de severidad establecida para el proyecto:
 | # | Problema identificado | Escala de severidad | Heurística / Principio violado |
 | :---: | :--- | :---: | :--- |
 | **1** | Falta de retroalimentación visible al completar una acción | **2** | Usabilidad - Visibilidad del estado del sistema |
-| **2** | `[Por completar]` | `[1-4]` | `[Por completar]` |
+| **2** | Uso de abreviaciones que pueden dificultar la comprensión | **1** | Usabilidad - Correspondencia entre el sistema y el mundo real |
 | **3** | `[Por completar]` | `[1-4]` | `[Por completar]` |
 
 #### Descripción de problemas
@@ -2850,6 +2850,7 @@ que el usuario repita la acción al no saber si el sistema procesó la solicitud
 
 ![Evidencia H01 - Visibilidad del estado del sistema](../assets/sprint-3/heuristics/h01-system-status-01.png)
 
+ 
 
 ![Evidencia H02 - Visibilidad del estado del sistema](../assets/sprint-3/heuristics/h01-system-status-02.png)
 
@@ -2859,6 +2860,35 @@ Incorporar indicadores de estado durante el procesamiento de la acción, deshabi
 temporalmente el botón mientras se ejecuta la operación y mostrando posteriormente
 un mensaje visible de confirmación o error. Por ejemplo, se puede utilizar una
 notificación tipo snackbar con el mensaje **“Promoción publicada correctamente”**.
+
+##### Problema #2: Uso de abreviaciones que pueden dificultar la comprensión
+
+**Severidad:** 1
+
+**Heurística / Principio violado:** Usabilidad - Correspondencia entre el sistema y el mundo real
+
+**Problema:**
+
+Durante la revisión de la vista **Comparar Precios** se identificó el uso de
+abreviaciones como **“disp.”**, **“paq.”**, **“unid.”** y **“Leche Evap.”** para
+representar disponibilidad, presentación y nombres de productos.
+
+Aunque estas abreviaciones permiten reducir el espacio ocupado en la interfaz,
+pueden exigir que algunos usuarios interpreten su significado antes de comprender
+completamente la información mostrada. Por ejemplo, la expresión **“7/7 disp.”**
+resulta menos directa que indicar explícitamente **“7 de 7 disponibles”**.
+
+**Evidencia:**
+
+![Evidencia H02 - Correspondencia entre el sistema y el mundo real](../assets/sprint-3/heuristics/h02-real-world-language.png)
+
+**Recomendación:**
+
+Utilizar términos completos y familiares siempre que el espacio disponible lo permita.
+Por ejemplo, reemplazar **“7/7 disp.”** por **“7 de 7 disponibles”** y utilizar
+**“paquete”** o **“unidad”** en lugar de abreviaciones cuando no comprometa la
+legibilidad. En dispositivos con menor espacio se pueden complementar las
+abreviaciones mediante etiquetas o ayudas contextuales.
 
 ---
 
