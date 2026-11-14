@@ -2808,7 +2808,7 @@ En la siguiente tabla se mantienen las áreas de trabajo organizadas formalmente
 El Sprint Backlog 2 organiza las tareas de maquetación del frontend para ambos segmentos, actualización de la Landing Page, integración técnica de i18n y subsanación de observaciones del informe.
 
 <div align="center">
-  <img src="../assets/Trello.png" alt="Sprint Backlog 2 en Trello" width="850">
+  <img src="../assets/trello-sprint2.png" alt="Sprint Backlog 2 en Trello" width="850">
   <p><em>Figura 5.3: Estado de las tareas del Sprint 2 en el tablero Kanban de Trello.</em></p>
 </div>
 
