@@ -2827,7 +2827,7 @@ la escala de severidad establecida para el proyecto:
 | **5** | Falta de validaciones preventivas en la creación de promociones | **3** | Usabilidad - Prevención de errores |
 | **6** | El indicador de mejor precio no cuenta con una explicación explícita | **1** | Usabilidad - Reconocimiento antes que recuerdo |
 | **7** | La actualización de inventario depende principalmente de acciones individuales | **2** | Usabilidad - Flexibilidad y eficiencia de uso |
-
+| **8** | La vista de comparación concentra demasiada información en un solo espacio | **2** | Usabilidad - Diseño estético y minimalista |
 
 
 #### Descripción de problemas
@@ -3052,7 +3052,37 @@ También se recomienda mantener opciones como importación de datos y filtros de
 inventario para reducir la cantidad de pasos necesarios en tareas repetitivas y mejorar
 la eficiencia de los comerciantes que administran catálogos extensos.
 
+## Problema #8: La vista de comparación concentra demasiada información en un solo espacio
 
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Diseño estético y minimalista
+
+**Problema:**
+
+Durante la evaluación de la vista **Comparar Precios** se identificó una alta
+concentración de información dentro de una misma pantalla, incluyendo nombres de
+establecimientos, precios, disponibilidad, presentaciones de productos e indicadores
+de mejor alternativa.
+
+Aunque estos datos son relevantes para la comparación, su presentación simultánea
+puede aumentar la carga visual del usuario, especialmente en dispositivos con menor
+espacio de visualización, dificultando la identificación rápida de la opción más
+conveniente.
+
+**Evidencia:**
+
+![Evidencia H08 - Diseño estético y minimalista](../assets/sprint-3/heuristics/h08-minimalism.png)
+
+**Recomendación:**
+
+Reforzar la jerarquía visual priorizando el precio, la disponibilidad y la alternativa
+recomendada. La información secundaria puede mostrarse bajo demanda mediante
+elementos desplegables o vistas de detalle.
+
+También se recomienda reducir elementos repetitivos y mantener una separación
+visual clara entre productos y establecimientos para facilitar el escaneo rápido de
+la información.
 
 ## 5.4. Video About-the-Product
 
