@@ -2826,6 +2826,7 @@ la escala de severidad establecida para el proyecto:
 | **4** | Uso inconsistente de etiquetas para las mismas secciones de navegación | **2** | Usabilidad - Consistencia y estándares |
 | **5** | Falta de validaciones preventivas en la creación de promociones | **3** | Usabilidad - Prevención de errores |
 | **6** | El indicador de mejor precio no cuenta con una explicación explícita | **1** | Usabilidad - Reconocimiento antes que recuerdo |
+| **7** | La actualización de inventario depende principalmente de acciones individuales | **2** | Usabilidad - Flexibilidad y eficiencia de uso |
 
 
 
@@ -3020,6 +3021,36 @@ con el símbolo.
 
 Esto permitiría reconocer inmediatamente el significado del elemento sin depender
 de la interpretación o conocimiento previo del usuario.
+
+## Problema #7: La actualización de inventario depende principalmente de acciones individuales
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Flexibilidad y eficiencia de uso
+
+**Problema:**
+
+Durante la evaluación del módulo **Inventario** se identificó que la actualización de
+precios, stock y disponibilidad se realiza principalmente de manera individual por
+producto.
+
+Este enfoque resulta adecuado para modificaciones puntuales, pero puede generar
+una carga operativa elevada cuando el comerciante necesita actualizar varios productos
+durante una misma jornada, especialmente ante cambios de precios, reposición de
+mercadería o revisión de artículos agotados.
+
+**Evidencia:**
+
+![Evidencia H07 - Flexibilidad y eficiencia de uso](../assets/sprint-3/heuristics/h07-efficiency.png)
+
+**Recomendación:**
+
+Incorporar mecanismos de edición masiva que permitan seleccionar varios productos
+y actualizar atributos comunes en una sola operación.
+
+También se recomienda mantener opciones como importación de datos y filtros de
+inventario para reducir la cantidad de pasos necesarios en tareas repetitivas y mejorar
+la eficiencia de los comerciantes que administran catálogos extensos.
 
 
 
