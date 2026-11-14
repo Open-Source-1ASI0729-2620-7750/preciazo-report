@@ -12,9 +12,9 @@ skinparam nodesep 30
 skinparam ranksep 30
 skinparam rectanglePadding 12
 
-rectangle "Saved Shopping Lists" as read0 <<Read Model>> #B3EDBE
+rectangle "Saved Shopping Lists\nLists owned by the buyer" as read0 <<Read Model>> #B3EDBE
 rectangle "Buyer" as buyer0 <<Actor>> #FFE08A
-rectangle "Create Shopping List" as command0 <<Command>> #ACDAFA
+rectangle "Create Shopping List\nUse date/time when name is omitted" as command0 <<Command>> #ACDAFA
 rectangle "Shopping List" as aggregate0 <<Aggregate>> #FFF1AE
 rectangle "Shopping List Created" as event0 <<Domain Event>> #FFD0A1
 read0 -right-> buyer0
@@ -24,7 +24,7 @@ aggregate0 -right-> event0
 
 rectangle "Active Shopping List\nItems and projected total" as read1 <<Read Model>> #B3EDBE
 rectangle "Buyer" as buyer1 <<Actor>> #FFE08A
-rectangle "Add Shopping Item" as command1 <<Command>> #ACDAFA
+rectangle "Add Shopping Item\nIncrease quantity if product already exists" as command1 <<Command>> #ACDAFA
 rectangle "Shopping List" as aggregate1 <<Aggregate>> #FFF1AE
 rectangle "Shopping Item Added" as event1 <<Domain Event>> #FFD0A1
 read1 -right-> buyer1
@@ -52,17 +52,17 @@ buyer3 -right-> command3
 command3 -right-> aggregate3
 aggregate3 -right-> event3
 
-rectangle "Budget Status\nLimit, projected total and warning" as read4 <<Read Model>> #B3EDBE
+rectangle "Budget Status\nLimit and projected total\nWarning when total > limit\nClear when total <= limit\nRequery after add / remove / reduce item\nor set / change budget\nCalculated on query; not a persisted event" as read4 <<Read Model>> #B3EDBE
 rectangle "Buyer" as buyer4 <<Actor>> #FFE08A
-rectangle "Define or Change Purchase Budget" as command4 <<Command>> #ACDAFA
+rectangle "Set Purchase Budget\nDefine or change a positive limit" as command4 <<Command>> #ACDAFA
 rectangle "Shopping List" as aggregate4 <<Aggregate>> #FFF1AE
-rectangle "Purchase Budget Defined / Changed" as event4 <<Domain Event>> #FFD0A1
+rectangle "Purchase Budget Set" as event4 <<Domain Event>> #FFD0A1
 read4 -right-> buyer4
 buyer4 -right-> command4
 command4 -right-> aggregate4
 aggregate4 -right-> event4
 
-rectangle "Purchase Progress\nPurchased items and checkout total" as read5 <<Read Model>> #B3EDBE
+rectangle "Purchase Progress\nPurchased items and checkout total\nMarking includes the item subtotal" as read5 <<Read Model>> #B3EDBE
 rectangle "Buyer" as buyer5 <<Actor>> #FFE08A
 rectangle "Mark Item as Purchased" as command5 <<Command>> #ACDAFA
 rectangle "Shopping List" as aggregate5 <<Aggregate>> #FFF1AE
@@ -72,7 +72,7 @@ buyer5 -right-> command5
 command5 -right-> aggregate5
 aggregate5 -right-> event5
 
-rectangle "Purchase Progress\nPurchased items and checkout total" as read6 <<Read Model>> #B3EDBE
+rectangle "Purchase Progress\nPurchased items and checkout total\nUnmarking excludes the item subtotal" as read6 <<Read Model>> #B3EDBE
 rectangle "Buyer" as buyer6 <<Actor>> #FFE08A
 rectangle "Unmark Item as Purchased" as command6 <<Command>> #ACDAFA
 rectangle "Shopping List" as aggregate6 <<Aggregate>> #FFF1AE
@@ -114,33 +114,4 @@ command5 -[hidden]down-> command6
 aggregate5 -[hidden]down-> aggregate6
 event5 -[hidden]down-> event6
 
-legend bottom
-|= AV2 Design Rules |
-| US08: Create a list owned by the buyer. |
-| If no name is supplied, use the current date and time. |
-| US09: Add the requested product and quantity. |
-| If already present, increase its quantity without duplicating it. |
-| US10: Only a budget greater than zero is accepted. |
-| Reject zero or negative amounts without changing the budget. |
-|  |
-| US11: Budget warning is calculated when Budget Status is queried. |
-| With a defined limit: show warning if projected total > limit; |
-| clear warning if projected total <= limit. |
-| Query again after adding or removing an item, reducing quantity, |
-| or defining or changing the budget. |
-| The warning is derived read data: |
-| no automatic command and no persisted warning event. |
-| US12: Checkout total is the sum of purchased item amounts. |
-| Marking adds the item amount; unmarking subtracts it. |
-| Refresh Purchase Progress after either action. |
-| Checkout total is separate from the projected total of all list items. |
-
-|= Element Colors |
-|= Color |= Element |
-|<back:#B3EDBE>    </back>| Read Model |
-|<back:#FFE08A>    </back>| Buyer / Actor |
-|<back:#ACDAFA>    </back>| Command |
-|<back:#FFF1AE>    </back>| Shopping List Aggregate |
-|<back:#FFD0A1>    </back>| Domain Event |
-endlegend
 @enduml

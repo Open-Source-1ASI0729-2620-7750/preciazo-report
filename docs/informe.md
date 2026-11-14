@@ -1800,7 +1800,9 @@ Modela el cálculo algorítmico de itinerarios óptimos y la estimación de ahor
 
 #### Shopping Planning (Core Bounded Context)
 
-Modela la estructuración de listas de compras, plantillas quincenales y el control del techo presupuestario familiar mediante los agregados `ShoppingList` y `PurchaseBudget`. Los comandos `CreateShoppingList`, `AddShoppingItem`, `DefineBudgetLimit` y `MarkItemAsPurchased` emiten los eventos `ShoppingItemAdded`, `BudgetThresholdExceeded` y `ShoppingTripCompleted`, evaluados por `BudgetOverrunAlertPolicy`.
+La propuesta de diseño para AV2 representa US08–US12 mediante siete filas: vista de lectura → Buyer → Command → Shopping List Aggregate → Domain Event. Incluye crear lista, agregar y quitar artículos, reducir cantidades, definir o cambiar el presupuesto, y marcar y desmarcar compras. Las vistas presentan listas guardadas, lista activa con total proyectado, estado del presupuesto y progreso de compra. La advertencia se calcula en la consulta de presupuesto; no se introduce un comando automático ni un evento persistido para calcularla. Desmarcar una compra reduce el acumulado en caja sin retirar el artículo de la lista.
+
+La referencia metodológica es **Guía event storming**, pasos 5–9 (pp. 17–21): comandos en imperativo, Read Models que informan la decisión del actor y aggregates que reciben comandos y producen eventos en pasado. Por ello las vistas de lectura preceden al Buyer; los servicios, repositorios y adaptadores del backend se detallan en el diseño de clases, sin sustituir los conceptos de negocio del Event Storming. No se incorpora una automation policy para la advertencia, pues no dispara un comando automático.
 
 ![Preciazo Shopping Planning Design-Level Event Storming](../assets/architecture/event-storming/shopping-planning.png)
 
@@ -1854,7 +1856,7 @@ En el backend, la capa REST delega los casos de uso a los componentes de aplicac
 | :--- | :--- | :--- | :--- | :--- |
 | **1. Catalog and Pricing** *(Core)* | `ProductsController`, `BasketComparisonController` | `ProductCommandServiceImpl`, `CatalogQueryServiceImpl` | `Product`, `StoreProduct` | `ProductJpaRepository`, `CatalogEntryJpaRepository` |
 | **2. Route Planning** *(Core)* | `RoutesController` | `RouteCommandServiceImpl`, `RouteQueryServiceImpl` | `MultiStopRoute` | `RouteJpaRepository`, `MappingRoutingRestAdapter` |
-| **3. Shopping Planning** *(Core)* | `ShoppingListsController`, `BudgetsController` | `ShoppingListCommandServiceImpl`, `BudgetQueryServiceImpl` | `ShoppingList`, `PurchaseBudget` | `ShoppingListJpaRepository`, `PurchaseBudgetJpaRepository` |
+| **3. Shopping Planning** *(Core)* | `ShoppingListsController`, `BudgetsController` | `ShoppingListCommandServiceImpl`, `ShoppingListQueryServiceImpl` | `ShoppingList` (aggregate), `ShoppingListItem` y `PurchaseBudget` (entidades internas) | `ShoppingListRepositoryImpl`, `ShoppingListPersistenceRepository`, `ShoppingListPersistenceAssembler` |
 | **4. Merchant Management** *(Soporte)* | `MerchantsController`, `StoresController`, `PromotionsController` | `MerchantCommandServiceImpl`, `InventoryQueryServiceImpl` | `MerchantProfile`, `RetailStore` | `MerchantJpaRepository`, `SunatRucVerificationAdapter` |
 | **5. Community Price Verification** *(Soporte)* | `PriceDiscrepanciesController` | `DiscrepancyCommandServiceImpl`, `VerificationQueryServiceImpl` | `PriceDiscrepancy`, `TrustProfile` | `DiscrepancyJpaRepository`, `TrustProfileJpaRepository` |
 | **6. Analytics and Engagement** *(Soporte)* | `MerchantAnalyticsController` | `AnalyticsCommandServiceImpl`, `MetricsQueryServiceImpl` | `MetricEvent`, `MerchantReport` | `AnalyticsEventJpaRepository`, `MerchantMetricsJpaRepository` |
@@ -1902,13 +1904,19 @@ Para mantener el aislamiento del contexto, conceptos pertenecientes a otros domi
 
 #### Shopping Planning (Core Bounded Context)
 
-El Bounded Context **Shopping Planning** administra la planificación de compras del Buyer.
+El Bounded Context **Shopping Planning** administra la planificación de compras del Buyer. La propuesta de diseño para AV2 mantiene la correspondencia con US08–US12 y con el Design-Level Event Storming de la sección 4.6.1.
 
-`ShoppingList` funciona como el elemento central del modelo, se asocia con la enumeración `ShoppingListStatus` y agrupa múltiples `ShoppingListItem` (relacionados con `ItemPurchaseStatus`). Entre sus responsabilidades se encuentran agregar y eliminar ítems, marcar productos como comprados, calcular el costo estimado y completar una lista.
+`ShoppingList` es el aggregate que contiene los `ShoppingListItem` y un `PurchaseBudget` opcional. Su ciclo de vida utiliza `ListStatus` (`DRAFT`, `ACTIVE`, `COMPLETED`); el estado de compra de cada artículo se representa mediante el booleano `purchased`. Una lista sin nombre recibe una denominación basada en la fecha y hora de creación (US08). Agregar un producto existente incrementa su cantidad sin duplicarlo; las cantidades solicitadas deben ser positivas y sus unidades compatibles (US09).
 
-`PurchaseBudget` representa el presupuesto asociado a la planificación (vinculado a la enumeración `BudgetStatus`) y encapsula operaciones como reservar o liberar importes y comprobar si un determinado gasto puede ser asumido. El Value Object `Money` encapsula importes y exige una misma moneda para operar. `Quantity` representa cantidades no negativas con su unidad; las cantidades solicitadas deben ser positivas. `UnitPrice` combina un importe y la cantidad de referencia para calcular costos con unidades compatibles.
+El aggregate permite agregar y quitar artículos, reducir cantidades, definir o cambiar el presupuesto, marcar y desmarcar artículos como comprados. `calculateEstimatedTotal()` suma los subtotales de todos los artículos, mientras que `calculateCheckoutTotal()` suma únicamente los marcados como comprados. Marcar y desmarcar son operaciones idempotentes: desmarcar excluye el subtotal del artículo del acumulado en caja, sin excluirlo del total proyectado (US12). Una lista vacía devuelve totales de cero en la moneda de la lista.
 
-`ProductRequirement` permite referenciar un producto requerido sin introducir directamente el modelo interno de Catalog and Pricing dentro de este Bounded Context.
+`PurchaseBudget` conserva un límite positivo en la misma moneda de la lista; una modificación inválida no reemplaza el límite anterior (US10). El presupuesto es orientativo: excederlo no impide modificar los artículos. `ShoppingListQueryServiceImpl` construye `BudgetStatusView` al consultar: la advertencia es verdadera únicamente si existe un presupuesto y el total proyectado supera su límite. Se consulta nuevamente después de agregar, quitar o reducir artículos y de definir o cambiar el presupuesto; la advertencia se limpia cuando el total vuelve al límite o por debajo (US11). No se persiste la advertencia ni se introduce un comando automático o evento para calcularla. `PurchaseProgressView` presenta el acumulado y la cantidad de artículos marcados y se actualiza tras marcar o desmarcar.
+
+`ProductRequirement` referencia localmente el producto del catálogo. `Money` encapsula importe y moneda; `Quantity`, cantidad y unidad; y `UnitPrice`, un importe por cantidad de referencia. El subtotal se calcula con `UnitPrice.costFor()` usando unidades compatibles y la misma moneda. Estos valores permiten reconstruir los importes sin introducir el modelo interno de Catalog and Pricing.
+
+La estructura del backend toma como referencia **Learning Center Platform Guide**, especialmente ADR-0001 (resultados de comandos), ADR-0002 (persistencia hexagonal) y ADR-0007 (CQRS). `ShoppingListCommandService` y `ShoppingListQueryService` son contratos de aplicación con implementaciones separadas. Cada operación de escritura recibe un Command inmutable mediante `handle(...)` y devuelve `Result<Long, ApplicationError>`; las consultas reciben un Query y devuelven listas u opcionales, sin modificar el dominio. Los siete comandos corresponden a los flujos del Event Storming; `SetPurchaseBudgetCommand` cubre definir o cambiar el límite y produce `PurchaseBudgetSet`.
+
+`ShoppingListRepository` es el puerto del dominio. `ShoppingListRepositoryImpl` lo implementa usando `ShoppingListPersistenceRepository` de Spring Data JPA y `ShoppingListPersistenceAssembler` para convertir entre el aggregate y sus entidades de persistencia. Solo las clases `*PersistenceEntity` llevan anotaciones JPA. Los eventos de dominio registrados por el aggregate se publican y limpian al guardar siguiendo el patrón `DomainEventPublisher` de la guía; la advertencia de presupuesto sigue siendo un dato calculado de lectura y no genera un evento. Estas decisiones son una propuesta para el backend de Preciazo, no una afirmación de implementación terminada.
 
 ![Shopping Planning Class Diagram](../assets/architecture/classes/shopping-planning.png)
 
@@ -2006,13 +2014,15 @@ La combinación entre una ruta y su número de secuencia debe ser única. `shopp
 
 #### Shopping Planning (Core Bounded Context)
 
-El Bounded Context **Shopping Planning** persiste la información relacionada con la planificación de compras.
+El Bounded Context **Shopping Planning** persiste las listas y sus artículos; tanto esta vista como el Database Overview utilizan el mismo diseño propuesto para AV2.
 
-`shopping_lists` representa las listas creadas por los usuarios, mientras que `shopping_list_items` almacena los productos requeridos, cantidades, precios estimados y estado de compra.
+`shopping_lists` conserva propietario, nombre, moneda y estado. `shopping_list_items` almacena la referencia y el nombre solicitado del producto, cantidad y unidad, precio estimado con moneda y cantidad/unidad de referencia, y el indicador `purchased`. La restricción `UNIQUE(shopping_list_id, product_id)` representa la regla de incrementar cantidades sin duplicar productos. Las cantidades solicitadas y de referencia del precio son positivas, el precio no es negativo y las unidades deben ser compatibles.
 
-La tabla `shopping_list_members` permite relacionar otros usuarios con una lista determinada y `purchase_budgets` almacena los presupuestos asociados a cada planificación.
+`purchase_budgets` contiene un presupuesto opcional por lista mediante `UNIQUE(shopping_list_id)`. Su importe debe ser positivo y su moneda debe coincidir con la de la lista; cambiar el presupuesto actualiza ese límite. `shopping_list_members` conserva la asociación de miembros prevista en el diseño general, sin ampliar los flujos US08–US12.
 
-Los identificadores de usuario son referencias hacia Identity and Access y los identificadores de producto corresponden a información administrada por Catalog and Pricing.
+Los totales y la advertencia no se almacenan: el total proyectado suma todos los subtotales y el acumulado en caja suma solo aquellos con `purchased = true`. Desmarcar cambia ese indicador a `false` y reduce el acumulado en la siguiente consulta. La advertencia se calcula al consultar el presupuesto y desaparece si el total proyectado es menor o igual al límite; no existe un evento persistido para este cálculo.
+
+Los identificadores de usuario referencian Identity and Access y los de producto referencian Catalog and Pricing. Las restricciones descritas forman parte de la propuesta de diseño; este repositorio no contiene migraciones ni implementación de base de datos.
 
 ![Shopping Planning Database Diagram](../assets/architecture/database/shopping-planning.png)
 

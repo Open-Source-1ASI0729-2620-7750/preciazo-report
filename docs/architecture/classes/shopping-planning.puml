@@ -1,35 +1,86 @@
 @startuml Preciazo_Shopping_Planning_Classes
 
-title Preciazo - Shopping Planning Class Diagram
+title Preciazo - Shopping Planning Backend Design (AV2)
 
 skinparam classAttributeIconSize 0
 skinparam shadowing false
 skinparam linetype ortho
+set namespaceSeparator none
+skinparam packageStyle rectangle
+scale max 3200 width
 
-interface ShoppingRepository {
-    +findListById(id: Long): ShoppingList
-    +save(list: ShoppingList): void
+package "application.commandservices" {
+    interface ShoppingListCommandService <<service>> {
+        +handle(command: CreateShoppingListCommand): Result<Long, ApplicationError>
+        +handle(command: AddShoppingItemCommand): Result<Long, ApplicationError>
+        +handle(command: RemoveShoppingItemCommand): Result<Long, ApplicationError>
+        +handle(command: ReduceShoppingItemQuantityCommand): Result<Long, ApplicationError>
+        +handle(command: SetPurchaseBudgetCommand): Result<Long, ApplicationError>
+        +handle(command: MarkShoppingItemPurchasedCommand): Result<Long, ApplicationError>
+        +handle(command: UnmarkShoppingItemPurchasedCommand): Result<Long, ApplicationError>
+    }
 }
 
-interface BudgetPolicy {
-    +canAllocate(amount: Money, budget: PurchaseBudget): Boolean
+package "application.queryservices" {
+    interface ShoppingListQueryService <<service>> {
+        +handle(query: GetSavedShoppingListsQuery): List<ShoppingList>
+        +handle(query: GetShoppingListByIdQuery): Optional<ShoppingList>
+        +handle(query: GetBudgetStatusQuery): Optional<BudgetStatusView>
+        +handle(query: GetPurchaseProgressQuery): Optional<PurchaseProgressView>
+    }
 }
 
-class ShoppingPlanningService {
-    +createList(ownerId: Long, name: String): ShoppingList
-    +addProduct(list: ShoppingList, productId: Long, quantity: Quantity): ShoppingListItem
-    +planBudget(list: ShoppingList, amount: Money): PurchaseBudget
+package "application.internal" {
+    class ShoppingListCommandServiceImpl <<service>>
+    class ShoppingListQueryServiceImpl <<service>>
 }
 
+package "application.readmodels" {
+    class BudgetStatusView <<Read Model>> {
+        +limit: Money [0..1]
+        +projectedTotal: Money
+        +warning: Boolean
+    }
+    class PurchaseProgressView <<Read Model>> {
+        +purchasedItemCount: Integer
+        +checkoutTotal: Money
+    }
+}
+
+package "domain.repositories" {
+    interface ShoppingListRepository <<port>> {
+        +findById(id: Long): Optional<ShoppingList>
+        +findAllByOwnerId(ownerId: Long): List<ShoppingList>
+        +save(list: ShoppingList): ShoppingList
+    }
+}
+
+package "infrastructure.persistence.jpa" {
+    class ShoppingListRepositoryImpl <<adapter>>
+    interface ShoppingListPersistenceRepository <<Spring Data JPA>>
+    class ShoppingListPersistenceAssembler <<mapper>> {
+        +{static} toEntityFromDomain(list: ShoppingList): ShoppingListPersistenceEntity
+        +{static} toDomainFromEntity(entity: ShoppingListPersistenceEntity): ShoppingList
+    }
+    class ShoppingListPersistenceEntity <<JPA Entity>>
+    class ShoppingListItemPersistenceEntity <<JPA Entity>>
+    class PurchaseBudgetPersistenceEntity <<JPA Entity>>
+}
+
+package "domain.model" {
 class ShoppingList {
     -id: Long
     -ownerId: Long
     -name: String
+    -currency: String
     -status: ListStatus
     +addItem(requirement: ProductRequirement, quantity: Quantity): ShoppingListItem
     +removeItem(itemId: Long): void
+    +reduceItemQuantity(itemId: Long, quantity: Quantity): void
     +markItemPurchased(itemId: Long): void
+    +unmarkItemPurchased(itemId: Long): void
     +calculateEstimatedTotal(): Money
+    +calculateCheckoutTotal(): Money
     +assignBudget(budget: PurchaseBudget): void
     +complete(): void
 }
@@ -42,6 +93,8 @@ class ShoppingListItem {
     +changeQuantity(quantity: Quantity): void
     +updateEstimatedPrice(price: UnitPrice): void
     +markPurchased(): void
+    +unmarkPurchased(): void
+    +estimatedSubtotal(): Money
 }
 
 class ProductRequirement <<Value Object>> {
@@ -53,11 +106,7 @@ class ProductRequirement <<Value Object>> {
 class PurchaseBudget {
     -id: Long
     -limit: Money
-    -reserved: Money
-    +reserve(amount: Money): void
-    +release(amount: Money): void
-    +canAfford(amount: Money): Boolean
-    +remaining(): Money
+    +changeLimit(amount: Money): void
 }
 
 class Money <<Value Object>> {
@@ -84,17 +133,22 @@ enum ListStatus {
     COMPLETED
 }
 
-ShoppingPlanningService ..> ShoppingRepository : persists
-ShoppingPlanningService ..> BudgetPolicy : validates
+ShoppingList ..> ListStatus : lifecycle
 ShoppingList "1" *-- "0..*" ShoppingListItem : contains
 ShoppingListItem "*" --> "1" ProductRequirement : requests
-ShoppingList "1" --> "0..1" PurchaseBudget : controls
+ShoppingList "1" *-- "0..1" PurchaseBudget : owns
 ShoppingListItem "*" --> "1" UnitPrice : estimated price
 ShoppingListItem "*" --> "1" Quantity : requested amount
 
 note right of ShoppingList
-  At most one active PurchaseBudget
-  may be assigned to a ShoppingList.
+  US08: A missing name defaults to the current date and time.
+  US09: One item per product; adding it again sums quantities.
+  Quantities must be positive and use compatible units.
+  US11: Estimated total sums all item subtotals.
+  US12: Checkout total sums purchased item subtotals only.
+  Marking/unmarking is idempotent; unmarking subtracts the subtotal.
+  Empty totals are zero in the list currency.
+  One optional budget per list; changing it replaces its limit.
 end note
 
 class Quantity <<Value Object>> {
@@ -135,6 +189,43 @@ note right of ProductRequirement
 end note
 
 PurchaseBudget "1" --> "1" Money : limit
-PurchaseBudget "1" --> "1" Money : reserved amount
+note right of PurchaseBudget
+  US10: Limit must be positive and match the list currency.
+  Invalid changes preserve the existing limit.
+  The limit is advisory: exceeding it does not block item changes.
+end note
+
+note right of BudgetStatusView
+  US11: Derived on every query; never persisted.
+  warning = limit exists AND projectedTotal > limit.
+  No limit, or projectedTotal <= limit: warning is false.
+  Refresh after add/remove/reduce quantity or define/change budget.
+  No automatic warning command or persisted warning event.
+end note
+
+note right of PurchaseProgressView
+  US12: Refresh after marking or unmarking an item.
+  Checkout total is distinct from the projected total.
+end note
+
+}
+
+ShoppingListCommandServiceImpl ..|> ShoppingListCommandService
+ShoppingListQueryServiceImpl ..|> ShoppingListQueryService
+ShoppingListCommandServiceImpl ..> ShoppingListRepository : persists through port
+ShoppingListCommandServiceImpl ..> ShoppingList : invokes domain behavior
+ShoppingListQueryServiceImpl ..> ShoppingListRepository : reads through port
+ShoppingListQueryServiceImpl ..> BudgetStatusView : derives on query
+ShoppingListQueryServiceImpl ..> PurchaseProgressView : derives on query
+ShoppingListRepositoryImpl ..|> ShoppingListRepository
+ShoppingListRepositoryImpl ..> ShoppingListPersistenceRepository : delegates
+ShoppingListRepositoryImpl ..> ShoppingListPersistenceAssembler : maps
+ShoppingListPersistenceAssembler ..> ShoppingList : pure domain
+ShoppingListPersistenceAssembler ..> ShoppingListPersistenceEntity : persistence model
+ShoppingListPersistenceRepository ..> ShoppingListPersistenceEntity : stores
+ShoppingListPersistenceEntity "1" *-- "0..*" ShoppingListItemPersistenceEntity
+ShoppingListPersistenceEntity "1" *-- "0..1" PurchaseBudgetPersistenceEntity
+
+
 
 @enduml

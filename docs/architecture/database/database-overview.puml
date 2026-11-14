@@ -106,6 +106,7 @@ entity shopping_lists {
     --
     owner_id : BIGINT <<FK>>
     name : VARCHAR
+    currency : VARCHAR
     status : VARCHAR
     created_at : TIMESTAMP
 }
@@ -122,17 +123,21 @@ entity shopping_list_items {
     --
     shopping_list_id : BIGINT <<FK>>
     product_id : BIGINT <<FK>>
+    requested_name : VARCHAR
     quantity : DECIMAL
-    purchased : BOOLEAN
+    quantity_unit : VARCHAR
     estimated_unit_price : DECIMAL
+    price_currency : VARCHAR
+    price_per_quantity : DECIMAL
+    price_per_unit : VARCHAR
+    purchased : BOOLEAN
 }
 
 entity purchase_budgets {
     * id : BIGINT <<PK>>
     --
-    shopping_list_id : BIGINT <<FK>>
+    shopping_list_id : BIGINT <<FK, UQ>>
     amount : DECIMAL
-    status : VARCHAR
     currency : VARCHAR
 }
 
@@ -249,7 +254,7 @@ shopping_lists ||--o{ shopping_list_members
 users ||--o{ shopping_list_members
 shopping_lists ||--o{ shopping_list_items
 products ||--o{ shopping_list_items
-shopping_lists ||--o{ purchase_budgets
+shopping_lists ||--o| purchase_budgets
 shopping_lists ||--o{ routes
 routes ||--o{ route_stops
 retail_stores ||--o{ route_stops
@@ -289,8 +294,12 @@ note right of inventory_items
 end note
 
 note right of purchase_budgets
-  At most one ACTIVE budget
-  per shopping list.
+  UNIQUE(shopping_list_id): one optional budget per list.
+  amount > 0; currency matches shopping_lists.currency.
+  Changing the budget updates its limit; invalid input is rejected.
+  Totals and budget warnings are derived on query, not stored.
+  Warning: defined limit AND projected total > limit.
+  Clear warning at or below the limit; no warning event is stored.
 end note
 
 note right of route_stops
@@ -300,6 +309,17 @@ end note
 note right of analytics_events
   subject_id is a polymorphic reference
   to an event subject in another context.
+end note
+
+note bottom of shopping_list_items
+  UNIQUE(shopping_list_id, product_id).
+  Adding an existing product increases quantity without a duplicate.
+  quantity > 0; price_per_quantity > 0; estimated_unit_price >= 0.
+  Quantity and price units must be compatible; price currency matches the list.
+  Subtotal = estimated_unit_price * quantity / price_per_quantity
+  after converting quantity to price_per_unit.
+  Projected total sums all subtotals; checkout total sums purchased items only.
+  Unmarking sets purchased = false and reduces checkout total on the next query.
 end note
 
 @enduml
