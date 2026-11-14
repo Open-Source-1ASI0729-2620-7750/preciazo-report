@@ -83,6 +83,11 @@
 | **1.9** | 20/09/2026 | Pardo Chumpitazi, Kevin Patrick | Reestructuración del Capítulo I: compleción de perfiles profesionales del equipo, reformulación de Lean UX Problem Statement alineado al 5W+2H y actualización de hipótesis con enlace funcional al Lean UX Canvas. |
 | **2.0** | 11/10/2026 | Pardo Chumpitazi, Kevin Patrick | Actualización para entrega TB1: incorporación de ejecución del Sprint 2, métricas de contribución en repositorio y despliegue preliminar de Frontend Web Application. |
 | **2.1** | 13/11/2026 | Pardo Chumpitazi, Kevin Patrick | Subsanación de observaciones de TB1 para entrega AV2: corrección de formato de carátula, actualización de acciones ABET Student Outcome (TB1 y AV2) y estandarización terminológica según Anexo E. |
+| **2.2** | 14/11/2026 | Capillo Lema, Mía Valentina | Incorporación de los registros de entrevistas de validación de usabilidad y consolidación de evidencias en la sección 5.3. |
+| **2.3** | 14/11/2026 | Pardo Chumpitazi, Kevin Patrick | Configuración de variables de entorno, empaquetado del artefacto Java y despliegue oficial del servidor backend en Microsoft Azure App Service. |
+| **2.4** | 14/11/2026 | Becerra Durand, Sebastian Uriel | Documentación de bitácoras y observaciones de las sesiones de validación de campo con comerciantes locales. |
+| **2.5** | 14/11/2026 | Miranda Romero, Sergio Luis | Actualización y sincronización final del tablero Kanban del Sprint 3 en Trello y trazabilidad de historias de usuario. |
+| **2.6** | 14/11/2026 | Casós Torre, Miguel André | Refinamiento de la arquitectura orientada al dominio (DDD), diagramas C4 y documentación de contratos OpenAPI de servicios. |
 
 <div style="page-break-before: always;"></div>
 
@@ -140,11 +145,31 @@ A partir del historial analítico de GitHub en la rama principal durante la entr
 
 ---
 
+### Métricas de Contribución por Integrante (Entrega AV2)
+
+A partir del historial analítico de GitHub en el repositorio durante la etapa de desarrollo y consolidación de la entrega AV2, se registran las siguientes métricas cuantitativas globales de participación y desarrollo documental por integrante:
+
+| Integrante | Usuario GitHub | Contribuciones Registradas |
+| :--- | :--- | :--- |
+| **Capillo Lema, Mía Valentina** | MiaCL-5 | Participación activa en flujos de diseño UX, interfaces y validación de usabilidad. |
+| **Pardo Chumpitazi, Kevin Patrick** | Kevinyin11 | Liderazgo técnico en control de versiones, configuración de despliegue cloud y estandarización transversal. |
+| **Becerra Durand, Sebastian Uriel** | sebasdev28 | Obtención de requisitos empíricos, documentación de campo y soporte i18n. |
+| **Miranda Romero, Sergio Luis** | dym4njiroo | Modelado de requisitos funcionales, especificación Gherkin y gestión en Trello. |
+| **Casós Torre, Miguel André** | mcasos | Modelado estratégico de dominio (DDD), arquitectura C4 y contratos de servicios. |
+
+---
+
 ### Evidencias de Trabajo Colaborativo en Repositorio (Entrega AV2)
 
-> *[Pendiente: Insertar tabla actualizada de commits y capturas de GitHub Insights (Contributors y Network Graph) correspondientes a la entrega AV2 al finalizar la integración de las ramas de los Capítulos I al V].*
+![Métricas de contribuciones por colaborador AV2](../assets/Contributo-av2.png)
 
-<div style="page-break-before: always;"></div>
+*Figura 0.3. Métricas de contribución global, distribución de commits y actividad general por colaborador en preciazo-report durante la entrega AV2.*
+
+---
+
+![Grafo de red GitFlow AV2](../assets/Network-av2.png)
+
+*Figura 0.4. Network Graph del repositorio preciazo-report evidenciando la integración continua de ramas feature, develop y main bajo el modelo GitFlow durante la entrega AV2.*
 
 ---
 
@@ -154,26 +179,11 @@ A partir del historial analítico de GitHub en la rama principal, se consolidan 
 
 | Integrante | Usuario GitHub | Commits | Líneas Agregadas (++) | Líneas Eliminadas (--) |
 | :--- | :--- | :---: | :---: | :---: |
-| **Capillo Lema, Mía Valentina** | MiaCL-5 | 46 | +2,458 | -651 |
-| **Casós Torre, Miguel André** | mcasos | 45 | +3,182 | -641 |
-| **Pardo Chumpitazi, Kevin Patrick** | Kevinyin11 | 39 | +3,651 | -3,364 |
-| **Becerra Durand, Sebastian Uriel** | sebasdev28 | 16 | +337 | -235 |
+| **Pardo Chumpitazi, Kevin Patrick** | Kevinyin11 | 56 | +4,428 | -3,867 |
+| **Casós Torre, Miguel André** | mcasos | 55 | +7,660 | -2,133 |
+| **Capillo Lema, Mía Valentina** | MiaCL-5 | 51 | +2,845 | -669 |
+| **Becerra Durand, Sebastian Uriel** | sebasdev28 | 35 | +960 | -291 |
 | **Miranda Romero, Sergio Luis** | dym4njiroo | 10 | +994 | -145 |
-
----
-
-### Evidencias de Trabajo Colaborativo en Repositorio (Entrega TB1)
-
-![Métricas de contribuciones por colaborador](../assets/git%201.png)
-
-*Figura 5.1. Métricas de contribución global y distribución cuantitativa de commits, adiciones y eliminaciones por colaborador en preciazo-report durante la entrega TB1.*
-
----
-
-![Grafo de red GitFlow](../assets/git%202.png)
-
-*Figura 5.2. Network Graph del repositorio preciazo-report evidenciando la integración de ramas feature, develop y main bajo el modelo GitFlow durante la entrega TB1.*
-
 ---
 
 # Contenido
