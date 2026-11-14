@@ -2833,6 +2833,7 @@ la escala de severidad establecida para el proyecto:
 | **11** | La información secundaria presenta una jerarquía visual con contraste reducido | **2** | Inclusive Design - Proporciona experiencias comparables |
 | **12** | La interfaz no se adapta correctamente a dispositivos móviles | **3** | Inclusive Design - Proporcionar experiencias comparables |
 | **13** | La navegación principal no facilita el acceso directo al perfil del usuario | **2** | Information Architecture - Is it findable? |
+| **14** | El portal del comerciante no muestra una ruta jerárquica clara de navegación | **2** | Information Architecture - Is it usable? |
 
 
 #### Descripción de problemas
@@ -3266,6 +3267,44 @@ Si funciones como **Comparar Precios** o **Comunitaria** deben mantenerse como
 accesos principales, se recomienda incorporar el Perfil mediante un elemento visible
 y persistente, evitando que su ubicación dependa de que el usuario recuerde una ruta
 alternativa.
+
+## Problema #14: El portal del comerciante no muestra una ruta jerárquica clara de navegación
+
+**Severidad:** 2
+
+**Principio violado:** Information Architecture - Is it usable?
+
+**Problema:**
+
+Durante la evaluación del portal del comerciante se identificó que la interfaz permite
+acceder a secciones como **Métricas**, **Inventario**, **Promociones** y
+**Datos de Tienda**, pero no presenta una ruta jerárquica visible que indique al
+usuario su ubicación dentro de la estructura de navegación.
+
+En vistas como **Inventario**, el usuario puede reconocer la sección activa, pero no
+se muestra un elemento tipo breadcrumb que permita comprender la relación entre
+la sede seleccionada, el módulo de gestión y la vista actual.
+
+Esta ausencia puede dificultar la orientación cuando se incorporen más niveles de
+navegación o funciones secundarias dentro del portal.
+
+**Evidencia:**
+
+![Evidencia Information Architecture - Orientación jerárquica](../assets/sprint-3/heuristics/ia02-navigation-hierarchy.png)
+
+**Recomendación:**
+
+Incorporar una estructura de navegación jerárquica visible en las vistas que incluyan
+subniveles funcionales, por ejemplo mediante breadcrumbs del tipo:
+
+**Metro Miraflores > Inventario y Precios**
+
+En futuros flujos secundarios podría ampliarse a:
+
+**Metro Miraflores > Inventario y Precios > Editar producto**
+
+Esto permitiría que el usuario identifique fácilmente su ubicación y pueda regresar a
+niveles anteriores sin depender únicamente de la navegación principal.
 
 ## 5.4. Video About-the-Product
 
