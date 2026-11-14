@@ -2828,7 +2828,7 @@ la escala de severidad establecida para el proyecto:
 | **6** | El indicador de mejor precio no cuenta con una explicación explícita | **1** | Usabilidad - Reconocimiento antes que recuerdo |
 | **7** | La actualización de inventario depende principalmente de acciones individuales | **2** | Usabilidad - Flexibilidad y eficiencia de uso |
 | **8** | La vista de comparación concentra demasiada información en un solo espacio | **2** | Usabilidad - Diseño estético y minimalista |
-
+| **9** | No se evidencia una opción clara para corregir una verificación realizada por error | **2** | Usabilidad - Ayudar al usuario a reconocer, diagnosticar y recuperarse de errores |
 
 #### Descripción de problemas
 
@@ -3083,6 +3083,38 @@ elementos desplegables o vistas de detalle.
 También se recomienda reducir elementos repetitivos y mantener una separación
 visual clara entre productos y establecimientos para facilitar el escaneo rápido de
 la información.
+
+## Problema #9: No se evidencia una opción clara para corregir una verificación realizada por error
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Ayudar al usuario a reconocer, diagnosticar y recuperarse de errores
+
+**Problema:**
+
+Durante la evaluación de la sección **Verificación Comunitaria** se identificó que el
+usuario puede seleccionar las acciones **“No coincide”** o **“Confirmar precio”**
+para validar un reporte.
+
+Sin embargo, en la interfaz evaluada no se observa un mecanismo visible que permita
+corregir una selección realizada por error, ni una confirmación posterior que explique
+claramente el resultado de la acción ejecutada.
+
+Esta situación puede generar incertidumbre si el usuario confirma o rechaza
+accidentalmente un precio y desea modificar su decisión.
+
+**Evidencia:**
+
+![Evidencia H09 - Recuperación ante errores](../assets/sprint-3/heuristics/h09-error-recovery.png)
+
+**Recomendación:**
+
+Mostrar una confirmación inmediata después de registrar la verificación e incorporar
+una opción temporal de **“Deshacer”** que permita revertir la acción durante algunos
+segundos.
+
+También se recomienda indicar claramente el nuevo estado del reporte después de
+la interacción, de manera que el usuario pueda reconocer qué acción fue registrada.
 
 ## 5.4. Video About-the-Product
 
