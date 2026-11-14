@@ -2824,6 +2824,9 @@ la escala de severidad establecida para el proyecto:
 | **2** | Uso de abreviaciones que pueden dificultar la comprensión | **1** | Usabilidad - Correspondencia entre el sistema y el mundo real |
 | **3** | La ruta optimizada incluye un establecimiento cerrado sin una acción clara de corrección | **3** | Usabilidad - Control y libertad del usuario |
 | **4** | Uso inconsistente de etiquetas para las mismas secciones de navegación | **2** | Usabilidad - Consistencia y estándares |
+| **5** | Falta de validaciones preventivas en la creación de promociones | **3** | Usabilidad - Prevención de errores |
+
+
 #### Descripción de problemas
 
 La siguiente sección documentará individualmente los problemas encontrados,
@@ -2954,6 +2957,39 @@ Se recomienda establecer una nomenclatura única, por ejemplo:
 **“Datos de Tienda”**.
 
 ---
+
+## Problema #5: Falta de validaciones preventivas en la creación de promociones
+
+**Severidad:** 3
+
+**Heurística / Principio violado:** Usabilidad - Prevención de errores
+
+**Problema:**
+
+Durante la evaluación del formulario **Crear Promoción** se identificó que la interfaz
+permite ingresar el precio de oferta y las fechas de vigencia sin evidenciar restricciones
+preventivas antes de ejecutar la acción **Publicar Oferta**.
+
+En el diseño evaluado no se observa una validación visible que impida registrar una
+fecha de fin anterior a la fecha de inicio o introducir valores inconsistentes en el precio
+de la promoción. Esto puede ocasionar que el comerciante publique información
+incorrecta y tenga que corregirla posteriormente.
+
+**Evidencia:**
+
+![Evidencia H05 - Prevención de errores](../assets/sprint-3/heuristics/h05-error-prevention.png)
+
+**Recomendación:**
+
+Implementar validaciones antes de habilitar la publicación de la promoción. El sistema
+debe verificar que la fecha de fin sea posterior o igual a la fecha de inicio, que el precio
+de oferta sea un valor numérico válido y que los campos obligatorios estén completos.
+
+Mientras alguna condición no sea válida, el botón **Publicar Oferta** debería permanecer
+deshabilitado y la interfaz debería mostrar indicaciones específicas junto al campo
+correspondiente.
+
+
 
 ## 5.4. Video About-the-Product
 
