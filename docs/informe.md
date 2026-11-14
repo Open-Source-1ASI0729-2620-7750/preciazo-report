@@ -3793,15 +3793,23 @@ o informativo.
 
 ## 5.4. Video About-the-Product
 
-En esta sección se enlaza el video **About-the-Product**, el cual presenta el propósito de **Preciazo**, una demostración de las funcionalidades principales implementadas y fragmentos de las entrevistas de validación:
+### Información del Video
 
-* **Plataforma de Video:** YouTube / Microsoft Stream
-* **Enlace al Video About-the-Product (YouTube):** [Pegar URL de YouTube]
-* **Enlace al Video About-the-Product (Microsoft Stream):** [Pegar URL de Microsoft Stream]
+| Elemento | Información                                                                                                                    |
+| :--- |:-------------------------------------------------------------------------------------------------------------------------------|
+| **Nombre** | Video About-the-Product - Preciazo                                                                                             |
+| **Formato** | MP4                                                                                                                            |
+| **Duración** | 02:09                                                                                                                           |
+| **Microsoft Stream** | [Ver video en Microsoft Stream](https://1drv.ms/v/c/442438202d3719f3/IQAwkQXn1BfOS4rYgx8D_4F0Ac8LsMtwI03gwSpsxJSz-v0?e=ak30RA) |
+| **YouTube** | [Ver video en YouTube](https://youtu.be/XjwbQpADie8)                                                                           |
 
-<!-- Descomentar cuando tengan la captura del video About-the-Product -->
-<!-- ![Video About-the-Product](../assets/sprint-3/about-the-product.png) -->
+### Evidencia
 
+La siguiente captura corresponde a la versión publicada del Video About-the-Product:
+
+![Video About-the-Product](../assets/sprint-3/about-the-product.png)
+
+**Timing:** 02:09
 ---
 
 # Conclusiones
