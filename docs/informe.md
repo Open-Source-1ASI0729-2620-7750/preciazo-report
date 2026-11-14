@@ -3863,6 +3863,15 @@ La siguiente captura corresponde a la versión publicada del Video About-the-Pro
 
 # Anexos
 
-* **Anexo A:** Evidencias de ramas y flujo GitFlow en el repositorio oficial de GitHub.
-* **Anexo B:** Cuestionarios completos aplicados durante la fase de entrevistas cualitativas.
+* **Anexo A — Repositorio de Documentación Técnica (`preciazo-report`):** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report)
+* **Anexo B — Repositorio de Landing Page (`preciazo-landing-page`):** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page)
+* **Anexo C — Repositorio de Frontend Web Application (`Preciazo-platform`):** [https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform](https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform)
+* **Anexo D — Repositorio de RESTful Web Services (`preciazo-web-services`):** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services)
+* **Anexo E — Tableros Ágiles en Trello:**
+  * *Product Backlog General:* [https://trello.com/b/NhH0tIyG/product](https://trello.com/b/NhH0tIyG/product)
+  * *Sprint 3 Backlog Board:* [https://trello.com/b/IpWFADMg/preciazo-sprint-3](https://trello.com/b/IpWFADMg/preciazo-sprint-3)
+* **Anexo F — Entornos Desplegados en Producción (Microsoft Azure):**
+  * *Landing Page:* [https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/](https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/)
+  * *Frontend Web Application:* [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net)
+  * *RESTful Web Services (Swagger UI):* [https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html](https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html)
 
