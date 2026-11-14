@@ -2820,7 +2820,7 @@ la escala de severidad establecida para el proyecto:
 
 | # | Problema identificado | Escala de severidad | Heurística / Principio violado |
 | :---: | :--- | :---: | :--- |
-| **1** | `[Por completar]` | `[1-4]` | `[Por completar]` |
+| **1** | Falta de retroalimentación visible al completar una acción | **2** | Usabilidad - Visibilidad del estado del sistema |
 | **2** | `[Por completar]` | `[1-4]` | `[Por completar]` |
 | **3** | `[Por completar]` | `[1-4]` | `[Por completar]` |
 
@@ -2830,23 +2830,35 @@ La siguiente sección documentará individualmente los problemas encontrados,
 incluyendo su severidad, el principio afectado, evidencia visual y la acción
 de mejora propuesta.
 
-##### Problema #1: `[Título del problema]`
+##### Problema #1: Falta de retroalimentación visible al completar una acción
 
-**Severidad:** `[1-4]`
+**Severidad:** 2
 
-**Heurística / Principio violado:** `[Por completar]`
+**Heurística / Principio violado:** Usabilidad - Visibilidad del estado del sistema
 
 **Problema:**
 
-`[Descripción del problema identificado durante la evaluación.]`
+Durante la revisión del flujo de creación de promociones se identificó que la interfaz
+permite completar los datos y ejecutar la acción **Publicar Oferta**, pero no se
+evidencia de forma clara un estado intermedio de procesamiento ni una confirmación
+visual inmediata que indique al usuario si la operación fue realizada correctamente.
+
+La ausencia de este tipo de retroalimentación puede generar incertidumbre y provocar
+que el usuario repita la acción al no saber si el sistema procesó la solicitud.
 
 **Evidencia:**
 
-<!-- ![Evidencia Problema 1](../assets/sprint-3/heuristics/problem-01.png) -->
+![Evidencia H01 - Visibilidad del estado del sistema](../assets/sprint-3/heuristics/h01-system-status-01.png)
+
+
+![Evidencia H02 - Visibilidad del estado del sistema](../assets/sprint-3/heuristics/h01-system-status-02.png)
 
 **Recomendación:**
 
-`[Acción de mejora propuesta.]`
+Incorporar indicadores de estado durante el procesamiento de la acción, deshabilitando
+temporalmente el botón mientras se ejecuta la operación y mostrando posteriormente
+un mensaje visible de confirmación o error. Por ejemplo, se puede utilizar una
+notificación tipo snackbar con el mensaje **“Promoción publicada correctamente”**.
 
 ---
 
