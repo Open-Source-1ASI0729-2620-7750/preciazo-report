@@ -2831,8 +2831,7 @@ la escala de severidad establecida para el proyecto:
 | **9** | No se evidencia una opción clara para corregir una verificación realizada por error | **2** | Usabilidad - Ayudar al usuario a reconocer, diagnosticar y recuperarse de errores |
 | **10** | Los flujos complejos de la aplicación no presentan ayuda contextual visible | **2** | Usabilidad - Ayuda y documentación |
 | **11** | La información secundaria presenta una jerarquía visual con contraste reducido | **2** | Inclusive Design - Proporciona experiencias comparables |
-
-
+| **12** | La interfaz no se adapta correctamente a dispositivos móviles | **3** | Inclusive Design - Proporcionar experiencias comparables |
 
 #### Descripción de problemas
 
@@ -3193,6 +3192,40 @@ implementada.
 
 La información relevante no debería depender únicamente de una diferencia sutil
 de tonalidad para poder ser identificada correctamente.
+
+## Problema #12: La interfaz no se adapta correctamente a dispositivos móviles
+
+**Severidad:** 3
+
+**Principio violado:** Inclusive Design - Proporcionar experiencias comparables
+
+**Problema:**
+
+Durante la evaluación de Preciazo en una resolución correspondiente a un dispositivo
+móvil se identificó que determinadas vistas no se adaptan correctamente al espacio
+disponible en pantalla.
+
+Algunos componentes mantienen dimensiones propias de una visualización de
+escritorio, provocando una distribución poco adecuada del contenido y dificultando
+la lectura y ejecución de las acciones principales.
+
+Esta situación genera una experiencia diferente para los usuarios que acceden desde
+un smartphone y puede dificultar el cumplimiento de tareas que sí pueden realizarse
+con mayor facilidad desde una pantalla de escritorio.
+
+**Evidencia:**
+
+![Evidencia Inclusive Design - Adaptabilidad móvil](../assets/sprint-3/heuristics/id02-responsive-layout.png)
+
+**Recomendación:**
+
+Implementar y revisar el comportamiento responsive de las principales vistas mediante
+breakpoints adecuados, reorganización de componentes y dimensiones relativas.
+
+Se recomienda validar especialmente las vistas de listas, comparación de precios,
+rutas, inventario y promociones en diferentes tamaños de pantalla, asegurando que
+el contenido permanezca legible y que las acciones principales puedan utilizarse
+sin desplazamientos o desbordamientos innecesarios.
 
 ## 5.4. Video About-the-Product
 
