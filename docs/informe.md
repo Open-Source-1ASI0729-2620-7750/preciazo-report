@@ -2830,6 +2830,8 @@ la escala de severidad establecida para el proyecto:
 | **8** | La vista de comparación concentra demasiada información en un solo espacio | **2** | Usabilidad - Diseño estético y minimalista |
 | **9** | No se evidencia una opción clara para corregir una verificación realizada por error | **2** | Usabilidad - Ayudar al usuario a reconocer, diagnosticar y recuperarse de errores |
 | **10** | Los flujos complejos de la aplicación no presentan ayuda contextual visible | **2** | Usabilidad - Ayuda y documentación |
+| **11** | La información secundaria presenta una jerarquía visual con contraste reducido | **2** | Inclusive Design - Proporciona experiencias comparables |
+
 
 
 #### Descripción de problemas
@@ -3153,6 +3155,44 @@ de ayuda específica.
 En el módulo de Verificación Comunitaria, por ejemplo, podría incluirse una explicación
 breve indicando para qué sirve cada acción y cómo contribuye la validación del usuario
 a mantener actualizados los precios de Preciazo.
+
+# Hallazgos de Inclusive Design
+
+Además de las heurísticas de usabilidad, se evaluaron aspectos de diseño inclusivo
+con el objetivo de identificar barreras que puedan afectar la experiencia de usuarios
+con diferentes capacidades visuales y condiciones de uso.
+
+## Problema #11: La información secundaria presenta una jerarquía visual con contraste reducido
+
+**Severidad:** 2
+
+**Principio violado:** Inclusive Design - Proporciona experiencias comparables
+
+**Problema:**
+
+Durante la evaluación del módulo **Verificación Comunitaria** se identificó que
+diversos textos secundarios, como el tiempo transcurrido del reporte, las etiquetas
+de precios y la cantidad de usuarios que han confirmado una publicación, utilizan
+tonalidades grises de baja intensidad sobre fondos claros.
+
+Aunque esta información no corresponde a las acciones principales de la interfaz,
+forma parte del contexto necesario para evaluar la confiabilidad y actualidad de un
+reporte. Su baja prominencia visual puede dificultar la lectura para usuarios con
+capacidades visuales diversas o bajo condiciones de visualización desfavorables.
+
+**Evidencia:**
+
+![Evidencia Inclusive Design - Legibilidad de información secundaria](../assets/sprint-3/heuristics/id01-readable-content.png)
+
+**Recomendación:**
+
+Incrementar el contraste visual de los textos secundarios sin alterar la jerarquía
+general de la interfaz. Asimismo, se recomienda verificar los valores de contraste
+utilizados en texto y componentes durante las pruebas de accesibilidad de la versión
+implementada.
+
+La información relevante no debería depender únicamente de una diferencia sutil
+de tonalidad para poder ser identificada correctamente.
 
 ## 5.4. Video About-the-Product
 
