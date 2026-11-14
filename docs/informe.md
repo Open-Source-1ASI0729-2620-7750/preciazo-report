@@ -2829,6 +2829,8 @@ la escala de severidad establecida para el proyecto:
 | **7** | La actualización de inventario depende principalmente de acciones individuales | **2** | Usabilidad - Flexibilidad y eficiencia de uso |
 | **8** | La vista de comparación concentra demasiada información en un solo espacio | **2** | Usabilidad - Diseño estético y minimalista |
 | **9** | No se evidencia una opción clara para corregir una verificación realizada por error | **2** | Usabilidad - Ayudar al usuario a reconocer, diagnosticar y recuperarse de errores |
+| **10** | Los flujos complejos de la aplicación no presentan ayuda contextual visible | **2** | Usabilidad - Ayuda y documentación |
+
 
 #### Descripción de problemas
 
@@ -3115,6 +3117,42 @@ segundos.
 
 También se recomienda indicar claramente el nuevo estado del reporte después de
 la interacción, de manera que el usuario pueda reconocer qué acción fue registrada.
+
+## Problema #10: Los flujos complejos de la aplicación no presentan ayuda contextual visible
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Ayuda y documentación
+
+**Problema:**
+
+Durante la evaluación se identificó que la Landing Page de Preciazo dispone de una
+sección de preguntas frecuentes y soporte; sin embargo, en los principales flujos de
+la Frontend Web Application no se evidencia un mecanismo de ayuda contextual
+directamente asociado a las tareas que realiza el usuario.
+
+Funciones como la comparación de precios, el cálculo de rutas y la verificación
+comunitaria incorporan información y acciones específicas cuyo funcionamiento puede
+no resultar evidente para un usuario que interactúa con la plataforma por primera vez.
+
+Por ejemplo, en el módulo de **Verificación Comunitaria** el usuario debe decidir entre
+acciones como **“No coincide”** y **“Confirmar precio”**, pero no se muestra una ayuda
+visible que explique cómo estas decisiones afectan la información publicada en la
+plataforma.
+
+**Evidencia:**
+
+![Evidencia H10 - Ayuda y documentación](../assets/sprint-3/heuristics/h10-help-documentation.png)
+
+**Recomendación:**
+
+Incorporar ayuda contextual dentro de los flujos que requieren mayor explicación,
+mediante tooltips, íconos informativos, mensajes breves o enlaces hacia una sección
+de ayuda específica.
+
+En el módulo de Verificación Comunitaria, por ejemplo, podría incluirse una explicación
+breve indicando para qué sirve cada acción y cómo contribuye la validación del usuario
+a mantener actualizados los precios de Preciazo.
 
 ## 5.4. Video About-the-Product
 
