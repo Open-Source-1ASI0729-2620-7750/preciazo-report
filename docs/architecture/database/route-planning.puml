@@ -8,12 +8,26 @@ skinparam linetype ortho
 entity routes {
     * id : BIGINT <<PK>>
     --
-    shopping_list_id : BIGINT <<REF>>
-    distance : DECIMAL
-    estimated_duration : INTEGER
-    transit_cost : DECIMAL
-    net_savings : DECIMAL
+    owner_id : BIGINT <<REF>>
+    shopping_list_id : BIGINT <<REF, NULLABLE>>
+    shopping_list_version : BIGINT <<NULLABLE>>
+    origin_latitude : DECIMAL
+    origin_longitude : DECIMAL
+    departure_at : TIMESTAMP
+    transport_mode : VARCHAR
+    distance_meters : DECIMAL
+    travel_duration_seconds : BIGINT
+    basket_total : DECIMAL <<NULLABLE>>
+    reference_basket_total : DECIMAL <<NULLABLE>>
+    gross_savings : DECIMAL <<NULLABLE>>
+    transit_cost : DECIMAL <<NULLABLE>>
+    net_savings : DECIMAL <<NULLABLE>>
+    currency : VARCHAR <<NULLABLE>>
+    coverage_status : VARCHAR
+    reference_evaluated_at : TIMESTAMP
+    calculated_at : TIMESTAMP
     status : VARCHAR
+    version : BIGINT
 }
 
 entity route_stops {
@@ -22,20 +36,58 @@ entity route_stops {
     route_id : BIGINT <<FK>>
     store_id : BIGINT <<REF>>
     sequence : INTEGER
+    latitude : DECIMAL
+    longitude : DECIMAL
     estimated_arrival : TIMESTAMP
+    leg_distance_meters : DECIMAL
+    leg_duration_seconds : BIGINT
 }
 
-routes ||--o{ route_stops
+routes ||--|{ route_stops
 
 note right of route_stops
-  UNIQUE(route_id, sequence)
-  store_id belongs to
-  Merchant Management.
+  UNIQUE(route_id, sequence); UNIQUE(route_id, store_id).
+  Sequence starts at 1 and is contiguous; at least one selected store.
+  Nonnegative leg distances/durations; totals equal the sum of route legs.
+  ETA includes travel only, not shopping time or waiting.
+  store_id references Merchant Management by identity.
+end note
+
+
+entity route_items {
+    * id : BIGINT <<PK>>
+    --
+    route_id : BIGINT <<FK>>
+    product_id : BIGINT <<REF>>
+    quantity : DECIMAL
+    quantity_unit : VARCHAR
+    assigned_stop_id : BIGINT <<FK, NULLABLE>>
+    catalog_entry_id : BIGINT <<REF, NULLABLE>>
+    estimated_price : DECIMAL <<NULLABLE>>
+    price_currency : VARCHAR <<NULLABLE>>
+    price_per_quantity : DECIMAL <<NULLABLE>>
+    price_per_unit : VARCHAR <<NULLABLE>>
+}
+
+routes ||--o{ route_items
+route_stops |o--o{ route_items : optional assignment
+
+note bottom of route_items
+  UNIQUE(route_id, product_id); quantity > 0 with a compatible unit.
+  Assigned stop must belong to the same route; offer must match product and store.
+  Missing assignment/price is explicit, not a zero-cost item.
+  Unassigned required items -> INCOMPLETE coverage; confirmation is blocked.
 end note
 
 note right of routes
-  shopping_list_id belongs to
-  Shopping Planning.
+  Owner is authenticated; optional list must belong to that owner.
+  Coverage is COMPLETE, INCOMPLETE or NOT_EVALUATED.
+  No list -> no basket coverage or savings claim.
+  Missing comparable baseline or transit cost -> no net_savings value.
+  Money fields share currency; negative savings are permitted.
+  Origin -> selected stops; no implicit return-to-origin leg.
+  Save route, stops and items atomically with optimistic version control.
+  A failed recalculation preserves the previous route and version.
 end note
 
 @enduml

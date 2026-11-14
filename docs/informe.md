@@ -1798,7 +1798,9 @@ La búsqueda, comparación de canastas, normalización por kilogramo o litro, su
 
 #### Route Planning (Core Bounded Context)
 
-Modela el cálculo algorítmico de itinerarios óptimos y la estimación de ahorro neto a través del agregado `MultiStopRoute` y la integración con el sistema externo `Mapping & Routing Service`. El actor Buyer ejecuta `GenerateOptimalRoute` y `RecalculateRouteOnSkippedStop`, emitiendo los eventos `OptimalRouteGenerated` y `RouteStopSkipped` bajo la política `AutomaticRouteRecalculationPolicy`.
+El Design-Level Event Storming de Route Planning se propone para US14, US20 y TS03 siguiendo la guía de Event Storming: cada fila presenta Read Model → Buyer → Command → Multi-stop Route → Domain Event. Generar, recalcular y confirmar son decisiones del comprador; consultar o validar una ruta no modifica el aggregate ni emite eventos persistidos.
+
+La consulta al proveedor de mapas devuelve trayectos estimados o un fallo externo, no un evento de dominio. Una generación fallida no guarda una ruta y un recálculo fallido conserva el último plan. Las referencias a listas, precios, disponibilidad y horarios son contratos de datos locales cuya provisión sigue pendiente; no se incorporan ACL ni suscripciones automáticas a otros contextos. Los Hotspots identifican proveedor, modalidades, límite de paradas, vigencia de referencias y plazo de respuesta por definir.
 
 ![Preciazo Route Planning Design-Level Event Storming](../assets/architecture/event-storming/route-planning.png)
 
@@ -1865,7 +1867,7 @@ En el backend, la capa REST delega los casos de uso a los componentes de aplicac
 | Bounded Context (Orden DDD) | Interfaces Layer (REST Controllers) | Application Layer (Command & Query Services) | Domain Layer (Aggregates) | Infrastructure Layer (JPA & Adapters) |
 | :--- | :--- | :--- | :--- | :--- |
 | **1. Catalog and Pricing** *(Core)* | `ProductsController`, `StoreProductsController`, `BasketComparisonController` | `CatalogCommandServiceImpl`, `CatalogQueryServiceImpl` | `Product`, `StoreProduct`, `CatalogStoreReference` | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository` y `*PersistenceAssembler` |
-| **2. Route Planning** *(Core)* | `RoutesController` | `RouteCommandServiceImpl`, `RouteQueryServiceImpl` | `MultiStopRoute` | `RouteJpaRepository`, `MappingRoutingRestAdapter` |
+| **2. Route Planning** *(Core)* | `RoutesController` | `RouteCommandServiceImpl`, `RouteQueryServiceImpl` | `MultiStopRoute` | `RouteRepositoryImpl` → `RoutePersistenceRepository`, `MappingRoutingRestAdapter` |
 | **3. Shopping Planning** *(Core)* | `ShoppingListsController`, `BudgetsController` | `ShoppingListCommandServiceImpl`, `ShoppingListQueryServiceImpl` | `ShoppingList` (aggregate), `ShoppingListItem` y `PurchaseBudget` (entidades internas) | `ShoppingListRepositoryImpl`, `ShoppingListPersistenceRepository`, `ShoppingListPersistenceAssembler` |
 | **4. Merchant Management** *(Soporte)* | `MerchantsController`, `StoresController`, `PromotionsController` | `MerchantCommandServiceImpl`, `MerchantQueryServiceImpl` | `MerchantProfile`, `RetailStore`, `InventoryItem`, `Promotion`, `InventoryImportBatch` | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository`, assemblers y `RucVerificationRestAdapter` |
 | **5. Community Price Verification** *(Soporte)* | `PriceDiscrepanciesController` | `PriceVerificationCommandServiceImpl`, `PriceVerificationQueryServiceImpl` | `PriceDiscrepancy` (con observaciones y votos), `TrustProfile` | `PriceDiscrepancyRepositoryImpl`, `PriceDiscrepancyPersistenceRepository`, `PriceDiscrepancyPersistenceAssembler` |
@@ -1959,15 +1961,49 @@ Los cuerpos se transforman en Commands/Queries mediante assemblers y los resulta
 
 #### Route Planning (Core Bounded Context)
 
-El Bounded Context **Route Planning** representa la generación y optimización de recorridos entre múltiples establecimientos.
+La propuesta de AV2 cubre US14, US20 y TS03 y aplica los contratos de aplicación, dominio puro y persistencia separada de Learning Center. `MultiStopRoute` contiene origen, partida, modalidad, propietario, versión, paradas y productos asignados. `ShoppingPlanRef` es opcional y conserva identificador y versión de la lista; vincular una lista exige comprobar su titularidad. Las referencias son por identidad, sin importar aggregates de otros contextos ni añadir ACL.
 
-El aggregate `MultiStopRoute` administra las diferentes paradas mediante objetos `RouteStop`, relacionándose explícitamente con las enumeraciones `TransportMode` y `RouteStatus`, y contiene las operaciones necesarias para agregar, eliminar y reordenar establecimientos, además de calcular el ahorro neto asociado a una ruta.
+Para un conjunto de establecimientos seleccionado, `RouteOptimizationPolicy` minimiza la suma de distancias de los trayectos desde el origen, sin retorno implícito. No promete optimización conjunta de precio, distancia y tiempo. La búsqueda exacta requiere un máximo de paradas configurable; se rechazan solicitudes mayores. `RoutingGateway` devuelve una matriz de distancias en metros y duraciones en segundos según modalidad y partida. No se sustituye una ruta vial por distancia recta ni una modalidad no soportada por otra. Las ventanas de apertura se evalúan a la llegada estimada en la zona horaria del establecimiento: la estimación incluye traslado, sin inventar tiempos de compra o espera. Proveedor, modalidades efectivamente soportadas, vigencia de datos, máximo de paradas y timeout requieren configuración antes de implementar; no se reutiliza el plazo de validación de RUC.
 
-`RoutePlanningService` coordina la generación, recálculo y confirmación de rutas, mientras que `RoutingGateway` abstrae el acceso al servicio externo de mapas y ruteo.
+Con una lista vinculada, los requisitos se copian a `RouteItem` y cada producto se asigna una sola vez a la oferta disponible de menor subtotal entre las paradas seleccionadas, con cantidad/unidad compatible; los empates se resuelven por identificador de tienda. La consulta expone productos sin asignación y cobertura `COMPLETE` o `INCOMPLETE`. Una ruta sin lista tiene cobertura `NOT_EVALUATED`, sin afirmar cobertura de canasta ni ahorro. Disponibilidad significa la referencia pública disponible, sin reservar existencias ni prometer una cantidad física.
 
-Para mantener el aislamiento del contexto, conceptos pertenecientes a otros dominios se representan mediante elementos locales como `ShoppingPlanRef`, `ProductRequirement` y `StoreCandidate`. `GeoPoint` valida los rangos de coordenadas, `Distance` expresa kilómetros no negativos y `Quantity` representa la cantidad requerida de un producto. `RouteEstimate` es un resultado inmutable que reúne distancia y duración.
+En US20 el comprador proporciona su origen actual y las paradas restantes, excluyendo las omitidas o ya visitadas. Si solicita reemplazo, se necesita una canasta comparable y un radio explícito: se evalúan candidatos cercanos no seleccionados ni omitidos, abiertos a la llegada, accesibles y con ofertas disponibles. Se ordenan por costo de la canasta requerida, distancia al origen y storeId; se elige el primero que permita un recorrido viable. No se amplía el radio silenciosamente. Sin reemplazo viable se devuelve 422 y se conserva el plan; omitir sin reemplazar puede producir cobertura incompleta explícita, cuya confirmación está bloqueada. Ninguna operación modifica la lista de compras.
+
+`SavingsEstimate` separa total seleccionado, total de referencia, ahorro bruto, costo de transporte y ahorro neto. Solo se comparan canastas completas con los mismos productos, cantidades, unidades y moneda. El ahorro bruto es referencia menos total seleccionado y el neto resta el transporte conocido; los valores negativos se muestran. Sin una referencia comparable o sin costo de transporte, los valores correspondientes permanecen ausentes, nunca se suponen cero. La fuente y vigencia de esa referencia y del costo de transporte son decisiones pendientes.
 
 ![Route Planning Class Diagram](../assets/architecture/classes/route-planning.png)
+
+![Route Planning Backend Contracts](../assets/architecture/classes/route-planning-backend.png)
+
+![Route Planning States](../assets/architecture/classes/route-planning-states.png)
+
+`RouteCommandService` y `RouteQueryService` exponen `handle(record)`; los Commands devuelven `Result<Long, ApplicationError>`. Los contratos propuestos son:
+
+| Contrato | Datos y resultado |
+| --- | --- |
+| `GenerateRouteCommand` | ownerId autenticado, origin, departureAt, transportMode, selectedStoreIds y shoppingListId opcional. Guarda únicamente un recorrido calculado con éxito. |
+| `RecalculateRouteCommand` | ownerId, routeId, expectedVersion, origen actual, departureAt, remainingStoreIds, omittedStoreId opcional, replacementRequested y radio cuando se solicita reemplazo. Las paradas restantes deben proceder del recorrido actual, sin duplicados ni la parada omitida. Pueden quedar vacías únicamente si se solicita un reemplazo; el resultado exige al menos una parada. |
+| `ConfirmRouteCommand` | ownerId, routeId y expectedVersion. Revalida titularidad, cobertura y referencias vigentes; si cambiaron las condiciones exige recalcular. Repetir la confirmación sobre la versión ya confirmada es idempotente. |
+| `GetRouteByIdQuery` | ownerId y routeId; devuelve `Optional<RouteView>` con orden, trayectos, cobertura, productos pendientes, estimaciones, versión y fecha de evaluación. |
+| `GetMyRoutesQuery` | ownerId autenticado; devuelve `List<RouteView>` del comprador. |
+| `ValidateRouteQuery` | ownerId y routeId; devuelve `Result<RouteValidationView, ApplicationError>` con problemas actuales por tienda y fecha de evaluación, sin guardar cambios. |
+
+`RouteInputSnapshotProvider` declara un puerto de entrada local para requisitos y referencias confiables de tiendas, ofertas y horarios. No representa una integración implementada: su provisión y actualización siguen pendientes, y la falta de información requerida produce 503. El cuerpo del cliente no acredita propiedad, precios, disponibilidad ni horarios. No se interpreta un horario desconocido como abierto. Las validaciones de formato y coordenadas se realizan antes de llamar al proveedor.
+
+`RouteCommandServiceImpl` obtiene datos confiables, calcula fuera del bloqueo de base de datos y persiste ruta, paradas y artículos atómicamente con control optimista. Un recálculo exitoso sustituye el plan completo y vuelve a `OPTIMIZED`, incluso si estaba `CONFIRMED`; un fallo externo, ausencia de recorrido o conflicto no sobrescribe el plan ni su versión. Tras guardar se utiliza `DomainEventPublisher.publishAndClearEvents` para `RouteGenerated`, `RouteRecalculated` o `RouteConfirmed`, sin atribuir entrega durable al publicador. Confirmar registra la decisión del comprador: no reserva stock ni garantiza condiciones futuras. Una consulta de validación puede mostrar que el último plan requiere recálculo sin cambiar su estado.
+
+`RouteRepository` pertenece al dominio; `RouteRepositoryImpl` implementa el puerto mediante `RoutePersistenceRepository` de Spring Data y `RoutePersistenceAssembler`. Solo `RoutePersistenceEntity`, `RouteStopPersistenceEntity` y `RouteItemPersistenceEntity` llevan anotaciones JPA. `MappingRoutingRestAdapter` implementa el puerto externo y valida identificadores, unidades, modalidad y completitud de la matriz antes de aceptar sus resultados.
+
+| Endpoint propuesto | Contrato y respuesta |
+| --- | --- |
+| `POST /api/v1/routes/optimize` | `GenerateRouteCommand`; 200 con `RouteView`, paradas ordenadas y distancia acumulada, conforme a TS03. |
+| `POST /api/v1/routes/{routeId}/recalculate` | `RecalculateRouteCommand`; 200 con el nuevo plan y versión. |
+| `POST /api/v1/routes/{routeId}/confirm` | `ConfirmRouteCommand`; 200 con la ruta confirmada. |
+| `GET /api/v1/routes/{routeId}` | `GetRouteByIdQuery`; 200 con detalle. |
+| `GET /api/v1/routes` | `GetMyRoutesQuery`; 200 con rutas propias. |
+| `GET /api/v1/routes/{routeId}/validation` | `ValidateRouteQuery`; 200 con condiciones actuales y problemas detectados. |
+
+Los assemblers REST construyen Commands/Queries y Resources. Los errores usan `ApplicationError` y `ProblemDetail`: 400 para coordenadas, cantidades, radio o paradas inválidas; 401 para autenticación ausente/inválida; 403 para titularidad insuficiente; 404 para ruta inexistente; 409 para versión obsoleta o condiciones cambiadas al confirmar; 422 para punto inalcanzable, ausencia de orden viable, modalidad no soportada, exceso del límite de búsqueda, falta de reemplazo o cobertura incompleta al confirmar. La referencia requerida ausente produce `ROUTE_REFERENCE_UNAVAILABLE` (503); una respuesta externa inválida `ROUTING_BAD_RESPONSE` (502), indisponibilidad `ROUTING_UNAVAILABLE` (503) y plazo agotado `ROUTING_TIMEOUT` (504), con mapeos explícitos. Un fallo del proveedor no se clasifica como un punto inalcanzable de TS03. Esta es documentación de diseño para Spring Boot; no acredita endpoints o adaptadores implementados.
 
 #### Shopping Planning (Core Bounded Context)
 
@@ -2229,13 +2265,15 @@ Esta vista y el Database Overview usan el mismo esquema. `inventory_items` de Me
 
 #### Route Planning (Core Bounded Context)
 
-El Bounded Context **Route Planning** mantiene la información relacionada con las rutas calculadas para una planificación de compras.
+El esquema propuesto coincide con Database Overview y conserva la ruta calculada como snapshot auditable, sin persistir matrices del proveedor ni importar tablas de otros contextos como aggregates propios.
 
-La tabla `routes` almacena los datos principales del recorrido, tales como distancia, duración estimada, costo de desplazamiento, ahorro neto y estado.
+`routes` registra propietario, referencia opcional y versión de lista, origen, partida, modalidad, distancia en metros, duración en segundos, estado, cobertura, versión optimista y fechas de cálculo/evaluación. Los importes y moneda admiten ausencia cuando no existe una estimación completa y comparable; no se reemplaza información desconocida por cero. Los ahorros pueden ser negativos.
 
-Cada ruta se compone de múltiples `route_stops`, los cuales almacenan el establecimiento correspondiente, el orden dentro de la ruta y la hora estimada de llegada.
+`route_stops` conserva las coordenadas usadas, llegada estimada y distancia/duración de cada tramo. Exige `UNIQUE(route_id, sequence)`, `UNIQUE(route_id, store_id)`, secuencia contigua desde 1 y al menos una parada. Los totales de ruta equivalen a la suma de tramos y no incluyen un retorno implícito al origen.
 
-La combinación entre una ruta y su número de secuencia debe ser única. `shopping_list_id` referencia información proveniente de Shopping Planning y `store_id` corresponde a establecimientos administrados por Merchant Management.
+`route_items` conserva los productos y cantidades solicitados, su parada y oferta asignadas y el precio con su cantidad/unidad de referencia. Exige `UNIQUE(route_id, product_id)`, cantidades positivas, unidades compatibles y correspondencia entre producto, oferta y establecimiento. Una parada asignada pertenece a la misma ruta; la asignación ausente es explícita. Las restricciones entre filas se comprueban dentro de la transacción además de las claves locales. Las referencias a lista, producto, oferta y tienda son identidades de otros contextos; su coordinación permanece pendiente, sin ACL.
+
+Ruta, paradas y artículos se guardan o reemplazan en una sola transacción con control de versión. Un recálculo fallido conserva el snapshot anterior; las consultas de validación muestran sus problemas actuales sin sobrescribirlo. Los snapshots de entrada son contratos transitorios y no implican nuevas tablas sincronizadas automáticamente.
 
 ![Route Planning Database Diagram](../assets/architecture/database/route-planning.png)
 

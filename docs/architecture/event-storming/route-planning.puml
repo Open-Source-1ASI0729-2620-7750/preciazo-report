@@ -1,57 +1,70 @@
 @startuml Preciazo_Event_Storming_route_planning
-left to right direction
-title Preciazo - Design-Level Event Storming: Route Planning
+top to bottom direction
+title
+Preciazo - Design-Level Event Storming: Route Planning
+AV2 Design Proposal - US14, US20, TS03
+end title
 skinparam shadowing false
 skinparam defaultFontSize 15
 skinparam defaultTextAlignment center
-skinparam nodesep 35
-skinparam ranksep 35
+skinparam nodesep 30
+skinparam ranksep 30
 skinparam rectanglePadding 12
 
-rectangle "Buyer" as n0_0 <<Actor>> #FFE08A
-rectangle "Generate Route" as n0_1 <<Command>> #ACDAFA
-rectangle "Multi-stop Route" as n0_2 <<Aggregate>> #FFF1AE
-rectangle "Route Generated" as n0_3 <<Domain Event>> #FFD0A1
-rectangle "Get Optimized Route /\nEstimate Travel Time /\nGet Route Summary" as n0_4 <<Query>> #B3EDBE
-n0_0 --> n0_1
-n0_1 --> n0_2
-n0_2 --> n0_3
-n0_3 --> n0_4
+rectangle "Selected Stores and Purchase Plan\nOrigin, mode, available offers and opening windows" as read0 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer0 <<Actor>> #FFE08A
+rectangle "Generate Route" as command0 <<Command>> #ACDAFA
+rectangle "Multi-stop Route" as aggregate0 <<Aggregate>> #FFF1AE
+rectangle "Route Generated" as event0 <<Domain Event>> #FFD0A1
+read0 -right-> buyer0
+buyer0 -right-> command0
+command0 -right-> aggregate0
+aggregate0 -right-> event0
 
-rectangle "Buyer" as n1_0 <<Actor>> #FFE08A
-rectangle "Recalculate Route" as n1_1 <<Command>> #ACDAFA
-rectangle "Multi-stop Route" as n1_2 <<Aggregate>> #FFF1AE
-rectangle "Route Recalculated" as n1_3 <<Domain Event>> #FFD0A1
-n1_0 --> n1_1
-n1_1 --> n1_2
-n1_2 --> n1_3
+rectangle "Current Route and Validation Issues\nRemaining stores, skipped stop and replacement request" as read1 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer1 <<Actor>> #FFE08A
+rectangle "Recalculate Route" as command1 <<Command>> #ACDAFA
+rectangle "Multi-stop Route" as aggregate1 <<Aggregate>> #FFF1AE
+rectangle "Route Recalculated" as event1 <<Domain Event>> #FFD0A1
+read1 -right-> buyer1
+buyer1 -right-> command1
+command1 -right-> aggregate1
+aggregate1 -right-> event1
 
-rectangle "Product Availability\nChanged (Catalog and\nPricing)" as n2_0 <<Domain Event>> #FFD0A1
-rectangle "Reevaluate selected stops\nwhen a stop becomes\nunavailable" as n2_1 <<Policy>> #D4BFFA
-rectangle "Recalculate Route" as n2_2 <<Command>> #ACDAFA
-n2_0 --> n2_1
-n2_1 --> n2_2
+rectangle "Calculated Route Summary\nCoverage, travel estimates and data timestamp" as read2 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer2 <<Actor>> #FFE08A
+rectangle "Confirm Route" as command2 <<Command>> #ACDAFA
+rectangle "Multi-stop Route" as aggregate2 <<Aggregate>> #FFF1AE
+rectangle "Route Confirmed" as event2 <<Domain Event>> #FFD0A1
+read2 -right-> buyer2
+buyer2 -right-> command2
+command2 -right-> aggregate2
+aggregate2 -right-> event2
+read0 -[hidden]down-> read1
+buyer0 -[hidden]down-> buyer1
+command0 -[hidden]down-> command1
+aggregate0 -[hidden]down-> aggregate1
+event0 -[hidden]down-> event1
+read1 -[hidden]down-> read2
+buyer1 -[hidden]down-> buyer2
+command1 -[hidden]down-> command2
+aggregate1 -[hidden]down-> aggregate2
+event1 -[hidden]down-> event2
 
-rectangle "Generate Route /\nRecalculate Route" as n3_0 <<Command>> #ACDAFA
-rectangle "Mapping & Routing Service" as n3_1 <<External System>> #FFB2DF
-n3_0 --> n3_1
-
-rectangle "What happens when the\nexternal routing service\nis unavailable?" as n4_0 <<Hotspot>> #FFB7AB
-
-n0_0 -[hidden,norank]down-> n1_0
-n1_0 -[hidden,norank]down-> n2_0
-n2_0 -[hidden,norank]down-> n3_0
-n3_0 -[hidden,norank]down-> n4_0
-
-legend bottom
-|= Color |= Element |
-|<back:#FFE08A>    </back>| Actor |
-|<back:#ACDAFA>    </back>| Command |
-|<back:#FFF1AE>    </back>| Aggregate |
-|<back:#FFD0A1>    </back>| Domain Event |
-|<back:#D4BFFA>    </back>| Policy |
-|<back:#B3EDBE>    </back>| Query |
-|<back:#FFB2DF>    </back>| External System |
-|<back:#FFB7AB>    </back>| Hotspot |
-endlegend
+rectangle "Get Travel Matrix\nOrigin, stops, mode and departure" as outbound <<Query>> #B3EDBE
+rectangle "Mapping & Routing Service" as provider <<External System>> #FFB2DF
+rectangle "Estimated Travel Legs or Failure\nApplication validates the response" as response <<External Result>> #FFB2DF
+outbound -right-> provider
+provider -right-> response
+read2 -[hidden]down-> outbound
+rectangle "Buyer" as reader <<Actor>> #FFE08A
+rectangle "Get Route / Validate Route" as query <<Query>> #B3EDBE
+rectangle "Route Detail and Current Issues\nNo mutation or automatic replan from a query" as view <<Read Model>> #B3EDBE
+reader -right-> query
+query -right-> view
+outbound -[hidden]down-> reader
+rectangle "Replan from the buyer's current origin through remaining stores.\nClosed, unreachable or unavailable candidates are not valid replacements.\nFailed generation/recalculation emits no success event and preserves the old plan.\nIncomplete baskets expose missing products and cannot claim complete savings." as rules <<Business Rule>> #FFF1AE
+rectangle "Configure provider, exact-search stop limit, travel modes and deadline.\nTrusted list, price, availability and opening-window snapshots need provisioning.\nAutomatic reactions to Catalog/Merchant events remain future integration work.\nNo ACL or unimplemented subscription is introduced." as hotspot <<Hotspot>> #FFB7AB
+reader -[hidden]down-> rules
+rules -[hidden]down-> hotspot
 @enduml
