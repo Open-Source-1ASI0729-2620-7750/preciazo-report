@@ -1,58 +1,121 @@
 @startuml Preciazo_Event_Storming_community_price_verification
-left to right direction
-title Preciazo - Design-Level Event Storming: Community Price Verification
+top to bottom direction
+title
+Preciazo - Design-Level Event Storming: Community Price Verification
+AV2 Design Proposal - US28, US29, TS07
+end title
 skinparam shadowing false
 skinparam defaultFontSize 15
 skinparam defaultTextAlignment center
-skinparam nodesep 35
-skinparam ranksep 35
+skinparam nodesep 30
+skinparam ranksep 30
 skinparam rectanglePadding 12
 
-rectangle "Buyer" as n0_0 <<Actor>> #FFE08A
-rectangle "Report Price Discrepancy" as n0_1 <<Command>> #ACDAFA
-rectangle "Price Report" as n0_2 <<Aggregate>> #FFF1AE
-rectangle "Price Discrepancy\nReported" as n0_3 <<Domain Event>> #FFD0A1
-rectangle "Get Pending Price Reports" as n0_4 <<Query>> #B3EDBE
-n0_0 --> n0_1
-n0_1 --> n0_2
-n0_2 --> n0_3
-n0_3 --> n0_4
+rectangle "Current Store Offer\nPublished price and observed price" as input0 <<Read Model>> #B3EDBE
+rectangle "Buyer" as trigger0 <<Actor>> #FFE08A
+rectangle "Report Price Discrepancy" as command0 <<Command>> #ACDAFA
+rectangle "Price Discrepancy" as aggregate0 <<Aggregate>> #FFF1AE
+rectangle "Price Discrepancy Reported" as event0 <<Domain Event>> #FFD0A1
+input0 -right-> trigger0
+trigger0 -right-> command0
+command0 -right-> aggregate0
+aggregate0 -right-> event0
 
-rectangle "Buyer" as n1_0 <<Actor>> #FFE08A
-rectangle "Confirm Reported Price /\nReject Reported Price" as n1_1 <<Command>> #ACDAFA
-rectangle "Price Verification" as n1_2 <<Aggregate>> #FFF1AE
-rectangle "Price Confirmed / Price\nRejected" as n1_3 <<Domain Event>> #FFD0A1
-rectangle "Reevaluate price\nconfidence when\nconfirmations or\nrejections are received" as n1_4 <<Policy>> #D4BFFA
-n1_0 --> n1_1
-n1_1 --> n1_2
-n1_2 --> n1_3
-n1_3 --> n1_4
+rectangle "Pending Price Reports\nReported price, evidence and confidence" as input1 <<Read Model>> #B3EDBE
+rectangle "Buyer" as trigger1 <<Actor>> #FFE08A
+rectangle "Confirm Reported Price" as command1 <<Command>> #ACDAFA
+rectangle "Price Discrepancy" as aggregate1 <<Aggregate>> #FFF1AE
+rectangle "Reported Price Confirmed" as event1 <<Domain Event>> #FFD0A1
+input1 -right-> trigger1
+trigger1 -right-> command1
+command1 -right-> aggregate1
+aggregate1 -right-> event1
 
-rectangle "Reevaluate price\nconfidence" as n2_0 <<Policy>> #D4BFFA
-rectangle "Update Price Confidence" as n2_1 <<Command>> #ACDAFA
-rectangle "Price Verification" as n2_2 <<Aggregate>> #FFF1AE
-rectangle "Price Confidence Updated" as n2_3 <<Domain Event>> #FFD0A1
-rectangle "Get Price Confidence" as n2_4 <<Query>> #B3EDBE
-n2_0 --> n2_1
-n2_1 --> n2_2
-n2_2 --> n2_3
-n2_3 --> n2_4
+rectangle "Pending Price Reports\nReported price, evidence and confidence" as input2 <<Read Model>> #B3EDBE
+rectangle "Buyer" as trigger2 <<Actor>> #FFE08A
+rectangle "Reject Reported Price" as command2 <<Command>> #ACDAFA
+rectangle "Price Discrepancy" as aggregate2 <<Aggregate>> #FFF1AE
+rectangle "Reported Price Rejected" as event2 <<Domain Event>> #FFD0A1
+input2 -right-> trigger2
+trigger2 -right-> command2
+command2 -right-> aggregate2
+aggregate2 -right-> event2
 
-rectangle "How is a crowdsourced\nprice considered\ntrustworthy?" as n3_0 <<Hotspot>> #FFB7AB
+rectangle "Price Discrepancy Reported" as input3 <<Domain Event>> #FFD0A1
+rectangle "Anomaly Review Policy\nOn an anomaly or unavailable screening rule" as trigger3 <<Policy>> #D4BFFA
+rectangle "Flag Discrepancy for Review" as command3 <<Command>> #ACDAFA
+rectangle "Price Discrepancy" as aggregate3 <<Aggregate>> #FFF1AE
+rectangle "Discrepancy Flagged for Review" as event3 <<Domain Event>> #FFD0A1
+input3 -right-> trigger3
+trigger3 -right-> command3
+command3 -right-> aggregate3
+aggregate3 -right-> event3
 
-n0_0 -[hidden,norank]down-> n1_0
-n1_0 -[hidden,norank]down-> n2_0
-n2_0 -[hidden,norank]down-> n3_0
+rectangle "Reported Price Confirmed /\nReported Price Rejected" as input4 <<Domain Event>> #FFD0A1
+rectangle "Confidence Recalculation Policy\nAfter a new vote is recorded" as trigger4 <<Policy>> #D4BFFA
+rectangle "Recalculate Price Confidence" as command4 <<Command>> #ACDAFA
+rectangle "Price Discrepancy" as aggregate4 <<Aggregate>> #FFF1AE
+rectangle "Price Confidence Recalculated" as event4 <<Domain Event>> #FFD0A1
+input4 -right-> trigger4
+trigger4 -right-> command4
+command4 -right-> aggregate4
+aggregate4 -right-> event4
 
-legend bottom
-|= Color |= Element |
-|<back:#FFE08A>    </back>| Actor |
-|<back:#ACDAFA>    </back>| Command |
-|<back:#FFF1AE>    </back>| Aggregate |
-|<back:#FFD0A1>    </back>| Domain Event |
-|<back:#D4BFFA>    </back>| Policy |
-|<back:#B3EDBE>    </back>| Query |
-|<back:#FFB2DF>    </back>| External System |
-|<back:#FFB7AB>    </back>| Hotspot |
-endlegend
+rectangle "Price Confidence Recalculated" as input5 <<Domain Event>> #FFD0A1
+rectangle "Resolution Policy\nOnly when a configured decision rule applies" as trigger5 <<Policy>> #D4BFFA
+rectangle "Resolve Price Discrepancy" as command5 <<Command>> #ACDAFA
+rectangle "Price Discrepancy" as aggregate5 <<Aggregate>> #FFF1AE
+rectangle "Price Discrepancy Resolved" as event5 <<Domain Event>> #FFD0A1
+input5 -right-> trigger5
+trigger5 -right-> command5
+command5 -right-> aggregate5
+aggregate5 -right-> event5
+
+rectangle "Moderation Queue\nHeld reports, evidence, votes and reason" as input6 <<Read Model>> #B3EDBE
+rectangle "Authorized Reviewer\nprice-reports:resolve permission" as trigger6 <<Actor>> #FFE08A
+rectangle "Review Price Discrepancy\nAccept or reject with a reason" as command6 <<Command>> #ACDAFA
+rectangle "Price Discrepancy" as aggregate6 <<Aggregate>> #FFF1AE
+rectangle "Price Discrepancy Reviewed" as event6 <<Domain Event>> #FFD0A1
+input6 -right-> trigger6
+trigger6 -right-> command6
+command6 -right-> aggregate6
+aggregate6 -right-> event6
+
+input0 -[hidden]down-> input1
+trigger0 -[hidden]down-> trigger1
+command0 -[hidden]down-> command1
+aggregate0 -[hidden]down-> aggregate1
+event0 -[hidden]down-> event1
+input1 -[hidden]down-> input2
+trigger1 -[hidden]down-> trigger2
+command1 -[hidden]down-> command2
+aggregate1 -[hidden]down-> aggregate2
+event1 -[hidden]down-> event2
+input2 -[hidden]down-> input3
+trigger2 -[hidden]down-> trigger3
+command2 -[hidden]down-> command3
+aggregate2 -[hidden]down-> aggregate3
+event2 -[hidden]down-> event3
+input3 -[hidden]down-> input4
+trigger3 -[hidden]down-> trigger4
+command3 -[hidden]down-> command4
+aggregate3 -[hidden]down-> aggregate4
+event3 -[hidden]down-> event4
+input4 -[hidden]down-> input5
+trigger4 -[hidden]down-> trigger5
+command4 -[hidden]down-> command5
+aggregate4 -[hidden]down-> aggregate5
+event4 -[hidden]down-> event5
+
+rectangle "TS07: Reject a repeated report by the same buyer\nfor the same store offer within 60 seconds.\nRejected requests do not create another report event." as cooldown <<Business Rule>> #FFF1AE
+rectangle "Proposed vote rule: one vote per buyer and report.\nDuplicate or opposite second votes do not change confidence.\nA buyer votes on another buyer's OPEN report." as voteRule <<Business Rule>> #FFF1AE
+rectangle "Define the anomaly threshold, confidence formula,\naccept / reject / review thresholds and trust-profile rules.\nUntil agreed, no numeric default or automatic acceptance is assumed.\nA vote does not directly overwrite the catalog price.\nInitial screening completes before the report is visible.\nFinal decisions cannot be reopened in this scope." as decisions <<Hotspot>> #FFB7AB
+input5 -[hidden]down-> input6
+trigger5 -[hidden]down-> trigger6
+command5 -[hidden]down-> command6
+aggregate5 -[hidden]down-> aggregate6
+event5 -[hidden]down-> event6
+input6 -[hidden]down-> cooldown
+cooldown -[hidden]down-> voteRule
+voteRule -[hidden]down-> decisions
 @enduml

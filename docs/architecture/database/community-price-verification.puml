@@ -12,6 +12,7 @@ entity price_observations {
     discrepancy_id : BIGINT <<FK>>
     observer_id : BIGINT <<REF>>
     observed_price : DECIMAL
+    currency : VARCHAR
     observed_at : TIMESTAMP
     source : VARCHAR
 }
@@ -23,14 +24,19 @@ entity price_discrepancies {
     reporter_id : BIGINT <<REF>>
     expected_price : DECIMAL
     observed_price : DECIMAL
+    currency : VARCHAR
+    reported_at : TIMESTAMP
+    version : BIGINT
+    confidence_score : DECIMAL <<NULLABLE>>
     status : VARCHAR
 }
 
-entity verification_confirmations {
+entity verification_votes {
     * id : BIGINT <<PK>>
     --
     discrepancy_id : BIGINT <<FK>>
-    confirmer_id : BIGINT <<REF>>
+    voter_id : BIGINT <<REF>>
+    vote_type : VARCHAR
     created_at : TIMESTAMP
 }
 
@@ -42,17 +48,73 @@ entity trust_profiles {
     level : VARCHAR
 }
 
-price_discrepancies ||--o{ verification_confirmations
-price_discrepancies ||--o{ price_observations : supported by
+price_discrepancies ||--o{ verification_votes
+price_discrepancies ||--|{ price_observations : supported by
 
 note right of price_observations
   catalog_entry_id belongs to
   Catalog and Pricing.
 end note
 
-note right of verification_confirmations
-  confirmer_id and reporter_id belong to
-  Identity and Access.
+
+note right of verification_votes
+  UNIQUE(discrepancy_id, voter_id).
+  vote_type is CONFIRM or REJECT; immutable after submission.
+  Proposed: voter differs from reporter; report must be OPEN.
+  Duplicate votes do not produce another vote event.
+end note
+
+note right of price_discrepancies
+  US28: status is OPEN, UNDER_REVIEW, ACCEPTED or REJECTED.
+  Anomalous or unchecked reports are retained as UNDER_REVIEW.
+  Initial anomaly screening completes in the report transaction.
+  version supports optimistic concurrency; terminal states do not reopen.
+  confidence_score remains unset until a confidence rule is configured.
+  Formula and acceptance/rejection thresholds are pending decisions.
+  TS07: index (reporter_id, catalog_entry_id, reported_at).
+  Reject a repeat report within 60 seconds; enforce atomically per buyer/offer.
+  A time-window check is not a permanent UNIQUE(buyer, offer) constraint.
+end note
+
+note bottom of price_observations
+  At least one observation per discrepancy.
+  Nonnegative prices; expected and observed prices use the same currency.
+  The observation belongs to the discrepancy's catalog offer.
+end note
+
+entity discrepancy_reviews {
+    * id : BIGINT <<PK>>
+    --
+    discrepancy_id : BIGINT <<FK, UQ>>
+    reviewer_id : BIGINT <<REF>>
+    decision : VARCHAR
+    reason : VARCHAR
+    reviewed_at : TIMESTAMP
+}
+
+entity processed_verification_events {
+    * id : BIGINT <<PK>>
+    --
+    event_id : VARCHAR
+    handler_name : VARCHAR
+    discrepancy_id : BIGINT <<FK>>
+    processed_at : TIMESTAMP
+}
+
+price_discrepancies ||--o| discrepancy_reviews
+price_discrepancies ||--o{ processed_verification_events
+
+note right of discrepancy_reviews
+  One final human review per report; decision is ACCEPT or REJECT.
+  Reviewer requires price-reports:resolve; reason is mandatory.
+  Report must be UNDER_REVIEW; review and status change are atomic.
+  reviewer_id references Identity and Access by identifier only.
+end note
+
+note right of processed_verification_events
+  UNIQUE(event_id, handler_name).
+  Marker and domain mutation commit together or roll back together.
+  Domain event identity is distinct from the generated BIGINT row id.
 end note
 
 @enduml

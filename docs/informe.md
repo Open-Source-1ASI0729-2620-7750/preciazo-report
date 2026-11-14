@@ -1814,7 +1814,11 @@ Modela el ciclo de afiliación comercial, validación fiscal con el sistema exte
 
 #### Community Price Verification (Supporting Bounded Context)
 
-Modela la validación colaborativa de precios en góndola y la reputación de los usuarios mediante los agregados `PriceDiscrepancy` y `TrustProfile`. Los comandos `ReportPriceDiscrepancy` y `ConfirmPriceObservation` producen los eventos `DiscrepancyReported`, `ObservationConfirmed` y `DiscrepancyValidated`, disparando la política de consenso `ConsensusPriceUpdatePolicy`.
+La propuesta AV2 para US28, US29 y TS07 sigue los pasos 5–9 de **Guía event storming**: las vistas de lectura informan la decisión del Buyer, los comandos se expresan en imperativo y el aggregate `PriceDiscrepancy` produce eventos en pasado. Se distinguen reportar una discrepancia, confirmar un precio reportado y rechazarlo. Un voto negativo es un dato comunitario; no equivale por sí solo a resolver el reporte como rechazado.
+
+Las políticas de revisión de anomalías, recálculo de confianza y resolución reaccionan a eventos e invocan comandos explícitos sobre el mismo aggregate. `ReportedPriceConfirmed` y `ReportedPriceRejected` disparan el recálculo; la resolución solo se ejecuta cuando existe una regla configurada. El diagrama conserva como Hotspot la fórmula de confianza, los umbrales de anomalía y resolución y las reglas de reputación. No se inventan valores numéricos ni se sobrescribe automáticamente el precio de Catalog and Pricing.
+
+TS07 exige rechazar reportes repetidos del mismo usuario sobre la misma oferta de tienda en menos de 60 segundos. Como propuesta adicional de integridad para AV2, se permite un solo voto por comprador y reporte, emitido por otro comprador mientras el reporte está abierto; un segundo voto, incluso contrario, no modifica la confianza ni genera otro evento. Esta restricción de votos es distinta del límite temporal para crear reportes.
 
 ![Preciazo Community Price Verification Design-Level Event Storming](../assets/architecture/event-storming/community-price-verification.png)
 
@@ -1858,7 +1862,7 @@ En el backend, la capa REST delega los casos de uso a los componentes de aplicac
 | **2. Route Planning** *(Core)* | `RoutesController` | `RouteCommandServiceImpl`, `RouteQueryServiceImpl` | `MultiStopRoute` | `RouteJpaRepository`, `MappingRoutingRestAdapter` |
 | **3. Shopping Planning** *(Core)* | `ShoppingListsController`, `BudgetsController` | `ShoppingListCommandServiceImpl`, `ShoppingListQueryServiceImpl` | `ShoppingList` (aggregate), `ShoppingListItem` y `PurchaseBudget` (entidades internas) | `ShoppingListRepositoryImpl`, `ShoppingListPersistenceRepository`, `ShoppingListPersistenceAssembler` |
 | **4. Merchant Management** *(Soporte)* | `MerchantsController`, `StoresController`, `PromotionsController` | `MerchantCommandServiceImpl`, `InventoryQueryServiceImpl` | `MerchantProfile`, `RetailStore` | `MerchantJpaRepository`, `SunatRucVerificationAdapter` |
-| **5. Community Price Verification** *(Soporte)* | `PriceDiscrepanciesController` | `DiscrepancyCommandServiceImpl`, `VerificationQueryServiceImpl` | `PriceDiscrepancy`, `TrustProfile` | `DiscrepancyJpaRepository`, `TrustProfileJpaRepository` |
+| **5. Community Price Verification** *(Soporte)* | `PriceDiscrepanciesController` | `PriceVerificationCommandServiceImpl`, `PriceVerificationQueryServiceImpl` | `PriceDiscrepancy` (con observaciones y votos), `TrustProfile` | `PriceDiscrepancyRepositoryImpl`, `PriceDiscrepancyPersistenceRepository`, `PriceDiscrepancyPersistenceAssembler` |
 | **6. Analytics and Engagement** *(Soporte)* | `MerchantAnalyticsController` | `AnalyticsCommandServiceImpl`, `MetricsQueryServiceImpl` | `MetricEvent`, `MerchantReport` | `AnalyticsEventJpaRepository`, `MerchantMetricsJpaRepository` |
 | **7. Identity and Access** *(Genérico)* | `AuthenticationController`, `UsersController` | `UserCommandServiceImpl`, `RoleQueryServiceImpl` | `User`, `AuthSession`, `Role` | `UserJpaRepository`, `RoleJpaRepository`, `JwtTokenServiceAdapter` |
 
@@ -1934,15 +1938,100 @@ La interfaz `RucVerificationGateway` abstrae la comunicación con el servicio ex
 
 #### Community Price Verification (Supporting Bounded Context)
 
-El Bounded Context **Community Price Verification** administra las observaciones y discrepancias de precios reportadas por los usuarios.
+`PriceDiscrepancy` es el aggregate que conserva la oferta referenciada, el autor, los precios esperado y observado, la fecha de reporte, la confianza calculada y el estado. Contiene al menos una `PriceObservation` y cero o más `VerificationVote`. `VoteType` distingue `CONFIRM` de `REJECT`; sustituye el concepto incompleto `VerificationConfirmation`. `DiscrepancyStatus` distingue `OPEN`, `UNDER_REVIEW`, `ACCEPTED` y `REJECTED`, separando el voto individual de la resolución global.
 
-`PriceDiscrepancy` representa una diferencia detectada entre un precio esperado y uno observado (asociada a la enumeración `DiscrepancyStatus`) y puede recibir múltiples `PriceObservation` y `VerificationConfirmation` (vinculada a la enumeración `VoteType`).
+`VerificationPolicy` encapsula la detección de anomalías, el cálculo de confianza y la decisión opcional. US28 exige retener valores anómalos para revisión; US29 exige que las confirmaciones aumenten la confianza y los rechazos la reduzcan. La fórmula y los umbrales aún requieren acuerdo del equipo: si no hay regla configurada, no se asigna un puntaje ficticio ni se acepta o rechaza automáticamente. `VerificationDecision` se aplica mediante `resolve(...)`: `ACCEPT` pasa a `ACCEPTED`, `REJECT` a `REJECTED` y `REVIEW` a `UNDER_REVIEW`. La propuesta de voto único exige comprobar autor, estado y votos previos antes de modificar el aggregate.
 
-La clase `TrustProfile` mantiene información local relacionada con la confiabilidad de las contribuciones realizadas por un usuario mediante la enumeración `TrustLevel`. Por otro lado, `VerificationPolicy` encapsula las reglas necesarias para aceptar, rechazar o solicitar revisión adicional de una discrepancia.
+El backend sigue **Learning Center Platform Guide**, ADR-0001, ADR-0002 y ADR-0007: `PriceVerificationCommandService` recibe siete tipos de Command con `handle(...)` y devuelve `Result<Long, ApplicationError>`; `PriceVerificationQueryService` recibe Queries y devuelve listas u opcionales. `VerificationEventHandler` despacha los comandos de las políticas tras los eventos correspondientes; los comandos automáticos son internos, no acciones autorizadas directamente al Buyer. Las implementaciones utilizan el puerto `PriceDiscrepancyRepository`; su adaptador JPA y assembler separan el dominio de las clases `*PersistenceEntity`. La publicación y limpieza de eventos sigue el patrón `DomainEventPublisher` de la guía; el consumidor debe evitar reprocesar un mismo evento con efectos duplicados.
 
-Los Value Objects `UserRef` y `StoreProductRef` actúan como referencias inmutables hacia Identity and Access y Catalog and Pricing sin introducir sus modelos internos directamente. Los precios esperados y observados utilizan `Money`.
+`UserRef` y `StoreProductRef` son referencias locales a Identity and Access y a la oferta de Catalog and Pricing. `Money` exige importes no negativos y la misma moneda al comparar precios. `TrustProfile` conserva el concepto de reputación ya previsto, pero sus reglas de actualización y niveles siguen pendientes y no se deducen del sentido de un único voto. El control TS07 debe serializar la creación por usuario/oferta y consultar los reportes de los últimos 60 segundos para impedir duplicados concurrentes; en la frontera REST se representa como HTTP 429. Un voto duplicado se propone como conflicto HTTP 409, sin generar un nuevo voto.
 
 ![Community Price Verification Class Diagram](../assets/architecture/classes/community-price-verification.png)
+
+#### Contratos propuestos del backend de Verificación Comunitaria
+
+La propuesta sigue los contratos de aplicación de **Learning Center Platform Guide** (ADR-0001 y ADR-0007). Los Commands y Queries se representan como records inmutables. Los identificadores de usuario se obtienen del principal autenticado en el servidor; no se confía en un `reporterId`, `voterId` o `reviewerId` enviado en el cuerpo HTTP. Los comandos internos de políticas no se exponen como acciones públicas. No se incorpora ACL: los usuarios y las ofertas se representan por sus identificadores.
+
+| Command | Datos del contrato de aplicación | Origen y resultado |
+| :--- | :--- | :--- |
+| `ReportPriceDiscrepancyCommand` | `reporterId`, `catalogEntryId`, `expectedPrice`, `observedPrice`, `currency`, `observedAt` | Buyer autenticado; devuelve el ID del reporte mediante `Result<Long, ApplicationError>`. `expectedPrice` es una instantánea declarada del precio visto, no una actualización del catálogo ni una validación fiscal/comercial. |
+| `ConfirmReportedPriceCommand` | `discrepancyId`, `voterId` | Buyer autenticado; registra `CONFIRM` si es otro comprador, el reporte está abierto y todavía no votó. |
+| `RejectReportedPriceCommand` | `discrepancyId`, `voterId` | Mismas restricciones; registra `REJECT`, sin resolver por sí solo el reporte. |
+| `FlagDiscrepancyForReviewCommand` | `discrepancyId`, `sourceEventId` | Interno; retiene un reporte anómalo o cuyo control de anomalías no pueda evaluarse. |
+| `RecalculatePriceConfidenceCommand` | `discrepancyId`, `sourceEventId` | Interno; lee todos los votos vigentes y aplica la fórmula configurada. Sin fórmula, conserva el puntaje sin asignar y no emite un evento de recálculo ficticio. |
+| `ResolvePriceDiscrepancyCommand` | `discrepancyId`, `decision`, `expectedVersion`, `sourceEventId` | Interno; solo para `OPEN`, con regla configurada y versión vigente. Puede aceptar, rechazar o retener para revisión. |
+| `ReviewPriceDiscrepancyCommand` | `discrepancyId`, `reviewerId`, `decision`, `reason`, `expectedVersion` | Revisor autenticado con permiso `price-reports:resolve`; solo desde `UNDER_REVIEW`, con `ACCEPT` o `REJECT` y motivo obligatorio. |
+
+En el contrato público de TS07 se conservan `productId` y `storeId`: la capa REST debe normalizarlos al `catalogEntryId` de la oferta antes de construir el Command. La correspondencia debe ser inequívoca y validada mediante los datos de referencia disponibles; no se acepta un ID de oferta arbitrario ni se introduce una llamada entre contextos en este diseño. El mecanismo de provisión de esos datos de referencia queda como dependencia de integración para el backend. Los importes son no negativos, la moneda debe coincidir y los dos precios deben diferir; `observedAt` no puede ser posterior a la hora del servidor. La ventana TS07 utiliza `reportedAt`, generado por el servidor, no la fecha indicada por el comprador.
+
+| Query | Datos | Retorno y acceso |
+| :--- | :--- | :--- |
+| `GetPendingPriceReportsQuery` | Sin filtros en esta primera versión | `List<PriceDiscrepancy>`; solo reportes `OPEN`, sin incluir la cola de moderación. |
+| `GetPriceDiscrepancyByIdQuery` | `discrepancyId` | `Optional<PriceDiscrepancy>`; la autorización se verifica antes de revelar el detalle. |
+| `GetPriceConfidenceQuery` | `discrepancyId` | `Optional<PriceConfidenceView>` con votos favorables, desfavorables, puntaje opcional y estado. |
+| `GetModerationQueueQuery` | Sin filtros en esta primera versión | `List<PriceDiscrepancy>` con estado `UNDER_REVIEW`; requiere `price-reports:resolve`. |
+
+Los retornos de aplicación se transforman a Resources REST mediante assemblers, siguiendo Learning Center. No se serializan directamente aggregates ni entidades JPA. La revisión manual es una propuesta de permiso sobre el mecanismo de autorización existente; no agrega un rol nuevo y su asignación a operadores debe definirse antes del uso real. Para la consulta de detalle y confianza se propone permitir reportes `OPEN` y finales a usuarios autenticados; un reporte `UNDER_REVIEW` solo es visible a su autor o a un revisor autorizado. La consulta de confianza no revela identificadores individuales de votantes.
+
+#### Eventos y procesamiento de políticas
+
+Todos los eventos incluyen `eventId`, `discrepancyId`, `occurredAt` y `aggregateVersion`, asignados por el servidor; el identificador del evento se conserva en sus reintentos. Solo las operaciones aceptadas registran eventos. `DomainEventPublisher.publishAndClearEvents(saved)` se invoca desde el adaptador después de guardar y disponer del identificador persistido, tal como propone ADR-0005 de Learning Center.
+
+| Evento | Datos adicionales | Manejador y efecto |
+| :--- | :--- | :--- |
+| `PriceDiscrepancyReported` | `catalogEntryId`, `reporterId` | `VerificationEventHandler.on(...)` evalúa anomalías e invoca `FlagDiscrepancyForReviewCommand` si corresponde. La creación y este control inicial comparten transacción, sin exponer un estado abierto intermedio. Si no hay regla de anomalías disponible, se retiene para revisión. |
+| `ReportedPriceConfirmed` | `voteId`, `voterId` | El manejador despacha `RecalculatePriceConfidenceCommand`. |
+| `ReportedPriceRejected` | `voteId`, `voterId` | Igual recálculo, conservando el sentido negativo del voto. |
+| `PriceConfidenceRecalculated` | `confidenceScore` | El manejador evalúa la política y despacha `ResolvePriceDiscrepancyCommand` únicamente si devuelve una decisión y la versión sigue vigente. |
+| `DiscrepancyFlaggedForReview` | Estado resultante `UNDER_REVIEW` | Actualiza las consultas de moderación; no vuelve a disparar la revisión inicial. |
+| `PriceDiscrepancyResolved` | `decision`, estado resultante | Resultado de la política interna; no modifica el precio del catálogo. |
+| `PriceDiscrepancyReviewed` | `reviewId`, `reviewerId`, `decision` | Resultado de la revisión humana; tampoco altera el catálogo ni dispara otro voto. |
+
+La propuesta de idempotencia utiliza `processed_verification_events` con `UNIQUE(event_id, handler_name)`: el manejador reclama la combinación antes de ejecutar el efecto. La marca y la mutación del aggregate se guardan en la misma transacción; si hay un fallo, ambas se revierten. Si la combinación ya existe, el manejador termina sin mutar el reporte ni publicar otro evento. Esto protege los reintentos de eventos y no sustituye `UNIQUE(discrepancy_id, voter_id)`, que protege las solicitudes de voto.
+
+El campo `version` de `PriceDiscrepancyPersistenceEntity` utiliza bloqueo optimista en la implementación JPA; el dominio conserva un valor de versión sin anotaciones del framework. El recálculo siempre utiliza el conjunto actual de votos. Una decisión sobre una versión antigua no se aplica: se vuelve a leer el estado y se reevalúa la regla, sin reabrir reportes finales. Los fallos de manejadores que afectan una regla obligatoria no se silencian. La publicación en memoria de Spring no garantiza por sí sola entrega durable tras una caída; este diseño no declara una garantía de mensajería durable ni incorpora un outbox.
+
+#### Moderación y transiciones permitidas
+
+![Price Discrepancy Lifecycle](../assets/architecture/classes/community-price-verification-states.png)
+
+| Estado de origen | Acción autorizada | Estado resultante |
+| :--- | :--- | :--- |
+| Creación | Reporte válido, control inicial sin anomalía | `OPEN` |
+| Creación | Anomalía detectada o control de anomalías no disponible | `UNDER_REVIEW` |
+| `OPEN` | Confirmación o rechazo válido de otro comprador | `OPEN`, salvo que después aplique una regla de resolución configurada |
+| `OPEN` | Política configurada solicita moderación | `UNDER_REVIEW` |
+| `OPEN` | Política configurada acepta o rechaza | `ACCEPTED` o `REJECTED` |
+| `UNDER_REVIEW` | Revisor con permiso acepta o rechaza con motivo | `ACCEPTED` o `REJECTED` |
+| `ACCEPTED` / `REJECTED` | Voto, reapertura o nueva decisión sobre ese mismo reporte | No permitido; no hay cambio de estado |
+
+`discrepancy_reviews` registra una decisión humana final por reporte con revisor, decisión, motivo y fecha del servidor. La revisión y el cambio de estado se guardan atómicamente; la restricción por reporte y el control de versión impiden decisiones finales concurrentes. El alcance no incluye reapertura ni modificación de votos.
+
+#### Contratos HTTP y errores propuestos
+
+| Método y recurso | Resultado satisfactorio | Autorización |
+| :--- | :--- | :--- |
+| `POST /api/v1/reports/prices` | `201 Created`, Resource del reporte y `Location` | Buyer autenticado; conserva el endpoint de TS07. |
+| `POST /api/v1/reports/prices/{id}/votes` | `201 Created`, Resource del voto; cuerpo con `voteType` igual a `CONFIRM` o `REJECT` | Buyer autenticado, distinto del autor, reporte `OPEN`. |
+| `GET /api/v1/reports/prices` | `200 OK`, lista de reportes abiertos | Usuario autenticado. |
+| `GET /api/v1/reports/prices/{id}` | `200 OK`, Resource del reporte | Se aplica la visibilidad indicada para la Query. |
+| `GET /api/v1/reports/prices/{id}/confidence` | `200 OK`, Resource de confianza | Misma visibilidad; sin identificadores de votantes. |
+| `GET /api/v1/reports/prices/moderation` | `200 OK`, reportes retenidos | Permiso `price-reports:resolve`; ruta estática distinta de `{id}`. |
+| `POST /api/v1/reports/prices/{id}/reviews` | `201 Created`, Resource de revisión; cuerpo con `decision`, `reason`, `expectedVersion` | Permiso `price-reports:resolve`; únicamente `UNDER_REVIEW`. |
+
+| Condición | Código de aplicación o seguridad | HTTP |
+| :--- | :--- | :---: |
+| Importes, moneda, identificadores, fecha, voto o decisión inválidos; motivo vacío | `VALIDATION_ERROR` | 400 |
+| Token ausente o inválido | Rechazo del filtro de autenticación | 401 |
+| Autor intentando votar, permiso de moderación ausente o acceso fuera de la visibilidad permitida | `PRICE_VERIFICATION_FORBIDDEN` o rechazo de autorización | 403 |
+| Reporte u oferta de referencia inexistente | `PRICE_DISCREPANCY_NOT_FOUND` / `STORE_OFFER_NOT_FOUND` | 404 |
+| Voto repetido, reporte fuera de estado válido, revisión ya realizada o versión desactualizada | `VERIFICATION_VOTE_CONFLICT`, `DISCREPANCY_STATE_CONFLICT`, `DISCREPANCY_REVIEW_CONFLICT`, `DISCREPANCY_VERSION_CONFLICT` | 409 |
+| Mismo usuario/oferta con reporte creado hace menos de 60 segundos | `PRICE_REPORT_RATE_LIMIT_EXCEEDED` | 429 |
+| Error inesperado de infraestructura | `UNEXPECTED_ERROR` | 500 |
+
+Siguiendo Learning Center, las respuestas de error usan `ProblemDetail` con `type`, `title`, `status`, `detail` y extensión `code`; los mensajes se localizan mediante los recursos de idioma. En Preciazo debe añadirse al assembler el mapeo explícito de `PRICE_REPORT_RATE_LIMIT_EXCEEDED` a 429 y de `PRICE_VERIFICATION_FORBIDDEN` a 403, antes de la regla genérica. El resto conserva los sufijos `_NOT_FOUND` y `_CONFLICT`. Para TS07, `Retry-After` expresa los segundos restantes hasta `último reportedAt + 60 segundos`, redondeados hacia arriba; al cumplirse los 60 segundos deja de aplicarse ese rechazo. No se incluyen credenciales ni detalles internos de persistencia en los errores.
+
+
 
 #### Analytics and Engagement (Supporting Bounded Context)
 
@@ -2042,13 +2131,15 @@ El campo `product_id` de inventario funciona como una referencia hacia Catalog a
 
 #### Community Price Verification (Supporting Bounded Context)
 
-El modelo de persistencia de **Community Price Verification** permite almacenar reportes y evidencias relacionadas con discrepancias de precios.
+`price_discrepancies` guarda la oferta, el autor, los precios con su moneda, fecha, estado y puntaje opcional. `price_observations` conserva las evidencias con observador, precio, moneda, origen y fecha. Debe existir al menos una observación de la misma oferta por reporte. La detección de anomalías deriva el reporte a `UNDER_REVIEW`; el puntaje permanece sin asignar mientras no se haya definido la fórmula de confianza.
 
-`price_discrepancies` representa diferencias reportadas entre un precio esperado y uno observado. Cada discrepancia puede recibir múltiples registros `price_observations`, los cuales contienen el precio observado, fecha y origen de la observación.
+`verification_votes` registra ambos sentidos del voto mediante `vote_type` (`CONFIRM` o `REJECT`) y `voter_id`. La restricción `UNIQUE(discrepancy_id, voter_id)` respalda la propuesta de un voto por comprador y reporte, incluso ante solicitudes concurrentes. La comprobación de autor y estado se realiza antes de aceptar el voto. El nombre sustituye a `verification_confirmations` tanto en esta vista como en el Database Overview.
 
-Asimismo, `verification_confirmations` registra las confirmaciones realizadas por otros usuarios y `trust_profiles` mantiene información relacionada con el nivel de confianza de las contribuciones realizadas por cada usuario.
+El índice propuesto `(reporter_id, catalog_entry_id, reported_at)` permite buscar reportes recientes para TS07; el índice por sí solo no impone la ventana de 60 segundos. La aplicación debe comprobarla dentro de una operación serializada por usuario/oferta, sin impedir reportes posteriores a la ventana. `trust_profiles` conserva la reputación local del usuario; su fórmula y reglas de evolución siguen como decisiones pendientes.
 
-Las referencias hacia productos y usuarios pertenecen respectivamente a Catalog and Pricing e Identity and Access.
+Las referencias a usuarios y ofertas pertenecen a Identity and Access y Catalog and Pricing. Se trata de un diseño propuesto: las restricciones, estados y adaptadores descritos no constituyen una migración ni una implementación Spring Boot dentro de este repositorio.
+
+`discrepancy_reviews` conserva la auditoría de la resolución humana (`UNIQUE(discrepancy_id)`) y `processed_verification_events` permite reclamar cada combinación de evento/manejador una sola vez. El campo `version` de los reportes respalda el control de concurrencia. La vista específica y el Database Overview contienen las mismas tablas y reglas; las referencias al revisor mantienen únicamente su identificador, sin agregar ACL.
 
 ![Community Price Verification Database Diagram](../assets/architecture/database/community-price-verification.png)
 
