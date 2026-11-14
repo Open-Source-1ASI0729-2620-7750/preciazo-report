@@ -2825,6 +2825,8 @@ la escala de severidad establecida para el proyecto:
 | **3** | La ruta optimizada incluye un establecimiento cerrado sin una acción clara de corrección | **3** | Usabilidad - Control y libertad del usuario |
 | **4** | Uso inconsistente de etiquetas para las mismas secciones de navegación | **2** | Usabilidad - Consistencia y estándares |
 | **5** | Falta de validaciones preventivas en la creación de promociones | **3** | Usabilidad - Prevención de errores |
+| **6** | El indicador de mejor precio no cuenta con una explicación explícita | **1** | Usabilidad - Reconocimiento antes que recuerdo |
+
 
 
 #### Descripción de problemas
@@ -2988,6 +2990,36 @@ de oferta sea un valor numérico válido y que los campos obligatorios estén co
 Mientras alguna condición no sea válida, el botón **Publicar Oferta** debería permanecer
 deshabilitado y la interfaz debería mostrar indicaciones específicas junto al campo
 correspondiente.
+
+## Problema #6: El indicador de mejor precio no cuenta con una explicación explícita
+
+**Severidad:** 1
+
+**Heurística / Principio violado:** Usabilidad - Reconocimiento antes que recuerdo
+
+**Problema:**
+
+Durante la evaluación de la vista **Comparar Precios** se identificó que algunos
+precios se encuentran acompañados por un ícono de estrella (**★**) utilizado para
+destacar una alternativa favorable dentro de la comparación.
+
+Sin embargo, en la vista evaluada no se observa una leyenda o explicación directa
+que indique qué representa este símbolo. El usuario puede inferir su significado a
+partir del contexto, pero debe interpretar por cuenta propia que la estrella señala
+el mejor precio disponible para un producto.
+
+**Evidencia:**
+
+![Evidencia H06 - Reconocimiento antes que recuerdo](../assets/sprint-3/heuristics/h06-recognition.png)
+
+**Recomendación:**
+
+Incorporar una leyenda visible que explique el significado del indicador, por ejemplo
+**“★ Mejor precio”**, o mostrar un tooltip descriptivo cuando el usuario interactúe
+con el símbolo.
+
+Esto permitiría reconocer inmediatamente el significado del elemento sin depender
+de la interpretación o conocimiento previo del usuario.
 
 
 
