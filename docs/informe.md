@@ -3330,6 +3330,7 @@ la creación de promociones y la adaptabilidad de las interfaces en dispositivos
 Como resultado de la evaluación, se recomienda priorizar estas observaciones en las
 siguientes iteraciones del producto antes de abordar mejoras de menor impacto visual
 o informativo.
+
 ---
 
 ## 5.4. Video About-the-Product
