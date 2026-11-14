@@ -1,0 +1,165 @@
+@startuml Preciazo_Merchant_Management_Backend
+title Preciazo - Merchant Management Backend Contracts (AV2)
+set namespaceSeparator none
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+package "application.commandservices" {
+ interface MerchantCommandService <<service>> {
+  +handle(command: RequestMerchantAffiliationCommand): Result<Long, ApplicationError>
+  +handle(command: VerifyMerchantRucCommand): Result<Long, ApplicationError>
+  +handle(command: RegisterRetailStoreCommand): Result<Long, ApplicationError>
+  +handle(command: UpdateStoreProfileCommand): Result<Long, ApplicationError>
+  +handle(command: SetStoreOpeningHoursCommand): Result<Long, ApplicationError>
+  +handle(command: SetInventoryStockCommand): Result<Long, ApplicationError>
+  +handle(command: ApplyInventoryBatchCommand): Result<Long, ApplicationError>
+  +handle(command: CreatePromotionCommand): Result<Long, ApplicationError>
+  +handle(command: UpdateScheduledPromotionCommand): Result<Long, ApplicationError>
+  +handle(command: ActivateDuePromotionCommand): Result<Long, ApplicationError>
+  +handle(command: ExpirePromotionCommand): Result<Long, ApplicationError>
+  +handle(command: CancelPromotionCommand): Result<Long, ApplicationError>
+ }
+}
+package "application.queryservices" {
+ interface MerchantQueryService <<service>> {
+  +handle(query: GetMerchantProfileQuery): Optional<MerchantProfile>
+  +handle(query: GetRetailStoreQuery): Optional<RetailStore>
+  +handle(query: GetStoreOpeningStatusQuery): Optional<OpeningStatusView>
+  +handle(query: GetStoreInventoryQuery): List<InventoryItem>
+  +handle(query: ValidateInventoryBatchQuery): InventoryBatchValidationView
+  +handle(query: GetStorePromotionsQuery): List<Promotion>
+  +handle(query: GetActiveStorePromotionsQuery): List<Promotion>
+  +handle(query: ValidateRucQuery): Result<VerificationResult, ApplicationError>
+ }
+}
+package "application.internal" {
+ class MerchantCommandServiceImpl <<service>>
+ class MerchantQueryServiceImpl <<service>>
+ class AffiliationRequestedEventHandler <<event handler>> {
+  +on(event: MerchantAffiliationRequested): void
+ }
+ class PromotionScheduleJob <<scheduled job>> {
+  +activateAndExpireDuePromotions(now: DateTime): void
+ }
+}
+package "application.outboundservices" {
+ interface RucVerificationGateway <<port>> {
+  +verify(ruc: Ruc): Result<VerificationResult, ApplicationError>
+ }
+}
+package "domain.repositories" {
+ interface MerchantRepository <<port>> {
+  +findById(id: Long): Optional<MerchantProfile>
+  +save(value: MerchantProfile): MerchantProfile
+ }
+ interface RetailStoreRepository <<port>> {
+  +findById(id: Long): Optional<RetailStore>
+  +save(value: RetailStore): RetailStore
+ }
+ interface InventoryItemRepository <<port>> {
+  +findById(id: Long): Optional<InventoryItem>
+  +save(value: InventoryItem): InventoryItem
+ }
+ interface PromotionRepository <<port>> {
+  +findById(id: Long): Optional<Promotion>
+  +save(value: Promotion): Promotion
+ }
+ interface InventoryImportBatchRepository <<port>> {
+  +findById(id: Long): Optional<InventoryImportBatch>
+  +save(value: InventoryImportBatch): InventoryImportBatch
+ }
+}
+package "application.readmodels" {
+ class OpeningStatusView <<Read Model>> {
+  +storeId: Long
+  +status: OpeningStatus
+  +timeZone: String
+  +evaluatedAt: DateTime
+ }
+ class InventoryBatchValidationView <<Read Model>> {
+  +valid: Boolean
+  +errors: List<ImportRowError>
+ }
+}
+package "infrastructure" {
+ class OpeningWindowPersistenceEntity <<JPA Entity>>
+ class InventoryImportRowPersistenceEntity <<JPA Entity>>
+ class RucVerificationRestAdapter <<HTTP adapter>>
+ class MerchantRepositoryImpl <<adapter>>
+ class RetailStoreRepositoryImpl <<adapter>>
+ class InventoryItemRepositoryImpl <<adapter>>
+ class PromotionRepositoryImpl <<adapter>>
+ class InventoryImportBatchRepositoryImpl <<adapter>>
+ interface MerchantPersistenceRepository <<Spring Data JPA>>
+ interface RetailStorePersistenceRepository <<Spring Data JPA>>
+ interface InventoryItemPersistenceRepository <<Spring Data JPA>>
+ interface PromotionPersistenceRepository <<Spring Data JPA>>
+ interface InventoryImportBatchPersistenceRepository <<Spring Data JPA>>
+ class MerchantPersistenceAssembler <<mapper>>
+ class MerchantPersistenceEntity <<JPA Entity>>
+ class RetailStorePersistenceAssembler <<mapper>>
+ class RetailStorePersistenceEntity <<JPA Entity>>
+ class InventoryItemPersistenceAssembler <<mapper>>
+ class InventoryItemPersistenceEntity <<JPA Entity>>
+ class PromotionPersistenceAssembler <<mapper>>
+ class PromotionPersistenceEntity <<JPA Entity>>
+ class InventoryImportBatchPersistenceAssembler <<mapper>>
+ class InventoryImportBatchPersistenceEntity <<JPA Entity>>
+}
+MerchantCommandServiceImpl ..|> MerchantCommandService
+MerchantQueryServiceImpl ..|> MerchantQueryService
+MerchantCommandServiceImpl ..> MerchantRepository
+MerchantCommandServiceImpl ..> RetailStoreRepository
+MerchantCommandServiceImpl ..> InventoryItemRepository
+MerchantCommandServiceImpl ..> PromotionRepository
+MerchantCommandServiceImpl ..> InventoryImportBatchRepository
+MerchantQueryServiceImpl ..> MerchantRepository
+MerchantQueryServiceImpl ..> RetailStoreRepository
+MerchantQueryServiceImpl ..> InventoryItemRepository
+MerchantQueryServiceImpl ..> PromotionRepository
+MerchantQueryServiceImpl ..> RucVerificationGateway : fiscal preview only
+MerchantCommandServiceImpl ..> RucVerificationGateway : verification without a DB lock during HTTP
+RucVerificationRestAdapter ..|> RucVerificationGateway
+AffiliationRequestedEventHandler ..> MerchantCommandService : verifies pending profile
+PromotionScheduleJob ..> MerchantCommandService : activates / expires; idempotent
+MerchantRepositoryImpl ..|> MerchantRepository
+MerchantRepositoryImpl ..> MerchantPersistenceRepository
+MerchantRepositoryImpl ..> MerchantPersistenceAssembler
+RetailStoreRepositoryImpl ..|> RetailStoreRepository
+RetailStoreRepositoryImpl ..> RetailStorePersistenceRepository
+RetailStoreRepositoryImpl ..> RetailStorePersistenceAssembler
+InventoryItemRepositoryImpl ..|> InventoryItemRepository
+InventoryItemRepositoryImpl ..> InventoryItemPersistenceRepository
+InventoryItemRepositoryImpl ..> InventoryItemPersistenceAssembler
+PromotionRepositoryImpl ..|> PromotionRepository
+PromotionRepositoryImpl ..> PromotionPersistenceRepository
+PromotionRepositoryImpl ..> PromotionPersistenceAssembler
+InventoryImportBatchRepositoryImpl ..|> InventoryImportBatchRepository
+InventoryImportBatchRepositoryImpl ..> InventoryImportBatchPersistenceRepository
+InventoryImportBatchRepositoryImpl ..> InventoryImportBatchPersistenceAssembler
+note bottom of RucVerificationRestAdapter
+ TS04: total request deadline is 5000 ms.
+ Timeout -> 504; invalid provider response/unavailable -> 502/503.
+ These are infrastructure failures, not negative fiscal results.
+ Provider contract and credentials remain deployment dependencies.
+end note
+note bottom of PromotionScheduleJob
+ Jobs are internal; check stored state, time and version before mutating.
+ Repeated execution does not publish duplicate lifecycle events.
+ Query-time validity prevents expired offers remaining publicly active.
+end note
+MerchantPersistenceAssembler ..> MerchantPersistenceEntity
+MerchantPersistenceRepository ..> MerchantPersistenceEntity
+RetailStorePersistenceAssembler ..> RetailStorePersistenceEntity
+RetailStorePersistenceRepository ..> RetailStorePersistenceEntity
+InventoryItemPersistenceAssembler ..> InventoryItemPersistenceEntity
+InventoryItemPersistenceRepository ..> InventoryItemPersistenceEntity
+PromotionPersistenceAssembler ..> PromotionPersistenceEntity
+PromotionPersistenceRepository ..> PromotionPersistenceEntity
+InventoryImportBatchPersistenceAssembler ..> InventoryImportBatchPersistenceEntity
+InventoryImportBatchPersistenceRepository ..> InventoryImportBatchPersistenceEntity
+RetailStorePersistenceEntity "1" *-- "0..*" OpeningWindowPersistenceEntity
+InventoryImportBatchPersistenceEntity "1" *-- "1..*" InventoryImportRowPersistenceEntity
+MerchantQueryServiceImpl ..> OpeningStatusView
+MerchantQueryServiceImpl ..> InventoryBatchValidationView
+@enduml

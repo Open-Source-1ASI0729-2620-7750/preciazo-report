@@ -1812,7 +1812,9 @@ La referencia metodológica es **Guía event storming**, pasos 5–9 (pp. 17–2
 
 #### Merchant Management (Supporting Bounded Context)
 
-Modela el ciclo de afiliación comercial, validación fiscal con el sistema externo `SUNAT RUC Service`, administración de inventario local y campañas promocionales mediante los agregados `MerchantProfile` y `RetailStore`. El actor Merchant ejecuta `RequestStoreAffiliation`, `PublishStorePromotion` y `MarkProductOutOfStock`, generando los eventos `MerchantRucVerified`, `PromotionPublished` e `InventoryStockDepleted` gobernados por `PromotionExpirationPolicy`.
+La propuesta AV2 sigue **Guía event storming**, pasos 5–9: los Read Models informan al Merchant, los comandos expresan acciones y los aggregates publican hechos en pasado. Se distinguen solicitud de afiliación, verificación fiscal, registro y edición de tiendas, horarios, cantidades físicas, importaciones y ciclo de promociones. La política fiscal reacciona a `MerchantAffiliationRequested` e invoca un comando interno que consulta el proveedor mediante `RucVerificationGateway`; un fallo técnico no se interpreta como rechazo fiscal.
+
+Los horarios y la vigencia pública de promociones se calculan al consultar. Un job interno activa o expira promociones mediante comandos idempotentes; aunque el job se retrase, la Query deja de exponer el precio promocional al llegar `endsAt`. Las consultas no emiten eventos de apertura/cierre de tienda. Se conserva como Hotspot el proveedor fiscal, el procedimiento de prueba de titularidad y la coordinación con Catálogo, sin añadir ACL.
 
 ![Preciazo Merchant Management Design-Level Event Storming](../assets/architecture/event-storming/merchant-management.png)
 
@@ -1865,7 +1867,7 @@ En el backend, la capa REST delega los casos de uso a los componentes de aplicac
 | **1. Catalog and Pricing** *(Core)* | `ProductsController`, `StoreProductsController`, `BasketComparisonController` | `CatalogCommandServiceImpl`, `CatalogQueryServiceImpl` | `Product`, `StoreProduct`, `CatalogStoreReference` | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository` y `*PersistenceAssembler` |
 | **2. Route Planning** *(Core)* | `RoutesController` | `RouteCommandServiceImpl`, `RouteQueryServiceImpl` | `MultiStopRoute` | `RouteJpaRepository`, `MappingRoutingRestAdapter` |
 | **3. Shopping Planning** *(Core)* | `ShoppingListsController`, `BudgetsController` | `ShoppingListCommandServiceImpl`, `ShoppingListQueryServiceImpl` | `ShoppingList` (aggregate), `ShoppingListItem` y `PurchaseBudget` (entidades internas) | `ShoppingListRepositoryImpl`, `ShoppingListPersistenceRepository`, `ShoppingListPersistenceAssembler` |
-| **4. Merchant Management** *(Soporte)* | `MerchantsController`, `StoresController`, `PromotionsController` | `MerchantCommandServiceImpl`, `InventoryQueryServiceImpl` | `MerchantProfile`, `RetailStore` | `MerchantJpaRepository`, `SunatRucVerificationAdapter` |
+| **4. Merchant Management** *(Soporte)* | `MerchantsController`, `StoresController`, `PromotionsController` | `MerchantCommandServiceImpl`, `MerchantQueryServiceImpl` | `MerchantProfile`, `RetailStore`, `InventoryItem`, `Promotion`, `InventoryImportBatch` | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository`, assemblers y `RucVerificationRestAdapter` |
 | **5. Community Price Verification** *(Soporte)* | `PriceDiscrepanciesController` | `PriceVerificationCommandServiceImpl`, `PriceVerificationQueryServiceImpl` | `PriceDiscrepancy` (con observaciones y votos), `TrustProfile` | `PriceDiscrepancyRepositoryImpl`, `PriceDiscrepancyPersistenceRepository`, `PriceDiscrepancyPersistenceAssembler` |
 | **6. Analytics and Engagement** *(Soporte)* | `MerchantAnalyticsController` | `AnalyticsCommandServiceImpl`, `MetricsQueryServiceImpl` | `MetricEvent`, `MerchantReport` | `AnalyticsEventJpaRepository`, `MerchantMetricsJpaRepository` |
 | **7. Identity and Access** *(Genérico)* | `AuthenticationController`, `UsersController` | `UserCommandServiceImpl`, `RoleQueryServiceImpl` | `User`, `AuthSession`, `Role` | `UserJpaRepository`, `RoleJpaRepository`, `JwtTokenServiceAdapter` |
@@ -1987,15 +1989,90 @@ La estructura del backend toma como referencia **Learning Center Platform Guide*
 
 #### Merchant Management (Supporting Bounded Context)
 
-El Bounded Context **Merchant Management** concentra las capacidades relacionadas con la afiliación y administración de establecimientos.
+`MerchantProfile` conserva el usuario titular, RUC, razón social y `VerificationStatus` (`PENDING`, `VERIFIED`, `REJECTED`). La solicitud US21 crea el perfil y la primera tienda en una transacción. `UNIQUE(user_id)` y `UNIQUE(tax_id)` impiden perfiles duplicados; un titular con perfil verificado puede registrar locales adicionales. Validar 11 dígitos en `Ruc` solo comprueba el formato. Un resultado fiscal `ACTIVE` permite `VERIFIED`, mientras `INACTIVE` o `NOT_FOUND` producen `REJECTED`. Timeout, respuesta inválida o caída del proveedor conservan `PENDING`; no se simula una respuesta exitosa. Verificación fiscal y prueba de titularidad del negocio son decisiones distintas; el procedimiento probatorio permanece pendiente.
 
-`MerchantProfile` representa el perfil comercial y mantiene su estado de verificación mediante su relación con la enumeración `VerificationStatus`. Un Merchant puede administrar uno o varios objetos `RetailStore` (vinculados a `StoreType` y `StoreOperationalStatus`), los cuales contienen los elementos de inventario y promociones correspondientes.
+`RetailStore` es un aggregate separado que referencia al perfil por ID y conserva dirección, coordenadas, zona horaria y `OpeningWindow`. `scheduleConfigured` distingue la falta de horario (`UNKNOWN`) de una semana explícitamente configurada sin intervalos (`CLOSED`). La propuesta usa `America/Lima` por defecto. Cada intervalo tiene día, apertura, cierre y un indicador de cierre al día siguiente; debe durar más de cero y como máximo 24 horas, sin solaparse con otro, incluso al cruzar medianoche o el límite de la semana. Si apertura y cierre coinciden, solo se admite el intervalo de 24 horas con cierre al día siguiente. Los días sin intervalos de una semana configurada están cerrados. `openingStatusAt(...)` calcula `OPEN`/`CLOSED` usando la hora local de la tienda y no persiste un indicador que se vuelva obsoleto.
 
-`InventoryItem` encapsula cantidades físicas de stock mediante `Quantity`. Su disponibilidad operativa no sustituye la disponibilidad pública de `StoreProduct` en Catalog and Pricing; el precio público también pertenece a Catálogo. `Promotion` conserva el período de vigencia previsto; su refinamiento queda para la revisión de Merchant Management.
+`InventoryItem` conserva cantidades físicas no negativas y su unidad, con unicidad por tienda/producto y control de versión. No vuelve a guardar el precio público ni la disponibilidad del comparador: ambos pertenecen a `StoreProduct` en Catalog and Pricing. Su coordinación sigue como dependencia de integración y un cambio físico no se declara automáticamente sincronizado. Los IDs de producto y oferta son referencias, sin importar el dominio de otro contexto ni añadir ACL.
 
-La interfaz `RucVerificationGateway` abstrae la comunicación con el servicio externo utilizado para validar la información fiscal del Merchant. `Ruc` encapsula el formato del identificador; la verificación fiscal permanece en el gateway. `Address` representa la dirección como un valor completo; `Quantity` expresa el stock con su unidad; los precios públicos y su normalización se modelan en Catalog and Pricing.
+`Promotion` guarda precio rebajado, moneda, unidad de venta, precio habitual de referencia al crear, oferta e ítem asociados, fechas, estado y versión. La creación exige tienda verificada, titularidad, oferta e inventario de esa misma tienda, precio positivo inferior a una referencia habitual confiable, misma moneda/unidad, `endsAt > startsAt` y fin futuro. La instantánea del precio habitual es auditoría; al expirar se vuelve al precio habitual actual de Catálogo, no a esa instantánea. No se modifica el precio base del catálogo al activar o expirar una promoción.
+
+`PromotionStatus` distingue `SCHEDULED`, `ACTIVE`, `EXPIRED`, `CANCELLED`. Solo una promoción futura programada se puede editar; las activas se pueden cancelar. Se rechazan solapamientos para la misma oferta, comprobados bajo bloqueo por oferta o una transacción serializada equivalente; una restricción de unicidad simple no resuelve intervalos temporales. `isEffectiveAt(...)` exige `startsAt <= now < endsAt`, estado no cancelado/expirado y precio aún inferior al habitual actual. Si no existe una referencia confiable para comprobar el descuento, no se aplica un precio promocional inventado. La composición de estas promociones en las comparativas de Catálogo sigue pendiente de integración.
+
+`InventoryImportBatch` y sus filas representan el lote de US26/TS05. Se valida el conjunto completo antes de modificar existencias: filas vacías, cantidades negativas, unidades incompatibles, productos duplicados o precios no positivos cancelan la operación con errores por línea/campo. Un preview es una Query sin escrituras; Apply valida otra vez antes de ejecutar. La combinación `(store_id, idempotency_key)` y un hash del contenido permiten devolver un resultado previo al repetir exactamente el lote; una misma clave con distinto contenido produce conflicto. Los precios propuestos en filas son entradas/auditoría, no otra fuente pública. Un lote que incluye precios solo puede marcarse `APPLIED` cuando exista coordinación atómica con las escrituras correspondientes de Catálogo. Mientras esa coordinación no esté definida, se devuelve un error de dependencia y no se guardan existencias como éxito parcial.
+
+El backend sigue **Learning Center Platform Guide**, ADR-0001, ADR-0002, ADR-0003, ADR-0005 y ADR-0007: Commands/Queries inmutables, servicios separados con `handle(...)`, `Result<T, ApplicationError>` para fallos esperados, repositorios del dominio, adaptadores JPA y assemblers separados. El dominio carece de anotaciones JPA. `DomainEventPublisher.publishAndClearEvents(saved)` publica eventos después de guardar con IDs persistidos. Los jobs comprueban estado, tiempo y versión antes de cambiar una promoción; un reintento sin cambio no genera otro evento. La publicación en memoria no constituye una garantía de entrega durable, por lo que la verificación fiscal pendiente dispone de reintento autorizado.
 
 ![Merchant Management Class Diagram](../assets/architecture/classes/merchant-management.png)
+
+#### Contratos del backend de Gestión Comercial
+
+![Merchant Management Backend Contracts](../assets/architecture/classes/merchant-management-backend.png)
+
+El servidor obtiene `actorId` del usuario autenticado y comprueba titularidad usando `merchant_profiles.user_id`; no confía en IDs de titular ni estados de verificación enviados por el cliente. Los comandos públicos sobre inventario y promociones requieren perfil `VERIFIED`. La edición de información y horarios puede prepararse por su titular mientras el perfil está pendiente, sin hacer pública la tienda. No se introduce ACL ni un rol nuevo.
+
+| Command | Datos principales | Resultado / evento |
+| :--- | :--- | :--- |
+| `RequestMerchantAffiliationCommand` | `actorId`, RUC, razón social y primera tienda (dirección, coordenadas, zona horaria) | Crea perfil/tienda `PENDING`; `MerchantAffiliationRequested`. |
+| `VerifyMerchantRucCommand` | `merchantProfileId`, `expectedVersion`; contexto interno o titular autenticado para reintentar | Consulta fiscal fuera de un bloqueo de base de datos; aplica resultado si la versión sigue vigente. `MerchantFiscalVerificationRecorded` solo con respuesta fiscal válida, incluyendo el resultado. |
+| `RegisterRetailStoreCommand` | `actorId`, `merchantProfileId`, nombre, dirección, coordenadas, zona horaria | Titular verificado; `RetailStoreRegistered`. |
+| `UpdateStoreProfileCommand` | `actorId`, `storeId`, datos editables, `expectedVersion` | No permite cambiar titular ni estado fiscal; `StoreProfileUpdated`. |
+| `SetStoreOpeningHoursCommand` | `actorId`, `storeId`, zona horaria e intervalos semanales, `expectedVersion` | Reemplazo atómico; lista vacía configura cierre semanal explícito; `StoreOpeningHoursSet`. |
+| `SetInventoryStockCommand` | `actorId`, `inventoryItemId`, cantidad/unidad, `expectedVersion` | Titular verificado; actualiza cantidades físicas; `InventoryStockSet`. |
+| `ApplyInventoryBatchCommand` | `actorId`, `storeId`, clave de idempotencia, filas de productos/cantidades/unidades/precios opcionales | Lote completo o ninguno; `InventoryBatchApplied` solo cuando todos los cambios soportados fueron aplicados. |
+| `CreatePromotionCommand` | `actorId`, `storeId`, `inventoryItemId`, `catalogEntryId`, descripción, precio/moneda/unidad, inicio/fin | Valida referencias y descuento con información confiable provista por servidor; `PromotionCreated` con estado inicial. |
+| `UpdateScheduledPromotionCommand` | `actorId`, `promotionId`, precio/fechas/descripción, `expectedVersion` | Solo `SCHEDULED` y antes de `startsAt`; revalida descuento y solapamiento; `PromotionUpdated`. |
+| `ActivateDuePromotionCommand` | `promotionId`, hora del servidor | Interno; cambia `SCHEDULED` a `ACTIVE` si está dentro de su ventana; `PromotionActivated`. |
+| `ExpirePromotionCommand` | `promotionId`, hora del servidor | Interno; `SCHEDULED` o `ACTIVE` a `EXPIRED` al alcanzar el fin; `PromotionExpired`. |
+| `CancelPromotionCommand` | `actorId`, `promotionId`, `expectedVersion` | Titular; `SCHEDULED` o `ACTIVE` a `CANCELLED`; `PromotionCancelled`. |
+
+Cada Command devuelve `Result<Long, ApplicationError>` con el ID de su aggregate. No se publican eventos cuando el precio, cantidad, horario o estado permanecen iguales. Para reintentos del job, una promoción ya expirada/cancelada/activada no se vuelve a modificar; la concurrencia se comprueba contra la versión persistida. Los eventos incluyen `eventId`, aggregate ID, versión y fecha del servidor. Los efectos posteriores no se presentan como sincronizados con Catálogo si dicha integración aún no está implementada.
+
+| Query | Entrada | Salida y reglas |
+| :--- | :--- | :--- |
+| `GetMerchantProfileQuery` | ID de perfil, contexto autenticado | Perfil propio o referencia pública limitada si está verificado; sin datos privados innecesarios. |
+| `GetRetailStoreQuery` | `storeId`, contexto de acceso | Información de la tienda; el titular accede a la propia pendiente, el comprador solo a verificadas. |
+| `GetStoreOpeningStatusQuery` | `storeId`; instante tomado del servidor para la vista pública | `OpeningStatusView`: `OPEN`, `CLOSED` o `UNKNOWN`, zona horaria y fecha de evaluación. |
+| `GetStoreInventoryQuery` | `storeId` | Cantidades físicas visibles solo para el titular; no expone stock operativo privado en consultas públicas. |
+| `ValidateInventoryBatchQuery` | `actorId`, `storeId`, filas | `InventoryBatchValidationView` con errores por línea/campo; valida acceso y no guarda cambios. |
+| `GetStorePromotionsQuery` | `storeId`, contexto autenticado | Titular consulta todos los estados de sus promociones. |
+| `GetActiveStorePromotionsQuery` | `storeId`, instante del servidor | Solo tienda verificada y promociones efectivas; valida tiempo, estado y precio habitual vigente antes de ofrecer el descuento. |
+| `ValidateRucQuery` | RUC de 11 dígitos | Consulta fiscal de TS04 sin alterar perfil ni afiliación. Usa `Result<VerificationResult, ApplicationError>` porque el proveedor puede fallar; una consulta favorable no otorga titularidad ni permite al cliente marcarse verificado. |
+
+`RucVerificationGateway` es un puerto de salida de aplicación hacia el proveedor fiscal ya previsto, implementado por `RucVerificationRestAdapter`; no es una ACL entre Bounded Contexts. TS04 exige un plazo total de 5000 ms para la llamada. El adaptador valida la estructura y que la respuesta corresponda al RUC consultado. Timeout se traduce en 504, respuesta inválida en 502 y servicio no disponible en 503. Durante la solicitud se guarda primero `PENDING`; la llamada HTTP no mantiene un bloqueo de escritura abierto. El resultado se aplica en otra transacción corta con control de versión. Si falla el procesamiento automático de `MerchantAffiliationRequested`, el perfil permanece pendiente y el titular puede reintentar; no se registra una verificación negativa ficticia.
+
+#### Ciclos de verificación fiscal y promociones
+
+![Merchant Management Lifecycles](../assets/architecture/classes/merchant-management-states.png)
+
+Crear una promoción futura produce `SCHEDULED`; si ya comenzó y su fin es futuro, produce `ACTIVE`. Un job que llegue después del fin puede pasar directamente de `SCHEDULED` a `EXPIRED`. La edición se limita a promociones programadas antes de comenzar; `ACTIVE` admite cancelación pero no reescritura de sus condiciones. `EXPIRED` y `CANCELLED` son finales en este alcance. El job no reemplaza el filtrado temporal en consultas: al llegar al fin se elimina la condición promocional inmediatamente en el resultado público. El período se interpreta como `[startsAt, endsAt)`.
+
+Los horarios se evalúan en la zona IANA de la tienda; los instantes de promociones se guardan de forma consistente y se comparan con el reloj del servidor. Los intervalos nocturnos utilizan `closesNextDay`; el cálculo considera también el tramo que proviene del día anterior. Una semana configurada sin intervalos significa cierre, mientras una tienda sin horario configurado devuelve `UNKNOWN` y no inventa que esté abierta.
+
+#### Contratos HTTP propuestos de Gestión Comercial
+
+| Método y recurso | Éxito | Acceso / observación |
+| :--- | :--- | :--- |
+| `POST /api/v1/merchants` | 201, perfil y primera tienda pendientes | Titular autenticado; no permite fijar `VERIFIED` desde el cuerpo. |
+| `GET /api/v1/merchants/validate-ruc/{ruc}` | 200, resultado fiscal | Consulta TS04 autenticada y sin efectos de afiliación. |
+| `POST /api/v1/merchants/{id}/verification-attempts` | 200 con perfil actualizado | Titular del perfil `PENDING`; un fallo técnico devuelve el error y conserva estado. |
+| `POST /api/v1/merchants/{id}/stores` | 201, tienda y `Location` | Titular verificado. |
+| `PUT /api/v1/stores/{id}` | 200 | Titular; versión vigente. |
+| `PUT /api/v1/stores/{id}/opening-hours` | 200 | Titular; reemplazo completo y validación semanal. |
+| `GET /api/v1/stores/{id}/opening-status` | 200 | Comprador autenticado para tiendas verificadas. |
+| `GET /api/v1/stores/{id}/inventory` | 200 | Titular del local; cantidades operativas privadas. |
+| `PUT /api/v1/stores/{id}/inventory/{itemId}/stock` | 200 | Titular verificado; stock físico solamente. |
+| `POST /api/v1/stores/{id}/inventory-validations` | 200, preview | Titular; es una Query aunque el transporte sea POST. |
+| `PUT /api/v1/merchants/{id}/inventory` | 200, lote aplicado | Conserva TS05: cada fila identifica `storeId`; se propone un solo local por lote y se comprueba que pertenece al Merchant. Requiere `Idempotency-Key`. |
+| `POST /api/v1/promotions` | 201, promoción y `Location` | Conserva TS08; titular verificado y referencias confiables. |
+| `GET /api/v1/stores/{id}/promotions` | 200 | Titular ve todos los estados; vista pública efectiva mediante filtro `active=true`. |
+| `PUT /api/v1/promotions/{id}` | 200 | Titular; solo programada antes del inicio y versión vigente. |
+| `DELETE /api/v1/promotions/{id}` | 204 | Cancelación lógica por el titular; conserva auditoría. Repetir una cancelación devuelve 204 sin otro evento; una promoción ya expirada no se reabre. |
+
+Los errores siguen `ApplicationError` y `ProblemDetail` de Learning Center: 400 para formato RUC, cantidad, unidad, coordenadas, zona horaria o filas inválidas; 401 para ausencia de autenticación; 403 para titularidad/permiso insuficientes; 404 para IDs inexistentes; 409 para RUC/usuario duplicado, promoción solapada, estado inválido, versión antigua o clave de lote reutilizada con otro contenido; 422 para fechas de promoción incoherentes, conservando TS08. Los casos de infraestructura usan 502/503/504 como se describe arriba. La aplicación propone códigos `MERCHANT_FORBIDDEN`, `RUC_PROVIDER_BAD_GATEWAY`, `RUC_PROVIDER_UNAVAILABLE`, `RUC_PROVIDER_TIMEOUT`, `CATALOG_COORDINATION_UNAVAILABLE` y `CATALOG_REFERENCE_UNAVAILABLE`, con mapeos explícitos en el assembler antes de los sufijos genéricos. Las validaciones de lotes identifican línea, campo y código sin revelar credenciales o respuestas internas del proveedor.
+
+La integración de precios de lotes, el consumo de promociones por Catálogo, el proveedor fiscal concreto y la prueba de titularidad siguen siendo dependencias pendientes. No se declara US24/US26/TS05 implementado por dibujar estos contratos; se especifican las condiciones necesarias y se evita una respuesta de éxito parcial mientras falte la coordinación. Este repositorio contiene diseño para Spring Boot, no el código del servicio.
+
 
 #### Community Price Verification (Supporting Bounded Context)
 
@@ -2178,15 +2255,13 @@ Los identificadores de usuario referencian Identity and Access y los de producto
 
 #### Merchant Management (Supporting Bounded Context)
 
-El Bounded Context **Merchant Management** persiste la información necesaria para administrar comerciantes y establecimientos.
+`merchant_profiles` persiste titular, RUC único, razón social, estado y fecha de verificación, con `version`. `retail_stores` referencia al perfil e incluye dirección estructurada, coordenadas, `time_zone`, `schedule_configured` y versión. Las tiendas públicas deben corresponder a un perfil fiscalmente verificado; el mecanismo de provisión de esa información a Catálogo sigue pendiente.
 
-`merchant_profiles` representa el perfil comercial y su estado de verificación fiscal. Un perfil puede administrar múltiples registros `retail_stores`, los cuales almacenan datos del establecimiento y su ubicación.
+`store_opening_hours` almacena los intervalos semanales con día, horas y `closes_next_day`. La validación del reemplazo de horarios comprueba solapamientos sobre toda la semana en una transacción. La combinación de `schedule_configured` y filas distingue un horario desconocido de una semana explícitamente cerrada. El estado de apertura se calcula, no se almacena.
 
-`inventory_items` representa las cantidades físicas de productos dentro de cada establecimiento mediante `stock` y `stock_unit`. No almacena un segundo precio público ni otro `stock_status` del comparador; ambos pertenecen a `catalog_entries`. Su coordinación con el inventario no se supone automática y permanece pendiente de integración, sin introducir ACL.
+`inventory_items` conserva `stock`, `stock_unit` y versión, con `UNIQUE(store_id, product_id)`. `promotions` conserva tienda, ítem y oferta por ID, precio rebajado, moneda, unidad, precio habitual al crear, fechas, estado y versión. Las referencias deben pertenecer a la misma tienda. El precio habitual congelado es auditoría y no reemplaza `catalog_entries.sale_price`. Se excluyen promociones vencidas al consultar, incluso si el job no ha actualizado todavía su estado persistido.
 
-Finalmente, `promotions` registra las promociones asociadas a elementos del inventario y mantiene sus períodos de vigencia.
-
-El campo `product_id` de inventario funciona como una referencia hacia Catalog and Pricing.
+`inventory_import_batches` conserva titular solicitante, clave de idempotencia, hash y estado del lote. `inventory_import_rows` conserva los datos declarados por fila, con `UNIQUE(batch_id, row_number)`. La validación evita productos repetidos y comprueba todo el lote antes de aplicar cambios. El esquema y las reglas coinciden con el Database Overview; esta documentación no constituye una migración ni una implementación ejecutable de Spring Boot.
 
 ![Merchant Management Database Diagram](../assets/architecture/database/merchant-management.png)
 

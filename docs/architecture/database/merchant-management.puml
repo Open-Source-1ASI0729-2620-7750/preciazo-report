@@ -8,9 +8,12 @@ skinparam linetype ortho
 entity merchant_profiles {
     * id : BIGINT <<PK>>
     --
-    user_id : BIGINT <<REF>>
+    user_id : BIGINT <<REF, UQ>>
     tax_id : VARCHAR <<UQ>>
+    legal_name : VARCHAR
     verification_status : VARCHAR
+    verification_checked_at : TIMESTAMP <<NULLABLE>>
+    version : BIGINT
 }
 
 entity retail_stores {
@@ -19,9 +22,15 @@ entity retail_stores {
     merchant_profile_id : BIGINT <<FK>>
     name : VARCHAR
     address : VARCHAR
+    district : VARCHAR
+    province : VARCHAR
+    department : VARCHAR
     latitude : DECIMAL
     longitude : DECIMAL
+    time_zone : VARCHAR
+    schedule_configured : BOOLEAN
     trust_score : DECIMAL
+    version : BIGINT
 }
 
 entity inventory_items {
@@ -31,15 +40,24 @@ entity inventory_items {
     product_id : BIGINT <<REF>>
     stock : DECIMAL
     stock_unit : VARCHAR
+    version : BIGINT
 }
 
 entity promotions {
     * id : BIGINT <<PK>>
     --
+    store_id : BIGINT <<FK>>
     inventory_item_id : BIGINT <<FK>>
+    catalog_entry_id : BIGINT <<REF>>
     description : VARCHAR
+    promotional_price : DECIMAL
+    regular_price_at_creation : DECIMAL
+    currency : VARCHAR
+    sale_unit : VARCHAR
     starts_at : TIMESTAMP
     ends_at : TIMESTAMP
+    status : VARCHAR
+    version : BIGINT
 }
 
 merchant_profiles ||--o{ retail_stores
@@ -57,6 +75,77 @@ end note
 note right of merchant_profiles
   One merchant profile per user.
   UNIQUE(user_id)
+end note
+
+entity store_opening_hours {
+    * id : BIGINT <<PK>>
+    --
+    store_id : BIGINT <<FK>>
+    day_of_week : SMALLINT
+    opens_at : TIME
+    closes_at : TIME
+    closes_next_day : BOOLEAN
+}
+
+entity inventory_import_batches {
+    * id : BIGINT <<PK>>
+    --
+    store_id : BIGINT <<FK>>
+    requested_by : BIGINT <<REF>>
+    idempotency_key : VARCHAR
+    request_hash : VARCHAR
+    status : VARCHAR
+    created_at : TIMESTAMP
+    applied_at : TIMESTAMP <<NULLABLE>>
+}
+
+entity inventory_import_rows {
+    * id : BIGINT <<PK>>
+    --
+    batch_id : BIGINT <<FK>>
+    row_number : INTEGER
+    product_id : BIGINT <<REF>>
+    stock : DECIMAL
+    stock_unit : VARCHAR
+    proposed_price : DECIMAL <<NULLABLE>>
+    price_currency : VARCHAR <<NULLABLE>>
+}
+
+retail_stores ||--o{ store_opening_hours
+retail_stores ||--o{ inventory_import_batches
+inventory_import_batches ||--|{ inventory_import_rows
+retail_stores ||--o{ promotions
+
+note right of store_opening_hours
+  Day is 1..7; no rows means UNKNOWN if no schedule was configured.
+  An explicitly configured empty week means CLOSED.
+  Store schedule_configured flag distinguishes those cases.
+  Windows last more than 0 and at most 24 hours; equal endpoints need next-day closure.
+  Windows cannot overlap, including the following day for overnight windows.
+  Opens/closed is a query in the store time zone; no stored open-now flag.
+end note
+
+note right of promotions
+  promotional_price > 0; ends_at > starts_at; same currency and sale unit.
+  status: SCHEDULED, ACTIVE, EXPIRED or CANCELLED.
+  Effective only while starts_at <= now < ends_at and not cancelled/expired.
+  Frozen regular_price_at_creation is audit data, not a public base price.
+  Expiry falls back to the current Catalog price; no base-price overwrite.
+  Overlapping promotions on the same catalog offer are rejected atomically.
+end note
+
+note right of inventory_import_batches
+  UNIQUE(store_id, idempotency_key); same key + different request hash -> conflict.
+  Validate all rows before writes; apply all supported changes or none.
+  A price-bearing batch requires coordinated Catalog writes before APPLIED.
+  Missing coordination -> unavailable; no partial stock-only success.
+end note
+
+note bottom of inventory_import_rows
+  UNIQUE(batch_id, row_number); duplicate product rows reject the batch.
+  stock >= 0; compatible unit; proposed_price is positive if supplied.
+  proposed_price and price_currency are supplied together or both absent.
+  Proposed prices are input/audit data, never a competing catalog price.
 end note
 
 @enduml

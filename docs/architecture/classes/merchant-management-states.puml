@@ -1,0 +1,46 @@
+@startuml Preciazo_Merchant_Management_States
+title Preciazo - Fiscal Verification and Promotion Lifecycles (AV2)
+skinparam shadowing false
+hide empty description
+state "Merchant fiscal verification" as Fiscal {
+ state "PENDING" as FiscalPending
+ state "VERIFIED" as FiscalVerified
+ state "REJECTED" as FiscalRejected
+ [*] --> FiscalPending : Request affiliation
+ FiscalPending --> FiscalVerified : Provider returns ACTIVE
+ FiscalPending --> FiscalRejected : Provider returns INACTIVE / NOT_FOUND
+ FiscalPending --> FiscalPending : Provider failure
+ note bottom of FiscalPending
+  Retry requires the recorded owner.
+  Fiscal verification does not prove ownership of the business.
+  A read-only RUC preview never changes this state.
+ end note
+}
+state "Promotion lifecycle" as Promo {
+ state "SCHEDULED" as PromoScheduled
+ state "ACTIVE" as PromoActive
+ state "EXPIRED" as PromoExpired
+ state "CANCELLED" as PromoCancelled
+ state Creation <<choice>>
+ [*] --> Creation : Create validated promotion
+ Creation --> PromoScheduled : Start is in the future
+ Creation --> PromoActive : startsAt <= now < endsAt
+ PromoScheduled --> PromoScheduled : Edit before start
+ PromoScheduled --> PromoActive : Activation job when due
+ PromoScheduled --> PromoExpired : Job runs after the end
+ PromoActive --> PromoExpired : End reached
+ PromoScheduled --> PromoCancelled : Owner cancels
+ PromoActive --> PromoCancelled : Owner cancels
+ PromoExpired --> [*]
+ PromoCancelled --> [*]
+ note bottom of PromoScheduled
+  Positive discounted price; end follows start; end must be in the future.
+  Reject overlaps for the same store offer, with concurrency protection.
+ end note
+ note bottom of PromoActive
+  Public queries always check the time window and current regular price.
+  At or after the end, no promotional price is exposed even if a job is late.
+  Normal catalog price is never overwritten by this lifecycle.
+ end note
+}
+@enduml

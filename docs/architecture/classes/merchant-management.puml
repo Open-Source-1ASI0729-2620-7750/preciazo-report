@@ -1,68 +1,126 @@
 @startuml Preciazo_Merchant_Management_Classes
-
-title Preciazo - Merchant Management Class Diagram
-
+title Preciazo - Merchant Management Domain Classes (AV2)
+set namespaceSeparator none
 skinparam classAttributeIconSize 0
 skinparam shadowing false
 skinparam linetype ortho
-
-interface MerchantRepository {
-    +findByTaxId(taxId: Ruc): MerchantProfile
-    +save(profile: MerchantProfile): void
+scale max 3200 width
+class MerchantProfile <<Aggregate>> {
+ -id: Long
+ -ownerId: Long
+ -taxId: Ruc
+ -legalName: String
+ -verificationStatus: VerificationStatus
+ -verificationCheckedAt: DateTime [0..1]
+ -version: Long
+ +recordFiscalResult(result: VerificationResult): void
+ +canOperate(): Boolean
 }
-
-interface RucVerificationGateway {
-    +verify(taxId: Ruc): VerificationResult
+class RetailStore <<Aggregate>> {
+ -id: Long
+ -merchantProfileId: Long
+ -name: String
+ -address: Address
+ -latitude: Decimal
+ -longitude: Decimal
+ -timeZone: String
+ -scheduleConfigured: Boolean
+ -version: Long
+ +updateInformation(address: Address): void
+ +replaceOpeningHours(hours: List<OpeningWindow>): void
+ +openingStatusAt(moment: DateTime): OpeningStatus
 }
-
-class MerchantManagementService {
-    +affiliate(profile: MerchantProfile): void
-    +registerStore(profile: MerchantProfile, store: RetailStore): void
-    +publishPromotion(storeProduct: StoreProduct, promotion: Promotion): void
+class OpeningWindow <<Value Object>> {
+ -dayOfWeek: Integer {readOnly}
+ -opensAt: LocalTime {readOnly}
+ -closesAt: LocalTime {readOnly}
+ -closesNextDay: Boolean {readOnly}
+ +contains(moment: DateTime, timeZone: String): Boolean
 }
-
-class MerchantProfile {
-    -id: Long
-    -taxId: Ruc
-    -verificationStatus: VerificationStatus
-    +submitForVerification(): void
-    +confirmVerification(): void
-    +canOperate(): Boolean
+class InventoryItem <<Aggregate>> {
+ -id: Long
+ -storeId: Long
+ -productId: Long
+ -stock: Quantity
+ -version: Long
+ +setStock(quantity: Quantity): void
+ +isPhysicallyAvailable(): Boolean
 }
-
-class RetailStore {
-    -id: Long
-    -name: String
-    -address: Address
-    +updateInformation(address: Address): void
-    +addInventoryItem(item: InventoryItem): void
-    +publish(promotion: Promotion): void
+class Promotion <<Aggregate>> {
+ -id: Long
+ -storeId: Long
+ -inventoryItemId: Long
+ -catalogEntryId: Long
+ -description: String
+ -promotionalPrice: Money
+ -regularPriceAtCreation: Money
+ -saleUnit: String
+ -startsAt: DateTime
+ -endsAt: DateTime
+ -status: PromotionStatus
+ -version: Long
+ +updateBeforeStart(price: Money, startsAt: DateTime, endsAt: DateTime): void
+ +activate(at: DateTime): void
+ +expire(at: DateTime): void
+ +cancel(): void
+ +isEffectiveAt(at: DateTime, currentRegularPrice: Money): Boolean
 }
-
-class InventoryItem {
-    -id: Long
-    -stock: Quantity
-    +increaseStock(quantity: Quantity): void
-    +decreaseStock(quantity: Quantity): void
-    +isAvailable(): Boolean
+class InventoryImportBatch <<Aggregate>> {
+ -id: Long
+ -storeId: Long
+ -requestedBy: Long
+ -idempotencyKey: String
+ -requestHash: String
+ -createdAt: DateTime
+ -appliedAt: DateTime [0..1]
+ -status: ImportStatus
+ +validateRows(): List<ImportRowError>
+ +markApplied(): void
+ +markFailed(): void
 }
-
-class StoreProduct {
-    -productId: Long
-    -name: String
-    +changeCatalogData(name: String): void
+class InventoryImportRow {
+ -rowNumber: Integer
+ -productId: Long
+ -stock: Quantity
+ -proposedPrice: Money [0..1]
 }
-
-class Promotion {
-    -id: Long
-    -description: String
-    -startsAt: DateTime
-    -endsAt: DateTime
-    +activate(): void
-    +expire(at: DateTime): void
-    +isActiveAt(moment: DateTime): Boolean
+class VerificationResult <<Value Object>> {
+ -taxId: Ruc {readOnly}
+ -legalName: String [0..1] {readOnly}
+ -fiscalStatus: FiscalStatus {readOnly}
+ -checkedAt: DateTime {readOnly}
 }
-
+class ImportRowError <<Value Object>> {
+ -rowNumber: Integer {readOnly}
+ -field: String {readOnly}
+ -code: String {readOnly}
+}
+enum VerificationStatus {
+ PENDING
+ VERIFIED
+ REJECTED
+}
+enum FiscalStatus {
+ ACTIVE
+ INACTIVE
+ NOT_FOUND
+}
+enum OpeningStatus {
+ OPEN
+ CLOSED
+ UNKNOWN
+}
+enum PromotionStatus {
+ SCHEDULED
+ ACTIVE
+ EXPIRED
+ CANCELLED
+}
+enum ImportStatus {
+ VALIDATED
+ APPLIED
+ FAILED
+}
 class Money <<Value Object>> {
     -amount: Decimal {readOnly}
     -currency: String {readOnly}
@@ -75,32 +133,6 @@ class Money <<Value Object>> {
     +isPositive(): Boolean
 }
 
-note right of Money
-  Immutable; equality by amount and currency.
-  Arithmetic and comparisons require the same currency.
-  Operations return new values.
-end note
-
-class VerificationResult <<Value Object>> {
-    -verified: Boolean {readOnly}
-    -legalName: String {readOnly}
-    +isSuccessful(): Boolean
-}
-
-enum VerificationStatus {
-    PENDING
-    VERIFIED
-    REJECTED
-}
-
-MerchantManagementService ..> MerchantRepository : persists
-MerchantManagementService ..> RucVerificationGateway : verifies tax id
-MerchantProfile "1" *-- "1..*" RetailStore : manages
-RetailStore "1" *-- "0..*" InventoryItem : holds
-InventoryItem "*" --> "1" StoreProduct : represents
-StoreProduct "1" o-- "0..*" Promotion : has
-InventoryItem "1" --> "1" Quantity : stock
-
 class Quantity <<Value Object>> {
     -amount: Decimal {readOnly}
     -unit: String {readOnly}
@@ -109,40 +141,10 @@ class Quantity <<Value Object>> {
     +isPositive(): Boolean
 }
 
-note right of Quantity
-  Immutable; amount >= 0; unit is not blank.
-  Equality by amount and unit; arithmetic requires the same unit.
-  Subtraction cannot produce a negative amount.
-  Requested purchase quantities must be positive.
-end note
-
-class UnitPrice <<Value Object>> {
-    -price: Money {readOnly}
-    -perUnit: Quantity {readOnly}
-    +costFor(quantity: Quantity): Money
-    +isLessThan(other: UnitPrice): Boolean
-}
-
-note right of UnitPrice
-  Immutable; equality by price and perUnit.
-  Price >= 0; perUnit amount > 0.
-  Cost and comparisons require compatible units
-  and the same currency.
-end note
-
-UnitPrice "1" --> "1" Money : monetary value
-UnitPrice "1" --> "1" Quantity : priced quantity
-
 class Ruc <<Value Object>> {
     -value: String {readOnly}
     +equals(other: Ruc): Boolean
 }
-
-note right of Ruc
-  Immutable; exactly 11 numeric characters.
-  Format validation does not establish fiscal status;
-  RucVerificationGateway verifies that externally.
-end note
 
 class Address <<Value Object>> {
     -street: String {readOnly}
@@ -151,27 +153,52 @@ class Address <<Value Object>> {
     -department: String {readOnly}
     +equals(other: Address): Boolean
 }
-
-note right of Address
-  Immutable; address fields are not blank.
-  Equality by all address fields.
-  Changes replace the complete value.
+MerchantProfile "1" --> "1" Ruc
+MerchantProfile ..> VerificationStatus
+MerchantProfile ..> VerificationResult
+VerificationResult ..> FiscalStatus
+RetailStore "1" --> "1" Address
+RetailStore "1" *-- "0..*" OpeningWindow
+RetailStore ..> OpeningStatus
+InventoryItem "1" --> "1" Quantity : physical stock
+Promotion "1" --> "1" Money : promotional price
+Promotion ..> PromotionStatus
+InventoryImportBatch "1" *-- "1..*" InventoryImportRow
+InventoryImportRow "1" --> "1" Quantity
+InventoryImportRow "1" --> "0..1" Money : proposed price input
+InventoryImportBatch ..> ImportStatus
+InventoryImportBatch ..> ImportRowError
+note bottom of MerchantProfile
+ RUC has exactly 11 digits; format is not fiscal verification.
+ ACTIVE fiscal result -> VERIFIED; INACTIVE / NOT_FOUND -> REJECTED.
+ Provider timeout or failure keeps PENDING, never REJECTED.
+ Ownership proof remains distinct from fiscal validation.
 end note
-
-MerchantProfile "1" --> "1" Ruc : fiscal identifier
-RetailStore "1" --> "1" Address : located at
-MerchantRepository ..> Ruc : looks up by
-RucVerificationGateway ..> Ruc : verifies
-
-note right of VerificationResult
-  Immutable response value from fiscal verification.
+note bottom of RetailStore
+ Store time zone defaults to America/Lima.
+ Opening windows cannot overlap, including across midnight.
+ No configured hours -> UNKNOWN; missing weekdays are CLOSED.
+ Open/closed is calculated on query, not a timer-generated event.
 end note
-
 note bottom of InventoryItem
-  Operational stock only; quantity is nonnegative.
-  isAvailable() describes physical inventory, not published catalog availability.
-  Selling price and public availability are owned by Catalog and Pricing.
-  Coordination between contexts is pending; no ACL is introduced.
+ Quantity >= 0 with a compatible unit; no second public price.
+ Catalog owns published price and availability.
+ Physical inventory changes do not claim automatic catalog synchronization.
 end note
-
+note bottom of Promotion
+ Promotional price > 0, same currency and sale unit as the offer reference.
+ The discount is checked against trusted current regular price.
+ Public validity is startsAt <= now < endsAt and not CANCELLED / EXPIRED.
+ Queries exclude ended promotions even if a scheduled job runs late.
+ Expiry falls back to current catalog base price, never the frozen old price.
+end note
+note bottom of InventoryImportBatch
+ Validate every row before changing inventory.
+ Duplicate products, blank fields or invalid numbers reject the whole batch.
+ A price-bearing batch cannot be APPLIED without coordinated Catalog changes.
+ Proposed row prices are input/audit data, not canonical public prices.
+end note
+MerchantProfile -[hidden]down-> RetailStore
+RetailStore -[hidden]down-> InventoryItem
+InventoryItem -[hidden]down-> Promotion
 @enduml
