@@ -2822,7 +2822,7 @@ la escala de severidad establecida para el proyecto:
 | :---: | :--- | :---: | :--- |
 | **1** | Falta de retroalimentación visible al completar una acción | **2** | Usabilidad - Visibilidad del estado del sistema |
 | **2** | Uso de abreviaciones que pueden dificultar la comprensión | **1** | Usabilidad - Correspondencia entre el sistema y el mundo real |
-| **3** | `[Por completar]` | `[1-4]` | `[Por completar]` |
+| **3** | La ruta optimizada incluye un establecimiento cerrado sin una acción clara de corrección | **3** | Usabilidad - Control y libertad del usuario |
 
 #### Descripción de problemas
 
@@ -2889,6 +2889,34 @@ Por ejemplo, reemplazar **“7/7 disp.”** por **“7 de 7 disponibles”** y u
 **“paquete”** o **“unidad”** en lugar de abreviaciones cuando no comprometa la
 legibilidad. En dispositivos con menor espacio se pueden complementar las
 abreviaciones mediante etiquetas o ayudas contextuales.
+
+##### Problema #3: La ruta optimizada incluye un establecimiento cerrado sin una acción clara de corrección
+
+**Severidad:** 3
+
+**Heurística / Principio violado:** Usabilidad - Control y libertad del usuario
+
+**Problema:**
+
+Durante la evaluación de la vista **Ruta** se identificó que el recorrido puede mostrar
+una parada correspondiente a un establecimiento marcado como **“Cerrado”**, aun
+cuando la ruta se presenta como **“Optimizada”**.
+
+En la interfaz evaluada no se observa una acción directa que permita al usuario
+eliminar dicha parada, reemplazarla por otro establecimiento o solicitar un nuevo
+cálculo de ruta. Esta situación limita el control del usuario sobre su recorrido y puede
+obligarlo a continuar con una planificación que ya no resulta válida.
+
+**Evidencia:**
+
+![Evidencia H03 - Control y libertad del usuario](../assets/sprint-3/heuristics/h03-user-control.png)
+
+**Recomendación:**
+
+Incorporar una acción visible para excluir o reemplazar establecimientos no disponibles.
+Al detectar una tienda cerrada, el sistema debería permitir al usuario recalcular la ruta
+manteniendo los productos pendientes y presentando una alternativa disponible antes
+de continuar con el recorrido.
 
 ---
 
