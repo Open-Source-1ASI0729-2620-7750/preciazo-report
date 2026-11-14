@@ -1,74 +1,126 @@
 @startuml Preciazo_Route_Planning_Classes
-
-title Preciazo - Route Planning Class Diagram
-
+title Preciazo - Route Planning Domain Classes (AV2)
+set namespaceSeparator none
 skinparam classAttributeIconSize 0
 skinparam shadowing false
 skinparam linetype ortho
-
-interface RoutingGateway {
-    +optimize(stops: List<GeoPoint>): RouteEstimate
+scale max 3200 width
+class MultiStopRoute <<Aggregate>> {
+ -id: Long
+ -ownerId: Long
+ -shoppingPlan: ShoppingPlanRef [0..1]
+ -origin: GeoPoint
+ -departureAt: DateTime
+ -transportMode: TransportMode
+ -status: RouteStatus
+ -coverage: CoverageStatus
+ -distance: Distance
+ -travelDurationSeconds: Long
+ -referenceEvaluatedAt: DateTime
+ -version: Long
+ +replacePlan(estimate: RouteEstimate, items: List<RouteItem>): void
+ +confirm(): void
 }
-
-interface RouteOptimizationPolicy {
-    +selectOrder(stops: List<RouteStop>): List<RouteStop>
-}
-
-class RoutePlanningService {
-    +generate(plan: ShoppingPlanRef, candidates: List<StoreCandidate>): MultiStopRoute
-    +recalculate(route: MultiStopRoute): void
-    +confirm(route: MultiStopRoute): void
-}
-
-class MultiStopRoute {
-    -id: Long
-    -status: RouteStatus
-    -distance: Distance
-    -estimatedDuration: Duration
-    -netSavings: Money
-    +addStop(store: StoreCandidate): RouteStop
-    +removeStop(stopId: Long): void
-    +reorderStops(order: List<Long>): void
-    +calculateNetSavings(grossSavings: Money, transitCost: Money): Money
-    +confirm(): void
-}
-
 class RouteStop {
-    -sequence: Integer
-    -estimatedArrival: DateTime
-    +changeSequence(sequence: Integer): void
-    +setEstimatedArrival(moment: DateTime): void
+ -id: Long
+ -storeId: Long
+ -sequence: Integer
+ -location: GeoPoint
+ -estimatedArrival: DateTime
+ -legDistance: Distance
+ -legDurationSeconds: Long
 }
-
-class GeoPoint <<Value Object>> {
-    -latitude: Decimal {readOnly}
-    -longitude: Decimal {readOnly}
-    +distanceTo(other: GeoPoint): Distance
+class RouteItem {
+ -id: Long
+ -productId: Long
+ -quantity: Quantity
+ -assignedStopId: Long [0..1]
+ -catalogEntryId: Long [0..1]
+ -estimatedPrice: Money [0..1]
+ -pricePerQuantity: Quantity [0..1]
 }
-
 class RouteEstimate <<Value Object>> {
-    -distance: Distance {readOnly}
-    -duration: Duration {readOnly}
-    +isFeasible(): Boolean
+ -orderedStoreIds: List<Long> {readOnly}
+ -distance: Distance {readOnly}
+ -travelDurationSeconds: Long {readOnly}
+ -arrivalTimes: List<DateTime> {readOnly}
 }
-
 class ShoppingPlanRef <<Value Object>> {
-    -shoppingListId: Long {readOnly}
-    +matches(listId: Long): Boolean
+ -shoppingListId: Long {readOnly}
+ -shoppingListVersion: Long {readOnly}
 }
-
-class ProductRequirement <<Value Object>> {
-    -productId: Long {readOnly}
-    -quantity: Quantity {readOnly}
-    +requires(productId: Long): Boolean
+class GeoPoint <<Value Object>> {
+ -latitude: Decimal {readOnly}
+ -longitude: Decimal {readOnly}
 }
-
-class StoreCandidate {
-    -storeId: Long
-    -location: GeoPoint
-    +isWithin(radius: Distance): Boolean
+class Distance <<Value Object>> {
+ -meters: Decimal {readOnly}
 }
-
+class StoreCandidate <<Local Snapshot>> {
+ -storeId: Long
+ -location: GeoPoint
+ -timeZone: String
+ -openingWindowsKnown: Boolean
+ -openingWindows: List<OpeningWindowSnapshot>
+ -affiliated: Boolean
+ -referenceVersion: Long
+ -capturedAt: DateTime
+ +isOpenAt(moment: DateTime): Boolean
+}
+class OpeningWindowSnapshot <<Value Object>> {
+ -dayOfWeek: Integer {readOnly}
+ -opensAt: LocalTime {readOnly}
+ -closesAt: LocalTime {readOnly}
+ -closesNextDay: Boolean {readOnly}
+}
+class CandidateOffer <<Local Snapshot>> {
+ -catalogEntryId: Long
+ -storeId: Long
+ -productId: Long
+ -sellingPrice: Money
+ -saleUnit: String
+ -available: Boolean
+ -referenceVersion: Long
+ -capturedAt: DateTime
+}
+class TravelMatrix <<Value Object>> {
+ -legs: List<TravelLeg> {readOnly}
+ -estimatedFor: DateTime {readOnly}
+}
+class TravelLeg <<Value Object>> {
+ -fromKey: String {readOnly}
+ -toKey: String {readOnly}
+ -reachable: Boolean {readOnly}
+ -distance: Distance {readOnly}
+ -durationSeconds: Long {readOnly}
+}
+interface RouteOptimizationPolicy <<domain policy>> {
+ +minimizeDistance(origin: GeoPoint, stores: List<StoreCandidate>, matrix: TravelMatrix): Optional<RouteEstimate>
+}
+interface ReplacementStorePolicy <<domain policy>> {
+ +rankCandidates(stores: List<StoreCandidate>, offers: List<CandidateOffer>, requirements: List<RouteItem>, origin: GeoPoint, radius: Distance, excludedStoreIds: List<Long>): List<StoreCandidate>
+}
+class SavingsEstimate <<Value Object>> {
+ -basketTotal: Money [0..1] {readOnly}
+ -referenceBasketTotal: Money [0..1] {readOnly}
+ -grossSavings: Money [0..1] {readOnly}
+ -transitCost: Money [0..1] {readOnly}
+ -netSavings: Money [0..1] {readOnly}
+}
+enum TransportMode {
+ WALKING
+ DRIVING
+ PUBLIC_TRANSIT
+}
+enum RouteStatus {
+ OPTIMIZED
+ CONFIRMED
+}
+enum CoverageStatus {
+ NOT_EVALUATED
+ COMPLETE
+ INCOMPLETE
+}
 class Money <<Value Object>> {
     -amount: Decimal {readOnly}
     -currency: String {readOnly}
@@ -81,27 +133,6 @@ class Money <<Value Object>> {
     +isPositive(): Boolean
 }
 
-note right of Money
-  Immutable; equality by amount and currency.
-  Arithmetic and comparisons require the same currency.
-  Operations return new values.
-end note
-
-enum RouteStatus {
-    DRAFT
-    OPTIMIZED
-    CONFIRMED
-}
-
-RoutePlanningService ..> RoutingGateway : requests estimate
-RoutePlanningService ..> RouteOptimizationPolicy : orders stops
-ShoppingPlanRef "1" --> "0..1" MultiStopRoute : plans
-MultiStopRoute "1" *-- "1..*" RouteStop : contains
-RouteStop "*" --> "1" StoreCandidate : visits
-ShoppingPlanRef "1" --> "1..*" ProductRequirement : requires
-StoreCandidate "1" --> "1" GeoPoint : located at
-MultiStopRoute "1" --> "1" Money : reports net savings
-
 class Quantity <<Value Object>> {
     -amount: Decimal {readOnly}
     -unit: String {readOnly}
@@ -109,46 +140,50 @@ class Quantity <<Value Object>> {
     +subtract(other: Quantity): Quantity
     +isPositive(): Boolean
 }
-
-note right of Quantity
-  Immutable; amount >= 0; unit is not blank.
-  Equality by amount and unit; arithmetic requires the same unit.
-  Subtraction cannot produce a negative amount.
-  Requested purchase quantities must be positive.
+MultiStopRoute "1" *-- "1..*" RouteStop
+MultiStopRoute "1" *-- "0..*" RouteItem
+MultiStopRoute "1" --> "1" GeoPoint : origin
+MultiStopRoute "1" --> "1" SavingsEstimate
+MultiStopRoute "1" --> "0..1" ShoppingPlanRef
+MultiStopRoute ..> RouteStatus
+MultiStopRoute ..> CoverageStatus
+MultiStopRoute ..> TransportMode
+RouteItem "1" --> "1" Quantity
+StoreCandidate "1" --> "1" GeoPoint
+StoreCandidate "1" *-- "0..*" OpeningWindowSnapshot
+TravelMatrix "1" *-- "1..*" TravelLeg
+TravelLeg "1" --> "1" Distance
+RouteOptimizationPolicy ..> TravelMatrix
+RouteOptimizationPolicy ..> RouteEstimate
+ReplacementStorePolicy ..> CandidateOffer
+SavingsEstimate "1" --> "0..5" Money
+note bottom of MultiStopRoute
+ Optimize a path from the origin through selected stores, without a return leg.
+ Failed generation creates no route; failed recalculation preserves the stored plan.
+ Successful recalculation requires the old version and resets status to OPTIMIZED.
+ Linked lists with missing items cannot be confirmed.
+ Confirmation is a buyer decision, not a stock reservation or a future guarantee.
 end note
-
-class Distance <<Value Object>> {
-    -kilometers: Decimal {readOnly}
-    +add(other: Distance): Distance
-    +isWithin(limit: Distance): Boolean
-}
-
-note right of Distance
-  Immutable; kilometers >= 0.
-  Equality by value in kilometers.
+note bottom of RouteOptimizationPolicy
+ Minimize total distance over feasible orders of the accepted stop set.
+ Exact search is bounded by a required configured maximum stop count.
+ Reject oversized requests; do not silently switch to an unproven optimum.
+ Check opening windows at travel-only ETA; no invented waiting or shopping time.
 end note
-
-MultiStopRoute "1" --> "1" Distance : total distance
-RouteEstimate "1" --> "1" Distance : estimated distance
-ProductRequirement "1" --> "1" Quantity : required amount
-
-note right of GeoPoint
-  Immutable; -90 <= latitude <= 90;
-  -180 <= longitude <= 180.
-  Equality by coordinates.
+note bottom of SavingsEstimate
+ Comparable complete basket: gross = reference total - selected basket total.
+ Net = gross - transit cost only when both are known in the same currency.
+ Missing values remain absent; negative savings are not clamped to zero.
 end note
-
-note right of RouteEstimate
-  Immutable; duration >= 0.
-  Equality by distance and duration.
+note bottom of StoreCandidate
+ Local data by identifiers; no imported domain model or ACL.
+ Unknown hours or unavailable required references cannot prove feasibility.
+ Data provisioning and refresh guarantees remain pending integration work.
 end note
-
-note right of ShoppingPlanRef
-  Immutable local reference; equality by shoppingListId.
+note bottom of GeoPoint
+ Latitude -90..90; longitude -180..180.
+ Route distances come from the provider, not straight-line geometry.
 end note
-
-note right of ProductRequirement
-  Immutable; equality by productId and quantity.
-end note
-
+MultiStopRoute -[hidden]down-> RouteOptimizationPolicy
+RouteOptimizationPolicy -[hidden]down-> ReplacementStorePolicy
 @enduml

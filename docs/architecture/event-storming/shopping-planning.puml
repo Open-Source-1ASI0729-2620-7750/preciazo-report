@@ -1,71 +1,198 @@
 @startuml Preciazo_Event_Storming_shopping_planning
-left to right direction
-title Preciazo - Design-Level Event Storming: Shopping Planning
+top to bottom direction
+
+title
+Preciazo - Design-Level Event Storming: Shopping Planning
+AV2 Design Proposal - US07-US12 and US18
+end title
 skinparam shadowing false
 skinparam defaultFontSize 15
 skinparam defaultTextAlignment center
-skinparam nodesep 35
-skinparam ranksep 35
+skinparam nodesep 30
+skinparam ranksep 30
 skinparam rectanglePadding 12
 
-rectangle "Buyer" as n0_0 <<Actor>> #FFE08A
-rectangle "Create Shopping List" as n0_1 <<Command>> #ACDAFA
-rectangle "Shopping List" as n0_2 <<Aggregate>> #FFF1AE
-rectangle "Shopping List Created" as n0_3 <<Domain Event>> #FFD0A1
-rectangle "Get Shopping List Total /\nGet Active Shopping List" as n0_4 <<Query>> #B3EDBE
-n0_0 --> n0_1
-n0_1 --> n0_2
-n0_2 --> n0_3
-n0_3 --> n0_4
+rectangle "Saved Shopping Lists\nLists owned by the buyer" as read0 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer0 <<Actor>> #FFE08A
+rectangle "Create Shopping List\nUse date/time when name is omitted" as command0 <<Command>> #ACDAFA
+rectangle "Shopping List" as aggregate0 <<Aggregate>> #FFF1AE
+rectangle "Shopping List Created" as event0 <<Domain Event>> #FFD0A1
+read0 -right-> buyer0
+buyer0 -right-> command0
+command0 -right-> aggregate0
+aggregate0 -right-> event0
 
-rectangle "Buyer" as n1_0 <<Actor>> #FFE08A
-rectangle "Add Shopping Item /\nRemove Shopping Item" as n1_1 <<Command>> #ACDAFA
-rectangle "Shopping List" as n1_2 <<Aggregate>> #FFF1AE
-rectangle "Shopping Item Added /\nShopping Item Removed" as n1_3 <<Domain Event>> #FFD0A1
-rectangle "Evaluate Projected Cost\nAgainst Budget" as n1_4 <<Policy>> #D4BFFA
-n1_0 --> n1_1
-n1_1 --> n1_2
-n1_2 --> n1_3
-n1_3 --> n1_4
+rectangle "Active Shopping List\nItems and projected total" as read1 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer1 <<Actor>> #FFE08A
+rectangle "Add Shopping Item\nIncrease quantity if product already exists" as command1 <<Command>> #ACDAFA
+rectangle "Shopping List" as aggregate1 <<Aggregate>> #FFF1AE
+rectangle "Shopping Item Added" as event1 <<Domain Event>> #FFD0A1
+read1 -right-> buyer1
+buyer1 -right-> command1
+command1 -right-> aggregate1
+aggregate1 -right-> event1
 
-rectangle "Buyer" as n2_0 <<Actor>> #FFE08A
-rectangle "Define Purchase Budget" as n2_1 <<Command>> #ACDAFA
-rectangle "Purchase Budget" as n2_2 <<Aggregate>> #FFF1AE
-rectangle "Purchase Budget Defined" as n2_3 <<Domain Event>> #FFD0A1
-rectangle "Evaluate Projected Cost\nAgainst Budget" as n2_4 <<Policy>> #D4BFFA
-rectangle "Generate Budget Warning" as n2_5 <<Command>> #ACDAFA
-rectangle "Budget Limit Exceeded" as n2_6 <<Domain Event>> #FFD0A1
-n2_0 --> n2_1
-n2_1 --> n2_2
-n2_2 --> n2_3
-n2_3 --> n2_4
-n2_4 --> n2_5
-n2_5 --> n2_6
+rectangle "Active Shopping List\nItems and projected total" as read2 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer2 <<Actor>> #FFE08A
+rectangle "Remove Shopping Item" as command2 <<Command>> #ACDAFA
+rectangle "Shopping List" as aggregate2 <<Aggregate>> #FFF1AE
+rectangle "Shopping Item Removed" as event2 <<Domain Event>> #FFD0A1
+read2 -right-> buyer2
+buyer2 -right-> command2
+command2 -right-> aggregate2
+aggregate2 -right-> event2
 
-rectangle "Buyer" as n3_0 <<Actor>> #FFE08A
-rectangle "Mark Item Purchased" as n3_1 <<Command>> #ACDAFA
-rectangle "Shopping List" as n3_2 <<Aggregate>> #FFF1AE
-rectangle "Item Purchased" as n3_3 <<Domain Event>> #FFD0A1
-n3_0 --> n3_1
-n3_1 --> n3_2
-n3_2 --> n3_3
+rectangle "Active Shopping List\nItems and projected total" as read3 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer3 <<Actor>> #FFE08A
+rectangle "Reduce Shopping Item Quantity" as command3 <<Command>> #ACDAFA
+rectangle "Shopping List" as aggregate3 <<Aggregate>> #FFF1AE
+rectangle "Shopping Item Quantity Reduced" as event3 <<Domain Event>> #FFD0A1
+read3 -right-> buyer3
+buyer3 -right-> command3
+command3 -right-> aggregate3
+aggregate3 -right-> event3
 
-rectangle "Get Budget Status" as n4_0 <<Query>> #B3EDBE
+rectangle "Budget Status\nLimit and projected total\nWarning when total > limit\nClear when total <= limit\nRequery after add / remove / reduce item\nor set / change budget\nCalculated on query; not a persisted event" as read4 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer4 <<Actor>> #FFE08A
+rectangle "Set Purchase Budget\nDefine or change a positive limit" as command4 <<Command>> #ACDAFA
+rectangle "Shopping List" as aggregate4 <<Aggregate>> #FFF1AE
+rectangle "Purchase Budget Set" as event4 <<Domain Event>> #FFD0A1
+read4 -right-> buyer4
+buyer4 -right-> command4
+command4 -right-> aggregate4
+aggregate4 -right-> event4
 
-n0_0 -[hidden,norank]down-> n1_0
-n1_0 -[hidden,norank]down-> n2_0
-n2_0 -[hidden,norank]down-> n3_0
-n3_0 -[hidden,norank]down-> n4_0
+rectangle "Purchase Progress\nPurchased items and checkout total\nMarking includes the item subtotal" as read5 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer5 <<Actor>> #FFE08A
+rectangle "Mark Item as Purchased" as command5 <<Command>> #ACDAFA
+rectangle "Shopping List" as aggregate5 <<Aggregate>> #FFF1AE
+rectangle "Shopping Item Marked as Purchased" as event5 <<Domain Event>> #FFD0A1
+read5 -right-> buyer5
+buyer5 -right-> command5
+command5 -right-> aggregate5
+aggregate5 -right-> event5
 
-legend bottom
-|= Color |= Element |
-|<back:#FFE08A>    </back>| Actor |
-|<back:#ACDAFA>    </back>| Command |
-|<back:#FFF1AE>    </back>| Aggregate |
-|<back:#FFD0A1>    </back>| Domain Event |
-|<back:#D4BFFA>    </back>| Policy |
-|<back:#B3EDBE>    </back>| Query |
-|<back:#FFB2DF>    </back>| External System |
-|<back:#FFB7AB>    </back>| Hotspot |
-endlegend
+rectangle "Purchase Progress\nPurchased items and checkout total\nUnmarking excludes the item subtotal" as read6 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer6 <<Actor>> #FFE08A
+rectangle "Unmark Item as Purchased" as command6 <<Command>> #ACDAFA
+rectangle "Shopping List" as aggregate6 <<Aggregate>> #FFF1AE
+rectangle "Shopping Item Unmarked as Purchased" as event6 <<Domain Event>> #FFD0A1
+read6 -right-> buyer6
+buyer6 -right-> command6
+command6 -right-> aggregate6
+aggregate6 -right-> event6
+
+' Keep corresponding columns aligned and rows ordered from top to bottom.
+read0 -[hidden]down-> read1
+buyer0 -[hidden]down-> buyer1
+command0 -[hidden]down-> command1
+aggregate0 -[hidden]down-> aggregate1
+event0 -[hidden]down-> event1
+read1 -[hidden]down-> read2
+buyer1 -[hidden]down-> buyer2
+command1 -[hidden]down-> command2
+aggregate1 -[hidden]down-> aggregate2
+event1 -[hidden]down-> event2
+read2 -[hidden]down-> read3
+buyer2 -[hidden]down-> buyer3
+command2 -[hidden]down-> command3
+aggregate2 -[hidden]down-> aggregate3
+event2 -[hidden]down-> event3
+read3 -[hidden]down-> read4
+buyer3 -[hidden]down-> buyer4
+command3 -[hidden]down-> command4
+aggregate3 -[hidden]down-> aggregate4
+event3 -[hidden]down-> event4
+read4 -[hidden]down-> read5
+buyer4 -[hidden]down-> buyer5
+command4 -[hidden]down-> command5
+aggregate4 -[hidden]down-> aggregate5
+event4 -[hidden]down-> event5
+read5 -[hidden]down-> read6
+buyer5 -[hidden]down-> buyer6
+command5 -[hidden]down-> command6
+aggregate5 -[hidden]down-> aggregate6
+event5 -[hidden]down-> event6
+
+
+rectangle "Purchase Progress and Pending Items\nBuyer decides to close this list" as read7 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer7 <<Actor>> #FFE08A
+rectangle "Complete Shopping List" as command7 <<Command>> #ACDAFA
+rectangle "Shopping List" as aggregate7 <<Aggregate>> #FFF1AE
+rectangle "Shopping List Completed" as event7 <<Domain Event>> #FFD0A1
+read7 -right-> buyer7
+buyer7 -right-> command7
+command7 -right-> aggregate7
+aggregate7 -right-> event7
+read6 -[hidden]down-> read7
+buyer6 -[hidden]down-> buyer7
+command6 -[hidden]down-> command7
+aggregate6 -[hidden]down-> aggregate7
+event6 -[hidden]down-> event7
+
+rectangle "Completed Shopping List\nAll requested products and quantities" as read8 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer8 <<Actor>> #FFE08A
+rectangle "Save Shopping Template" as command8 <<Command>> #ACDAFA
+rectangle "Shopping Template" as aggregate8 <<Aggregate>> #FFF1AE
+rectangle "Shopping Template Saved" as event8 <<Domain Event>> #FFD0A1
+read8 -right-> buyer8
+buyer8 -right-> command8
+command8 -right-> aggregate8
+aggregate8 -right-> event8
+read7 -[hidden]down-> read8
+buyer7 -[hidden]down-> buyer8
+command7 -[hidden]down-> command8
+aggregate7 -[hidden]down-> aggregate8
+event7 -[hidden]down-> event8
+
+rectangle "Saved Template and Current Offer Selection\nOne available current price per product" as read9 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer9 <<Actor>> #FFE08A
+rectangle "Create List from Template" as command9 <<Command>> #ACDAFA
+rectangle "Shopping List" as aggregate9 <<Aggregate>> #FFF1AE
+rectangle "Shopping List Created" as event9 <<Domain Event>> #FFD0A1
+read9 -right-> buyer9
+buyer9 -right-> command9
+command9 -right-> aggregate9
+aggregate9 -right-> event9
+read8 -[hidden]down-> read9
+buyer8 -[hidden]down-> buyer9
+command8 -[hidden]down-> command9
+aggregate8 -[hidden]down-> aggregate9
+event8 -[hidden]down-> event9
+
+rectangle "Store Results and Favorite Status\nOnly eligible stores; preference is not a price change" as read10 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer10 <<Actor>> #FFE08A
+rectangle "Add Favorite Store" as command10 <<Command>> #ACDAFA
+rectangle "Favorite Store" as aggregate10 <<Aggregate>> #FFF1AE
+rectangle "Store Added to Favorites" as event10 <<Domain Event>> #FFD0A1
+read10 -right-> buyer10
+buyer10 -right-> command10
+command10 -right-> aggregate10
+aggregate10 -right-> event10
+read9 -[hidden]down-> read10
+buyer9 -[hidden]down-> buyer10
+command9 -[hidden]down-> command10
+aggregate9 -[hidden]down-> aggregate10
+event9 -[hidden]down-> event10
+
+rectangle "Saved Favorite Stores\nBuyer selects a preference to remove" as read11 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer11 <<Actor>> #FFE08A
+rectangle "Remove Favorite Store" as command11 <<Command>> #ACDAFA
+rectangle "Favorite Store" as aggregate11 <<Aggregate>> #FFF1AE
+rectangle "Store Removed from Favorites" as event11 <<Domain Event>> #FFD0A1
+read11 -right-> buyer11
+buyer11 -right-> command11
+command11 -right-> aggregate11
+aggregate11 -right-> event11
+read10 -[hidden]down-> read11
+buyer10 -[hidden]down-> buyer11
+command10 -[hidden]down-> command11
+aggregate10 -[hidden]down-> aggregate11
+event10 -[hidden]down-> event11
+
+rectangle "Templates copy requirements only, never historical prices or purchase flags.\nClones are new ACTIVE lists; unavailable/stale required quotes create no partial list.\nCompleted lists are read-only; retries/no-op preferences emit no duplicate events.\nBudget warning remains a query calculation; unmarking reduces checkout total." as recurrenceRules <<Business Rule>> #FFF1AE
+rectangle "Trusted store/current-price provisioning and quote freshness require agreement.\nPreferred-store presentation must preserve the independent US13 price ranking.\nFavorite delivery to Catalog and accepted-substitute application remain pending.\nNo ACL, automatic shopping recurrence or cross-context subscription is introduced." as recurrenceHotspot <<Hotspot>> #FFB7AB
+read11 -[hidden]down-> recurrenceRules
+recurrenceRules -[hidden]down-> recurrenceHotspot
+
 @enduml

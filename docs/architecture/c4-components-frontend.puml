@@ -1,53 +1,49 @@
 @startuml Preciazo_C4_Components_Frontend
-
 !include <C4/C4_Component>
-
 LAYOUT_LEFT_RIGHT()
-
-title Preciazo - Single-Page Application (SPA) Component Diagram
-
-Person(buyer, "Buyer", "Uses shopping, price comparison, route and verification features.")
-Person(merchantPerson, "Merchant", "Uses store, catalog, inventory, offer and analytics features.")
-Container(api, "Preciazo REST API", "Java, Spring Boot, Spring Data JPA", "Provides RESTful application services consumed by the SPA.")
-
-Container_Boundary(web, "Single-Page Application (SPA)") {
-    Component(router, "Router / Guards", "Angular Router", "Resolves routes and protects role-specific navigation.")
-    Component(shared, "Shared UI", "Angular, TypeScript, Angular Material", "Provides reusable layout, forms, tables, validation and feedback components.")
-    Component(identity, "Identity and Access UI", "Angular, TypeScript", "Supports sign-in, session state, role context and access-related flows.")
-    Component(shopping, "Shopping Planning UI", "Angular, TypeScript", "Supports shared shopping lists, budgets and purchase progress.")
-    Component(catalog, "Catalog and Pricing UI", "Angular, TypeScript", "Searches products, compares unit prices and displays availability.")
-    Component(route, "Route Planning UI", "Angular, TypeScript", "Configures multi-stop routes and presents estimated savings and travel information.")
-    Component(merchantManagement, "Merchant Management UI", "Angular, TypeScript", "Manages stores, catalog, inventory and offers.")
-    Component(verification, "Community Price Verification UI", "Angular, TypeScript", "Reports price discrepancies and shows verification status.")
-    Component(analytics, "Analytics and Engagement UI", "Angular, TypeScript", "Presents merchant traffic, lost sales and engagement metrics.")
-    Component(apiServices, "API/Application Services", "Angular, TypeScript, HttpClient", "Encapsulates API calls, DTO mapping, loading state and error handling for feature modules.")
+title Preciazo - SPA Components (AV2 Design Proposal)
+Person(buyer, "Independent Buyer", "Uses shopping, comparison, route and community features.")
+Person(merchantPerson, "Retail Merchant", "Manages owned stores and consults observed US27 metrics.")
+Container(api, "Preciazo REST API", "Java / Spring Boot", "Authorizes requests and enforces domain rules. Rejects unsupported, stale or unauthorized operations.")
+Container_Boundary(web, "Single-Page Application (SPA) - browser") {
+ Component(router, "Router / Guards", "Angular Router", "Organizes navigation by user context. Improves UX; never replaces backend authorization.")
+ Component(shared, "Shared Components", "Angular / Angular Material", "Reusable forms, layout, validation messages, loading states and feedback. No shared domain model.")
+ Component(catalog, "Catalog and Pricing", "Angular / TypeScript", "Product search, comparison, availability and canonical public-price forms; missing normalized data stays absent.")
+ Component(route, "Route Planning", "Angular / TypeScript", "Origin/mode/remaining stops, explicit replan, coverage and qualified savings; failed replan keeps prior plan visible with its timestamp.")
+ Component(shopping, "Shopping Planning", "Angular / TypeScript", "List editing, query-based budget warning and purchase progress; unmarking reduces checkout total.")
+ Component(merchantManagement, "Merchant Management", "Angular / TypeScript", "Store, fiscal status, schedule, inventory/import and promotion forms; no independent canonical price copy.")
+ Component(verification, "Community Price Verification", "Angular / TypeScript", "Discrepancy reports, distinct confirmation/rejection votes and review status; no invented confidence percentage.")
+ Component(analytics, "Analytics and Engagement", "Angular / TypeScript", "Owner-only monthly observed counts and saved reports; distinct users, evaluation date and UNKNOWN ingestion coverage.")
+ Component(identity, "Identity and Access", "Angular / TypeScript", "Registration, sign-in, retry/security-check feedback, own profile and client bearer state. Logout clears client token without claiming revocation.")
+ Component(apiClients, "Feature API Clients", "Angular HttpClient / DTO assemblers", "Feature-scoped API calls, bearer transport, response mapping and ProblemDetail feedback; no server credentials or tokens in logs.")
 }
-
-Rel(buyer, router, "Accesses shopping features", "Web browser")
-Rel(merchantPerson, router, "Accesses merchant features", "Web browser")
-Rel(router, identity, "Routes and guards")
-Rel(router, shopping, "Routes and guards")
-Rel(router, catalog, "Routes and guards")
-Rel(router, route, "Routes and guards")
-Rel(router, merchantManagement, "Routes and guards")
-Rel(router, verification, "Routes and guards")
-Rel(router, analytics, "Routes and guards")
-Rel(identity, shared, "Uses shared UI components")
-Rel(shopping, shared, "Uses shared UI components")
-Rel(catalog, shared, "Uses shared UI components")
-Rel(route, shared, "Uses shared UI components")
-Rel(merchantManagement, shared, "Uses shared UI components")
-Rel(verification, shared, "Uses shared UI components")
-Rel(analytics, shared, "Uses shared UI components")
-Rel(identity, apiServices, "Calls")
-Rel(shopping, apiServices, "Calls")
-Rel(catalog, apiServices, "Calls")
-Rel(route, apiServices, "Calls")
-Rel(merchantManagement, apiServices, "Calls")
-Rel(verification, apiServices, "Calls")
-Rel(analytics, apiServices, "Calls")
-Rel(apiServices, api, "Invokes REST endpoints", "HTTPS / JSON")
-
-SHOW_LEGEND()
-
+Rel(buyer, router, "Uses buyer navigation", "Browser")
+Rel(merchantPerson, router, "Uses merchant navigation", "Browser")
+Rel(router, catalog, "Routes / guards")
+Rel(router, route, "Routes / guards")
+Rel(router, shopping, "Routes / guards")
+Rel(router, merchantManagement, "Routes / guards")
+Rel(router, verification, "Routes / guards")
+Rel(router, analytics, "Routes / guards")
+Rel(router, identity, "Routes / guards")
+Rel(catalog, shared, "Renders reusable components")
+Rel(route, shared, "Renders reusable components")
+Rel(shopping, shared, "Renders reusable components")
+Rel(merchantManagement, shared, "Renders reusable components")
+Rel(verification, shared, "Renders reusable components")
+Rel(analytics, shared, "Renders reusable components")
+Rel(identity, shared, "Renders reusable components")
+Rel(catalog, apiClients, "Invokes feature contracts")
+Rel(route, apiClients, "Invokes feature contracts")
+Rel(shopping, apiClients, "Invokes feature contracts")
+Rel(merchantManagement, apiClients, "Invokes feature contracts")
+Rel(verification, apiClients, "Invokes feature contracts")
+Rel(analytics, apiClients, "Invokes feature contracts")
+Rel(identity, apiClients, "Invokes feature contracts")
+Rel(apiClients, api, "Invokes API; bearer on protected requests", "HTTPS / JSON")
+note bottom of web
+ Proposed feature modules, not an inventory of implemented Angular components.
+ Input references and cross-context workflows depend on backend contracts still pending coordination.
+ Client prices, roles, fiscal flags and ownership claims never authorize server writes.
+end note
 @enduml

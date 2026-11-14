@@ -1,35 +1,29 @@
 @startuml Preciazo_Shopping_Planning_Classes
-
-title Preciazo - Shopping Planning Class Diagram
-
+title Preciazo - Shopping Planning Domain (AV2 - US07-US12 / US18)
+set namespaceSeparator none
 skinparam classAttributeIconSize 0
 skinparam shadowing false
 skinparam linetype ortho
 
-interface ShoppingRepository {
-    +findListById(id: Long): ShoppingList
-    +save(list: ShoppingList): void
-}
 
-interface BudgetPolicy {
-    +canAllocate(amount: Money, budget: PurchaseBudget): Boolean
-}
-
-class ShoppingPlanningService {
-    +createList(ownerId: Long, name: String): ShoppingList
-    +addProduct(list: ShoppingList, productId: Long, quantity: Quantity): ShoppingListItem
-    +planBudget(list: ShoppingList, amount: Money): PurchaseBudget
-}
-
-class ShoppingList {
+class ShoppingList <<Aggregate>> {
     -id: Long
     -ownerId: Long
     -name: String
+    -currency: String
     -status: ListStatus
+    -version: Long
+    -completedAt: Instant [0..1]
+    -sourceTemplateId: Long [0..1]
+    -creationKey: String [0..1]
+    -creationFingerprint: String [0..1]
     +addItem(requirement: ProductRequirement, quantity: Quantity): ShoppingListItem
     +removeItem(itemId: Long): void
+    +reduceItemQuantity(itemId: Long, quantity: Quantity): void
     +markItemPurchased(itemId: Long): void
+    +unmarkItemPurchased(itemId: Long): void
     +calculateEstimatedTotal(): Money
+    +calculateCheckoutTotal(): Money
     +assignBudget(budget: PurchaseBudget): void
     +complete(): void
 }
@@ -38,10 +32,15 @@ class ShoppingListItem {
     -id: Long
     -quantity: Quantity
     -estimatedUnitPrice: UnitPrice
+    -catalogEntryId: Long [0..1]
+    -priceCapturedAt: Instant [0..1]
+    -priceOfferVersion: Long [0..1]
     -purchased: Boolean
     +changeQuantity(quantity: Quantity): void
     +updateEstimatedPrice(price: UnitPrice): void
     +markPurchased(): void
+    +unmarkPurchased(): void
+    +estimatedSubtotal(): Money
 }
 
 class ProductRequirement <<Value Object>> {
@@ -53,11 +52,7 @@ class ProductRequirement <<Value Object>> {
 class PurchaseBudget {
     -id: Long
     -limit: Money
-    -reserved: Money
-    +reserve(amount: Money): void
-    +release(amount: Money): void
-    +canAfford(amount: Money): Boolean
-    +remaining(): Money
+    +changeLimit(amount: Money): void
 }
 
 class Money <<Value Object>> {
@@ -79,22 +74,26 @@ note right of Money
 end note
 
 enum ListStatus {
-    DRAFT
     ACTIVE
     COMPLETED
 }
 
-ShoppingPlanningService ..> ShoppingRepository : persists
-ShoppingPlanningService ..> BudgetPolicy : validates
+ShoppingList ..> ListStatus : lifecycle
 ShoppingList "1" *-- "0..*" ShoppingListItem : contains
 ShoppingListItem "*" --> "1" ProductRequirement : requests
-ShoppingList "1" --> "0..1" PurchaseBudget : controls
+ShoppingList "1" *-- "0..1" PurchaseBudget : owns
 ShoppingListItem "*" --> "1" UnitPrice : estimated price
 ShoppingListItem "*" --> "1" Quantity : requested amount
 
 note right of ShoppingList
-  At most one active PurchaseBudget
-  may be assigned to a ShoppingList.
+  US08: A missing name defaults to the current date and time.
+  US09: One item per product; adding it again sums quantities.
+  Quantities must be positive and use compatible units.
+  US11: Estimated total sums all item subtotals.
+  US12: Checkout total sums purchased item subtotals only.
+  Marking/unmarking is idempotent; unmarking subtracts the subtotal.
+  Empty totals are zero in the list currency.
+  One optional budget per list; changing it replaces its limit.
 end note
 
 class Quantity <<Value Object>> {
@@ -135,6 +134,80 @@ note right of ProductRequirement
 end note
 
 PurchaseBudget "1" --> "1" Money : limit
-PurchaseBudget "1" --> "1" Money : reserved amount
+note right of PurchaseBudget
+  US10: Limit must be positive and match the list currency.
+  Invalid changes preserve the existing limit.
+  The limit is advisory: exceeding it does not block item changes.
+end note
+
+
+
+class ShoppingTemplate <<Aggregate>> {
+ -id: Long
+ -ownerId: Long
+ -name: String
+ -currency: String
+ -sourceListId: Long
+ -sourceListVersion: Long
+ -saveKey: String
+ -saveFingerprint: String
+ -createdAt: Instant
+ +fromCompletedList(list: ShoppingList): ShoppingTemplate
+}
+class TemplateItem <<Value Object>> {
+ -productId: Long {readOnly}
+ -requestedName: String {readOnly}
+ -quantity: Quantity {readOnly}
+}
+class FavoriteStore <<Aggregate>> {
+ -id: Long
+ -ownerId: Long
+ -storeId: Long
+ -active: Boolean
+ -version: Long
+ +add(): void
+ +remove(): void
+}
+class OfferSelection <<Value Object>> {
+ -productId: Long {readOnly}
+ -catalogEntryId: Long {readOnly}
+ -expectedOfferVersion: Long {readOnly}
+}
+class CurrentPriceSnapshot <<Value Object>> {
+ -productId: Long {readOnly}
+ -catalogEntryId: Long {readOnly}
+ -offerVersion: Long {readOnly}
+ -price: UnitPrice {readOnly}
+ -available: Boolean {readOnly}
+ -capturedAt: Instant {readOnly}
+}
+ShoppingTemplate "1" *-- "1..*" TemplateItem
+TemplateItem --> Quantity
+ShoppingTemplate ..> ShoppingList : copies completed source
+ShoppingList "0..*" --> "0..1" ShoppingTemplate : optional origin by identity
+CurrentPriceSnapshot --> UnitPrice
+OfferSelection ..> CurrentPriceSnapshot : selection must match trusted snapshot
+note bottom of ShoppingTemplate
+ Immutable snapshot of all requested products and quantities, owned by the buyer.
+ Source must be COMPLETED and nonempty, with expected list version.
+ No prices, purchase flags, members or budget are copied into the template.
+ A save-key retry returns the existing template; changed request -> conflict.
+end note
+note bottom of ShoppingList
+ New ordinary and template-based lists start ACTIVE; no unused DRAFT workflow.
+ Complete is explicit, idempotent and requires a nonempty ACTIVE list.
+ Completion does not assert every requested product was bought.
+ COMPLETED lists are read-only and eligible as template sources.
+ Template instantiation creates a new ACTIVE list with purchased=false for all items.
+ Validate one current, available, compatible selected offer per template product.
+ Missing/stale prices reject the whole operation; never reuse historical prices or zero.
+ Save complete clone atomically; its later changes cannot mutate template/source.
+end note
+note bottom of FavoriteStore
+ UNIQUE(ownerId, storeId); remove deactivates, re-add reactivates the same identity.
+ Repeated add/remove is idempotent and emits no duplicate domain event.
+ Removal needs ownership, not a live external store reference.
+ Preferences never alter prices, distance, coverage or store eligibility.
+end note
 
 @enduml

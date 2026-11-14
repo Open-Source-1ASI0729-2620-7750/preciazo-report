@@ -1,0 +1,20 @@
+@startuml Preciazo_Shopping_Planning_States
+title Preciazo - Shopping List and Recurrence Lifecycle (AV2)
+skinparam shadowing false
+state ACTIVE
+state COMPLETED
+[*] --> ACTIVE : create normally or instantiate template\nall purchased=false
+ACTIVE --> COMPLETED : buyer explicitly completes nonempty list
+note right of ACTIVE
+ Add/remove/reduce items, set budget and mark/unmark purchases.
+ Optimistic version check; warnings are query-derived.
+ No automatic completion when all items are marked.
+end note
+note right of COMPLETED
+ Read-only; repeated completion is a no-op.
+ Completion does not assert that every requested item was bought.
+ Save an immutable template containing all requested products/quantities.
+ Template instantiation creates another ACTIVE list, not a reopening.
+ Missing/stale required prices create no partial list.
+end note
+@enduml

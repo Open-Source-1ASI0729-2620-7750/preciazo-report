@@ -1,61 +1,140 @@
 @startuml Preciazo_Community_Price_Verification_Classes
-
-title Preciazo - Community Price Verification Class Diagram
-
+title Preciazo - Community Price Verification Backend Design (AV2)
+set namespaceSeparator none
 skinparam classAttributeIconSize 0
 skinparam shadowing false
 skinparam linetype ortho
+scale max 3200 width
 
-interface PriceVerificationRepository {
-    +findDiscrepancy(id: Long): PriceDiscrepancy
-    +save(discrepancy: PriceDiscrepancy): void
+package "application.commandservices" {
+ interface PriceVerificationCommandService <<service>> {
+  +handle(command: ReportPriceDiscrepancyCommand): Result<Long, ApplicationError>
+  +handle(command: ConfirmReportedPriceCommand): Result<Long, ApplicationError>
+  +handle(command: RejectReportedPriceCommand): Result<Long, ApplicationError>
+  +handle(command: FlagDiscrepancyForReviewCommand): Result<Long, ApplicationError>
+  +handle(command: RecalculatePriceConfidenceCommand): Result<Long, ApplicationError>
+  +handle(command: ResolvePriceDiscrepancyCommand): Result<Long, ApplicationError>
+  +handle(command: ReviewPriceDiscrepancyCommand): Result<Long, ApplicationError>
+ }
 }
-
-interface VerificationPolicy {
-    +canConfirm(user: UserRef, discrepancy: PriceDiscrepancy): Boolean
-    +resolve(discrepancy: PriceDiscrepancy): VerificationDecision
+package "application.queryservices" {
+ interface PriceVerificationQueryService <<service>> {
+  +handle(query: GetPendingPriceReportsQuery): List<PriceDiscrepancy>
+  +handle(query: GetPriceDiscrepancyByIdQuery): Optional<PriceDiscrepancy>
+  +handle(query: GetPriceConfidenceQuery): Optional<PriceConfidenceView>
+  +handle(query: GetModerationQueueQuery): List<PriceDiscrepancy>
+ }
 }
-
-class PriceVerificationService {
-    +report(reporter: UserRef, item: StoreProductRef, expected: Money, observed: Money): PriceDiscrepancy
-    +confirm(user: UserRef, discrepancy: PriceDiscrepancy): void
-    +resolve(discrepancy: PriceDiscrepancy): void
+package "application.internal" {
+ class PriceVerificationCommandServiceImpl <<service>>
+ class PriceVerificationQueryServiceImpl <<service>>
+ class VerificationEventHandler <<event handler>> {
+  +on(event: PriceDiscrepancyReported): void
+  +on(event: ReportedPriceConfirmed): void
+  +on(event: ReportedPriceRejected): void
+  +on(event: PriceConfidenceRecalculated): void
+ }
 }
-
-class PriceObservation {
-    -id: Long
-    -observedPrice: Money
-    -observedAt: DateTime
-    -source: ObservationSource
-    +isRecentAt(moment: DateTime): Boolean
-    +supports(discrepancy: PriceDiscrepancy): Boolean
+package "application.readmodels" {
+ class PriceConfidenceView <<Read Model>> {
+  +confirmationCount: Integer
+  +rejectionCount: Integer
+  +confidenceScore: Decimal [0..1]
+  +status: DiscrepancyStatus
+ }
 }
-
-class PriceDiscrepancy {
-    -id: Long
-    -expectedPrice: Money
-    -observedPrice: Money
-    -status: DiscrepancyStatus
-    +addObservation(observation: PriceObservation): void
-    +confirm(user: UserRef): void
-    +resolve(): void
-    +isConfirmed(): Boolean
+package "application.outboundservices" {
+ interface ProcessedVerificationEventRepository <<port>> {
+  +claim(eventId: String, handlerName: String, discrepancyId: Long): Boolean
+ }
 }
+package "domain.repositories" {
 
-class VerificationConfirmation {
-    -id: Long
-    -createdAt: DateTime
-    +isValidFor(user: UserRef): Boolean
+ interface PriceDiscrepancyRepository <<port>> {
+  +findById(id: Long): Optional<PriceDiscrepancy>
+  +findPending(): List<PriceDiscrepancy>
+  +findUnderReview(): List<PriceDiscrepancy>
+  +existsReportSince(user: UserRef, offer: StoreProductRef, since: DateTime): Boolean
+  +save(discrepancy: PriceDiscrepancy): PriceDiscrepancy
+ }
 }
-
-class TrustProfile {
-    -score: Decimal
-    -level: TrustLevel
-    +recordConfirmation(): void
-    +recordRejectedReport(): void
-    +recalculate(): void
-}
-
+package "domain.model" {
+ class PriceDiscrepancy <<Aggregate>> {
+  -id: Long
+  -reporter: UserRef
+  -offer: StoreProductRef
+  -expectedPrice: Money
+  -observedPrice: Money
+  -reportedAt: DateTime
+  -version: Long
+  -status: DiscrepancyStatus
+  -confidenceScore: Decimal [0..1]
+  +addObservation(observation: PriceObservation): void
+  +confirm(user: UserRef): void
+  +reject(user: UserRef): void
+  +hasVoteFrom(user: UserRef): Boolean
+  +flagForReview(): void
+  +recalculateConfidence(policy: VerificationPolicy): void
+  +resolve(decision: VerificationDecision): void
+  +review(reviewer: UserRef, decision: VerificationDecision, reason: String): void
+ }
+ class PriceObservation {
+  -id: Long
+  -observer: UserRef
+  -observedPrice: Money
+  -observedAt: DateTime
+  -source: ObservationSource
+  +isRecentAt(moment: DateTime): Boolean
+ }
+ class DiscrepancyReview {
+  -id: Long
+  -reviewer: UserRef
+  -decision: VerificationDecision
+  -reason: String
+  -reviewedAt: DateTime
+ }
+ class VerificationVote {
+  -id: Long
+  -voter: UserRef
+  -type: VoteType
+  -createdAt: DateTime
+ }
+ interface VerificationPolicy <<domain policy>> {
+  +isAnomalous(report: PriceDiscrepancy): Optional<Boolean>
+  +calculateConfidence(report: PriceDiscrepancy): Optional<Decimal>
+  +decide(report: PriceDiscrepancy): Optional<VerificationDecision>
+ }
+ class TrustProfile <<Aggregate>> {
+  -score: Decimal
+  -level: TrustLevel
+  +recordConfirmation(): void
+  +recordRejectedReport(): void
+  +recalculate(): void
+ }
+ enum VoteType {
+  CONFIRM
+  REJECT
+ }
+ enum DiscrepancyStatus {
+  OPEN
+  UNDER_REVIEW
+  ACCEPTED
+  REJECTED
+ }
+ enum VerificationDecision {
+  ACCEPT
+  REJECT
+  REVIEW
+ }
+ enum ObservationSource {
+  MERCHANT
+  COMMUNITY
+ }
+ enum TrustLevel {
+  NEW
+  TRUSTED
+  VERIFIED
+ }
 class UserRef <<Value Object>> {
     -userId: Long {readOnly}
     +identifies(userId: Long): Boolean
@@ -84,57 +163,71 @@ note right of Money
   Operations return new values.
 end note
 
-enum ObservationSource {
-    MERCHANT
-    COMMUNITY
+
+ PriceDiscrepancy "1" *-- "1..*" PriceObservation : evidence
+ PriceDiscrepancy "1" *-- "0..*" VerificationVote : votes
+ PriceDiscrepancy "1" *-- "0..1" DiscrepancyReview : final human review
+ PriceDiscrepancy "*" --> "1" UserRef : reporter
+ PriceDiscrepancy "*" --> "1" StoreProductRef : offer
+ VerificationVote "*" --> "1" UserRef : voter
+ VerificationVote ..> VoteType
+ PriceDiscrepancy ..> DiscrepancyStatus
+ PriceDiscrepancy ..> VerificationPolicy
+ VerificationPolicy ..> VerificationDecision
+ PriceObservation "1" --> "1" Money : observed price
+ PriceDiscrepancy "1" --> "1" Money : expected price
+ PriceDiscrepancy "1" --> "1" Money : observed price
+ UserRef "1" --> "0..1" TrustProfile : local reputation
+ note bottom of VerificationVote
+  Proposed rule: one vote per buyer and discrepancy.
+  Only another buyer may vote, and only while the report is OPEN.
+  A second vote, including an opposite vote, is rejected without a new event.
+ end note
+ note bottom of VerificationPolicy
+  US28: Anomalous observations are held for review.
+  US29: Confirmations increase confidence; rejections decrease it.
+  Formula, anomaly and resolution thresholds remain a design hotspot.
+  If no decision rule applies, do not accept or reject automatically.
+  ACCEPT -> ACCEPTED; REJECT -> REJECTED; REVIEW -> UNDER_REVIEW.
+  Missing anomaly rule: retain for review, do not expose as votable.
+  Final states cannot be reopened in this scope.
+ end note
 }
-
-enum DiscrepancyStatus {
-    OPEN
-    CONFIRMED
-    RESOLVED
+package "infrastructure.persistence.jpa" {
+ class PriceDiscrepancyRepositoryImpl <<adapter>>
+ interface PriceDiscrepancyPersistenceRepository <<Spring Data JPA>>
+ class PriceDiscrepancyPersistenceAssembler <<mapper>>
+ class PriceDiscrepancyPersistenceEntity <<JPA Entity>>
+ class PriceObservationPersistenceEntity <<JPA Entity>>
+ class VerificationVotePersistenceEntity <<JPA Entity>>
+ class DiscrepancyReviewPersistenceEntity <<JPA Entity>>
+ class ProcessedVerificationEventRepositoryImpl <<adapter>>
+ class ProcessedVerificationEventPersistenceEntity <<JPA Entity>>
 }
-
-enum TrustLevel {
-    NEW
-    TRUSTED
-    VERIFIED
-}
-
-enum VerificationDecision {
-    ACCEPT
-    REJECT
-    REVIEW
-}
-
-PriceVerificationService ..> PriceVerificationRepository : persists
-PriceVerificationService ..> VerificationPolicy : evaluates
-UserRef "1" --> "0..*" PriceDiscrepancy : reports
-PriceDiscrepancy "*" --> "1" StoreProductRef : concerns
-PriceDiscrepancy "1" *-- "1..*" PriceObservation : supported by
-PriceDiscrepancy "1" *-- "0..*" VerificationConfirmation : receives
-UserRef "1" --> "0..*" VerificationConfirmation : creates
-UserRef "1" --> "1" TrustProfile : has local trust state
-
-note right of UserRef
-  Reference to Identity and Access.
+PriceVerificationCommandServiceImpl ..|> PriceVerificationCommandService
+PriceVerificationQueryServiceImpl ..|> PriceVerificationQueryService
+PriceVerificationCommandServiceImpl ..> PriceDiscrepancyRepository : persists through port
+PriceVerificationCommandServiceImpl ..> PriceDiscrepancy : invokes behavior
+PriceVerificationCommandServiceImpl ..> VerificationPolicy : domain decisions
+PriceVerificationQueryServiceImpl ..> PriceDiscrepancyRepository : reads through port
+PriceVerificationQueryServiceImpl ..> PriceConfidenceView : projects
+VerificationEventHandler ..> PriceVerificationCommandService : dispatches internal commands
+VerificationEventHandler ..> ProcessedVerificationEventRepository : claims event and handler
+ProcessedVerificationEventRepositoryImpl ..|> ProcessedVerificationEventRepository
+ProcessedVerificationEventRepositoryImpl ..> ProcessedVerificationEventPersistenceEntity
+note bottom of VerificationEventHandler
+  Processed marker and domain change share one transaction.
+  Duplicate event + handler: no mutation or new event.
+  Recalculation reads all current votes; resolution checks version.
+  Initial anomaly check finishes before the report becomes visible.
 end note
-
-note right of StoreProductRef
-  Reference to Catalog and Pricing
-  using its local catalog offer identifier.
-end note
-
-PriceObservation "1" --> "1" Money : observed price
-PriceDiscrepancy "1" --> "1" Money : expected price
-PriceDiscrepancy "1" --> "1" Money : observed price
-
-note bottom of UserRef
-  Immutable; equality by userId.
-end note
-
-note bottom of StoreProductRef
-  Immutable; equality by storeProductId.
-end note
-
+PriceDiscrepancyRepositoryImpl ..|> PriceDiscrepancyRepository
+PriceDiscrepancyRepositoryImpl ..> PriceDiscrepancyPersistenceRepository : delegates
+PriceDiscrepancyRepositoryImpl ..> PriceDiscrepancyPersistenceAssembler : maps
+PriceDiscrepancyPersistenceAssembler ..> PriceDiscrepancy : pure domain
+PriceDiscrepancyPersistenceAssembler ..> PriceDiscrepancyPersistenceEntity
+PriceDiscrepancyPersistenceRepository ..> PriceDiscrepancyPersistenceEntity
+PriceDiscrepancyPersistenceEntity "1" *-- "1..*" PriceObservationPersistenceEntity
+PriceDiscrepancyPersistenceEntity "1" *-- "0..*" VerificationVotePersistenceEntity
+PriceDiscrepancyPersistenceEntity "1" *-- "0..1" DiscrepancyReviewPersistenceEntity
 @enduml

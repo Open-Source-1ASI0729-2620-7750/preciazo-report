@@ -11,7 +11,9 @@ entity products {
     name : VARCHAR
     brand : VARCHAR
     category : VARCHAR
-    unit : VARCHAR
+    sale_unit : VARCHAR
+    net_content_quantity : DECIMAL <<NULLABLE>>
+    net_content_unit : VARCHAR <<NULLABLE>>
 }
 
 entity catalog_entries {
@@ -19,26 +21,79 @@ entity catalog_entries {
     --
     store_id : BIGINT <<REF>>
     product_id : BIGINT <<FK>>
-    unit_price : DECIMAL
+    sale_price : DECIMAL
+    currency : VARCHAR
     stock_status : VARCHAR
     updated_at : TIMESTAMP
+    version : BIGINT
 }
 
 entity price_snapshots {
     * id : BIGINT <<PK>>
     --
     catalog_entry_id : BIGINT <<FK>>
-    unit_price : DECIMAL
+    sale_price : DECIMAL
+    currency : VARCHAR
+    sale_unit : VARCHAR
+    net_content_quantity : DECIMAL <<NULLABLE>>
+    net_content_unit : VARCHAR <<NULLABLE>>
     captured_at : TIMESTAMP
 }
 
 products ||--o{ catalog_entries
-catalog_entries ||--o{ price_snapshots
+catalog_entries ||--|{ price_snapshots
 
 note right of catalog_entries
-  UNIQUE(store_id, product_id)
-  store_id belongs to
-  Merchant Management.
+  UNIQUE(store_id, product_id).
+  Canonical public selling price and stock_status; sale_price > 0.
+  Price and history update together; version supports optimistic concurrency.
+  Store identity belongs to Merchant Management.
+end note
+
+entity product_substitutions {
+    * product_id : BIGINT <<PK, FK>>
+    * substitute_product_id : BIGINT <<PK, FK>>
+}
+
+entity catalog_store_references {
+    * id : BIGINT <<PK>>
+    --
+    store_id : BIGINT <<REF, UQ>>
+    owner_id : BIGINT <<REF>>
+    district : VARCHAR
+    latitude : DECIMAL
+    longitude : DECIMAL
+    affiliated : BOOLEAN
+    captured_at : TIMESTAMP
+    source_version : BIGINT
+}
+
+products ||--o{ product_substitutions : original product
+products ||--o{ product_substitutions : substitute product
+
+note bottom of products
+  sale_unit is the requested purchase unit for basket quantities.
+  net_content_quantity and net_content_unit are both present or both absent.
+  Present net content is positive; supported units allow mass/volume conversion.
+  No content -> normalized price is unavailable, never zero.
+end note
+
+note bottom of product_substitutions
+  UNIQUE(product_id, substitute_product_id); product_id != substitute_product_id.
+  Explicit directional candidates; compatibility is checked before comparison.
+end note
+
+note bottom of price_snapshots
+  Initial snapshot and actual price changes are saved with the offer atomically.
+  sale_price > 0; currency, sale unit and net content are historical snapshots.
+  Index (catalog_entry_id, captured_at, id); no fabricated daily samples.
+end note
+
+note right of catalog_store_references
+  Local reference data for ownership, affiliation, district and proximity.
+  Coordinates and owner refer to a store by identifiers only.
+  Trusted internal refresh uses increasing source_version.
+  Provisioning and refresh guarantees remain pending; no ACL is introduced.
 end note
 
 @enduml

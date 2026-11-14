@@ -1,0 +1,146 @@
+@startuml Preciazo_Identity_Access_Backend
+title Preciazo - Identity and Access Backend Contracts (AV2)
+set namespaceSeparator none
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+package "application.commandservices" {
+ interface UserCommandService <<service>> {
+  +handle(command: RegisterUserCommand): Result<Long, ApplicationError>
+  +handle(command: AuthenticateUserCommand): Result<AccessTokenResult, ApplicationError>
+ }
+ interface RoleCommandService <<service>> {
+  +handle(command: SeedAccessCatalogCommand): Result<Boolean, ApplicationError>
+ }
+}
+package "application.queryservices" {
+ interface UserQueryService <<service>> {
+  +handle(query: GetMyProfileQuery): Optional<UserProfileView>
+  +handle(query: GetMyAccessQuery): UserAccessView
+ }
+}
+package "application.internal" {
+ class UserCommandServiceImpl <<service>>
+ class UserQueryServiceImpl <<service>>
+ class RoleCommandServiceImpl <<service>>
+ class ApplicationReadyHandler <<internal trigger>>
+}
+package "application.outboundservices" {
+ interface HashingService <<port>> {
+  +encode(rawPassword: CharSequence): String
+  +matches(rawPassword: CharSequence, encodedPassword: String): Boolean
+ }
+ interface TokenService <<port>> {
+  +issue(userId: Long, now: Instant): AccessTokenResult
+  +validate(token: String, now: Instant): TokenSubject
+ }
+ interface SecurityCheckVerifier <<port>> {
+  +verify(proof: String, subject: SecurityCheckSubject): Result<VerifiedSecurityCheck, ApplicationError>
+ }
+ class AccessTokenResult <<Result Value>> {
+  +accessToken: String
+  +tokenType: String
+  +expiresAt: Instant
+ }
+ class UserProfileView <<Read Model>> {
+  +id: Long
+  +email: String
+  +status: AccountStatus
+ }
+ class UserAccessView <<Read Model>> {
+  +roles: Set<RoleName>
+  +permissions: Set<Permission>
+ }
+}
+package "domain.repositories" {
+ interface UserRepository <<port>> {
+  +findByCanonicalEmail(email: EmailAddress): Optional<User>
+  +findById(id: Long): Optional<User>
+  +save(user: User): User
+ }
+ interface RoleRepository <<port>> {
+  +findByName(name: RoleName): Optional<Role>
+  +save(role: Role): Role
+ }
+ class User <<Aggregate>>
+ class Role <<Aggregate>>
+}
+package "infrastructure.security" {
+ class BCryptHashingServiceAdapter <<adapter>>
+ class JwtTokenServiceAdapter <<adapter>>
+ class SecurityCheckVerifierAdapter <<contract pending>>
+ class BearerAuthorizationRequestFilter <<Spring Security filter>>
+ class WebSecurityConfiguration <<configuration>>
+}
+package "infrastructure.persistence" {
+ class UserRepositoryImpl <<adapter>>
+ interface UserPersistenceRepository <<Spring Data JPA>>
+ class UserPersistenceAssembler <<mapper>>
+ class UserPersistenceEntity <<JPA Entity>>
+ class RoleRepositoryImpl <<adapter>>
+ interface RolePersistenceRepository <<Spring Data JPA>>
+ class RolePersistenceAssembler <<mapper>>
+ class RolePersistenceEntity <<JPA Entity>>
+ class PermissionPersistenceEntity <<JPA Entity>>
+}
+UserCommandServiceImpl ..|> UserCommandService
+UserQueryServiceImpl ..|> UserQueryService
+RoleCommandServiceImpl ..|> RoleCommandService
+ApplicationReadyHandler ..> RoleCommandService : idempotent seed
+UserCommandServiceImpl ..> UserRepository
+UserCommandServiceImpl ..> RoleRepository
+UserCommandServiceImpl ..> HashingService
+UserCommandServiceImpl ..> TokenService
+UserCommandServiceImpl ..> SecurityCheckVerifier
+UserQueryServiceImpl ..> UserRepository
+RoleCommandServiceImpl ..> RoleRepository
+BCryptHashingServiceAdapter ..|> HashingService
+JwtTokenServiceAdapter ..|> TokenService
+SecurityCheckVerifierAdapter ..|> SecurityCheckVerifier
+BearerAuthorizationRequestFilter ..> TokenService
+BearerAuthorizationRequestFilter ..> UserRepository : current active account and grants
+WebSecurityConfiguration ..> BearerAuthorizationRequestFilter
+UserRepositoryImpl ..|> UserRepository
+UserRepositoryImpl ..> UserPersistenceRepository
+UserRepositoryImpl ..> UserPersistenceAssembler
+UserPersistenceRepository ..> UserPersistenceEntity
+UserPersistenceAssembler ..> User
+UserPersistenceAssembler ..> UserPersistenceEntity
+RoleRepositoryImpl ..|> RoleRepository
+RoleRepositoryImpl ..> RolePersistenceRepository
+RoleRepositoryImpl ..> RolePersistenceAssembler
+RolePersistenceRepository ..> RolePersistenceEntity
+RolePersistenceAssembler ..> Role
+RolePersistenceAssembler ..> RolePersistenceEntity
+UserPersistenceEntity "0..*" --> "1..*" RolePersistenceEntity
+RolePersistenceEntity "0..*" --> "0..*" PermissionPersistenceEntity
+note bottom of UserCommandServiceImpl
+ Commit failed-attempt updates even when returning an authentication error Result.
+ Atomically compare/update version; on conflict, re-evaluate current state.
+ Consume security proof once per request; never retry its use blindly.
+ Issue token only for an accepted decision; return it after state save succeeds.
+ Token/storage failure returns no successful authentication response.
+end note
+note bottom of TokenService
+ Signed bearer JWT; sub = stable user id; validate signature and expiry.
+ Issuer, audience, allowed algorithm, signing key and TTL require configuration.
+ No token strings, refresh tokens or auth_sessions persisted.
+ Logout removes the client token; no single-token revocation is promised.
+end note
+note bottom of SecurityCheckVerifier
+ Provider/proof protocol, one-time use, binding and deadline remain pending.
+ Missing/invalid required proof denies login; provider unavailable -> 503.
+ Never accept a client boolean as proof of a passed security check.
+end note
+note bottom of BearerAuthorizationRequestFilter
+ Protected endpoints load current account status and role permissions.
+ JWT validation is stateless with respect to sessions, not authorization data.
+ Temporary login lock blocks new issuance; suspended/deactivated users are denied.
+ Resource ownership remains a check in each owning context; no ACL is introduced.
+end note
+note bottom of UserRepositoryImpl
+ Optimistic version protects counters and lock transitions.
+ PublishAndClearEvents after save; no credentials or tokens in event payloads.
+ No durable event delivery claim; only PersistenceEntity classes carry JPA.
+end note
+@enduml

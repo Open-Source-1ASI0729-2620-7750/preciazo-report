@@ -1,0 +1,33 @@
+@startuml Preciazo_Community_Verification_States
+title Preciazo - Price Discrepancy Lifecycle (AV2 Proposal)
+hide empty description
+skinparam shadowing false
+state "Initial anomaly screening" as Screening <<choice>>
+[*] --> Screening : Report Price Discrepancy
+Screening --> OPEN : No anomaly
+Screening --> UNDER_REVIEW : Anomaly or missing rule
+OPEN --> OPEN : Valid community vote
+OPEN --> UNDER_REVIEW : Policy: REVIEW
+OPEN --> ACCEPTED : Policy: ACCEPT
+OPEN --> REJECTED : Policy: REJECT
+UNDER_REVIEW --> ACCEPTED : Reviewer: ACCEPT
+UNDER_REVIEW --> REJECTED : Reviewer: REJECT
+ACCEPTED --> [*]
+REJECTED --> [*]
+note right of Screening
+  Creation and screening share one transaction.
+  No intermediate OPEN report is visible to buyers.
+end note
+note bottom of OPEN
+  Missing confidence or resolution rule: keep OPEN.
+  A negative vote alone does not reject a report.
+  Invalid and duplicate requests do not change state.
+end note
+note bottom of UNDER_REVIEW
+  Community voting is blocked while held.
+  Reviewer decisions require a permission and a reason.
+  Reviewer permission uses existing IAM permissions;
+  no new role or ACL is introduced.
+  Acceptance and rejection are final in this scope.
+end note
+@enduml

@@ -1,0 +1,133 @@
+@startuml Preciazo_Analytics_Engagement_Backend
+title Preciazo - Analytics and Engagement Backend Contracts (AV2)
+set namespaceSeparator none
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+package "application.commandservices" {
+ interface AnalyticsCommandService <<service>> {
+  +handle(command: RecordPromotionInteractionCommand): Result<AnalyticsWriteReceipt, ApplicationError>
+  +handle(command: RecordRouteStopSuggestionCommand): Result<AnalyticsWriteReceipt, ApplicationError>
+  +handle(command: GenerateMerchantReportCommand): Result<AnalyticsWriteReceipt, ApplicationError>
+ }
+}
+package "application.queryservices" {
+ interface MetricsQueryService <<service>> {
+  +handle(query: GetStoreMonthlyMetricsQuery): MerchantMetrics
+  +handle(query: GetPromotionMonthlyMetricsQuery): Optional<PromotionMetrics>
+  +handle(query: GetMerchantReportByIdQuery): Optional<MerchantReportView>
+ }
+}
+package "application.internal" {
+ class AnalyticsCommandServiceImpl <<service>>
+ class MetricsQueryServiceImpl <<service>>
+}
+package "application.outboundservices" {
+ interface AnalyticsReferenceProvider <<local input port>> {
+  +requireOwnedStore(ownerId: Long, storeId: Long): Result<StoreAnalyticsRef, ApplicationError>
+  +requireVisiblePromotion(promotionId: Long, at: Instant): Result<PromotionAnalyticsRef, ApplicationError>
+  +requirePromotionInStore(promotionId: Long, storeId: Long): Result<PromotionAnalyticsRef, ApplicationError>
+ }
+ class StoreAnalyticsRef <<Local Snapshot>> {
+  +storeId: Long
+  +ownerId: Long
+  +timeZone: String
+  +sourceVersion: Long
+  +capturedAt: Instant
+ }
+ class PromotionAnalyticsRef <<Local Snapshot>> {
+  +promotionId: Long
+  +storeId: Long
+  +effectiveFrom: Instant
+  +effectiveTo: Instant
+  +cancelled: Boolean
+  +sourceVersion: Long
+  +capturedAt: Instant
+ }
+}
+package "application.readmodels" {
+ class AnalyticsWriteReceipt <<Result Value>> {
+  +resourceId: Long
+  +created: Boolean
+ }
+ class MerchantReportView <<Read Model>> {
+  +reportId: Long
+  +storeId: Long
+  +period: ReportingPeriod
+  +routeSuggestionCount: Long
+  +distinctPromotionUsers: Long
+  +promotionRows: List<PromotionReportRow>
+  +ingestionCoverage: IngestionCoverage
+  +generatedAt: Instant
+ }
+}
+package "domain.repositories" {
+ interface MetricEventRepository <<port>> {
+  +findBySourceIdentity(identity: MetricSourceIdentity): Optional<MetricEvent>
+  +findByStoreAndPeriod(storeId: Long, period: ReportingPeriod): List<MetricEvent>
+  +save(event: MetricEvent): MetricEvent
+ }
+ interface MerchantReportRepository <<port>> {
+  +findById(id: Long): Optional<MerchantReport>
+  +findByRequestKey(storeId: Long, key: String): Optional<MerchantReport>
+  +save(report: MerchantReport): MerchantReport
+ }
+}
+package "domain.model" {
+ class MetricEvent <<Aggregate>>
+ class MerchantReport <<Aggregate>>
+ interface MetricsCalculator <<domain policy>>
+}
+package "infrastructure.persistence" {
+ class MetricEventRepositoryImpl <<adapter>>
+ interface MetricEventPersistenceRepository <<Spring Data JPA>>
+ class MetricEventPersistenceAssembler <<mapper>>
+ class MetricEventPersistenceEntity <<JPA Entity>>
+ class MerchantReportRepositoryImpl <<adapter>>
+ interface MerchantReportPersistenceRepository <<Spring Data JPA>>
+ class MerchantReportPersistenceAssembler <<mapper>>
+ class MerchantReportPersistenceEntity <<JPA Entity>>
+ class PromotionReportRowPersistenceEntity <<JPA Entity>>
+}
+AnalyticsCommandServiceImpl ..|> AnalyticsCommandService
+MetricsQueryServiceImpl ..|> MetricsQueryService
+AnalyticsCommandServiceImpl ..> AnalyticsReferenceProvider
+MetricsQueryServiceImpl ..> AnalyticsReferenceProvider : authorization + month zone
+AnalyticsCommandServiceImpl ..> MetricEventRepository
+AnalyticsCommandServiceImpl ..> MerchantReportRepository
+AnalyticsCommandServiceImpl ..> MetricsCalculator
+MetricsQueryServiceImpl ..> MetricEventRepository
+MetricsQueryServiceImpl ..> MerchantReportRepository
+MetricsQueryServiceImpl ..> MetricsCalculator
+MetricEventRepositoryImpl ..|> MetricEventRepository
+MerchantReportRepositoryImpl ..|> MerchantReportRepository
+MetricEventRepositoryImpl ..> MetricEventPersistenceRepository
+MetricEventRepositoryImpl ..> MetricEventPersistenceAssembler
+MetricEventPersistenceRepository ..> MetricEventPersistenceEntity
+MetricEventPersistenceAssembler ..> MetricEvent
+MetricEventPersistenceAssembler ..> MetricEventPersistenceEntity
+MerchantReportRepositoryImpl ..> MerchantReportPersistenceRepository
+MerchantReportRepositoryImpl ..> MerchantReportPersistenceAssembler
+MerchantReportPersistenceRepository ..> MerchantReportPersistenceEntity
+MerchantReportPersistenceAssembler ..> MerchantReport
+MerchantReportPersistenceAssembler ..> MerchantReportPersistenceEntity
+MerchantReportPersistenceEntity "1" *-- "0..*" PromotionReportRowPersistenceEntity
+note bottom of AnalyticsReferenceProvider
+ Trusted ownership, store zone and effective promotion inputs are pending provisioning.
+ No ACL or implemented cross-context client/subscription is introduced.
+ Required references unavailable -> 503; never trust client owner/store/time fields.
+ Ownership/dependency failures use explicit REST ProblemDetail mapping.
+end note
+note bottom of MetricEventRepositoryImpl
+ Atomic uniqueness check/save; retry retrieves the original accepted observation.
+ PublishAndClearEvents after successful new save; duplicates publish nothing.
+ Source identity and payload fingerprint are separate concepts.
+ No transactional outbox or durable event delivery is claimed.
+end note
+note bottom of MerchantReportRepositoryImpl
+ Save immutable report and promotion rows atomically.
+ Consistent snapshot for all counts; unique (store_id, request_key).
+ Only PersistenceEntity classes carry JPA annotations.
+ Metrics are read models, not mutable merchant_metrics aggregates/tables.
+end note
+@enduml

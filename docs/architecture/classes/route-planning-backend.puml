@@ -1,0 +1,113 @@
+@startuml Preciazo_Route_Planning_Backend
+title Preciazo - Route Planning Backend Contracts (AV2)
+set namespaceSeparator none
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+package "application.commandservices" {
+ interface RouteCommandService <<service>> {
+  +handle(command: GenerateRouteCommand): Result<Long, ApplicationError>
+  +handle(command: RecalculateRouteCommand): Result<Long, ApplicationError>
+  +handle(command: ConfirmRouteCommand): Result<Long, ApplicationError>
+ }
+}
+package "application.queryservices" {
+ interface RouteQueryService <<service>> {
+  +handle(query: GetRouteByIdQuery): Optional<RouteView>
+  +handle(query: GetMyRoutesQuery): List<RouteView>
+  +handle(query: ValidateRouteQuery): Result<RouteValidationView, ApplicationError>
+ }
+}
+package "application.internal" {
+ class RouteCommandServiceImpl <<service>>
+ class RouteQueryServiceImpl <<service>>
+}
+package "application.outboundservices" {
+ interface RoutingGateway <<port>> {
+  +getTravelMatrix(origin: GeoPoint, stores: List<StoreCandidate>, mode: TransportMode, departureAt: DateTime): Result<TravelMatrix, ApplicationError>
+ }
+ interface RouteInputSnapshotProvider <<local input port>> {
+  +loadForBuyer(ownerId: Long, shoppingListId: Optional<Long>, storeIds: List<Long>): Result<RouteInputSnapshot, ApplicationError>
+ }
+}
+package "application.readmodels" {
+ class RouteInputSnapshot <<Local Snapshot>> {
+  +shoppingPlan: ShoppingPlanRef [0..1]
+  +stores: List<StoreCandidate>
+  +offers: List<CandidateOffer>
+  +requestedItems: List<RouteItem>
+  +referenceBasketTotal: Money [0..1]
+  +transitCost: Money [0..1]
+  +capturedAt: DateTime
+ }
+ class RouteView <<Read Model>> {
+  +routeId: Long
+  +status: RouteStatus
+  +coverage: CoverageStatus
+  +orderedStops: List<RouteStop>
+  +unassignedProductIds: List<Long>
+  +savings: SavingsEstimate
+  +referenceEvaluatedAt: DateTime
+  +version: Long
+ }
+ class RouteValidationView <<Read Model>> {
+  +routeId: Long
+  +usableWithCurrentReferences: Boolean
+  +issuesByStore: Map<Long, String>
+  +evaluatedAt: DateTime
+ }
+}
+package "domain.repositories" {
+ interface RouteRepository <<port>> {
+  +findById(id: Long): Optional<MultiStopRoute>
+  +findByOwnerId(ownerId: Long): List<MultiStopRoute>
+  +save(route: MultiStopRoute): MultiStopRoute
+ }
+}
+package "domain.model" {
+ class MultiStopRoute <<Aggregate>>
+ interface RouteOptimizationPolicy <<domain policy>>
+ interface ReplacementStorePolicy <<domain policy>>
+}
+package "infrastructure" {
+ class MappingRoutingRestAdapter <<HTTP adapter>>
+ class RouteRepositoryImpl <<adapter>>
+ interface RoutePersistenceRepository <<Spring Data JPA>>
+ class RoutePersistenceAssembler <<mapper>>
+ class RoutePersistenceEntity <<JPA Entity>>
+ class RouteStopPersistenceEntity <<JPA Entity>>
+ class RouteItemPersistenceEntity <<JPA Entity>>
+}
+RouteCommandServiceImpl ..|> RouteCommandService
+RouteQueryServiceImpl ..|> RouteQueryService
+RouteCommandServiceImpl ..> RouteRepository
+RouteCommandServiceImpl ..> RoutingGateway
+RouteCommandServiceImpl ..> RouteInputSnapshotProvider
+RouteCommandServiceImpl ..> RouteOptimizationPolicy
+RouteCommandServiceImpl ..> ReplacementStorePolicy
+RouteQueryServiceImpl ..> RouteRepository
+RouteQueryServiceImpl ..> RouteInputSnapshotProvider : validates current references
+RouteQueryServiceImpl ..> RouteView
+RouteQueryServiceImpl ..> RouteValidationView
+RouteInputSnapshotProvider ..> RouteInputSnapshot
+MappingRoutingRestAdapter ..|> RoutingGateway
+RouteRepositoryImpl ..|> RouteRepository
+RouteRepositoryImpl ..> RoutePersistenceRepository
+RouteRepositoryImpl ..> RoutePersistenceAssembler
+RoutePersistenceAssembler ..> MultiStopRoute
+RoutePersistenceAssembler ..> RoutePersistenceEntity
+RoutePersistenceRepository ..> RoutePersistenceEntity
+RoutePersistenceEntity "1" *-- "1..*" RouteStopPersistenceEntity
+RoutePersistenceEntity "1" *-- "0..*" RouteItemPersistenceEntity
+note bottom of RouteInputSnapshotProvider
+ Input contract only; no ACL or cross-context call is implemented here.
+ Owner, affiliation, prices, stock and opening windows require trusted source data.
+ Until that data is available, return a dependency error instead of inventing it.
+end note
+note bottom of MappingRoutingRestAdapter
+ Validate requested mode, matrix completeness, units and response identifiers.
+ Unreachable itinerary -> 422; provider failure -> 502 / 503 / 504.
+ Provider, supported modes, request deadline and max stops require configuration.
+ No silent straight-line or unsupported-mode fallback.
+end note
+@enduml

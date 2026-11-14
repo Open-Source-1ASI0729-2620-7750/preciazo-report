@@ -1,0 +1,20 @@
+@startuml Preciazo_Route_Planning_States
+title Preciazo - Route Planning Lifecycle (AV2 Proposal)
+skinparam shadowing false
+hide empty description
+[*] --> OPTIMIZED : Successful generation
+OPTIMIZED --> CONFIRMED : Buyer confirms; valid plan and current version
+OPTIMIZED --> OPTIMIZED : Successful recalculation
+CONFIRMED --> OPTIMIZED : Successful recalculation; requires confirmation again
+note bottom of OPTIMIZED
+  Failed generation creates no persisted route.
+  Failed recalculation/confirmation leaves the previous plan and version intact.
+  INCOMPLETE basket coverage prevents confirmation.
+  A standalone itinerary has NOT_EVALUATED basket coverage and no savings claim.
+end note
+note bottom of CONFIRMED
+  Confirmation does not reserve stock or guarantee future opening/traffic.
+  Current validation is a query; discovered issues are shown to the buyer.
+  Replanning is an explicit buyer command, not an implicit query side effect.
+end note
+@enduml

@@ -6,11 +6,22 @@ hide circle
 skinparam linetype ortho
 skinparam shadowing false
 
+
+
+
+
+
+
 entity users {
     * id : BIGINT <<PK>>
     --
     email : VARCHAR <<UQ>>
+    password_hash : VARCHAR
     status : VARCHAR
+    failed_attempts : INTEGER
+    locked_until : TIMESTAMP <<NULLABLE>>
+    security_check_required : BOOLEAN
+    version : BIGINT
 }
 
 entity roles {
@@ -36,21 +47,15 @@ entity role_permissions {
     * permission_id : BIGINT <<PK, FK>>
 }
 
-entity auth_sessions {
-    * id : BIGINT <<PK>>
-    --
-    user_id : BIGINT <<FK>>
-    issued_at : TIMESTAMP
-    expires_at : TIMESTAMP
-    revoked : BOOLEAN
-}
-
 entity merchant_profiles {
     * id : BIGINT <<PK>>
     --
-    user_id : BIGINT <<FK>>
+    user_id : BIGINT <<FK, UQ>>
     tax_id : VARCHAR <<UQ>>
+    legal_name : VARCHAR
     verification_status : VARCHAR
+    verification_checked_at : TIMESTAMP <<NULLABLE>>
+    version : BIGINT
 }
 
 entity retail_stores {
@@ -59,9 +64,15 @@ entity retail_stores {
     merchant_profile_id : BIGINT <<FK>>
     name : VARCHAR
     address : VARCHAR
+    district : VARCHAR
+    province : VARCHAR
+    department : VARCHAR
     latitude : DECIMAL
     longitude : DECIMAL
+    time_zone : VARCHAR
+    schedule_configured : BOOLEAN
     trust_score : DECIMAL
+    version : BIGINT
 }
 
 entity products {
@@ -70,7 +81,9 @@ entity products {
     name : VARCHAR
     brand : VARCHAR
     category : VARCHAR
-    unit : VARCHAR
+    sale_unit : VARCHAR
+    net_content_quantity : DECIMAL <<NULLABLE>>
+    net_content_unit : VARCHAR <<NULLABLE>>
 }
 
 entity inventory_items {
@@ -79,8 +92,8 @@ entity inventory_items {
     store_id : BIGINT <<FK>>
     product_id : BIGINT <<FK>>
     stock : DECIMAL
-    unit_price : DECIMAL
-    stock_status : VARCHAR
+    stock_unit : VARCHAR
+    version : BIGINT
 }
 
 entity catalog_entries {
@@ -88,16 +101,22 @@ entity catalog_entries {
     --
     store_id : BIGINT <<FK>>
     product_id : BIGINT <<FK>>
-    unit_price : DECIMAL
+    sale_price : DECIMAL
+    currency : VARCHAR
     stock_status : VARCHAR
     updated_at : TIMESTAMP
+    version : BIGINT
 }
 
 entity price_snapshots {
     * id : BIGINT <<PK>>
     --
     catalog_entry_id : BIGINT <<FK>>
-    unit_price : DECIMAL
+    sale_price : DECIMAL
+    currency : VARCHAR
+    sale_unit : VARCHAR
+    net_content_quantity : DECIMAL <<NULLABLE>>
+    net_content_unit : VARCHAR <<NULLABLE>>
     captured_at : TIMESTAMP
 }
 
@@ -106,8 +125,14 @@ entity shopping_lists {
     --
     owner_id : BIGINT <<FK>>
     name : VARCHAR
+    currency : VARCHAR
     status : VARCHAR
     created_at : TIMESTAMP
+    completed_at : TIMESTAMP <<NULLABLE>>
+    version : BIGINT
+    source_template_id : BIGINT <<FK, NULLABLE>>
+    creation_key : VARCHAR <<NULLABLE>>
+    creation_fingerprint : VARCHAR <<NULLABLE>>
 }
 
 entity shopping_list_members {
@@ -122,29 +147,50 @@ entity shopping_list_items {
     --
     shopping_list_id : BIGINT <<FK>>
     product_id : BIGINT <<FK>>
+    requested_name : VARCHAR
     quantity : DECIMAL
-    purchased : BOOLEAN
+    quantity_unit : VARCHAR
     estimated_unit_price : DECIMAL
+    price_currency : VARCHAR
+    price_per_quantity : DECIMAL
+    price_per_unit : VARCHAR
+    purchased : BOOLEAN
+    catalog_entry_id : BIGINT <<REF, NULLABLE>>
+    price_offer_version : BIGINT <<NULLABLE>>
+    price_captured_at : TIMESTAMP <<NULLABLE>>
 }
 
 entity purchase_budgets {
     * id : BIGINT <<PK>>
     --
-    shopping_list_id : BIGINT <<FK>>
+    shopping_list_id : BIGINT <<FK, UQ>>
     amount : DECIMAL
-    status : VARCHAR
     currency : VARCHAR
 }
 
 entity routes {
     * id : BIGINT <<PK>>
     --
-    shopping_list_id : BIGINT <<FK>>
-    distance : DECIMAL
-    estimated_duration : INTEGER
-    net_savings : DECIMAL
-    transit_cost : DECIMAL
+    owner_id : BIGINT <<FK>>
+    shopping_list_id : BIGINT <<FK, NULLABLE>>
+    shopping_list_version : BIGINT <<NULLABLE>>
+    origin_latitude : DECIMAL
+    origin_longitude : DECIMAL
+    departure_at : TIMESTAMP
+    transport_mode : VARCHAR
+    distance_meters : DECIMAL
+    travel_duration_seconds : BIGINT
+    basket_total : DECIMAL <<NULLABLE>>
+    reference_basket_total : DECIMAL <<NULLABLE>>
+    gross_savings : DECIMAL <<NULLABLE>>
+    transit_cost : DECIMAL <<NULLABLE>>
+    net_savings : DECIMAL <<NULLABLE>>
+    currency : VARCHAR <<NULLABLE>>
+    coverage_status : VARCHAR
+    reference_evaluated_at : TIMESTAMP
+    calculated_at : TIMESTAMP
     status : VARCHAR
+    version : BIGINT
 }
 
 entity route_stops {
@@ -153,16 +199,28 @@ entity route_stops {
     route_id : BIGINT <<FK>>
     store_id : BIGINT <<FK>>
     sequence : INTEGER
+    latitude : DECIMAL
+    longitude : DECIMAL
     estimated_arrival : TIMESTAMP
+    leg_distance_meters : DECIMAL
+    leg_duration_seconds : BIGINT
 }
 
 entity promotions {
     * id : BIGINT <<PK>>
     --
+    store_id : BIGINT <<FK>>
     inventory_item_id : BIGINT <<FK>>
+    catalog_entry_id : BIGINT <<REF>>
+    description : VARCHAR
+    promotional_price : DECIMAL
+    regular_price_at_creation : DECIMAL
+    currency : VARCHAR
+    sale_unit : VARCHAR
     starts_at : TIMESTAMP
     ends_at : TIMESTAMP
-    description : VARCHAR
+    status : VARCHAR
+    version : BIGINT
 }
 
 entity price_observations {
@@ -172,6 +230,7 @@ entity price_observations {
     discrepancy_id : BIGINT <<FK>>
     observer_id : BIGINT <<FK>>
     observed_price : DECIMAL
+    currency : VARCHAR
     observed_at : TIMESTAMP
     source : VARCHAR
 }
@@ -183,14 +242,19 @@ entity price_discrepancies {
     reporter_id : BIGINT <<FK>>
     expected_price : DECIMAL
     observed_price : DECIMAL
+    currency : VARCHAR
+    reported_at : TIMESTAMP
+    version : BIGINT
+    confidence_score : DECIMAL <<NULLABLE>>
     status : VARCHAR
 }
 
-entity verification_confirmations {
+entity verification_votes {
     * id : BIGINT <<PK>>
     --
     discrepancy_id : BIGINT <<FK>>
-    confirmer_id : BIGINT <<FK>>
+    voter_id : BIGINT <<FK>>
+    vote_type : VARCHAR
     created_at : TIMESTAMP
 }
 
@@ -202,67 +266,118 @@ entity trust_profiles {
     level : VARCHAR
 }
 
+
+
+
 entity analytics_events {
     * id : BIGINT <<PK>>
     --
-    subject_id : BIGINT <<REF>>
-    event_type : VARCHAR
-    occurred_at : TIMESTAMP
-    metadata : JSON
-}
-
-entity merchant_metrics {
-    * id : BIGINT <<PK>>
-    --
     store_id : BIGINT <<FK>>
-    period_from : TIMESTAMP
-    period_to : TIMESTAMP
-    monthly_traffic : INTEGER
-    lost_sales : DECIMAL
-    engagement_score : DECIMAL
+    event_type : VARCHAR
+    source : VARCHAR
+    source_key : VARCHAR
+    payload_fingerprint : VARCHAR
+    actor_id : BIGINT <<REF, NULLABLE>>
+    promotion_id : BIGINT <<REF, NULLABLE>>
+    route_id : BIGINT <<REF, NULLABLE>>
+    route_version : BIGINT <<NULLABLE>>
+    occurred_at : TIMESTAMP
+    received_at : TIMESTAMP
 }
 
 entity merchant_reports {
     * id : BIGINT <<PK>>
     --
     store_id : BIGINT <<FK>>
-    report_type : VARCHAR
+    requested_by : BIGINT <<REF>>
+    request_key : VARCHAR
+    month : VARCHAR
+    time_zone : VARCHAR
     period_from : TIMESTAMP
     period_to : TIMESTAMP
+    route_suggestion_count : BIGINT
+    distinct_promotion_users : BIGINT
+    ingestion_coverage : VARCHAR
     generated_at : TIMESTAMP
+}
+
+entity merchant_report_promotions {
+    * id : BIGINT <<PK>>
+    --
+    report_id : BIGINT <<FK>>
+    promotion_id : BIGINT <<REF>>
+    interaction_count : BIGINT
+    distinct_user_count : BIGINT
 }
 
 users ||--o{ user_roles
 roles ||--o{ user_roles
 roles ||--o{ role_permissions
 permissions ||--o{ role_permissions
-users ||--o{ auth_sessions
 users ||--o| merchant_profiles
 merchant_profiles ||--o{ retail_stores
 retail_stores ||--o{ inventory_items
 products ||--o{ inventory_items
 retail_stores ||--o{ catalog_entries
 products ||--o{ catalog_entries
-catalog_entries ||--o{ price_snapshots
+catalog_entries ||--|{ price_snapshots
 users ||--o{ shopping_lists
+entity shopping_templates {
+    * id : BIGINT <<PK>>
+    --
+    owner_id : BIGINT <<REF>>
+    name : VARCHAR
+    currency : VARCHAR
+    source_list_id : BIGINT <<FK>>
+    source_list_version : BIGINT
+    save_key : VARCHAR
+    save_fingerprint : VARCHAR
+    created_at : TIMESTAMP
+}
+
+entity shopping_template_items {
+    * id : BIGINT <<PK>>
+    --
+    template_id : BIGINT <<FK>>
+    product_id : BIGINT <<REF>>
+    requested_name : VARCHAR
+    quantity : DECIMAL
+    quantity_unit : VARCHAR
+}
+
+entity favorite_stores {
+    * id : BIGINT <<PK>>
+    --
+    owner_id : BIGINT <<REF>>
+    store_id : BIGINT <<REF>>
+    active : BOOLEAN
+    version : BIGINT
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+shopping_lists ||--o{ shopping_templates : completed source
+shopping_templates ||--|{ shopping_template_items
+shopping_templates |o--o{ shopping_lists : optional clone origin
+
 shopping_lists ||--o{ shopping_list_members
 users ||--o{ shopping_list_members
 shopping_lists ||--o{ shopping_list_items
 products ||--o{ shopping_list_items
-shopping_lists ||--o{ purchase_budgets
-shopping_lists ||--o{ routes
-routes ||--o{ route_stops
+shopping_lists ||--o| purchase_budgets
+users ||--o{ routes
+shopping_lists |o--o{ routes
+routes ||--|{ route_stops
 retail_stores ||--o{ route_stops
 inventory_items ||--o{ promotions
 catalog_entries ||--o{ price_observations
-price_discrepancies ||--o{ price_observations
+price_discrepancies ||--|{ price_observations
 users ||--o{ price_observations
 catalog_entries ||--o{ price_discrepancies
 users ||--o{ price_discrepancies
-price_discrepancies ||--o{ verification_confirmations
-users ||--o{ verification_confirmations
+price_discrepancies ||--o{ verification_votes
+users ||--o{ verification_votes
 users ||--o| trust_profiles
-retail_stores ||--o{ merchant_metrics
 retail_stores ||--o{ merchant_reports
 
 note right of merchant_profiles
@@ -270,12 +385,12 @@ note right of merchant_profiles
   UNIQUE(user_id)
 end note
 
-note right of permissions
-  UNIQUE(resource, action)
-end note
 
 note right of catalog_entries
-  UNIQUE(store_id, product_id)
+  UNIQUE(store_id, product_id).
+  Canonical public selling price and stock_status; sale_price > 0.
+  Price and history update together; version supports optimistic concurrency.
+  Store identity belongs to Merchant Management.
 end note
 
 note right of shopping_list_members
@@ -284,22 +399,338 @@ note right of shopping_list_members
 end note
 
 note right of inventory_items
-  product_id belongs to
-  Catalog and Pricing.
+  product_id belongs to Catalog and Pricing.
+  stock >= 0; stock_unit is required; UNIQUE(store_id, product_id).
+  Inventory stores physical quantities, not another public price/status.
+  Published selling price and availability belong to catalog_entries.
+  Coordination with Catalog is pending; no automatic synchronization is assumed.
 end note
 
 note right of purchase_budgets
-  At most one ACTIVE budget
-  per shopping list.
+  UNIQUE(shopping_list_id): one optional budget per list.
+  amount > 0; currency matches shopping_lists.currency.
+  Changing the budget updates its limit; invalid input is rejected.
+  Totals and budget warnings are derived on query, not stored.
+  Warning: defined limit AND projected total > limit.
+  Clear warning at or below the limit; no warning event is stored.
 end note
 
 note right of route_stops
-  UNIQUE(route_id, sequence)
+  UNIQUE(route_id, sequence); UNIQUE(route_id, store_id).
+  Sequence starts at 1 and is contiguous; at least one selected store.
+  Nonnegative leg distances/durations; totals equal the sum of route legs.
+  ETA includes travel only, not shopping time or waiting.
+  store_id references Merchant Management by identity.
 end note
 
+
+note bottom of shopping_list_items
+  UNIQUE(shopping_list_id, product_id).
+  Offer id/version/captured-at are all absent or all present.
+  Template clones require trusted current-price traceability.
+  Adding an existing product increases quantity without a duplicate.
+  quantity > 0; price_per_quantity > 0; estimated_unit_price >= 0.
+  Quantity and price units must be compatible; price currency matches the list.
+  Subtotal = estimated_unit_price * quantity / price_per_quantity
+  after converting quantity to price_per_unit.
+  Projected total sums all subtotals; checkout total sums purchased items only.
+  Unmarking sets purchased = false and reduces checkout total on the next query.
+end note
+
+note right of verification_votes
+  UNIQUE(discrepancy_id, voter_id).
+  vote_type is CONFIRM or REJECT; immutable after submission.
+  Proposed: voter differs from reporter; report must be OPEN.
+  Duplicate votes do not produce another vote event.
+end note
+
+note right of price_discrepancies
+  US28: status is OPEN, UNDER_REVIEW, ACCEPTED or REJECTED.
+  Anomalous or unchecked reports are retained as UNDER_REVIEW.
+  Initial anomaly screening completes in the report transaction.
+  version supports optimistic concurrency; terminal states do not reopen.
+  confidence_score remains unset until a confidence rule is configured.
+  Formula and acceptance/rejection thresholds are pending decisions.
+  TS07: index (reporter_id, catalog_entry_id, reported_at).
+  Reject a repeat report within 60 seconds; enforce atomically per buyer/offer.
+  A time-window check is not a permanent UNIQUE(buyer, offer) constraint.
+end note
+
+note bottom of price_observations
+  At least one observation per discrepancy.
+  Nonnegative prices; expected and observed prices use the same currency.
+  The observation belongs to the discrepancy's catalog offer.
+end note
+
+entity discrepancy_reviews {
+    * id : BIGINT <<PK>>
+    --
+    discrepancy_id : BIGINT <<FK, UQ>>
+    reviewer_id : BIGINT <<REF>>
+    decision : VARCHAR
+    reason : VARCHAR
+    reviewed_at : TIMESTAMP
+}
+
+entity processed_verification_events {
+    * id : BIGINT <<PK>>
+    --
+    event_id : VARCHAR
+    handler_name : VARCHAR
+    discrepancy_id : BIGINT <<FK>>
+    processed_at : TIMESTAMP
+}
+
+price_discrepancies ||--o| discrepancy_reviews
+price_discrepancies ||--o{ processed_verification_events
+
+note right of discrepancy_reviews
+  One final human review per report; decision is ACCEPT or REJECT.
+  Reviewer requires price-reports:resolve; reason is mandatory.
+  Report must be UNDER_REVIEW; review and status change are atomic.
+  reviewer_id references Identity and Access by identifier only.
+end note
+
+note right of processed_verification_events
+  UNIQUE(event_id, handler_name).
+  Marker and domain mutation commit together or roll back together.
+  Domain event identity is distinct from the generated BIGINT row id.
+end note
+
+entity product_substitutions {
+    * product_id : BIGINT <<PK, FK>>
+    * substitute_product_id : BIGINT <<PK, FK>>
+}
+
+entity catalog_store_references {
+    * id : BIGINT <<PK>>
+    --
+    store_id : BIGINT <<REF, UQ>>
+    owner_id : BIGINT <<REF>>
+    district : VARCHAR
+    latitude : DECIMAL
+    longitude : DECIMAL
+    affiliated : BOOLEAN
+    captured_at : TIMESTAMP
+    source_version : BIGINT
+}
+
+products ||--o{ product_substitutions : original product
+products ||--o{ product_substitutions : substitute product
+
+note bottom of products
+  sale_unit is the requested purchase unit for basket quantities.
+  net_content_quantity and net_content_unit are both present or both absent.
+  Present net content is positive; supported units allow mass/volume conversion.
+  No content -> normalized price is unavailable, never zero.
+end note
+
+note bottom of product_substitutions
+  UNIQUE(product_id, substitute_product_id); product_id != substitute_product_id.
+  Explicit directional candidates; compatibility is checked before comparison.
+end note
+
+note bottom of price_snapshots
+  Initial snapshot and actual price changes are saved with the offer atomically.
+  sale_price > 0; currency, sale unit and net content are historical snapshots.
+  Index (catalog_entry_id, captured_at, id); no fabricated daily samples.
+end note
+
+note right of catalog_store_references
+  Local reference data for ownership, affiliation, district and proximity.
+  Coordinates and owner refer to a store by identifiers only.
+  Trusted internal refresh uses increasing source_version.
+  Provisioning and refresh guarantees remain pending; no ACL is introduced.
+end note
+
+entity store_opening_hours {
+    * id : BIGINT <<PK>>
+    --
+    store_id : BIGINT <<FK>>
+    day_of_week : SMALLINT
+    opens_at : TIME
+    closes_at : TIME
+    closes_next_day : BOOLEAN
+}
+
+entity inventory_import_batches {
+    * id : BIGINT <<PK>>
+    --
+    store_id : BIGINT <<FK>>
+    requested_by : BIGINT <<REF>>
+    idempotency_key : VARCHAR
+    request_hash : VARCHAR
+    status : VARCHAR
+    created_at : TIMESTAMP
+    applied_at : TIMESTAMP <<NULLABLE>>
+}
+
+entity inventory_import_rows {
+    * id : BIGINT <<PK>>
+    --
+    batch_id : BIGINT <<FK>>
+    row_number : INTEGER
+    product_id : BIGINT <<REF>>
+    stock : DECIMAL
+    stock_unit : VARCHAR
+    proposed_price : DECIMAL <<NULLABLE>>
+    price_currency : VARCHAR <<NULLABLE>>
+}
+
+retail_stores ||--o{ store_opening_hours
+retail_stores ||--o{ inventory_import_batches
+inventory_import_batches ||--|{ inventory_import_rows
+retail_stores ||--o{ promotions
+
+note right of store_opening_hours
+  Day is 1..7; no rows means UNKNOWN if no schedule was configured.
+  An explicitly configured empty week means CLOSED.
+  Store schedule_configured flag distinguishes those cases.
+  Windows last more than 0 and at most 24 hours; equal endpoints need next-day closure.
+  Windows cannot overlap, including the following day for overnight windows.
+  Opens/closed is a query in the store time zone; no stored open-now flag.
+end note
+
+note right of promotions
+  promotional_price > 0; ends_at > starts_at; same currency and sale unit.
+  status: SCHEDULED, ACTIVE, EXPIRED or CANCELLED.
+  Effective only while starts_at <= now < ends_at and not cancelled/expired.
+  Frozen regular_price_at_creation is audit data, not a public base price.
+  Expiry falls back to the current Catalog price; no base-price overwrite.
+  Overlapping promotions on the same catalog offer are rejected atomically.
+end note
+
+note right of inventory_import_batches
+  UNIQUE(store_id, idempotency_key); same key + different request hash -> conflict.
+  Validate all rows before writes; apply all supported changes or none.
+  A price-bearing batch requires coordinated Catalog writes before APPLIED.
+  Missing coordination -> unavailable; no partial stock-only success.
+end note
+
+note bottom of inventory_import_rows
+  UNIQUE(batch_id, row_number); duplicate product rows reject the batch.
+  stock >= 0; compatible unit; proposed_price is positive if supplied.
+  proposed_price and price_currency are supplied together or both absent.
+  Proposed prices are input/audit data, never a competing catalog price.
+end note
+
+entity route_items {
+    * id : BIGINT <<PK>>
+    --
+    route_id : BIGINT <<FK>>
+    product_id : BIGINT <<REF>>
+    quantity : DECIMAL
+    quantity_unit : VARCHAR
+    assigned_stop_id : BIGINT <<FK, NULLABLE>>
+    catalog_entry_id : BIGINT <<REF, NULLABLE>>
+    estimated_price : DECIMAL <<NULLABLE>>
+    price_currency : VARCHAR <<NULLABLE>>
+    price_per_quantity : DECIMAL <<NULLABLE>>
+    price_per_unit : VARCHAR <<NULLABLE>>
+}
+
+routes ||--o{ route_items
+route_stops |o--o{ route_items : optional assignment
+
+note bottom of route_items
+  UNIQUE(route_id, product_id); quantity > 0 with a compatible unit.
+  Assigned stop must belong to the same route; offer must match product and store.
+  Missing assignment/price is explicit, not a zero-cost item.
+  Unassigned required items -> INCOMPLETE coverage; confirmation is blocked.
+end note
+
+note right of routes
+  Owner is authenticated; optional list must belong to that owner.
+  Coverage is COMPLETE, INCOMPLETE or NOT_EVALUATED.
+  No list -> no basket coverage or savings claim.
+  Missing comparable baseline or transit cost -> no net_savings value.
+  Money fields share currency; negative savings are permitted.
+  Origin -> selected stops; no implicit return-to-origin leg.
+  Save route, stops and items atomically with optimistic version control.
+  A failed recalculation preserves the previous route and version.
+end note
+
+
+
+
+retail_stores ||--o{ analytics_events
+merchant_reports ||--o{ merchant_report_promotions
+
 note right of analytics_events
-  subject_id is a polymorphic reference
-  to an event subject in another context.
+  UNIQUE(source, source_key, event_type, store_id); immutable observations.
+  Index (store_id, occurred_at); index (promotion_id, occurred_at, actor_id).
+  ROUTE_STOP_SUGGESTED requires route_id + route_version and no promotion_id.
+  PROMOTION_INTERACTED requires promotion_id + actor_id and no route fields.
+  Source identities are server-scoped; duplicate payload mismatch -> conflict.
+  received_at is server time; occurred_at is trusted and not in the future.
+  Required source/store/promotion references must be validated before acceptance.
+end note
+
+note right of merchant_reports
+  UNIQUE(store_id, request_key); owner checked before creation and retrieval.
+  Month uses store time zone: period_from <= occurred_at < period_to.
+  period_from < period_to; counts >= 0; coverage remains UNKNOWN.
+  Frozen report and detail rows saved atomically from one consistent snapshot.
+  Live metrics may change after late observations; saved reports do not.
+  No merchant_metrics table: read models aggregate accepted observations.
+end note
+
+note bottom of merchant_report_promotions
+  UNIQUE(report_id, promotion_id); counts >= 0.
+  distinct_user_count <= interaction_count; promotion belongs to report store.
+  Store-level distinct users cannot be obtained by summing detail counts.
+end note
+
+note right of users
+  Canonical case-insensitive email is unique; password_hash stores encoded hash only.
+  failed_attempts >= 0; version protects concurrent login state changes.
+  Threshold failure sets a future locked_until and security_check_required=true.
+  Expiry alone does not clear the security-check requirement.
+  Persist failed attempts even when authentication returns an error Result.
+  No password, security proof or token is stored in plaintext.
+  Stateless JWT: no auth_sessions, refresh-token or token-revocation table.
+end note
+
+note right of permissions
+  UNIQUE(resource, action); user_roles and role_permissions have composite PKs.
+  Startup seed is idempotent, preserves ids and never drops existing assignments.
+  Public personas map to allowlisted BUYER / MERCHANT memberships only.
+  No baseline persona grants privileged price-reports:resolve.
+  Every new user has at least one seeded role; validated in registration transaction.
+end note
+
+users ||--o{ favorite_stores
+retail_stores ||--o{ favorite_stores
+users ||--o{ shopping_templates
+note right of shopping_templates
+  Immutable; UNIQUE(owner_id, save_key); fingerprint detects incompatible retries.
+  Source belongs to owner, is COMPLETED/nonempty and matches source_list_version.
+  Copy all requested products and quantities; no budget, price, members or purchase flags.
+  Save template and items atomically; later clones do not change the source.
+end note
+
+note bottom of shopping_template_items
+  UNIQUE(template_id, product_id); quantity > 0 with valid compatible unit.
+  Each product requires one current selected offer before creating a new list.
+  Missing prices are never replaced with zero or historical template prices.
+end note
+
+note right of favorite_stores
+  UNIQUE(owner_id, store_id); version protects concurrent preference changes.
+  GET returns active preferences only; removal preserves identity with active=false.
+  Re-add reactivates; repeated add/remove is a no-op without a new event.
+  Removing an owned preference does not require a live store reference.
+  Preferences do not change prices, geographic eligibility or the US13 cost ranking.
+end note
+
+note right of shopping_lists
+  ACTIVE / COMPLETED; new lists start ACTIVE, completed lists are read-only.
+  UNIQUE(owner_id, creation_key) for non-null template-creation keys.
+  Key/fingerprint/source-template fields must be set together for template clones.
+  Completion requires at least one item, records completed_at and increments version.
+  Clone items/prices and list are saved atomically; failed repricing creates no list.
+  Template clones reset purchased=false and do not copy source budget or members.
+  All commands authorize owner_id; reserved memberships grant no write access here.
 end note
 
 @enduml

@@ -1,61 +1,146 @@
 @startuml Preciazo_Event_Storming_catalog_pricing
-left to right direction
-title Preciazo - Design-Level Event Storming: Catalog and Pricing
+top to bottom direction
+title
+Preciazo - Design-Level Event Storming: Catalog and Pricing
+AV2 Design Proposal - US13, US15-US17, US19, US23, US25
+end title
 skinparam shadowing false
 skinparam defaultFontSize 15
 skinparam defaultTextAlignment center
-skinparam nodesep 35
-skinparam ranksep 35
+skinparam nodesep 28
+skinparam ranksep 28
 skinparam rectanglePadding 12
 
-rectangle "Merchant" as n0_0 <<Actor>> #FFE08A
-rectangle "Register Product" as n0_1 <<Command>> #ACDAFA
-rectangle "Product" as n0_2 <<Aggregate>> #FFF1AE
-rectangle "Product Registered" as n0_3 <<Domain Event>> #FFD0A1
-n0_0 --> n0_1
-n0_1 --> n0_2
-n0_2 --> n0_3
+rectangle "Product Catalog" as read0 <<Read Model>> #B3EDBE
+rectangle "Authorized Catalog Editor" as actor0 <<Actor>> #FFE08A
+rectangle "Register Product" as command0 <<Command>> #ACDAFA
+rectangle "Product" as aggregate0 <<Aggregate>> #FFF1AE
+rectangle "Product Registered" as event0 <<Domain Event>> #FFD0A1
+read0 -right-> actor0
+actor0 -right-> command0
+command0 -right-> aggregate0
+aggregate0 -right-> event0
 
-rectangle "Merchant" as n1_0 <<Actor>> #FFE08A
-rectangle "Update Product Price" as n1_1 <<Command>> #ACDAFA
-rectangle "Store Price" as n1_2 <<Aggregate>> #FFF1AE
-rectangle "Store Price Updated" as n1_3 <<Domain Event>> #FFD0A1
-rectangle "Get Product Price / Get\nUnit Price" as n1_4 <<Query>> #B3EDBE
-n1_0 --> n1_1
-n1_1 --> n1_2
-n1_2 --> n1_3
-n1_3 --> n1_4
+rectangle "Store Catalog\nOwned store and registered products" as read1 <<Read Model>> #B3EDBE
+rectangle "Merchant" as actor1 <<Actor>> #FFE08A
+rectangle "Publish Store Product" as command1 <<Command>> #ACDAFA
+rectangle "Store Product" as aggregate1 <<Aggregate>> #FFF1AE
+rectangle "Store Product Published" as event1 <<Domain Event>> #FFD0A1
+read1 -right-> actor1
+actor1 -right-> command1
+command1 -right-> aggregate1
+aggregate1 -right-> event1
 
-rectangle "Merchant" as n2_0 <<Actor>> #FFE08A
-rectangle "Update Product\nAvailability" as n2_1 <<Command>> #ACDAFA
-rectangle "Product Availability" as n2_2 <<Aggregate>> #FFF1AE
-rectangle "Product Availability\nChanged" as n2_3 <<Domain Event>> #FFD0A1
-rectangle "Exclude unavailable\nproducts from\navailability-dependent\ncalculations" as n2_4 <<Policy>> #D4BFFA
-n2_0 --> n2_1
-n2_1 --> n2_2
-n2_2 --> n2_3
-n2_3 --> n2_4
+rectangle "Store Catalog\nCurrent selling price and last update" as read2 <<Read Model>> #B3EDBE
+rectangle "Merchant" as actor2 <<Actor>> #FFE08A
+rectangle "Change Store Product Price" as command2 <<Command>> #ACDAFA
+rectangle "Store Product" as aggregate2 <<Aggregate>> #FFF1AE
+rectangle "Store Product Price Changed" as event2 <<Domain Event>> #FFD0A1
+read2 -right-> actor2
+actor2 -right-> command2
+command2 -right-> aggregate2
+aggregate2 -right-> event2
 
-rectangle "Buyer" as n3_0 <<Actor>> #FFE08A
-rectangle "Search Products / Compare\nShopping Basket / Get\nProduct Availability" as n3_1 <<Query>> #B3EDBE
-n3_0 --> n3_1
+rectangle "Store Catalog\nCurrent public availability" as read3 <<Read Model>> #B3EDBE
+rectangle "Merchant" as actor3 <<Actor>> #FFE08A
+rectangle "Update Store Product Availability" as command3 <<Command>> #ACDAFA
+rectangle "Store Product" as aggregate3 <<Aggregate>> #FFF1AE
+rectangle "Store Product Availability Changed" as event3 <<Domain Event>> #FFD0A1
+read3 -right-> actor3
+actor3 -right-> command3
+command3 -right-> aggregate3
+aggregate3 -right-> event3
 
-rectangle "How frequently are\nmerchant prices updated?\n/ How long should an\nexpired or outdated price\nremain visible?" as n4_0 <<Hotspot>> #FFB7AB
+rectangle "Product Catalog\nCompatible substitution candidates" as read4 <<Read Model>> #B3EDBE
+rectangle "Authorized Catalog Editor" as actor4 <<Actor>> #FFE08A
+rectangle "Define Product Substitute" as command4 <<Command>> #ACDAFA
+rectangle "Product" as aggregate4 <<Aggregate>> #FFF1AE
+rectangle "Product Substitute Defined" as event4 <<Domain Event>> #FFD0A1
+read4 -right-> actor4
+actor4 -right-> command4
+command4 -right-> aggregate4
+aggregate4 -right-> event4
 
-n0_0 -[hidden,norank]down-> n1_0
-n1_0 -[hidden,norank]down-> n2_0
-n2_0 -[hidden,norank]down-> n3_0
-n3_0 -[hidden,norank]down-> n4_0
+rectangle "Trusted Store Reference Input\nIdentifiers, owner, affiliation and location" as read5 <<External Input>> #FFB2DF
+rectangle "Internal Data Import" as actor5 <<Actor>> #FFE08A
+rectangle "Refresh Catalog Store Reference" as command5 <<Command>> #ACDAFA
+rectangle "Catalog Store Reference" as aggregate5 <<Aggregate>> #FFF1AE
+rectangle "Catalog Store Reference Refreshed" as event5 <<Domain Event>> #FFD0A1
+read5 -right-> actor5
+actor5 -right-> command5
+command5 -right-> aggregate5
+aggregate5 -right-> event5
+read0 -[hidden]down-> read1
+actor0 -[hidden]down-> actor1
+command0 -[hidden]down-> command1
+aggregate0 -[hidden]down-> aggregate1
+event0 -[hidden]down-> event1
+read1 -[hidden]down-> read2
+actor1 -[hidden]down-> actor2
+command1 -[hidden]down-> command2
+aggregate1 -[hidden]down-> aggregate2
+event1 -[hidden]down-> event2
+read2 -[hidden]down-> read3
+actor2 -[hidden]down-> actor3
+command2 -[hidden]down-> command3
+aggregate2 -[hidden]down-> aggregate3
+event2 -[hidden]down-> event3
+read3 -[hidden]down-> read4
+actor3 -[hidden]down-> actor4
+command3 -[hidden]down-> command4
+aggregate3 -[hidden]down-> aggregate4
+event3 -[hidden]down-> event4
+read4 -[hidden]down-> read5
+actor4 -[hidden]down-> actor5
+command4 -[hidden]down-> command5
+aggregate4 -[hidden]down-> aggregate5
+event4 -[hidden]down-> event5
 
-legend bottom
-|= Color |= Element |
-|<back:#FFE08A>    </back>| Actor |
-|<back:#ACDAFA>    </back>| Command |
-|<back:#FFF1AE>    </back>| Aggregate |
-|<back:#FFD0A1>    </back>| Domain Event |
-|<back:#D4BFFA>    </back>| Policy |
-|<back:#B3EDBE>    </back>| Query |
-|<back:#FFB2DF>    </back>| External System |
-|<back:#FFB7AB>    </back>| Hotspot |
-endlegend
+rectangle "Buyer" as buyerQuery0 <<Actor>> #FFE08A
+rectangle "Search Products" as query0 <<Query>> #B3EDBE
+rectangle "Paged Product Catalog\nCategory, district and explicit radius" as result0 <<Read Model>> #B3EDBE
+buyerQuery0 -right-> query0
+query0 -right-> result0
+read5 -[hidden]down-> buyerQuery0
+
+rectangle "Buyer" as buyerQuery1 <<Actor>> #FFE08A
+rectangle "Compare Shopping Basket" as query1 <<Query>> #B3EDBE
+rectangle "Store Basket Comparison\nComplete totals and explicit missing products" as result1 <<Read Model>> #B3EDBE
+buyerQuery1 -right-> query1
+query1 -right-> result1
+buyerQuery0 -[hidden]down-> buyerQuery1
+query0 -[hidden]down-> query1
+result0 -[hidden]down-> result1
+
+rectangle "Buyer" as buyerQuery2 <<Actor>> #FFE08A
+rectangle "Get Normalized Unit Price" as query2 <<Query>> #B3EDBE
+rectangle "Unit Price Comparison\nPrice per kg / litre when content is known" as result2 <<Read Model>> #B3EDBE
+buyerQuery2 -right-> query2
+query2 -right-> result2
+buyerQuery1 -[hidden]down-> buyerQuery2
+query1 -[hidden]down-> query2
+result1 -[hidden]down-> result2
+
+rectangle "Buyer" as buyerQuery3 <<Actor>> #FFE08A
+rectangle "Get Product Substitutes" as query3 <<Query>> #B3EDBE
+rectangle "Substitute Suggestions\nCurated compatible products; no list mutation" as result3 <<Read Model>> #B3EDBE
+buyerQuery3 -right-> query3
+query3 -right-> result3
+buyerQuery2 -[hidden]down-> buyerQuery3
+query2 -[hidden]down-> query3
+result2 -[hidden]down-> result3
+
+rectangle "Buyer" as buyerQuery4 <<Actor>> #FFE08A
+rectangle "Get Price History" as query4 <<Query>> #B3EDBE
+rectangle "Store Product Price History\nLast 30 days and available baseline" as result4 <<Read Model>> #B3EDBE
+buyerQuery4 -right-> query4
+query4 -right-> result4
+buyerQuery3 -[hidden]down-> buyerQuery4
+query3 -[hidden]down-> query4
+result3 -[hidden]down-> result4
+
+rectangle "A positive selling price and a snapshot are saved atomically.\nUnavailable items are missing items, never zero-cost products.\nComparisons are queries: no comparison command or persisted event.\nA substitute suggestion does not replace a Shopping Planning item." as rules <<Business Rule>> #FFF1AE
+rectangle "Define price freshness and reference-data refresh guarantees.\nStore reference provisioning and inventory/catalog coordination are pending.\nNo ACL or cross-context domain dependency is introduced." as hotspot <<Hotspot>> #FFB7AB
+buyerQuery4 -[hidden]down-> rules
+rules -[hidden]down-> hotspot
 @enduml

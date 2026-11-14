@@ -1,87 +1,205 @@
 @startuml Preciazo_Event_Storming_merchant_management
-left to right direction
-title Preciazo - Design-Level Event Storming: Merchant Management
+top to bottom direction
+title
+Preciazo - Design-Level Event Storming: Merchant Management
+AV2 Design Proposal - US21, US22, US24, US26; TS04, TS05, TS08
+end title
 skinparam shadowing false
 skinparam defaultFontSize 15
 skinparam defaultTextAlignment center
-skinparam nodesep 35
-skinparam ranksep 35
+skinparam nodesep 26
+skinparam ranksep 26
 skinparam rectanglePadding 12
 
-rectangle "Merchant" as n0_0 <<Actor>> #FFE08A
-rectangle "Request Store Affiliation" as n0_1 <<Command>> #ACDAFA
-rectangle "Affiliation Request" as n0_2 <<Aggregate>> #FFF1AE
-rectangle "Affiliation Requested" as n0_3 <<Domain Event>> #FFD0A1
-rectangle "Verify RUC" as n0_4 <<Command>> #ACDAFA
-rectangle "RUC Verification Service" as n0_5 <<External System>> #FFB2DF
-n0_0 --> n0_1
-n0_1 --> n0_2
-n0_2 --> n0_3
-n0_3 --> n0_4
-n0_4 --> n0_5
+rectangle "Merchant Registration\nRUC, legal name and first store" as read0 <<Read Model>> #B3EDBE
+rectangle "Merchant" as actor0 <<Actor>> #FFE08A
+rectangle "Request Merchant Affiliation" as command0 <<Command>> #ACDAFA
+rectangle "Merchant Profile" as aggregate0 <<Aggregate>> #FFF1AE
+rectangle "Merchant Affiliation Requested" as event0 <<Domain Event>> #FFD0A1
+read0 -right-> actor0
+actor0 -right-> command0
+command0 -right-> aggregate0
+aggregate0 -right-> event0
 
-rectangle "RUC Verified" as n1_0 <<Domain Event>> #FFD0A1
-rectangle "Approve Store Affiliation" as n1_1 <<Command>> #ACDAFA
-rectangle "Affiliated Store" as n1_2 <<Aggregate>> #FFF1AE
-rectangle "Store Affiliated" as n1_3 <<Domain Event>> #FFD0A1
-n1_0 --> n1_1
-n1_1 --> n1_2
-n1_2 --> n1_3
+rectangle "Merchant Affiliation Requested" as read1 <<Domain Event>> #FFD0A1
+rectangle "Fiscal Verification Policy" as actor1 <<Policy>> #D4BFFA
+rectangle "Verify Merchant RUC\nInitial attempt or authorized PENDING retry" as command1 <<Command>> #ACDAFA
+rectangle "Merchant Profile" as aggregate1 <<Aggregate>> #FFF1AE
+rectangle "Merchant Fiscal Verification Recorded" as event1 <<Domain Event>> #FFD0A1
+read1 -right-> actor1
+actor1 -right-> command1
+command1 -right-> aggregate1
+aggregate1 -right-> event1
 
-rectangle "Merchant" as n2_0 <<Actor>> #FFE08A
-rectangle "Update Store Profile" as n2_1 <<Command>> #ACDAFA
-rectangle "Affiliated Store" as n2_2 <<Aggregate>> #FFF1AE
-rectangle "Store Profile Updated" as n2_3 <<Domain Event>> #FFD0A1
-rectangle "Get Store Profile" as n2_4 <<Query>> #B3EDBE
-n2_0 --> n2_1
-n2_1 --> n2_2
-n2_2 --> n2_3
-n2_3 --> n2_4
+rectangle "Owned Store Profile" as read2 <<Read Model>> #B3EDBE
+rectangle "Merchant" as actor2 <<Actor>> #FFE08A
+rectangle "Update Store Profile" as command2 <<Command>> #ACDAFA
+rectangle "Retail Store" as aggregate2 <<Aggregate>> #FFF1AE
+rectangle "Store Profile Updated" as event2 <<Domain Event>> #FFD0A1
+read2 -right-> actor2
+actor2 -right-> command2
+command2 -right-> aggregate2
+aggregate2 -right-> event2
 
-rectangle "Merchant" as n3_0 <<Actor>> #FFE08A
-rectangle "Update Store Inventory" as n3_1 <<Command>> #ACDAFA
-rectangle "Store Inventory" as n3_2 <<Aggregate>> #FFF1AE
-rectangle "Inventory Updated" as n3_3 <<Domain Event>> #FFD0A1
-rectangle "Get Store Inventory" as n3_4 <<Query>> #B3EDBE
-n3_0 --> n3_1
-n3_1 --> n3_2
-n3_2 --> n3_3
-n3_3 --> n3_4
+rectangle "Weekly Opening Hours\nStore time zone and existing windows" as read3 <<Read Model>> #B3EDBE
+rectangle "Merchant" as actor3 <<Actor>> #FFE08A
+rectangle "Set Store Opening Hours" as command3 <<Command>> #ACDAFA
+rectangle "Retail Store" as aggregate3 <<Aggregate>> #FFF1AE
+rectangle "Store Opening Hours Set" as event3 <<Domain Event>> #FFD0A1
+read3 -right-> actor3
+actor3 -right-> command3
+command3 -right-> aggregate3
+aggregate3 -right-> event3
 
-rectangle "Merchant" as n4_0 <<Actor>> #FFE08A
-rectangle "Publish Store Offer" as n4_1 <<Command>> #ACDAFA
-rectangle "Store Offer" as n4_2 <<Aggregate>> #FFF1AE
-rectangle "Store Offer Published" as n4_3 <<Domain Event>> #FFD0A1
-rectangle "Monitor Offer Validity" as n4_4 <<Policy>> #D4BFFA
-rectangle "Expire Store Offer" as n4_5 <<Command>> #ACDAFA
-rectangle "Store Offer Expired" as n4_6 <<Domain Event>> #FFD0A1
-n4_0 --> n4_1
-n4_1 --> n4_2
-n4_2 --> n4_3
-n4_3 --> n4_4
-n4_4 --> n4_5
-n4_5 --> n4_6
+rectangle "Physical Store Inventory" as read4 <<Read Model>> #B3EDBE
+rectangle "Merchant" as actor4 <<Actor>> #FFE08A
+rectangle "Set Inventory Stock" as command4 <<Command>> #ACDAFA
+rectangle "Inventory Item" as aggregate4 <<Aggregate>> #FFF1AE
+rectangle "Inventory Stock Set" as event4 <<Domain Event>> #FFD0A1
+read4 -right-> actor4
+actor4 -right-> command4
+command4 -right-> aggregate4
+aggregate4 -right-> event4
 
-rectangle "Get Active Store Offers" as n5_0 <<Query>> #B3EDBE
+rectangle "Validated Import Preview\nRows and all validation errors" as read5 <<Read Model>> #B3EDBE
+rectangle "Merchant" as actor5 <<Actor>> #FFE08A
+rectangle "Apply Inventory Batch" as command5 <<Command>> #ACDAFA
+rectangle "Inventory Import Batch" as aggregate5 <<Aggregate>> #FFF1AE
+rectangle "Inventory Batch Applied" as event5 <<Domain Event>> #FFD0A1
+read5 -right-> actor5
+actor5 -right-> command5
+command5 -right-> aggregate5
+aggregate5 -right-> event5
 
-rectangle "How is store ownership\nverified?" as n6_0 <<Hotspot>> #FFB7AB
+rectangle "Owned Store Inventory\nTrusted regular price reference" as read6 <<Read Model>> #B3EDBE
+rectangle "Merchant" as actor6 <<Actor>> #FFE08A
+rectangle "Create Promotion" as command6 <<Command>> #ACDAFA
+rectangle "Promotion" as aggregate6 <<Aggregate>> #FFF1AE
+rectangle "Promotion Created" as event6 <<Domain Event>> #FFD0A1
+read6 -right-> actor6
+actor6 -right-> command6
+command6 -right-> aggregate6
+aggregate6 -right-> event6
 
-n0_0 -[hidden,norank]down-> n1_0
-n1_0 -[hidden,norank]down-> n2_0
-n2_0 -[hidden,norank]down-> n3_0
-n3_0 -[hidden,norank]down-> n4_0
-n4_0 -[hidden,norank]down-> n5_0
-n5_0 -[hidden,norank]down-> n6_0
+rectangle "Scheduled Promotion Details" as read7 <<Read Model>> #B3EDBE
+rectangle "Merchant" as actor7 <<Actor>> #FFE08A
+rectangle "Update Scheduled Promotion" as command7 <<Command>> #ACDAFA
+rectangle "Promotion" as aggregate7 <<Aggregate>> #FFF1AE
+rectangle "Promotion Updated" as event7 <<Domain Event>> #FFD0A1
+read7 -right-> actor7
+actor7 -right-> command7
+command7 -right-> aggregate7
+aggregate7 -right-> event7
 
-legend bottom
-|= Color |= Element |
-|<back:#FFE08A>    </back>| Actor |
-|<back:#ACDAFA>    </back>| Command |
-|<back:#FFF1AE>    </back>| Aggregate |
-|<back:#FFD0A1>    </back>| Domain Event |
-|<back:#D4BFFA>    </back>| Policy |
-|<back:#B3EDBE>    </back>| Query |
-|<back:#FFB2DF>    </back>| External System |
-|<back:#FFB7AB>    </back>| Hotspot |
-endlegend
+rectangle "Due Promotion Schedule" as read8 <<Read Model>> #B3EDBE
+rectangle "Internal Schedule Job" as actor8 <<Actor>> #FFE08A
+rectangle "Activate Due Promotion" as command8 <<Command>> #ACDAFA
+rectangle "Promotion" as aggregate8 <<Aggregate>> #FFF1AE
+rectangle "Promotion Activated" as event8 <<Domain Event>> #FFD0A1
+read8 -right-> actor8
+actor8 -right-> command8
+command8 -right-> aggregate8
+aggregate8 -right-> event8
+
+rectangle "Ended Promotion Schedule" as read9 <<Read Model>> #B3EDBE
+rectangle "Internal Schedule Job" as actor9 <<Actor>> #FFE08A
+rectangle "Expire Promotion" as command9 <<Command>> #ACDAFA
+rectangle "Promotion" as aggregate9 <<Aggregate>> #FFF1AE
+rectangle "Promotion Expired" as event9 <<Domain Event>> #FFD0A1
+read9 -right-> actor9
+actor9 -right-> command9
+command9 -right-> aggregate9
+aggregate9 -right-> event9
+
+rectangle "Owned Promotion Details" as read10 <<Read Model>> #B3EDBE
+rectangle "Merchant" as actor10 <<Actor>> #FFE08A
+rectangle "Cancel Promotion" as command10 <<Command>> #ACDAFA
+rectangle "Promotion" as aggregate10 <<Aggregate>> #FFF1AE
+rectangle "Promotion Cancelled" as event10 <<Domain Event>> #FFD0A1
+read10 -right-> actor10
+actor10 -right-> command10
+command10 -right-> aggregate10
+aggregate10 -right-> event10
+rectangle "Verified Merchant Profile\nExisting owned stores" as readRegister <<Read Model>> #B3EDBE
+rectangle "Merchant" as actorRegister <<Actor>> #FFE08A
+rectangle "Register Retail Store" as commandRegister <<Command>> #ACDAFA
+rectangle "Retail Store" as aggregateRegister <<Aggregate>> #FFF1AE
+rectangle "Retail Store Registered" as eventRegister <<Domain Event>> #FFD0A1
+readRegister -right-> actorRegister
+actorRegister -right-> commandRegister
+commandRegister -right-> aggregateRegister
+aggregateRegister -right-> eventRegister
+
+read0 -[hidden]down-> read1
+actor0 -[hidden]down-> actor1
+command0 -[hidden]down-> command1
+aggregate0 -[hidden]down-> aggregate1
+event0 -[hidden]down-> event1
+read1 -[hidden]down-> readRegister
+readRegister -[hidden]down-> read2
+actor1 -[hidden]down-> actorRegister
+actorRegister -[hidden]down-> actor2
+command1 -[hidden]down-> commandRegister
+commandRegister -[hidden]down-> command2
+aggregate1 -[hidden]down-> aggregateRegister
+aggregateRegister -[hidden]down-> aggregate2
+event1 -[hidden]down-> eventRegister
+eventRegister -[hidden]down-> event2
+read2 -[hidden]down-> read3
+actor2 -[hidden]down-> actor3
+command2 -[hidden]down-> command3
+aggregate2 -[hidden]down-> aggregate3
+event2 -[hidden]down-> event3
+read3 -[hidden]down-> read4
+actor3 -[hidden]down-> actor4
+command3 -[hidden]down-> command4
+aggregate3 -[hidden]down-> aggregate4
+event3 -[hidden]down-> event4
+read4 -[hidden]down-> read5
+actor4 -[hidden]down-> actor5
+command4 -[hidden]down-> command5
+aggregate4 -[hidden]down-> aggregate5
+event4 -[hidden]down-> event5
+read5 -[hidden]down-> read6
+actor5 -[hidden]down-> actor6
+command5 -[hidden]down-> command6
+aggregate5 -[hidden]down-> aggregate6
+event5 -[hidden]down-> event6
+read6 -[hidden]down-> read7
+actor6 -[hidden]down-> actor7
+command6 -[hidden]down-> command7
+aggregate6 -[hidden]down-> aggregate7
+event6 -[hidden]down-> event7
+read7 -[hidden]down-> read8
+actor7 -[hidden]down-> actor8
+command7 -[hidden]down-> command8
+aggregate7 -[hidden]down-> aggregate8
+event7 -[hidden]down-> event8
+read8 -[hidden]down-> read9
+actor8 -[hidden]down-> actor9
+command8 -[hidden]down-> command9
+aggregate8 -[hidden]down-> aggregate9
+event8 -[hidden]down-> event9
+read9 -[hidden]down-> read10
+actor9 -[hidden]down-> actor10
+command9 -[hidden]down-> command10
+aggregate9 -[hidden]down-> aggregate10
+event9 -[hidden]down-> event10
+
+rectangle "RUC Verification Service\nRead-only fiscal lookup; 5000 ms deadline" as fiscal <<External System>> #FFB2DF
+rectangle "Buyer" as buyer <<Actor>> #FFE08A
+rectangle "Get Store Opening Status /\nGet Active Store Promotions" as publicQuery <<Query>> #B3EDBE
+rectangle "Public Store Information\nQuery-time opening status and promotion validity" as publicView <<Read Model>> #B3EDBE
+buyer -right-> publicQuery
+publicQuery -right-> publicView
+rectangle "Verify Merchant RUC" as outboundCommand <<Command>> #ACDAFA
+rectangle "Fiscal Result or Technical Failure\nThe application handles the response" as fiscalResult <<External Result>> #FFB2DF
+outboundCommand -right-> fiscal
+fiscal -right-> fiscalResult
+read10 -[hidden]down-> outboundCommand
+outboundCommand -[hidden]down-> buyer
+rectangle "Timeout is not fiscal rejection: keep PENDING.\nQuery-time validity removes expired promotions even when a job is late.\nCatalog retains public base price; Inventory retains physical quantities." as rules <<Business Rule>> #FFF1AE
+rectangle "Choose the fiscal provider and ownership-proof procedure.\nCatalog price/availability coordination and promotion consumption are pending.\nNo ACL or cross-context domain dependency is introduced." as hotspot <<Hotspot>> #FFB7AB
+buyer -[hidden]down-> rules
+rules -[hidden]down-> hotspot
 @enduml

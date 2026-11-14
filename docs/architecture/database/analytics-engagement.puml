@@ -1,52 +1,74 @@
 @startuml Preciazo_DB_Analytics_Engagement
-
-title Preciazo - Analytics and Engagement Database Diagram
-
+title Preciazo - Analytics and Engagement Database (AV2)
 hide circle
 skinparam linetype ortho
 
 entity analytics_events {
     * id : BIGINT <<PK>>
     --
-    subject_id : BIGINT <<REF>>
-    event_type : VARCHAR
-    occurred_at : TIMESTAMP
-    metadata : JSON
-}
-
-entity merchant_metrics {
-    * id : BIGINT <<PK>>
-    --
     store_id : BIGINT <<REF>>
-    period_from : TIMESTAMP
-    period_to : TIMESTAMP
-    monthly_traffic : INTEGER
-    lost_sales : DECIMAL
-    engagement_score : DECIMAL
+    event_type : VARCHAR
+    source : VARCHAR
+    source_key : VARCHAR
+    payload_fingerprint : VARCHAR
+    actor_id : BIGINT <<REF, NULLABLE>>
+    promotion_id : BIGINT <<REF, NULLABLE>>
+    route_id : BIGINT <<REF, NULLABLE>>
+    route_version : BIGINT <<NULLABLE>>
+    occurred_at : TIMESTAMP
+    received_at : TIMESTAMP
 }
 
 entity merchant_reports {
     * id : BIGINT <<PK>>
     --
     store_id : BIGINT <<REF>>
-    report_type : VARCHAR
+    requested_by : BIGINT <<REF>>
+    request_key : VARCHAR
+    month : VARCHAR
+    time_zone : VARCHAR
     period_from : TIMESTAMP
     period_to : TIMESTAMP
+    route_suggestion_count : BIGINT
+    distinct_promotion_users : BIGINT
+    ingestion_coverage : VARCHAR
     generated_at : TIMESTAMP
 }
 
-note right of merchant_metrics
-  Derived from analytics_events
-  for a reporting period; store_id belongs
-  to Merchant Management.
+entity merchant_report_promotions {
+    * id : BIGINT <<PK>>
+    --
+    report_id : BIGINT <<FK>>
+    promotion_id : BIGINT <<REF>>
+    interaction_count : BIGINT
+    distinct_user_count : BIGINT
+}
+
+merchant_reports ||--o{ merchant_report_promotions
+
+note right of analytics_events
+  UNIQUE(source, source_key, event_type, store_id); immutable observations.
+  Index (store_id, occurred_at); index (promotion_id, occurred_at, actor_id).
+  ROUTE_STOP_SUGGESTED requires route_id + route_version and no promotion_id.
+  PROMOTION_INTERACTED requires promotion_id + actor_id and no route fields.
+  Source identities are server-scoped; duplicate payload mismatch -> conflict.
+  received_at is server time; occurred_at is trusted and not in the future.
+  Required source/store/promotion references must be validated before acceptance.
 end note
 
 note right of merchant_reports
-  report_type includes:
-  MONTHLY_TRAFFIC,
-  LOST_SALES and ENGAGEMENT.
-  Reports are generated from metrics
-  and events for the same period.
+  UNIQUE(store_id, request_key); owner checked before creation and retrieval.
+  Month uses store time zone: period_from <= occurred_at < period_to.
+  period_from < period_to; counts >= 0; coverage remains UNKNOWN.
+  Frozen report and detail rows saved atomically from one consistent snapshot.
+  Live metrics may change after late observations; saved reports do not.
+  No merchant_metrics table: read models aggregate accepted observations.
+end note
+
+note bottom of merchant_report_promotions
+  UNIQUE(report_id, promotion_id); counts >= 0.
+  distinct_user_count <= interaction_count; promotion belongs to report store.
+  Store-level distinct users cannot be obtained by summing detail counts.
 end note
 
 @enduml

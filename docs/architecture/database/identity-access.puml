@@ -1,7 +1,5 @@
 @startuml Preciazo_DB_Identity_Access
-
-title Preciazo - Identity and Access Database Diagram
-
+title Preciazo - Identity and Access Database (AV2)
 hide circle
 skinparam linetype ortho
 
@@ -9,7 +7,12 @@ entity users {
     * id : BIGINT <<PK>>
     --
     email : VARCHAR <<UQ>>
+    password_hash : VARCHAR
     status : VARCHAR
+    failed_attempts : INTEGER
+    locked_until : TIMESTAMP <<NULLABLE>>
+    security_check_required : BOOLEAN
+    version : BIGINT
 }
 
 entity roles {
@@ -35,23 +38,27 @@ entity role_permissions {
     * permission_id : BIGINT <<PK, FK>>
 }
 
-entity auth_sessions {
-    * id : BIGINT <<PK>>
-    --
-    user_id : BIGINT <<FK>>
-    issued_at : TIMESTAMP
-    expires_at : TIMESTAMP
-    revoked : BOOLEAN
-}
-
 users ||--o{ user_roles
 roles ||--o{ user_roles
 roles ||--o{ role_permissions
 permissions ||--o{ role_permissions
-users ||--o{ auth_sessions
+
+note right of users
+  Canonical case-insensitive email is unique; password_hash stores encoded hash only.
+  failed_attempts >= 0; version protects concurrent login state changes.
+  Threshold failure sets a future locked_until and security_check_required=true.
+  Expiry alone does not clear the security-check requirement.
+  Persist failed attempts even when authentication returns an error Result.
+  No password, security proof or token is stored in plaintext.
+  Stateless JWT: no auth_sessions, refresh-token or token-revocation table.
+end note
 
 note right of permissions
-  UNIQUE(resource, action)
+  UNIQUE(resource, action); user_roles and role_permissions have composite PKs.
+  Startup seed is idempotent, preserves ids and never drops existing assignments.
+  Public personas map to allowlisted BUYER / MERCHANT memberships only.
+  No baseline persona grants privileged price-reports:resolve.
+  Every new user has at least one seeded role; validated in registration transaction.
 end note
 
 @enduml

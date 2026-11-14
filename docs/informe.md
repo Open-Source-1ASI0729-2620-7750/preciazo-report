@@ -5,19 +5,22 @@
   <br><br>
 
   <h3><strong>Universidad Peruana de Ciencias Aplicadas</strong></h3>
+  <p><strong>Facultad de Ingeniería</strong></p>
   <p><strong>Carrera de Ingeniería de Software</strong></p>
+  <p><strong>Ciclo 2026-20</strong></p>
 
   <br>
 
+  <p><strong>Curso:</strong> 1ASI0729 - Desarrollo de Aplicaciones Open Source</p>
   <p><strong>NRC:</strong> 7750</p>
 
-  <h2><strong>Informe del Trabajo Final</strong></h2>
+  <h2><strong>Informe de Trabajo Final</strong></h2>
 
-  <p><strong>Docente:</strong><br>Bautista Ubillús, Efrain Ricardo</p>
+  <p><strong>Docente:</strong><br>Bautista Ubillús, Efraín Ricardo</p>
 
-  <p><strong>Equipo:</strong><br>PeruTech</p>
+  <p><strong>Startup:</strong><br>PeruTech</p>
 
-  <p><strong>Proyecto:</strong><br>Preciazo</p>
+  <p><strong>Producto:</strong><br>Preciazo</p>
 
   <br>
 
@@ -32,7 +35,7 @@
     </thead>
     <tbody>
       <tr style="border: none !important; background: transparent !important;">
-        <td style="text-align: left; padding: 4px 30px 4px 0; border: none !important; background: transparent !important;">u20241c101</td>
+        <td style="text-align: left; padding: 4px 30px 4px 0; border: none !important; background: transparent !important;">U20241C101</td>
         <td style="text-align: left; padding: 4px 0; border: none !important; background: transparent !important;">Capillo Lema, Mía Valentina</td>
       </tr>
       <tr style="border: none !important; background: transparent !important;">
@@ -49,19 +52,19 @@
       </tr>
       <tr style="border: none !important; background: transparent !important;">
         <td style="text-align: left; padding: 4px 30px 4px 0; border: none !important; background: transparent !important;">U202124030</td>
-        <td style="text-align: left; padding: 4px 0; border: none !important; background: transparent !important;">Casos Torre, Miguel Andre</td>
+        <td style="text-align: left; padding: 4px 0; border: none !important; background: transparent !important;">Casós Torre, Miguel André</td>
       </tr>
     </tbody>
   </table>
 
   <br><br>
 
-  <p><strong>Período 202620</strong></p>
-  <p><strong>Septiembre 2026</strong></p>
+  <p><strong>Noviembre 2026</strong></p>
 
 </div>
 
 <div style="page-break-after: always;"></div>
+
 ---
 
 # Registro de Versiones del Informe
@@ -70,7 +73,7 @@
 | :---: | :---: | :--- | :--- |
 | **1.0** | 06/09/2026 | Capillo Lema, Mía Valentina | Creación inicial de la estructura del informe y lineamientos de estilo. |
 | **1.1** | 18/09/2026 | Becerra Durand, Sebastian Uriel | Incorporación del registro de entrevista al segmento de comerciantes minoristas en la sección 2.2.2. |
-| **1.2** | 18/09/2026 | Miranda Romero, Sergio Luis | Especificación de requerimientos del Capítulo III (User Stories, Impact Mapping y Product Backlog). |
+| **1.2** | 18/09/2026 | Miranda Romero, Sergio Luis | Especificación de requisitos del Capítulo III (User Stories, Impact Mapping y Product Backlog). |
 | **1.3** | 18/09/2026 | Casós Torre, Miguel André | Realización de entrevista, diagramas DDD y aportes de arquitectura al Capítulo IV. |
 | **1.4** | 18/09/2026 | Capillo Lema, Mía Valentina | Desarrollo de Style Guidelines, Wireframes y Mockups de la aplicación. |
 | **1.5** | 19/09/2026 | Pardo Chumpitazi, Kevin Patrick | Corrección y estandarización integral del Capítulo I (Startup Profile, Solution Profile, Lean UX Process y criterios ABET). |
@@ -78,6 +81,8 @@
 | **1.7** | 19/09/2026 | Pardo Chumpitazi, Kevin Patrick | Revisión de consistencia, formato y enlaces técnicos en el Capítulo III. |
 | **1.8** | 20/09/2026 | Pardo Chumpitazi, Kevin Patrick | Subsanación de observaciones de rúbrica: corrección de formato de carátula institucional, separación de páginas y corrección de rutas relativas de recursos multimedia. |
 | **1.9** | 20/09/2026 | Pardo Chumpitazi, Kevin Patrick | Reestructuración del Capítulo I: compleción de perfiles profesionales del equipo, reformulación de Lean UX Problem Statement alineado al 5W+2H y actualización de hipótesis con enlace funcional al Lean UX Canvas. |
+| **2.0** | 11/10/2026 | Pardo Chumpitazi, Kevin Patrick | Actualización para entrega TB1: incorporación de ejecución del Sprint 2, métricas de contribución en repositorio y despliegue preliminar de Frontend Web Application. |
+| **2.1** | 13/11/2026 | Pardo Chumpitazi, Kevin Patrick | Subsanación de observaciones de TB1 para entrega AV2: corrección de formato de carátula, actualización de acciones ABET Student Outcome (TB1 y AV2) y estandarización terminológica según Anexo E. |
 
 <div style="page-break-before: always;"></div>
 
@@ -89,15 +94,57 @@ Para evidenciar la participación equitativa y la trazabilidad en la redacción 
 
 * **Repositorio de Documentación:** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report)
 
-A continuación, se detalla la distribución de contribuciones y elaboración de artefactos técnicos por cada miembro del equipo durante el desarrollo del entregable:
+### Evolución Colaborativa por Entregable (AV1, TB1 y AV2)
+
+* **Entrega AV1:** El equipo estructuró la línea base del informe distribuyendo los capítulos iniciales mediante ramas `feature/` por capítulo, definiendo el perfil de la startup, el proceso de Needfinding, el Product Backlog inicial, el diseño UX/UI y la configuración del despliegue del Sprint 1.
+* **Entrega TB1:** Se incorporó la documentación de ejecución del Sprint 2 (maquetación del Frontend Web Application e internacionalización i18n), refinando los artefactos de usuario en torno a los arquetipos del dominio y consolidando las métricas del repositorio.
+* **Entrega AV2:** Se ejecutó la subsanación integral de las observaciones de revisión técnica a lo largo de los Capítulos I al V (formato institucional, acciones ABET, jerarquización de Bounded Contexts en historias y diagramas, reformulación de Sprint Goals y estandarización terminológica), además de incorporar la documentación del Sprint 3 y el diseño de las entrevistas de validación.
+
+A continuación, se detalla la distribución de contribuciones, mantenimiento y corrección de artefactos técnicos por cada miembro del equipo:
 
 | Integrante | Capítulos y Secciones a Cargo | Rol Principal en Documentación |
 | :--- | :--- | :--- |
-| **Capillo Lema, Mía Valentina** | Capítulo I (Estilos iniciales), Capítulo IV (Style Guidelines, UI Design, Wireframes y Mockups). | Diseño de interfaces e identidad visual del producto. |
-| **Pardo Chumpitazi, Kevin Patrick** | Capítulo I (Lean UX y Problem Statement), Capítulo V (Software Configuration, Backlog, Sprint 1 y Consolidación General). | Control de versiones, estructuración técnica del reporte y gestión de despliegue. |
-| **Becerra Durand, Sebastian Uriel** | Capítulo II (Registro y análisis de entrevistas al sector minorista), Capítulo V (Soporte en maquetación de artefactos). | Elicitación de requerimientos empíricos y documentación de campo. |
-| **Miranda Romero, Sergio Luis** | Capítulo III (Especificación de requisitos: User Stories Gherkin, Impact Mapping y Product Backlog). | Modelado de requisitos funcionales y gestión ágil Scrum. |
-| **Casós Torre, Miguel André** | Capítulo II (Event Storming Big Picture), Capítulo IV (Domain-Driven Design, C4 Model y Class Diagrams). | Modelado estratégico de dominio y arquitectura de software. |
+| **Capillo Lema, Mía Valentina** | Capítulo I (Estilos iniciales), Capítulo IV (Style Guidelines, UI Design, Wireframes, Mockups, Wireflows y User Flows), Capítulo V (Evidencias UX en Sprints 1-3 y estructura de Validation Interviews). | Diseño de interfaces, flujos interactivos e identidad visual del producto. |
+| **Pardo Chumpitazi, Kevin Patrick** | Capítulo I (Lean UX, Problem Statement y ABET Student Outcome), Capítulo V (Software Configuration Management y Sprints 1, 2 y 3), y **Subsanación transversal de observaciones y estandarización técnica de los Capítulos I, II, III, IV y V (TB1 y AV2)**. | Liderazgo en control de versiones, revisión de calidad, corrección integral del informe y gestión de despliegue. |
+| **Becerra Durand, Sebastian Uriel** | Capítulo II (Registro y análisis de entrevistas), Capítulo V (Documentación de soporte i18n, accesibilidad a11y en Sprints 1-3 y registro de validación). | Obtención de requisitos empíricos, internacionalización y documentación de campo. |
+| **Miranda Romero, Sergio Luis** | Capítulo III (Especificación de requisitos: User Stories Gherkin, Impact Mapping y Product Backlog), Capítulo V (Desglose de Sprint Backlogs 1-3 y tableros Trello). | Modelado de requisitos funcionales y gestión ágil Scrum. |
+| **Casós Torre, Miguel André** | Capítulo II (Big Picture Event Storming y Ubiquitous Language), Capítulo IV (Domain-Driven Design, C4 Model, Class Diagrams y Database Diagrams), Capítulo V (Documentación de arquitectura y servicios en Sprints 1-3). | Modelado estratégico de dominio y arquitectura de software. |
+
+---
+
+### Métricas de Contribución por Integrante (Entrega TB1)
+
+A partir del historial analítico de GitHub en la rama principal durante la entrega TB1, se consolidaron las siguientes métricas cuantitativas de desarrollo documental:
+
+| Integrante | Usuario GitHub | Commits | Líneas Agregadas (++) | Líneas Eliminadas (--) |
+| :--- | :--- | :---: | :---: | :---: |
+| **Capillo Lema, Mía Valentina** | MiaCL-5 | 46 | +2,458 | -651 |
+| **Casós Torre, Miguel André** | mcasos | 45 | +3,182 | -641 |
+| **Pardo Chumpitazi, Kevin Patrick** | Kevinyin11 | 39 | +3,651 | -3,364 |
+| **Becerra Durand, Sebastian Uriel** | sebasdev28 | 16 | +337 | -235 |
+| **Miranda Romero, Sergio Luis** | dym4njiroo | 10 | +994 | -145 |
+
+---
+
+### Evidencias de Trabajo Colaborativo en Repositorio (Entrega TB1)
+
+![Métricas de contribuciones por colaborador](../assets/git%201.png)
+
+*Figura 0.1. Métricas de contribución global y distribución cuantitativa de commits, adiciones y eliminaciones por colaborador en preciazo-report durante la entrega TB1.*
+
+---
+
+![Grafo de red GitFlow](../assets/git%202.png)
+
+*Figura 0.2. Network Graph del repositorio preciazo-report evidenciando la integración de ramas feature, develop y main bajo el modelo GitFlow durante la entrega TB1.*
+
+---
+
+### Evidencias de Trabajo Colaborativo en Repositorio (Entrega AV2)
+
+> *[Pendiente: Insertar tabla actualizada de commits y capturas de GitHub Insights (Contributors y Network Graph) correspondientes a la entrega AV2 al finalizar la integración de las ramas de los Capítulos I al V].*
+
+<div style="page-break-before: always;"></div>
 
 ---
 
@@ -223,6 +270,15 @@ A partir del historial analítico de GitHub en la rama principal, se consolidan 
       - [5.2.2.6. Services Documentation Evidence for Sprint Review](#5226-services-documentation-evidence-for-sprint-review)
       - [5.2.2.7. Software Deployment Evidence for Sprint Review](#5227-software-deployment-evidence-for-sprint-review)
       - [5.2.2.8. Team Collaboration Insights during Sprint](#5228-team-collaboration-insights-during-sprint)
+    - [5.2.3. Sprint 3](#523-sprint-3)
+      - [5.2.3.1. Sprint Planning 3](#5231-sprint-planning-3)
+      - [5.2.3.2. Aspect Leaders and Collaborators](#5232-aspect-leaders-and-collaborators)
+      - [5.2.3.3. Sprint Backlog 3](#5233-sprint-backlog-3)
+      - [5.2.3.4. Development Evidence for Sprint Review](#5234-development-evidence-for-sprint-review)
+      - [5.2.3.5. Execution Evidence for Sprint Review](#5235-execution-evidence-for-sprint-review)
+      - [5.2.3.6. Services Documentation Evidence for Sprint Review](#5236-services-documentation-evidence-for-sprint-review)
+      - [5.2.3.7. Software Deployment Evidence for Sprint Review](#5237-software-deployment-evidence-for-sprint-review)
+      - [5.2.3.8. Team Collaboration Insights during Sprint](#5238-team-collaboration-insights-during-sprint)
   - [5.3. Validation Interviews](#53-validation-interviews)
     - [5.3.1. Diseño de Entrevistas](#531-diseño-de-entrevistas)
     - [5.3.2. Registro de Entrevistas](#532-registro-de-entrevistas)
@@ -235,6 +291,8 @@ A partir del historial analítico de GitHub en la rama principal, se consolidan 
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
 
+<div style="page-break-before: always;"></div>
+
 ---
 
 # Student Outcome
@@ -243,14 +301,12 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 
 **ABET – EAC - Student Outcome 3**
 
-**Criterio:**  
-
-*Capacidad de comunicarse efectivamente con un rango de audiencias. En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 3.*
+**Criterio:** Capacidad de comunicarse efectivamente con un rango de audiencias. En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 3.
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 |---------------------|----------------------|--------------|
-| **Comunica oralmente con efectividad a diferentes rangos de audiencia.** | Capillo Lema, Mía Valentina <br> **AV1** <br> Entrevisté a los usuarios del Segmento 1 adaptando mis preguntas a un lenguaje sencillo, y presenté las ideas clave de mi trabajo de forma clara y directa. <br><br> Pardo Chumpitazi, Kevin Patrick <br> **AV1** <br> Conduje las sesiones de alineamiento técnico para definir la arquitectura de GitFlow y el uso de Conventional Commits, transmitiendo de manera clara las directrices de control de versiones y estándares de documentación al equipo. <br><br> Becerra Durand, Sebastian Uriel <br> **AV1** <br> Conduje la entrevista cualitativa a Laura Gamarra (Entrevista 2) en el Capítulo 2, adaptando el cuestionario a un lenguaje claro y recopilando de forma directa sus hábitos de compra, sensibilidad de precios y fricciones de movilidad. <br><br> Casós Torre, Miguel André <br> **AV1** <br> Participé en la discusión y explicación de decisiones relacionadas con el diseño y la arquitectura de Preciazo, comunicando al equipo los criterios utilizados para organizar los Bounded Contexts y representar la solución mediante diagramas técnicos.<br><br> Miranda Romero, Sergio Luis <br> **AV1** <br> Participé activamente en la discusión y alineamiento en equipo sobre la presentación del proyecto, transmitiendo las ideas clave del Capítulo 3 y aportando retroalimentación para estructurar una narrativa clara y coherente para la exposición. | Durante AV1, el equipo fortaleció su capacidad para comunicar ideas y decisiones del proyecto de manera clara, adaptando la explicación según el contexto y la audiencia. |
-| **Comunica por escrito con efectividad a diferentes rangos de audiencia.** | Capillo Lema, Mía Valentina <br> **AV1** <br> Redacté el resumen de las entrevistas, estructuré la documentación técnica con diagramas de Wireflow y User Flow, y usé mensajes de Git claros para coordinar el avance del repositorio. <br><br> Pardo Chumpitazi, Kevin Patrick <br> **AV1** <br> Elaboré y estandaricé las plantillas técnicas del informe, supervisando la trazabilidad de los commits, el orden formal del Registro de Versiones y la rigurosidad conceptual entre el problema del negocio y la arquitectura propuesta. <br><br> Becerra Durand, Sebastian Uriel <br> **AV1** <br> Redacté y documenté la bitácora y resumen de la entrevista 2 en la sección 2.2.2 del Capítulo 2, estructurando las respuestas empíricas para el análisis de requerimientos del segmento de compradores. <br><br> Casós Torre, Miguel André <br> **AV1** <br> Participé en la elaboración y revisión de documentación técnica del proyecto, incluyendo Domain-Driven Design, arquitectura C4, diagramas de clases y diseño de base de datos, procurando mantener una redacción clara y coherente entre los artefactos.<br><br> Miranda Romero, Sergio Luis <br> **AV1** <br> Redacté la especificación de requisitos del Capítulo 3 (historias de usuario, Impact Mapping y Product Backlog), adaptando el lenguaje mediante el estándar Gherkin para los desarrolladores y una redacción clara orientada al negocio para los stakeholders. | Durante AV1, el equipo aplicó comunicación escrita para documentar requisitos, decisiones de diseño y arquitectura, manteniendo consistencia entre el informe y los artefactos técnicos desarrollados. |
+| **Comunica oralmente con efectividad a diferentes rangos de audiencia.** | **Capillo Lema, Mía Valentina** <br> **AV1:** Entrevisté a los usuarios del Segmento 1 adaptando mis preguntas a un lenguaje sencillo, y presenté las ideas clave de mi trabajo de forma clara y directa. <br> **TB1:** Sustenté ante el docente y el equipo las decisiones de experiencia de usuario, prototipado interactivo y arquitectura de la información aplicadas a las vistas de los segmentos objetivo. <br> **AV2:** Conduje sesiones de validación de usabilidad con usuarios representativos, guiando la ejecución de flujos interactivos mediante instrucciones claras y libres de tecnicismos. <br><br> **Pardo Chumpitazi, Kevin Patrick** <br> **AV1:** Conduje las sesiones de alineamiento técnico para definir la arquitectura de GitFlow y el uso de Conventional Commits, transmitiendo de manera clara las directrices de control de versiones y estándares de documentación al equipo. <br> **TB1:** Expuse la estrategia de configuración del entorno de desarrollo, el despliegue continuo en la nube para la Landing Page y la aplicación web, y lideré la coordinación oral de los entregables del Sprint 2. <br> **AV2:** Sustenté la integración entre la aplicación frontend en Angular y los servicios RESTful en Spring Boot, comunicando la trazabilidad técnica de los repositorios y releases durante la revisión del Sprint 3. <br><br> **Becerra Durand, Sebastian Uriel** <br> **AV1:** Conduje la entrevista cualitativa a Laura Gamarra (Entrevista 2) en el Capítulo 2, adaptando el cuestionario a un lenguaje claro y recopilando de forma directa sus hábitos de compra, sensibilidad de precios y fricciones de movilidad. <br> **TB1:** Presenté en la exposición síncrona el funcionamiento de las vistas orientadas al segmento de comerciantes minoristas y la implementación del soporte de internacionalización (i18n). <br> **AV2:** Ejecuté entrevistas de validación con comerciantes locales, explicando de forma accesible el uso del módulo de inventario y ofertas relámpago para recoger retroalimentación directa. <br><br> **Casós Torre, Miguel André** <br> **AV1:** Participé en la discusión y explicación de decisiones relacionadas con el diseño y la arquitectura de Preciazo, comunicando al equipo los criterios utilizados para organizar los Bounded Contexts y representar la solución mediante diagramas técnicos. <br> **TB1:** Expliqué la evolución del modelado táctico de Domain-Driven Design y el desacoplamiento de componentes durante la sustentación de la etapa TB1. <br> **AV2:** Sustenté la arquitectura por capas de los Bounded Contexts en el servidor backend y la exposición de contratos de servicio durante la demostración técnica. <br><br> **Miranda Romero, Sergio Luis** <br> **AV1:** Participé activamente en la discusión y alineamiento en equipo sobre la presentación del proyecto, transmitiendo las ideas clave del Capítulo 3 y aportando retroalimentación para estructurar una narrativa clara y coherente para la exposición. <br> **TB1:** Expuse la priorización del Sprint Backlog 2 y demostré la navegación de las vistas del comprador independiente integradas durante el segundo sprint. <br> **AV2:** Comuniqué los resultados de las pruebas funcionales de extremo a extremo y la correspondencia de los flujos implementados frente a los criterios de aceptación en Gherkin. | **AV1:** Durante AV1, el equipo fortaleció su capacidad para comunicar ideas y decisiones del proyecto de manera clara, adaptando la explicación según el contexto y la audiencia. <br><br> **TB1:** Durante TB1, el equipo consolidó su desenvolvimiento en la sustentación oral del prototipo funcional y de la arquitectura frontend, transmitiendo tanto el valor comercial para los usuarios como los fundamentos de ingeniería aplicados en el Sprint 2. <br><br> **AV2:** Durante AV2, el equipo demostró solvencia comunicativa frente a audiencias mixtas: empleó un lenguaje empático y accesible durante las entrevistas de validación con compradores y bodegueros, y utilizó precisión técnica al sustentar la integración de los Web Services y la arquitectura DDD. |
+| **Comunica por escrito con efectividad a diferentes rangos de audiencia.** | **Capillo Lema, Mía Valentina** <br> **AV1:** Redacté el resumen de las entrevistas, estructuré la documentación técnica con diagramas de Wireflow y User Flow, y usé mensajes de Git claros para coordinar el avance del repositorio. <br> **TB1:** Documenté la evolución de los mockups de alta fidelidad y las pautas de diseño responsivo del Capítulo 4, asegurando coherencia visual en el informe técnico. <br> **AV2:** Estructuré el protocolo de tareas para las entrevistas de validación y registré los hallazgos de evaluación heurística bajo el estándar de severidad establecido. <br><br> **Pardo Chumpitazi, Kevin Patrick** <br> **AV1:** Elaboré y estandaricé las plantillas técnicas del informe, supervisando la trazabilidad de los commits, el orden formal del Registro de Versiones y la rigurosidad conceptual entre el problema del negocio y la arquitectura propuesta. <br> **TB1:** Redacté la planificación, métricas y evidencias de despliegue del Sprint 2 en el Capítulo 5, estandarizando las tablas de control de versiones y el cumplimiento de estilo del documento. <br> **AV2:** Documenté la gestión de configuración de los cuatro repositorios del proyecto, reformulé los Sprint Goals bajo el estándar de Scrum.org y consolidé la evidencia de ejecución del Sprint 3. <br><br> **Becerra Durand, Sebastian Uriel** <br> **AV1:** Redacté y documenté la bitácora y resumen de la entrevista 2 en la sección 2.2.2 del Capítulo 2, estructurando las respuestas empíricas para el análisis de requisitos del segmento de compradores. <br> **TB1:** Documenté los diccionarios de traducción i18n (inglés y español) y las evidencias de accesibilidad web (a11y) implementadas en la plataforma. <br> **AV2:** Redacté las bitácoras de las entrevistas de validación del segmento minorista en la sección 5.3.2, sintetizando las observaciones de usabilidad reportadas por los usuarios. <br><br> **Casós Torre, Miguel André** <br> **AV1:** Participé en la elaboración y revisión de documentación técnica del proyecto, incluyendo Domain-Driven Design, arquitectura C4, diagramas de clases y diseño de base de datos, procurando mantener una redacción clara y coherente entre los artefactos. <br> **TB1:** Refiné la documentación de los diagramas de clases UML y el modelo relacional por Bounded Context con identificadores `BIGINT` en el Capítulo 4. <br> **AV2:** Reorganicé la especificación arquitectónica priorizando los Bounded Contexts Core, de Soporte y Genéricos, e incorporé los diagramas C4 de componentes detallados y la documentación OpenAPI/Swagger. <br><br> **Miranda Romero, Sergio Luis** <br> **AV1:** Redacté la especificación de requisitos del Capítulo 3 (historias de usuario, Impact Mapping y Product Backlog), adaptando el lenguaje mediante el estándar Gherkin para los desarrolladores y una redacción clara orientada al negocio para los stakeholders. <br> **TB1:** Desglosé y documenté las tareas técnicas del Sprint Backlog 2 en Trello y en las tablas de seguimiento del Capítulo 5. <br> **AV2:** Reordené las User Stories y Technical Stories según la jerarquía de Bounded Contexts y documenté el desglose de tareas estimadas del Sprint Backlog 3. | **AV1:** Durante AV1, el equipo aplicó comunicación escrita para documentar requisitos, decisiones de diseño y arquitectura, manteniendo consistencia entre el informe y los artefactos técnicos desarrollados. <br><br> **TB1:** Durante TB1, el equipo perfeccionó la trazabilidad escrita entre los artefactos de diseño UX/UI, la planificación ágil por Sprints y la evidencia de commits bajo Conventional Commits. <br><br> **AV2:** Durante AV2, el equipo estandarizó rigurosamente la terminología de ingeniería de software, documentó contratos de API RESTful con OpenAPI para desarrolladores y redactó reportes de validación heurística comprensibles para todo tipo de stakeholders. |
 
 ---
 
@@ -275,10 +331,10 @@ El proyecto central del equipo, denominado **Preciazo**, surge como una respuest
 </div>
 
 **Capillo Lema, Mía Valentina**  
-* **Código de estudiante:** u20241c101  
+* **Código de estudiante:** U20241C101  
 * **Carrera:** Ingeniería de Software  
 
-Estudiante de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Posee conocimientos en los lenguajes C++ y Python, lo que le permite contribuir activamente en el desarrollo de soluciones de software eficientes. Cuenta con destrezas en el levantamiento, recopilación y análisis de requerimientos con usuarios reales, fundamentales para optimizar procesos comerciales. Asimismo, domina estructuras de datos para gestionar información de manera estructurada y aportar en el diseño centrado en el usuario dentro de las fases tempranas del ciclo de desarrollo.
+Estudiante de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Posee conocimientos en los lenguajes C++ y Python, lo que le permite contribuir activamente en el desarrollo de soluciones de software eficientes. Cuenta con destrezas en la obtención, recopilación y análisis de requisitos con usuarios reales, fundamentales para optimizar procesos comerciales. Asimismo, domina estructuras de datos para gestionar información de manera estructurada y aportar en el diseño centrado en el usuario dentro de las fases tempranas del ciclo de desarrollo.
 
 <br>
 
@@ -290,7 +346,7 @@ Estudiante de la carrera de Ingeniería de Software en la Universidad Peruana de
 * **Código de estudiante:** U20221A525 
 * **Carrera:** Ingeniería de Software  
 
-Estudiante de pregrado de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Posee conocimientos en desarrollo de soluciones de software mediante lenguajes de programación como C#, Java, Python y TypeScript, así como en la estructuración de componentes web en Angular y servicios en Spring Boot. Cuenta con experiencia en administración de bases de datos relacionales, aplicación de flujos de trabajo colaborativos bajo GitFlow y Conventional Commits, y gestión ágil mediante tableros Kanban y marcos Scrum. En el equipo aporta liderazgo técnico en la configuración de entornos, estandarización de repositorios, control de versiones y trazabilidad en la arquitectura de software.
+Estudiante de pregrado de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Posee conocimientos en desarrollo de soluciones de software mediante lenguajes de programación como C#, Java, Python y TypeScript, así como en la estructuración de componentes web en Angular y servicios en Spring Boot. Cuenta con experiencia en administración de bases de datos relacionales, aplicación de flujos de trabajo colaborativos bajo GitFlow y Conventional Commits, y gestión ágil mediante tableros Kanban y marcos de trabajo Scrum. En el equipo aporta liderazgo técnico en la configuración de entornos, estandarización de repositorios, control de versiones y trazabilidad en la arquitectura de software.
 
 <br>
 
@@ -314,7 +370,7 @@ Estudiante de Ingeniería de Software en la UPC enfocado en el ciclo de vida del
 * **Código de estudiante:** U20231B331  
 * **Carrera:** Ingeniería de Software  
 
-Estudiante de pregrado de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Posee conocimientos en desarrollo de software utilizando lenguajes de programación como C++, C# y JavaScript, así como en la gestión de bases de datos relacionales y no relacionales mediante MySQL y MongoDB. Cuenta con la certificación Scrum Fundamentals Certified, lo que le permite aplicar marcos de trabajo ágiles y gestionar el flujo de tareas del equipo. Aporta en el desarrollo de la solución, la estructuración de la base de datos y la organización del trabajo bajo metodologías ágiles.
+Estudiante de pregrado de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Posee conocimientos en desarrollo de software utilizando lenguajes de programación como C++, C# y JavaScript, así como en la gestión de bases de datos relacionales y no relacionales mediante MySQL y MongoDB. Cuenta con la certificación Scrum Fundamentals Certified, lo que le permite aplicar marcos de trabajo ágiles y gestionar el flujo de tareas del equipo. Aporta en el desarrollo de la solución, la estructuración de la base de datos y la organización del trabajo bajo marcos de trabajo ágiles.
 
 <br>
 
@@ -349,7 +405,7 @@ Estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Apli
 Los compradores independientes de Lima Metropolitana afrontan barreras para identificar la alternativa de aprovisionamiento de menor costo consolidado, debido a la dispersión de información tarifaria y a la ausencia de herramientas integradas que consideren los tiempos y costos de desplazamiento entre establecimientos. Paralelamente, los comerciantes minoristas carecen de canales digitales centralizados para difundir su catálogo y promociones a compradores de proximidad, lo cual limita la visibilidad oportuna de sus ofertas.
 
 **Objetivo general:**  
-Diseñar, desarrollar y desplegar la plataforma web responsive **Preciazo**, permitiendo que los compradores independientes accedan instantáneamente desde el navegador de cualquier dispositivo móvil o de escritorio —sin requerir la descarga ni la instalación de un aplicativo móvil nativo— para consultar precios actualizados, consolidar presupuestos y trazar recorridos comerciales eficientes; proveyendo en simultáneo a los comerciantes minoristas una consola digital para registrar su oferta y dinamizar sus ventas locales.
+Diseñar, desarrollar y desplegar la plataforma web responsive **Preciazo**, permitiendo que los compradores independientes accedan instantáneamente desde el navegador de cualquier dispositivo móvil o de escritorio —sin requerir la descarga ni la instalación de una aplicación móvil nativa— para consultar precios actualizados, consolidar presupuestos y trazar recorridos comerciales eficientes; proveyendo en simultáneo a los comerciantes minoristas una consola digital para registrar su oferta y dinamizar sus ventas locales.
 
 **Restricciones de alcance:**  
 * El acceso de los usuarios se realizará exclusivamente a través de navegadores web modernos mediante diseño responsive adaptativo, suprimiendo la necesidad de instalación en el almacenamiento del dispositivo.
@@ -361,7 +417,7 @@ Diseñar, desarrollar y desplegar la plataforma web responsive **Preciazo**, per
 
 ### 1.2.2. Lean UX Process
 
-El proceso de Lean UX adoptado por PeruTech establece un marco de validación continua y temprana de valor para la plataforma **Preciazo**. Mediante la iteración constante de los ciclos de formulación de supuestos (*Think*), diseño de artefactos e interfaces (*Make*) y comprobación empírica con métricas objetivas (*Check*), el equipo orienta el esfuerzo de desarrollo hacia la construcción de un Producto Mínimo Viable (MVP). Este enfoque permite corroborar oportunamente los requerimientos críticos de los **compradores independientes** y los **comerciantes minoristas**, minimizando riesgos técnicos y garantizando soluciones eficientes ante las fricciones de costo y desplazamiento urbano.
+El proceso de Lean UX adoptado por PeruTech establece un marco de validación continua y temprana de valor para la plataforma **Preciazo**. Mediante la iteración constante de los ciclos de formulación de supuestos (*Think*), diseño de artefactos e interfaces (*Make*) y comprobación empírica con métricas objetivas (*Check*), el equipo orienta el esfuerzo de desarrollo hacia la construcción de un Producto Mínimo Viable (MVP). Este enfoque permite corroborar oportunamente los requisitos críticos de los **compradores independientes** y los **comerciantes minoristas**, minimizando riesgos técnicos y garantizando soluciones eficientes ante las fricciones de costo y desplazamiento urbano.
 
 #### 1.2.2.1. Lean UX Problem Statements
 
@@ -536,7 +592,7 @@ A partir del diagnóstico FODA cruzado y el mapeo del entorno competitivo, la st
 ## 2.2. Entrevistas
 ### 2.2.1. Diseño de entrevistas
 
-El diseño del instrumento cualitativo desarrollado por **PeruTech** se fundamenta en el enfoque de Diseño Centrado en el Usuario (UCD) para recopilar evidencia empírica directa y validar los requerimientos de la plataforma **Preciazo**. Esta información sustenta la construcción técnica de los arquetipos (*User Personas*), mapas de empatía (*Empathy Maps*) y recorridos de usuario (*User Journey Maps*).
+El diseño del instrumento cualitativo desarrollado por **PeruTech** se fundamenta en el enfoque de Diseño Centrado en el Usuario (UCD) para recopilar evidencia empírica directa y validar los requisitos de la plataforma **Preciazo**. Esta información sustenta la construcción técnica de los arquetipos (*User Personas*), mapas de empatía (*Empathy Maps*) y recorridos de usuario (*User Journey Maps*).
 
 El instrumento integra variables demográficas, competencias digitales y dinámicas operativas adaptadas a cada perfil objetivo. Para el segmento del consumidor final, las preguntas indagan en los hábitos de abastecimiento, sensibilidad al precio, planificación de rutas y control de gastos; mientras que, para el segmento del comerciante minorista o administrador de tienda, el cuestionario se orienta a comprender los mecanismos de fijación de precios, la difusión de promociones y las barreras de visibilidad frente a las grandes cadenas minoristas. Las preguntas se estructuran rigurosamente en principales (orientadas a validar los problemas clave y la viabilidad de la solución) y complementarias (enfocadas en profundizar en variables de personalidad, hábitos cotidianos y fricciones operativas).
 
@@ -588,14 +644,13 @@ El instrumento integra variables demográficas, competencias digitales y dinámi
   2. ¿Qué opina sobre las comisiones y condiciones de las aplicaciones de delivery tradicionales (como Rappi o PedidosYa)? ¿Considera que benefician o perjudican el margen de ganancia de un comercio local?
   3. ¿Utiliza actualmente algún software de punto de venta (POS), hojas de cálculo en Excel o registros manuales (cuadernos) para administrar las ventas y el flujo de caja de su negocio?
 
-  
-### 2.2.2. Registro de entrevistas
-
-A continuación, se presenta la bitácora de las entrevistas cualitativas realizadas a los representantes de los segmentos objetivo. Los datos recopilados documentan las características demográficas, hábitos tecnológicos, canales de interacción, dispositivos y factores psicográficos requeridos para la formulación formal de los arquetipos de usuario.
-
 ---
 
+### 2.2.2. Registro de entrevistas
 
+A continuación, se presenta la bitácora de las seis entrevistas cualitativas realizadas a los representantes de ambos segmentos objetivo, consolidadas en un único registro audiovisual compilado en Microsoft Stream, especificando la marca de tiempo exacta de inicio, término y duración de cada sesión. Los datos recopilados documentan las características demográficas, hábitos tecnológicos, canales de interacción, dispositivos y factores psicográficos requeridos para la formulación formal de los arquetipos de usuario.
+
+---
 
 #### Segmento 1: Compradores Multitienda y Optimizadores de Desplazamiento
 
@@ -605,9 +660,9 @@ A continuación, se presenta la bitácora de las entrevistas cualitativas realiz
   * **Distrito de residencia:** San Miguel, Lima
   * **Ocupación:** Desarrollador de Software / Profesional Independiente
   * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** [Ver Registro en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221a525_upc_edu_pe/IQALn1WCs-n2RKG7i-4XYYVKAYtnp2Uw9sig9WHpe8BqaZc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=K0Fd6F)
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[04:30 min]`
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221a525_upc_edu_pe/IQALn1WCs-n2RKG7i-4XYYVKAYtnp2Uw9sig9WHpe8BqaZc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=K0Fd6F)
+  * **Timing de inicio y término:** `00:00 - 04:30`
+  * **Duración:** `04:30 min`
   * **Perfil técnico y entorno digital:**
     * *Dispositivos habituales:* Smartphone Android (gama media-alta) y Laptop personal.
     * *Navegador de preferencia:* Google Chrome.
@@ -617,55 +672,49 @@ A continuación, se presenta la bitácora de las entrevistas cualitativas realiz
   * **Nota sobre el registro audiovisual:** Durante la sesión, el participante solicitó mantener la cámara desactivada por motivos personales y de privacidad visual, autorizando únicamente el registro de audio para fines académicos de investigación cualitativa.
 
 ![Screenshot Entrevista 1 - Fernando Justiniano](../assets/Entrevista1.png)
-> *Figura 2.1: Registro audiovisual de la entrevista cualitativa a Fernando Justiniano Vega.*
+> *Figura 2.1: Registro audiovisual de la entrevista cualitativa a Fernando Justiniano Vega (Segmento 1).*
 
-- **Entrevista 2:**
-  - **Nombre y Apellidos:** Laura Gamarra
-  - **Edad:** 23 años
-  - **Distrito de residencia:** Ate
-  - **Ocupación:** Coordinadora General de una empresa familiar de transporte de carga a nivel nacional
-  - **Grado de instrucción:** Estudiante universitaria de noveno ciclo de Negocios Internacionales
-  - **Plataforma de video:** Microsoft Stream
-  - **Enlace de Video:** [Ver entrevista](https://1drv.ms/v/c/33e54e659b0ea103/IQA5hhx1fJT0Q7aLNoTW3LBlAaVE9gRm6ooCZK9alOX3WCY?e=hjJT6B)
-  - **Marca de tiempo (Timing de inicio):** `00:00`
-  - **Duración:** `08:23 min`
-  - **Perfil técnico y entorno digital:**
-    - *Dispositivos habituales:* Smartphone y laptop.
-    - *Canales digitales e influencias:* Instagram, TikTok, Yape, banca móvil, PedidosYa y aplicaciones de tiendas por departamento como Falabella y Ripley.
-    - *Hábitos digitales relacionados con compras:* Consulta precios y disponibilidad de productos mediante Internet antes de desplazarse a los establecimientos.
-    - *Rasgos inferidos a partir de la entrevista:* Planificada, sensible al precio y orientada a optimizar tanto el presupuesto como el costo de desplazamiento.
+---
 
-  - **Resumen descriptivo:** Laura, de 23 años, se encarga habitualmente de realizar las compras de su hogar. Antes de realizar una compra consulta precios en Internet y compara distintos establecimientos para identificar dónde puede adquirir los productos que necesita a menor costo. No suele visitar varios locales durante un mismo día; distribuye sus compras en diferentes días dependiendo de los precios y de la disponibilidad de los productos.
-Además del precio directo de los productos, considera los beneficios asociados a sus tarjetas bancarias, tales como promociones y descuentos disponibles en determinados establecimientos o días de la semana. Para trasladarse habitualmente utiliza Uber, por lo que la distancia y el costo del transporte influyen de manera directa en su decisión de compra.
-Uno de sus principales puntos de frustración es el tráfico y el costo de movilidad. Cuando no cuenta con promociones o descuentos en el servicio de transporte, puede incluso postergar una compra debido al aumento del costo total del desplazamiento.
-Para controlar sus gastos establece un presupuesto aproximado de S/600 a S/700. Antes de comprar revisa qué productos necesita y consulta sus precios en la web. Cuando el monto total supera el presupuesto disponible, prioriza las compras urgentes y posterga otros productos para el siguiente mes.
-Frente a una plataforma de comparación de precios y optimización de rutas, manifestó interés en identificar establecimientos cercanos que ofrezcan precios convenientes. También propuso considerar los descuentos y beneficios asociados a tarjetas bancarias y días específicos de promoción, permitiendo generar una planificación semanal de compras.
-Laura prefiere realizar sus compras durante días laborables y aproximadamente entre las 11:00 a. m. y las 4:00 p. m., evitando los horarios de mayor congestión. Cuando encuentra una oferta en un establecimiento distante, evalúa el costo del transporte de ida y vuelta y considera qué otros productos podría adquirir en el mismo lugar para determinar si el desplazamiento realmente resulta conveniente. Asimismo, comparte regularmente información sobre precios y promociones con familiares.
+* **Entrevista 2:**
+  * **Nombre y Apellidos:** Laura Gamarra
+  * **Edad:** 23 años
+  * **Distrito de residencia:** Ate, Lima
+  * **Ocupación:** Coordinadora General en empresa de transporte de carga y estudiante de 9.° ciclo de Negocios Internacionales
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://1drv.ms/v/c/33e54e659b0ea103/IQA5hhx1fJT0Q7aLNoTW3LBlAaVE9gRm6ooCZK9alOX3WCY?e=hjJT6B)
+  * **Timing de inicio y término:** `04:30 - 12:53`
+  * **Duración:** `08:23 min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* Smartphone y Laptop personal.
+    * *Navegador de preferencia:* Google Chrome / Safari.
+    * *Canales digitales e influencias:* Instagram, TikTok, Yape, banca móvil, PedidosYa y aplicaciones de tiendas por departamento como Falabella y Ripley.
+    * *Rasgos de personalidad:* Planificada, sensible al precio y orientada a optimizar tanto el presupuesto como el costo de desplazamiento.
+  * **Resumen descriptivo:** Laura se encarga habitualmente de realizar las compras de su hogar. Antes de salir, consulta precios en Internet y compara distintos establecimientos para identificar dónde adquirir los productos a menor costo, distribuyendo sus compras en diferentes días según la disponibilidad y ofertas. Además del precio directo, evalúa los descuentos asociados a sus tarjetas bancarias. Para trasladarse utiliza Uber, por lo que la distancia y el costo del transporte influyen directamente en su decisión de compra, llegando a postergar salidas cuando la tarifa de movilidad se incrementa por el tráfico. Controla sus gastos con un presupuesto mensual de S/ 600 a S/ 700, priorizando compras urgentes cuando el monto proyectado supera dicho límite. Manifestó alto interés en una plataforma web que identifique locales cercanos económicos e integre alertas de promociones bancarias, prefiriendo comprar en días laborables entre las 11:00 a. m. y las 4:00 p. m. para evitar la congestión.
 
-![Screenshot Entrevista 2](../assets/entrevista-laura.png)
+![Screenshot Entrevista 2 - Laura Gamarra](../assets/entrevista-laura.png)
+> *Figura 2.2: Registro audiovisual de la entrevista cualitativa a Laura Gamarra (Segmento 1).*
 
-> *Figura 2.2: Registro audiovisual de la entrevista cualitativa a Laura Gamarra, representante del Segmento 1.*
+---
 
 * **Entrevista 3:**
-  * **Nombre y Apellidos:** `Danella Palacios`
-  * **Edad:** `19`
-  * **Distrito de residencia:** `Surco`
-  * **Ocupación:** `Estudiante`
+  * **Nombre y Apellidos:** Danella Palacios
+  * **Edad:** 19 años
+  * **Distrito de residencia:** Santiago de Surco, Lima
+  * **Ocupación:** Estudiante universitaria
   * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQBeRZULw_NIRK4BLM-8WdSdAVL58Y-wToNe5CeY1_QLawc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=kw5w1B)
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[03:43]`
-  * **Perfil técnico y entorno digital:** 
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQBeRZULw_NIRK4BLM-8WdSdAVL58Y-wToNe5CeY1_QLawc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=kw5w1B)
+  * **Timing de inicio y término:** `12:53 - 16:36`
+  * **Duración:** `03:43 min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* Smartphone y Computadora/Laptop.
+    * *Navegador de preferencia:* Google Chrome (uso frecuente de hojas de cálculo en línea).
+    * *Canales digitales e influencias:* Redes sociales (Instagram) y billeteras digitales (Yape).
+    * *Rasgos de personalidad:* Organizada con el presupuesto, enfocada en el ahorro mediante promociones y prioriza la eficiencia en el uso de su tiempo.
+  * **Resumen descriptivo:** Danella prefiere concentrar sus compras en una misma salida para optimizar su tiempo. Antes de salir de casa, busca ofertas y promociones activas mediante redes sociales como Instagram y promociones en Yape. Realiza sus traslados en vehículo propio, identificando la congestión vehicular nocturna en Lima como su principal punto de dolor. Demuestra un alto nivel de organización financiera al gestionar el presupuesto familiar a través de un formulario integrado con Excel. Respecto a la adopción de una plataforma de comparación de precios y diseño de rutas, expresa interés condicionado a que la herramienta cuente con una interfaz intuitiva, sencilla y de rápida consulta para su rutina diaria.
 
-  * **Dispositivos:** Celular y Computadora/Laptop.
-  * **Navegador:** Navegador web estándar (acceso a herramientas de hoja de cálculo).
-  * **Canales:** Redes sociales (Instagram) y aplicaciones financieras/comerciales (Yape).
-  * **Personalidad:** Organizada con el presupuesto, enfocada en el ahorro mediante promociones y prioriza la eficiencia en el uso de su tiempo.
-  * **Resumen descriptivo:** 
-  Prefiere concentrar todas sus compras en un solo establecimiento en una misma salida para optimizar su tiempo. Antes de salir de casa, busca ofertas y promociones activas mediante redes sociales (Instagram) y aplicaciones financieras como Yape. Realiza sus traslados en vehículo propio; por ello, el tiempo de viaje o la distancia no representan una limitante crítica, aunque identifica la congestión vehicular (tráfico nocturno en Lima) como su principal punto de dolor. Demuestra un alto nivel de organización financiera al gestionar el presupuesto familiar a través de un formulario integrado con Excel. Respecto a la adopción de una plataforma de comparación de precios y diseño de rutas, expresa interés condicionado a que la herramienta cuente con una interfaz intuitiva, sencilla y de fácil uso para su rutina diaria.
-
-![Screenshot Entrevista 3](../assets/entrevista-3.png)
-> *Figura 2.3: Registro audiovisual de la entrevista cualitativa 3.*
+![Screenshot Entrevista 3 - Danella Palacios](../assets/entrevista-3.png)
+> *Figura 2.3: Registro audiovisual de la entrevista cualitativa a Danella Palacios (Segmento 1).*
 
 ---
 
@@ -677,20 +726,20 @@ Laura prefiere realizar sus compras durante días laborables y aproximadamente e
   * **Distrito de residencia:** Santa Anita, Lima
   * **Ocupación:** Propietario y Administrador de Bodega
   * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** [Ver Registro en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221b756_upc_edu_pe/IQCGCWoyG5FVQbEdtq6CSFwOAYcuD4-mK4BqWpmAxF6fwL8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=6KWDyr)
-  * **Marca de tiempo (Timing de inicio):** `[00:28]`
-  * **Duración:** `[03:53 min]`
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221b756_upc_edu_pe/IQCGCWoyG5FVQbEdtq6CSFwOAYcuD4-mK4BqWpmAxF6fwL8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=6KWDyr)
+  * **Timing de inicio y término:** `16:36 - 20:29`
+  * **Duración:** `03:53 min`
   * **Perfil técnico y entorno digital:**
     * *Dispositivos habituales:* Smartphone y Laptop personal.
     * *Navegador de preferencia:* Google Chrome.
     * *Canales digitales e influencias:* WhatsApp, Facebook, TikTok, Yape, PedidosYa, Rappi y portales web de retail.
     * *Rasgos de personalidad:* Analítico, precavido en adquisiciones de mercadería y enfocado en la rentabilidad de su establecimiento.
   * **Resumen descriptivo:** Daniel es propietario y administra una bodega comercial en Santa Anita. Difunde promociones principalmente mediante carteles en la fachada y mensajes por WhatsApp, dependiendo fuertemente de la clientela recurrente del barrio debido a la alta competencia zonal. Actualiza tarifas de forma reactiva ante variaciones comunicadas por los distribuidores mayoristas y gestiona el inventario manualmente mediante un cuaderno de apuntes. Señaló que sus pérdidas de ventas se deben principalmente a quiebres imprevistos de stock y a la asimetría de precios frente a otros negocios. Expresó amplio interés en adoptar Preciazo para publicar ofertas y recibir avisos de productos agotados, señalando como indispensable una interfaz intuitiva, accesible desde cualquier dispositivo y sin comisiones abusivas de intermediación.
-  * **Nota sobre el registro audiovisual:** La sesión se realizó de manera virtual mediante videollamada síncrona, contando con la autorización del participante para fines académicos de investigación y diseño UX.
 
 ![Screenshot Entrevista 4 - Daniel Palomino](../assets/entrevista-4.png)
-> *Figura 2.4: Registro audiovisual de la entrevista cualitativa a Daniel Stalin Palomino Murga.*
+> *Figura 2.4: Registro audiovisual de la entrevista cualitativa a Daniel Stalin Palomino Murga (Segmento 2).*
 
+---
 
 * **Entrevista 5:**
   * **Nombre y Apellidos:** Joan Smit Rodríguez Rodríguez
@@ -698,45 +747,45 @@ Laura prefiere realizar sus compras durante días laborables y aproximadamente e
   * **Distrito de residencia:** Santiago de Surco, Lima
   * **Ocupación:** Administrador y Encargado Comercial de Minimarket
   * **Plataforma de video:** Microsoft Stream
-  * **Enlace de Video:** [Ver Registro en Microsoft Stream](https://upcedupe-my.sharepoint.com/personal/u20221a525_upc_edu_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu20221a525%5Fupc%5Fedu%5Fpe%2FDocuments%2FEntrevista%20%2D%20Segmento%202%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Eab7529d8%2D396c%2D4efe%2Dabb8%2D3e7ccfced5d5)
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[05:45 min]`
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/personal/u20221a525_upc_edu_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu20221a525%5Fupc%5Fedu%5Fpe%2FDocuments%2FEntrevista%20%2D%20Segmento%202%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Eab7529d8%2D396c%2D4efe%2Dabb8%2D3e7ccfced5d5)
+  * **Timing de inicio y término:** `20:29 - 26:14`
+  * **Duración:** `05:45 min`
   * **Perfil técnico y entorno digital:**
     * *Dispositivos habituales:* Smartphone Android y Laptop en punto de venta.
     * *Navegador de preferencia:* Google Chrome.
     * *Canales digitales e influencias:* WhatsApp Business, Yape, Plin, banca móvil BCP, redes sociales (Instagram, TikTok).
     * *Rasgos de personalidad:* Proactivo, dinámico, enfocado en la rentabilidad del negocio y abierto a la digitalización comercial.
   * **Resumen descriptivo:** Joan administra y gestiona las operaciones de un minimarket familiar con 3 años de antigüedad en Surco. Para comunicar ofertas y promociones utiliza pizarras de tiza en la fachada del local y estados de WhatsApp dirigidos a clientes recurrentes, reconociendo que carece de alcance hacia nuevos transeúntes del sector. Ajusta precios de productos de alta rotación una o dos veces por semana según los cambios tarifarios de los distribuidores mayoristas, buscando competir frente a cadenas de conveniencia. Realiza el control de inventario de forma visual cada dos días, ubicando artículos próximos a caducar en zonas de remate para prevenir mermas. Manifiesta que los compradores de la zona asumen erróneamente que las bodegas son más costosas que los supermercados por falta de transparencia digital. Expresó alta disposición a afiliar su negocio a Preciazo para ganar visibilidad barrial, requiriendo una interfaz ágil desde el teléfono móvil para actualizar precios y reportar quiebres de stock sin incurrir en altas comisiones de intermediación.
-  * **Nota sobre el registro audiovisual:** La sesión se desarrolló mediante videollamada síncrona, registrando el consentimiento del participante para el uso del material audiovisual con fines académicos de investigación y diseño UX.
 
 ![Screenshot Entrevista 5 - Joan Smit](../assets/entrevista%202.png)
+> *Figura 2.5: Registro audiovisual de la entrevista cualitativa a Joan Smit Rodríguez Rodríguez (Segmento 2).*
 
-> *Figura 2.5: Registro audiovisual de la entrevista cualitativa a Joan Smit.*
+---
 
-* **Entrevista 5:**
+* **Entrevista 6:**
   * **Nombre y Apellidos:** Nicolas Alejandro Quinto Rosales
   * **Edad:** 29 años
-  * **Distrito de residencia:** San Juan De Miraflores, Lima
-  * **Ocupación:** Propietario y administrador de una bodega 
-  * **Plataforma de video:** One Drive
-  * **Enlace de Video:** [Ver Registro en One Drive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231b331_upc_edu_pe/IQBGQTv_Sn14S7IsyEcKvJ5FAS-LxKTV7r_8nbi29KaD_7I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=XMJsDK)
-  * **Marca de tiempo (Timing de inicio):** `[00:00]`
-  * **Duración:** `[06:16 min]`
+  * **Distrito de residencia:** San Juan de Miraflores, Lima
+  * **Ocupación:** Propietario y Administrador de Bodega
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** [Ver Registro Consolidado de Entrevistas en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231b331_upc_edu_pe/IQBGQTv_Sn14S7IsyEcKvJ5FAS-LxKTV7r_8nbi29KaD_7I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=XMJsDK)
+  * **Timing de inicio y término:** `26:14 - 32:30`
+  * **Duración:** `06:16 min`
   * **Perfil técnico y entorno digital:**
     * *Dispositivos habituales:* Smartphone Android y Laptop.
-    * *Canales digitales e influencias:*  Yape, redes sociales (WhatsApp, TikTok, Facebook) y Didi o Rappi.
+    * *Navegador de preferencia:* Google Chrome.
+    * *Canales digitales e influencias:* Yape, redes sociales (WhatsApp, TikTok, Facebook) y plataformas de reparto (Didi, Rappi).
     * *Rasgos de personalidad:* Proactivo, enfocado en la prosperidad del negocio y abierto al uso de nuevas aplicaciones web.
-  * **Resumen descriptivo:**
-    Nicolas administra y gestiona las operaciones de una bodega la cual lleva 5 años en servicio. Se considera alguien que se adapta con suma facilidad a las nuevas tecnologías. Usa las redes sociales para promocionar su bodega y suele hacer uso de aplicaciones de delivery como Didi o Rappi. Para comunicar promociones, exhibe carteles a las afueras de su tienda  y hace uso de los estados de WhatsApp para notificar a sus clientes recurrentes. Ajusta los precios de sus productos de acuerdo a los cambios tarifarios de los distribuidores mayoristas para no perder su margen de ganancia. Expresó disposición a hacer uso de Preciazo para alzar la imagen su bodega y obtener mas clientes frecuentes, requiriendo una interfaz intuitiva para no tener que disponer de mucho tiempo para estar actualizando el stock de sus productos y sus precios.
-  * **Nota sobre el registro audiovisual:** La sesión se desarrolló mediante videollamada síncrona, registrando el consentimiento del participante para el uso del material audiovisual con fines académicos de investigación y diseño UX.
+  * **Resumen descriptivo:** Nicolas administra y gestiona las operaciones de una bodega con 5 años de servicio en San Juan de Miraflores. Se adapta con facilidad a las tecnologías digitales, empleando redes sociales para promocionar su negocio. Para comunicar promociones del día, exhibe carteles en el exterior de su tienda y publica estados de WhatsApp para notificar a sus clientes frecuentes. Ajusta los precios de sus productos de acuerdo con los cambios tarifarios de los distribuidores mayoristas para resguardar su margen de ganancia. Expresó alta disposición a utilizar Preciazo para posicionar la visibilidad de su bodega y captar más clientes en su zona, destacando como requisito contar con una interfaz intuitiva que demande poco tiempo operativo al actualizar stock y precios.
 
-![Screenshot Entrevista 5 - Nicolas Alejandro Quinto Rosales](../assets/entrevista-203.png)
+![Screenshot Entrevista 6 - Nicolas Alejandro Quinto Rosales](../assets/entrevista-203.png)
+> *Figura 2.6: Registro audiovisual de la entrevista cualitativa a Nicolas Alejandro Quinto Rosales (Segmento 2).*
 
-> *Figura 2.6: Registro audiovisual de la entrevista cualitativa a Nicolas Alejandro Quinto Rosales.*
+---
 
 ### 2.2.3. Análisis de entrevistas
 
-A partir de la triangulación cualitativa y la cuantificación de las respuestas de las 4 entrevistas realizadas, se sintetizan las variables objetivas y subjetivas más representativas de cada segmento objetivo. Este análisis constituye el sustento empírico y estadístico directo para la modelación de los arquetipos (*User Personas*), mapas de empatía y matrices de tareas de la plataforma **Preciazo**.
+A partir de la triangulación cualitativa y la cuantificación de las respuestas de las **6 entrevistas realizadas** (3 por cada segmento objetivo), se sintetizan las variables objetivas y subjetivas más representativas de cada grupo. Este análisis constituye el sustento empírico y estadístico directo para la modelación de los arquetipos (*User Personas*), mapas de empatía y matrices de tareas de la plataforma **Preciazo**.
 
 ---
 
@@ -748,30 +797,30 @@ A partir de la triangulación cualitativa y la cuantificación de las respuestas
   * **Multidispositivo con predominancia móvil (100%):** Los 3 entrevistados operan tanto desde su smartphone como desde laptops para coordinar sus actividades y consultar información web.
   * **Búsqueda previa de precios y ofertas (100%):** El 100% de la muestra busca activamente información de precios o promociones antes o durante sus compras (mediante redes sociales como Instagram, aplicaciones bancarias, catálogos web o consulta directa en tienda).
   * **Sensibilidad al impacto del transporte en el gasto final (100%):** El 100% identifica el desplazamiento como un factor crítico en sus decisiones de aprovisionamiento, ya sea evaluando el costo de movilidad versus el descuento (Uber en Laura, pasajes en Fernando) o el tiempo perdido en el tráfico de Lima (Danella y Fernando).
-  * **Estrategias de control presupuestario formal o semiestructurado (66.7%):** 2 de los 3 entrevistados (Laura y Danella) manejan rangos presupuestarios definidos (presupuesto tope de S/600 a S/700 o matrices en hojas de cálculo como Excel), mientras que 1 entrevistado (Fernando, 33.3%) utiliza registros no estructurados en bloc de notas.
-  * **Segmentación de compras multitienda (66.7%):** 2 de 3 usuarios distribuyen sus compras entre distintos puntos (mercados zonales y cadenas de autoservicio o visitas escalonadas por días de oferta), mientras que el 33.3% (Danella) prefiere centralizar en un solo lugar para optimizar tiempo.
+  * **Estrategias de control presupuestario formal o semiestructurado (66.7%):** 2 de los 3 entrevistados (Laura y Danella) manejan rangos presupuestarios definidos (presupuesto tope de S/ 600 a S/ 700 o matrices en hojas de cálculo como Excel), mientras que 1 entrevistado (Fernando, 33.3%) utiliza registros rápidos en bloc de notas móvil.
+  * **Segmentación de compras multitienda (66.7%):** 2 de 3 usuarios distribuyen sus compras entre distintos puntos (mercados zonales y cadenas de autoservicio o visitas escalonadas por días de oferta), mientras que el 33.3% (Danella) prefiere centralizar en un solo establecimiento para optimizar tiempo.
 
 * **Variables Subjetivas (Psicográficas, Motivaciones y Frustraciones):**
   * **Frustración por la congestión vehicular y tiempo de traslado (100%):** La totalidad de los entrevistados identifica el tráfico caótico y las demoras en el transporte urbano como el punto de dolor más severo de su experiencia de compra presencial.
   * **Interés condicionado por interfaces intuitivas y de bajo esfuerzo (100%):** El 100% expresó disposición para adoptar una plataforma como Preciazo, enfatizando como requisito indispensable que la interfaz sea minimalista, ágil y de rápida consulta.
   * **Rechazo a la asimetría de precios y al gasto imprevisto (66.7%):** El 66.7% (Fernando y Laura) manifiesta frustración ante compras no planificadas o la falta de transparencia de ofertas reales al llegar al establecimiento físico.
-  * **Aprovechamiento de beneficios financieros externos (33.3%):** Se identificó una conducta orientada al beneficio de tarjetas de crédito/débito y promociones por días específicos de la semana (Laura), lo que representa una oportunidad para el motor de recomendaciones de la plataforma.
+  * **Aprovechamiento de beneficios financieros externos (33.3%):** Se identificó una conducta orientada al beneficio de tarjetas bancarias y promociones por días específicos de la semana (Laura), lo que representa una oportunidad de valor agregado para la plataforma.
 
 ---
 
 #### Segmento 2: Comerciantes Minoristas y Administradores de Tiendas Locales
-*(Análisis cuantitativo sustentado en la muestra de 1 entrevistado: Daniel Stalin Palomino Murga, propietario de bodega en Santa Anita)*
+*(Análisis cuantitativo sustentado en la muestra de 3 entrevistados: Daniel Palomino Murga, Joan Smit Rodríguez y Nicolas Quinto Rosales)*
 
 * **Variables Objetivas (Demográficas, Operativas y Técnicas):**
-  * **Gestión analógica y rudimentaria del negocio (100%):** El 100% (1 de 1) administra su inventario, pedidos críticos y control de flujo de caja de manera física mediante un **cuaderno o libreta de notas**, careciendo de sistemas POS o software de gestión comercial.
-  * **Comunicación de ofertas restringida al ámbito inmediato (100%):** Utiliza únicamente canales básicos y locales (carteles físicos en la entrada del local y mensajes por WhatsApp a su círculo de contactos), lo que limita la atracción a los vecinos que ya transitan por la cuadra.
-  * **Adopción de herramientas digitales cotidianas (100%):** El comerciante opera activamente con smartphone y laptop, utilizando redes sociales (Facebook, TikTok) y billeteras móviles (Yape) para transacciones comerciales básicas.
-  * **Mecanismo reactivo de fijación de precios (100%):** La actualización de precios se efectúa exclusivamente cuando los proveedores mayoristas incrementan el costo de la mercancía, sin un monitoreo sistemático de las tarifas del entorno.
+  * **Comunicación de ofertas restringida a medios físicos y mensajería cerrada (100%):** El 100% (3 de 3) utiliza carteles o pizarras de tiza en la fachada del local combinados con estados o mensajes de WhatsApp, limitando su alcance a clientes ya registrados o peatones de la misma cuadra.
+  * **Mecanismo reactivo de fijación de precios según mayoristas (100%):** La totalidad de los entrevistados (3 de 3) actualiza los precios de sus productos de alta rotación en función de las variaciones tarifarias de los distribuidores mayoristas para proteger su margen operativo.
+  * **Adopción de dispositivos móviles, laptops y pagos digitales (100%):** El 100% opera a diario con smartphone y laptop, utilizando billeteras digitales (Yape/Plin) y redes sociales (WhatsApp, TikTok, Facebook) en su gestión comercial.
+  * **Control de inventario manual o visual sin sistema POS integrado (100%):** Los 3 comerciantes administran sus existencias mediante cuadernos de apuntes o inspecciones visuales periódicas en estantería, careciendo de alertas automatizadas de quiebre de stock o caducidad.
 
 * **Variables Subjetivas (Psicográficas, Percepciones y Expectativas):**
-  * **Presión competitiva y dependencia de clientela fija (100%):** Reconoce como principal amenaza la alta densidad de negocios competidores en su zona y la fuga de clientes hacia locales que ofrecen precios más bajos, sufriendo por la falta de canales para captar nuevos transeúntes.
-  * **Fricción por quiebre de stock y pérdida de ventas (100%):** Identifica el agotamiento no advertido de productos y la discrepancia de precios como los dos factores determinantes en la pérdida de clientes habituales.
-  * **Disposición a la digitalización ágil y económica (100%):** Expresó total apertura a registrar su catálogo y ofertas en Preciazo, siempre y cuando la consola web sea rápida de utilizar desde el celular, no requiera una curva técnica compleja, ofrezca alertas de existencias agotadas y mantenga un esquema de costos accesible sin comisiones desproporcionadas.
+  * **Presión competitiva y necesidad de captar nuevos transeúntes (100%):** El 100% (3 de 3) identifica como principal desafío la competencia de cadenas de conveniencia o comercios cercanos y la falta de visibilidad digital para desmitificar que las bodegas son más caras que los supermercados.
+  * **Disposición a la digitalización ágil y sin comisiones abusivas (100%):** La totalidad de la muestra expresó apertura inmediata para afiliar su local a Preciazo, exigiendo una consola web rápida de actualizar desde el celular y libre de los altos porcentajes de comisión de las plataformas de delivery.
+  * **Preocupación por pérdida de ventas debido a quiebres de stock y mermas (66.7%):** El 66.7% (Daniel y Joan) destaca la urgencia de contar con avisos de productos agotados y promociones rápidas para liquidar mercadería próxima a vencer.
 
 
 ## 2.3. Needfinding
@@ -784,14 +833,14 @@ Los hallazgos empíricos confirman la problemática central abordada: la reducci
 
 * **Segmento 1: Compradores Independientes (Compradores Multitienda y Optimizadores de Desplazamiento):**
   * **Comparación multiestablecimiento ágil y centralizada:** Necesidad de cotejar precios actualizados entre mercados zonales, cadenas de supermercados y minimarkets de proximidad antes de salir del domicilio, evitando desplazamientos ineficientes a ciegas.
-  * **Optimización de trayectos y cálculo de ahorro neto:** Requerimiento de trazar itinerarios que minimicen el tiempo de exposición al tráfico vehicular de Lima y reduzcan el gasto en transporte (pasajes, combustible o taxis de aplicativo), asegurando que el costo de movilidad no supere el descuento obtenido en el ticket de compra.
+  * **Optimización de trayectos y cálculo de ahorro neto:** Necesidad de trazar itinerarios que minimicen el tiempo de exposición al tráfico vehicular de Lima y reduzcan el gasto en transporte (pasajes, combustible o taxis por aplicación), asegurando que el costo de movilidad no supere el descuento obtenido en el ticket de compra.
   * **Cálculo presupuestario anticipado:** Necesidad de computar el costo total consolidado de la lista de compras antes del pago en caja para respetar los techos presupuestarios familiares o mensuales.
   * **Acceso web liviano y multiplataforma:** Demanda de una herramienta accesible de forma inmediata desde navegadores móviles (*Mobile-First*) y de escritorio, sin requerir descargas de aplicaciones nativas pesadas ni registros invasivos.
 
 * **Segmento 2: Comerciantes Minoristas y Administradores de Tiendas Locales:**
   * **Visibilidad digital hiperlocal de bajo costo:** Necesidad de posicionar sus productos, ofertas del día y liquidaciones de inventario directamente en el radar de los consumidores que circulan o viven en su misma zona urbana.
   * **Competitividad comercial sin intermediación onerosa:** Demanda de un canal de promoción directo que no merme sus márgenes de ganancia con las comisiones abusivas (15% a 25%) de las aplicaciones de delivery convencionales.
-  * **Consola de gestión ágil y amigable:** Requerimiento de un panel administrativo simplificado que permita actualizar precios y registrar artículos agotados en pocos segundos desde un teléfono móvil o laptop, adaptado a comercios que gestionan su negocio mediante libretas o cuadernos manuales.
+  * **Consola de gestión ágil y amigable:** Necesidad de contar con un panel administrativo simplificado que permita actualizar precios y registrar artículos agotados en pocos segundos desde un teléfono móvil o laptop, adaptado a comercios que gestionan su negocio mediante libretas o cuadernos manuales.
   * **Tracción y atracción al local físico:** Necesidad de que el establecimiento se integre en los mapas de compras y rutas de optimización de los vecinos, incrementando el tráfico peatonal presencial hacia el punto de venta.
 
 ---
@@ -904,7 +953,7 @@ El mapa de empatía de Alberto documenta las presiones comerciales y operativas 
 
 ## 2.4. Big Picture Event Storming
 
-Para modelar la complejidad del dominio de negocio y comprender integralmente los flujos operativos de la plataforma **Preciazo**, el equipo de la startup **PeruTech** llevó a cabo un taller colaborativo de *Big Picture Event Storming* siguiendo la guía metodológica de Domain-Driven Design (DDD). Esta dinámica visual de alto nivel facilitó un entendimiento compartido entre los desarrolladores de software y los requerimientos del negocio, permitiendo explorar exhaustivamente el *landscape* comercial, mapear los procesos fundamentales de aprovisionamiento y comercialización, y evidenciar de forma temprana los puntos críticos, riesgos y oportunidades de innovación tecnológica para ambos segmentos objetivo.
+Para modelar la complejidad del dominio de negocio y comprender integralmente los flujos operativos de la plataforma **Preciazo**, el equipo de la startup **PeruTech** llevó a cabo un taller colaborativo de *Big Picture Event Storming* siguiendo la guía metodológica de Domain-Driven Design (DDD). Esta dinámica visual de alto nivel facilitó un entendimiento compartido entre los desarrolladores de software y los requisitos del negocio, permitiendo explorar exhaustivamente el *landscape* comercial, mapear los procesos fundamentales de aprovisionamiento y comercialización, y evidenciar de forma temprana los puntos críticos, riesgos y oportunidades de innovación tecnológica para ambos segmentos objetivo.
 
 A continuación, se detalla el desarrollo secuencial del taller a través de sus fases progresivas:
 
@@ -978,54 +1027,58 @@ En esta sección se especifican los requisitos funcionales y técnicos de la pla
 
 Asimismo, los criterios de aceptación se definen bajo la sintaxis formal de Gherkin (*Given-When-Then*), redactados en tiempo presente, tercera persona y prescindiendo de detalles de interfaz gráfica (como botones, pantallas o clics), asegurando su comprobabilidad tanto en la experiencia web interactiva como en los contratos de servicio del RESTful API.
 
-A continuación, se definen los Epics identificados que agrupan funcionalmente los requisitos del sistema:
-* **EP01: Plataforma Informativa y Landing Page:** Difusión pública del servicio, propuesta de valor y captación de visitantes.
-* **EP02: Gestión de Identidad y Perfiles:** Registro, autenticación y configuración de preferencias para compradores y comercios.
-* **EP03: Planificación y Control Presupuestario:** Elaboración de listas de compras y control financiero preventivo en tiempo real.
-* **EP04: Comparación de Mercado y Ruteo Inteligente:** Comparativa multiestablecimiento, optimización de traslados y bienes sustitutos.
-* **EP05: Gestión de Ofertas y Catálogo Minorista:** Administración simplificada de precios, promociones y existencias para comercios barriales.
-* **EP06: Inteligencia Colectiva y Moderación Comunitaria:** Verificación colaborativa de precios en góndola y reporte de discrepancias.
-* **EP07: Núcleo de Servicios Backend y RESTful API:** Servicios de backend, endpoints de integración y reglas de persistencia.
+Siguiendo los principios de diseño estratégico de Domain-Driven Design (DDD), los Epics y las historias de usuario se estructuran y ordenan priorizando primero los **Bounded Contexts Core (Núcleo del negocio)**, seguidos por los **Bounded Contexts de Soporte (Supporting)** y finalmente los **Bounded Contexts Genéricos (Generic)** y componentes transversales:
 
-| Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
-| :--- | :--- | :--- | :--- | :--- |
-| **US01** | Landing: Propuesta de valor | Como visitante, deseo visualizar la propuesta central del servicio para comprender cómo optimizar mis compras y tiempos de traslado. | **Escenario 1: Carga inicial de la propuesta.**<br>Dado que el visitante accede al sitio web estático, cuando se completa la carga inicial, entonces visualiza el mensaje central enfocado en la comparación multiestablecimiento y el cálculo de rutas de compra.<br><br>**Escenario 2: Comprensión del valor diferencial.**<br>Dado que el visitante se desplaza hacia la sección de beneficios, cuando revisa la información comparativa, entonces comprende el impacto de la dispersión de precios entre comercios minoristas y tiendas de conveniencia.<br><br>**Escenario 3: Adaptabilidad de visualización.**<br>Dado que el visitante accede desde un navegador web móvil, cuando visualiza el contenido, entonces la disposición de los bloques y textos se adapta fluidamente sin desbordamientos ni solapamientos. | EP01 |
-| **US02** | Landing: Segmentos objetivo | Como visitante, deseo conocer a qué perfiles está orientada la solución para identificar si resuelve mis necesidades de abastecimiento o comercio. | **Escenario 1: Visualización diferenciada por segmento.**<br>Dado que el visitante navega en la sección de perfiles, cuando interactúa con los módulos informativos, entonces visualiza las funciones orientadas al Comprador Independiente y al Comerciante Minorista.<br><br>**Escenario 2: Redirección hacia registro.**<br>Dado que el visitante selecciona el llamado a la acción correspondiente a su perfil, cuando ejecuta la acción, entonces es derivado al flujo de registro respectivo en la aplicación web. | EP01 |
-| **US03** | Landing: Red de comercios aliados | Como visitante, deseo visualizar qué establecimientos y zonas cuentan con cobertura para verificar la disponibilidad del servicio. | **Escenario 1: Consulta de locales asociados.**<br>Dado que el visitante consulta la sección de comercios, cuando visualiza la red registrada, entonces se listan los tipos de establecimientos minoristas participantes agrupados por sectores urbanos.<br><br>**Escenario 2: Explicación de cobertura.**<br>Dado que el visitante revisa el alcance geográfico, cuando consulta las zonas activas, entonces visualiza los distritos con presencia y densidad de datos comerciales comprobados. | EP01 |
-| **US04** | Landing: Registro de interés | Como visitante, deseo suscribir mi correo electrónico para recibir notificaciones sobre el lanzamiento y novedades de la plataforma. | **Escenario 1: Registro exitoso de correo.**<br>Dado que el visitante introduce una dirección de correo con sintaxis válida, cuando confirma el envío, entonces el sistema almacena el registro y emite un mensaje de suscripción exitosa.<br><br>**Escenario 2: Validación de sintaxis errónea.**<br>Dado que el visitante ingresa un formato de correo inválido, cuando intenta enviar los datos, entonces el sistema impide el envío y solicita la corrección del texto ingresado.<br><br>**Escenario 3: Correo previamente registrado.**<br>Dado que el correo ingresado ya existe en la lista de difusión, cuando se procesa la solicitud, entonces el sistema informa que la dirección ya cuenta con una suscripción activa. | EP01 |
-| **US05** | Landing: Preguntas frecuentes y soporte | Como visitante, deseo consultar una sección de preguntas frecuentes para aclarar el modelo de servicio y los canales de contacto. | **Escenario 1: Visualización de preguntas frecuentes.**<br>Dado que el visitante accede a la sección informativa, cuando consulta los tópicos de ayuda, entonces el sistema despliega las respuestas sobre el funcionamiento del comparador y las condiciones para comercios afiliados.<br><br>**Escenario 2: Envío de consulta de soporte.**<br>Dado que el visitante completa el formulario de contacto con datos válidos, cuando confirma el envío, entonces el sistema registra el mensaje y emite una confirmación de recepción. | EP01 |
-| **US06** | Autenticación y acceso | Como comprador independiente, deseo iniciar sesión con mis credenciales registradas para gestionar mis listas y presupuesto. | **Escenario 1: Inicio de sesión válido.**<br>Dado que el usuario introduce credenciales registradas y correctas, cuando solicita el ingreso, entonces el sistema valida la identidad y da acceso al entorno principal.<br><br>**Escenario 2: Credenciales no coincidentes.**<br>Dado que el usuario ingresa una combinación incorrecta de credenciales, cuando intenta iniciar sesión, entonces el sistema deniega el acceso y muestra una notificación de autenticación fallida.<br><br>**Escenario 3: Bloqueo por seguridad.**<br>Dado que se registran múltiples intentos fallidos consecutivos, cuando se alcanza el umbral de seguridad, entonces el sistema bloquea temporalmente el acceso y solicita comprobación de seguridad. | EP02 |
-| **US07** | Gestión de comercios favoritos | Como comprador independiente, deseo guardar mis establecimientos de confianza para priorizar sus ofertas en mis consultas diarias. | **Escenario 1: Asignación de comercio preferente.**<br>Dado que el usuario marca un local como habitual, cuando realiza búsquedas de canasta, entonces el sistema prioriza los precios de dicho establecimiento en la vista de resultados.<br><br>**Escenario 2: Retiro de preferencia.**<br>Dado que el usuario desmarca el local de su lista de favoritos, cuando actualiza sus parámetros, entonces el sistema restablece el ordenamiento geográfico estándar. | EP02 |
-| **US08** | Creación de lista de compras | Como comprador independiente, deseo crear una lista de productos requeridos para estructurar mi jornada de abastecimiento. | **Escenario 1: Inicialización de lista.**<br>Dado que el usuario inicia la confección de una lista, cuando define un nombre identificador, entonces el sistema genera el contenedor de compras asociado a su perfil.<br><br>**Escenario 2: Asignación por defecto.**<br>Dado que el usuario omite asignar un nombre específico, cuando confirma la creación, entonces el sistema asigna una denominación automática basada en la fecha y hora actual. | EP03 |
-| **US09** | Agregado de ítems a la lista | Como comprador independiente, deseo buscar y agregar artículos específicos a mi lista para consolidar mi canasta básica. | **Escenario 1: Inclusión de artículo.**<br>Dado que el usuario localiza un producto en el catálogo general, cuando define la cantidad requerida, entonces el artículo se vincula a su lista activa.<br><br>**Escenario 2: Incremento de cantidad existente.**<br>Dado que un artículo ya forma parte de la lista, cuando el usuario lo selecciona nuevamente, entonces el sistema suma la cantidad ingresada sin generar registros duplicados. | EP03 |
-| **US10** | Fijación de presupuesto límite | Como comprador independiente, deseo configurar un tope de gasto para mi lista de compras para controlar mi economía personal. | **Escenario 1: Configuración de umbral.**<br>Dado que el usuario introduce un monto monetario mayor a cero, cuando guarda el parámetro, entonces el sistema fija dicho valor como umbral máximo para la lista.<br><br>**Escenario 2: Entrada no válida.**<br>Dado que el usuario introduce un monto menor o igual a cero, cuando intenta guardar el parámetro, entonces el sistema descarta el valor y solicita un importe válido. | EP03 |
-| **US11** | Alerta de rebase presupuestario | Como comprador independiente, deseo recibir una advertencia cuando la sumatoria de mi lista supere el presupuesto establecido para ajustar mi selección. | **Escenario 1: Detección de exceso presupuestario.**<br>Dado que la suma del costo proyectado de los artículos supera el límite fijado, cuando se agrega un nuevo producto, entonces el sistema emite una alerta visual de exceso presupuestario.<br><br>**Escenario 2: Restablecimiento del límite.**<br>Dado que el usuario retira productos o reduce cantidades, cuando el monto total vuelve a estar dentro del presupuesto permitido, entonces la alerta se desactiva de forma automática. | EP03 |
-| **US12** | Modo de jornada de compra en local | Como comprador independiente, deseo marcar los artículos conforme los coloco en mi canasta para verificar el gasto acumulado en tiempo real. | **Escenario 1: Marcado de artículo adquirido.**<br>Dado que el usuario se encuentra en el local comercial, cuando marca un producto como recogido, entonces el sistema lo señala como adquirido y suma su importe al total proyectado en caja.<br><br>**Escenario 2: Desmarcado de producto.**<br>Dado que el usuario decide descartar un producto previamente marcado, cuando revierte la selección, entonces el sistema descuenta el importe del total acumulado. | EP03 |
-| **US13** | Comparativa multiestablecimiento | Como comprador independiente, deseo comparar el costo total de mi lista entre locales comerciales cercanos para identificar el menor costo de compra. | **Escenario 1: Generación de tabla comparativa.**<br>Dado que la lista de compras cuenta con artículos definidos, cuando el usuario solicita la comparativa, entonces el sistema presenta los comercios ordenados por el costo total de la canasta.<br><br>**Escenario 2: Disponibilidad parcial de productos.**<br>Dado que un comercio no dispone de la totalidad de los artículos de la lista, cuando se procesa la comparativa, entonces el sistema advierte qué productos se encuentran ausentes en dicho punto. | EP04 |
-| **US14** | Cálculo de ruta de compra eficiente | Como comprador independiente, deseo obtener un itinerario secuencial de paradas óptimas para reducir mi tiempo de traslado y costo de transporte. | **Escenario 1: Generación de itinerario de paradas.**<br>Dado que el usuario selecciona los locales comerciales de compra, cuando solicita la optimización de traslado, entonces el sistema genera una secuencia de recorrido que minimiza la distancia total a recorrer.<br><br>**Escenario 2: Estimación de tiempos de viaje.**<br>Dado que se calcula la ruta entre los establecimientos, cuando se despliega el resumen del itinerario, entonces se indica el tiempo estimado global considerando la modalidad de traslado seleccionada. | EP04 |
-| **US15** | Sugerencia de bienes sustitutos | Como comprador independiente, deseo recibir recomendaciones de productos alternativos más económicos para disminuir el monto total a pagar. | **Escenario 1: Detección de sustituto accesible.**<br>Dado que un producto seleccionado posee un sustituto de características análogas a menor costo, cuando se evalúa la lista, entonces el sistema sugiere el cambio de artículo indicando el ahorro potencial.<br><br>**Escenario 2: Aplicación del cambio.**<br>Dado que el usuario acepta la alternativa sugerida, cuando confirma el reemplazo, entonces el sistema actualiza la lista y recalcula de forma inmediata el total estimado. | EP04 |
-| **US16** | Comparación por unidad de medida | Como comprador independiente, deseo comparar el costo por unidad de medida (kilogramo o litro) para evaluar presentaciones con distinto gramaje. | **Escenario 1: Cálculo de precio normalizado.**<br>Dado que los artículos cuentan con peso o volumen registrado, cuando el usuario visualiza la comparativa, entonces el sistema calcula y exhibe el costo por unidad estándar de medida.<br><br>**Escenario 2: Omisión por datos insuficientes.**<br>Dado que un artículo carece del registro de gramaje en su ficha técnica, cuando se procesa la comparativa, entonces el sistema omite el cálculo unitario mostrando únicamente el precio final en góndola. | EP04 |
-| **US17** | Búsqueda por filtros de proximidad | Como comprador independiente, deseo filtrar comercios dentro de un radio caminable específico para evitar traslados excesivamente largos. | **Escenario 1: Aplicación de radio de búsqueda.**<br>Dado que el usuario define una distancia máxima de desplazamiento (ej. 800 metros), cuando ejecuta la búsqueda, entonces el sistema restringe los resultados a los comercios situados dentro del perímetro señalado.<br><br>**Escenario 2: Ausencia de locales en el perímetro.**<br>Dado que no existen establecimientos dentro del radio fijado, cuando concluye la consulta, entonces el sistema sugiere ampliar el rango de búsqueda al siguiente intervalo disponible. | EP04 |
-| **US18** | Registro de compras recurrentes | Como comprador independiente, deseo guardar una canasta base como plantilla para reutilizarla en compras quincenales sin reingresar productos. | **Escenario 1: Guardado de plantilla.**<br>Dado que el usuario concluye una lista de compras, cuando la guarda como plantilla recurrente, entonces el sistema genera una copia maestra en su perfil.<br><br>**Escenario 2: Instanciación de nueva lista.**<br>Dado que el usuario inicia un nuevo ciclo de compra, cuando selecciona su plantilla guardada, entonces el sistema genera una lista activa con los precios actualizados a la fecha. | EP03 |
-| **US19** | Historial de precios de producto | Como comprador independiente, deseo consultar la evolución histórica del valor de un bien para evaluar la conveniencia de una oferta. | **Escenario 1: Consulta de variación temporal.**<br>Dado que el usuario selecciona un artículo específico, cuando consulta su registro de variaciones, entonces el sistema exhibe el comportamiento de su precio durante los últimos 30 días.<br><br>**Escenario 2: Ausencia de histórico.**<br>Dado que un artículo es de reciente incorporación, cuando se solicita su histórico, entonces el sistema informa que solo se cuenta con el precio de registro inicial. | EP04 |
-| **US20** | Recálculo dinámico de ruta | Como comprador independiente, deseo reordenar mi trayecto de compra si un local se encuentra cerrado o inaccesible. | **Escenario 1: Omisión de parada.**<br>Dado que el usuario omite un establecimiento de su itinerario activo, cuando confirma la modificación, entonces el algoritmo recalcula la secuencia restante minimizando la distancia.<br><br>**Escenario 2: Reasignación de comercio.**<br>Dado que el usuario solicita un reemplazo para el local omitido, cuando el sistema evalúa la zona, entonces asigna la tienda cercana con el siguiente mejor precio de canasta. | EP04 |
-| **US21** | Registro y afiliación de tienda | Como comerciante minorista, deseo registrar los datos de mi establecimiento para integrar mi negocio al mapa comercial de la plataforma. | **Escenario 1: Ingreso de datos registrales.**<br>Dado que el comerciante remite su RUC, razón social, dirección y coordenadas geográficas, cuando envía la solicitud, entonces el sistema genera el registro en estado pendiente de validación fiscal.<br><br>**Escenario 2: Control de duplicidad comercial.**<br>Dado que el identificador fiscal ingresado ya se encuentra registrado, cuando se procesa la solicitud, entonces el sistema notifica la existencia previa de la tienda impidiendo registros repetidos. | EP02 |
-| **US22** | Configuración de horarios comerciales | Como comerciante minorista, deseo indicar los horarios de atención de mi local para que los compradores conozcan cuándo pueden acudir. | **Escenario 1: Registro de turno regular.**<br>Dado que el comerciante especifica sus horas de apertura y cierre por día de la semana, cuando guarda los parámetros, entonces el sistema despliega el estado de atención en el mapa de ruta.<br><br>**Escenario 2: Actualización de estado en tiempo real.**<br>Dado que la hora del sistema se encuentra fuera del rango configurado, cuando un comprador consulta el comercio, entonces el sistema indica que el local se encuentra cerrado. | EP02 |
-| **US23** | Publicación de precios en catálogo | Como comerciante minorista, deseo registrar y actualizar los precios de venta de mis productos para mantener informados a los compradores de la zona. | **Escenario 1: Actualización de precio unitario.**<br>Dado que el comerciante selecciona un producto de su inventario, cuando ingresa un nuevo valor de venta y confirma la acción, entonces el sistema actualiza el dato en el catálogo público.<br><br>**Escenario 2: Validación de valor positivo.**<br>Dado que el comerciante ingresa un monto menor o igual a cero, cuando intenta guardar el cambio, entonces el sistema rechaza el valor solicitando un precio de venta positivo. | EP05 |
-| **US24** | Publicación de ofertas de tienda | Como comerciante minorista, deseo publicar promociones por tiempo limitado para acelerar la rotación de artículos y atraer mayor afluencia. | **Escenario 1: Creación de promoción.**<br>Dado que el comerciante define un producto, precio rebajado y rango de vigencia temporal, cuando activa la oferta, entonces el sistema la expone como oferta especial en el sector geográfico.<br><br>**Escenario 2: Caducidad automática de oferta.**<br>Dado que se alcanza la fecha u hora límite de la promoción, cuando expira el periodo, entonces el sistema retira la condición de oferta restableciendo el precio habitual. | EP05 |
-| **US25** | Reporte de agotamiento de stock | Como comerciante minorista, deseo marcar artículos sin disponibilidad física en mi local para evitar desplazamientos infructuosos de los clientes. | **Escenario 1: Cambio a estado sin stock.**<br>Dado que un producto agota sus existencias en tienda, cuando el comerciante actualiza su disponibilidad en el panel, entonces el sistema lo excluye de los cálculos inmediatos de canasta para ese local.<br><br>**Escenario 2: Restablecimiento de existencias.**<br>Dado que el local repone existencias, cuando el comerciante marca nuevamente el artículo como disponible, entonces se reactiva su visibilidad en el comparador zonal. | EP05 |
-| **US26** | Carga estructurada de catálogo | Como comerciante minorista, deseo importar una lista estructurada de artículos y precios para actualizar mi inventario de forma ágil. | **Escenario 1: Procesamiento de archivo de inventario.**<br>Dado que el comerciante remite un archivo de datos con el formato y columnas requeridas, cuando el sistema procesa el contenido, entonces actualiza los registros de precios y existencias en el catálogo del local.<br><br>**Escenario 2: Detección de inconsistencias de formato.**<br>Dado que el archivo remitido presenta celdas vacías o valores numéricos erróneos, cuando el validador analiza el documento, entonces cancela la importación e indica las líneas con errores para su corrección. | EP05 |
-| **US27** | Panel de rendimiento comercial | Como comerciante minorista, deseo consultar métricas de visualización de mis promociones para evaluar el impacto de mis precios publicados. | **Escenario 1: Conteo de apariciones en rutas.**<br>Dado que los compradores generan itinerarios en la zona, cuando el comerciante ingresa a su panel de control, entonces visualiza la cantidad de veces que su establecimiento fue sugerido como parada óptima durante el mes.<br><br>**Escenario 2: Métricas de ofertas consultadas.**<br>Dado que el comerciante mantiene promociones vigentes, cuando consulta las estadísticas, entonces visualiza el número de usuarios que interactuaron con sus productos destacados. | EP05 |
-| **US28** | Reporte colaborativo de discrepancia | Como comprador independiente, deseo reportar cuando un precio en góndola difiere del valor registrado en el sistema para colaborar con la comunidad. | **Escenario 1: Envío de reporte de precio.**<br>Dado que el usuario detecta un precio distinto en góndola, cuando remite el nuevo valor observado, entonces el sistema genera un evento de verificación comunitaria.<br><br>**Escenario 2: Control de valores anómalos.**<br>Dado que el usuario remite un valor extremadamente desproporcionado respecto a la media histórica, cuando se procesa el reporte, entonces el sistema lo retiene para moderación. | EP06 |
-| **US29** | Confirmación comunitaria de datos | Como comprador independiente, deseo validar los reportes de precios efectuados por otros usuarios para consolidar la confiabilidad de la información. | **Escenario 1: Aprobación de reporte.**<br>Dado que un comprador se encuentra en el establecimiento y verifica el precio reportado, cuando emite su confirmación favorable, entonces el sistema incrementa el índice de confianza del dato.<br><br>**Escenario 2: Rechazo de información errónea.**<br>Dado que un comprador constata que el precio reportado no es verídico, cuando emite una calificación desfavorable, entonces el sistema disminuye la confiabilidad del reporte. | EP06 |
-| **TS01** | API de autenticación y tokens | Como Developer, deseo implementar el endpoint de autenticación con JWT para asegurar el acceso a los servicios de la plataforma. | **Escenario 1: Emisión exitosa de JWT.**<br>Dado un requerimiento POST a `/api/v1/auth/login` con credenciales válidas en formato JSON, cuando el servicio valida la identidad del usuario, entonces responde con un código HTTP 200 OK y el token de acceso correspondiente.<br><br>**Escenario 2: Denegación de acceso.**<br>Dado un requerimiento POST a `/api/v1/auth/login` con contraseña no coincidente, cuando el servicio procesa la solicitud, entonces responde con un código HTTP 401 Unauthorized y el mensaje de error respectivo. | EP07 |
-| **TS02** | API de cálculo comparativo de canasta | Como Developer, deseo proveer un endpoint para computar el costo total de una lista de productos en los comercios registrados en un radio geográfico. | **Escenario 1: Procesamiento comparativo exitoso.**<br>Dado un requerimiento POST a `/api/v1/baskets/compare` con la lista de identificadores de productos y coordenadas geográficas, cuando el motor calcula las sumatorias, entonces responde con un código HTTP 200 OK y la lista de comercios con sus montos totales calculados.<br><br>**Escenario 2: Solicitud con lista vacía.**<br>Dado un requerimiento POST con un cuerpo sin artículos, cuando el controlador evalúa la petición, entonces responde con un código HTTP 400 Bad Request indicando la ausencia de datos. | EP07 |
-| **TS03** | API de optimización de rutas | Como Developer, deseo proveer un endpoint que ordene una secuencia de establecimientos según eficiencia de traslado. | **Escenario 1: Cálculo de itinerario óptimo.**<br>Dado un requerimiento POST a `/api/v1/routes/optimize` conteniendo coordenadas de origen y paradas seleccionadas, cuando se procesa el ordenamiento, entonces responde con un código HTTP 200 OK entregando las paradas ordenadas y la distancia acumulada.<br><br>**Escenario 2: Punto inalcanzable.**<br>Dado un requerimiento cuyas coordenadas no cuentan con conexión vial viable, cuando falla el algoritmo de ruteo, entonces responde con un código HTTP 422 Unprocessable Entity y la descripción del fallo. | EP07 |
-| **TS04** | API de validación fiscal de establecimientos | Como Developer, deseo integrar un servicio de verificación de RUC contra entidades oficiales para constatar la vigencia legal de los comercios afiliados. | **Escenario 1: Verificación de comercio activo.**<br>Dado un requerimiento GET a `/api/v1/merchants/validate-ruc/{ruc}` con un identificador válido de 11 dígitos, cuando el servicio consulta la fuente registral, entonces responde con un código HTTP 200 OK y el estado formal del contribuyente.<br><br>**Escenario 2: Tiempo de respuesta excedido.**<br>Dado que el servicio externo de consulta fiscal demora más de 5000 milisegundos, cuando expira el tiempo límite, entonces el servicio responde con un código HTTP 504 Gateway Timeout controlado sin suspender la ejecución del sistema. | EP07 |
-| **TS05** | API de sincronización de catálogo | Como Developer, deseo proveer un endpoint para la actualización en bloque de inventario de tiendas mediante solicitudes en formato JSON. | **Escenario 1: Recepción de lote de productos.**<br>Dado un requerimiento PUT a `/api/v1/merchants/{id}/inventory` con un arreglo de artículos y precios, cuando el servicio valida la estructura, entonces actualiza la base de datos y responde con un código HTTP 200 OK.<br><br>**Escenario 2: Solicitud con identificador no autorizado.**<br>Dado un requerimiento con credenciales que no corresponden al establecimiento consultado, cuando se procesa la llamada, entonces el servicio responde con un código HTTP 403 Forbidden. | EP07 |
-| **TS06** | API de consulta de catálogo zonal | Como Developer, deseo proveer un endpoint con paginación para consultar artículos disponibles por categoría y distrito. | **Escenario 1: Consulta paginada exitosa.**<br>Dado un requerimiento GET a `/api/v1/products?category={cat}&district={dist}&page=0&size=20`, cuando el servicio ejecuta la consulta, entonces responde con un código HTTP 200 OK y el listado ordenado de productos.<br><br>**Escenario 2: Parámetros de paginación inválidos.**<br>Dado un requerimiento con un valor de página negativo, cuando el controlador evalúa la petición, entonces responde con un código HTTP 400 Bad Request. | EP07 |
-| **TS07** | API de registro de eventos de reporte | Como Developer, deseo implementar un endpoint para almacenar las confirmaciones y discrepancias emitidas por los usuarios sobre los precios. | **Escenario 1: Registro de reporte comunitario.**<br>Dado un requerimiento POST a `/api/v1/reports/prices` con el ID del producto, ID de tienda y nuevo precio, cuando el servicio procesa la solicitud, entonces persiste el reporte y responde con un código HTTP 201 Created.<br><br>**Escenario 2: Reporte duplicado en ventana temporal.**<br>Dado un usuario que intenta emitir múltiples reportes sobre el mismo artículo en menos de 60 segundos, cuando el filtro de seguridad lo detecta, entonces responde con un código HTTP 429 Too Many Requests. | EP07 |
-| **TS08** | API de gestión de promociones de tienda | Como Developer, deseo implementar endpoints CRUD para la administración del ciclo de vida de ofertas emitidas por comerciantes. | **Escenario 1: Creación de promoción.**<br>Dado un requerimiento POST a `/api/v1/promotions` con artículo, precio y vigencia, cuando el servicio confirma la titularidad del local, entonces crea la oferta y responde con un código HTTP 201 Created.<br><br>**Escenario 2: Vigencia incoherente.**<br>Dado un requerimiento cuya fecha de fin es anterior a la fecha de inicio, cuando el modelo valida los datos, entonces responde con un código HTTP 422 Unprocessable Entity. | EP07 |
+* **Bounded Contexts Core (Núcleo del Negocio):**
+  * **EP04: Comparación de Mercado y Ruteo Inteligente (`Catalog and Pricing` & `Route Planning`):** Comparativa multiestablecimiento, cálculo por unidad de medida, bienes sustitutos y optimización de rutas multiparada.
+  * **EP03: Planificación y Control Presupuestario (`Shopping Planning`):** Elaboración de listas de compras, plantillas recurrentes y control financiero preventivo en tiempo real.
+* **Bounded Contexts de Soporte (Supporting Subdomains):**
+  * **EP05: Gestión de Ofertas y Catálogo Minorista (`Merchant Management` & `Analytics and Engagement`):** Afiliación e inventario simplificado de precios, promociones, existencias y métricas de rendimiento para comercios barriales.
+  * **EP06: Inteligencia Colectiva y Moderación Comunitaria (`Community Price Verification`):** Verificación colaborativa de precios en góndola y reporte de discrepancias.
+* **Bounded Contexts Genéricos y Plataforma Informativa (Generic Subdomains & Cross-Cutting):**
+  * **EP02: Gestión de Identidad y Perfiles (`Identity and Access`):** Registro, autenticación con JWT y configuración de accesos para compradores y comercios.
+  * **EP01: Plataforma Informativa y Landing Page:** Difusión pública del servicio, propuesta de valor y captación de visitantes.
+  * **EP07: Núcleo de Servicios Backend y RESTful API:** Contratos de servicio de backend, endpoints de integración y reglas de persistencia ordenados de Core a Genérico.
+
+| Epic / Story ID | Bounded Context (Tipo) | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **US13** | **Catalog and Pricing** *(Core)* | Comparativa multiestablecimiento | Como comprador independiente, deseo comparar el costo total de mi lista entre locales comerciales cercanos para identificar el menor costo de compra. | **Escenario 1: Generación de tabla comparativa.**<br>Dado que la lista de compras cuenta con artículos definidos, cuando el usuario solicita la comparativa, entonces el sistema presenta los comercios ordenados por el costo total de la canasta.<br><br>**Escenario 2: Disponibilidad parcial de productos.**<br>Dado que un comercio no dispone de la totalidad de los artículos de la lista, cuando se procesa la comparativa, entonces el sistema advierte qué productos se encuentran ausentes en dicho punto. | EP04 |
+| **US15** | **Catalog and Pricing** *(Core)* | Sugerencia de bienes sustitutos | Como comprador independiente, deseo recibir recomendaciones de productos alternativos más económicos para disminuir el monto total a pagar. | **Escenario 1: Detección de sustituto accesible.**<br>Dado que un producto seleccionado posee un sustituto de características análogas a menor costo, cuando se evalúa la lista, entonces el sistema sugiere el cambio de artículo indicando el ahorro potencial.<br><br>**Escenario 2: Aplicación del cambio.**<br>Dado que el usuario acepta la alternativa sugerida, cuando confirma el reemplazo, entonces el sistema actualiza la lista y recalcula de forma inmediata el total estimado. | EP04 |
+| **US16** | **Catalog and Pricing** *(Core)* | Comparación por unidad de medida | Como comprador independiente, deseo comparar el costo por unidad de medida (kilogramo o litro) para evaluar presentaciones con distinto gramaje. | **Escenario 1: Cálculo de precio normalizado.**<br>Dado que los artículos cuentan con peso o volumen registrado, cuando el usuario visualiza la comparativa, entonces el sistema calcula y exhibe el costo por unidad estándar de medida.<br><br>**Escenario 2: Omisión por datos insuficientes.**<br>Dado que un artículo carece del registro de gramaje en su ficha técnica, cuando se procesa la comparativa, entonces el sistema omite el cálculo unitario mostrando únicamente el precio final en góndola. | EP04 |
+| **US17** | **Catalog and Pricing** *(Core)* | Búsqueda por filtros de proximidad | Como comprador independiente, deseo filtrar comercios dentro de un radio caminable específico para evitar traslados excesivamente largos. | **Escenario 1: Aplicación de radio de búsqueda.**<br>Dado que el usuario define una distancia máxima de desplazamiento (ej. 800 metros), cuando ejecuta la búsqueda, entonces el sistema restringe los resultados a los comercios situados dentro del perímetro señalado.<br><br>**Escenario 2: Ausencia de locales en el perímetro.**<br>Dado que no existen establecimientos dentro del radio fijado, cuando concluye la consulta, entonces el sistema sugiere ampliar el rango de búsqueda al siguiente intervalo disponible. | EP04 |
+| **US19** | **Catalog and Pricing** *(Core)* | Historial de precios de producto | Como comprador independiente, deseo consultar la evolución histórica del valor de un bien para evaluar la conveniencia de una oferta. | **Escenario 1: Consulta de variación temporal.**<br>Dado que el usuario selecciona un artículo específico, cuando consulta su registro de variaciones, entonces el sistema exhibe el comportamiento de su precio durante los últimos 30 días.<br><br>**Escenario 2: Ausencia de histórico.**<br>Dado que un artículo es de reciente incorporación, cuando se solicita su histórico, entonces el sistema informa que solo se cuenta con el precio de registro inicial. | EP04 |
+| **US14** | **Route Planning** *(Core)* | Cálculo de ruta de compra eficiente | Como comprador independiente, deseo obtener un itinerario secuencial de paradas óptimas para reducir mi tiempo de traslado y costo de transporte. | **Escenario 1: Generación de itinerario de paradas.**<br>Dado que el usuario selecciona los locales comerciales de compra, cuando solicita la optimización de traslado, entonces el sistema genera una secuencia de recorrido que minimiza la distancia total a recorrer.<br><br>**Escenario 2: Estimación de tiempos de viaje.**<br>Dado que se calcula la ruta entre los establecimientos, cuando se despliega el resumen del itinerario, entonces se indica el tiempo estimado global considerando la modalidad de traslado seleccionada. | EP04 |
+| **US20** | **Route Planning** *(Core)* | Recálculo dinámico de ruta | Como comprador independiente, deseo reordenar mi trayecto de compra si un local se encuentra cerrado o inaccesible. | **Escenario 1: Omisión de parada.**<br>Dado que el usuario omite un establecimiento de su itinerario activo, cuando confirma la modificación, entonces el algoritmo recalcula la secuencia restante minimizando la distancia.<br><br>**Escenario 2: Reasignación de comercio.**<br>Dado que el usuario solicita un reemplazo para el local omitido, cuando el sistema evalúa la zona, entonces asigna la tienda cercana con el siguiente mejor precio de canasta. | EP04 |
+| **US08** | **Shopping Planning** *(Core)* | Creación de lista de compras | Como comprador independiente, deseo crear una lista de productos requeridos para estructurar mi jornada de abastecimiento. | **Escenario 1: Inicialización de lista.**<br>Dado que el usuario inicia la confección de una lista, cuando define un nombre identificador, entonces el sistema genera el contenedor de compras asociado a su perfil.<br><br>**Escenario 2: Asignación por defecto.**<br>Dado que el usuario omite asignar un nombre específico, cuando confirma la creación, entonces el sistema asigna una denominación automática basada en la fecha y hora actual. | EP03 |
+| **US09** | **Shopping Planning** *(Core)* | Agregado de ítems a la lista | Como comprador independiente, deseo buscar y agregar artículos específicos a mi lista para consolidar mi canasta básica. | **Escenario 1: Inclusión de artículo.**<br>Dado que el usuario localiza un producto en el catálogo general, cuando define la cantidad requerida, entonces el artículo se vincula a su lista activa.<br><br>**Escenario 2: Incremento de cantidad existente.**<br>Dado que un artículo ya forma parte de la lista, cuando el usuario lo selecciona nuevamente, entonces el sistema suma la cantidad ingresada sin generar registros duplicados. | EP03 |
+| **US10** | **Shopping Planning** *(Core)* | Fijación de presupuesto límite | Como comprador independiente, deseo configurar un tope de gasto para mi lista de compras para controlar mi economía personal. | **Escenario 1: Configuración de umbral.**<br>Dado que el usuario introduce un monto monetario mayor a cero, cuando guarda el parámetro, entonces el sistema fija dicho valor como umbral máximo para la lista.<br><br>**Escenario 2: Entrada no válida.**<br>Dado que el usuario introduce un monto menor o igual a cero, cuando intenta guardar el parámetro, entonces el sistema descarta el valor y solicita un importe válido. | EP03 |
+| **US11** | **Shopping Planning** *(Core)* | Alerta de rebase presupuestario | Como comprador independiente, deseo recibir una advertencia cuando la sumatoria de mi lista supere el presupuesto establecido para ajustar mi selección. | **Escenario 1: Detección de exceso presupuestario.**<br>Dado que la suma del costo proyectado de los artículos supera el límite fijado, cuando se agrega un nuevo producto, entonces el sistema emite una alerta visual de exceso presupuestario.<br><br>**Escenario 2: Restablecimiento del límite.**<br>Dado que el usuario retira productos o reduce cantidades, cuando el monto total vuelve a estar dentro del presupuesto permitido, entonces la alerta se desactiva de forma automática. | EP03 |
+| **US12** | **Shopping Planning** *(Core)* | Modo de jornada de compra en local | Como comprador independiente, deseo marcar los artículos conforme los coloco en mi canasta para verificar el gasto acumulado en tiempo real. | **Escenario 1: Marcado de artículo adquirido.**<br>Dado que el usuario se encuentra en el local comercial, cuando marca un producto como recogido, entonces el sistema lo señala como adquirido y suma su importe al total proyectado en caja.<br><br>**Escenario 2: Desmarcado de producto.**<br>Dado que el usuario decide descartar un producto previamente marcado, cuando revierte la selección, entonces el sistema descuenta el importe del total acumulado. | EP03 |
+| **US18** | **Shopping Planning** *(Core)* | Registro de compras recurrentes | Como comprador independiente, deseo guardar una canasta base como plantilla para reutilizarla en compras quincenales sin reingresar productos. | **Escenario 1: Guardado de plantilla.**<br>Dado que el usuario concluye una lista de compras, cuando la guarda como plantilla recurrente, entonces el sistema genera una copia maestra en su perfil.<br><br>**Escenario 2: Instanciación de nueva lista.**<br>Dado que el usuario inicia un nuevo ciclo de compra, cuando selecciona su plantilla guardada, entonces el sistema genera una lista activa con los precios actualizados a la fecha. | EP03 |
+| **US07** | **Shopping Planning** *(Core)* | Gestión de comercios favoritos | Como comprador independiente, deseo guardar mis establecimientos de confianza para priorizar sus ofertas en mis consultas diarias. | **Escenario 1: Asignación de comercio preferente.**<br>Dado que el usuario marca un local como habitual, cuando realiza búsquedas de canasta, entonces el sistema prioriza los precios de dicho establecimiento en la vista de resultados.<br><br>**Escenario 2: Retiro de preferencia.**<br>Dado que el usuario desmarca el local de su lista de favoritos, cuando actualiza sus parámetros, entonces el sistema restablece el ordenamiento geográfico estándar. | EP02 |
+| **US21** | **Merchant Management** *(Soporte)* | Registro y afiliación de tienda | Como comerciante minorista, deseo registrar los datos de mi establecimiento para integrar mi negocio al mapa comercial de la plataforma. | **Escenario 1: Ingreso de datos registrales.**<br>Dado que el comerciante remite su RUC, razón social, dirección y coordenadas geográficas, cuando envía la solicitud, entonces el sistema genera el registro en estado pendiente de validación fiscal.<br><br>**Escenario 2: Control de duplicidad comercial.**<br>Dado que el identificador fiscal ingresado ya se encuentra registrado, cuando se procesa la solicitud, entonces el sistema notifica la existencia previa de la tienda impidiendo registros repetidos. | EP02 |
+| **US22** | **Merchant Management** *(Soporte)* | Configuración de horarios comerciales | Como comerciante minorista, deseo indicar los horarios de atención de mi local para que los compradores conozcan cuándo pueden acudir. | **Escenario 1: Registro de turno regular.**<br>Dado que el comerciante especifica sus horas de apertura y cierre por día de la semana, cuando guarda los parámetros, entonces el sistema despliega el estado de atención en el mapa de ruta.<br><br>**Escenario 2: Actualización de estado en tiempo real.**<br>Dado que la hora del sistema se encuentra fuera del rango configurado, cuando un comprador consulta el comercio, entonces el sistema indica que el local se encuentra cerrado. | EP02 |
+| **US23** | **Merchant Management** *(Soporte)* | Publicación de precios en catálogo | Como comerciante minorista, deseo registrar y actualizar los precios de venta de mis productos para mantener informados a los compradores de la zona. | **Escenario 1: Actualización de precio unitario.**<br>Dado que el comerciante selecciona un producto de su inventario, cuando ingresa un nuevo valor de venta y confirma la acción, entonces el sistema actualiza el dato en el catálogo público.<br><br>**Escenario 2: Validación de valor positivo.**<br>Dado que el comerciante ingresa un monto menor o igual a cero, cuando intenta guardar el cambio, entonces el sistema rechaza el valor solicitando un precio de venta positivo. | EP05 |
+| **US24** | **Merchant Management** *(Soporte)* | Publicación de ofertas de tienda | Como comerciante minorista, deseo publicar promociones por tiempo limitado para acelerar la rotación de artículos y atraer mayor afluencia. | **Escenario 1: Creación de promoción.**<br>Dado que el comerciante define un producto, precio rebajado y rango de vigencia temporal, cuando activa la oferta, entonces el sistema la expone como oferta especial en el sector geográfico.<br><br>**Escenario 2: Caducidad automática de oferta.**<br>Dado que se alcanza la fecha u hora límite de la promoción, cuando expira el periodo, entonces el sistema retira la condición de oferta restableciendo el precio habitual. | EP05 |
+| **US25** | **Merchant Management** *(Soporte)* | Reporte de agotamiento de stock | Como comerciante minorista, deseo marcar artículos sin disponibilidad física en mi local para evitar desplazamientos infructuosos de los clientes. | **Escenario 1: Cambio a estado sin stock.**<br>Dado que un producto agota sus existencias en tienda, cuando el comerciante actualiza su disponibilidad en el panel, entonces el sistema lo excluye de los cálculos inmediatos de canasta para ese local.<br><br>**Escenario 2: Restablecimiento de existencias.**<br>Dado que el local repone existencias, cuando el comerciante marca nuevamente el artículo como disponible, entonces se reactiva su visibilidad en el comparador zonal. | EP05 |
+| **US26** | **Merchant Management** *(Soporte)* | Carga estructurada de catálogo | Como comerciante minorista, deseo importar una lista estructurada de artículos y precios para actualizar mi inventario de forma ágil. | **Escenario 1: Procesamiento de archivo de inventario.**<br>Dado que el comerciante remite un archivo de datos con el formato y columnas requeridas, cuando el sistema procesa el contenido, entonces actualiza los registros de precios y existencias en el catálogo del local.<br><br>**Escenario 2: Detección de inconsistencias de formato.**<br>Dado que el archivo remitido presenta celdas vacías o valores numéricos erróneos, cuando el validador analiza el documento, entonces cancela la importación e indica las líneas con errores para su corrección. | EP05 |
+| **US28** | **Community Price Verification** *(Soporte)* | Reporte colaborativo de discrepancia | Como comprador independiente, deseo reportar cuando un precio en góndola difiere del valor registrado en el sistema para colaborar con la comunidad. | **Escenario 1: Envío de reporte de precio.**<br>Dado que el usuario detecta un precio distinto en góndola, cuando remite el nuevo valor observado, entonces el sistema genera un evento de verificación comunitaria.<br><br>**Escenario 2: Control de valores anómalos.**<br>Dado que el usuario remite un valor extremadamente desproporcionado respecto a la media histórica, cuando se procesa el reporte, entonces el sistema lo retiene para moderación. | EP06 |
+| **US29** | **Community Price Verification** *(Soporte)* | Confirmación comunitaria de datos | Como comprador independiente, deseo validar los reportes de precios efectuados por otros usuarios para consolidar la confiabilidad de la información. | **Escenario 1: Aprobación de reporte.**<br>Dado que un comprador se encuentra en el establecimiento y verifica el precio reportado, cuando emite su confirmación favorable, entonces el sistema incrementa el índice de confianza del dato.<br><br>**Escenario 2: Rechazo de información errónea.**<br>Dado que un comprador constata que el precio reportado no es verídico, cuando emite una calificación desfavorable, entonces el sistema disminuye la confiabilidad del reporte. | EP06 |
+| **US27** | **Analytics and Engagement** *(Soporte)* | Panel de rendimiento comercial | Como comerciante minorista, deseo consultar métricas de visualización de mis promociones para evaluar el impacto de mis precios publicados. | **Escenario 1: Conteo de apariciones en rutas.**<br>Dado que los compradores generan itinerarios en la zona, cuando el comerciante ingresa a su panel de control, entonces visualiza la cantidad de veces que su establecimiento fue sugerido como parada óptima durante el mes.<br><br>**Escenario 2: Métricas de ofertas consultadas.**<br>Dado que el comerciante mantiene promociones vigentes, cuando consulta las estadísticas, entonces visualiza el número de usuarios que interactuaron con sus productos destacados. | EP05 |
+| **US06** | **Identity and Access** *(Genérico)* | Autenticación y acceso | Como comprador independiente, deseo iniciar sesión con mis credenciales registradas para gestionar mis listas y presupuesto. | **Escenario 1: Inicio de sesión válido.**<br>Dado que el usuario introduce credenciales registradas y correctas, cuando solicita el ingreso, entonces el sistema valida la identidad y da acceso al entorno principal.<br><br>**Escenario 2: Credenciales no coincidentes.**<br>Dado que el usuario ingresa una combinación incorrecta de credenciales, cuando intenta iniciar sesión, entonces el sistema deniega el acceso y muestra una notificación de autenticación fallida.<br><br>**Escenario 3: Bloqueo por seguridad.**<br>Dado que se registran múltiples intentos fallidos consecutivos, cuando se alcanza el umbral de seguridad, entonces el sistema bloquea temporalmente el acceso y solicita comprobación de seguridad. | EP02 |
+| **US01** | **Landing Page** *(Transversal)* | Landing: Propuesta de valor | Como visitante, deseo visualizar la propuesta central del servicio para comprender cómo optimizar mis compras y tiempos de traslado. | **Escenario 1: Carga inicial de la propuesta.**<br>Dado que el visitante accede al sitio web estático, cuando se completa la carga inicial, entonces visualiza el mensaje central enfocado en la comparación multiestablecimiento y el cálculo de rutas de compra.<br><br>**Escenario 2: Comprensión del valor diferencial.**<br>Dado que el visitante se desplaza hacia la sección de beneficios, cuando revisa la información comparativa, entonces comprende el impacto de la dispersión de precios entre comercios minoristas y tiendas de conveniencia.<br><br>**Escenario 3: Adaptabilidad de visualización.**<br>Dado que el visitante accede desde un navegador web móvil, cuando visualiza el contenido, entonces la disposición de los bloques y textos se adapta fluidamente sin desbordamientos ni solapamientos. | EP01 |
+| **US02** | **Landing Page** *(Transversal)* | Landing: Segmentos objetivo | Como visitante, deseo conocer a qué perfiles está orientada la solución para identificar si resuelve mis necesidades de abastecimiento o comercio. | **Escenario 1: Visualización diferenciada por segmento.**<br>Dado que el visitante navega en la sección de perfiles, cuando interactúa con los módulos informativos, entonces visualiza las funciones orientadas al Comprador Independiente y al Comerciante Minorista.<br><br>**Escenario 2: Redirección hacia registro.**<br>Dado que el visitante selecciona el llamado a la acción correspondiente a su perfil, cuando ejecuta la acción, entonces es derivado al flujo de registro respectivo en la aplicación web. | EP01 |
+| **US03** | **Landing Page** *(Transversal)* | Landing: Red de comercios aliados | Como visitante, deseo visualizar qué establecimientos y zonas cuentan con cobertura para verificar la disponibilidad del servicio. | **Escenario 1: Consulta de locales asociados.**<br>Dado que el visitante consulta la sección de comercios, cuando visualiza la red registrada, entonces se listan los tipos de establecimientos minoristas participantes agrupados por sectores urbanos.<br><br>**Escenario 2: Explicación de cobertura.**<br>Dado que el visitante revisa el alcance geográfico, cuando consulta las zonas activas, entonces visualiza los distritos con presencia y densidad de datos comerciales comprobados. | EP01 |
+| **US04** | **Landing Page** *(Transversal)* | Landing: Registro de interés | Como visitante, deseo suscribir mi correo electrónico para recibir notificaciones sobre el lanzamiento y novedades de la plataforma. | **Escenario 1: Registro exitoso de correo.**<br>Dado que el visitante introduce una dirección de correo con sintaxis válida, cuando confirma el envío, entonces el sistema almacena el registro y emite un mensaje de suscripción exitosa.<br><br>**Escenario 2: Validación de sintaxis errónea.**<br>Dado que el visitante ingresa un formato de correo inválido, cuando intenta enviar los datos, entonces el sistema impide el envío y solicita la corrección del texto ingresado.<br><br>**Escenario 3: Correo previamente registrado.**<br>Dado que el correo ingresado ya existe en la lista de difusión, cuando se procesa la solicitud, entonces el sistema informa que la dirección ya cuenta con una suscripción activa. | EP01 |
+| **US05** | **Landing Page** *(Transversal)* | Landing: Preguntas frecuentes y soporte | Como visitante, deseo consultar una sección de preguntas frecuentes para aclarar el modelo de servicio y los canales de contacto. | **Escenario 1: Visualización de preguntas frecuentes.**<br>Dado que el visitante accede a la sección informativa, cuando consulta los tópicos de ayuda, entonces el sistema despliega las respuestas sobre el funcionamiento del comparador y las condiciones para comercios afiliados.<br><br>**Escenario 2: Envío de consulta de soporte.**<br>Dado que el visitante completa el formulario de contacto con datos válidos, cuando confirma el envío, entonces el sistema registra el mensaje y emite una confirmación de recepción. | EP01 |
+| **TS02** | **Catalog and Pricing** *(Core API)* | API de cálculo comparativo de canasta | Como Developer, deseo proveer un endpoint para computar el costo total de una lista de productos en los comercios registrados en un radio geográfico. | **Escenario 1: Procesamiento comparativo exitoso.**<br>Dada una petición POST a `/api/v1/baskets/compare` con la lista de identificadores de productos y coordenadas geográficas, cuando el motor calcula las sumatorias, entonces responde con un código HTTP 200 OK y la lista de comercios con sus montos totales calculados.<br><br>**Escenario 2: Solicitud con lista vacía.**<br>Dada una petición POST con un cuerpo sin artículos, cuando el controlador evalúa la solicitud, entonces responde con un código HTTP 400 Bad Request indicando la ausencia de datos. | EP07 |
+| **TS06** | **Catalog and Pricing** *(Core API)* | API de consulta de catálogo zonal | Como Developer, deseo proveer un endpoint con paginación para consultar artículos disponibles por categoría y distrito. | **Escenario 1: Consulta paginada exitosa.**<br>Dada una petición GET a `/api/v1/products?category={cat}&district={dist}&page=0&size=20`, cuando el servicio ejecuta la consulta, entonces responde con un código HTTP 200 OK y el listado ordenado de productos.<br><br>**Escenario 2: Parámetros de paginación inválidos.**<br>Dada una petición con un valor de página negativo, cuando el controlador evalúa la solicitud, entonces responde con un código HTTP 400 Bad Request. | EP07 |
+| **TS03** | **Route Planning** *(Core API)* | API de optimización de rutas | Como Developer, deseo proveer un endpoint que ordene una secuencia de establecimientos según eficiencia de traslado. | **Escenario 1: Cálculo de itinerario óptimo.**<br>Dada una petición POST a `/api/v1/routes/optimize` conteniendo coordenadas de origen y paradas seleccionadas, cuando se procesa el ordenamiento, entonces responde con un código HTTP 200 OK entregando las paradas ordenadas y la distancia acumulada.<br><br>**Escenario 2: Punto inalcanzable.**<br>Dada una petición cuyas coordenadas no cuentan con conexión vial viable, cuando falla el algoritmo de ruteo, entonces responde con un código HTTP 422 Unprocessable Entity y la descripción del fallo. | EP07 |
+| **TS04** | **Merchant Management** *(Soporte API)* | API de validación fiscal de establecimientos | Como Developer, deseo integrar un servicio de verificación de RUC contra entidades oficiales para constatar la vigencia legal de los comercios afiliados. | **Escenario 1: Verificación de comercio activo.**<br>Dada una petición GET a `/api/v1/merchants/validate-ruc/{ruc}` con un identificador válido de 11 dígitos, cuando el servicio consulta la fuente registral, entonces responde con un código HTTP 200 OK y el estado formal del contribuyente.<br><br>**Escenario 2: Tiempo de respuesta excedido.**<br>Dado que el servicio externo de consulta fiscal demora más de 5000 milisegundos, cuando expira el tiempo límite, entonces el servicio responde con un código HTTP 504 Gateway Timeout controlado sin suspender la ejecución del sistema. | EP07 |
+| **TS05** | **Merchant Management** *(Soporte API)* | API de sincronización de catálogo | Como Developer, deseo proveer un endpoint para la actualización en bloque de inventario de tiendas mediante solicitudes en formato JSON. | **Escenario 1: Recepción de lote de productos.**<br>Dada una petición PUT a `/api/v1/merchants/{id}/inventory` con un arreglo de artículos y precios, cuando el servicio valida la estructura, entonces actualiza la base de datos y responde con un código HTTP 200 OK.<br><br>**Escenario 2: Solicitud con identificador no autorizado.**<br>Dada una petición con credenciales que no corresponden al establecimiento consultado, cuando se procesa la llamada, entonces el servicio responde con un código HTTP 403 Forbidden. | EP07 |
+| **TS08** | **Merchant Management** *(Soporte API)* | API de gestión de promociones de tienda | Como Developer, deseo implementar endpoints CRUD para la administración del ciclo de vida de ofertas emitidas por comerciantes. | **Escenario 1: Creación de promoción.**<br>Dada una petición POST a `/api/v1/promotions` con artículo, precio y vigencia, cuando el servicio confirma la titularidad del local, entonces crea la oferta y responde con un código HTTP 201 Created.<br><br>**Escenario 2: Vigencia incoherente.**<br>Dada una petición cuya fecha de fin es anterior a la fecha de inicio, cuando el modelo valida los datos, entonces responde con un código HTTP 422 Unprocessable Entity. | EP07 |
+| **TS07** | **Community Price Verification** *(Soporte API)* | API de registro de eventos de reporte | Como Developer, deseo implementar un endpoint para almacenar las confirmaciones y discrepancias emitidas por los usuarios sobre los precios. | **Escenario 1: Registro de reporte comunitario.**<br>Dada una petición POST a `/api/v1/reports/prices` con el ID del producto, ID de tienda y nuevo precio, cuando el servicio procesa la solicitud, entonces persiste el reporte y responde con un código HTTP 201 Created.<br><br>**Escenario 2: Reporte duplicado en ventana temporal.**<br>Dado un usuario que intenta emitir múltiples reportes sobre el mismo artículo en menos de 60 segundos, cuando el filtro de seguridad lo detecta, entonces responde con un código HTTP 429 Too Many Requests. | EP07 |
+| **TS01** | **Identity and Access** *(Genérico API)* | API de autenticación y tokens | Como Developer, deseo implementar el endpoint de autenticación con JWT para asegurar el acceso a los servicios de la plataforma. | **Escenario 1: Emisión exitosa de JWT.**<br>Dada una petición POST a `/api/v1/auth/login` con credenciales válidas en formato JSON, cuando el servicio valida la identidad del usuario, entonces responde con un código HTTP 200 OK y el token de acceso correspondiente.<br><br>**Escenario 2: Denegación de acceso.**<br>Dada una petición POST a `/api/v1/auth/login` con contraseña no coincidente, cuando el servicio procesa la solicitud, entonces responde con un código HTTP 401 Unauthorized y el mensaje de error respectivo. | EP07 |
 
 ## 3.2. Impact Mapping
 
@@ -1294,7 +1347,7 @@ El sistema de etiquetado utiliza términos breves, claros y estrictamente unific
 | **`<meta name="keywords">`** | `Preciazo Merchant, PeruTech, comercio minorista, ofertas relampago, precio unitario, reporte de trafico, venta perdida, reputacion comercio` |
 | **`<meta name="author">`** | `PeruTech Team` |
 
-##### **ASO (App Store & Google Play - Adaptación PWA / Móvil)**
+##### **ASO (Adaptación PWA / Móvil)**
 
 * **App Buyer — "Preciazo":**
   * **Título:** `Preciazo — Compras y Ahorro Neto`
@@ -1331,7 +1384,7 @@ Estructura de desplazamiento y recorrido del usuario en las diferentes plataform
 
 ##### **Mapa de Navegación y Estructuras**
 
-* **Landing Page (Web Estática):** Barra superior fija con desplazamientos suaves (*anchor links*) a `#producto`, `#como-funciona`, `#descargar` y `#contacto`.
+* **Landing Page (Web Estática):** Barra superior fija con desplazamientos suaves (*anchor links*) a `#producto`, `#como-funciona`, `#empezar` y `#contacto`.
 * **App Buyer (Móvil / Web Responsive):** Navegación primaria mediante **Tab Bar inferior** (*Inicio*, *Canasta / Lista*, *Ruta Multiparada*, *Perfil*). Flujos secundarios en *stack modal* (Sugerencia de Bien Sustituto, Reportar Discrepancia) y asistente para planificación del Presupuesto y Ruta Multiparada.
 * **Portal Merchant (Web/App):** Menú lateral persistente (*Sidebar*) con acceso a *Panel de Métricas* (Tráfico y Venta Perdida), *Catálogo*, *Ofertas Relámpago*, *Reportes de Reputación* y *Configuración de Sede*.
 
@@ -1376,12 +1429,12 @@ Estructura para la creación y gestión de listas personalizadas, permitiendo al
 #### 1.3. Módulo de Comparación Multitienda
 Diseño de la matriz comparativa que distribuye productos y precios en columnas para evaluar de forma explícita las diferencias de costo entre comercios.
 
-![Wireframe - Comparar Precios](../assets/wireframe-app/COMPARAR.png)
+![Wireframe - Comparar Precios](../assets/wireframe-app/comparar.png)
 
 #### 1.4. Módulo de Optimización de Ruta de Compra
 Interfaz que combina la representación del trayecto óptimo sobre un plano/mapa en la parte superior con el desglose secuencial de paradas y productos en la parte inferior.
 
-![Wireframe - Ruta de Compra](../assets/wireframe-app/RUTA.png)
+![Wireframe - Ruta de Compra](../assets/wireframe-app/ruta.png)
 
 #### 1.5. Módulo de Verificación Comunitaria
 Esquema de la sección interactiva donde los usuarios reportan variaciones de precios, confirman stock en tienda y participan en la validación colaborativa de ofertas.
@@ -1435,7 +1488,7 @@ A continuación, se presentan los diagramas de Wireflow estructurados por segmen
 - **Paso 2 (Consolidación en Mis Listas):**  
   ![Paso 2 - Mis Listas](../assets/wireframe-app/LISTAS.png)
 - **Paso 3 (Resultado de Comparación):**  
-  ![Paso 3 - Comparar Precios](../assets/wireframe-app/COMPARAR.png)
+  ![Paso 3 - Comparar Precios](../assets/wireframe-app/comparar.png)
 
 ---
 
@@ -1450,9 +1503,9 @@ A continuación, se presentan los diagramas de Wireflow estructurados por segmen
 - **Task Flow (Diagrama de Tareas):**  
   ![Task Flow - Ruta Óptima](../assets/taskflows/taskflow_comprador_goal2.png)
 - **Paso 1 (Selección en Comparador):**  
-  ![Paso 1 - Comparar Precios](../assets/wireframe-app/COMPARAR.png)
+  ![Paso 1 - Comparar Precios](../assets/wireframe-app/comparar.png)
 - **Paso 2 (Ruta Optimizada Renderizada):**  
-  ![Paso 2 - Ruta de Compra](../assets/wireframe-app/RUTA.png)
+  ![Paso 2 - Ruta de Compra](../assets/wireframe-app/ruta.png)
 
 ---
 
@@ -1493,7 +1546,7 @@ A continuación, se presentan los diagramas de Wireflow estructurados por segmen
 #### User Goal 5: Publicar promociones temporales y validar datos del negocio
 
 ##### Explicación del Wireflow
-1. **Estado Inicial (Panel de Promociones):** El usuario ingresa al módulo **Promociones**  y activa el formulario para programar un nuevo descuento.
+1. **Estado Inicial (Panel de Promociones):** El usuario ingresa al módulo **Promociones** y activa el formulario para programar un nuevo descuento.
 2. **Transición a Verificación de Negocio:** Una vez configurada la oferta, navega al módulo **Datos del Establecimiento (RUC)** para confirmar que la información fiscal, dirección y horarios de atención estén alineados con la promoción.
 
 ##### Secuencia:
@@ -1557,7 +1610,7 @@ Vista optimizada de la lista activa durante el recorrido en tienda, que añade c
 #### 2.7. Módulo de Comparativa de Precios por Tienda
 Tabla comparativa multi-tienda que consolida la lista de compras completa ("Canasta Quincenal"), evaluando en tiempo real disponibilidad de stock, precios por producto, la tienda con el costo total más bajo y la opción de reportar inconsistencias en góndola.
 
-![Comparativa de Precios](../assets/mockups-app/COMPARAR.png)
+![Comparativa de Precios](../assets/mockups-app/comparar.png)
 
 #### 2.8. Filtros de la Tabla Comparativa
 Opciones de filtrado avanzado dentro del comparador que permiten ajustar el radio máximo de distancia (en km), seleccionar o desestimar establecimientos específicos y alternar la visualización entre precio por empaque o precio por unidad de medida.
@@ -1572,7 +1625,7 @@ Ventana emergente que permite al comprador registrar una discrepancia entre el p
 #### 2.10. Optimización de Ruta de Compras
 Mapa interactivo e itinerario paso a paso que calcula la ruta más eficiente entre múltiples supermercados, mostrando tiempo estimado de traslado, modo de transporte y ahorro total acumulado.
 
-![Ruta de Compras Optimizada](../assets/mockups-app/RUTA.png)
+![Ruta de Compras Optimizada](../assets/mockups-app/ruta.png)
 
 #### 2.11. Detalle de Parada en Ruta Seleccionada
 Vista desplegada de un punto específico del itinerario que muestra el desglose de productos a adquirir en dicho establecimiento, con opciones para confirmar o saltar la parada.
@@ -1644,7 +1697,7 @@ A continuación, se presentan los diagramas de User Flow para la aplicación web
 - **Paso 1 (Catálogo General):**  
   ![Mockup - Catálogo Principal](../assets/mockups-app/INICIO.png)
 - **Paso 2 (Matriz Comparativa):**  
-  ![Mockup - Comparador Precios](../assets/mockups-app/COMPARAR.png)
+  ![Mockup - Comparador Precios](../assets/mockups-app/comparar.png)
 - **Paso 3 (Módulo Comunitario):**  
   ![Mockup - Reportes Comunitarios](../assets/mockups-app/VERIFICACION.png)
 
@@ -1658,9 +1711,9 @@ A continuación, se presentan los diagramas de User Flow para la aplicación web
 
 ##### Secuencia de Mockups del User Flow
 - **Paso 1 (Matriz Comparativa de Selección):**  
-  ![Mockup - Comparar Precios](../assets/mockups-app/COMPARAR.png)
+  ![Mockup - Comparar Precios](../assets/mockups-app/comparar.png)
 - **Paso 2 (Mapa y Ruta de Compra):**  
-  ![Mockup - Ruta Optimizada](../assets/mockups-app/RUTA.png)
+  ![Mockup - Ruta Optimizada](../assets/mockups-app/ruta.png)
 
 ---
 
@@ -1724,19 +1777,19 @@ La arquitectura de **Preciazo** (desarrollada por **PeruTech**) se diseña sigui
 
 El análisis del dominio permitió identificar los principales procesos asociados a los dos segmentos objetivo de la solución: los compradores que buscan optimizar el costo y desplazamiento de sus compras, y los comerciantes minoristas que requieren administrar la información de sus establecimientos, precios, disponibilidad y promociones.
 
-A partir del refinamiento de los eventos, comandos, reglas y conceptos identificados previamente, el dominio de **Preciazo** se organiza en Bounded Contexts con responsabilidades claramente delimitadas. Esta separación permite reducir el acoplamiento entre capacidades de negocio y facilita posteriormente la implementación modular de la Single Page Application (SPA) y de los RESTful Web Services.
+A partir del refinamiento de los eventos, comandos, reglas y conceptos identificados previamente, el dominio de **Preciazo** se organiza en Bounded Contexts con responsabilidades claramente delimitadas, clasificados y ordenados jerárquicamente en **Core (Núcleo del negocio)**, **Supporting (Soporte)** y **Generic (Genéricos)**. Esta separación permite reducir el acoplamiento entre capacidades de negocio y facilita posteriormente la implementación modular de la Web Application, la Single Page Application (SPA) y de los RESTful Web Services.
 
 Los Bounded Contexts identificados son:
 
-| Bounded Context | Responsabilidad principal |
-|---|---|
-| Identity and Access | Gestionar autenticación, identidad, roles y autorización de compradores y comerciantes mediante tokens JWT. |
-| Shopping Planning | Gestionar listas de compra, cantidades, presupuesto y progreso de la jornada de compra. |
-| Catalog and Pricing | Gestionar productos, precios, disponibilidad y comparación entre establecimientos. |
-| Route Planning | Calcular y optimizar rutas de compra entre múltiples establecimientos considerando localización y desplazamiento. |
-| Merchant Management | Gestionar afiliación de comercios, información del establecimiento, catálogo local, inventario y promociones. |
-| Community Price Verification | Gestionar discrepancias, reportes y confirmaciones comunitarias sobre precios observados. |
-| Analytics and Engagement | Consolidar métricas de interacción y rendimiento relevantes para los comerciantes y generar información de seguimiento. |
+| Bounded Context | Clasificación DDD | Responsabilidad principal |
+|---|---|---|
+| **Catalog and Pricing** | **Core** | Gestionar productos, precios, disponibilidad y comparación entre establecimientos. |
+| **Route Planning** | **Core** | Calcular y optimizar rutas de compra entre múltiples establecimientos considerando localización y desplazamiento. |
+| **Shopping Planning** | **Core** | Gestionar listas de compra, cantidades, presupuesto y progreso de la jornada de compra. |
+| **Merchant Management** | **Supporting** | Gestionar afiliación de comercios, información del establecimiento, catálogo local, inventario y promociones. |
+| **Community Price Verification** | **Supporting** | Gestionar discrepancias, reportes y confirmaciones comunitarias sobre precios observados. |
+| **Analytics and Engagement** | **Supporting** | Consolidar métricas de interacción y rendimiento relevantes para los comerciantes y generar información de seguimiento. |
+| **Identity and Access** | **Generic** | Gestionar autenticación, identidad, roles y autorización de compradores y comerciantes mediante tokens JWT. |
 
 Estos contextos se comunican mediante contratos explícitos, evitando que un módulo modifique directamente las reglas internas de otro contexto.
 
@@ -1757,161 +1810,627 @@ Para facilitar la lectura del modelo se utilizó la siguiente convención visual
 - **External System:** rosa.
 - **Hotspot:** rojo.
 
-El resultado del proceso permitió organizar el dominio en siete Bounded Contexts: Identity and Access, Shopping Planning, Catalog and Pricing, Route Planning, Merchant Management, Community Price Verification y Analytics and Engagement.
+El resultado del proceso permitió organizar el dominio en siete Bounded Contexts ordenados jerárquicamente según su valor estratégico: **Catalog and Pricing**, **Route Planning** y **Shopping Planning** (Core); **Merchant Management**, **Community Price Verification** y **Analytics and Engagement** (Soporte); e **Identity and Access** (Genérico).
 
 El modelo se presenta en siete vistas independientes. Cada fila se lee de izquierda a derecha: Actor → Command → Aggregate → Domain Event y, cuando corresponde, Policy y acciones posteriores. Las consultas se distinguen de los comandos; Analytics también muestra flujos iniciados por eventos. Se conservan los Hotspots del modelo como decisiones pendientes, sin inventar respuestas.
 
-#### Identity and Access
+#### Catalog and Pricing (Core Bounded Context)
 
-![Preciazo Identity and Access Design-Level Event Storming](../assets/architecture/event-storming/identity-access.png)
+La propuesta AV2 sigue **Guía event storming**, pasos 5–9: el modelo de lectura informa al actor, el comando expresa una intención y el aggregate produce un evento en pasado. Se representan registrar productos, publicar una oferta de tienda, cambiar su precio, actualizar su disponibilidad y definir candidatos sustitutos. Un ingreso interno de datos de referencia conserva identificadores, ubicación, titularidad y afiliación de las tiendas, sin introducir ACL ni dependencias hacia modelos internos de otros contextos.
 
-#### Shopping Planning
+La búsqueda, comparación de canastas, normalización por kilogramo o litro, sugerencia de sustitutos y consulta del histórico se representan como Queries que producen Read Models. Estas consultas no registran cambios de dominio ni eventos persistidos de comparación. El precio inicial y cada cambio efectivo generan una instantánea histórica en la misma transacción de la oferta, sin una política asíncrona que pueda perder el registro inicial.
 
-![Preciazo Shopping Planning Design-Level Event Storming](../assets/architecture/event-storming/shopping-planning.png)
-
-#### Catalog and Pricing
+**Catalog and Pricing** mantiene el precio de venta público y la disponibilidad utilizada en las comparaciones; **Merchant Management** conserva las cantidades físicas de inventario. Las vistas de inventario dejan de representar una segunda fuente editable del precio. El mecanismo de coordinación entre estos datos, la provisión de referencias de tienda y las garantías de actualización se conservan como decisiones de integración pendientes. El Event Storming no presenta esa integración como implementada.
 
 ![Preciazo Catalog and Pricing Design-Level Event Storming](../assets/architecture/event-storming/catalog-pricing.png)
 
-#### Route Planning
+#### Route Planning (Core Bounded Context)
+
+El Design-Level Event Storming de Route Planning se propone para US14, US20 y TS03 siguiendo la guía de Event Storming: cada fila presenta Read Model → Buyer → Command → Multi-stop Route → Domain Event. Generar, recalcular y confirmar son decisiones del comprador; consultar o validar una ruta no modifica el aggregate ni emite eventos persistidos.
+
+La consulta al proveedor de mapas devuelve trayectos estimados o un fallo externo, no un evento de dominio. Una generación fallida no guarda una ruta y un recálculo fallido conserva el último plan. Las referencias a listas, precios, disponibilidad y horarios son contratos de datos locales cuya provisión sigue pendiente; no se incorporan ACL ni suscripciones automáticas a otros contextos. Los Hotspots identifican proveedor, modalidades, límite de paradas, vigencia de referencias y plazo de respuesta por definir.
 
 ![Preciazo Route Planning Design-Level Event Storming](../assets/architecture/event-storming/route-planning.png)
 
-#### Merchant Management
+#### Shopping Planning (Core Bounded Context)
+
+La propuesta de AV2 cubre US07–US12 y US18 mediante doce filas: Read Model → Buyer → Command → Aggregate → Domain Event. Conserva los siete flujos de edición, presupuesto y compra e incorpora cierre explícito, guardado de plantilla, creación desde plantilla, agregar favorito y retirar favorito. Las vistas muestran la información necesaria para decidir cada acción: lista activa, progreso, lista completada, plantilla con ofertas actuales o estado de favoritos.
+
+La referencia metodológica sigue siendo Guía event storming, pasos 5–9 (pp. 17–21): comandos en imperativo, aggregates que reciben comandos y eventos en pasado. Los eventos describen cambios reales: reintentos y preferencias sin cambios no emiten duplicados. Reutilizar una plantilla exige precios actuales y crea otra lista activa sin marcas de compra; la plantilla no es una programación automática. La advertencia de presupuesto sigue calculándose en la consulta, sin comando automático o evento persistido, y desmarcar reduce el acumulado en caja.
+
+![Preciazo Shopping Planning Design-Level Event Storming](../assets/architecture/event-storming/shopping-planning.png)
+
+#### Merchant Management (Supporting Bounded Context)
+
+La propuesta AV2 sigue **Guía event storming**, pasos 5–9: los Read Models informan al Merchant, los comandos expresan acciones y los aggregates publican hechos en pasado. Se distinguen solicitud de afiliación, verificación fiscal, registro y edición de tiendas, horarios, cantidades físicas, importaciones y ciclo de promociones. La política fiscal reacciona a `MerchantAffiliationRequested` e invoca un comando interno que consulta el proveedor mediante `RucVerificationGateway`; un fallo técnico no se interpreta como rechazo fiscal.
+
+Los horarios y la vigencia pública de promociones se calculan al consultar. Un job interno activa o expira promociones mediante comandos idempotentes; aunque el job se retrase, la Query deja de exponer el precio promocional al llegar `endsAt`. Las consultas no emiten eventos de apertura/cierre de tienda. Se conserva como Hotspot el proveedor fiscal, el procedimiento de prueba de titularidad y la coordinación con Catálogo, sin añadir ACL.
 
 ![Preciazo Merchant Management Design-Level Event Storming](../assets/architecture/event-storming/merchant-management.png)
 
-#### Community Price Verification
+#### Community Price Verification (Supporting Bounded Context)
+
+La propuesta AV2 para US28, US29 y TS07 sigue los pasos 5–9 de **Guía event storming**: las vistas de lectura informan la decisión del Buyer, los comandos se expresan en imperativo y el aggregate `PriceDiscrepancy` produce eventos en pasado. Se distinguen reportar una discrepancia, confirmar un precio reportado y rechazarlo. Un voto negativo es un dato comunitario; no equivale por sí solo a resolver el reporte como rechazado.
+
+Las políticas de revisión de anomalías, recálculo de confianza y resolución reaccionan a eventos e invocan comandos explícitos sobre el mismo aggregate. `ReportedPriceConfirmed` y `ReportedPriceRejected` disparan el recálculo; la resolución solo se ejecuta cuando existe una regla configurada. El diagrama conserva como Hotspot la fórmula de confianza, los umbrales de anomalía y resolución y las reglas de reputación. No se inventan valores numéricos ni se sobrescribe automáticamente el precio de Catalog and Pricing.
+
+TS07 exige rechazar reportes repetidos del mismo usuario sobre la misma oferta de tienda en menos de 60 segundos. Como propuesta adicional de integridad para AV2, se permite un solo voto por comprador y reporte, emitido por otro comprador mientras el reporte está abierto; un segundo voto, incluso contrario, no modifica la confianza ni genera otro evento. Esta restricción de votos es distinta del límite temporal para crear reportes.
 
 ![Preciazo Community Price Verification Design-Level Event Storming](../assets/architecture/event-storming/community-price-verification.png)
 
-#### Analytics and Engagement
+#### Analytics and Engagement (Supporting Bounded Context)
+
+El diseño de AV2 para US27 sigue la secuencia de la Guía de Event Storming: Read Model → Actor → Command → Aggregate → Domain Event. Un Buyer registra una interacción explícita con una promoción y el Merchant puede generar un reporte inmutable a partir de sus métricas observadas. Consultar métricas o leer el reporte son Queries; no generan eventos de actualización ficticios.
+
+La captura de paradas sugeridas se muestra separadamente como contrato de un hecho externo confiable, una política y un comando interno. Requiere una optimización de ruta guardada con éxito; no se declara una suscripción a Route Planning ya implementada. Los Hotspots identifican provisión, entrega, retención y controles contra abuso pendientes, sin introducir ACL. El modelo no interpreta una interacción como visita física ni venta.
 
 ![Preciazo Analytics and Engagement Design-Level Event Storming](../assets/architecture/event-storming/analytics-engagement.png)
 
+#### Identity and Access (Generic Bounded Context)
+
+El diseño propuesto para AV2 sigue US06 y TS01 y la notación de la Guía de Event Storming: Read Model → Actor → Command → Aggregate → Domain Event. El visitante registra una cuenta con una persona permitida y el comprador o comerciante solicita autenticación. Un intento incorrecto sobre una cuenta existente registra el fallo y, al alcanzar el umbral configurado, el bloqueo temporal. Consultar perfil o permisos es una Query y no una consecuencia automática encadenada al evento de autenticación.
+
+La verificación del hash, la comprobación de seguridad y la firma del JWT son operaciones de aplicación mediante puertos. El token es un resultado de la solicitud, no una sesión persistida ni el contenido de un evento. Expirar el plazo de bloqueo se evalúa al siguiente intento y no inventa un evento programado. Los Hotspots mantienen explícitos los parámetros de seguridad y el proveedor de comprobación pendientes, sin ACL ni asignación pública arbitraria de roles.
+
+![Preciazo Identity and Access Design-Level Event Storming](../assets/architecture/event-storming/identity-access.png)
+
 ### 4.6.2. Software Architecture Context Diagram
+
+La propuesta C4 para AV2 muestra **Preciazo**, sus usuarios (**Independent Buyer** y **Retail Merchant**) y tres contratos externos requeridos por los diseños tácticos: estimaciones de desplazamiento de **Mapping & Routing Service**, estado fiscal de **RUC Verification Service** y verificación de prueba de **Security Check Provider**, este último pendiente de selección y protocolo para US06. Estos contratos no acreditan proveedores contratados o adaptadores ya implementados.
+
+Route Planning decide el orden de las paradas con la matriz de distancias/duraciones recibida; el proveedor aporta estimaciones y accesibilidad según modalidad. La verificación fiscal no prueba titularidad comercial. La comprobación de seguridad se requiere en el flujo posterior al bloqueo de login y no representa una ACL ni una integración de dominios de negocio.
 
 ![Preciazo Software Architecture Context Diagram](../assets/architecture/c4-context.png)
 
 ### 4.6.3. Software Architecture Container Diagrams
 
-El diagrama de contenedores describe la arquitectura lógica de **Preciazo**. La Landing Page presenta el producto y proporciona acceso a la **Single-Page Application (SPA)** desarrollada con Angular, TypeScript y Angular Material para compradores y comerciantes. La SPA consume mediante HTTPS / JSON los endpoints de **Preciazo REST API**, una aplicación modular en Java / Spring Boot que persiste los datos operacionales en una base de datos relacional y se integra con Mapping & Routing Service y RUC Verification Service.
+El modelo propuesto contiene cuatro contenedores lógicos: **Landing Page**, **Single-Page Application (SPA)**, **Preciazo REST API** y **Relational Database**. La Landing Page presenta el producto y enlaza la aplicación. La SPA, desarrollada con Angular, TypeScript y Angular Material, se entrega como recursos web y se ejecuta en el navegador. El mecanismo de alojamiento estático no se representa como un servidor de negocio adicional ni se declara una topología de producción desplegada.
+
+La REST API se propone como un monolito modular Java/Spring Boot con los siete Bounded Contexts, sus contratos Command/Query y autorización en el servidor. Cada contexto posee sus tablas y accede mediante sus propios puertos y adaptadores de persistencia sobre una base relacional física común; este diagrama no selecciona un motor concreto ni autoriza consultas indiscriminadas entre módulos. Los clientes consumen HTTPS/JSON y envían bearer JWT en solicitudes protegidas. El backend administra la firma/validación del token y consulta el estado y permisos actuales de IAM, sin tabla de sesiones ni promesa de revocación individual.
+
+Las relaciones externas describen los contratos requeridos de mapas, fiscalidad y comprobación de seguridad. La provisión de referencias locales confiables y la coordinación de operaciones entre contextos siguen pendientes; no se añaden ACL, broker de eventos, refresh tokens o garantías de entrega durable. Esta vista sigue las fronteras y separación de responsabilidades de Learning Center Platform Guide, sin convertir sus ejemplos de endpoints o entidades en reglas ajenas a las historias de Preciazo.
 
 ![Preciazo Software Architecture Container Diagram](../assets/architecture/c4-container.png)
 
 ### 4.6.4. Software Architecture Components Diagrams
 
-Los diagramas de componentes detallan por separado la estructura interna de la **Single-Page Application (SPA)** y de **Preciazo REST API**, manteniendo los siete Bounded Contexts definidos mediante Domain-Driven Design.
+Las dos vistas de componentes muestran la SPA y la REST API propuestas para AV2, con los siete módulos nombrados por su Bounded Context y sin leyendas adicionales. Las clases y contratos detallados de cada módulo se encuentran en 4.7; los diagramas C4 resumen responsabilidades y dependencias a otra escala, sin acreditar componentes Angular o servicios Spring Boot implementados.
 
-En la SPA, compradores y comerciantes acceden a las funcionalidades mediante Router / Guards, que organiza la navegación según el rol del usuario. Las funcionalidades de cada contexto utilizan componentes de UI compartidos y servicios de aplicación que encapsulan las llamadas HTTP a la REST API.
+En la SPA, `Router / Guards` organiza la navegación; `Shared Components` reúne formularios, mensajes y presentación reutilizable, y `Feature API Clients` agrupa los clientes HTTP por funcionalidad, mapeo de DTOs y respuesta a `ProblemDetail`. Los guards mejoran la navegación, mientras que el backend decide permisos y titularidad. El estado cliente del bearer token permite entrar/salir de la interfaz sin afirmar que eliminarlo invalide otras copias.
+
+Los módulos reflejan sus contratos: Shopping Planning consulta la advertencia de presupuesto y el acumulado en caja; Catalog and Pricing muestra comparativas y precios canónicos; Route Planning distingue cobertura, estimaciones y fallos de recálculo; Merchant Management presenta locales, inventario y promociones; Community Price Verification diferencia votos y resolución; Analytics and Engagement muestra apariciones en rutas y usuarios únicos observados para US27; Identity and Access gestiona registro, login y comprobación de seguridad requerida. Datos desconocidos no se convierten en ahorros, confianza o cobertura ficticios. Ningún rol, precio o flag fiscal suministrado por el cliente autoriza una escritura.
 
 ![Preciazo Frontend Component Diagram](../assets/architecture/c4-components-frontend.png)
 
-En el backend, la capa REST delega los casos de uso a los componentes de aplicación y dominio de los siete contextos. El Persistence Adapter implementa el acceso a repositorios mediante Spring Data JPA. Route Planning utiliza Mapping & Routing Adapter para las consultas de rutas, mientras que Merchant Management utiliza RUC Verification Adapter para la validación fiscal. Ambos adaptadores se comunican con sus respectivos servicios externos mediante HTTPS / REST API.
+En el backend, `Request Security` procesa el bearer y la lista explícita de rutas públicas. Los controllers y assemblers transforman Resources en Commands/Queries y sus resultados en Resources o `ProblemDetail`. Cada módulo integra su aplicación, dominio y adaptadores propios; las flechas hacia la base representan esos puertos/adaptadores, no acceso SQL desde el dominio. Se mantienen las cuatro capas DDD y los patrones de Learning Center: `handle(record)`, `Result<T, ApplicationError>` en Commands, clases de dominio sin JPA, `*RepositoryImpl`, `*PersistenceRepository` y `*PersistenceAssembler`, con JPA exclusivamente en `*PersistenceEntity`.
+
+`MappingRoutingRestAdapter` implementa el puerto de matriz de viajes de Route Planning y distingue inviabilidad de fallo del proveedor. `RucVerificationRestAdapter` conserva el estado fiscal pendiente ante timeout y no acredita propiedad. `SecurityCheckVerifierAdapter` se representa como contrato pendiente para IAM: sin verificación disponible, un ingreso que requiere prueba no se acepta. La publicación usa `DomainEventPublisher.publishAndClearEvents(saved)` tras guardar, sin inferir un bus durable ni suscripciones entre contextos por el solo hecho de dibujar un evento.
+
+| Bounded Context (Orden DDD) | Interfaces Layer (REST Controllers) | Application Layer (Command & Query Services) | Domain Layer (Aggregates) | Infrastructure Layer (JPA & Adapters) |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Catalog and Pricing** *(Core)* | `ProductsController`, `StoreProductsController`, `BasketComparisonController` | `CatalogCommandServiceImpl`, `CatalogQueryServiceImpl` | `Product`, `StoreProduct`, `CatalogStoreReference` | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository` y `*PersistenceAssembler` |
+| **2. Route Planning** *(Core)* | `RoutesController` | `RouteCommandServiceImpl`, `RouteQueryServiceImpl` | `MultiStopRoute` | `RouteRepositoryImpl` → `RoutePersistenceRepository`, `MappingRoutingRestAdapter` |
+| **3. Shopping Planning** *(Core)* | `ShoppingListsController`, `BudgetsController`, `ShoppingTemplatesController`, `FavoriteStoresController` | Servicios Command/Query de listas, plantillas y preferencias | `ShoppingList`, `ShoppingTemplate`, `FavoriteStore`; artículos/presupuesto internos | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository` y `*PersistenceAssembler` |
+| **4. Merchant Management** *(Soporte)* | `MerchantsController`, `StoresController`, `PromotionsController` | `MerchantCommandServiceImpl`, `MerchantQueryServiceImpl` | `MerchantProfile`, `RetailStore`, `InventoryItem`, `Promotion`, `InventoryImportBatch` | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository`, assemblers y `RucVerificationRestAdapter` |
+| **5. Community Price Verification** *(Soporte)* | `PriceDiscrepanciesController` | `PriceVerificationCommandServiceImpl`, `PriceVerificationQueryServiceImpl` | `PriceDiscrepancy` (con observaciones y votos), `TrustProfile` | `PriceDiscrepancyRepositoryImpl`, `PriceDiscrepancyPersistenceRepository`, `PriceDiscrepancyPersistenceAssembler` |
+| **6. Analytics and Engagement** *(Soporte)* | `MerchantAnalyticsController` | `AnalyticsCommandServiceImpl`, `MetricsQueryServiceImpl` | `MetricEvent`, `MerchantReport` | `MetricEventRepositoryImpl` → `MetricEventPersistenceRepository`, `MerchantReportRepositoryImpl` → `MerchantReportPersistenceRepository` |
+| **7. Identity and Access** *(Genérico)* | `AuthenticationController`, `UsersController` | `UserCommandServiceImpl`, `UserQueryServiceImpl`, `RoleCommandServiceImpl` | `User`, `Role` | `UserRepositoryImpl` → `UserPersistenceRepository`, `RoleRepositoryImpl` → `RolePersistenceRepository`, `JwtTokenServiceAdapter` |
 
 ![Preciazo Backend Component Diagram](../assets/architecture/c4-components-backend.png)
 
+Las dependencias funcionales entre contextos se documentan como coordinación pendiente. No se dibujan como llamadas o suscripciones ya resueltas. Cada puerto de entrada y referencia pertenece al contexto consumidor; no existe un proveedor global compartido de modelos de dominio.
+
+| Contexto consumidor | Datos o coordinación necesarios | Estado del diseño AV2 |
+| --- | --- | --- |
+| Shopping Planning | Referencias de producto/precio y aplicación de sustitutos aceptados del Catálogo. | Coordinación pendiente; las Queries de Catálogo no modifican listas. Favoritos y plantillas ya tienen contratos tácticos; su consumo de referencias/preferencias entre contextos sigue pendiente. |
+| Catalog and Pricing | Identidad, titularidad, ubicación y afiliación de tiendas de Merchant Management. | Referencias locales previstas; provisión y actualización pendientes. |
+| Merchant Management | Escritura coordinada de precios canónicos de importación y aplicación pública de promociones en Catálogo. | Pendiente; un lote con precios no se responde aplicado sin completar la coordinación atómica acordada. |
+| Route Planning | Requisitos/versiones de lista, ofertas disponibles y horarios confiables. | Puertos de snapshots definidos; provisión, vigencia y coordinación pendientes. El cálculo no reserva stock ni modifica listas. |
+| Community Price Verification | Identidad de oferta y eventual uso del resultado aceptado por Catálogo. | Reporte/voto/resolución propios; no se presume escritura automática del precio canónico. Fórmula y umbrales de confianza pendientes. |
+| Analytics and Engagement | Hechos confiables de optimizaciones de ruta guardadas y observaciones explícitas de interacción. | Captura/deduplicación definidas; entrega y conciliación entre fuentes pendientes, con cobertura UNKNOWN. |
+| Contextos con recursos privados | Principal autenticado de IAM y comprobación de titularidad sobre su propio recurso. | El filtro de seguridad obtiene identidad/permisos; cada contexto verifica la titularidad con sus referencias confiables. Sin ACL o joins de autorización entre dominios. |
+
+Esta arquitectura global conserva el precio público en Catálogo, las cantidades físicas en inventario de Merchant Management, la optimización en Route Planning y las métricas de lectura en Analytics. Las decisiones pendientes permanecen visibles para implementar los contratos con coherencia, sin presentar el diseño documental como evidencia de integración o despliegue.
+
 ## 4.7. Software Object-Oriented Design
 
-En esta sección se presenta el diseño orientado a objetos de **Preciazo** a partir de los Bounded Contexts identificados durante el proceso de Domain-Driven Design.
+En esta sección se presenta el diseño orientado a objetos de **Preciazo** a partir de los Bounded Contexts identificados durante el proceso de Domain-Driven Design, ordenados jerárquicamente en **Core**, **Soporte** y **Genéricos**.
 
 Con el objetivo de evitar un único modelo de clases excesivamente acoplado, el diseño se divide de acuerdo con los siete Bounded Contexts definidos previamente. Cada contexto mantiene sus propias entidades, servicios, interfaces, políticas, objetos de valor y enumeraciones, permitiendo representar de manera explícita sus responsabilidades y reglas de negocio.
 
 Asimismo, cuando un contexto necesita información perteneciente a otro dominio, se utilizan referencias locales basadas en identificadores u objetos específicos del contexto, evitando compartir directamente las entidades internas de otros Bounded Contexts. Este criterio permite conservar límites claros entre los modelos y reducir dependencias innecesarias. Los identificadores numéricos se representan como `Long` en los diagramas de clases y como `BIGINT` en persistencia.
 
-Los diagramas incluyen atributos y operaciones relevantes del dominio, visibilidad UML, relaciones nombradas y multiplicidades. Los **Value Objects** se identifican con el estereotipo `Value Object` y atributos `readOnly`; sus notas explicitan restricciones y criterios de igualdad por valor. Se utilizan `EmailAddress`, `Ruc`, `Address`, `Quantity`, `UnitPrice`, `Money`, `GeoPoint`, `Distance` y `ReportingPeriod`, además de referencias locales y criterios de consulta inmutables. Las operaciones que cambian un valor devuelven uno nuevo en lugar de modificar el existente.
+Los diagramas incluyen atributos y operaciones relevantes del dominio, visibilidad UML, relaciones nombradas, multiplicidades y asociaciones explícitas hacia cada `<<enumeration>>` (evitando enumeraciones sueltas sin relacionar). Los **Value Objects** se identifican con el estereotipo `Value Object` y atributos `readOnly`; sus notas explicitan restricciones y criterios de igualdad por valor. Se utilizan `EmailAddress`, `Ruc`, `Address`, `Quantity`, `UnitPrice`, `Money`, `GeoPoint`, `Distance` y `ReportingPeriod`, además de referencias locales y criterios de consulta inmutables. Las operaciones que cambian un valor devuelven uno nuevo en lugar de modificar el existente.
 
 ### 4.7.1. Class Diagrams
 
-Los Class Diagrams de **Preciazo** se organizan por Bounded Context con el propósito de representar de forma independiente las principales estructuras y comportamientos de cada parte del dominio.
+Los Class Diagrams de **Preciazo** se organizan por Bounded Context (iniciando por los contextos Core, seguidos de Soporte y finalmente Genérico) con el propósito de representar de forma independiente las principales estructuras y comportamientos de cada parte del dominio.
 
-#### Identity and Access
+#### Catalog and Pricing (Core Bounded Context)
 
-El Bounded Context **Identity and Access** concentra las responsabilidades relacionadas con autenticación, sesiones, roles y autorización.
+La propuesta del backend sigue **Learning Center Platform Guide**, ADR-0001, ADR-0002, ADR-0003, ADR-0005 y ADR-0007: contratos de comandos y consultas separados, records inmutables como entradas, resultados de escritura `Result<Long, ApplicationError>`, dominio sin anotaciones JPA y adaptadores/assemblers de persistencia. `CatalogCommandServiceImpl` y `CatalogQueryServiceImpl` utilizan los puertos `ProductRepository`, `StoreProductRepository` y `CatalogStoreReferenceRepository`; las clases `*PersistenceEntity` pertenecen exclusivamente a infraestructura. Las consultas no persisten comparaciones ni publican eventos por el hecho de leer datos.
 
-La clase `User` representa la identidad principal del sistema y permite realizar operaciones como autenticarse, asignar roles, desactivar la cuenta y comprobar permisos. Las sesiones generadas se representan mediante `AuthSession`, mientras que `Role` y `Permission` modelan el esquema de autorización.
+`Product` describe nombre, marca, categoría, unidad de venta y contenido neto opcional. La categoría y las unidades se representan mediante valores validados y coherentes con los datos almacenados. `StoreProduct` es el aggregate de la oferta de un producto en una tienda y posee precio de venta (`Money`), `StockStatus`, fecha de actualización y versión. `RetailStoreRef` conserva únicamente el identificador externo. `PriceSnapshot` captura precio, moneda, unidad de venta, contenido neto disponible y fecha del servidor, permitiendo interpretar históricamente cada importe.
 
-Las interfaces `IdentityRepository` y `AccessPolicy` abstraen respectivamente la persistencia de identidades y las reglas utilizadas para determinar si una operación está autorizada. `EmailAddress` encapsula el correo y su validación de formato, y se utiliza tanto en `User` como en las operaciones de búsqueda y autenticación.
+`Money` representa moneda e importe; los precios publicados son estrictamente positivos según US23. `Quantity` representa una cantidad con unidad y `UnitPrice` se utiliza para el resultado normalizado cuando existe contenido neto compatible. Si una presentación de 500 g cuesta S/ 4, la consulta devuelve S/ 8 por kg; conserva además S/ 4 como precio de venta de esa presentación. Sin contenido neto se devuelve el precio de venta y un valor normalizado ausente; no se inventa gramaje, no se devuelve cero y no se comparan masa con volumen.
 
-![Identity and Access Class Diagram](../assets/architecture/classes/identity-access.png)
+`PriceComparisonPolicy` calcula totales completos y normalizaciones con datos del dominio; el servicio de consulta construye los Read Models. `BasketComparisonView` distingue tiendas completas de incompletas. `availableSubtotal` solo suma los artículos disponibles; `completeBasketTotal` está ausente si falta algún producto. Las tiendas completas se ordenan por total y, ante empate, por identificador; las incompletas se presentan separadas con los artículos faltantes y nunca se anuncian como la canasta más barata por tener un subtotal menor. `OUT_OF_STOCK` se excluye del cálculo como producto faltante; `AVAILABLE` y `LOW` pueden participar.
 
-#### Shopping Planning
+Los sustitutos se registran como relaciones explícitas entre productos; compartir categoría no basta para inferir equivalencia. La consulta solo propone alternativas disponibles, compatibles en unidad/cantidad y más económicas para la cantidad solicitada. Aceptar una sugerencia y reemplazar un artículo pertenece a Shopping Planning y queda como coordinación pendiente de US15; la Query de Catálogo no modifica una lista ajena a su contexto. Catálogo tampoco decide las paradas ni calcula rutas: esa responsabilidad permanece en Route Planning.
 
-El Bounded Context **Shopping Planning** administra la planificación de compras del Buyer.
-
-`ShoppingList` funciona como el elemento central del modelo y agrupa múltiples `ShoppingListItem`. Entre sus responsabilidades se encuentran agregar y eliminar ítems, marcar productos como comprados, calcular el costo estimado y completar una lista.
-
-`PurchaseBudget` representa el presupuesto asociado a la planificación y encapsula operaciones como reservar o liberar importes y comprobar si un determinado gasto puede ser asumido. El Value Object `Money` encapsula importes y exige una misma moneda para operar. `Quantity` representa cantidades no negativas con su unidad; las cantidades solicitadas deben ser positivas. `UnitPrice` combina un importe y la cantidad de referencia para calcular costos con unidades compatibles.
-
-`ProductRequirement` permite referenciar un producto requerido sin introducir directamente el modelo interno de Catalog and Pricing dentro de este Bounded Context.
-
-![Shopping Planning Class Diagram](../assets/architecture/classes/shopping-planning.png)
-
-#### Catalog and Pricing
-
-El Bounded Context **Catalog and Pricing** modela la consulta y comparación de productos, precios y disponibilidad entre establecimientos.
-
-`Product` representa la información propia del catálogo, mientras que `StoreProduct` mantiene los datos asociados a un producto ofrecido por un establecimiento, tales como precio unitario, disponibilidad y fecha de actualización.
-
-La clase `CatalogPricingService` proporciona operaciones de búsqueda, comparación de precios y selección de ofertas. Por otro lado, `PriceComparisonPolicy` encapsula la regla utilizada para determinar la alternativa más conveniente.
-
-`RetailStoreRef` representa una referencia inmutable al establecimiento, preservando la separación respecto del modelo interno de Merchant Management. `UnitPrice` expresa el precio por cantidad de referencia y `SearchCriteria` agrupa filtros inmutables, incluido un límite opcional de precio unitario.
+`CatalogStoreReference` es una instantánea local de datos de tienda, con versión de origen, fecha, ubicación, afiliación y propietario. Permite filtrar y comprobar titularidad por identificador; no es una entidad de Merchant Management compartida. Su carga solo se permite a un proceso interno confiable; no se expone al Buyer ni al Merchant un endpoint para alterar el propietario o la afiliación. La provisión de esa instantánea y su coordinación con cambios de inventario siguen pendientes; no se incorpora ACL ni una sincronización automática ficticia.
 
 ![Catalog and Pricing Class Diagram](../assets/architecture/classes/catalog-pricing.png)
 
-#### Route Planning
+#### Contratos propuestos de Catálogo y Precios
 
-El Bounded Context **Route Planning** representa la generación y optimización de recorridos entre múltiples establecimientos.
+El modelo de dominio y los contratos de aplicación/persistencia se presentan en vistas separadas para mantener su legibilidad.
 
-El aggregate `MultiStopRoute` administra las diferentes paradas mediante objetos `RouteStop` y contiene las operaciones necesarias para agregar, eliminar y reordenar establecimientos, además de calcular el ahorro neto asociado a una ruta.
+![Catalog and Pricing Backend Contracts and Persistence](../assets/architecture/classes/catalog-pricing-backend.png)
 
-`RoutePlanningService` coordina la generación, recálculo y confirmación de rutas, mientras que `RoutingGateway` abstrae el acceso al servicio externo de mapas y ruteo.
+Los usuarios y tiendas se identifican por IDs. El servidor obtiene `actorId` del principal autenticado; los permisos y la titularidad no se aceptan desde el cuerpo HTTP. Los Commands devuelven `Result<Long, ApplicationError>`; los Query handlers devuelven sus Read Models sin efectos de escritura. Las validaciones de las entradas de lectura se realizan en los Resources REST y records Query, como parte de la frontera de aplicación.
 
-Para mantener el aislamiento del contexto, conceptos pertenecientes a otros dominios se representan mediante elementos locales como `ShoppingPlanRef`, `ProductRequirement` y `StoreCandidate`. `GeoPoint` valida los rangos de coordenadas, `Distance` expresa kilómetros no negativos y `Quantity` representa la cantidad requerida de un producto. `RouteEstimate` es un resultado inmutable que reúne distancia y duración.
+| Command | Datos de entrada | Autorización y evento |
+| :--- | :--- | :--- |
+| `RegisterProductCommand` | `actorId`, `name`, `brand`, `category`, `saleUnit`, `netContent` opcional | Editor con permiso propuesto `catalog:manage-products`; produce `ProductRegistered`. No agrega un rol nuevo. |
+| `PublishStoreProductCommand` | `actorId`, `storeId`, `productId`, `sellingPrice`, `currency`, `stockStatus` | Merchant titular de una tienda afiliada según la referencia local confiable; crea oferta y snapshot inicial; `StoreProductPublished`. |
+| `ChangeStoreProductPriceCommand` | `actorId`, `catalogEntryId`, `sellingPrice`, `currency`, `expectedVersion` | Titular; precio positivo, versión vigente y misma moneda que la oferta. Un cambio real produce `StoreProductPriceChanged` y snapshot atómico. |
+| `UpdateStoreProductAvailabilityCommand` | `actorId`, `catalogEntryId`, `stockStatus`, `expectedVersion` | Titular; produce `StoreProductAvailabilityChanged` solo si el estado cambia. No modifica por sí solo la cantidad física de Inventario. |
+| `DefineProductSubstituteCommand` | `actorId`, `productId`, `substituteProductId` | Permiso `catalog:manage-products`; productos existentes y distintos; `ProductSubstituteDefined` únicamente al crear una relación nueva. |
+| `RefreshCatalogStoreReferenceCommand` | `storeId`, `ownerId`, `district`, `latitude`, `longitude`, `affiliated`, `sourceVersion`, `capturedAt` | Solo proceso interno confiable; no es un endpoint público. Versiones repetidas o antiguas no reemplazan datos; `CatalogStoreReferenceRefreshed` solo ante una actualización aceptada. |
+
+| Query | Datos de entrada | Comportamiento |
+| :--- | :--- | :--- |
+| `SearchProductsQuery` | Texto y categoría opcionales, distrito opcional, origen/radio opcionales, `page`, `size` | Consulta productos con ofertas disponibles de tiendas afiliadas que cumplen los filtros. Retorna `ProductPageView` con paginación y radio sugerido opcional. |
+| `CompareShoppingBasketQuery` | Artículos (`productId`, cantidad/unidad), origen, radio positivo, moneda | Retorna `BasketComparisonView` con canastas completas, incompletas y productos faltantes. No recibe un precio confiable desde el cliente. |
+| `GetNormalizedUnitPriceQuery` | `catalogEntryId` | Retorna el precio publicado y, si el contenido es conocido y compatible, el precio por kg o litro. |
+| `GetProductSubstitutesQuery` | `productId`, `storeId`, cantidad/unidad, moneda | Solo candidatos explícitos, disponibles y de menor costo para una cantidad comparable. No reemplaza artículos en Shopping Planning. |
+| `GetPriceHistoryQuery` | `catalogEntryId` | Snapshots de los últimos 30 días y, si existe, último snapshot anterior como referencia inicial de la ventana. |
+| `GetStoreProductByIdQuery` | `catalogEntryId` | `Optional<StoreProduct>`; la capa REST transforma el resultado en un Resource, nunca en una entidad JPA serializada. |
+
+La combinación de filtros se aplica como intersección, antes de contar y paginar; el orden es estable por identificador de producto. Para esta propuesta, `page >= 0` y `1 <= size <= 100`, con tamaño por defecto 20. Un radio exige coordenadas válidas; latitud entre -90 y 90 y longitud entre -180 y 180. La proximidad se calcula como distancia geográfica entre coordenadas: no se presenta como distancia real de una ruta peatonal. Si no hay tiendas dentro del radio, se conserva la búsqueda original y puede sugerirse el radio mínimo que alcance la siguiente tienda candidata; nunca se amplía silenciosamente. Sin datos de referencia suficientes no se inventan tiendas, ubicación o titularidad.
+
+Para TS02, la lista no puede estar vacía, las cantidades son positivas y las unidades deben coincidir con `saleUnit` o tener una conversión expresamente soportada. Las líneas repetidas del mismo producto se consolidan sumando cantidades compatibles. No se redondean envases ni se presupone venta fraccionada: esas reglas deben definirse antes de aceptar cantidades que lo requieran. No se hace conversión de moneda. Una oferta sin disponibilidad o con moneda incompatible se informa como faltante/no comparable; la respuesta debe distinguir ambos motivos. Una moneda incompatible no equivale a un precio cero.
+
+US19 se consulta por oferta producto/tienda, evitando mezclar el histórico de comercios diferentes. La ventana usa el reloj del servidor y timestamps consistentes. La referencia anterior al inicio se identifica como baseline, sin mover su fecha; si solo existe el registro inicial, se indica esa condición. Los snapshots guardan el contenido de la presentación para no recalcular el pasado usando datos nuevos. La respuesta muestra `updatedAt` y fecha de captura; el umbral de caducidad de precios todavía es un Hotspot y no se define un vencimiento arbitrario.
+
+Los eventos de escritura incluyen `eventId`, ID del aggregate, versión y fecha del servidor. El adaptador guarda cambios y snapshots antes de invocar `DomainEventPublisher.publishAndClearEvents(saved)`, siguiendo ADR-0005 de Learning Center. No se agrega un manejador de eventos para las comparaciones ni una tabla de comparaciones persistidas. Una operación sin cambio no publica un segundo evento. El control de versión y las restricciones únicas respaldan la concurrencia; el diseño no afirma entrega durable de eventos ni sincronización automática entre contextos.
+
+#### Contratos HTTP propuestos para Catálogo
+
+| Método y recurso | Resultado | Acceso |
+| :--- | :--- | :--- |
+| `GET /api/v1/products?category={cat}&district={dist}&page=0&size=20` | `200 OK`, Resource paginado; conserva TS06 y admite filtros opcionales de proximidad | Usuario autenticado. |
+| `POST /api/v1/baskets/compare` | `200 OK`, comparación calculada sin persistirla; conserva TS02 | Usuario autenticado. |
+| `GET /api/v1/catalog-entries/{id}` | `200 OK`, oferta y fecha de actualización | Usuario autenticado. |
+| `GET /api/v1/catalog-entries/{id}/unit-price` | `200 OK`, precio de venta y normalizado opcional | Usuario autenticado. |
+| `GET /api/v1/catalog-entries/{id}/price-history` | `200 OK`, histórico y baseline | Usuario autenticado. |
+| `GET /api/v1/products/{id}/substitutes?storeId={storeId}` | `200 OK`, sugerencias compatibles con cantidad/unidad/moneda recibidas como parámetros | Usuario autenticado. |
+| `POST /api/v1/products` | `201 Created`, Resource y `Location` | Permiso `catalog:manage-products`. |
+| `POST /api/v1/stores/{storeId}/catalog-entries` | `201 Created`, oferta y `Location` | Merchant titular de tienda afiliada. |
+| `PUT /api/v1/catalog-entries/{id}/price` | `200 OK`, oferta actualizada o sin cambio si el precio ya coincide | Merchant titular; versión vigente. |
+| `PUT /api/v1/catalog-entries/{id}/availability` | `200 OK`, oferta actualizada o sin cambio | Merchant titular; versión vigente. |
+| `POST /api/v1/products/{id}/substitutes` | `201 Created` al crear; `200 OK` al repetir una relación existente, sin otra mutación ni evento | Permiso `catalog:manage-products`. |
+
+Los cuerpos se transforman en Commands/Queries mediante assemblers y los resultados en Resources REST. Los errores siguen `ApplicationError` y `ProblemDetail` de Learning Center: 400 para lista vacía, precio no positivo, paginación, coordenadas o unidades inválidas; 401 para token ausente/inválido; 403 para permisos o titularidad insuficientes; 404 para producto/oferta inexistente; 409 para oferta duplicada por tienda/producto o conflicto de versión. Se propone `CATALOG_FORBIDDEN` con mapeo explícito a 403, y códigos con sufijos `_NOT_FOUND` y `_CONFLICT` para los casos correspondientes. La falta de provisión de una referencia necesaria para autorizar una escritura debe producir `CATALOG_REFERENCE_UNAVAILABLE` con mapeo explícito a 503; no se acepta la escritura usando datos inventados. Los mensajes deben localizarse en los recursos de idioma. Estas son especificaciones para implementar en Spring Boot; este repositorio sigue siendo documentación y diseño.
+
+
+#### Route Planning (Core Bounded Context)
+
+La propuesta de AV2 cubre US14, US20 y TS03 y aplica los contratos de aplicación, dominio puro y persistencia separada de Learning Center. `MultiStopRoute` contiene origen, partida, modalidad, propietario, versión, paradas y productos asignados. `ShoppingPlanRef` es opcional y conserva identificador y versión de la lista; vincular una lista exige comprobar su titularidad. Las referencias son por identidad, sin importar aggregates de otros contextos ni añadir ACL.
+
+Para un conjunto de establecimientos seleccionado, `RouteOptimizationPolicy` minimiza la suma de distancias de los trayectos desde el origen, sin retorno implícito. No promete optimización conjunta de precio, distancia y tiempo. La búsqueda exacta requiere un máximo de paradas configurable; se rechazan solicitudes mayores. `RoutingGateway` devuelve una matriz de distancias en metros y duraciones en segundos según modalidad y partida. No se sustituye una ruta vial por distancia recta ni una modalidad no soportada por otra. Las ventanas de apertura se evalúan a la llegada estimada en la zona horaria del establecimiento: la estimación incluye traslado, sin inventar tiempos de compra o espera. Proveedor, modalidades efectivamente soportadas, vigencia de datos, máximo de paradas y timeout requieren configuración antes de implementar; no se reutiliza el plazo de validación de RUC.
+
+Con una lista vinculada, los requisitos se copian a `RouteItem` y cada producto se asigna una sola vez a la oferta disponible de menor subtotal entre las paradas seleccionadas, con cantidad/unidad compatible; los empates se resuelven por identificador de tienda. La consulta expone productos sin asignación y cobertura `COMPLETE` o `INCOMPLETE`. Una ruta sin lista tiene cobertura `NOT_EVALUATED`, sin afirmar cobertura de canasta ni ahorro. Disponibilidad significa la referencia pública disponible, sin reservar existencias ni prometer una cantidad física.
+
+En US20 el comprador proporciona su origen actual y las paradas restantes, excluyendo las omitidas o ya visitadas. Si solicita reemplazo, se necesita una canasta comparable y un radio explícito: se evalúan candidatos cercanos no seleccionados ni omitidos, abiertos a la llegada, accesibles y con ofertas disponibles. Se ordenan por costo de la canasta requerida, distancia al origen y storeId; se elige el primero que permita un recorrido viable. No se amplía el radio silenciosamente. Sin reemplazo viable se devuelve 422 y se conserva el plan; omitir sin reemplazar puede producir cobertura incompleta explícita, cuya confirmación está bloqueada. Ninguna operación modifica la lista de compras.
+
+`SavingsEstimate` separa total seleccionado, total de referencia, ahorro bruto, costo de transporte y ahorro neto. Solo se comparan canastas completas con los mismos productos, cantidades, unidades y moneda. El ahorro bruto es referencia menos total seleccionado y el neto resta el transporte conocido; los valores negativos se muestran. Sin una referencia comparable o sin costo de transporte, los valores correspondientes permanecen ausentes, nunca se suponen cero. La fuente y vigencia de esa referencia y del costo de transporte son decisiones pendientes.
 
 ![Route Planning Class Diagram](../assets/architecture/classes/route-planning.png)
 
-#### Merchant Management
+![Route Planning Backend Contracts](../assets/architecture/classes/route-planning-backend.png)
 
-El Bounded Context **Merchant Management** concentra las capacidades relacionadas con la afiliación y administración de establecimientos.
+![Route Planning States](../assets/architecture/classes/route-planning-states.png)
 
-`MerchantProfile` representa el perfil comercial y mantiene su estado de verificación. Un Merchant puede administrar uno o varios objetos `RetailStore`, los cuales contienen los elementos de inventario y promociones correspondientes.
+`RouteCommandService` y `RouteQueryService` exponen `handle(record)`; los Commands devuelven `Result<Long, ApplicationError>`. Los contratos propuestos son:
 
-`InventoryItem` encapsula operaciones relacionadas con stock y precio, mientras que `Promotion` representa ofertas con un período de vigencia definido.
+| Contrato | Datos y resultado |
+| --- | --- |
+| `GenerateRouteCommand` | ownerId autenticado, origin, departureAt, transportMode, selectedStoreIds y shoppingListId opcional. Guarda únicamente un recorrido calculado con éxito. |
+| `RecalculateRouteCommand` | ownerId, routeId, expectedVersion, origen actual, departureAt, remainingStoreIds, omittedStoreId opcional, replacementRequested y radio cuando se solicita reemplazo. Las paradas restantes deben proceder del recorrido actual, sin duplicados ni la parada omitida. Pueden quedar vacías únicamente si se solicita un reemplazo; el resultado exige al menos una parada. |
+| `ConfirmRouteCommand` | ownerId, routeId y expectedVersion. Revalida titularidad, cobertura y referencias vigentes; si cambiaron las condiciones exige recalcular. Repetir la confirmación sobre la versión ya confirmada es idempotente. |
+| `GetRouteByIdQuery` | ownerId y routeId; devuelve `Optional<RouteView>` con orden, trayectos, cobertura, productos pendientes, estimaciones, versión y fecha de evaluación. |
+| `GetMyRoutesQuery` | ownerId autenticado; devuelve `List<RouteView>` del comprador. |
+| `ValidateRouteQuery` | ownerId y routeId; devuelve `Result<RouteValidationView, ApplicationError>` con problemas actuales por tienda y fecha de evaluación, sin guardar cambios. |
 
-La interfaz `RucVerificationGateway` abstrae la comunicación con el servicio externo utilizado para validar la información fiscal del Merchant. `Ruc` encapsula el formato del identificador; la verificación fiscal permanece en el gateway. `Address` representa la dirección como un valor completo; `Quantity` y `UnitPrice` expresan el stock y el precio por cantidad de referencia.
+`RouteInputSnapshotProvider` declara un puerto de entrada local para requisitos y referencias confiables de tiendas, ofertas y horarios. No representa una integración implementada: su provisión y actualización siguen pendientes, y la falta de información requerida produce 503. El cuerpo del cliente no acredita propiedad, precios, disponibilidad ni horarios. No se interpreta un horario desconocido como abierto. Las validaciones de formato y coordenadas se realizan antes de llamar al proveedor.
+
+`RouteCommandServiceImpl` obtiene datos confiables, calcula fuera del bloqueo de base de datos y persiste ruta, paradas y artículos atómicamente con control optimista. Un recálculo exitoso sustituye el plan completo y vuelve a `OPTIMIZED`, incluso si estaba `CONFIRMED`; un fallo externo, ausencia de recorrido o conflicto no sobrescribe el plan ni su versión. Tras guardar se utiliza `DomainEventPublisher.publishAndClearEvents` para `RouteGenerated`, `RouteRecalculated` o `RouteConfirmed`, sin atribuir entrega durable al publicador. Confirmar registra la decisión del comprador: no reserva stock ni garantiza condiciones futuras. Una consulta de validación puede mostrar que el último plan requiere recálculo sin cambiar su estado.
+
+`RouteRepository` pertenece al dominio; `RouteRepositoryImpl` implementa el puerto mediante `RoutePersistenceRepository` de Spring Data y `RoutePersistenceAssembler`. Solo `RoutePersistenceEntity`, `RouteStopPersistenceEntity` y `RouteItemPersistenceEntity` llevan anotaciones JPA. `MappingRoutingRestAdapter` implementa el puerto externo y valida identificadores, unidades, modalidad y completitud de la matriz antes de aceptar sus resultados.
+
+| Endpoint propuesto | Contrato y respuesta |
+| --- | --- |
+| `POST /api/v1/routes/optimize` | `GenerateRouteCommand`; 200 con `RouteView`, paradas ordenadas y distancia acumulada, conforme a TS03. |
+| `POST /api/v1/routes/{routeId}/recalculate` | `RecalculateRouteCommand`; 200 con el nuevo plan y versión. |
+| `POST /api/v1/routes/{routeId}/confirm` | `ConfirmRouteCommand`; 200 con la ruta confirmada. |
+| `GET /api/v1/routes/{routeId}` | `GetRouteByIdQuery`; 200 con detalle. |
+| `GET /api/v1/routes` | `GetMyRoutesQuery`; 200 con rutas propias. |
+| `GET /api/v1/routes/{routeId}/validation` | `ValidateRouteQuery`; 200 con condiciones actuales y problemas detectados. |
+
+Los assemblers REST construyen Commands/Queries y Resources. Los errores usan `ApplicationError` y `ProblemDetail`: 400 para coordenadas, cantidades, radio o paradas inválidas; 401 para autenticación ausente/inválida; 403 para titularidad insuficiente; 404 para ruta inexistente; 409 para versión obsoleta o condiciones cambiadas al confirmar; 422 para punto inalcanzable, ausencia de orden viable, modalidad no soportada, exceso del límite de búsqueda, falta de reemplazo o cobertura incompleta al confirmar. La referencia requerida ausente produce `ROUTE_REFERENCE_UNAVAILABLE` (503); una respuesta externa inválida `ROUTING_BAD_RESPONSE` (502), indisponibilidad `ROUTING_UNAVAILABLE` (503) y plazo agotado `ROUTING_TIMEOUT` (504), con mapeos explícitos. Un fallo del proveedor no se clasifica como un punto inalcanzable de TS03. Esta es documentación de diseño para Spring Boot; no acredita endpoints o adaptadores implementados.
+
+#### Shopping Planning (Core Bounded Context)
+
+La ampliación de AV2 conserva US08–US12 y añade favoritos (US07), plantillas recurrentes (US18) y el cierre explícito necesario para guardar una plantilla. Aceptar sustitutos de US15 continúa como coordinación pendiente con Catálogo y no se presenta como resuelto por añadir estas capacidades.
+
+`ShoppingList` contiene sus artículos y un presupuesto opcional. Toda lista nueva, ordinaria o creada desde plantilla, empieza `ACTIVE`; se retira el estado `DRAFT` sin flujo definido. Una lista sin nombre utiliza fecha y hora del servidor, conforme a US08. Agregar un producto ya existente suma cantidad sin duplicarlo y exige unidad compatible. Los Commands de edición verifican propietario, estado activo y versión optimista; las referencias de membresías reservadas no habilitan edición compartida en estos contratos.
+
+Se conservan las reglas de importes: `UnitPrice` calcula el subtotal para una cantidad/unidad compatible en la moneda de la lista; el total proyectado suma todos los artículos y el de caja solo los marcados purchased. Marcar/desmarcar son idempotentes y desmarcar reduce el acumulado en caja. Presupuesto positivo y de la misma moneda, siempre orientativo: superarlo no bloquea operaciones. `BudgetStatusView` calcula warning si y solo si existe límite y el total lo supera; se limpia al volver al límite o por debajo. No se guarda la advertencia ni se emiten eventos por consultarla. `PurchaseProgressView` conserva separados artículos comprados y acumulado de caja.
+
+`CompleteShoppingListCommand` permite al titular cerrar una lista activa no vacía, guardando completedAt y una nueva versión. Repetir el cierre de una lista ya completada es un no-op autorizado, sin otro evento. La lista `COMPLETED` es de solo lectura y no se reabre en este alcance. Cerrar no afirma que todos los productos se compraron: puede haber solicitudes no adquiridas. Marcar todos los artículos tampoco cierra automáticamente la lista. Esto permite conservar el resultado de una jornada y decidir explícitamente si se reutiliza su canasta completa.
+
+`ShoppingTemplate` es otro aggregate, inmutable y propiedad del comprador, con origen y versión de la lista completada, nombre, moneda y `TemplateItem`. Guarda todos los productos solicitados, nombres de referencia, cantidades y unidades; no copia precios, presupuesto, miembros o purchased. Exige fuente completada, no vacía y propia. El nombre omitido toma el de la lista fuente. `saveKey` y una huella de la solicitud garantizan que reintentar devuelva la plantilla original; reutilizar la clave con distinto origen, versión o nombre produce 409. Plantilla y filas se guardan atómicamente, sin alterar la lista fuente.
+
+Para US18, el Buyer elige una oferta de Catálogo por cada producto de la plantilla antes de crear otra lista. `OfferSelection` identifica producto, catalogEntryId y expectedOfferVersion; `ShoppingReferenceProvider` debe obtener precio, versión, disponibilidad y capturedAt confiables, en moneda y unidad compatibles. No se elige silenciosamente una tienda ni se supone que la favorita tenga el menor precio. El conjunto de selecciones debe cubrir exactamente los productos de la plantilla, sin duplicados, omisiones o productos extra. Una oferta agotada, una versión obsoleta o una referencia requerida no disponible impide crear la lista completa: no se guarda una copia parcial con precios antiguos o cero.
+
+La lista resultante tiene identidad propia, origen de plantilla, todos los artículos purchased=false y ningún presupuesto o miembro copiado. Guarda la oferta y versión utilizadas y el instante de la referencia; los precios son estimaciones evaluadas, sin garantizar el precio futuro en caja ni reservar stock. El total y la advertencia se consultan tras crear; el acumulado inicial de caja es cero. `creationKey` y su huella son únicos por comprador para esta operación. Un reintento equivalente devuelve la lista original, aunque los precios hayan cambiado después; una nueva clave solicita otra lista y otra evaluación. La huella usa campos semánticos normalizados y selecciones ordenadas por producto, sin incluir IDs o tiempos generados. Autorización e identidad semántica se comprueban antes de devolver un resultado repetido; no se valida de nuevo una cotización para sobrescribir una lista ya creada.
+
+`FavoriteStore` registra una preferencia por par ownerId/storeId. Agregar por primera vez activa el registro y volver a agregar no lo duplica; retirar lo desactiva y reintentar no crea eventos. Agregar después de retirar reactiva la misma identidad con control de versión. Para agregar se verifica una tienda existente y visible con referencia confiable; retirar una preferencia propia no exige que la tienda siga disponible. Las consultas devuelven solo preferencias activas del titular. No cambia el precio, la cobertura de productos, el radio geográfico ni la afiliación fiscal de un comercio.
+
+US07 y US13 requieren vistas distintas para evitar rankings contradictorios. La vista de descubrimiento/ofertas preferidas presenta primero favoritos elegibles y ordena cada grupo por distancia e ID de tienda; al retirar preferencias se recupera el orden geográfico de esa vista. La comparación de canastas US13 conserva su ranking de costo total y cobertura, con identificación visual de favoritos o una sección preferida independiente. No se llama “más barata” a una tienda por ser favorita. Aplicar preferencias debe ocurrir sobre el conjunto filtrado antes de paginar; reordenar una página parcial en el navegador no acredita esa prioridad global. El consumo confiable de preferencias por el caso de consulta de Catálogo sigue pendiente de coordinación; no se añade ACL o una suscripción ficticia para resolverlo.
+
+![Shopping Planning Class Diagram](../assets/architecture/classes/shopping-planning.png)
+
+![Shopping Planning Backend Contracts](../assets/architecture/classes/shopping-planning-backend.png)
+
+![Shopping Planning Lifecycle](../assets/architecture/classes/shopping-planning-states.png)
+
+Los contratos siguen Learning Center Platform Guide: records inmutables, servicios Command/Query separados con `handle(...)`, resultados `Result<T, ApplicationError>`, puertos de repositorio en dominio y adaptadores/assemblers JPA separados. El diseño tiene doce Commands y siete Queries. `ShoppingWriteReceipt` devuelve resourceId y changed para reconocer creaciones y no-ops sin una consulta REST adicional. El propietario procede siempre del principal autenticado, nunca del cuerpo del cliente.
+
+| Command | Datos y resultado propuestos |
+| --- | --- |
+| `CreateShoppingListCommand` | ownerId, nombre opcional y moneda; devuelve `Result<Long, ApplicationError>` con lista ACTIVE. |
+| `AddShoppingItemCommand` | ownerId, listId, expectedVersion, referencia de producto, cantidad/unidad y estimación validada; incrementa sin duplicar producto. |
+| `RemoveShoppingItemCommand` | ownerId, listId, itemId y expectedVersion; quita el artículo de la lista activa. |
+| `ReduceShoppingItemQuantityCommand` | ownerId, listId, itemId, cantidad positiva a reducir y expectedVersion; no permite resultado cero/negativo: quitar utiliza el comando de eliminación. |
+| `SetPurchaseBudgetCommand` | ownerId, listId, expectedVersion y límite positivo en moneda de la lista; define/cambia presupuesto. |
+| `MarkShoppingItemPurchasedCommand` | ownerId, listId, itemId y expectedVersion; marca comprado sin duplicar una marca existente. |
+| `UnmarkShoppingItemPurchasedCommand` | Mismos IDs y versión; retira la marca y excluye su subtotal del acumulado de caja. |
+| `CompleteShoppingListCommand` | ownerId, listId y expectedVersion; cierra lista no vacía. Repetir sobre COMPLETED no cambia el aggregate. |
+| `SaveShoppingTemplateCommand` | ownerId, sourceListId, expectedListVersion, nombre opcional y saveKey; devuelve `Result<ShoppingWriteReceipt, ApplicationError>`. |
+| `CreateListFromTemplateCommand` | ownerId, templateId, nombre opcional, creationKey y selecciones completas producto/oferta/versión; devuelve `Result<ShoppingWriteReceipt, ApplicationError>`. |
+| `AddFavoriteStoreCommand` | ownerId y storeId; devuelve `Result<ShoppingWriteReceipt, ApplicationError>` con preferencia activa. |
+| `RemoveFavoriteStoreCommand` | ownerId y storeId; devuelve `Result<Boolean, ApplicationError>` indicando si cambió; retirar una preferencia ausente es no-op. |
+
+Los siete comandos previos y el cierre devuelven `Result<Long, ApplicationError>` con ID de lista. Los datos de estimación introducidos manualmente en una lista ordinaria son estimaciones del comprador, no una cotización confiable de Catálogo. Cuando se atribuye una oferta/versión del Catálogo o se crea desde plantilla, sus datos y nombre de referencia se obtienen/validan en el servidor; no se aceptan precios actuales, disponibilidad, propiedad o capturedAt inventados por el cuerpo HTTP.
+
+| Query | Entrada y salida |
+| --- | --- |
+| `GetSavedShoppingListsQuery` | ownerId; listas propias. |
+| `GetShoppingListByIdQuery` | ownerId y listId; opcional de lista propia. |
+| `GetBudgetStatusQuery` | ownerId y listId; `Optional<BudgetStatusView>`, warning derivada. |
+| `GetPurchaseProgressQuery` | ownerId y listId; `Optional<PurchaseProgressView>` con conteo y total comprado. |
+| `GetMyTemplatesQuery` | ownerId; `List<ShoppingTemplateView>`. |
+| `GetTemplateByIdQuery` | ownerId y templateId; `Optional<ShoppingTemplateView>`. |
+| `GetFavoriteStoresQuery` | ownerId; `List<FavoriteStoreView>` de preferencias activas, sin ordenar una comparativa ajena. |
+
+`ShoppingListCommandService` incorpora cierre y creación desde plantilla. `ShoppingTemplateCommandService`/`ShoppingTemplateQueryService` y `StorePreferenceCommandService`/`StorePreferenceQueryService` separan las otras capacidades. Los puertos `ShoppingListRepository`, `ShoppingTemplateRepository` y `FavoriteStoreRepository` tienen adaptadores `*RepositoryImpl`, repositorios Spring Data `*PersistenceRepository` y `*PersistenceAssembler`; solo `*PersistenceEntity` lleva JPA. La lista y sus artículos/precios se guardan atómicamente; el guardado de una plantilla y sus filas también. Unicidad en base de datos y comparación de huella evitan duplicados concurrentes por clave; una comprobación previa sin restricción no basta.
+
+Los aggregates registran cambios y el adaptador utiliza `DomainEventPublisher.publishAndClearEvents(saved)` después de guardar, según ADR-0005, sin afirmar entrega durable. Los no-ops o errores no publican éxito. El evento de creación de lista puede identificar sourceTemplateId cuando corresponda, sin inventar un evento por cada total o advertencia calculados. No se genera un job quincenal: US18 describe reutilización solicitada por el comprador, no compras programadas.
+
+| Endpoint propuesto | Resultado/control |
+| --- | --- |
+| `POST /api/v1/shopping-lists` | 201 con lista ACTIVE y Location. |
+| `GET /api/v1/shopping-lists` y `GET /api/v1/shopping-lists/{id}` | 200 con listas/detalle propios. |
+| `POST /api/v1/shopping-lists/{id}/items` | 200 con lista actualizada; cantidad y estimación válidas. |
+| `DELETE /api/v1/shopping-lists/{id}/items/{itemId}` | 204 tras quitar; estado activo y versión vigente. |
+| `POST /api/v1/shopping-lists/{id}/items/{itemId}/reduce` | 200 con lista actualizada. |
+| `PUT /api/v1/shopping-lists/{id}/budget` | 200; límite orientativo válido. |
+| `PUT /api/v1/shopping-lists/{id}/items/{itemId}/purchased` y `DELETE /api/v1/shopping-lists/{id}/items/{itemId}/purchased` | 200 con progreso de compra para marcar/desmarcar. |
+| `GET /api/v1/shopping-lists/{id}/budget-status` y `/purchase-progress` | 200 con lectura recalculada. |
+| `POST /api/v1/shopping-lists/{id}/complete` | 200; cierre explícito, repetible sin otro evento. |
+| `POST /api/v1/shopping-lists/{id}/templates` | expectedListVersion y nombre opcional; Idempotency-Key obligatorio. 201 y Location al crear, 200 al repetir. |
+| `GET /api/v1/shopping-templates` y `GET /api/v1/shopping-templates/{id}` | 200 con plantillas propias. |
+| `POST /api/v1/shopping-templates/{id}/lists` | Selecciones de ofertas/versión e Idempotency-Key obligatorio; 201 y Location al crear, 200 al repetir. |
+| `GET /api/v1/me/favorite-stores` | 200 con preferencias activas propias. |
+| `PUT /api/v1/me/favorite-stores/{storeId}` | 200 con preferencia activa; agregar/reactivar/repetir es idempotente. |
+| `DELETE /api/v1/me/favorite-stores/{storeId}` | 204, incluso si ya estaba ausente/inactiva, sin evento duplicado. |
+
+Las escrituras de lista existente transportan expectedVersion; para DELETE sin cuerpo se propone `If-Match` con la versión entregada por la API. Los assemblers construyen records y Resources; `ApplicationError` se representa como `ProblemDetail` localizable. 400 para formato, cantidades, unidades, moneda, selecciones incompletas/duplicadas o clave inválida; 401 sin autenticación; 403 `SHOPPING_FORBIDDEN` para titularidad; 404 para lista/plantilla/producto/oferta/tienda inexistente; 409 para versión antigua, edición de lista completada, cierre/fuente vacíos, fuente no completada, oferta ya no disponible o clave reutilizada con otra solicitud; 503 `SHOPPING_REFERENCE_UNAVAILABLE` cuando falta provisión, vigencia o acceso confiable a los datos requeridos. Se especifican mapeos explícitos de 403/503. Un error de precio no devuelve una lista parcial ni modifica la plantilla.
+
+Quedan pendientes la provisión de precios/tiendas y su política de vigencia, la presentación global de favoritos en consultas de Catálogo y la aceptación de sustitutos de US15. Son contratos documentados para implementar en Spring Boot, sin ACL ni backend operativo acreditado en este repositorio.
+
+#### Merchant Management (Supporting Bounded Context)
+
+`MerchantProfile` conserva el usuario titular, RUC, razón social y `VerificationStatus` (`PENDING`, `VERIFIED`, `REJECTED`). La solicitud US21 crea el perfil y la primera tienda en una transacción. `UNIQUE(user_id)` y `UNIQUE(tax_id)` impiden perfiles duplicados; un titular con perfil verificado puede registrar locales adicionales. Validar 11 dígitos en `Ruc` solo comprueba el formato. Un resultado fiscal `ACTIVE` permite `VERIFIED`, mientras `INACTIVE` o `NOT_FOUND` producen `REJECTED`. Timeout, respuesta inválida o caída del proveedor conservan `PENDING`; no se simula una respuesta exitosa. Verificación fiscal y prueba de titularidad del negocio son decisiones distintas; el procedimiento probatorio permanece pendiente.
+
+`RetailStore` es un aggregate separado que referencia al perfil por ID y conserva dirección, coordenadas, zona horaria y `OpeningWindow`. `scheduleConfigured` distingue la falta de horario (`UNKNOWN`) de una semana explícitamente configurada sin intervalos (`CLOSED`). La propuesta usa `America/Lima` por defecto. Cada intervalo tiene día, apertura, cierre y un indicador de cierre al día siguiente; debe durar más de cero y como máximo 24 horas, sin solaparse con otro, incluso al cruzar medianoche o el límite de la semana. Si apertura y cierre coinciden, solo se admite el intervalo de 24 horas con cierre al día siguiente. Los días sin intervalos de una semana configurada están cerrados. `openingStatusAt(...)` calcula `OPEN`/`CLOSED` usando la hora local de la tienda y no persiste un indicador que se vuelva obsoleto.
+
+`InventoryItem` conserva cantidades físicas no negativas y su unidad, con unicidad por tienda/producto y control de versión. No vuelve a guardar el precio público ni la disponibilidad del comparador: ambos pertenecen a `StoreProduct` en Catalog and Pricing. Su coordinación sigue como dependencia de integración y un cambio físico no se declara automáticamente sincronizado. Los IDs de producto y oferta son referencias, sin importar el dominio de otro contexto ni añadir ACL.
+
+`Promotion` guarda precio rebajado, moneda, unidad de venta, precio habitual de referencia al crear, oferta e ítem asociados, fechas, estado y versión. La creación exige tienda verificada, titularidad, oferta e inventario de esa misma tienda, precio positivo inferior a una referencia habitual confiable, misma moneda/unidad, `endsAt > startsAt` y fin futuro. La instantánea del precio habitual es auditoría; al expirar se vuelve al precio habitual actual de Catálogo, no a esa instantánea. No se modifica el precio base del catálogo al activar o expirar una promoción.
+
+`PromotionStatus` distingue `SCHEDULED`, `ACTIVE`, `EXPIRED`, `CANCELLED`. Solo una promoción futura programada se puede editar; las activas se pueden cancelar. Se rechazan solapamientos para la misma oferta, comprobados bajo bloqueo por oferta o una transacción serializada equivalente; una restricción de unicidad simple no resuelve intervalos temporales. `isEffectiveAt(...)` exige `startsAt <= now < endsAt`, estado no cancelado/expirado y precio aún inferior al habitual actual. Si no existe una referencia confiable para comprobar el descuento, no se aplica un precio promocional inventado. La composición de estas promociones en las comparativas de Catálogo sigue pendiente de integración.
+
+`InventoryImportBatch` y sus filas representan el lote de US26/TS05. Se valida el conjunto completo antes de modificar existencias: filas vacías, cantidades negativas, unidades incompatibles, productos duplicados o precios no positivos cancelan la operación con errores por línea/campo. Un preview es una Query sin escrituras; Apply valida otra vez antes de ejecutar. La combinación `(store_id, idempotency_key)` y un hash del contenido permiten devolver un resultado previo al repetir exactamente el lote; una misma clave con distinto contenido produce conflicto. Los precios propuestos en filas son entradas/auditoría, no otra fuente pública. Un lote que incluye precios solo puede marcarse `APPLIED` cuando exista coordinación atómica con las escrituras correspondientes de Catálogo. Mientras esa coordinación no esté definida, se devuelve un error de dependencia y no se guardan existencias como éxito parcial.
+
+El backend sigue **Learning Center Platform Guide**, ADR-0001, ADR-0002, ADR-0003, ADR-0005 y ADR-0007: Commands/Queries inmutables, servicios separados con `handle(...)`, `Result<T, ApplicationError>` para fallos esperados, repositorios del dominio, adaptadores JPA y assemblers separados. El dominio carece de anotaciones JPA. `DomainEventPublisher.publishAndClearEvents(saved)` publica eventos después de guardar con IDs persistidos. Los jobs comprueban estado, tiempo y versión antes de cambiar una promoción; un reintento sin cambio no genera otro evento. La publicación en memoria no constituye una garantía de entrega durable, por lo que la verificación fiscal pendiente dispone de reintento autorizado.
 
 ![Merchant Management Class Diagram](../assets/architecture/classes/merchant-management.png)
 
-#### Community Price Verification
+#### Contratos del backend de Gestión Comercial
 
-El Bounded Context **Community Price Verification** administra las observaciones y discrepancias de precios reportadas por los usuarios.
+![Merchant Management Backend Contracts](../assets/architecture/classes/merchant-management-backend.png)
 
-`PriceDiscrepancy` representa una diferencia detectada entre un precio esperado y uno observado y puede recibir múltiples `PriceObservation` y `VerificationConfirmation`.
+El servidor obtiene `actorId` del usuario autenticado y comprueba titularidad usando `merchant_profiles.user_id`; no confía en IDs de titular ni estados de verificación enviados por el cliente. Los comandos públicos sobre inventario y promociones requieren perfil `VERIFIED`. La edición de información y horarios puede prepararse por su titular mientras el perfil está pendiente, sin hacer pública la tienda. No se introduce ACL ni un rol nuevo.
 
-La clase `TrustProfile` mantiene información local relacionada con la confiabilidad de las contribuciones realizadas por un usuario. Por otro lado, `VerificationPolicy` encapsula las reglas necesarias para aceptar, rechazar o solicitar revisión adicional de una discrepancia.
+| Command | Datos principales | Resultado / evento |
+| :--- | :--- | :--- |
+| `RequestMerchantAffiliationCommand` | `actorId`, RUC, razón social y primera tienda (dirección, coordenadas, zona horaria) | Crea perfil/tienda `PENDING`; `MerchantAffiliationRequested`. |
+| `VerifyMerchantRucCommand` | `merchantProfileId`, `expectedVersion`; contexto interno o titular autenticado para reintentar | Consulta fiscal fuera de un bloqueo de base de datos; aplica resultado si la versión sigue vigente. `MerchantFiscalVerificationRecorded` solo con respuesta fiscal válida, incluyendo el resultado. |
+| `RegisterRetailStoreCommand` | `actorId`, `merchantProfileId`, nombre, dirección, coordenadas, zona horaria | Titular verificado; `RetailStoreRegistered`. |
+| `UpdateStoreProfileCommand` | `actorId`, `storeId`, datos editables, `expectedVersion` | No permite cambiar titular ni estado fiscal; `StoreProfileUpdated`. |
+| `SetStoreOpeningHoursCommand` | `actorId`, `storeId`, zona horaria e intervalos semanales, `expectedVersion` | Reemplazo atómico; lista vacía configura cierre semanal explícito; `StoreOpeningHoursSet`. |
+| `SetInventoryStockCommand` | `actorId`, `inventoryItemId`, cantidad/unidad, `expectedVersion` | Titular verificado; actualiza cantidades físicas; `InventoryStockSet`. |
+| `ApplyInventoryBatchCommand` | `actorId`, `storeId`, clave de idempotencia, filas de productos/cantidades/unidades/precios opcionales | Lote completo o ninguno; `InventoryBatchApplied` solo cuando todos los cambios soportados fueron aplicados. |
+| `CreatePromotionCommand` | `actorId`, `storeId`, `inventoryItemId`, `catalogEntryId`, descripción, precio/moneda/unidad, inicio/fin | Valida referencias y descuento con información confiable provista por servidor; `PromotionCreated` con estado inicial. |
+| `UpdateScheduledPromotionCommand` | `actorId`, `promotionId`, precio/fechas/descripción, `expectedVersion` | Solo `SCHEDULED` y antes de `startsAt`; revalida descuento y solapamiento; `PromotionUpdated`. |
+| `ActivateDuePromotionCommand` | `promotionId`, hora del servidor | Interno; cambia `SCHEDULED` a `ACTIVE` si está dentro de su ventana; `PromotionActivated`. |
+| `ExpirePromotionCommand` | `promotionId`, hora del servidor | Interno; `SCHEDULED` o `ACTIVE` a `EXPIRED` al alcanzar el fin; `PromotionExpired`. |
+| `CancelPromotionCommand` | `actorId`, `promotionId`, `expectedVersion` | Titular; `SCHEDULED` o `ACTIVE` a `CANCELLED`; `PromotionCancelled`. |
 
-Los Value Objects `UserRef` y `StoreProductRef` actúan como referencias inmutables hacia Identity and Access y Catalog and Pricing sin introducir sus modelos internos directamente. Los precios esperados y observados utilizan `Money`.
+Cada Command devuelve `Result<Long, ApplicationError>` con el ID de su aggregate. No se publican eventos cuando el precio, cantidad, horario o estado permanecen iguales. Para reintentos del job, una promoción ya expirada/cancelada/activada no se vuelve a modificar; la concurrencia se comprueba contra la versión persistida. Los eventos incluyen `eventId`, aggregate ID, versión y fecha del servidor. Los efectos posteriores no se presentan como sincronizados con Catálogo si dicha integración aún no está implementada.
+
+| Query | Entrada | Salida y reglas |
+| :--- | :--- | :--- |
+| `GetMerchantProfileQuery` | ID de perfil, contexto autenticado | Perfil propio o referencia pública limitada si está verificado; sin datos privados innecesarios. |
+| `GetRetailStoreQuery` | `storeId`, contexto de acceso | Información de la tienda; el titular accede a la propia pendiente, el comprador solo a verificadas. |
+| `GetStoreOpeningStatusQuery` | `storeId`; instante tomado del servidor para la vista pública | `OpeningStatusView`: `OPEN`, `CLOSED` o `UNKNOWN`, zona horaria y fecha de evaluación. |
+| `GetStoreInventoryQuery` | `storeId` | Cantidades físicas visibles solo para el titular; no expone stock operativo privado en consultas públicas. |
+| `ValidateInventoryBatchQuery` | `actorId`, `storeId`, filas | `InventoryBatchValidationView` con errores por línea/campo; valida acceso y no guarda cambios. |
+| `GetStorePromotionsQuery` | `storeId`, contexto autenticado | Titular consulta todos los estados de sus promociones. |
+| `GetActiveStorePromotionsQuery` | `storeId`, instante del servidor | Solo tienda verificada y promociones efectivas; valida tiempo, estado y precio habitual vigente antes de ofrecer el descuento. |
+| `ValidateRucQuery` | RUC de 11 dígitos | Consulta fiscal de TS04 sin alterar perfil ni afiliación. Usa `Result<VerificationResult, ApplicationError>` porque el proveedor puede fallar; una consulta favorable no otorga titularidad ni permite al cliente marcarse verificado. |
+
+`RucVerificationGateway` es un puerto de salida de aplicación hacia el proveedor fiscal ya previsto, implementado por `RucVerificationRestAdapter`; no es una ACL entre Bounded Contexts. TS04 exige un plazo total de 5000 ms para la llamada. El adaptador valida la estructura y que la respuesta corresponda al RUC consultado. Timeout se traduce en 504, respuesta inválida en 502 y servicio no disponible en 503. Durante la solicitud se guarda primero `PENDING`; la llamada HTTP no mantiene un bloqueo de escritura abierto. El resultado se aplica en otra transacción corta con control de versión. Si falla el procesamiento automático de `MerchantAffiliationRequested`, el perfil permanece pendiente y el titular puede reintentar; no se registra una verificación negativa ficticia.
+
+#### Ciclos de verificación fiscal y promociones
+
+![Merchant Management Lifecycles](../assets/architecture/classes/merchant-management-states.png)
+
+Crear una promoción futura produce `SCHEDULED`; si ya comenzó y su fin es futuro, produce `ACTIVE`. Un job que llegue después del fin puede pasar directamente de `SCHEDULED` a `EXPIRED`. La edición se limita a promociones programadas antes de comenzar; `ACTIVE` admite cancelación pero no reescritura de sus condiciones. `EXPIRED` y `CANCELLED` son finales en este alcance. El job no reemplaza el filtrado temporal en consultas: al llegar al fin se elimina la condición promocional inmediatamente en el resultado público. El período se interpreta como `[startsAt, endsAt)`.
+
+Los horarios se evalúan en la zona IANA de la tienda; los instantes de promociones se guardan de forma consistente y se comparan con el reloj del servidor. Los intervalos nocturnos utilizan `closesNextDay`; el cálculo considera también el tramo que proviene del día anterior. Una semana configurada sin intervalos significa cierre, mientras una tienda sin horario configurado devuelve `UNKNOWN` y no inventa que esté abierta.
+
+#### Contratos HTTP propuestos de Gestión Comercial
+
+| Método y recurso | Éxito | Acceso / observación |
+| :--- | :--- | :--- |
+| `POST /api/v1/merchants` | 201, perfil y primera tienda pendientes | Titular autenticado; no permite fijar `VERIFIED` desde el cuerpo. |
+| `GET /api/v1/merchants/validate-ruc/{ruc}` | 200, resultado fiscal | Consulta TS04 autenticada y sin efectos de afiliación. |
+| `POST /api/v1/merchants/{id}/verification-attempts` | 200 con perfil actualizado | Titular del perfil `PENDING`; un fallo técnico devuelve el error y conserva estado. |
+| `POST /api/v1/merchants/{id}/stores` | 201, tienda y `Location` | Titular verificado. |
+| `PUT /api/v1/stores/{id}` | 200 | Titular; versión vigente. |
+| `PUT /api/v1/stores/{id}/opening-hours` | 200 | Titular; reemplazo completo y validación semanal. |
+| `GET /api/v1/stores/{id}/opening-status` | 200 | Comprador autenticado para tiendas verificadas. |
+| `GET /api/v1/stores/{id}/inventory` | 200 | Titular del local; cantidades operativas privadas. |
+| `PUT /api/v1/stores/{id}/inventory/{itemId}/stock` | 200 | Titular verificado; stock físico solamente. |
+| `POST /api/v1/stores/{id}/inventory-validations` | 200, preview | Titular; es una Query aunque el transporte sea POST. |
+| `PUT /api/v1/merchants/{id}/inventory` | 200, lote aplicado | Conserva TS05: cada fila identifica `storeId`; se propone un solo local por lote y se comprueba que pertenece al Merchant. Requiere `Idempotency-Key`. |
+| `POST /api/v1/promotions` | 201, promoción y `Location` | Conserva TS08; titular verificado y referencias confiables. |
+| `GET /api/v1/stores/{id}/promotions` | 200 | Titular ve todos los estados; vista pública efectiva mediante filtro `active=true`. |
+| `PUT /api/v1/promotions/{id}` | 200 | Titular; solo programada antes del inicio y versión vigente. |
+| `DELETE /api/v1/promotions/{id}` | 204 | Cancelación lógica por el titular; conserva auditoría. Repetir una cancelación devuelve 204 sin otro evento; una promoción ya expirada no se reabre. |
+
+Los errores siguen `ApplicationError` y `ProblemDetail` de Learning Center: 400 para formato RUC, cantidad, unidad, coordenadas, zona horaria o filas inválidas; 401 para ausencia de autenticación; 403 para titularidad/permiso insuficientes; 404 para IDs inexistentes; 409 para RUC/usuario duplicado, promoción solapada, estado inválido, versión antigua o clave de lote reutilizada con otro contenido; 422 para fechas de promoción incoherentes, conservando TS08. Los casos de infraestructura usan 502/503/504 como se describe arriba. La aplicación propone códigos `MERCHANT_FORBIDDEN`, `RUC_PROVIDER_BAD_GATEWAY`, `RUC_PROVIDER_UNAVAILABLE`, `RUC_PROVIDER_TIMEOUT`, `CATALOG_COORDINATION_UNAVAILABLE` y `CATALOG_REFERENCE_UNAVAILABLE`, con mapeos explícitos en el assembler antes de los sufijos genéricos. Las validaciones de lotes identifican línea, campo y código sin revelar credenciales o respuestas internas del proveedor.
+
+La integración de precios de lotes, el consumo de promociones por Catálogo, el proveedor fiscal concreto y la prueba de titularidad siguen siendo dependencias pendientes. No se declara US24/US26/TS05 implementado por dibujar estos contratos; se especifican las condiciones necesarias y se evita una respuesta de éxito parcial mientras falte la coordinación. Este repositorio contiene diseño para Spring Boot, no el código del servicio.
+
+
+#### Community Price Verification (Supporting Bounded Context)
+
+`PriceDiscrepancy` es el aggregate que conserva la oferta referenciada, el autor, los precios esperado y observado, la fecha de reporte, la confianza calculada y el estado. Contiene al menos una `PriceObservation` y cero o más `VerificationVote`. `VoteType` distingue `CONFIRM` de `REJECT`; sustituye el concepto incompleto `VerificationConfirmation`. `DiscrepancyStatus` distingue `OPEN`, `UNDER_REVIEW`, `ACCEPTED` y `REJECTED`, separando el voto individual de la resolución global.
+
+`VerificationPolicy` encapsula la detección de anomalías, el cálculo de confianza y la decisión opcional. US28 exige retener valores anómalos para revisión; US29 exige que las confirmaciones aumenten la confianza y los rechazos la reduzcan. La fórmula y los umbrales aún requieren acuerdo del equipo: si no hay regla configurada, no se asigna un puntaje ficticio ni se acepta o rechaza automáticamente. `VerificationDecision` se aplica mediante `resolve(...)`: `ACCEPT` pasa a `ACCEPTED`, `REJECT` a `REJECTED` y `REVIEW` a `UNDER_REVIEW`. La propuesta de voto único exige comprobar autor, estado y votos previos antes de modificar el aggregate.
+
+El backend sigue **Learning Center Platform Guide**, ADR-0001, ADR-0002 y ADR-0007: `PriceVerificationCommandService` recibe siete tipos de Command con `handle(...)` y devuelve `Result<Long, ApplicationError>`; `PriceVerificationQueryService` recibe Queries y devuelve listas u opcionales. `VerificationEventHandler` despacha los comandos de las políticas tras los eventos correspondientes; los comandos automáticos son internos, no acciones autorizadas directamente al Buyer. Las implementaciones utilizan el puerto `PriceDiscrepancyRepository`; su adaptador JPA y assembler separan el dominio de las clases `*PersistenceEntity`. La publicación y limpieza de eventos sigue el patrón `DomainEventPublisher` de la guía; el consumidor debe evitar reprocesar un mismo evento con efectos duplicados.
+
+`UserRef` y `StoreProductRef` son referencias locales a Identity and Access y a la oferta de Catalog and Pricing. `Money` exige importes no negativos y la misma moneda al comparar precios. `TrustProfile` conserva el concepto de reputación ya previsto, pero sus reglas de actualización y niveles siguen pendientes y no se deducen del sentido de un único voto. El control TS07 debe serializar la creación por usuario/oferta y consultar los reportes de los últimos 60 segundos para impedir duplicados concurrentes; en la frontera REST se representa como HTTP 429. Un voto duplicado se propone como conflicto HTTP 409, sin generar un nuevo voto.
 
 ![Community Price Verification Class Diagram](../assets/architecture/classes/community-price-verification.png)
 
-#### Analytics and Engagement
+#### Contratos propuestos del backend de Verificación Comunitaria
 
-El Bounded Context **Analytics and Engagement** se encarga de registrar eventos relevantes y transformarlos en métricas útiles para los comerciantes.
+La propuesta sigue los contratos de aplicación de **Learning Center Platform Guide** (ADR-0001 y ADR-0007). Los Commands y Queries se representan como records inmutables. Los identificadores de usuario se obtienen del principal autenticado en el servidor; no se confía en un `reporterId`, `voterId` o `reviewerId` enviado en el cuerpo HTTP. Los comandos internos de políticas no se exponen como acciones públicas. No se incorpora ACL: los usuarios y las ofertas se representan por sus identificadores.
 
-`MetricEvent` representa interacciones como visitas a establecimientos, visualizaciones de productos, comparaciones de precios, ventas perdidas e interacciones con promociones.
+| Command | Datos del contrato de aplicación | Origen y resultado |
+| :--- | :--- | :--- |
+| `ReportPriceDiscrepancyCommand` | `reporterId`, `catalogEntryId`, `expectedPrice`, `observedPrice`, `currency`, `observedAt` | Buyer autenticado; devuelve el ID del reporte mediante `Result<Long, ApplicationError>`. `expectedPrice` es una instantánea declarada del precio visto, no una actualización del catálogo ni una validación fiscal/comercial. |
+| `ConfirmReportedPriceCommand` | `discrepancyId`, `voterId` | Buyer autenticado; registra `CONFIRM` si es otro comprador, el reporte está abierto y todavía no votó. |
+| `RejectReportedPriceCommand` | `discrepancyId`, `voterId` | Mismas restricciones; registra `REJECT`, sin resolver por sí solo el reporte. |
+| `FlagDiscrepancyForReviewCommand` | `discrepancyId`, `sourceEventId` | Interno; retiene un reporte anómalo o cuyo control de anomalías no pueda evaluarse. |
+| `RecalculatePriceConfidenceCommand` | `discrepancyId`, `sourceEventId` | Interno; lee todos los votos vigentes y aplica la fórmula configurada. Sin fórmula, conserva el puntaje sin asignar y no emite un evento de recálculo ficticio. |
+| `ResolvePriceDiscrepancyCommand` | `discrepancyId`, `decision`, `expectedVersion`, `sourceEventId` | Interno; solo para `OPEN`, con regla configurada y versión vigente. Puede aceptar, rechazar o retener para revisión. |
+| `ReviewPriceDiscrepancyCommand` | `discrepancyId`, `reviewerId`, `decision`, `reason`, `expectedVersion` | Revisor autenticado con permiso `price-reports:resolve`; solo desde `UNDER_REVIEW`, con `ACCEPT` o `REJECT` y motivo obligatorio. |
 
-`AnalyticsService` registra dichos eventos y genera posteriormente objetos `MerchantMetrics` y `MerchantReport`. La interfaz `MetricsCalculator` abstrae la lógica utilizada para calcular las métricas correspondientes a un período determinado.
+En el contrato público de TS07 se conservan `productId` y `storeId`: la capa REST debe normalizarlos al `catalogEntryId` de la oferta antes de construir el Command. La correspondencia debe ser inequívoca y validada mediante los datos de referencia disponibles; no se acepta un ID de oferta arbitrario ni se introduce una llamada entre contextos en este diseño. El mecanismo de provisión de esos datos de referencia queda como dependencia de integración para el backend. Los importes son no negativos, la moneda debe coincidir y los dos precios deben diferir; `observedAt` no puede ser posterior a la hora del servidor. La ventana TS07 utiliza `reportedAt`, generado por el servidor, no la fecha indicada por el comprador.
 
-`ReportingPeriod` encapsula un intervalo inmutable cuyo inicio no supera el fin y se utiliza para consultar y evaluar eventos. `Money` expresa el importe de ventas perdidas. De esta manera, el contexto mantiene separada la recopilación de eventos de la generación de información analítica destinada al Merchant.
+| Query | Datos | Retorno y acceso |
+| :--- | :--- | :--- |
+| `GetPendingPriceReportsQuery` | Sin filtros en esta primera versión | `List<PriceDiscrepancy>`; solo reportes `OPEN`, sin incluir la cola de moderación. |
+| `GetPriceDiscrepancyByIdQuery` | `discrepancyId` | `Optional<PriceDiscrepancy>`; la autorización se verifica antes de revelar el detalle. |
+| `GetPriceConfidenceQuery` | `discrepancyId` | `Optional<PriceConfidenceView>` con votos favorables, desfavorables, puntaje opcional y estado. |
+| `GetModerationQueueQuery` | Sin filtros en esta primera versión | `List<PriceDiscrepancy>` con estado `UNDER_REVIEW`; requiere `price-reports:resolve`. |
+
+Los retornos de aplicación se transforman a Resources REST mediante assemblers, siguiendo Learning Center. No se serializan directamente aggregates ni entidades JPA. La revisión manual es una propuesta de permiso sobre el mecanismo de autorización existente; no agrega un rol nuevo y su asignación a operadores debe definirse antes del uso real. Para la consulta de detalle y confianza se propone permitir reportes `OPEN` y finales a usuarios autenticados; un reporte `UNDER_REVIEW` solo es visible a su autor o a un revisor autorizado. La consulta de confianza no revela identificadores individuales de votantes.
+
+#### Eventos y procesamiento de políticas
+
+Todos los eventos incluyen `eventId`, `discrepancyId`, `occurredAt` y `aggregateVersion`, asignados por el servidor; el identificador del evento se conserva en sus reintentos. Solo las operaciones aceptadas registran eventos. `DomainEventPublisher.publishAndClearEvents(saved)` se invoca desde el adaptador después de guardar y disponer del identificador persistido, tal como propone ADR-0005 de Learning Center.
+
+| Evento | Datos adicionales | Manejador y efecto |
+| :--- | :--- | :--- |
+| `PriceDiscrepancyReported` | `catalogEntryId`, `reporterId` | `VerificationEventHandler.on(...)` evalúa anomalías e invoca `FlagDiscrepancyForReviewCommand` si corresponde. La creación y este control inicial comparten transacción, sin exponer un estado abierto intermedio. Si no hay regla de anomalías disponible, se retiene para revisión. |
+| `ReportedPriceConfirmed` | `voteId`, `voterId` | El manejador despacha `RecalculatePriceConfidenceCommand`. |
+| `ReportedPriceRejected` | `voteId`, `voterId` | Igual recálculo, conservando el sentido negativo del voto. |
+| `PriceConfidenceRecalculated` | `confidenceScore` | El manejador evalúa la política y despacha `ResolvePriceDiscrepancyCommand` únicamente si devuelve una decisión y la versión sigue vigente. |
+| `DiscrepancyFlaggedForReview` | Estado resultante `UNDER_REVIEW` | Actualiza las consultas de moderación; no vuelve a disparar la revisión inicial. |
+| `PriceDiscrepancyResolved` | `decision`, estado resultante | Resultado de la política interna; no modifica el precio del catálogo. |
+| `PriceDiscrepancyReviewed` | `reviewId`, `reviewerId`, `decision` | Resultado de la revisión humana; tampoco altera el catálogo ni dispara otro voto. |
+
+La propuesta de idempotencia utiliza `processed_verification_events` con `UNIQUE(event_id, handler_name)`: el manejador reclama la combinación antes de ejecutar el efecto. La marca y la mutación del aggregate se guardan en la misma transacción; si hay un fallo, ambas se revierten. Si la combinación ya existe, el manejador termina sin mutar el reporte ni publicar otro evento. Esto protege los reintentos de eventos y no sustituye `UNIQUE(discrepancy_id, voter_id)`, que protege las solicitudes de voto.
+
+El campo `version` de `PriceDiscrepancyPersistenceEntity` utiliza bloqueo optimista en la implementación JPA; el dominio conserva un valor de versión sin anotaciones del framework. El recálculo siempre utiliza el conjunto actual de votos. Una decisión sobre una versión antigua no se aplica: se vuelve a leer el estado y se reevalúa la regla, sin reabrir reportes finales. Los fallos de manejadores que afectan una regla obligatoria no se silencian. La publicación en memoria de Spring no garantiza por sí sola entrega durable tras una caída; este diseño no declara una garantía de mensajería durable ni incorpora un outbox.
+
+#### Moderación y transiciones permitidas
+
+![Price Discrepancy Lifecycle](../assets/architecture/classes/community-price-verification-states.png)
+
+| Estado de origen | Acción autorizada | Estado resultante |
+| :--- | :--- | :--- |
+| Creación | Reporte válido, control inicial sin anomalía | `OPEN` |
+| Creación | Anomalía detectada o control de anomalías no disponible | `UNDER_REVIEW` |
+| `OPEN` | Confirmación o rechazo válido de otro comprador | `OPEN`, salvo que después aplique una regla de resolución configurada |
+| `OPEN` | Política configurada solicita moderación | `UNDER_REVIEW` |
+| `OPEN` | Política configurada acepta o rechaza | `ACCEPTED` o `REJECTED` |
+| `UNDER_REVIEW` | Revisor con permiso acepta o rechaza con motivo | `ACCEPTED` o `REJECTED` |
+| `ACCEPTED` / `REJECTED` | Voto, reapertura o nueva decisión sobre ese mismo reporte | No permitido; no hay cambio de estado |
+
+`discrepancy_reviews` registra una decisión humana final por reporte con revisor, decisión, motivo y fecha del servidor. La revisión y el cambio de estado se guardan atómicamente; la restricción por reporte y el control de versión impiden decisiones finales concurrentes. El alcance no incluye reapertura ni modificación de votos.
+
+#### Contratos HTTP y errores propuestos
+
+| Método y recurso | Resultado satisfactorio | Autorización |
+| :--- | :--- | :--- |
+| `POST /api/v1/reports/prices` | `201 Created`, Resource del reporte y `Location` | Buyer autenticado; conserva el endpoint de TS07. |
+| `POST /api/v1/reports/prices/{id}/votes` | `201 Created`, Resource del voto; cuerpo con `voteType` igual a `CONFIRM` o `REJECT` | Buyer autenticado, distinto del autor, reporte `OPEN`. |
+| `GET /api/v1/reports/prices` | `200 OK`, lista de reportes abiertos | Usuario autenticado. |
+| `GET /api/v1/reports/prices/{id}` | `200 OK`, Resource del reporte | Se aplica la visibilidad indicada para la Query. |
+| `GET /api/v1/reports/prices/{id}/confidence` | `200 OK`, Resource de confianza | Misma visibilidad; sin identificadores de votantes. |
+| `GET /api/v1/reports/prices/moderation` | `200 OK`, reportes retenidos | Permiso `price-reports:resolve`; ruta estática distinta de `{id}`. |
+| `POST /api/v1/reports/prices/{id}/reviews` | `201 Created`, Resource de revisión; cuerpo con `decision`, `reason`, `expectedVersion` | Permiso `price-reports:resolve`; únicamente `UNDER_REVIEW`. |
+
+| Condición | Código de aplicación o seguridad | HTTP |
+| :--- | :--- | :---: |
+| Importes, moneda, identificadores, fecha, voto o decisión inválidos; motivo vacío | `VALIDATION_ERROR` | 400 |
+| Token ausente o inválido | Rechazo del filtro de autenticación | 401 |
+| Autor intentando votar, permiso de moderación ausente o acceso fuera de la visibilidad permitida | `PRICE_VERIFICATION_FORBIDDEN` o rechazo de autorización | 403 |
+| Reporte u oferta de referencia inexistente | `PRICE_DISCREPANCY_NOT_FOUND` / `STORE_OFFER_NOT_FOUND` | 404 |
+| Voto repetido, reporte fuera de estado válido, revisión ya realizada o versión desactualizada | `VERIFICATION_VOTE_CONFLICT`, `DISCREPANCY_STATE_CONFLICT`, `DISCREPANCY_REVIEW_CONFLICT`, `DISCREPANCY_VERSION_CONFLICT` | 409 |
+| Mismo usuario/oferta con reporte creado hace menos de 60 segundos | `PRICE_REPORT_RATE_LIMIT_EXCEEDED` | 429 |
+| Error inesperado de infraestructura | `UNEXPECTED_ERROR` | 500 |
+
+Siguiendo Learning Center, las respuestas de error usan `ProblemDetail` con `type`, `title`, `status`, `detail` y extensión `code`; los mensajes se localizan mediante los recursos de idioma. En Preciazo debe añadirse al assembler el mapeo explícito de `PRICE_REPORT_RATE_LIMIT_EXCEEDED` a 429 y de `PRICE_VERIFICATION_FORBIDDEN` a 403, antes de la regla genérica. El resto conserva los sufijos `_NOT_FOUND` y `_CONFLICT`. Para TS07, `Retry-After` expresa los segundos restantes hasta `último reportedAt + 60 segundos`, redondeados hacia arriba; al cumplirse los 60 segundos deja de aplicarse ese rechazo. No se incluyen credenciales ni detalles internos de persistencia en los errores.
+
+
+
+#### Analytics and Engagement (Supporting Bounded Context)
+
+La propuesta de AV2 se concentra en los dos indicadores de US27: cuántas veces una tienda fue sugerida como parada durante el mes y cuántos usuarios interactuaron con sus promociones. Se eliminan de este diseño el importe de ventas perdidas y el puntaje de engagement: las historias no definen sus fuentes, fórmula ni unidad. No se estiman ventas, compras o visitas físicas a partir de vistas de pantalla.
+
+`MetricEvent` es un aggregate de observación inmutable, con tienda, fuente, identidad del hecho, huella del contenido, tiempo ocurrido y recibido, y referencias específicas según el tipo. `ROUTE_STOP_SUGGESTED` requiere routeId y routeVersion, sin promoción; `PROMOTION_INTERACTED` requiere promotionId y actorId, sin campos de ruta. No se almacena una referencia polimórfica ambigua `subject_id` ni metadatos arbitrarios como fuente de identidad. Los identificadores de otros contextos son referencias locales, sin importar sus aggregates.
+
+Una aparición en ruta significa una tienda seleccionada una vez dentro de una versión de optimización persistida exitosamente. `RouteGenerated` y `RouteRecalculated` podrían aportar esos hechos mediante un contrato futuro de entrega confiable. Un recálculo exitoso es una nueva sugerencia; abrir, confirmar o reintentar la misma versión no añade otra. El sourceKey de ruta se deriva de routeId y routeVersion, con storeId en la identidad única. El endpoint público de interacciones no permite registrar esos hechos internos.
+
+Una interacción de promoción se acepta cuando el Buyer autenticado activa el control explícito de interacción de una promoción efectiva; no se registra por cada consulta al API. actorId y hora se obtienen en el servidor, y tienda y vigencia se verifican con referencias confiables. El sourceKey incorpora actorId y la clave UUID de interacción, dentro del alcance de la tienda. Un reintento con la misma identidad y contenido devuelve la observación original, sin añadir otro evento; reutilizarla con contenido distinto produce conflicto. La huella compara campos semánticos, excluyendo receivedAt y la nueva hora de un reintento. La aplicación busca primero duplicados antes de volver a validar la vigencia de una observación previamente aceptada, tras comprobar el actor y la identidad de la solicitud. La unicidad en base de datos resuelve carreras concurrentes, no basta un exists previo.
+
+`MetricsCalculator` construye `MerchantMetrics` y `PromotionMetrics` como vistas de lectura. Cuenta apariciones en rutas y, por promoción, interacciones aceptadas y usuarios distintos. Por ejemplo, si A interactúa dos veces con P1 y una con P2, y B una vez con P2, P1 tiene dos interacciones y un usuario; P2, dos interacciones y dos usuarios; la tienda tiene dos usuarios únicos. El total de usuarios de la tienda se obtiene con DISTINCT sobre todas sus promociones; no suma usuarios por promoción porque una persona puede aparecer en varias. Repetir interacciones legítimas aumenta su conteo, pero una persona sigue contando una sola vez dentro del período. Consultar estadísticas históricas no exige que la promoción siga activa; su cancelación o expiración no borra observaciones válidas anteriores.
+
+`ReportingPeriod` representa un mes calendario en la zona horaria confiable de la tienda y sus límites UTC semiabiertos `[fromInclusive, toExclusive)`. Los eventos se asignan por occurredAt, no por receivedAt. Las observaciones tardías pueden modificar la vista de un mes anterior. Los resultados indican evaluatedAt e `ingestionCoverage=UNKNOWN`: cero significa que no hay observaciones aceptadas en ese conjunto, no demuestra ausencia de actividad real. No se promete cobertura completa mientras falten entrega y conciliación de las fuentes. No se suministran listas de compradores ni sus identificadores al Merchant.
+
+`MerchantReport` conserva una fotografía inmutable de esos mismos conteos y del período. Su generación se mantiene como capacidad ya prevista del contexto, con alcance US27; no incorpora reportes financieros nuevos. Las filas por promoción se copian junto al resumen en una única transacción y desde una lectura consistente. Los datos tardíos cambian las métricas consultadas, sin reescribir reportes guardados. La clave de generación es única por tienda: repetirla con el mismo mes devuelve el mismo reporte, aunque existan datos más recientes; cambiar el mes con la misma clave produce 409.
 
 ![Analytics and Engagement Class Diagram](../assets/architecture/classes/analytics-engagement.png)
+
+![Analytics and Engagement Backend Contracts](../assets/architecture/classes/analytics-engagement-backend.png)
+
+Los contratos siguen Learning Center Platform Guide: Commands/Queries como records, `handle(...)` separado (ADR-0007), `Result<T, ApplicationError>` en comandos (ADR-0001), dominio sin JPA y adaptadores con assemblers (ADR-0002). `AnalyticsWriteReceipt` contiene resourceId y created: permite devolver 201 al crear y 200 al reconocer un reintento sin consultas adicionales propensas a carreras. Los contratos de aplicación propuestos son:
+
+| Contrato | Entrada y resultado |
+| --- | --- |
+| `RecordPromotionInteractionCommand` | actorId autenticado, promotionId y interactionKey; devuelve `Result<AnalyticsWriteReceipt, ApplicationError>` con el ID aceptado. storeId, source y occurredAt no son afirmaciones aceptadas del cuerpo HTTP. |
+| `RecordRouteStopSuggestionCommand` | Interno: routeId, routeVersion, storeId y occurredAt de una optimización confirmada como persistida por la fuente. Devuelve `Result<AnalyticsWriteReceipt, ApplicationError>`. La fuente se determina por el canal interno autorizado; no es un campo de confianza elegido por el cliente. |
+| `GenerateMerchantReportCommand` | ownerId autenticado, storeId, month y requestKey; devuelve `Result<AnalyticsWriteReceipt, ApplicationError>`. Se verifica la titularidad actual antes de devolver también un reporte repetido. |
+| `GetStoreMonthlyMetricsQuery` | ownerId, storeId y month; devuelve `MerchantMetrics` con conteos observados, período, evaluación y cobertura. |
+| `GetPromotionMonthlyMetricsQuery` | ownerId, storeId, promotionId y month; devuelve `Optional<PromotionMetrics>` enriquecida con período, evaluación y cobertura. Una promoción existente sin observaciones devuelve conteos cero; el opcional vacío representa ausencia del recurso. |
+| `GetMerchantReportByIdQuery` | ownerId y reportId; devuelve `Optional<MerchantReportView>`, incluyendo resumen y filas congeladas. |
+
+`AnalyticsReferenceProvider` define un puerto para titularidad, zona horaria y referencia de promoción efectiva o histórica. Su provisión sigue pendiente y no equivale a una ACL o a un cliente entre contextos implementado. La falta de datos necesarios produce 503; no se confía en ownerId, storeId, modalidad de fuente o tiempos enviados por el cliente para autorizar y atribuir eventos. No existe un endpoint público para fingir apariciones en rutas. El mecanismo de entrega desde Route Planning, la política de retención de actorId y las reglas contra interacciones artificiales son decisiones pendientes; la deduplicación de reintentos por sí sola no resuelve fraude ni robots.
+
+`MetricEventRepository` y `MerchantReportRepository` son puertos de dominio. Sus adaptadores `MetricEventRepositoryImpl` y `MerchantReportRepositoryImpl` usan los repositorios Spring Data `*PersistenceRepository` y `*PersistenceAssembler`. Solo `MetricEventPersistenceEntity`, `MerchantReportPersistenceEntity` y `PromotionReportRowPersistenceEntity` llevan JPA. Siguiendo ADR-0005, el adaptador llama `DomainEventPublisher.publishAndClearEvents(saved)` después del guardado de un aggregate nuevo. Un duplicado no se vuelve a guardar ni publica otro `MetricEventRecorded` o `MerchantReportGenerated`. Este patrón no acredita entrega durable, un outbox o una suscripción ya operativa. Las consultas y la generación de conteos usan una misma instantánea consistente; no actualizan un aggregate de métricas con cada lectura.
+
+| Endpoint propuesto | Resultado y control |
+| --- | --- |
+| `POST /api/v1/promotions/{promotionId}/interactions` | Buyer autenticado; `Idempotency-Key` obligatorio. 201 y Location para observación nueva; 200 para reintento equivalente. |
+| `GET /api/v1/stores/{storeId}/metrics?month=YYYY-MM` | 200 con `MerchantMetrics`; solo titular actual. |
+| `GET /api/v1/stores/{storeId}/promotions/{promotionId}/metrics?month=YYYY-MM` | 200 con estadísticas de la promoción y contexto temporal/cobertura; solo titular, incluso para promociones históricas. |
+| `POST /api/v1/stores/{storeId}/reports` | month en el cuerpo e `Idempotency-Key` obligatorio; solo titular. 201 y Location para reporte nuevo; 200 para reintento equivalente. |
+| `GET /api/v1/merchant-reports/{reportId}` | 200 con fotografía guardada; solo titular actual de la tienda. |
+
+Los assemblers convierten cuerpos en records y resultados en Resources; las consultas pueden propagar fallos de autorización o referencia mediante el manejo compartido de errores, sin convertirlos en una colección vacía. Los errores se expresan como `ApplicationError` y `ProblemDetail` localizable: 400 para mes o clave inválidos y datos internos inconsistentes; 401 sin autenticación; 403 para rol o titularidad insuficientes; 404 para tienda, promoción o reporte inexistente; 409 para clave reutilizada con otro contenido o promoción que ya no sea efectiva al registrar una interacción nueva. Se propone `ANALYTICS_FORBIDDEN` con mapeo explícito 403 y `ANALYTICS_REFERENCE_UNAVAILABLE` con mapeo explícito 503. Ningún fallo de captura se responde como éxito ni incrementa conteos. Estos son diseños para implementar en Spring Boot; el repositorio no contiene el backend operativo.
+
+#### Identity and Access (Generic Bounded Context)
+
+La propuesta para US06 y TS01 aplica Learning Center Platform Guide: dominio sin anotaciones JPA (ADR-0002), contratos de aplicación CQRS con `handle(record)` (ADR-0007), Commands con `Result<T, ApplicationError>` (ADR-0001), publicación tras guardar (ADR-0005) y JWT sin sesiones persistidas (ADR-0006). Se retiran `AuthSession` y su operación de revocación individual: no corresponden al modelo stateless elegido. Se conserva `/api/v1/auth/login` por el contrato explícito TS01; es una adaptación deliberada respecto de `/api/v1/tokens` de Learning Center, no un segundo flujo de autenticación.
+
+`User` es el aggregate de la cuenta. Conserva correo canónico, `PasswordHash`, estado, roles, contador de fallos, lockedUntil, securityCheckRequired y versión optimista. `EmailAddress` valida sintaxis, elimina espacios exteriores y normaliza el caso; registro y login usan exactamente la misma forma canónica, con unicidad en base de datos. `HashingService` codifica/verifica la contraseña fuera del dominio; el adaptador BCrypt sigue la guía. Solo se persiste el hash codificado; contraseña, prueba de seguridad y bearer token no aparecen en eventos, recursos, registros ni mensajes de error. Longitudes permitidas, parámetros del encoder y demás reglas de contraseña requieren configuración coherente, sin truncar silenciosamente entradas.
+
+`AccountLockoutPolicy` exige umbral positivo y duración positiva configurados; no se inventan valores. Cada contraseña incorrecta de una cuenta activa incrementa atómicamente los fallos. El intento que alcanza el umbral guarda lockedUntil y exige comprobación de seguridad; responde 429. Antes de ese instante, el intento incorrecto responde 401. Durante el bloqueo se rechaza el ingreso sin extender el plazo ni consumir otra prueba. Al llegar exactamente a lockedUntil se permite iniciar la comprobación, pero no se limpia por el solo transcurso del tiempo.
+
+Tras expirar el plazo, `SecurityCheckVerifier` debe validar una prueba vigente, de un solo uso y vinculada al sujeto/intento según el protocolo pendiente. No se acepta un booleano enviado por el cliente como prueba. El primer intento con prueba válida limpia el plazo antiguo e inicia una nueva ventana de fallos; si la contraseña es incorrecta, registra el primer fallo de esa ventana y mantiene securityCheckRequired. Los siguientes intentos siguen requiriendo pruebas nuevas y aumentan el contador, sin reiniciarlo en cada petición. Alcanzar de nuevo el umbral establece otro bloqueo. Únicamente contraseña correcta y comprobación requerida válida restablecen todo el control y permiten emitir un token. Proveedor, protocolo de prueba, plazo de respuesta y enlace al intento siguen pendientes; si no está disponible, no se permite saltar la comprobación y se devuelve 503 sin cambiar el control de la cuenta.
+
+| Condición de ingreso | Decisión y persistencia |
+| --- | --- |
+| Correo desconocido o contraseña incorrecta bajo el umbral | 401 con error genérico; una cuenta conocida incrementa fallos. Un correo inexistente no crea una cuenta. |
+| Se alcanza el umbral | 429; guarda contador, plazo y obligación de comprobación. |
+| Ahora es anterior a lockedUntil | 429 con Retry-After; conserva plazo y contador. |
+| Bloqueo expirado, prueba ausente o inválida | 401 con indicación de comprobación requerida; conserva estado y no emite token. |
+| Prueba requerida no verificable por indisponibilidad | 503; conserva estado y no emite token. |
+| Contraseña y prueba requerida válidas, cuenta activa | Restablece control, guarda la decisión y responde 200 con token firmado y expiración. |
+| Cuenta suspendida o desactivada | Deniega ingreso; el plazo temporal no reactiva el estado de cuenta. |
+
+El control de fallos debe persistirse incluso cuando el caso de uso devuelve un `Result` de autenticación fallida: no se provoca rollback por tratar ese resultado esperado como una excepción transaccional. Se comprueba la versión al escribir y se reevalúa el estado ante concurrencia; solo un intento confirmado con la versión vigente modifica el contador. Una prueba consumida se conserva como verificación local del intento en curso y no se envía nuevamente al proveedor durante reintentos internos; si no puede completarse la operación, el cliente necesita una nueva prueba. La firma y el guardado deben terminar correctamente antes de devolver el token; un fallo de infraestructura no devuelve autenticación exitosa. El evento `SignInAccepted` representa una decisión guardada, no acredita entrega del token al dispositivo. `SignInFailed` y `AccountTemporarilyLocked` describen cambios persistidos de una cuenta conocida; no se inventan eventos para correos inexistentes o el simple paso del tiempo.
+
+`Role` y `Permission` conservan membresías y capacidades por resource/action. Un seed interno idempotente prepara `BUYER`, `MERCHANT` y su catálogo permitido, manteniendo identificadores y asignaciones existentes. El registro acepta únicamente una persona de esa lista, no IDs de roles ni permisos arbitrarios. Los permisos de cada persona se limitan a los casos de uso de comprador o comerciante sobre recursos propios; la titularidad se valida además en el contexto propietario. La capacidad privilegiada `price-reports:resolve` no se concede por registro público ni por ser Merchant. Su aprovisionamiento y la administración del ciclo de vida de cuentas/roles quedan fuera de estos endpoints; no se inventa un rol administrador adicional. Ser MERCHANT no acredita RUC verificado ni titularidad de una tienda: Merchant Management conserva esas comprobaciones.
+
+`TokenService` firma un access token con sub igual al identificador estable de usuario y fechas de emisión/expiración. Clave desde el entorno, algoritmo permitido, emisor, audiencia y TTL requieren configuración; el adaptador valida firma, claims y vencimiento sin aceptar el algoritmo libremente desde el token. No se guardan tokens, refresh tokens ni listas de sesiones. Cerrar sesión elimina el token del cliente y no promete invalidar copias antes de expirar. El bloqueo temporal de US06 afecta al nuevo login, no revoca tokens previos. La suspensión/desactivación sí se aplica al cargar el usuario actual en cada solicitud protegida.
+
+`BearerAuthorizationRequestFilter` valida el bearer JWT y carga estado y permisos vigentes desde IAM. No usa roles aportados por el cuerpo HTTP ni confía en un grant antiguo del JWT. Stateless significa que no existe sesión autenticada persistida, no que se omita la consulta de autorización. Un usuario inexistente/inactivo o token inválido produce 401; identidad válida sin permisos produce 403. No se sustituyen esas decisiones por los guards del frontend. La autorización sobre lista, tienda, reporte o ruta se completa en sus propios contextos por identidad, sin ACL. No se expone un listado general de usuarios.
+
+![Identity and Access Class Diagram](../assets/architecture/classes/identity-access.png)
+
+![Identity and Access Backend Contracts](../assets/architecture/classes/identity-access-backend.png)
+
+![Identity and Access Sign-in States](../assets/architecture/classes/identity-access-states.png)
+
+| Contrato de aplicación | Datos y resultado |
+| --- | --- |
+| `RegisterUserCommand` | email, contraseña transitoria y persona BUYER/MERCHANT; devuelve `Result<Long, ApplicationError>`. La aplicación valida política, codifica y registra usuario/rol atómicamente. |
+| `AuthenticateUserCommand` | email, contraseña transitoria y securityProof opcional; devuelve `Result<AccessTokenResult, ApplicationError>`. El cliente no fija estado, contador, roles, usuario sujeto ni expiración. |
+| `SeedAccessCatalogCommand` | Interno al arranque; catálogo fijo permitido, sin payload HTTP. Devuelve `Result<Boolean, ApplicationError>` indicando si hubo cambios; ausencia de configuración o seed requerido impide readiness satisfactoria. |
+| `GetMyProfileQuery` | userId del principal; devuelve `Optional<UserProfileView>` con ID, correo y estado, sin hash. |
+| `GetMyAccessQuery` | userId del principal; devuelve `UserAccessView` con roles y permisos actuales. No autoriza consultar otro usuario modificando un ID en la URL. |
+
+`UserCommandService` y `RoleCommandService` separan los Commands de `UserQueryService`; las implementaciones usan puertos `UserRepository` y `RoleRepository`. Los adaptadores `UserRepositoryImpl` y `RoleRepositoryImpl` delegan a `UserPersistenceRepository` y `RolePersistenceRepository` de Spring Data, con `UserPersistenceAssembler` y `RolePersistenceAssembler`. Solo las clases `*PersistenceEntity` llevan JPA. Tras guardar, el adaptador usa `DomainEventPublisher.publishAndClearEvents(saved)` según ADR-0005, con datos mínimos sin secretos y sin prometer entrega durable. Un seed sin cambios no reescribe membresías ni emite eventos ficticios; se conserva el ID persistido de cada rol.
+
+| Endpoint propuesto | Resultado y control |
+| --- | --- |
+| `POST /api/v1/users` | Registro público; 201 con perfil sin secretos y Location. Persona limitada a BUYER/MERCHANT. Es una capacidad de registro ya prevista en el diseño, sin confundirla con la suscripción de correo de US04. |
+| `POST /api/v1/auth/login` | Contrato TS01; 200 con accessToken, tokenType Bearer y expiresAt; 401 ante credenciales no coincidentes. US06 añade 429 durante bloqueo y 503 cuando no puede verificarse una prueba requerida. |
+| `GET /api/v1/users/me` | Bearer válido y usuario activo; 200 con perfil propio. |
+| `GET /api/v1/users/me/access` | Bearer válido y usuario activo; 200 con roles y permisos actuales propios. |
+
+Los cuerpos REST se transforman en records y los resultados en Resources mediante assemblers. Los errores usan `ApplicationError` y `ProblemDetail` localizable: 400 para formatos, persona o contraseña fuera de política; 401 `IAM_AUTHENTICATION_FAILED` para credenciales, cuenta inactiva o prueba requerida inválida; 403 `IAM_FORBIDDEN` para permisos; 409 para correo canónico duplicado; 429 `IAM_LOGIN_TEMPORARILY_BLOCKED`, con Retry-After derivado del plazo guardado; 503 `IAM_SECURITY_CHECK_UNAVAILABLE` o `IAM_AUTHORIZATION_UNAVAILABLE` para dependencias necesarias no disponibles. Los mapeos de 401/403/429/503 se especifican explícitamente antes de los sufijos genéricos de Learning Center. El error de autenticación no distingue entre correo inexistente y contraseña incorrecta; para el correo desconocido se verifica un hash ficticio configurado, sin afirmar igualdad perfecta de tiempos. Las validaciones de entrada no devuelven contraseñas ni pruebas en details.
+
+La protección de intentos para correos inexistentes, límites por origen, recuperación de cuenta, configuración exacta de contraseñas/JWT y proveedor de comprobación siguen pendientes del equipo. No se declara US06 implementada por haber dibujado el bloqueo. Este repositorio contiene la propuesta de diseño para Spring Boot y no una implementación del filtro, el proveedor o los endpoints.
 
 En conjunto, los Class Diagrams permiten representar la estructura interna de cada Bounded Context sin construir un único modelo global compartido. Esta separación mantiene alineado el diseño orientado a objetos con las fronteras establecidas mediante Domain-Driven Design y facilita que cada módulo evolucione manteniendo responsabilidades claramente delimitadas.
 
 ## 4.8. Database Design
 
-El diseño de base de datos de **Preciazo** se organiza siguiendo los límites definidos previamente mediante Domain-Driven Design. En lugar de representar el almacenamiento únicamente como un modelo relacional global, se presentan vistas específicas para cada Bounded Context con el objetivo de evidenciar qué información pertenece a cada parte del dominio.
+El diseño de base de datos de **Preciazo** se organiza siguiendo los límites definidos previamente mediante Domain-Driven Design y respetando la jerarquía **Core → Soporte → Genérico**. En lugar de representar el almacenamiento únicamente como un modelo relacional global, se presentan vistas específicas para cada Bounded Context con el objetivo de evidenciar qué información pertenece a cada parte del dominio.
 
 Cada diagrama identifica las entidades persistentes, sus atributos principales, claves primarias, claves foráneas, restricciones de unicidad y relaciones. Para atender la observación del profesor, **las claves primarias (PK) utilizan `BIGINT`** y sus claves foráneas (FK) y referencias externas (REF) mantienen el mismo tipo. Las claves simples se generan en persistencia mediante identidad o secuencia; las claves compuestas de tablas de asociación conservan los identificadores de las entidades relacionadas. La sintaxis de generación se definirá según el motor relacional elegido.
 
@@ -1919,7 +2438,7 @@ Cuando un contexto necesita referenciar información perteneciente a otro Bounde
 
 ### 4.8.1. Database Diagrams
 
-Los Database Diagrams de **Preciazo** se presentan primero mediante una vista general y posteriormente mediante vistas específicas para cada Bounded Context.
+Los Database Diagrams de **Preciazo** se presentan primero mediante una vista general y posteriormente mediante vistas específicas para cada Bounded Context, ordenadas de Core a Genérico.
 
 #### Database Overview
 
@@ -1929,93 +2448,102 @@ La vista global también evidencia restricciones importantes del modelo, como la
 
 ![Preciazo Database Overview](../assets/architecture/database/database-overview.png)
 
-#### Identity and Access
+#### Catalog and Pricing (Core Bounded Context)
 
-El modelo de persistencia de **Identity and Access** administra la información necesaria para la identificación, autorización y manejo de sesiones.
+`products` conserva nombre, marca, categoría, `sale_unit` y el par opcional `net_content_quantity` / `net_content_unit`. Ambos campos de contenido están presentes o ausentes conjuntamente; si existen, la cantidad es positiva. `catalog_entries` conserva la oferta canónica mediante `sale_price`, `currency`, `stock_status`, fecha de actualización y versión, con `UNIQUE(store_id, product_id)`.
 
-La tabla `users` almacena las cuentas registradas, mientras que `roles` y `permissions` representan los mecanismos de autorización. Las tablas intermedias `user_roles` y `role_permissions` modelan las relaciones de muchos a muchos existentes entre usuarios, roles y permisos.
+`price_snapshots` conserva el precio inicial y cada cambio efectivo, con su moneda, unidad de venta y contenido neto disponible en ese momento. Su inserción y la modificación de la oferta son atómicas; repetir el mismo precio no añade otro snapshot. El índice `(catalog_entry_id, captured_at, id)` permite ordenar y consultar el histórico de US19. No se generan muestras diarias ficticias ni se atribuye una fecha de actualización nueva a un precio que no cambió.
 
-Finalmente, `auth_sessions` registra las sesiones asociadas a cada usuario, incluyendo su fecha de emisión, expiración y estado de revocación.
+`product_substitutions` registra candidatos direccionales explícitos mediante una clave compuesta y prohíbe la relación de un producto consigo mismo. La compatibilidad se comprueba antes de sugerir una alternativa. `catalog_store_references` contiene los datos locales necesarios para distrito, proximidad, afiliación y titularidad; `store_id` es único, mientras que la clave primaria mantiene el tipo `BIGINT`. La carga acepta únicamente versiones de origen posteriores y coordenadas válidas.
 
-![Identity and Access Database Diagram](../assets/architecture/database/identity-access.png)
-
-#### Shopping Planning
-
-El Bounded Context **Shopping Planning** persiste la información relacionada con la planificación de compras.
-
-`shopping_lists` representa las listas creadas por los usuarios, mientras que `shopping_list_items` almacena los productos requeridos, cantidades, precios estimados y estado de compra.
-
-La tabla `shopping_list_members` permite relacionar otros usuarios con una lista determinada y `purchase_budgets` almacena los presupuestos asociados a cada planificación.
-
-Los identificadores de usuario son referencias hacia Identity and Access y los identificadores de producto corresponden a información administrada por Catalog and Pricing.
-
-![Shopping Planning Database Diagram](../assets/architecture/database/shopping-planning.png)
-
-#### Catalog and Pricing
-
-El modelo de **Catalog and Pricing** almacena los productos disponibles y la información necesaria para realizar comparaciones de precios.
-
-La tabla `products` contiene la información base de cada producto. `catalog_entries` representa la oferta de un producto dentro de un establecimiento determinado e incluye su precio unitario, disponibilidad y fecha de actualización.
-
-Adicionalmente, `price_snapshots` permite conservar registros históricos de precios asociados a una entrada del catálogo.
-
-La combinación entre establecimiento y producto debe ser única dentro de `catalog_entries`. El identificador del establecimiento actúa como referencia hacia Merchant Management.
+Esta vista y el Database Overview usan el mismo esquema. `inventory_items` de Merchant Management conserva cantidad y unidad física, sin duplicar `sale_price` ni `stock_status` públicos. La coordinación operativa entre inventario y catálogo todavía requiere un diseño de integración; no basta con compartir identificadores para garantizar consistencia automática.
 
 ![Catalog and Pricing Database Diagram](../assets/architecture/database/catalog-pricing.png)
 
-#### Route Planning
+#### Route Planning (Core Bounded Context)
 
-El Bounded Context **Route Planning** mantiene la información relacionada con las rutas calculadas para una planificación de compras.
+El esquema propuesto coincide con Database Overview y conserva la ruta calculada como snapshot auditable, sin persistir matrices del proveedor ni importar tablas de otros contextos como aggregates propios.
 
-La tabla `routes` almacena los datos principales del recorrido, tales como distancia, duración estimada, costo de desplazamiento, ahorro neto y estado.
+`routes` registra propietario, referencia opcional y versión de lista, origen, partida, modalidad, distancia en metros, duración en segundos, estado, cobertura, versión optimista y fechas de cálculo/evaluación. Los importes y moneda admiten ausencia cuando no existe una estimación completa y comparable; no se reemplaza información desconocida por cero. Los ahorros pueden ser negativos.
 
-Cada ruta se compone de múltiples `route_stops`, los cuales almacenan el establecimiento correspondiente, el orden dentro de la ruta y la hora estimada de llegada.
+`route_stops` conserva las coordenadas usadas, llegada estimada y distancia/duración de cada tramo. Exige `UNIQUE(route_id, sequence)`, `UNIQUE(route_id, store_id)`, secuencia contigua desde 1 y al menos una parada. Los totales de ruta equivalen a la suma de tramos y no incluyen un retorno implícito al origen.
 
-La combinación entre una ruta y su número de secuencia debe ser única. `shopping_list_id` referencia información proveniente de Shopping Planning y `store_id` corresponde a establecimientos administrados por Merchant Management.
+`route_items` conserva los productos y cantidades solicitados, su parada y oferta asignadas y el precio con su cantidad/unidad de referencia. Exige `UNIQUE(route_id, product_id)`, cantidades positivas, unidades compatibles y correspondencia entre producto, oferta y establecimiento. Una parada asignada pertenece a la misma ruta; la asignación ausente es explícita. Las restricciones entre filas se comprueban dentro de la transacción además de las claves locales. Las referencias a lista, producto, oferta y tienda son identidades de otros contextos; su coordinación permanece pendiente, sin ACL.
+
+Ruta, paradas y artículos se guardan o reemplazan en una sola transacción con control de versión. Un recálculo fallido conserva el snapshot anterior; las consultas de validación muestran sus problemas actuales sin sobrescribirlo. Los snapshots de entrada son contratos transitorios y no implican nuevas tablas sincronizadas automáticamente.
 
 ![Route Planning Database Diagram](../assets/architecture/database/route-planning.png)
 
-#### Merchant Management
+#### Shopping Planning (Core Bounded Context)
 
-El Bounded Context **Merchant Management** persiste la información necesaria para administrar comerciantes y establecimientos.
+El diseño de persistencia AV2 incorpora favoritos y plantillas conservando las reglas de cantidades, totales y presupuesto. El Database Overview y esta vista usan las mismas tablas/campos.
 
-`merchant_profiles` representa el perfil comercial y su estado de verificación fiscal. Un perfil puede administrar múltiples registros `retail_stores`, los cuales almacenan datos del establecimiento y su ubicación.
+`shopping_lists` conserva propietario, nombre, moneda, estado ACTIVE/COMPLETED, fechas y versión optimista. source_template_id, creation_key y creation_fingerprint identifican una creación desde plantilla y deben estar presentes juntos; la combinación owner_id/creation_key es única para claves no nulas. Un cierre válido exige artículos, guarda completed_at y deja la lista de solo lectura. El control de owner_id autoriza estas operaciones; las asociaciones reservadas de `shopping_list_members` no habilitan nuevos flujos compartidos ni se copian al instanciar una plantilla.
 
-`inventory_items` representa los productos gestionados dentro de cada establecimiento, incluyendo stock, precio y estado de disponibilidad.
+`shopping_list_items` mantiene producto, nombre, cantidad, estimación con cantidad/unidad de referencia y purchased. Conserva `UNIQUE(shopping_list_id, product_id)`, cantidades positivas y compatibilidad de unidades/moneda. Para artículos con cotización de Catálogo guarda catalog_entry_id, price_offer_version y price_captured_at juntos; para estimaciones manuales pueden estar ausentes. Los clones de plantilla requieren esa trazabilidad en todos sus artículos, reinician purchased=false y no copian presupuesto. La lista completa se guarda con sus precios en una sola transacción.
 
-Finalmente, `promotions` registra las promociones asociadas a elementos del inventario y mantiene sus períodos de vigencia.
+`shopping_templates` conserva propietario, origen y versión de la lista completada, nombre, moneda, fecha, save_key y save_fingerprint. `UNIQUE(owner_id, save_key)` controla reintentos. `shopping_template_items` contiene solo productos y cantidades/unidades con `UNIQUE(template_id, product_id)` y al menos una fila. El snapshot es inmutable y pertenece al mismo dueño de la fuente; guardar o clonar no modifica la fuente. Cambios futuros de precios o de la lista nueva no alteran esa plantilla.
 
-El campo `product_id` de inventario funciona como una referencia hacia Catalog and Pricing.
+`favorite_stores` exige `UNIQUE(owner_id, store_id)` y versión optimista. Retirar conserva el registro con active=false; volver a agregar lo reactiva. Las consultas devuelven activos del titular. Es una preferencia, no evidencia fiscal ni una reserva o copia del precio público.
+
+`purchase_budgets` sigue siendo opcional y único por lista: importe positivo y moneda correspondiente. Totales y warning se calculan al consultar; no se agregan columnas o eventos de advertencia. Desmarcar excluye ese subtotal de caja, sin reducir el total proyectado. Un snapshot de oferta no garantiza precio futuro o existencia física reservada.
+
+Las restricciones entre filas —fuente completada/no vacía, mismo propietario, pertenencia de productos y cobertura exacta de selecciones— se verifican en la aplicación dentro de los límites transaccionales y con versiones. Las referencias de usuario, producto, oferta y tienda pertenecen a sus contextos y no implican ACL, migraciones implementadas o sincronización automática.
+
+![Shopping Planning Database Diagram](../assets/architecture/database/shopping-planning.png)
+
+#### Merchant Management (Supporting Bounded Context)
+
+`merchant_profiles` persiste titular, RUC único, razón social, estado y fecha de verificación, con `version`. `retail_stores` referencia al perfil e incluye dirección estructurada, coordenadas, `time_zone`, `schedule_configured` y versión. Las tiendas públicas deben corresponder a un perfil fiscalmente verificado; el mecanismo de provisión de esa información a Catálogo sigue pendiente.
+
+`store_opening_hours` almacena los intervalos semanales con día, horas y `closes_next_day`. La validación del reemplazo de horarios comprueba solapamientos sobre toda la semana en una transacción. La combinación de `schedule_configured` y filas distingue un horario desconocido de una semana explícitamente cerrada. El estado de apertura se calcula, no se almacena.
+
+`inventory_items` conserva `stock`, `stock_unit` y versión, con `UNIQUE(store_id, product_id)`. `promotions` conserva tienda, ítem y oferta por ID, precio rebajado, moneda, unidad, precio habitual al crear, fechas, estado y versión. Las referencias deben pertenecer a la misma tienda. El precio habitual congelado es auditoría y no reemplaza `catalog_entries.sale_price`. Se excluyen promociones vencidas al consultar, incluso si el job no ha actualizado todavía su estado persistido.
+
+`inventory_import_batches` conserva titular solicitante, clave de idempotencia, hash y estado del lote. `inventory_import_rows` conserva los datos declarados por fila, con `UNIQUE(batch_id, row_number)`. La validación evita productos repetidos y comprueba todo el lote antes de aplicar cambios. El esquema y las reglas coinciden con el Database Overview; esta documentación no constituye una migración ni una implementación ejecutable de Spring Boot.
 
 ![Merchant Management Database Diagram](../assets/architecture/database/merchant-management.png)
 
-#### Community Price Verification
+#### Community Price Verification (Supporting Bounded Context)
 
-El modelo de persistencia de **Community Price Verification** permite almacenar reportes y evidencias relacionadas con discrepancias de precios.
+`price_discrepancies` guarda la oferta, el autor, los precios con su moneda, fecha, estado y puntaje opcional. `price_observations` conserva las evidencias con observador, precio, moneda, origen y fecha. Debe existir al menos una observación de la misma oferta por reporte. La detección de anomalías deriva el reporte a `UNDER_REVIEW`; el puntaje permanece sin asignar mientras no se haya definido la fórmula de confianza.
 
-`price_discrepancies` representa diferencias reportadas entre un precio esperado y uno observado. Cada discrepancia puede recibir múltiples registros `price_observations`, los cuales contienen el precio observado, fecha y origen de la observación.
+`verification_votes` registra ambos sentidos del voto mediante `vote_type` (`CONFIRM` o `REJECT`) y `voter_id`. La restricción `UNIQUE(discrepancy_id, voter_id)` respalda la propuesta de un voto por comprador y reporte, incluso ante solicitudes concurrentes. La comprobación de autor y estado se realiza antes de aceptar el voto. El nombre sustituye a `verification_confirmations` tanto en esta vista como en el Database Overview.
 
-Asimismo, `verification_confirmations` registra las confirmaciones realizadas por otros usuarios y `trust_profiles` mantiene información relacionada con el nivel de confianza de las contribuciones realizadas por cada usuario.
+El índice propuesto `(reporter_id, catalog_entry_id, reported_at)` permite buscar reportes recientes para TS07; el índice por sí solo no impone la ventana de 60 segundos. La aplicación debe comprobarla dentro de una operación serializada por usuario/oferta, sin impedir reportes posteriores a la ventana. `trust_profiles` conserva la reputación local del usuario; su fórmula y reglas de evolución siguen como decisiones pendientes.
 
-Las referencias hacia productos y usuarios pertenecen respectivamente a Catalog and Pricing e Identity and Access.
+Las referencias a usuarios y ofertas pertenecen a Identity and Access y Catalog and Pricing. Se trata de un diseño propuesto: las restricciones, estados y adaptadores descritos no constituyen una migración ni una implementación Spring Boot dentro de este repositorio.
+
+`discrepancy_reviews` conserva la auditoría de la resolución humana (`UNIQUE(discrepancy_id)`) y `processed_verification_events` permite reclamar cada combinación de evento/manejador una sola vez. El campo `version` de los reportes respalda el control de concurrencia. La vista específica y el Database Overview contienen las mismas tablas y reglas; las referencias al revisor mantienen únicamente su identificador, sin agregar ACL.
 
 ![Community Price Verification Database Diagram](../assets/architecture/database/community-price-verification.png)
 
-#### Analytics and Engagement
+#### Analytics and Engagement (Supporting Bounded Context)
 
-El Bounded Context **Analytics and Engagement** almacena eventos de interacción y los resultados analíticos generados a partir de ellos.
+El esquema de AV2 persiste observaciones aceptadas y reportes inmutables. `MerchantMetrics` y `PromotionMetrics` se calculan como vistas de lectura; se retira la tabla `merchant_metrics` de esta propuesta, evitando almacenar contadores sin una regla de actualización o conciliación. El esquema del contexto y Database Overview coinciden.
 
-`analytics_events` registra eventos relevantes mediante un tipo, una fecha de ocurrencia, un sujeto asociado y metadatos adicionales.
+`analytics_events` identifica explícitamente tienda, fuente, tipo y sourceKey; guarda una huella semántica para detectar reintentos incompatibles, tiempos ocurrido/recibido y referencias tipadas de actor, promoción o ruta/versión. Exige `UNIQUE(source, source_key, event_type, store_id)` y coherencia por tipo: interacción requiere promoción y actor, sugerencia requiere ruta y versión. Los tiempos de ocurrencia deben provenir de una fuente confiable y no ser futuros al aceptar la observación. Los índices por tienda/período y promoción/período/actor respaldan los conteos y usuarios distintos.
 
-A partir de estos eventos pueden generarse registros `merchant_metrics`, los cuales consolidan indicadores como tráfico mensual, ventas perdidas y engagement dentro de un período determinado.
+`merchant_reports` registra solicitante, clave de generación, mes y zona horaria, límites UTC, conteos observados, cobertura desconocida y fecha de generación. `UNIQUE(store_id, request_key)` permite reintentos sin duplicar el reporte. `merchant_report_promotions` conserva el detalle congelado con `UNIQUE(report_id, promotion_id)`, conteos no negativos y usuarios distintos menores o iguales a interacciones. El total de usuarios de la tienda se calcula directamente sobre observaciones, no sumando filas por promoción.
 
-La tabla `merchant_reports` representa los reportes generados para un establecimiento, incluyendo el tipo de reporte, período analizado y fecha de generación.
-
-Los identificadores de establecimiento utilizados por métricas y reportes actúan como referencias hacia Merchant Management.
+El período es no vacío y semiabierto. La aplicación valida correspondencia tienda/promoción, permisos y referencias antes de escribir; reporte y detalle se guardan atómicamente desde una lectura consistente. Los identificadores de actor, tienda, promoción y ruta pertenecen a otros contextos; no se implementa sincronización automática ni ACL. La retención de identidades para el cálculo de usuarios únicos y la conciliación de fuentes se mantienen como decisiones pendientes, sin prometer integridad de la captura por el solo hecho de tener tablas.
 
 ![Analytics and Engagement Database Diagram](../assets/architecture/database/analytics-engagement.png)
 
+#### Identity and Access (Generic Bounded Context)
+
+El esquema propuesto de AV2 sigue ADR-0006 de Learning Center: JWT sin sesiones de servidor. Se retira `auth_sessions` y no se añaden refresh tokens o revocaciones individuales sin un flujo que los justifique. Las vistas del contexto y Database Overview usan las mismas tablas y campos.
+
+`users` conserva correo canónico único, password_hash codificado, estado, failed_attempts, locked_until opcional, security_check_required y versión optimista. El contador no es negativo; un bloqueo exige plazo y obligación de comprobación. Al vencer el plazo, esa obligación permanece hasta completar correctamente el ingreso. La cuenta suspendida o desactivada no se reactiva por vencer un bloqueo. Las contraseñas, pruebas y JWT no se persisten en claro ni se incluyen en recursos o eventos.
+
+`roles` y `permissions` definen nombres de rol únicos y capacidades con `UNIQUE(resource, action)`. `user_roles` y `role_permissions` utilizan claves primarias compuestas para impedir asignaciones repetidas. La transacción de registro exige al menos un rol permitido previamente provisionado, junto con la unicidad concurrente del correo normalizado. El seed conserva IDs y membresías; no borra asignaciones al reiniciar.
+
+Los fallos de autenticación esperados confirman la actualización de sus contadores aunque devuelvan un error de negocio. La versión evita perder incrementos concurrentes y permite reevaluar el bloqueo antes de aceptar otro intento. El guardado fallido no autoriza emitir una respuesta de autenticación exitosa. No existe una tabla de estado por token: la validación usa JWT y consulta estado/permisos actuales por usuario. Son contratos de persistencia propuestos, sin migraciones ni backend implementados.
+
+![Identity and Access Database Diagram](../assets/architecture/database/identity-access.png)
+
 En conjunto, estos diagramas permiten mantener una visión global de la persistencia de **Preciazo** y, al mismo tiempo, conservar los límites definidos entre los Bounded Contexts. Las referencias externas entre contextos se representan mediante identificadores, mientras que las relaciones internas utilizan claves primarias, claves foráneas y restricciones propias de cada modelo.
+
 
 <div style="page-break-before: always;"></div>
 
@@ -2086,9 +2614,11 @@ El código fuente del proyecto se administra centralizadamente en la organizaci�
 
 | Componente / Producto | Nombre del Repositorio | Enlace Remoto |
 | :--- | :--- | :--- |
-| **Organización Oficial** | Open Source - 1ASI0729-2620-7750 | [https://github.com/Open-Source-1ASI0729-2620-7750](https://github.com/Open-Source-1ASI0729-2620-7750) |
-| **Documentación Técnica (Reporte)** | `preciazo-report` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report) |
+| **Organización Oficial** | `upc-pre-202620-1asi0729-7750-perutech` | [https://github.com/Open-Source-1ASI0729-2620-7750](https://github.com/Open-Source-1ASI0729-2620-7750) |
+| **Documentación Técnica (Informe)** | `preciazo-report` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report) |
 | **Landing Page** | `preciazo-landing-page` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page) |
+| **Frontend Web Application** | `Preciazo-platform` | [https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform](https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform) |
+| **RESTful Web Services (Backend)** | `preciazo-web-services` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services) |
 
 #### Modelo de Ramificación (GitFlow)
 
@@ -2124,9 +2654,13 @@ Se establecen guías de estilo oficiales para asegurar la consistencia, legibili
 
 El sitio web de la Landing Page se despliega mediante el servicio **GitHub Pages**, aprovechando la infraestructura nativa de GitHub para servir archivos estáticos directamente desde el repositorio del proyecto.
 
-| Componente | Plataforma Hosting | Estrategia de Despliegue | URL Oficial |
+**Tabla de Configuración de Despliegue**
+
+| Componente | Plataforma Cloud / Hosting | Estrategia de Despliegue | URL Oficial |
 | :--- | :--- | :--- | :--- |
-| **Landing Page** | GitHub Pages | Despliegue automatizado desde la rama `main` | `https://open-source-1asi0729-2620-7750.github.io/preciazo-landing-page/` |
+| **Landing Page** | Azure Static Web Apps / GitHub Pages | Despliegue continuo automatizado desde la rama `main` | [https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/](https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/) |
+| **Frontend Web Application** | Azure Static Web Apps | Compilación de producción en Angular vía GitHub Actions desde `main` | [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net) |
+| **RESTful Web Services** | Azure App Service (Linux / Java 25) | Empaquetado Maven (`.jar`) y publicación en el grupo de recursos `rg-preciazo` | [https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net](https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net) |
 
 #### Flujo de Configuración en GitHub Pages:
 1. **Habilitación del Servicio**: Acceso a la configuración del repositorio (*Settings > Pages*) en `preciazo-landing-page`.
@@ -2302,7 +2836,7 @@ En la siguiente tabla se mantienen las áreas de trabajo organizadas formalmente
 El Sprint Backlog 2 organiza las tareas de maquetación del frontend para ambos segmentos, actualización de la Landing Page, integración técnica de i18n y subsanación de observaciones del informe.
 
 <div align="center">
-  <img src="../assets/sprint-2/Trello.png" alt="Sprint Backlog 2 en Trello" width="850">
+  <img src="../assets/trello-sprint2.png" alt="Sprint Backlog 2 en Trello" width="850">
   <p><em>Figura 5.3: Estado de las tareas del Sprint 2 en el tablero Kanban de Trello.</em></p>
 </div>
 
@@ -2384,32 +2918,939 @@ Durante el Sprint 2, el equipo **PeruTech** continuó aplicando el flujo de trab
   <p><em>Figura 5.5: Evidencia del trabajo colaborativo y estadísticas del equipo durante el Sprint 2.</em></p>
 </div>
 
+### 5.2.3. Sprint 3
+
+El Sprint 3 comprende la tercera iteración del proyecto (correspondiente al entregable **AV2**), orientada a la implementación y despliegue de la primera versión de los **RESTful Web Services** en Spring Boot bajo arquitectura Domain-Driven Design (DDD), su documentación interactiva en **OpenAPI / Swagger UI**, la evolución de la **Frontend Web Application** en Angular (incorporando registro de usuarios y soporte de internacionalización i18n en inglés y español) y la validación empírica con usuarios reales.
+
+#### 5.2.3.1. Sprint Planning 3
+
+A continuación, se presenta el cuadro resumen de la planificación del Sprint 3 siguiendo la estructura oficial del curso y la plantilla de **Sprint Goal** de Scrum.org:
+
+| Campo | Descripción |
+| :--- | :--- |
+| **Sprint #** | Sprint 3 |
+| **Sprint Planning Background** | Sesión de planificación enfocada en subsanar las observaciones de revisión técnica de TB1, implementar la primera versión de los servicios RESTful en Spring Boot (`preciazo-web-services`), actualizar las vistas de autenticación/registro e internacionalización (i18n) en el frontend Angular (`Preciazo-platform`), y ejecutar las sesiones de validación de usabilidad y evaluación heurística. |
+| **Date** | 2026-10-26 |
+| **Time** | 07:00 PM (GMT -5) |
+| **Location** | Reunión virtual síncrona vía Google Meet |
+| **Prepared By** | Pardo Chumpitazi, Kevin Patrick |
+| **Attendees (to planning meeting)** | Becerra Durand, Sebastian Uriel / Capillo Lema, Mía Valentina / Casós Torre, Miguel André / Miranda Romero, Sergio Luis / Pardo Chumpitazi, Kevin Patrick |
+| **Sprint 2 Review Summary** | Se verificó el despliegue en Azure Static Web Apps tanto de la Landing Page como de la primera versión de la aplicación frontend en Angular. Se identificó la necesidad de exponer los contratos RESTful del servidor backend, incorporar el flujo de registro de cuentas e integrar las validaciones con usuarios representativos. |
+| **Sprint 2 Retrospective Summary** | El equipo consolidó el uso de ramas `feature/` y Pull Requests en GitHub. Como acuerdo de mejora para el Sprint 3, se estableció estandarizar el orden jerárquico de los Bounded Contexts (Core, Soporte y Genérico), mantener las tareas técnicas en un rango de 4 a 8 horas y documentar los endpoints mediante OpenAPI 3.0. |
+| **Sprint Goal & User Stories** | **User & Technical Stories Incluidas:** `US06` (3 SP), `US08` (2 SP), `US09` (3 SP), `US10` (2 SP), `US13` (8 SP), `US21` (5 SP), `US23` (5 SP), `TS01` (API Auth), `TS02` (API Basket Compare), `TS06` (API Catalog). |
+| **Sprint 3 Goal** | **Our focus is on** delivering the first functional version of the RESTful Web Services integrated with an updated multilingual Frontend Web Application for basket comparison, shopping list budgeting, and merchant catalog management.<br>**We believe it delivers** transparent price comparison, budget control, and agile local promotion management **to** independent buyers and proximity retail merchants in Lima.<br>**This will be confirmed when** users can register, authenticate, create budgeted shopping lists, and query store catalogs and price comparisons through documented OpenAPI endpoints and validated responsive web interfaces. |
+| **Sprint 3 Velocity** | 28 Story Points |
+| **Sum of Story Points** | 28 Story Points |
+
+#### 5.2.3.2. Aspect Leaders and Collaborators
+
+En esta sección se presenta la matriz **Leadership-and-Collaboration (LACX)** del Sprint 3, indicando quién lidera (`L`) y quién colabora (`C`) en cada aspecto funcional y técnico del sprint:
+
+| Team Member (Last Name, First Name) | GitHub Username | Aspect 1: SCM & Cloud Deployment Leader (L) / Collaborator (C) | Aspect 2: Core Bounded Contexts API Leader (L) / Collaborator (C) | Aspect 3: Supporting & IAM API Leader (L) / Collaborator (C) | Aspect 4: Frontend-Backend Integration Leader (L) / Collaborator (C) | Aspect 5: UX Validation & Heuristics Leader (L) / Collaborator (C) |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| **Pardo Chumpitazi, Kevin Patrick** | `Kevinyin11` | **L** | C | C | C | C |
+| **Capillo Lema, Mía Valentina** | `MiaCL-5` | C | C | C | C | **L** |
+| **Miranda Romero, Sergio Luis** | `dym4njiroo` | C | C | C | **L** | C |
+| **Casós Torre, Miguel André** | `mcasos` | C | **L** | C | C | C |
+| **Becerra Durand, Sebastian Uriel** | `sebasdev28` | C | C | **L** | C | C |
+
+#### 5.2.3.3. Sprint Backlog 3
+
+El Sprint Backlog 3 desglosa las historias de usuario y técnicas seleccionadas en tareas operativas estimadas entre 4 y 8 horas de trabajo colaborativo:
+
+* **Enlace Público al Sprint 3 Board en Trello:** [https://trello.com/b/IpWFADMg/preciazo-sprint-3](https://trello.com/b/IpWFADMg/preciazo-sprint-3)
+
+<div align="center">
+  <img src="../assets/trello2.png" alt="Sprint Backlog 3 en Trello" width="850">
+  <p><em>Figura 5.6: Estado de las tareas del Sprint 3 en el tablero Kanban de Trello.</em></p>
+</div>
+
+| Sprint # | Sprint 3 | | | | | | |
+| :--- | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
+| **User Story** | | **Work-Item / Task** | | | | | |
+| **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Hours)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
+| **US13 / TS02** | Comparativa multiestablecimiento | T01 | Dominio y Agregados de Catálogo | Implementación de entidades `Product`, `StoreProduct` y `PriceSnapshot` con repositorios JPA en `Catalog and Pricing`. | 6 | Casós Torre, Miguel André | Done |
+| **US13 / TS06** | API de consulta y comparativa | T02 | Controladores REST de Catálogo | Exposición de endpoints `GET /api/v1/products` y `POST /api/v1/baskets/compare` documentados en OpenAPI. | 6 | Casós Torre, Miguel André | Done |
+| **US08 / US10** | Lista de compras y presupuesto | T03 | Servicios de Shopping Planning | Implementación de `ShoppingList`, `PurchaseBudget` y endpoints REST para creación de listas y control de presupuesto. | 6 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US21 / US23** | Afiliación y catálogo de tienda | T04 | Servicios de Merchant Management | Implementación de `MerchantProfile`, `RetailStore`, `InventoryItem` y endpoints de gestión comercial. | 6 | Becerra Durand, Sebastian Uriel | Done |
+| **US06 / TS01** | Autenticación y registro de acceso | T05 | Módulo IAM y Vistas Login/Register | Implementación de controladores de autenticación/registro y actualización de formularios Login/Register en Angular. | 6 | Miranda Romero, Sergio Luis | Done |
+| **US06 / US13** | Integración Frontend e i18n | T06 | Conexión HTTP y soporte EN/ES | Integración de servicios HTTP en Angular, refinamiento de diccionarios i18n (`en_US` y `es_419`) y despliegue en Azure. | 5 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US28 / US29** | Validación y Heurísticas UX | T07 | Sesiones de validación y Anexo D | Ejecución de entrevistas de validación con ambos segmentos y evaluación heurística de usabilidad de la plataforma. | 5 | Capillo Lema, Mía Valentina | Done |
+
+#### 5.2.3.4. Development Evidence for Sprint Review
+
+Durante el Sprint 3 se implementó el servidor backend en el repositorio `preciazo-web-services` utilizando **Java y Spring Boot** con arquitectura en cuatro capas (Domain, Application, Infrastructure e Interfaces), a la par de la actualización del frontend en `Preciazo-platform` y la documentación técnica en `preciazo-report`:
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :---: | :--- | :--- | :---: |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `main` | `8c4e1a9` | `feat(api): initialize spring boot ddd bounded contexts and openapi config` | `Set up modular DDD packages, JPA entities, REST controllers and Swagger UI documentation.` | 13/11/2026 || `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `main` | `5d2b9f3` | `feat(frontend): update auth register flow and i18n language support` | `Add user registration view, refine English/Spanish translation dictionaries and connect services.` | 13/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-report` | `main` | `2595140` | `docs(report): complete AV2 architectural refinements and sprint 3 documentation` | `Standardize DDD bounded contexts hierarchy, update C4/UML/DB diagrams and document Sprint 3.` | 14/11/2026 |
+#### 5.2.3.5. Execution Evidence for Sprint Review
+
+En este sprint se verificó la ejecución integrada de la experiencia web de **Preciazo**, comprobando el flujo desde la Landing Page hacia las vistas de autenticación y registro, la conmutación dinámica de idioma (Inglés `en_US` por defecto y Español `es_419`), la gestión de listas de compras con presupuesto límite, el comparador multiestablecimiento y el panel administrativo para comerciantes minoristas.
+
+* **Enlace a la Aplicación Web en Ejecución (Azure Static Web Apps):** [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net)
+* **Enlace al Video de Demostración de Navegación (Microsoft Stream):** [Ver Demostración de Navegación en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQCEOW9isi3LT7sIUmtoPLwAASmuwYzj-IDSyuesd5m1h3s?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=0Pq9Zi)
+
+#### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+Los servicios web RESTful desarrollados en `preciazo-web-services` se encuentran documentados bajo la especificación **OpenAPI 3.1** mediante **Swagger UI**, permitiendo probar cada endpoint con cargas útiles JSON de muestra y verificar los códigos de estado HTTP:
+
+* **Repositorio de Web Services:** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services)
+* **URL de Documentación OpenAPI / Swagger UI:** [https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html](https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html)
+
+<div align="center">
+  <img src="../assets/backend.png" alt="Documentación interactiva en Swagger UI" width="850">
+  <p><em>Figura 5.7: Interfaz de Swagger UI (OpenAPI 3.1) de Preciazo REST API desplegada en Azure App Service.</em></p>
+</div>
+
+<br>
+
+<div align="center">
+  <img src="../assets/swagger-test.png" alt="Prueba de ejecución en Swagger UI" width="850">
+  <p><em>Figura 5.8: Evidencia de prueba y esquemas de datos en Swagger UI.</em></p>
+</div>
+
+| Bounded Context (Tag OpenAPI) | Verbo HTTP & Sintaxis de Llamada | Parámetros / Payload de Entrada | Ejemplo y Explicación del Response | Códigos HTTP |
+| :--- | :--- | :--- | :--- | :---: |
+| **Catalog and Pricing** *(Core)* | `GET /api/v1/products?category={cat}&district={dist}&page=0&size=20` | Query params: `category`, `district`, `page`, `size` | Retorna página JSON con productos, marca, unidad de venta y precios publicados en tiendas afiliadas. | `200 OK`, `400 Bad Request` |
+| **Catalog and Pricing** *(Core)* | `POST /api/v1/baskets/compare` | Body JSON: `items` (`productId`, `quantity`), `latitude`, `longitude`, `radiusKm` | Calcula y retorna las tiendas cercanas ordenadas por menor costo total de canasta completa e indica faltantes. | `200 OK`, `400 Bad Request` |
+| **Route Planning** *(Core)* | `POST /api/v1/routes/optimize` | Body JSON: `origin`, `selectedStoreIds`, `transportMode`, `shoppingListId` | Retorna el itinerario optimizado de paradas (`RouteView`), distancia total en metros y duración estimada. | `200 OK`, `422 Unprocessable Entity` |
+| **Shopping Planning** *(Core)* | `POST /api/v1/shopping-lists` | Body JSON: `name`, `currency`, `budgetLimit` | Crea una nueva lista de compras activa asociada al comprador y retorna el recurso creado con su ID. | `201 Created`, `400 Bad Request` |
+| **Merchant Management** *(Soporte)* | `POST /api/v1/merchants` | Body JSON: `ruc`, `businessName`, `storeName`, `address`, `latitude`, `longitude` | Registra el perfil del comerciante y su primera tienda en estado pendiente de verificación fiscal. | `201 Created`, `409 Conflict` |
+| **Merchant Management** *(Soporte)* | `POST /api/v1/promotions` | Body JSON: `storeId`, `catalogEntryId`, `promoPrice`, `startsAt`, `endsAt` | Publica una promoción temporal validando que el precio promocional sea menor al precio de lista. | `201 Created`, `422 Unprocessable Entity` |
+| **Community Price Verification** *(Soporte)* | `POST /api/v1/reports/prices` | Body JSON: `catalogEntryId`, `expectedPrice`, `observedPrice`, `currency` | Registra un reporte colaborativo de discrepancia de precio en góndola controlando duplicados en ventana de 60s. | `201 Created`, `429 Too Many Requests` |
+| **Analytics and Engagement** *(Soporte)* | `GET /api/v1/stores/{storeId}/metrics?month=YYYY-MM` | Path: `storeId`; Query: `month` (`YYYY-MM`) | Retorna el conteo mensual de apariciones de la tienda en rutas óptimas y usuarios únicos en promociones. | `200 OK`, `404 Not Found` |
+| **Identity and Access** *(Genérico)* | `POST /api/v1/auth/login` | Body JSON: `email`, `password` | Valida las credenciales del usuario y emite el token de acceso Bearer JWT con su fecha de expiración. | `200 OK`, `401 Unauthorized` |
+
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+Durante el Sprint 3 se configuró y verificó el despliegue de los tres productos digitales que conforman la solución **Preciazo** en **Microsoft Azure** (grupo de recursos `rg-preciazo`):
+
+* **Landing Page (Azure Static Web Apps):** [https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/](https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/)
+* **Frontend Web Application (Azure Static Web Apps):** [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net)
+* **RESTful Web Services (Azure App Service):** [https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net](https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net)
+* **Swagger UI en Producción (Azure App Service):** [https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html](https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html)
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint
+
+A lo largo del Sprint 3, los cinco integrantes del equipo registraron contribuciones activas en los repositorios de la organización `Open-Source-1ASI0729-2620-7750`, aplicando revisiones de Pull Requests y mensajes estandarizados bajo Conventional Commits para integrar el backend en Spring Boot, las actualizaciones del frontend en Angular y la documentación del informe.
+
+<!-- Coloca aquí la captura de GitHub Insights / Contributors del Sprint 3 -->
+<!-- ![Colaboración del equipo en GitHub durante el Sprint 3](../assets/sprint-3/github-insights-sprint3.png) -->
+
+---
+
 ## 5.3. Validation Interviews
 
-Las entrevistas de validación de usabilidad se programarán al concluir la implementación del prototipo funcional e interactivo de la aplicación web en los sprints posteriores. Dichas sesiones se estructurarán aplicando el protocolo de pruebas de usabilidad guiadas y evaluación heurística basada en las 10 heurísticas de Jakob Nielsen.
+### 5.3.1. Diseño de Entrevistas
+
+Con el propósito de validar la usabilidad, claridad visual y el valor percibido de los prototipos y de la aplicación web desplegada de **Preciazo**, se diseñó una guía de entrevista estructurada orientada a nuestros dos segmentos objetivo. El objetivo principal de estas sesiones fue observar la interacción directa de los usuarios con las interfaces propuestas y evaluar si los flujos diseñados resuelven de manera intuitiva sus necesidades reales de planificación de compras y gestión comercial.
+
+A continuación, se detallan las preguntas formuladas durante las sesiones de validación para cada segmento:
+
+#### Segmento 1: Compradores Independientes
+
+**Sobre la Experiencia y Usabilidad (Interacción con la Interfaz):**
+1. Al observar la pantalla de inicio y el módulo de **"Mis Listas"**, ¿qué tan intuitivo te resulta el flujo para buscar un producto, agregarlo a tu canasta y fijar un presupuesto límite?
+2. Al pasar a la **"Matriz Comparativa Multitienda"**, ¿la forma en que se distribuyen los precios y el ahorro total entre comercios es clara a primera vista o sientes que algún elemento visual genera confusión?
+3. Respecto a la pantalla de **"Ruta de Compra"**, ¿se comprende fácilmente el orden de las paradas sugeridas en el mapa y qué productos específicos debes comprar en cada local?
+4. ¿Encontraste algún botón, ícono o texto dentro del recorrido que no entendieras para qué servía?
+
+**Sobre el Valor Percibido y Funcionalidades:**
+5. ¿Qué opinas de la barra de presupuesto en tiempo real y del **"Modo Compra Interactivo"** (marcar productos con *checkboxes* mientras estás en la tienda)? ¿Te ayudaría a controlar mejor tus gastos?
+6. En la sección de **"Verificación Comunitaria"**, ¿te resultaría sencillo y rápido reportar un precio distinto en góndola o confirmar el stock que otro usuario subió?
+
+**Sobre el Impacto y Disposición de Uso:**
+7. Del 1 al 5, ¿qué tan fácil de usar calificarías esta aplicación web y qué le cambiarías o agregarías antes de usarla en tus compras reales de la semana?
+
+---
+
+#### Segmento 2: Comerciantes Minoristas
+
+**Sobre la Experiencia y Usabilidad (Interacción con el Panel):**
+1. Al ingresar al **"Dashboard de Métricas"**, ¿los indicadores mostrados (visitas a tienda, comparaciones realizadas y ventas perdidas por falta de stock) se entienden con facilidad?
+2. En el módulo de **"Inventario y Precios"**, ¿consideras que el uso de interruptores (*switches*) para activar o desactivar el stock y la edición rápida de precios es lo suficientemente ágil para el ritmo de trabajo diario de tu negocio?
+3. Al revisar el formulario para crear una **"Nueva Promoción"**, ¿los pasos para seleccionar el producto, definir el precio de oferta y programar las fechas son claros y directos?
+
+**Sobre el Valor Percibido y Confianza:**
+4. ¿Qué te parece la sección de **"Datos del Establecimiento"** donde se muestra tu RUC verificado y tus horarios de atención? ¿Crees que esto transmitirá mayor confianza a los compradores de tu zona?
+5. Considerando el poco tiempo libre que tienes al atender tu local, ¿sientes que este panel te permitiría actualizar tus precios y ofertas en pocos minutos sin complicarte?
+
+**Sobre el Impacto y Disposición de Uso:**
+6. Del 1 al 5, ¿qué tan útil y manejable te parece esta herramienta para atraer más clientes a tu negocio, y qué mejora le harías a las pantallas que acabas de probar?
+
+---
+
+### 5.3.2. Registro de Entrevistas
+
+A continuación, se presenta la documentación y evidencia de la sesión de validación realizada con una usuaria real perteneciente al segmento objetivo, alojada en Microsoft Stream.
+
+---
+
+#### Segmento 1: Compradores Independientes
+
+* **Entrevista 1:**
+  * **Nombre y Apellidos:** Avril Camila Lagos Arauco
+  * **Edad:** 20 años
+  * **Distrito de residencia:** Salamanca (Ate), Lima
+  * **Ocupación:** Estudiante universitaria
+  * **Fecha de entrevista:** 11/11/2026
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** [Ver Registro de Validación en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQC2EuYnDSstTb_WgZ7D9qPpAe2Y03qWWd-eGEnVOAetcIE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=Jz0xPI)
+  * **Timing de inicio y término:** `00:00 - 09:51`
+  * **Duración:** `09:51 min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* Smartphone Android, tablet y laptop personal.
+    * *Navegador de preferencia:* Google Chrome.
+    * *Canales digitales e influencias:* TikTok, YouTube, X (Twitter) y Yape.
+  * **Captura de evidencia:**
+
+    ![Evidencia Entrevista 1 Comprador](../assets/validacion/comprador_entrevista1.png)
+
+  * **Resumen de los principales aportes:**
+    > Durante la sesión, la usuaria indicó que los colores utilizados en la interfaz son amigables y generan una experiencia visual agradable. Asimismo, señaló que el desplazamiento y la navegación a través de las distintas secciones de la plataforma resultaron claros e intuitivos, permitiendo ubicar la información de manera precisa. Tras explorar los flujos principales, manifestó que por el momento no halló fallas ni errores críticos en el funcionamiento del sistema.
+
+<br>
+
+* **Entrevista 2:**
+  * **Nombre y Apellidos:** `[Ingresar nombre completo]`
+  * **Edad:** `[XX]` años
+  * **Distrito de residencia:** `[Ingresar distrito, Lima]`
+  * **Ocupación:** `[Ingresar ocupación]`
+  * **Fecha de entrevista:** `[DD/MM/2026]`
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** `[Ver Registro Consolidado de Validación en Microsoft Stream](PEGAR_URL_AQUI)`
+  * **Código de acceso (si aplica):** `[Ingresar código o N/A]`
+  * **Timing de inicio y término:** `XX:XX - YY:YY`
+  * **Duración:** `XX:XX min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* `[Ej. Smartphone iOS / Android y PC]`
+    * *Navegador de preferencia:* `[Ej. Google Chrome / Safari]`
+    * *Canales digitales e influencias:* `[Ej. Yape, WhatsApp, catálogos digitales]`
+  * **Captura de evidencia:**
+
+    `![Evidencia Entrevista 2 Comprador](../assets/validacion/comprador_entrevista2.png)`
+
+  * **Resumen de los principales aportes:**
+    > `[Redactar un párrafo resumiendo la experiencia del usuario con las pantallas, su opinión sobre el control de presupuesto/modo compra y sus recomendaciones de mejora visual o funcional.]`
+
+<br>
+
+* **Entrevista 3:**
+  * **Nombre y Apellidos:** `[Ingresar nombre completo]`
+  * **Edad:** `[XX]` años
+  * **Distrito de residencia:** `[Ingresar distrito, Lima]`
+  * **Ocupación:** `[Ingresar ocupación]`
+  * **Fecha de entrevista:** `[DD/MM/2026]`
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** `[Ver Registro Consolidado de Validación en Microsoft Stream](PEGAR_URL_AQUI)`
+  * **Código de acceso (si aplica):** `[Ingresar código o N/A]`
+  * **Timing de inicio y término:** `YY:YY - ZZ:ZZ`
+  * **Duración:** `XX:XX min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* `[Ej. Smartphone Android y Laptop]`
+    * *Navegador de preferencia:* `[Ej. Google Chrome]`
+    * *Canales digitales e influencias:* `[Ej. Redes sociales, billeteras digitales]`
+  * **Captura de evidencia:**
+
+    `![Evidencia Entrevista 3 Comprador](../assets/validacion/comprador_entrevista3.png)`
+
+  * **Resumen de los principales aportes:**
+    > `[Redactar un párrafo resumiendo la validación de la interfaz por parte del usuario, su percepción sobre la verificación comunitaria y su calificación general de usabilidad.]`
+
+---
+
+#### Segmento 2: Comerciantes Minoristas
+
+* **Entrevista 4:**
+  * **Nombre y Apellidos:** `[Ingresar nombre completo]`
+  * **Edad:** `[XX]` años
+  * **Distrito de residencia:** `[Ingresar distrito, Lima]`
+  * **Ocupación / Rubro del Comercio:** `[Ej. Propietario y Administrador de Bodega]`
+  * **Fecha de entrevista:** `[DD/MM/2026]`
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** `[Ver Registro Consolidado de Validación en Microsoft Stream](PEGAR_URL_AQUI)`
+  * **Código de acceso (si aplica):** `[Ingresar código o N/A]`
+  * **Timing de inicio y término:** `ZZ:ZZ - AA:AA`
+  * **Duración:** `XX:XX min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* `[Ej. Smartphone Android y Laptop]`
+    * *Navegador de preferencia:* `[Ej. Google Chrome]`
+    * *Canales digitales e influencias:* `[Ej. Yape, Plin, WhatsApp Business]`
+  * **Captura de evidencia:**
+
+    `![Evidencia Entrevista 1 Comerciante](../assets/validacion/comerciante_entrevista1.png)`
+
+  * **Resumen de los principales aportes:**
+    > `[Redactar un párrafo detallando qué tan fácil le resultó al comerciante entender el dashboard de métricas, el manejo de inventario con switches y qué ajustes sugirió para su trabajo diario.]`
+
+<br>
+
+* **Entrevista 5:**
+  * **Nombre y Apellidos:** `[Ingresar nombre completo]`
+  * **Edad:** `[XX]` años
+  * **Distrito de residencia:** `[Ingresar distrito, Lima]`
+  * **Ocupación / Rubro del Comercio:** `[Ej. Administrador de Minimarket Familiar]`
+  * **Fecha de entrevista:** `[DD/MM/2026]`
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** `[Ver Registro Consolidado de Validación en Microsoft Stream](PEGAR_URL_AQUI)`
+  * **Código de acceso (si aplica):** `[Ingresar código o N/A]`
+  * **Timing de inicio y término:** `AA:AA - BB:BB`
+  * **Duración:** `XX:XX min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* `[Ej. Smartphone Android y PC]`
+    * *Navegador de preferencia:* `[Ej. Google Chrome]`
+    * *Canales digitales e influencias:* `[Ej. Yape, redes sociales, grupos vecinales]`
+  * **Captura de evidencia:**
+
+    `![Evidencia Entrevista 2 Comerciante](../assets/validacion/comerciante_entrevista2.png)`
+
+  * **Resumen de los principales aportes:**
+    > `[Redactar un párrafo detallando la reacción del comerciante ante el módulo de creación de promociones, la validación por RUC y el tiempo que estima que le tomaría usar la plataforma.]`
+
+<br>
+
+* **Entrevista 6:**
+  * **Nombre y Apellidos:** `[Ingresar nombre completo]`
+  * **Edad:** `[XX]` años
+  * **Distrito de residencia:** `[Ingresar distrito, Lima]`
+  * **Ocupación / Rubro del Comercio:** `[Ej. Propietario y Administrador de Bodega]`
+  * **Fecha de entrevista:** `[DD/MM/2026]`
+  * **Plataforma de video:** Microsoft Stream
+  * **Enlace de Video Compilado:** `[Ver Registro Consolidado de Validación en Microsoft Stream](PEGAR_URL_AQUI)`
+  * **Código de acceso (si aplica):** `[Ingresar código o N/A]`
+  * **Timing de inicio y término:** `BB:BB - CC:CC`
+  * **Duración:** `XX:XX min`
+  * **Perfil técnico y entorno digital:**
+    * *Dispositivos habituales:* `[Ej. Smartphone Android y Laptop]`
+    * *Navegador de preferencia:* `[Ej. Google Chrome]`
+    * *Canales digitales e influencias:* `[Ej. Yape, redes sociales (WhatsApp, TikTok, Facebook)]`
+  * **Captura de evidencia:**
+
+    `![Evidencia Entrevista 3 Comerciante](../assets/validacion/comerciante_entrevista3.png)`
+
+  * **Resumen de los principales aportes:**
+    > `[Redactar un párrafo detallando la valoración general del comerciante sobre la utilidad del panel para atraer clientes de la zona y sus sugerencias finales sobre la interfaz.]`
+
+---
+
+### 5.3.3. Evaluaciones según heurísticas
+
+Para evaluar la experiencia de usuario de **Preciazo**, se aplicará el formato
+**UX Heuristics & Principles Evaluation**, considerando criterios de
+**Usability**, **Inclusive Design** e **Information Architecture**, de acuerdo
+con el formato establecido para el proyecto.
+
+#### Datos de la evaluación
+
+| Campo | Descripción                                        |
+| :--- |:---------------------------------------------------|
+| **Carrera** | Ingeniería de Software                             |
+| **Curso** | Desarrollo de Aplicaciones Open Source             |
+| **Sección** | 7750                                               |
+| **Auditor** | PeruTech                                           |
+| **Cliente(s)** | Miembros de PeruTech                               |
+| **Site o App a evaluar** | Preciazo - Landing Page y Frontend Web Application |
+
+#### Tareas a evaluar
+
+El alcance de la evaluación heurística comprende los principales flujos de interacción
+de la **Landing Page** y de la **Frontend Web Application de Preciazo**, considerando
+las tareas representativas de ambos segmentos objetivo.
+
+**Landing Page**
+
+1. Identificar la propuesta de valor de Preciazo y reconocer el segmento de usuario correspondiente.
+2. Navegar desde los llamados a la acción de la Landing Page hacia la experiencia web correspondiente.
+
+**Compradores Independientes**
+
+3. Crear una lista de compras, agregar productos y establecer un presupuesto límite.
+4. Comparar el costo de la lista de compras entre diferentes establecimientos.
+5. Consultar la ruta de compra sugerida y reconocer el orden de las paradas.
+6. Confirmar o reportar información de precios y disponibilidad mediante la sección de verificación comunitaria.
+
+**Comerciantes Minoristas**
+
+7. Consultar la información principal presentada en el Dashboard del comercio.
+8. Revisar y actualizar precios y disponibilidad de productos desde el módulo de inventario.
+9. Crear una nueva promoción indicando producto, precio de oferta y periodo de vigencia.
+10. Consultar los datos del establecimiento y verificar la información comercial registrada.
+
+#### Tareas no incluidas en esta evaluación
+
+La presente evaluación se concentra en la experiencia de usuario y en los flujos
+visibles de la versión actual de Preciazo. Por ello, no se incluyen dentro de este
+alcance:
+
+1. La evaluación interna de endpoints o contratos de los RESTful Web Services.
+2. La configuración de infraestructura, despliegue continuo o recursos del proveedor cloud.
+3. La revisión del código fuente o de la arquitectura interna de los componentes.
+4. Pruebas de carga, estrés o concurrencia del sistema.
+5. Funcionalidades que todavía no formen parte de los flujos visibles disponibles para los segmentos evaluados.
+
+Estos aspectos corresponden a actividades técnicas de implementación y calidad de
+software, mientras que esta evaluación se enfoca específicamente en la experiencia
+de interacción de los usuarios con la interfaz.
+
+#### Escala de severidad
+
+Los problemas identificados durante la evaluación serán clasificados utilizando
+la escala de severidad establecida para el proyecto:
+
+| Nivel | Descripción |
+| :---: | :--- |
+| **1** | Problema superficial: puede ser superado fácilmente por el usuario o presenta una frecuencia muy baja. |
+| **2** | Problema menor: puede presentarse con mayor frecuencia o requerir mayor esfuerzo por parte del usuario. Se recomienda asignar una prioridad baja para su corrección. |
+| **3** | Problema mayor: ocurre con frecuencia o dificulta considerablemente que el usuario complete una tarea. Su corrección debe tener prioridad alta. |
+| **4** | Problema muy grave: impide que el usuario continúe utilizando correctamente la funcionalidad. Debe corregirse antes de la liberación del producto. |
+
+#### Tabla resumen de problemas
+
+| # | Problema identificado | Escala de severidad | Heurística / Principio violado |
+| :---: | :--- | :---: | :--- |
+| **1** | Falta de retroalimentación visible al completar una acción | **2** | Usabilidad - Visibilidad del estado del sistema |
+| **2** | Uso de abreviaciones que pueden dificultar la comprensión | **1** | Usabilidad - Correspondencia entre el sistema y el mundo real |
+| **3** | La ruta optimizada incluye un establecimiento cerrado sin una acción clara de corrección | **3** | Usabilidad - Control y libertad del usuario |
+| **4** | Uso inconsistente de etiquetas para las mismas secciones de navegación | **2** | Usabilidad - Consistencia y estándares |
+| **5** | Falta de validaciones preventivas en la creación de promociones | **3** | Usabilidad - Prevención de errores |
+| **6** | El indicador de mejor precio no cuenta con una explicación explícita | **1** | Usabilidad - Reconocimiento antes que recuerdo |
+| **7** | La actualización de inventario depende principalmente de acciones individuales | **2** | Usabilidad - Flexibilidad y eficiencia de uso |
+| **8** | La vista de comparación concentra demasiada información en un solo espacio | **2** | Usabilidad - Diseño estético y minimalista |
+| **9** | No se evidencia una opción clara para corregir una verificación realizada por error | **2** | Usabilidad - Ayudar al usuario a reconocer, diagnosticar y recuperarse de errores |
+| **10** | Los flujos complejos de la aplicación no presentan ayuda contextual visible | **2** | Usabilidad - Ayuda y documentación |
+| **11** | La información secundaria presenta una jerarquía visual con contraste reducido | **2** | Inclusive Design - Proporciona experiencias comparables |
+| **12** | La interfaz no se adapta correctamente a dispositivos móviles | **3** | Inclusive Design - Proporcionar experiencias comparables |
+| **13** | La navegación principal no facilita el acceso directo al perfil del usuario | **2** | Information Architecture - Is it findable? |
+| **14** | El portal del comerciante no muestra una ruta jerárquica clara de navegación | **2** | Information Architecture - Is it usable? |
+
+
+#### Descripción de problemas
+
+La siguiente sección documentará individualmente los problemas encontrados,
+incluyendo su severidad, el principio afectado, evidencia visual y la acción
+de mejora propuesta.
+
+## Problema #1: Falta de retroalimentación visible al completar una acción
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Visibilidad del estado del sistema
+
+**Problema:**
+
+Durante la revisión del flujo de creación de promociones se identificó que la interfaz
+permite completar los datos y ejecutar la acción **Publicar Oferta**, pero no se
+evidencia de forma clara un estado intermedio de procesamiento ni una confirmación
+visual inmediata que indique al usuario si la operación fue realizada correctamente.
+
+La ausencia de este tipo de retroalimentación puede generar incertidumbre y provocar
+que el usuario repita la acción al no saber si el sistema procesó la solicitud.
+
+**Evidencia:**
+
+![Evidencia H01 - Visibilidad del estado del sistema](../assets/sprint-3/heuristics/h01-system-status-01.png)
+
+ 
+
+![Evidencia H02 - Visibilidad del estado del sistema](../assets/sprint-3/heuristics/h01-system-status-02.png)
+
+**Recomendación:**
+
+Incorporar indicadores de estado durante el procesamiento de la acción, deshabilitando
+temporalmente el botón mientras se ejecuta la operación y mostrando posteriormente
+un mensaje visible de confirmación o error. Por ejemplo, se puede utilizar una
+notificación tipo snackbar con el mensaje **“Promoción publicada correctamente”**.
+
+## Problema #2: Uso de abreviaciones que pueden dificultar la comprensión
+
+**Severidad:** 1
+
+**Heurística / Principio violado:** Usabilidad - Correspondencia entre el sistema y el mundo real
+
+**Problema:**
+
+Durante la revisión de la vista **Comparar Precios** se identificó el uso de
+abreviaciones como **“disp.”**, **“paq.”**, **“unid.”** y **“Leche Evap.”** para
+representar disponibilidad, presentación y nombres de productos.
+
+Aunque estas abreviaciones permiten reducir el espacio ocupado en la interfaz,
+pueden exigir que algunos usuarios interpreten su significado antes de comprender
+completamente la información mostrada. Por ejemplo, la expresión **“7/7 disp.”**
+resulta menos directa que indicar explícitamente **“7 de 7 disponibles”**.
+
+**Evidencia:**
+
+![Evidencia H02 - Correspondencia entre el sistema y el mundo real](../assets/sprint-3/heuristics/h02-real-world-language.png)
+
+**Recomendación:**
+
+Utilizar términos completos y familiares siempre que el espacio disponible lo permita.
+Por ejemplo, reemplazar **“7/7 disp.”** por **“7 de 7 disponibles”** y utilizar
+**“paquete”** o **“unidad”** en lugar de abreviaciones cuando no comprometa la
+legibilidad. En dispositivos con menor espacio se pueden complementar las
+abreviaciones mediante etiquetas o ayudas contextuales.
+
+## Problema #3: La ruta optimizada incluye un establecimiento cerrado sin una acción clara de corrección
+
+**Severidad:** 3
+
+**Heurística / Principio violado:** Usabilidad - Control y libertad del usuario
+
+**Problema:**
+
+Durante la evaluación de la vista **Ruta** se identificó que el recorrido puede mostrar
+una parada correspondiente a un establecimiento marcado como **“Cerrado”**, aun
+cuando la ruta se presenta como **“Optimizada”**.
+
+En la interfaz evaluada no se observa una acción directa que permita al usuario
+eliminar dicha parada, reemplazarla por otro establecimiento o solicitar un nuevo
+cálculo de ruta. Esta situación limita el control del usuario sobre su recorrido y puede
+obligarlo a continuar con una planificación que ya no resulta válida.
+
+**Evidencia:**
+
+![Evidencia H03 - Control y libertad del usuario](../assets/sprint-3/heuristics/h03-user-control.png)
+
+**Recomendación:**
+
+Incorporar una acción visible para excluir o reemplazar establecimientos no disponibles.
+Al detectar una tienda cerrada, el sistema debería permitir al usuario recalcular la ruta
+manteniendo los productos pendientes y presentando una alternativa disponible antes
+de continuar con el recorrido.
+
+## Problema #4: Uso inconsistente de etiquetas para las mismas secciones de navegación
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Consistencia y estándares
+
+**Problema:**
+
+Durante la evaluación de las vistas correspondientes al comerciante se identificó
+que algunas secciones utilizan diferentes etiquetas dependiendo del elemento de
+navegación empleado.
+
+Por ejemplo, en la navegación superior se muestran las opciones **“Métricas”**,
+**“Inventario”** y **“Datos de Tienda”**, mientras que en la navegación inferior
+las mismas secciones aparecen como **“Métricas / Dashboard”**,
+**“Inventario y Precios”** y **“Tienda (RUC)”**, respectivamente.
+
+Aunque las opciones dirigen conceptualmente hacia las mismas áreas del sistema,
+la diferencia en su nomenclatura puede generar dudas sobre si representan
+funcionalidades distintas.
+
+**Evidencia:**
+
+![Evidencia H04 - Consistencia y estándares](../assets/sprint-3/heuristics/h04-consistency.png)
+
+**Recomendación:**
+
+Unificar las etiquetas utilizadas en todos los elementos de navegación de la
+aplicación. Cada sección debe conservar el mismo nombre independientemente de
+si el usuario accede desde la navegación superior o inferior.
+
+Se recomienda establecer una nomenclatura única, por ejemplo:
+**“Métricas”**, **“Inventario y Precios”**, **“Promociones”** y
+**“Datos de Tienda”**.
+
+---
+
+## Problema #5: Falta de validaciones preventivas en la creación de promociones
+
+**Severidad:** 3
+
+**Heurística / Principio violado:** Usabilidad - Prevención de errores
+
+**Problema:**
+
+Durante la evaluación del formulario **Crear Promoción** se identificó que la interfaz
+permite ingresar el precio de oferta y las fechas de vigencia sin evidenciar restricciones
+preventivas antes de ejecutar la acción **Publicar Oferta**.
+
+En el diseño evaluado no se observa una validación visible que impida registrar una
+fecha de fin anterior a la fecha de inicio o introducir valores inconsistentes en el precio
+de la promoción. Esto puede ocasionar que el comerciante publique información
+incorrecta y tenga que corregirla posteriormente.
+
+**Evidencia:**
+
+![Evidencia H05 - Prevención de errores](../assets/sprint-3/heuristics/h05-error-prevention.png)
+
+**Recomendación:**
+
+Implementar validaciones antes de habilitar la publicación de la promoción. El sistema
+debe verificar que la fecha de fin sea posterior o igual a la fecha de inicio, que el precio
+de oferta sea un valor numérico válido y que los campos obligatorios estén completos.
+
+Mientras alguna condición no sea válida, el botón **Publicar Oferta** debería permanecer
+deshabilitado y la interfaz debería mostrar indicaciones específicas junto al campo
+correspondiente.
+
+## Problema #6: El indicador de mejor precio no cuenta con una explicación explícita
+
+**Severidad:** 1
+
+**Heurística / Principio violado:** Usabilidad - Reconocimiento antes que recuerdo
+
+**Problema:**
+
+Durante la evaluación de la vista **Comparar Precios** se identificó que algunos
+precios se encuentran acompañados por un ícono de estrella (**★**) utilizado para
+destacar una alternativa favorable dentro de la comparación.
+
+Sin embargo, en la vista evaluada no se observa una leyenda o explicación directa
+que indique qué representa este símbolo. El usuario puede inferir su significado a
+partir del contexto, pero debe interpretar por cuenta propia que la estrella señala
+el mejor precio disponible para un producto.
+
+**Evidencia:**
+
+![Evidencia H06 - Reconocimiento antes que recuerdo](../assets/sprint-3/heuristics/h06-recognition.png)
+
+**Recomendación:**
+
+Incorporar una leyenda visible que explique el significado del indicador, por ejemplo
+**“★ Mejor precio”**, o mostrar un tooltip descriptivo cuando el usuario interactúe
+con el símbolo.
+
+Esto permitiría reconocer inmediatamente el significado del elemento sin depender
+de la interpretación o conocimiento previo del usuario.
+
+## Problema #7: La actualización de inventario depende principalmente de acciones individuales
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Flexibilidad y eficiencia de uso
+
+**Problema:**
+
+Durante la evaluación del módulo **Inventario** se identificó que la actualización de
+precios, stock y disponibilidad se realiza principalmente de manera individual por
+producto.
+
+Este enfoque resulta adecuado para modificaciones puntuales, pero puede generar
+una carga operativa elevada cuando el comerciante necesita actualizar varios productos
+durante una misma jornada, especialmente ante cambios de precios, reposición de
+mercadería o revisión de artículos agotados.
+
+**Evidencia:**
+
+![Evidencia H07 - Flexibilidad y eficiencia de uso](../assets/sprint-3/heuristics/h07-efficiency.png)
+
+**Recomendación:**
+
+Incorporar mecanismos de edición masiva que permitan seleccionar varios productos
+y actualizar atributos comunes en una sola operación.
+
+También se recomienda mantener opciones como importación de datos y filtros de
+inventario para reducir la cantidad de pasos necesarios en tareas repetitivas y mejorar
+la eficiencia de los comerciantes que administran catálogos extensos.
+
+## Problema #8: La vista de comparación concentra demasiada información en un solo espacio
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Diseño estético y minimalista
+
+**Problema:**
+
+Durante la evaluación de la vista **Comparar Precios** se identificó una alta
+concentración de información dentro de una misma pantalla, incluyendo nombres de
+establecimientos, precios, disponibilidad, presentaciones de productos e indicadores
+de mejor alternativa.
+
+Aunque estos datos son relevantes para la comparación, su presentación simultánea
+puede aumentar la carga visual del usuario, especialmente en dispositivos con menor
+espacio de visualización, dificultando la identificación rápida de la opción más
+conveniente.
+
+**Evidencia:**
+
+![Evidencia H08 - Diseño estético y minimalista](../assets/sprint-3/heuristics/h08-minimalism.png)
+
+**Recomendación:**
+
+Reforzar la jerarquía visual priorizando el precio, la disponibilidad y la alternativa
+recomendada. La información secundaria puede mostrarse bajo demanda mediante
+elementos desplegables o vistas de detalle.
+
+También se recomienda reducir elementos repetitivos y mantener una separación
+visual clara entre productos y establecimientos para facilitar el escaneo rápido de
+la información.
+
+## Problema #9: No se evidencia una opción clara para corregir una verificación realizada por error
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Ayudar al usuario a reconocer, diagnosticar y recuperarse de errores
+
+**Problema:**
+
+Durante la evaluación de la sección **Verificación Comunitaria** se identificó que el
+usuario puede seleccionar las acciones **“No coincide”** o **“Confirmar precio”**
+para validar un reporte.
+
+Sin embargo, en la interfaz evaluada no se observa un mecanismo visible que permita
+corregir una selección realizada por error, ni una confirmación posterior que explique
+claramente el resultado de la acción ejecutada.
+
+Esta situación puede generar incertidumbre si el usuario confirma o rechaza
+accidentalmente un precio y desea modificar su decisión.
+
+**Evidencia:**
+
+![Evidencia H09 - Recuperación ante errores](../assets/sprint-3/heuristics/h09-error-recovery.png)
+
+**Recomendación:**
+
+Mostrar una confirmación inmediata después de registrar la verificación e incorporar
+una opción temporal de **“Deshacer”** que permita revertir la acción durante algunos
+segundos.
+
+También se recomienda indicar claramente el nuevo estado del reporte después de
+la interacción, de manera que el usuario pueda reconocer qué acción fue registrada.
+
+## Problema #10: Los flujos complejos de la aplicación no presentan ayuda contextual visible
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Ayuda y documentación
+
+**Problema:**
+
+Durante la evaluación se identificó que la Landing Page de Preciazo dispone de una
+sección de preguntas frecuentes y soporte; sin embargo, en los principales flujos de
+la Frontend Web Application no se evidencia un mecanismo de ayuda contextual
+directamente asociado a las tareas que realiza el usuario.
+
+Funciones como la comparación de precios, el cálculo de rutas y la verificación
+comunitaria incorporan información y acciones específicas cuyo funcionamiento puede
+no resultar evidente para un usuario que interactúa con la plataforma por primera vez.
+
+Por ejemplo, en el módulo de **Verificación Comunitaria** el usuario debe decidir entre
+acciones como **“No coincide”** y **“Confirmar precio”**, pero no se muestra una ayuda
+visible que explique cómo estas decisiones afectan la información publicada en la
+plataforma.
+
+**Evidencia:**
+
+![Evidencia H10 - Ayuda y documentación](../assets/sprint-3/heuristics/h10-help-documentation.png)
+
+**Recomendación:**
+
+Incorporar ayuda contextual dentro de los flujos que requieren mayor explicación,
+mediante tooltips, íconos informativos, mensajes breves o enlaces hacia una sección
+de ayuda específica.
+
+En el módulo de Verificación Comunitaria, por ejemplo, podría incluirse una explicación
+breve indicando para qué sirve cada acción y cómo contribuye la validación del usuario
+a mantener actualizados los precios de Preciazo.
+
+# Hallazgos de Inclusive Design
+
+Además de las heurísticas de usabilidad, se evaluaron aspectos de diseño inclusivo
+con el objetivo de identificar barreras que puedan afectar la experiencia de usuarios
+con diferentes capacidades visuales y condiciones de uso.
+
+## Problema #11: La información secundaria presenta una jerarquía visual con contraste reducido
+
+**Severidad:** 2
+
+**Principio violado:** Inclusive Design - Proporciona experiencias comparables
+
+**Problema:**
+
+Durante la evaluación del módulo **Verificación Comunitaria** se identificó que
+diversos textos secundarios, como el tiempo transcurrido del reporte, las etiquetas
+de precios y la cantidad de usuarios que han confirmado una publicación, utilizan
+tonalidades grises de baja intensidad sobre fondos claros.
+
+Aunque esta información no corresponde a las acciones principales de la interfaz,
+forma parte del contexto necesario para evaluar la confiabilidad y actualidad de un
+reporte. Su baja prominencia visual puede dificultar la lectura para usuarios con
+capacidades visuales diversas o bajo condiciones de visualización desfavorables.
+
+**Evidencia:**
+
+![Evidencia Inclusive Design - Legibilidad de información secundaria](../assets/sprint-3/heuristics/id01-readable-content.png)
+
+**Recomendación:**
+
+Incrementar el contraste visual de los textos secundarios sin alterar la jerarquía
+general de la interfaz. Asimismo, se recomienda verificar los valores de contraste
+utilizados en texto y componentes durante las pruebas de accesibilidad de la versión
+implementada.
+
+La información relevante no debería depender únicamente de una diferencia sutil
+de tonalidad para poder ser identificada correctamente.
+
+## Problema #12: La interfaz no se adapta correctamente a dispositivos móviles
+
+**Severidad:** 3
+
+**Principio violado:** Inclusive Design - Proporcionar experiencias comparables
+
+**Problema:**
+
+Durante la evaluación de Preciazo en una resolución correspondiente a un dispositivo
+móvil se identificó que determinadas vistas no se adaptan correctamente al espacio
+disponible en pantalla.
+
+Algunos componentes mantienen dimensiones propias de una visualización de
+escritorio, provocando una distribución poco adecuada del contenido y dificultando
+la lectura y ejecución de las acciones principales.
+
+Esta situación genera una experiencia diferente para los usuarios que acceden desde
+un smartphone y puede dificultar el cumplimiento de tareas que sí pueden realizarse
+con mayor facilidad desde una pantalla de escritorio.
+
+**Evidencia:**
+
+![Evidencia Inclusive Design - Adaptabilidad móvil](../assets/sprint-3/heuristics/id02-responsive-layout.png)
+
+**Recomendación:**
+
+Implementar y revisar el comportamiento responsive de las principales vistas mediante
+breakpoints adecuados, reorganización de componentes y dimensiones relativas.
+
+Se recomienda validar especialmente las vistas de listas, comparación de precios,
+rutas, inventario y promociones en diferentes tamaños de pantalla, asegurando que
+el contenido permanezca legible y que las acciones principales puedan utilizarse
+sin desplazamientos o desbordamientos innecesarios.
+
+# Hallazgos de Information Architecture
+
+La evaluación también consideró la organización, etiquetado y facilidad para localizar
+las principales funciones dentro de Preciazo, tomando como referencia la arquitectura
+de información definida para la experiencia web.
+
+## Problema #13: La navegación principal no facilita el acceso directo al perfil del usuario
+
+**Severidad:** 2
+
+**Principio violado:** Information Architecture - Is it findable?
+
+**Problema:**
+
+Durante la evaluación de la navegación correspondiente al Comprador Independiente
+se identificó que la barra inferior prioriza las opciones **Inicio**, **Mis Listas**,
+**Comparar Precios**, **Ruta** y **Comunitaria**, pero no presenta un acceso visible
+a la sección **Perfil**.
+
+La arquitectura de información definida para Preciazo considera el Perfil como parte
+de la navegación primaria del comprador. Su ausencia en las vistas evaluadas puede
+dificultar que el usuario localice rápidamente funciones relacionadas con su cuenta,
+preferencias o información personal.
+
+**Evidencia:**
+
+![Evidencia Information Architecture - Findability del perfil](../assets/sprint-3/heuristics/ia01-profile-findability.png)
+
+**Recomendación:**
+
+Revisar la jerarquía de la navegación principal y garantizar un acceso consistente y
+fácilmente localizable hacia el perfil del usuario.
+
+Si funciones como **Comparar Precios** o **Comunitaria** deben mantenerse como
+accesos principales, se recomienda incorporar el Perfil mediante un elemento visible
+y persistente, evitando que su ubicación dependa de que el usuario recuerde una ruta
+alternativa.
+
+## Problema #14: El portal del comerciante no muestra una ruta jerárquica clara de navegación
+
+**Severidad:** 2
+
+**Principio violado:** Information Architecture - Is it usable?
+
+**Problema:**
+
+Durante la evaluación del portal del comerciante se identificó que la interfaz permite
+acceder a secciones como **Métricas**, **Inventario**, **Promociones** y
+**Datos de Tienda**, pero no presenta una ruta jerárquica visible que indique al
+usuario su ubicación dentro de la estructura de navegación.
+
+En vistas como **Inventario**, el usuario puede reconocer la sección activa, pero no
+se muestra un elemento tipo breadcrumb que permita comprender la relación entre
+la sede seleccionada, el módulo de gestión y la vista actual.
+
+Esta ausencia puede dificultar la orientación cuando se incorporen más niveles de
+navegación o funciones secundarias dentro del portal.
+
+**Evidencia:**
+
+![Evidencia Information Architecture - Orientación jerárquica](../assets/sprint-3/heuristics/ia02-navigation-hierarchy.png)
+
+**Recomendación:**
+
+Incorporar una estructura de navegación jerárquica visible en las vistas que incluyan
+subniveles funcionales, por ejemplo mediante breadcrumbs del tipo:
+
+**Metro Miraflores > Inventario y Precios**
+
+En futuros flujos secundarios podría ampliarse a:
+
+**Metro Miraflores > Inventario y Precios > Editar producto**
+
+Esto permitiría que el usuario identifique fácilmente su ubicación y pueda regresar a
+niveles anteriores sin depender únicamente de la navegación principal.
+
+## Síntesis de resultados de la evaluación
+
+La evaluación de experiencia de usuario de Preciazo permitió identificar un total de
+**14 oportunidades de mejora**, distribuidas entre criterios de **Usability**,
+**Inclusive Design** e **Information Architecture**.
+
+| Nivel de severidad | Cantidad de hallazgos |
+| :--- | :---: |
+| **1 - Problema superficial** | 2 |
+| **2 - Problema menor** | 9 |
+| **3 - Problema mayor** | 3 |
+| **4 - Problema muy grave** | 0 |
+
+La mayoría de los hallazgos corresponden a problemas de severidad 2, asociados
+principalmente con claridad de navegación, eficiencia de interacción, ayuda contextual
+y presentación de información.
+
+Los problemas de mayor prioridad se relacionan con el control del usuario ante
+establecimientos no disponibles dentro de una ruta, la prevención de errores durante
+la creación de promociones y la adaptabilidad de las interfaces en dispositivos móviles.
+
+Como resultado de la evaluación, se recomienda priorizar estas observaciones en las
+siguientes iteraciones del producto antes de abordar mejoras de menor impacto visual
+o informativo.
+
+---
 
 ## 5.4. Video About-the-Product
 
-*Espacio reservado para la incorporación del enlace audiovisual de demostración del producto funcional final.*
+### Información del Video
 
+| Elemento | Información                                                                                                                    |
+| :--- |:-------------------------------------------------------------------------------------------------------------------------------|
+| **Nombre** | Video About-the-Product - Preciazo                                                                                             |
+| **Formato** | MP4                                                                                                                            |
+| **Duración** | 02:09                                                                                                                           |
+| **Microsoft Stream** | [Ver video en Microsoft Stream](https://1drv.ms/v/c/442438202d3719f3/IQAwkQXn1BfOS4rYgx8D_4F0Ac8LsMtwI03gwSpsxJSz-v0?e=ak30RA) |
+| **YouTube** | [Ver video en YouTube](https://youtu.be/XjwbQpADie8)                                                                           |
+
+### Evidencia
+
+La siguiente captura corresponde a la versión publicada del Video About-the-Product:
+
+![Video About-the-Product](../assets/sprint-3/about-the-product.png)
+
+**Timing:** 02:09
 ---
 
 # Conclusiones
 
-1. La plataforma web **Preciazo**, desarrollada por la startup **PeruTech**, aborda directamente la asimetría de precios y la dispersión geográfica comercial en Lima Metropolitana, articulando una solución de ahorro integral que combina costos reales de góndola con optimización de traslados urbanos.
-2. La aplicación de Domain-Driven Design (DDD) facilitó la descomposición estratégica del dominio en siete Bounded Contexts independientes, garantizando un bajo acoplamiento entre el núcleo de compras y los módulos comerciales para bodegas de barrio.
-3. El despliegue de la Landing Page en GitHub Pages durante el Sprint 1 demostró la viabilidad del enfoque *Mobile-First*, alcanzando puntajes superiores al 95% en rendimiento, accesibilidad y SEO bajo auditorías de Google Lighthouse.
+## Conclusiones y recomendaciones
 
-# Conclusiones y recomendaciones
-
-* **Recomendaciones Técnicas:** Se recomienda implementar mecanismos de caché distribuida en el Backend para acelerar las consultas de canastas en distritos de alta densidad comercial y reducir el consumo de recursos de base de datos.
-* **Recomendaciones de Negocio:** Se sugiere promover campañas de fidelización barrial que incentiven a los compradores a verificar precios de anaquel, aumentando la exactitud de los datos colaborativos sin elevar los costos de supervisión en campo.
-
-# Video About-the-Team
-
-El video institucional de presentación del equipo PeruTech resume la conformación de los integrantes, la asignación de roles técnicos y la visión estratégica del producto Preciazo:
-
-* **Enlace al Video del Equipo:** [Ver Video About-the-Team en Microsoft Stream / OneDrive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221a525_upc_edu_pe/IQALn1WCs-n2RKG7i-4XYYVKAYtnp2Uw9sig9WHpe8BqaZc)
+1. **Conclusión sobre validación y valor de negocio:** Las sesiones de investigación y validación empírica confirmaron que los compradores independientes requieren contrastar el costo consolidado de su canasta frente al gasto y tiempo de traslado urbano, mientras que los comerciantes minoristas necesitan un canal digital ágil y libre de comisiones abusivas para visibilizar sus ofertas locales. La interfaz de **Preciazo** y la evaluación heurística (que permitió identificar y documentar 14 oportunidades de mejora en usabilidad, diseño inclusivo y arquitectura de la información) validan la claridad de los flujos de presupuesto límite, comparación multitienda y gestión de inventario.
+2. **Conclusión sobre arquitectura DDD e implementación Full-Stack:** La organización del sistema en siete Bounded Contexts jerarquizados en Core (`Catalog and Pricing`, `Route Planning` y `Shopping Planning`), Soporte (`Merchant Management`, `Community Price Verification` y `Analytics and Engagement`) y Genérico (`Identity and Access`), implementados bajo una arquitectura por capas en **Java 25 con Spring Boot** (`preciazo-web-services`) y **Angular** (`Preciazo-platform`), garantizó el desacoplamiento del dominio y la exposición estandarizada de contratos RESTful documentados con OpenAPI 3.1 en **Microsoft Azure App Service**.
+3. **Conclusión sobre gestión del proyecto, GitFlow y trabajo colaborativo:** La aplicación rigurosa del marco de trabajo Scrum (mediante tableros Kanban en Trello por cada Sprint), el flujo de ramificación GitFlow (`main`, `develop` y ramas `feature/`) y la convención de *Conventional Commits* en los cuatro repositorios de la organización permitieron mantener trazabilidad continua, revisiones por pares efectivas y despliegues automatizados en la nube.
 
 # Bibliografía
 

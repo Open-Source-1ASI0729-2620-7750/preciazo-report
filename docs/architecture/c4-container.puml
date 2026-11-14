@@ -1,48 +1,31 @@
 @startuml Preciazo_C4_Container
-
 !include <C4/C4_Container>
-
 LAYOUT_LEFT_RIGHT()
-
-title Preciazo - Software Architecture Container Diagram
-
-Person(buyer, "Buyer", "Plans purchases, compares prices, manages shopping lists and budgets, generates routes and reports price discrepancies.")
-
-Person(merchant, "Merchant", "Manages store information, products, prices, availability, inventory, promotions and business metrics.")
-
-System_Ext(routing, "Mapping & Routing Service", "Provides geolocation, distances, travel times and optimized route information.")
-
-System_Ext(ruc, "RUC Verification Service", "Validates merchant fiscal information during store affiliation.")
-
+title Preciazo - Containers (AV2 Design Proposal)
+Person(buyer, "Independent Buyer", "Plans purchases, compares prices, manages budgets and generates routes.")
+Person(merchant, "Retail Merchant", "Manages owned stores, inventory, promotions and observed monthly metrics.")
+System_Ext(routing, "Mapping & Routing Service", "Travel distances, durations and reachability; provider pending.")
+System_Ext(ruc, "RUC Verification Service", "Fiscal status; provider pending. No ownership guarantee.")
+System_Ext(securityCheck, "Security Check Provider (pending)", "Proof verification contract and protocol pending.")
 System_Boundary(preciazo, "Preciazo") {
-
-    Container(landing, "Landing Page", "HTML5, CSS3, JavaScript", "Presents the Preciazo value proposition and provides access to the web application.")
-
-    Container(web, "Single-Page Application (SPA)", "Angular, TypeScript, Angular Material", "Responsive Preciazo web application that provides Buyer and Merchant functionality according to the authenticated user's role.")
-
-    Container(api, "Preciazo REST API", "Java, Spring Boot, Spring Data JPA", "Provides RESTful application services for identity, shopping planning, catalog and pricing, route planning, merchant management, community price verification and analytics.")
-
-    ContainerDb(database, "Relational Database", "Relational Database", "Persists operational data required by Preciazo.")
+ Container(landing, "Landing Page", "HTML5, CSS3, JavaScript", "Product information and access to the web application.")
+ Container(web, "Single-Page Application (SPA)", "Angular, TypeScript, Angular Material", "Runs in the browser. Renders features, invokes the API and manages client navigation and feedback.")
+ Container(api, "Preciazo REST API", "Java, Spring Boot", "One modular backend with seven bounded contexts, separate command/query contracts, server authorization and per-context persistence adapters.")
+ ContainerDb(database, "Relational Database", "Relational SQL database", "Operational data with logical ownership by bounded context. Persistence engine selection remains pending.")
 }
-
-Rel(buyer, landing, "Discovers Preciazo", "HTTPS")
-
-Rel(merchant, landing, "Discovers Preciazo", "HTTPS")
-
-Rel(buyer, web, "Uses shopping, comparison and route planning features", "HTTPS")
-
-Rel(merchant, web, "Uses store and business management features", "HTTPS")
-
-Rel(landing, web, "Provides access to the application", "HTTPS")
-
-Rel(web, api, "Invokes REST endpoints", "HTTPS / JSON")
-
-Rel(api, database, "Reads and writes operational data", "SQL")
-
-Rel(api, routing, "Requests geolocation, travel times and optimized routes", "HTTPS / REST API")
-
-Rel(api, ruc, "Requests merchant fiscal validation", "HTTPS / REST API")
-
-SHOW_LEGEND()
-
+Rel(buyer, landing, "Discovers product", "HTTPS")
+Rel(merchant, landing, "Discovers product", "HTTPS")
+Rel(buyer, web, "Uses purchase planning", "HTTPS")
+Rel(merchant, web, "Uses merchant features", "HTTPS")
+Rel(landing, web, "Links to application", "HTTPS")
+Rel(web, api, "Invokes REST; bearer token on protected requests", "HTTPS / JSON")
+Rel(api, database, "Persists each context through its own repository adapters", "SQL / Spring Data JPA")
+Rel(api, routing, "Obtains travel matrix; backend optimizes stop order", "HTTPS / API contract pending")
+Rel(api, ruc, "Obtains fiscal verification", "HTTPS / API contract pending")
+Rel(api, securityCheck, "Verifies required proof after login lockout", "Protocol pending")
+note bottom of api
+ Proposed logical architecture, not an implementation/deployment inventory.
+ Local input ports require trusted data provisioning; no ACL is added.
+ No broker, durable event delivery, refresh-token flow or automatic subscriptions are implied.
+end note
 @enduml

@@ -1,53 +1,51 @@
 @startuml Preciazo_Event_Storming_identity_access
-left to right direction
-title Preciazo - Design-Level Event Storming: Identity and Access
+top to bottom direction
+title Preciazo - Design-Level Event Storming: Identity and Access (AV2 - US06 / TS01)
 skinparam shadowing false
 skinparam defaultFontSize 15
 skinparam defaultTextAlignment center
-skinparam nodesep 35
-skinparam ranksep 35
+skinparam nodesep 28
+skinparam ranksep 28
 skinparam rectanglePadding 12
-
-rectangle "Buyer / Merchant" as n0_0 <<Actor>> #FFE08A
-rectangle "Register User" as n0_1 <<Command>> #ACDAFA
-rectangle "User Account" as n0_2 <<Aggregate>> #FFF1AE
-rectangle "User Registered" as n0_3 <<Domain Event>> #FFD0A1
-n0_0 --> n0_1
-n0_1 --> n0_2
-n0_2 --> n0_3
-
-rectangle "Buyer / Merchant" as n1_0 <<Actor>> #FFE08A
-rectangle "Authenticate User" as n1_1 <<Command>> #ACDAFA
-rectangle "User Account" as n1_2 <<Aggregate>> #FFF1AE
-rectangle "User Authenticated" as n1_3 <<Domain Event>> #FFD0A1
-rectangle "Get User Profile" as n1_4 <<Query>> #B3EDBE
-n1_0 --> n1_1
-n1_1 --> n1_2
-n1_2 --> n1_3
-n1_3 --> n1_4
-
-rectangle "Buyer / Merchant" as n2_0 <<Actor>> #FFE08A
-rectangle "Assign Role" as n2_1 <<Command>> #ACDAFA
-rectangle "User Account" as n2_2 <<Aggregate>> #FFF1AE
-rectangle "Role Assigned" as n2_3 <<Domain Event>> #FFD0A1
-rectangle "Get User Roles" as n2_4 <<Query>> #B3EDBE
-n2_0 --> n2_1
-n2_1 --> n2_2
-n2_2 --> n2_3
-n2_3 --> n2_4
-
-n0_0 -[hidden,norank]down-> n1_0
-n1_0 -[hidden,norank]down-> n2_0
-
-legend bottom
-|= Color |= Element |
-|<back:#FFE08A>    </back>| Actor |
-|<back:#ACDAFA>    </back>| Command |
-|<back:#FFF1AE>    </back>| Aggregate |
-|<back:#FFD0A1>    </back>| Domain Event |
-|<back:#D4BFFA>    </back>| Policy |
-|<back:#B3EDBE>    </back>| Query |
-|<back:#FFB2DF>    </back>| External System |
-|<back:#FFB7AB>    </back>| Hotspot |
-endlegend
+rectangle "Registration Options\nSupported personas and password requirements" as read0 <<Read Model>> #B3EDBE
+rectangle "Visitor" as actor0 <<Actor>> #FFE08A
+rectangle "Register User" as cmd0 <<Command>> #ACDAFA
+rectangle "User" as agg0 <<Aggregate>> #FFF1AE
+rectangle "User Registered" as evt0 <<Domain Event>> #FFD0A1
+read0 -right-> actor0
+actor0 -right-> cmd0
+cmd0 -right-> agg0
+agg0 -right-> evt0
+rectangle "Sign-in Screen\nRetry time or security-check requirement" as read1 <<Read Model>> #B3EDBE
+rectangle "Buyer / Merchant" as actor1 <<Actor>> #FFE08A
+rectangle "Authenticate User" as cmd1 <<Command>> #ACDAFA
+rectangle "User" as agg1 <<Aggregate>> #FFF1AE
+rectangle "Sign-in Accepted" as evt1 <<Domain Event>> #FFD0A1
+read1 -right-> actor1
+actor1 -right-> cmd1
+cmd1 -right-> agg1
+agg1 -right-> evt1
+read0 -[hidden]down-> read1
+actor0 -[hidden]down-> actor1
+cmd0 -[hidden]down-> cmd1
+agg0 -[hidden]down-> agg1
+evt0 -[hidden]down-> evt1
+rectangle "Sign-in Failed\nKnown account; failed counter saved" as failure <<Domain Event>> #FFD0A1
+rectangle "Account Temporarily Locked\nOnly when the configured threshold is reached" as locked <<Domain Event>> #FFD0A1
+agg1 -down-> failure
+agg1 -down-> locked
+rectangle "Hash Verification / Required Security Check\nApplication ports; proof provider contract pending" as verification <<Application Operation>> #FFB2DF
+rectangle "Signed Access Token\nReturn after successful decision and state save" as token <<Application Result>> #FFB2DF
+verification -right-> token
+failure -[hidden]down-> verification
+rectangle "Buyer / Merchant" as reader <<Actor>> #FFE08A
+rectangle "Get My Profile / Get My Access" as query <<Query>> #B3EDBE
+rectangle "Own Profile and Current Permissions\nNo password hash or token in read models" as view <<Read Model>> #B3EDBE
+reader -right-> query
+query -right-> view
+verification -[hidden]down-> reader
+rectangle "Lock expiry is evaluated on request, not a scheduled event.\nJWT issuance is not a persisted session; logout discards the client token.\nNo public assignment of arbitrary roles, permissions or fiscal verification.\nDomain events contain no credentials, password hashes or bearer tokens." as rule <<Business Rule>> #FFF1AE
+rectangle "Configure lock threshold/duration, password policy and JWT parameters.\nDefine security proof provider, binding, single-use validation and deadline.\nRole lifecycle, global attempt limiting and account recovery remain pending.\nNo ACL, refresh-token flow or unsupported single-token revocation." as hotspot <<Hotspot>> #FFB7AB
+reader -[hidden]down-> rule
+rule -[hidden]down-> hotspot
 @enduml

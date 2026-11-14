@@ -1,87 +1,95 @@
 @startuml Preciazo_Identity_Access_Classes
-
-title Preciazo - Identity and Access Class Diagram
-
+title Preciazo - Identity and Access Domain (AV2 - US06 / TS01)
+set namespaceSeparator none
 skinparam classAttributeIconSize 0
 skinparam shadowing false
 skinparam linetype ortho
-
-interface IdentityRepository {
-    +findByEmail(email: EmailAddress): User
-    +save(user: User): void
+class User <<Aggregate>> {
+ -id: Long
+ -email: EmailAddress
+ -passwordHash: PasswordHash
+ -status: AccountStatus
+ -failedAttempts: Integer
+ -lockedUntil: Instant [0..1]
+ -securityCheckRequired: Boolean
+ -version: Long
+ +recordFailedSignIn(now: Instant, policy: AccountLockoutPolicy): void
+ +beginPostLockWindow(now: Instant): void
+ +acceptSignIn(): void
+ +hasPermission(resource: String, action: String): Boolean
 }
-
-interface AccessPolicy {
-    +allows(user: User, permission: Permission): Boolean
-}
-
-class IdentityService {
-    +authenticate(email: EmailAddress, credential: String): AuthSession
-    +revoke(session: AuthSession): void
-    +assignRole(user: User, role: Role): void
-}
-
-class User {
-    -id: Long
-    -email: EmailAddress
-    -status: AccountStatus
-    +authenticate(credential: String): AuthSession
-    +assignRole(role: Role): void
-    +deactivate(): void
-    +can(permission: Permission): Boolean
-}
-
-class AuthSession {
-    -id: Long
-    -issuedAt: DateTime
-    -expiresAt: DateTime
-    -revoked: Boolean
-    +isActiveAt(moment: DateTime): Boolean
-    +revoke(): void
-}
-
-class Role {
-    -name: RoleName
-    +grant(permission: Permission): void
-    +allows(permission: Permission): Boolean
-}
-
-class Permission {
-    -resource: String
-    -action: String
-    +matches(resource: String, action: String): Boolean
-}
-
-enum AccountStatus {
-    ACTIVE
-    SUSPENDED
-    DEACTIVATED
-}
-
-enum RoleName {
-    BUYER
-    MERCHANT
-}
-
-IdentityService ..> IdentityRepository : loads and saves
-IdentityService ..> AccessPolicy : authorizes
-User "1" *-- "0..*" AuthSession : owns
-User "1" o-- "1..*" Role : has
-Role "1" o-- "1..*" Permission : grants
-IdentityService ..> User : authenticates
-
 class EmailAddress <<Value Object>> {
-    -value: String {readOnly}
-    +equals(other: EmailAddress): Boolean
+ -canonicalValue: String {readOnly}
+ +from(rawEmail: String): EmailAddress
 }
-
-note right of EmailAddress
-  Immutable; nonblank address with valid email syntax.
-  Equality by stored value.
+class PasswordHash <<Value Object>> {
+ -encodedValue: String {readOnly}
+}
+class Role <<Aggregate>> {
+ -id: Long
+ -name: RoleName
+}
+class Permission <<Value Object>> {
+ -resource: String {readOnly}
+ -action: String {readOnly}
+}
+enum RoleName {
+ BUYER
+ MERCHANT
+}
+enum AccountStatus {
+ ACTIVE
+ SUSPENDED
+ DEACTIVATED
+}
+class AccountLockoutPolicy <<domain policy>> {
+ -failureThreshold: Integer {readOnly}
+ -lockDuration: Duration {readOnly}
+ +reachesThreshold(failedAttempts: Integer): Boolean
+ +lockedUntil(now: Instant): Instant
+}
+class SignInDecision <<Value Object>> {
+ -allowed: Boolean {readOnly}
+ -retryAt: Instant [0..1] {readOnly}
+ -securityCheckRequired: Boolean {readOnly}
+}
+User "1" --> "1" EmailAddress
+User "1" --> "1" PasswordHash
+User "0..*" --> "1..*" Role : assigned memberships
+Role "0..*" --> "0..*" Permission : granted capabilities
+User ..> AccountStatus
+Role ..> RoleName
+User ..> AccountLockoutPolicy
+User ..> SignInDecision
+note bottom of User
+ Hash verification and JWT issuance are application ports, not domain operations.
+ Threshold failures set lockedUntil and require a security check.
+ Before expiry: deny new login, do not extend the deadline on blocked requests.
+ After expiry: require valid security proof before checking the password.
+ A completed post-lock attempt starts a new failure window.
+ Only successful password + required proof fully clears sign-in controls.
+ Login lockout does not revoke an already-issued access token.
 end note
-
-User "1" --> "1" EmailAddress : email
-IdentityRepository ..> EmailAddress : looks up by
-IdentityService ..> EmailAddress : identifies account
-
+note bottom of EmailAddress
+ Validate syntax, trim surrounding whitespace, normalize case for identity lookup.
+ Same normalization on registration/login; UNIQUE canonical email.
+ This application chooses case-insensitive email identities.
+end note
+note bottom of PasswordHash
+ Persist encoded hash only; raw password never enters domain events/resources/logs.
+ HashingService handles encoding and matching outside the domain.
+ Password policy and encoder parameters require explicit configuration.
+end note
+note bottom of Role
+ Seed BUYER and MERCHANT idempotently; preserve ids and existing memberships.
+ Public registration selects one supported persona, not arbitrary role/permission ids.
+ MERCHANT membership does not prove RUC validity or store ownership.
+ Privileged price-reports:resolve is not granted by either public persona.
+ Role administration and account lifecycle workflows remain out of AV2 scope.
+end note
+note bottom of AccountLockoutPolicy
+ Configure a positive threshold and duration; no invented numeric defaults.
+ Missing policy configuration prevents successful service readiness.
+ Security check verification is an application dependency, not an ACL.
+end note
 @enduml
