@@ -2832,6 +2832,8 @@ la escala de severidad establecida para el proyecto:
 | **10** | Los flujos complejos de la aplicación no presentan ayuda contextual visible | **2** | Usabilidad - Ayuda y documentación |
 | **11** | La información secundaria presenta una jerarquía visual con contraste reducido | **2** | Inclusive Design - Proporciona experiencias comparables |
 | **12** | La interfaz no se adapta correctamente a dispositivos móviles | **3** | Inclusive Design - Proporcionar experiencias comparables |
+| **13** | La navegación principal no facilita el acceso directo al perfil del usuario | **2** | Information Architecture - Is it findable? |
+
 
 #### Descripción de problemas
 
@@ -3226,6 +3228,44 @@ Se recomienda validar especialmente las vistas de listas, comparación de precio
 rutas, inventario y promociones en diferentes tamaños de pantalla, asegurando que
 el contenido permanezca legible y que las acciones principales puedan utilizarse
 sin desplazamientos o desbordamientos innecesarios.
+
+# Hallazgos de Information Architecture
+
+La evaluación también consideró la organización, etiquetado y facilidad para localizar
+las principales funciones dentro de Preciazo, tomando como referencia la arquitectura
+de información definida para la experiencia web.
+
+## Problema #13: La navegación principal no facilita el acceso directo al perfil del usuario
+
+**Severidad:** 2
+
+**Principio violado:** Information Architecture - Is it findable?
+
+**Problema:**
+
+Durante la evaluación de la navegación correspondiente al Comprador Independiente
+se identificó que la barra inferior prioriza las opciones **Inicio**, **Mis Listas**,
+**Comparar Precios**, **Ruta** y **Comunitaria**, pero no presenta un acceso visible
+a la sección **Perfil**.
+
+La arquitectura de información definida para Preciazo considera el Perfil como parte
+de la navegación primaria del comprador. Su ausencia en las vistas evaluadas puede
+dificultar que el usuario localice rápidamente funciones relacionadas con su cuenta,
+preferencias o información personal.
+
+**Evidencia:**
+
+![Evidencia Information Architecture - Findability del perfil](../assets/sprint-3/heuristics/ia01-profile-findability.png)
+
+**Recomendación:**
+
+Revisar la jerarquía de la navegación principal y garantizar un acceso consistente y
+fácilmente localizable hacia el perfil del usuario.
+
+Si funciones como **Comparar Precios** o **Comunitaria** deben mantenerse como
+accesos principales, se recomienda incorporar el Perfil mediante un elemento visible
+y persistente, evitando que su ubicación dependa de que el usuario recuerde una ruta
+alternativa.
 
 ## 5.4. Video About-the-Product
 
