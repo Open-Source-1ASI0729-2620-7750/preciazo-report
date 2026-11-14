@@ -2765,11 +2765,44 @@ con el formato establecido para el proyecto.
 
 #### Tareas a evaluar
 
-`[Las tareas evaluadas se incorporarán en el siguiente avance de la evaluación.]`
+El alcance de la evaluación heurística comprende los principales flujos de interacción
+de la **Landing Page** y de la **Frontend Web Application de Preciazo**, considerando
+las tareas representativas de ambos segmentos objetivo.
+
+**Landing Page**
+
+1. Identificar la propuesta de valor de Preciazo y reconocer el segmento de usuario correspondiente.
+2. Navegar desde los llamados a la acción de la Landing Page hacia la experiencia web correspondiente.
+
+**Compradores Independientes**
+
+3. Crear una lista de compras, agregar productos y establecer un presupuesto límite.
+4. Comparar el costo de la lista de compras entre diferentes establecimientos.
+5. Consultar la ruta de compra sugerida y reconocer el orden de las paradas.
+6. Confirmar o reportar información de precios y disponibilidad mediante la sección de verificación comunitaria.
+
+**Comerciantes Minoristas**
+
+7. Consultar la información principal presentada en el Dashboard del comercio.
+8. Revisar y actualizar precios y disponibilidad de productos desde el módulo de inventario.
+9. Crear una nueva promoción indicando producto, precio de oferta y periodo de vigencia.
+10. Consultar los datos del establecimiento y verificar la información comercial registrada.
 
 #### Tareas no incluidas en esta evaluación
 
-`[Las tareas fuera del alcance se especificarán de acuerdo con la versión evaluada.]`
+La presente evaluación se concentra en la experiencia de usuario y en los flujos
+visibles de la versión actual de Preciazo. Por ello, no se incluyen dentro de este
+alcance:
+
+1. La evaluación interna de endpoints o contratos de los RESTful Web Services.
+2. La configuración de infraestructura, despliegue continuo o recursos del proveedor cloud.
+3. La revisión del código fuente o de la arquitectura interna de los componentes.
+4. Pruebas de carga, estrés o concurrencia del sistema.
+5. Funcionalidades que todavía no formen parte de los flujos visibles disponibles para los segmentos evaluados.
+
+Estos aspectos corresponden a actividades técnicas de implementación y calidad de
+software, mientras que esta evaluación se enfoca específicamente en la experiencia
+de interacción de los usuarios con la interfaz.
 
 #### Escala de severidad
 
