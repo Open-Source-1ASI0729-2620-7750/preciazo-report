@@ -3111,13 +3111,13 @@ con el formato establecido para el proyecto.
 
 #### Datos de la evaluación
 
-| Campo | Descripción |
-| :--- | :--- |
-| **Carrera** | Ingeniería de Software |
-| **Curso** | Desarrollo de Aplicaciones Open Source |
-| **Sección** | 7750 |
-| **Auditor** | PeruTech |
-| **Cliente(s)** | `[Completar con participantes de las sesiones de validación]` |
+| Campo | Descripción                                        |
+| :--- |:---------------------------------------------------|
+| **Carrera** | Ingeniería de Software                             |
+| **Curso** | Desarrollo de Aplicaciones Open Source             |
+| **Sección** | 7750                                               |
+| **Auditor** | PeruTech                                           |
+| **Cliente(s)** | Miembros de PeruTech                               |
 | **Site o App a evaluar** | Preciazo - Landing Page y Frontend Web Application |
 
 #### Tareas a evaluar
@@ -3662,6 +3662,33 @@ En futuros flujos secundarios podría ampliarse a:
 
 Esto permitiría que el usuario identifique fácilmente su ubicación y pueda regresar a
 niveles anteriores sin depender únicamente de la navegación principal.
+
+## Síntesis de resultados de la evaluación
+
+La evaluación de experiencia de usuario de Preciazo permitió identificar un total de
+**14 oportunidades de mejora**, distribuidas entre criterios de **Usability**,
+**Inclusive Design** e **Information Architecture**.
+
+| Nivel de severidad | Cantidad de hallazgos |
+| :--- | :---: |
+| **1 - Problema superficial** | 2 |
+| **2 - Problema menor** | 9 |
+| **3 - Problema mayor** | 3 |
+| **4 - Problema muy grave** | 0 |
+
+La mayoría de los hallazgos corresponden a problemas de severidad 2, asociados
+principalmente con claridad de navegación, eficiencia de interacción, ayuda contextual
+y presentación de información.
+
+Los problemas de mayor prioridad se relacionan con el control del usuario ante
+establecimientos no disponibles dentro de una ruta, la prevención de errores durante
+la creación de promociones y la adaptabilidad de las interfaces en dispositivos móviles.
+
+Como resultado de la evaluación, se recomienda priorizar estas observaciones en las
+siguientes iteraciones del producto antes de abordar mejoras de menor impacto visual
+o informativo.
+
+---
 
 ## 5.4. Video About-the-Product
 
