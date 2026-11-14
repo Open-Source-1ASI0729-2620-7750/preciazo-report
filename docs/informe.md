@@ -2823,14 +2823,14 @@ la escala de severidad establecida para el proyecto:
 | **1** | Falta de retroalimentación visible al completar una acción | **2** | Usabilidad - Visibilidad del estado del sistema |
 | **2** | Uso de abreviaciones que pueden dificultar la comprensión | **1** | Usabilidad - Correspondencia entre el sistema y el mundo real |
 | **3** | La ruta optimizada incluye un establecimiento cerrado sin una acción clara de corrección | **3** | Usabilidad - Control y libertad del usuario |
-
+| **4** | Uso inconsistente de etiquetas para las mismas secciones de navegación | **2** | Usabilidad - Consistencia y estándares |
 #### Descripción de problemas
 
 La siguiente sección documentará individualmente los problemas encontrados,
 incluyendo su severidad, el principio afectado, evidencia visual y la acción
 de mejora propuesta.
 
-##### Problema #1: Falta de retroalimentación visible al completar una acción
+## Problema #1: Falta de retroalimentación visible al completar una acción
 
 **Severidad:** 2
 
@@ -2861,7 +2861,7 @@ temporalmente el botón mientras se ejecuta la operación y mostrando posteriorm
 un mensaje visible de confirmación o error. Por ejemplo, se puede utilizar una
 notificación tipo snackbar con el mensaje **“Promoción publicada correctamente”**.
 
-##### Problema #2: Uso de abreviaciones que pueden dificultar la comprensión
+## Problema #2: Uso de abreviaciones que pueden dificultar la comprensión
 
 **Severidad:** 1
 
@@ -2890,7 +2890,7 @@ Por ejemplo, reemplazar **“7/7 disp.”** por **“7 de 7 disponibles”** y u
 legibilidad. En dispositivos con menor espacio se pueden complementar las
 abreviaciones mediante etiquetas o ayudas contextuales.
 
-##### Problema #3: La ruta optimizada incluye un establecimiento cerrado sin una acción clara de corrección
+## Problema #3: La ruta optimizada incluye un establecimiento cerrado sin una acción clara de corrección
 
 **Severidad:** 3
 
@@ -2917,6 +2917,41 @@ Incorporar una acción visible para excluir o reemplazar establecimientos no dis
 Al detectar una tienda cerrada, el sistema debería permitir al usuario recalcular la ruta
 manteniendo los productos pendientes y presentando una alternativa disponible antes
 de continuar con el recorrido.
+
+## Problema #4: Uso inconsistente de etiquetas para las mismas secciones de navegación
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Consistencia y estándares
+
+**Problema:**
+
+Durante la evaluación de las vistas correspondientes al comerciante se identificó
+que algunas secciones utilizan diferentes etiquetas dependiendo del elemento de
+navegación empleado.
+
+Por ejemplo, en la navegación superior se muestran las opciones **“Métricas”**,
+**“Inventario”** y **“Datos de Tienda”**, mientras que en la navegación inferior
+las mismas secciones aparecen como **“Métricas / Dashboard”**,
+**“Inventario y Precios”** y **“Tienda (RUC)”**, respectivamente.
+
+Aunque las opciones dirigen conceptualmente hacia las mismas áreas del sistema,
+la diferencia en su nomenclatura puede generar dudas sobre si representan
+funcionalidades distintas.
+
+**Evidencia:**
+
+![Evidencia H04 - Consistencia y estándares](../assets/sprint-3/heuristics/h04-consistency.png)
+
+**Recomendación:**
+
+Unificar las etiquetas utilizadas en todos los elementos de navegación de la
+aplicación. Cada sección debe conservar el mismo nombre independientemente de
+si el usuario accede desde la navegación superior o inferior.
+
+Se recomienda establecer una nomenclatura única, por ejemplo:
+**“Métricas”**, **“Inventario y Precios”**, **“Promociones”** y
+**“Datos de Tienda”**.
 
 ---
 
