@@ -3,7 +3,7 @@ top to bottom direction
 
 title
 Preciazo - Design-Level Event Storming: Shopping Planning
-AV2 Design Proposal - US08-US12
+AV2 Design Proposal - US07-US12 and US18
 end title
 skinparam shadowing false
 skinparam defaultFontSize 15
@@ -113,5 +113,86 @@ buyer5 -[hidden]down-> buyer6
 command5 -[hidden]down-> command6
 aggregate5 -[hidden]down-> aggregate6
 event5 -[hidden]down-> event6
+
+
+rectangle "Purchase Progress and Pending Items\nBuyer decides to close this list" as read7 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer7 <<Actor>> #FFE08A
+rectangle "Complete Shopping List" as command7 <<Command>> #ACDAFA
+rectangle "Shopping List" as aggregate7 <<Aggregate>> #FFF1AE
+rectangle "Shopping List Completed" as event7 <<Domain Event>> #FFD0A1
+read7 -right-> buyer7
+buyer7 -right-> command7
+command7 -right-> aggregate7
+aggregate7 -right-> event7
+read6 -[hidden]down-> read7
+buyer6 -[hidden]down-> buyer7
+command6 -[hidden]down-> command7
+aggregate6 -[hidden]down-> aggregate7
+event6 -[hidden]down-> event7
+
+rectangle "Completed Shopping List\nAll requested products and quantities" as read8 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer8 <<Actor>> #FFE08A
+rectangle "Save Shopping Template" as command8 <<Command>> #ACDAFA
+rectangle "Shopping Template" as aggregate8 <<Aggregate>> #FFF1AE
+rectangle "Shopping Template Saved" as event8 <<Domain Event>> #FFD0A1
+read8 -right-> buyer8
+buyer8 -right-> command8
+command8 -right-> aggregate8
+aggregate8 -right-> event8
+read7 -[hidden]down-> read8
+buyer7 -[hidden]down-> buyer8
+command7 -[hidden]down-> command8
+aggregate7 -[hidden]down-> aggregate8
+event7 -[hidden]down-> event8
+
+rectangle "Saved Template and Current Offer Selection\nOne available current price per product" as read9 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer9 <<Actor>> #FFE08A
+rectangle "Create List from Template" as command9 <<Command>> #ACDAFA
+rectangle "Shopping List" as aggregate9 <<Aggregate>> #FFF1AE
+rectangle "Shopping List Created" as event9 <<Domain Event>> #FFD0A1
+read9 -right-> buyer9
+buyer9 -right-> command9
+command9 -right-> aggregate9
+aggregate9 -right-> event9
+read8 -[hidden]down-> read9
+buyer8 -[hidden]down-> buyer9
+command8 -[hidden]down-> command9
+aggregate8 -[hidden]down-> aggregate9
+event8 -[hidden]down-> event9
+
+rectangle "Store Results and Favorite Status\nOnly eligible stores; preference is not a price change" as read10 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer10 <<Actor>> #FFE08A
+rectangle "Add Favorite Store" as command10 <<Command>> #ACDAFA
+rectangle "Favorite Store" as aggregate10 <<Aggregate>> #FFF1AE
+rectangle "Store Added to Favorites" as event10 <<Domain Event>> #FFD0A1
+read10 -right-> buyer10
+buyer10 -right-> command10
+command10 -right-> aggregate10
+aggregate10 -right-> event10
+read9 -[hidden]down-> read10
+buyer9 -[hidden]down-> buyer10
+command9 -[hidden]down-> command10
+aggregate9 -[hidden]down-> aggregate10
+event9 -[hidden]down-> event10
+
+rectangle "Saved Favorite Stores\nBuyer selects a preference to remove" as read11 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer11 <<Actor>> #FFE08A
+rectangle "Remove Favorite Store" as command11 <<Command>> #ACDAFA
+rectangle "Favorite Store" as aggregate11 <<Aggregate>> #FFF1AE
+rectangle "Store Removed from Favorites" as event11 <<Domain Event>> #FFD0A1
+read11 -right-> buyer11
+buyer11 -right-> command11
+command11 -right-> aggregate11
+aggregate11 -right-> event11
+read10 -[hidden]down-> read11
+buyer10 -[hidden]down-> buyer11
+command10 -[hidden]down-> command11
+aggregate10 -[hidden]down-> aggregate11
+event10 -[hidden]down-> event11
+
+rectangle "Templates copy requirements only, never historical prices or purchase flags.\nClones are new ACTIVE lists; unavailable/stale required quotes create no partial list.\nCompleted lists are read-only; retries/no-op preferences emit no duplicate events.\nBudget warning remains a query calculation; unmarking reduces checkout total." as recurrenceRules <<Business Rule>> #FFF1AE
+rectangle "Trusted store/current-price provisioning and quote freshness require agreement.\nPreferred-store presentation must preserve the independent US13 price ranking.\nFavorite delivery to Catalog and accepted-substitute application remain pending.\nNo ACL, automatic shopping recurrence or cross-context subscription is introduced." as recurrenceHotspot <<Hotspot>> #FFB7AB
+read11 -[hidden]down-> recurrenceRules
+recurrenceRules -[hidden]down-> recurrenceHotspot
 
 @enduml

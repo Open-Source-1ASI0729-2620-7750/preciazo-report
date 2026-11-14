@@ -1806,9 +1806,9 @@ La consulta al proveedor de mapas devuelve trayectos estimados o un fallo extern
 
 #### Shopping Planning (Core Bounded Context)
 
-La propuesta de diseño para AV2 representa US08–US12 mediante siete filas: vista de lectura → Buyer → Command → Shopping List Aggregate → Domain Event. Incluye crear lista, agregar y quitar artículos, reducir cantidades, definir o cambiar el presupuesto, y marcar y desmarcar compras. Las vistas presentan listas guardadas, lista activa con total proyectado, estado del presupuesto y progreso de compra. La advertencia se calcula en la consulta de presupuesto; no se introduce un comando automático ni un evento persistido para calcularla. Desmarcar una compra reduce el acumulado en caja sin retirar el artículo de la lista.
+La propuesta de AV2 cubre US07–US12 y US18 mediante doce filas: Read Model → Buyer → Command → Aggregate → Domain Event. Conserva los siete flujos de edición, presupuesto y compra e incorpora cierre explícito, guardado de plantilla, creación desde plantilla, agregar favorito y retirar favorito. Las vistas muestran la información necesaria para decidir cada acción: lista activa, progreso, lista completada, plantilla con ofertas actuales o estado de favoritos.
 
-La referencia metodológica es **Guía event storming**, pasos 5–9 (pp. 17–21): comandos en imperativo, Read Models que informan la decisión del actor y aggregates que reciben comandos y producen eventos en pasado. Por ello las vistas de lectura preceden al Buyer; los servicios, repositorios y adaptadores del backend se detallan en el diseño de clases, sin sustituir los conceptos de negocio del Event Storming. No se incorpora una automation policy para la advertencia, pues no dispara un comando automático.
+La referencia metodológica sigue siendo Guía event storming, pasos 5–9 (pp. 17–21): comandos en imperativo, aggregates que reciben comandos y eventos en pasado. Los eventos describen cambios reales: reintentos y preferencias sin cambios no emiten duplicados. Reutilizar una plantilla exige precios actuales y crea otra lista activa sin marcas de compra; la plantilla no es una programación automática. La advertencia de presupuesto sigue calculándose en la consulta, sin comando automático o evento persistido, y desmarcar reduce el acumulado en caja.
 
 ![Preciazo Shopping Planning Design-Level Event Storming](../assets/architecture/event-storming/shopping-planning.png)
 
@@ -1882,7 +1882,7 @@ En el backend, `Request Security` procesa el bearer y la lista explícita de rut
 | :--- | :--- | :--- | :--- | :--- |
 | **1. Catalog and Pricing** *(Core)* | `ProductsController`, `StoreProductsController`, `BasketComparisonController` | `CatalogCommandServiceImpl`, `CatalogQueryServiceImpl` | `Product`, `StoreProduct`, `CatalogStoreReference` | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository` y `*PersistenceAssembler` |
 | **2. Route Planning** *(Core)* | `RoutesController` | `RouteCommandServiceImpl`, `RouteQueryServiceImpl` | `MultiStopRoute` | `RouteRepositoryImpl` → `RoutePersistenceRepository`, `MappingRoutingRestAdapter` |
-| **3. Shopping Planning** *(Core)* | `ShoppingListsController`, `BudgetsController` | `ShoppingListCommandServiceImpl`, `ShoppingListQueryServiceImpl` | `ShoppingList` (aggregate), `ShoppingListItem` y `PurchaseBudget` (entidades internas) | `ShoppingListRepositoryImpl`, `ShoppingListPersistenceRepository`, `ShoppingListPersistenceAssembler` |
+| **3. Shopping Planning** *(Core)* | `ShoppingListsController`, `BudgetsController`, `ShoppingTemplatesController`, `FavoriteStoresController` | Servicios Command/Query de listas, plantillas y preferencias | `ShoppingList`, `ShoppingTemplate`, `FavoriteStore`; artículos/presupuesto internos | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository` y `*PersistenceAssembler` |
 | **4. Merchant Management** *(Soporte)* | `MerchantsController`, `StoresController`, `PromotionsController` | `MerchantCommandServiceImpl`, `MerchantQueryServiceImpl` | `MerchantProfile`, `RetailStore`, `InventoryItem`, `Promotion`, `InventoryImportBatch` | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository`, assemblers y `RucVerificationRestAdapter` |
 | **5. Community Price Verification** *(Soporte)* | `PriceDiscrepanciesController` | `PriceVerificationCommandServiceImpl`, `PriceVerificationQueryServiceImpl` | `PriceDiscrepancy` (con observaciones y votos), `TrustProfile` | `PriceDiscrepancyRepositoryImpl`, `PriceDiscrepancyPersistenceRepository`, `PriceDiscrepancyPersistenceAssembler` |
 | **6. Analytics and Engagement** *(Soporte)* | `MerchantAnalyticsController` | `AnalyticsCommandServiceImpl`, `MetricsQueryServiceImpl` | `MetricEvent`, `MerchantReport` | `MetricEventRepositoryImpl` → `MetricEventPersistenceRepository`, `MerchantReportRepositoryImpl` → `MerchantReportPersistenceRepository` |
@@ -1894,7 +1894,7 @@ Las dependencias funcionales entre contextos se documentan como coordinación pe
 
 | Contexto consumidor | Datos o coordinación necesarios | Estado del diseño AV2 |
 | --- | --- | --- |
-| Shopping Planning | Referencias de producto/precio y aplicación de sustitutos aceptados del Catálogo. | Coordinación pendiente; las Queries de Catálogo no modifican listas. US07 y US18 requieren ampliar posteriormente el diseño táctico de Shopping Planning. |
+| Shopping Planning | Referencias de producto/precio y aplicación de sustitutos aceptados del Catálogo. | Coordinación pendiente; las Queries de Catálogo no modifican listas. Favoritos y plantillas ya tienen contratos tácticos; su consumo de referencias/preferencias entre contextos sigue pendiente. |
 | Catalog and Pricing | Identidad, titularidad, ubicación y afiliación de tiendas de Merchant Management. | Referencias locales previstas; provisión y actualización pendientes. |
 | Merchant Management | Escritura coordinada de precios canónicos de importación y aplicación pública de promociones en Catálogo. | Pendiente; un lote con precios no se responde aplicado sin completar la coordinación atómica acordada. |
 | Route Planning | Requisitos/versiones de lista, ofertas disponibles y horarios confiables. | Puertos de snapshots definidos; provisión, vigencia y coordinación pendientes. El cálculo no reserva stock ni modifica listas. |
@@ -2035,21 +2035,84 @@ Los assemblers REST construyen Commands/Queries y Resources. Los errores usan `A
 
 #### Shopping Planning (Core Bounded Context)
 
-El Bounded Context **Shopping Planning** administra la planificación de compras del Buyer. La propuesta de diseño para AV2 mantiene la correspondencia con US08–US12 y con el Design-Level Event Storming de la sección 4.6.1.
+La ampliación de AV2 conserva US08–US12 y añade favoritos (US07), plantillas recurrentes (US18) y el cierre explícito necesario para guardar una plantilla. Aceptar sustitutos de US15 continúa como coordinación pendiente con Catálogo y no se presenta como resuelto por añadir estas capacidades.
 
-`ShoppingList` es el aggregate que contiene los `ShoppingListItem` y un `PurchaseBudget` opcional. Su ciclo de vida utiliza `ListStatus` (`DRAFT`, `ACTIVE`, `COMPLETED`); el estado de compra de cada artículo se representa mediante el booleano `purchased`. Una lista sin nombre recibe una denominación basada en la fecha y hora de creación (US08). Agregar un producto existente incrementa su cantidad sin duplicarlo; las cantidades solicitadas deben ser positivas y sus unidades compatibles (US09).
+`ShoppingList` contiene sus artículos y un presupuesto opcional. Toda lista nueva, ordinaria o creada desde plantilla, empieza `ACTIVE`; se retira el estado `DRAFT` sin flujo definido. Una lista sin nombre utiliza fecha y hora del servidor, conforme a US08. Agregar un producto ya existente suma cantidad sin duplicarlo y exige unidad compatible. Los Commands de edición verifican propietario, estado activo y versión optimista; las referencias de membresías reservadas no habilitan edición compartida en estos contratos.
 
-El aggregate permite agregar y quitar artículos, reducir cantidades, definir o cambiar el presupuesto, marcar y desmarcar artículos como comprados. `calculateEstimatedTotal()` suma los subtotales de todos los artículos, mientras que `calculateCheckoutTotal()` suma únicamente los marcados como comprados. Marcar y desmarcar son operaciones idempotentes: desmarcar excluye el subtotal del artículo del acumulado en caja, sin excluirlo del total proyectado (US12). Una lista vacía devuelve totales de cero en la moneda de la lista.
+Se conservan las reglas de importes: `UnitPrice` calcula el subtotal para una cantidad/unidad compatible en la moneda de la lista; el total proyectado suma todos los artículos y el de caja solo los marcados purchased. Marcar/desmarcar son idempotentes y desmarcar reduce el acumulado en caja. Presupuesto positivo y de la misma moneda, siempre orientativo: superarlo no bloquea operaciones. `BudgetStatusView` calcula warning si y solo si existe límite y el total lo supera; se limpia al volver al límite o por debajo. No se guarda la advertencia ni se emiten eventos por consultarla. `PurchaseProgressView` conserva separados artículos comprados y acumulado de caja.
 
-`PurchaseBudget` conserva un límite positivo en la misma moneda de la lista; una modificación inválida no reemplaza el límite anterior (US10). El presupuesto es orientativo: excederlo no impide modificar los artículos. `ShoppingListQueryServiceImpl` construye `BudgetStatusView` al consultar: la advertencia es verdadera únicamente si existe un presupuesto y el total proyectado supera su límite. Se consulta nuevamente después de agregar, quitar o reducir artículos y de definir o cambiar el presupuesto; la advertencia se limpia cuando el total vuelve al límite o por debajo (US11). No se persiste la advertencia ni se introduce un comando automático o evento para calcularla. `PurchaseProgressView` presenta el acumulado y la cantidad de artículos marcados y se actualiza tras marcar o desmarcar.
+`CompleteShoppingListCommand` permite al titular cerrar una lista activa no vacía, guardando completedAt y una nueva versión. Repetir el cierre de una lista ya completada es un no-op autorizado, sin otro evento. La lista `COMPLETED` es de solo lectura y no se reabre en este alcance. Cerrar no afirma que todos los productos se compraron: puede haber solicitudes no adquiridas. Marcar todos los artículos tampoco cierra automáticamente la lista. Esto permite conservar el resultado de una jornada y decidir explícitamente si se reutiliza su canasta completa.
 
-`ProductRequirement` referencia localmente el producto del catálogo. `Money` encapsula importe y moneda; `Quantity`, cantidad y unidad; y `UnitPrice`, un importe por cantidad de referencia. El subtotal se calcula con `UnitPrice.costFor()` usando unidades compatibles y la misma moneda. Estos valores permiten reconstruir los importes sin introducir el modelo interno de Catalog and Pricing.
+`ShoppingTemplate` es otro aggregate, inmutable y propiedad del comprador, con origen y versión de la lista completada, nombre, moneda y `TemplateItem`. Guarda todos los productos solicitados, nombres de referencia, cantidades y unidades; no copia precios, presupuesto, miembros o purchased. Exige fuente completada, no vacía y propia. El nombre omitido toma el de la lista fuente. `saveKey` y una huella de la solicitud garantizan que reintentar devuelva la plantilla original; reutilizar la clave con distinto origen, versión o nombre produce 409. Plantilla y filas se guardan atómicamente, sin alterar la lista fuente.
 
-La estructura del backend toma como referencia **Learning Center Platform Guide**, especialmente ADR-0001 (resultados de comandos), ADR-0002 (persistencia hexagonal) y ADR-0007 (CQRS). `ShoppingListCommandService` y `ShoppingListQueryService` son contratos de aplicación con implementaciones separadas. Cada operación de escritura recibe un Command inmutable mediante `handle(...)` y devuelve `Result<Long, ApplicationError>`; las consultas reciben un Query y devuelven listas u opcionales, sin modificar el dominio. Los siete comandos corresponden a los flujos del Event Storming; `SetPurchaseBudgetCommand` cubre definir o cambiar el límite y produce `PurchaseBudgetSet`.
+Para US18, el Buyer elige una oferta de Catálogo por cada producto de la plantilla antes de crear otra lista. `OfferSelection` identifica producto, catalogEntryId y expectedOfferVersion; `ShoppingReferenceProvider` debe obtener precio, versión, disponibilidad y capturedAt confiables, en moneda y unidad compatibles. No se elige silenciosamente una tienda ni se supone que la favorita tenga el menor precio. El conjunto de selecciones debe cubrir exactamente los productos de la plantilla, sin duplicados, omisiones o productos extra. Una oferta agotada, una versión obsoleta o una referencia requerida no disponible impide crear la lista completa: no se guarda una copia parcial con precios antiguos o cero.
 
-`ShoppingListRepository` es el puerto del dominio. `ShoppingListRepositoryImpl` lo implementa usando `ShoppingListPersistenceRepository` de Spring Data JPA y `ShoppingListPersistenceAssembler` para convertir entre el aggregate y sus entidades de persistencia. Solo las clases `*PersistenceEntity` llevan anotaciones JPA. Los eventos de dominio registrados por el aggregate se publican y limpian al guardar siguiendo el patrón `DomainEventPublisher` de la guía; la advertencia de presupuesto sigue siendo un dato calculado de lectura y no genera un evento. Estas decisiones son una propuesta para el backend de Preciazo, no una afirmación de implementación terminada.
+La lista resultante tiene identidad propia, origen de plantilla, todos los artículos purchased=false y ningún presupuesto o miembro copiado. Guarda la oferta y versión utilizadas y el instante de la referencia; los precios son estimaciones evaluadas, sin garantizar el precio futuro en caja ni reservar stock. El total y la advertencia se consultan tras crear; el acumulado inicial de caja es cero. `creationKey` y su huella son únicos por comprador para esta operación. Un reintento equivalente devuelve la lista original, aunque los precios hayan cambiado después; una nueva clave solicita otra lista y otra evaluación. La huella usa campos semánticos normalizados y selecciones ordenadas por producto, sin incluir IDs o tiempos generados. Autorización e identidad semántica se comprueban antes de devolver un resultado repetido; no se valida de nuevo una cotización para sobrescribir una lista ya creada.
+
+`FavoriteStore` registra una preferencia por par ownerId/storeId. Agregar por primera vez activa el registro y volver a agregar no lo duplica; retirar lo desactiva y reintentar no crea eventos. Agregar después de retirar reactiva la misma identidad con control de versión. Para agregar se verifica una tienda existente y visible con referencia confiable; retirar una preferencia propia no exige que la tienda siga disponible. Las consultas devuelven solo preferencias activas del titular. No cambia el precio, la cobertura de productos, el radio geográfico ni la afiliación fiscal de un comercio.
+
+US07 y US13 requieren vistas distintas para evitar rankings contradictorios. La vista de descubrimiento/ofertas preferidas presenta primero favoritos elegibles y ordena cada grupo por distancia e ID de tienda; al retirar preferencias se recupera el orden geográfico de esa vista. La comparación de canastas US13 conserva su ranking de costo total y cobertura, con identificación visual de favoritos o una sección preferida independiente. No se llama “más barata” a una tienda por ser favorita. Aplicar preferencias debe ocurrir sobre el conjunto filtrado antes de paginar; reordenar una página parcial en el navegador no acredita esa prioridad global. El consumo confiable de preferencias por el caso de consulta de Catálogo sigue pendiente de coordinación; no se añade ACL o una suscripción ficticia para resolverlo.
 
 ![Shopping Planning Class Diagram](../assets/architecture/classes/shopping-planning.png)
+
+![Shopping Planning Backend Contracts](../assets/architecture/classes/shopping-planning-backend.png)
+
+![Shopping Planning Lifecycle](../assets/architecture/classes/shopping-planning-states.png)
+
+Los contratos siguen Learning Center Platform Guide: records inmutables, servicios Command/Query separados con `handle(...)`, resultados `Result<T, ApplicationError>`, puertos de repositorio en dominio y adaptadores/assemblers JPA separados. El diseño tiene doce Commands y siete Queries. `ShoppingWriteReceipt` devuelve resourceId y changed para reconocer creaciones y no-ops sin una consulta REST adicional. El propietario procede siempre del principal autenticado, nunca del cuerpo del cliente.
+
+| Command | Datos y resultado propuestos |
+| --- | --- |
+| `CreateShoppingListCommand` | ownerId, nombre opcional y moneda; devuelve `Result<Long, ApplicationError>` con lista ACTIVE. |
+| `AddShoppingItemCommand` | ownerId, listId, expectedVersion, referencia de producto, cantidad/unidad y estimación validada; incrementa sin duplicar producto. |
+| `RemoveShoppingItemCommand` | ownerId, listId, itemId y expectedVersion; quita el artículo de la lista activa. |
+| `ReduceShoppingItemQuantityCommand` | ownerId, listId, itemId, cantidad positiva a reducir y expectedVersion; no permite resultado cero/negativo: quitar utiliza el comando de eliminación. |
+| `SetPurchaseBudgetCommand` | ownerId, listId, expectedVersion y límite positivo en moneda de la lista; define/cambia presupuesto. |
+| `MarkShoppingItemPurchasedCommand` | ownerId, listId, itemId y expectedVersion; marca comprado sin duplicar una marca existente. |
+| `UnmarkShoppingItemPurchasedCommand` | Mismos IDs y versión; retira la marca y excluye su subtotal del acumulado de caja. |
+| `CompleteShoppingListCommand` | ownerId, listId y expectedVersion; cierra lista no vacía. Repetir sobre COMPLETED no cambia el aggregate. |
+| `SaveShoppingTemplateCommand` | ownerId, sourceListId, expectedListVersion, nombre opcional y saveKey; devuelve `Result<ShoppingWriteReceipt, ApplicationError>`. |
+| `CreateListFromTemplateCommand` | ownerId, templateId, nombre opcional, creationKey y selecciones completas producto/oferta/versión; devuelve `Result<ShoppingWriteReceipt, ApplicationError>`. |
+| `AddFavoriteStoreCommand` | ownerId y storeId; devuelve `Result<ShoppingWriteReceipt, ApplicationError>` con preferencia activa. |
+| `RemoveFavoriteStoreCommand` | ownerId y storeId; devuelve `Result<Boolean, ApplicationError>` indicando si cambió; retirar una preferencia ausente es no-op. |
+
+Los siete comandos previos y el cierre devuelven `Result<Long, ApplicationError>` con ID de lista. Los datos de estimación introducidos manualmente en una lista ordinaria son estimaciones del comprador, no una cotización confiable de Catálogo. Cuando se atribuye una oferta/versión del Catálogo o se crea desde plantilla, sus datos y nombre de referencia se obtienen/validan en el servidor; no se aceptan precios actuales, disponibilidad, propiedad o capturedAt inventados por el cuerpo HTTP.
+
+| Query | Entrada y salida |
+| --- | --- |
+| `GetSavedShoppingListsQuery` | ownerId; listas propias. |
+| `GetShoppingListByIdQuery` | ownerId y listId; opcional de lista propia. |
+| `GetBudgetStatusQuery` | ownerId y listId; `Optional<BudgetStatusView>`, warning derivada. |
+| `GetPurchaseProgressQuery` | ownerId y listId; `Optional<PurchaseProgressView>` con conteo y total comprado. |
+| `GetMyTemplatesQuery` | ownerId; `List<ShoppingTemplateView>`. |
+| `GetTemplateByIdQuery` | ownerId y templateId; `Optional<ShoppingTemplateView>`. |
+| `GetFavoriteStoresQuery` | ownerId; `List<FavoriteStoreView>` de preferencias activas, sin ordenar una comparativa ajena. |
+
+`ShoppingListCommandService` incorpora cierre y creación desde plantilla. `ShoppingTemplateCommandService`/`ShoppingTemplateQueryService` y `StorePreferenceCommandService`/`StorePreferenceQueryService` separan las otras capacidades. Los puertos `ShoppingListRepository`, `ShoppingTemplateRepository` y `FavoriteStoreRepository` tienen adaptadores `*RepositoryImpl`, repositorios Spring Data `*PersistenceRepository` y `*PersistenceAssembler`; solo `*PersistenceEntity` lleva JPA. La lista y sus artículos/precios se guardan atómicamente; el guardado de una plantilla y sus filas también. Unicidad en base de datos y comparación de huella evitan duplicados concurrentes por clave; una comprobación previa sin restricción no basta.
+
+Los aggregates registran cambios y el adaptador utiliza `DomainEventPublisher.publishAndClearEvents(saved)` después de guardar, según ADR-0005, sin afirmar entrega durable. Los no-ops o errores no publican éxito. El evento de creación de lista puede identificar sourceTemplateId cuando corresponda, sin inventar un evento por cada total o advertencia calculados. No se genera un job quincenal: US18 describe reutilización solicitada por el comprador, no compras programadas.
+
+| Endpoint propuesto | Resultado/control |
+| --- | --- |
+| `POST /api/v1/shopping-lists` | 201 con lista ACTIVE y Location. |
+| `GET /api/v1/shopping-lists` y `GET /api/v1/shopping-lists/{id}` | 200 con listas/detalle propios. |
+| `POST /api/v1/shopping-lists/{id}/items` | 200 con lista actualizada; cantidad y estimación válidas. |
+| `DELETE /api/v1/shopping-lists/{id}/items/{itemId}` | 204 tras quitar; estado activo y versión vigente. |
+| `POST /api/v1/shopping-lists/{id}/items/{itemId}/reduce` | 200 con lista actualizada. |
+| `PUT /api/v1/shopping-lists/{id}/budget` | 200; límite orientativo válido. |
+| `PUT /api/v1/shopping-lists/{id}/items/{itemId}/purchased` y `DELETE /api/v1/shopping-lists/{id}/items/{itemId}/purchased` | 200 con progreso de compra para marcar/desmarcar. |
+| `GET /api/v1/shopping-lists/{id}/budget-status` y `/purchase-progress` | 200 con lectura recalculada. |
+| `POST /api/v1/shopping-lists/{id}/complete` | 200; cierre explícito, repetible sin otro evento. |
+| `POST /api/v1/shopping-lists/{id}/templates` | expectedListVersion y nombre opcional; Idempotency-Key obligatorio. 201 y Location al crear, 200 al repetir. |
+| `GET /api/v1/shopping-templates` y `GET /api/v1/shopping-templates/{id}` | 200 con plantillas propias. |
+| `POST /api/v1/shopping-templates/{id}/lists` | Selecciones de ofertas/versión e Idempotency-Key obligatorio; 201 y Location al crear, 200 al repetir. |
+| `GET /api/v1/me/favorite-stores` | 200 con preferencias activas propias. |
+| `PUT /api/v1/me/favorite-stores/{storeId}` | 200 con preferencia activa; agregar/reactivar/repetir es idempotente. |
+| `DELETE /api/v1/me/favorite-stores/{storeId}` | 204, incluso si ya estaba ausente/inactiva, sin evento duplicado. |
+
+Las escrituras de lista existente transportan expectedVersion; para DELETE sin cuerpo se propone `If-Match` con la versión entregada por la API. Los assemblers construyen records y Resources; `ApplicationError` se representa como `ProblemDetail` localizable. 400 para formato, cantidades, unidades, moneda, selecciones incompletas/duplicadas o clave inválida; 401 sin autenticación; 403 `SHOPPING_FORBIDDEN` para titularidad; 404 para lista/plantilla/producto/oferta/tienda inexistente; 409 para versión antigua, edición de lista completada, cierre/fuente vacíos, fuente no completada, oferta ya no disponible o clave reutilizada con otra solicitud; 503 `SHOPPING_REFERENCE_UNAVAILABLE` cuando falta provisión, vigencia o acceso confiable a los datos requeridos. Se especifican mapeos explícitos de 403/503. Un error de precio no devuelve una lista parcial ni modifica la plantilla.
+
+Quedan pendientes la provisión de precios/tiendas y su política de vigencia, la presentación global de favoritos en consultas de Catálogo y la aceptación de sustitutos de US15. Son contratos documentados para implementar en Spring Boot, sin ACL ni backend operativo acreditado en este repositorio.
 
 #### Merchant Management (Supporting Bounded Context)
 
@@ -2385,15 +2448,19 @@ Ruta, paradas y artículos se guardan o reemplazan en una sola transacción con 
 
 #### Shopping Planning (Core Bounded Context)
 
-El Bounded Context **Shopping Planning** persiste las listas y sus artículos; tanto esta vista como el Database Overview utilizan el mismo diseño propuesto para AV2.
+El diseño de persistencia AV2 incorpora favoritos y plantillas conservando las reglas de cantidades, totales y presupuesto. El Database Overview y esta vista usan las mismas tablas/campos.
 
-`shopping_lists` conserva propietario, nombre, moneda y estado. `shopping_list_items` almacena la referencia y el nombre solicitado del producto, cantidad y unidad, precio estimado con moneda y cantidad/unidad de referencia, y el indicador `purchased`. La restricción `UNIQUE(shopping_list_id, product_id)` representa la regla de incrementar cantidades sin duplicar productos. Las cantidades solicitadas y de referencia del precio son positivas, el precio no es negativo y las unidades deben ser compatibles.
+`shopping_lists` conserva propietario, nombre, moneda, estado ACTIVE/COMPLETED, fechas y versión optimista. source_template_id, creation_key y creation_fingerprint identifican una creación desde plantilla y deben estar presentes juntos; la combinación owner_id/creation_key es única para claves no nulas. Un cierre válido exige artículos, guarda completed_at y deja la lista de solo lectura. El control de owner_id autoriza estas operaciones; las asociaciones reservadas de `shopping_list_members` no habilitan nuevos flujos compartidos ni se copian al instanciar una plantilla.
 
-`purchase_budgets` contiene un presupuesto opcional por lista mediante `UNIQUE(shopping_list_id)`. Su importe debe ser positivo y su moneda debe coincidir con la de la lista; cambiar el presupuesto actualiza ese límite. `shopping_list_members` conserva la asociación de miembros prevista en el diseño general, sin ampliar los flujos US08–US12.
+`shopping_list_items` mantiene producto, nombre, cantidad, estimación con cantidad/unidad de referencia y purchased. Conserva `UNIQUE(shopping_list_id, product_id)`, cantidades positivas y compatibilidad de unidades/moneda. Para artículos con cotización de Catálogo guarda catalog_entry_id, price_offer_version y price_captured_at juntos; para estimaciones manuales pueden estar ausentes. Los clones de plantilla requieren esa trazabilidad en todos sus artículos, reinician purchased=false y no copian presupuesto. La lista completa se guarda con sus precios en una sola transacción.
 
-Los totales y la advertencia no se almacenan: el total proyectado suma todos los subtotales y el acumulado en caja suma solo aquellos con `purchased = true`. Desmarcar cambia ese indicador a `false` y reduce el acumulado en la siguiente consulta. La advertencia se calcula al consultar el presupuesto y desaparece si el total proyectado es menor o igual al límite; no existe un evento persistido para este cálculo.
+`shopping_templates` conserva propietario, origen y versión de la lista completada, nombre, moneda, fecha, save_key y save_fingerprint. `UNIQUE(owner_id, save_key)` controla reintentos. `shopping_template_items` contiene solo productos y cantidades/unidades con `UNIQUE(template_id, product_id)` y al menos una fila. El snapshot es inmutable y pertenece al mismo dueño de la fuente; guardar o clonar no modifica la fuente. Cambios futuros de precios o de la lista nueva no alteran esa plantilla.
 
-Los identificadores de usuario referencian Identity and Access y los de producto referencian Catalog and Pricing. Las restricciones descritas forman parte de la propuesta de diseño; este repositorio no contiene migraciones ni implementación de base de datos.
+`favorite_stores` exige `UNIQUE(owner_id, store_id)` y versión optimista. Retirar conserva el registro con active=false; volver a agregar lo reactiva. Las consultas devuelven activos del titular. Es una preferencia, no evidencia fiscal ni una reserva o copia del precio público.
+
+`purchase_budgets` sigue siendo opcional y único por lista: importe positivo y moneda correspondiente. Totales y warning se calculan al consultar; no se agregan columnas o eventos de advertencia. Desmarcar excluye ese subtotal de caja, sin reducir el total proyectado. Un snapshot de oferta no garantiza precio futuro o existencia física reservada.
+
+Las restricciones entre filas —fuente completada/no vacía, mismo propietario, pertenencia de productos y cobertura exacta de selecciones— se verifican en la aplicación dentro de los límites transaccionales y con versiones. Las referencias de usuario, producto, oferta y tienda pertenecen a sus contextos y no implican ACL, migraciones implementadas o sincronización automática.
 
 ![Shopping Planning Database Diagram](../assets/architecture/database/shopping-planning.png)
 

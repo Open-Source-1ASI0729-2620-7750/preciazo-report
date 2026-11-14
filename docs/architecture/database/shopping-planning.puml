@@ -13,6 +13,11 @@ entity shopping_lists {
     currency : VARCHAR
     status : VARCHAR
     created_at : TIMESTAMP
+    completed_at : TIMESTAMP <<NULLABLE>>
+    version : BIGINT
+    source_template_id : BIGINT <<FK, NULLABLE>>
+    creation_key : VARCHAR <<NULLABLE>>
+    creation_fingerprint : VARCHAR <<NULLABLE>>
 }
 
 entity shopping_list_members {
@@ -35,6 +40,9 @@ entity shopping_list_items {
     price_per_quantity : DECIMAL
     price_per_unit : VARCHAR
     purchased : BOOLEAN
+    catalog_entry_id : BIGINT <<REF, NULLABLE>>
+    price_offer_version : BIGINT <<NULLABLE>>
+    price_captured_at : TIMESTAMP <<NULLABLE>>
 }
 
 entity purchase_budgets {
@@ -45,18 +53,54 @@ entity purchase_budgets {
     currency : VARCHAR
 }
 
+entity shopping_templates {
+    * id : BIGINT <<PK>>
+    --
+    owner_id : BIGINT <<REF>>
+    name : VARCHAR
+    currency : VARCHAR
+    source_list_id : BIGINT <<FK>>
+    source_list_version : BIGINT
+    save_key : VARCHAR
+    save_fingerprint : VARCHAR
+    created_at : TIMESTAMP
+}
+
+entity shopping_template_items {
+    * id : BIGINT <<PK>>
+    --
+    template_id : BIGINT <<FK>>
+    product_id : BIGINT <<REF>>
+    requested_name : VARCHAR
+    quantity : DECIMAL
+    quantity_unit : VARCHAR
+}
+
+entity favorite_stores {
+    * id : BIGINT <<PK>>
+    --
+    owner_id : BIGINT <<REF>>
+    store_id : BIGINT <<REF>>
+    active : BOOLEAN
+    version : BIGINT
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+shopping_lists ||--o{ shopping_templates : completed source
+shopping_templates ||--|{ shopping_template_items
+shopping_templates |o--o{ shopping_lists : optional clone origin
+
 shopping_lists ||--o{ shopping_list_members
 shopping_lists ||--o{ shopping_list_items
 shopping_lists ||--o| purchase_budgets
 
-note right of shopping_lists
-  owner_id and member user_id belong to
-  Identity and Access.
-end note
 
 note right of shopping_list_items
   product_id belongs to
   Catalog and Pricing.
+  Offer id/version/captured-at are either all absent or all present.
+  Template clones require all three, from trusted current-price inputs.
 end note
 
 note right of purchase_budgets
@@ -77,6 +121,37 @@ note bottom of shopping_list_items
   after converting quantity to price_per_unit.
   Projected total sums all subtotals; checkout total sums purchased items only.
   Unmarking sets purchased = false and reduces checkout total on the next query.
+end note
+
+note right of shopping_templates
+  Immutable; UNIQUE(owner_id, save_key); fingerprint detects incompatible retries.
+  Source belongs to owner, is COMPLETED/nonempty and matches source_list_version.
+  Copy all requested products and quantities; no budget, price, members or purchase flags.
+  Save template and items atomically; later clones do not change the source.
+end note
+
+note bottom of shopping_template_items
+  UNIQUE(template_id, product_id); quantity > 0 with valid compatible unit.
+  Each product requires one current selected offer before creating a new list.
+  Missing prices are never replaced with zero or historical template prices.
+end note
+
+note right of favorite_stores
+  UNIQUE(owner_id, store_id); version protects concurrent preference changes.
+  GET returns active preferences only; removal preserves identity with active=false.
+  Re-add reactivates; repeated add/remove is a no-op without a new event.
+  Removing an owned preference does not require a live store reference.
+  Preferences do not change prices, geographic eligibility or the US13 cost ranking.
+end note
+
+note right of shopping_lists
+  ACTIVE / COMPLETED; new lists start ACTIVE, completed lists are read-only.
+  UNIQUE(owner_id, creation_key) for non-null template-creation keys.
+  Key/fingerprint/source-template fields must be set together for template clones.
+  Completion requires at least one item, records completed_at and increments version.
+  Clone items/prices and list are saved atomically; failed repricing creates no list.
+  Template clones reset purchased=false and do not copy source budget or members.
+  All commands authorize owner_id; reserved memberships grant no write access here.
 end note
 
 @enduml

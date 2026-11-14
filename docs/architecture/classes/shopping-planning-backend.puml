@@ -1,0 +1,207 @@
+@startuml Preciazo_Shopping_Planning_Backend
+
+title Preciazo - Shopping Planning Backend Contracts (AV2)
+left to right direction
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+set namespaceSeparator none
+skinparam packageStyle rectangle
+
+package "application.commandservices" {
+    interface ShoppingListCommandService <<service>> {
+        +handle(command: CreateShoppingListCommand): Result<Long, ApplicationError>
+        +handle(command: AddShoppingItemCommand): Result<Long, ApplicationError>
+        +handle(command: RemoveShoppingItemCommand): Result<Long, ApplicationError>
+        +handle(command: ReduceShoppingItemQuantityCommand): Result<Long, ApplicationError>
+        +handle(command: SetPurchaseBudgetCommand): Result<Long, ApplicationError>
+        +handle(command: MarkShoppingItemPurchasedCommand): Result<Long, ApplicationError>
+        +handle(command: UnmarkShoppingItemPurchasedCommand): Result<Long, ApplicationError>
+        +handle(command: CompleteShoppingListCommand): Result<Long, ApplicationError>
+        +handle(command: CreateListFromTemplateCommand): Result<ShoppingWriteReceipt, ApplicationError>
+    }
+}
+
+package "application.commandservices.recurrence" {
+    interface ShoppingTemplateCommandService <<service>> {
+        +handle(command: SaveShoppingTemplateCommand): Result<ShoppingWriteReceipt, ApplicationError>
+    }
+    interface StorePreferenceCommandService <<service>> {
+        +handle(command: AddFavoriteStoreCommand): Result<ShoppingWriteReceipt, ApplicationError>
+        +handle(command: RemoveFavoriteStoreCommand): Result<Boolean, ApplicationError>
+    }
+}
+package "application.queryservices" {
+    interface ShoppingTemplateQueryService <<service>> {
+        +handle(query: GetMyTemplatesQuery): List<ShoppingTemplateView>
+        +handle(query: GetTemplateByIdQuery): Optional<ShoppingTemplateView>
+    }
+    interface StorePreferenceQueryService <<service>> {
+        +handle(query: GetFavoriteStoresQuery): List<FavoriteStoreView>
+    }
+    interface ShoppingListQueryService <<service>> {
+        +handle(query: GetSavedShoppingListsQuery): List<ShoppingList>
+        +handle(query: GetShoppingListByIdQuery): Optional<ShoppingList>
+        +handle(query: GetBudgetStatusQuery): Optional<BudgetStatusView>
+        +handle(query: GetPurchaseProgressQuery): Optional<PurchaseProgressView>
+    }
+}
+
+package "application.internal" {
+    class ShoppingListCommandServiceImpl <<service>>
+    class ShoppingListQueryServiceImpl <<service>>
+    class ShoppingTemplateCommandServiceImpl <<service>>
+    class ShoppingTemplateQueryServiceImpl <<service>>
+    class StorePreferenceCommandServiceImpl <<service>>
+    class StorePreferenceQueryServiceImpl <<service>>
+}
+
+package "application.readmodels" {
+    class ShoppingWriteReceipt <<Result Value>> {
+        +resourceId: Long
+        +changed: Boolean
+    }
+    class ShoppingTemplateView <<Read Model>> {
+        +id: Long
+        +name: String
+        +currency: String
+        +items: List<TemplateItem>
+    }
+    class FavoriteStoreView <<Read Model>> {
+        +storeId: Long
+        +active: Boolean
+    }
+    class BudgetStatusView <<Read Model>> {
+        +limit: Money [0..1]
+        +projectedTotal: Money
+        +warning: Boolean
+    }
+    class PurchaseProgressView <<Read Model>> {
+        +purchasedItemCount: Integer
+        +checkoutTotal: Money
+    }
+}
+
+package "domain.repositories" {
+    interface ShoppingListRepository <<port>> {
+        +findById(id: Long): Optional<ShoppingList>
+        +findAllByOwnerId(ownerId: Long): List<ShoppingList>
+        +findByCreationKey(ownerId: Long, key: String): Optional<ShoppingList>
+        +save(list: ShoppingList): ShoppingList
+    }
+}
+
+package "infrastructure.persistence.jpa" {
+    class ShoppingListRepositoryImpl <<adapter>>
+    interface ShoppingListPersistenceRepository <<Spring Data JPA>>
+    class ShoppingListPersistenceAssembler <<mapper>> {
+        +{static} toEntityFromDomain(list: ShoppingList): ShoppingListPersistenceEntity
+        +{static} toDomainFromEntity(entity: ShoppingListPersistenceEntity): ShoppingList
+    }
+    class ShoppingListPersistenceEntity <<JPA Entity>>
+    class ShoppingListItemPersistenceEntity <<JPA Entity>>
+    class PurchaseBudgetPersistenceEntity <<JPA Entity>>
+}
+
+package "application.outboundservices" {
+ interface ShoppingReferenceProvider <<local input port>> {
+  +requireProduct(productId: Long): Result<ProductRequirement, ApplicationError>
+  +requireStore(storeId: Long): Result<StoreRef, ApplicationError>
+  +loadCurrentPrices(selections: List<OfferSelection>): Result<List<CurrentPriceSnapshot>, ApplicationError>
+ }
+}
+package "domain.repositories.recurrence" {
+ interface ShoppingTemplateRepository <<port>> {
+  +findById(id: Long): Optional<ShoppingTemplate>
+  +findByOwnerId(ownerId: Long): List<ShoppingTemplate>
+  +findBySaveKey(ownerId: Long, key: String): Optional<ShoppingTemplate>
+  +save(template: ShoppingTemplate): ShoppingTemplate
+ }
+ interface FavoriteStoreRepository <<port>> {
+  +findByOwnerAndStore(ownerId: Long, storeId: Long): Optional<FavoriteStore>
+  +findActiveByOwner(ownerId: Long): List<FavoriteStore>
+  +save(preference: FavoriteStore): FavoriteStore
+ }
+}
+package "domain.model" {
+ class ShoppingList <<Aggregate>>
+ class ShoppingTemplate <<Aggregate>>
+ class FavoriteStore <<Aggregate>>
+}
+package "infrastructure.persistence.recurrence" {
+ class ShoppingTemplateRepositoryImpl <<adapter>>
+ interface ShoppingTemplatePersistenceRepository <<Spring Data JPA>>
+ class ShoppingTemplatePersistenceAssembler <<mapper>>
+ class ShoppingTemplatePersistenceEntity <<JPA Entity>>
+ class TemplateItemPersistenceEntity <<JPA Entity>>
+ class FavoriteStoreRepositoryImpl <<adapter>>
+ interface FavoriteStorePersistenceRepository <<Spring Data JPA>>
+ class FavoriteStorePersistenceAssembler <<mapper>>
+ class FavoriteStorePersistenceEntity <<JPA Entity>>
+}
+ShoppingListCommandServiceImpl ..|> ShoppingListCommandService
+ShoppingListQueryServiceImpl ..|> ShoppingListQueryService
+ShoppingTemplateCommandServiceImpl ..|> ShoppingTemplateCommandService
+ShoppingTemplateQueryServiceImpl ..|> ShoppingTemplateQueryService
+StorePreferenceCommandServiceImpl ..|> StorePreferenceCommandService
+StorePreferenceQueryServiceImpl ..|> StorePreferenceQueryService
+ShoppingListCommandServiceImpl ..> ShoppingListRepository
+ShoppingListCommandServiceImpl ..> ShoppingTemplateRepository
+ShoppingListCommandServiceImpl ..> ShoppingReferenceProvider
+ShoppingTemplateCommandServiceImpl ..> ShoppingListRepository
+ShoppingTemplateCommandServiceImpl ..> ShoppingTemplateRepository
+ShoppingTemplateQueryServiceImpl ..> ShoppingTemplateRepository
+StorePreferenceCommandServiceImpl ..> FavoriteStoreRepository
+StorePreferenceCommandServiceImpl ..> ShoppingReferenceProvider
+StorePreferenceQueryServiceImpl ..> FavoriteStoreRepository
+ShoppingListQueryServiceImpl ..> ShoppingListRepository
+ShoppingListQueryServiceImpl ..> BudgetStatusView
+ShoppingListQueryServiceImpl ..> PurchaseProgressView
+ShoppingListRepositoryImpl ..|> ShoppingListRepository
+ShoppingListRepositoryImpl ..> ShoppingListPersistenceRepository
+ShoppingListRepositoryImpl ..> ShoppingListPersistenceAssembler
+ShoppingListPersistenceRepository ..> ShoppingListPersistenceEntity
+ShoppingListPersistenceAssembler ..> ShoppingList
+ShoppingListPersistenceAssembler ..> ShoppingListPersistenceEntity
+ShoppingListPersistenceEntity "1" *-- "0..*" ShoppingListItemPersistenceEntity
+ShoppingListPersistenceEntity "1" *-- "0..1" PurchaseBudgetPersistenceEntity
+ShoppingTemplateRepositoryImpl ..|> ShoppingTemplateRepository
+ShoppingTemplateRepositoryImpl ..> ShoppingTemplatePersistenceRepository
+ShoppingTemplateRepositoryImpl ..> ShoppingTemplatePersistenceAssembler
+ShoppingTemplatePersistenceRepository ..> ShoppingTemplatePersistenceEntity
+ShoppingTemplatePersistenceAssembler ..> ShoppingTemplate
+ShoppingTemplatePersistenceAssembler ..> ShoppingTemplatePersistenceEntity
+ShoppingTemplatePersistenceEntity "1" *-- "1..*" TemplateItemPersistenceEntity
+FavoriteStoreRepositoryImpl ..|> FavoriteStoreRepository
+FavoriteStoreRepositoryImpl ..> FavoriteStorePersistenceRepository
+FavoriteStoreRepositoryImpl ..> FavoriteStorePersistenceAssembler
+FavoriteStorePersistenceRepository ..> FavoriteStorePersistenceEntity
+FavoriteStorePersistenceAssembler ..> FavoriteStore
+FavoriteStorePersistenceAssembler ..> FavoriteStorePersistenceEntity
+note bottom of ShoppingListCommandServiceImpl
+ Creation from template: one fresh selected offer per product, same currency/compatible units.
+ Do not copy old prices, budget, memberships or purchased flags.
+ Unique owner/creation-key; retry with same semantic input returns original id.
+ Check ownership before returning an idempotent result; mismatch -> conflict.
+ All item mutations require ACTIVE and expected version; completion is explicit.
+end note
+note bottom of ShoppingReferenceProvider
+ Contract only; trusted Catalog/store provisioning and freshness rules remain pending.
+ No ACL or implemented cross-context client is implied.
+ Required reference unavailable -> 503; never invent a current price or availability.
+end note
+note bottom of BudgetStatusView
+ US11: warning = budget exists AND projectedTotal > limit.
+ Recompute on every query; clear at or below limit. No warning event.
+end note
+note bottom of PurchaseProgressView
+ Checkout includes only purchased items; unmarking reduces it.
+ Template clones start with zero purchased items and zero checkout total.
+end note
+note bottom of FavoriteStoreRepositoryImpl
+ Atomic unique identity and optimistic version prevent duplicate active preferences.
+ Unchanged operations publish nothing; changed aggregates use PublishAndClearEvents after save.
+ Only PersistenceEntity classes carry JPA; no durable event-delivery guarantee.
+end note
+@enduml

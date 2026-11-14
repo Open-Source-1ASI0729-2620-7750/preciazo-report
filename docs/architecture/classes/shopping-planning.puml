@@ -1,79 +1,22 @@
 @startuml Preciazo_Shopping_Planning_Classes
-
-title Preciazo - Shopping Planning Backend Design (AV2)
-
+title Preciazo - Shopping Planning Domain (AV2 - US07-US12 / US18)
+set namespaceSeparator none
 skinparam classAttributeIconSize 0
 skinparam shadowing false
 skinparam linetype ortho
-set namespaceSeparator none
-skinparam packageStyle rectangle
-scale max 3200 width
 
-package "application.commandservices" {
-    interface ShoppingListCommandService <<service>> {
-        +handle(command: CreateShoppingListCommand): Result<Long, ApplicationError>
-        +handle(command: AddShoppingItemCommand): Result<Long, ApplicationError>
-        +handle(command: RemoveShoppingItemCommand): Result<Long, ApplicationError>
-        +handle(command: ReduceShoppingItemQuantityCommand): Result<Long, ApplicationError>
-        +handle(command: SetPurchaseBudgetCommand): Result<Long, ApplicationError>
-        +handle(command: MarkShoppingItemPurchasedCommand): Result<Long, ApplicationError>
-        +handle(command: UnmarkShoppingItemPurchasedCommand): Result<Long, ApplicationError>
-    }
-}
 
-package "application.queryservices" {
-    interface ShoppingListQueryService <<service>> {
-        +handle(query: GetSavedShoppingListsQuery): List<ShoppingList>
-        +handle(query: GetShoppingListByIdQuery): Optional<ShoppingList>
-        +handle(query: GetBudgetStatusQuery): Optional<BudgetStatusView>
-        +handle(query: GetPurchaseProgressQuery): Optional<PurchaseProgressView>
-    }
-}
-
-package "application.internal" {
-    class ShoppingListCommandServiceImpl <<service>>
-    class ShoppingListQueryServiceImpl <<service>>
-}
-
-package "application.readmodels" {
-    class BudgetStatusView <<Read Model>> {
-        +limit: Money [0..1]
-        +projectedTotal: Money
-        +warning: Boolean
-    }
-    class PurchaseProgressView <<Read Model>> {
-        +purchasedItemCount: Integer
-        +checkoutTotal: Money
-    }
-}
-
-package "domain.repositories" {
-    interface ShoppingListRepository <<port>> {
-        +findById(id: Long): Optional<ShoppingList>
-        +findAllByOwnerId(ownerId: Long): List<ShoppingList>
-        +save(list: ShoppingList): ShoppingList
-    }
-}
-
-package "infrastructure.persistence.jpa" {
-    class ShoppingListRepositoryImpl <<adapter>>
-    interface ShoppingListPersistenceRepository <<Spring Data JPA>>
-    class ShoppingListPersistenceAssembler <<mapper>> {
-        +{static} toEntityFromDomain(list: ShoppingList): ShoppingListPersistenceEntity
-        +{static} toDomainFromEntity(entity: ShoppingListPersistenceEntity): ShoppingList
-    }
-    class ShoppingListPersistenceEntity <<JPA Entity>>
-    class ShoppingListItemPersistenceEntity <<JPA Entity>>
-    class PurchaseBudgetPersistenceEntity <<JPA Entity>>
-}
-
-package "domain.model" {
-class ShoppingList {
+class ShoppingList <<Aggregate>> {
     -id: Long
     -ownerId: Long
     -name: String
     -currency: String
     -status: ListStatus
+    -version: Long
+    -completedAt: Instant [0..1]
+    -sourceTemplateId: Long [0..1]
+    -creationKey: String [0..1]
+    -creationFingerprint: String [0..1]
     +addItem(requirement: ProductRequirement, quantity: Quantity): ShoppingListItem
     +removeItem(itemId: Long): void
     +reduceItemQuantity(itemId: Long, quantity: Quantity): void
@@ -89,6 +32,9 @@ class ShoppingListItem {
     -id: Long
     -quantity: Quantity
     -estimatedUnitPrice: UnitPrice
+    -catalogEntryId: Long [0..1]
+    -priceCapturedAt: Instant [0..1]
+    -priceOfferVersion: Long [0..1]
     -purchased: Boolean
     +changeQuantity(quantity: Quantity): void
     +updateEstimatedPrice(price: UnitPrice): void
@@ -128,7 +74,6 @@ note right of Money
 end note
 
 enum ListStatus {
-    DRAFT
     ACTIVE
     COMPLETED
 }
@@ -195,37 +140,74 @@ note right of PurchaseBudget
   The limit is advisory: exceeding it does not block item changes.
 end note
 
-note right of BudgetStatusView
-  US11: Derived on every query; never persisted.
-  warning = limit exists AND projectedTotal > limit.
-  No limit, or projectedTotal <= limit: warning is false.
-  Refresh after add/remove/reduce quantity or define/change budget.
-  No automatic warning command or persisted warning event.
-end note
 
-note right of PurchaseProgressView
-  US12: Refresh after marking or unmarking an item.
-  Checkout total is distinct from the projected total.
-end note
 
+class ShoppingTemplate <<Aggregate>> {
+ -id: Long
+ -ownerId: Long
+ -name: String
+ -currency: String
+ -sourceListId: Long
+ -sourceListVersion: Long
+ -saveKey: String
+ -saveFingerprint: String
+ -createdAt: Instant
+ +fromCompletedList(list: ShoppingList): ShoppingTemplate
 }
-
-ShoppingListCommandServiceImpl ..|> ShoppingListCommandService
-ShoppingListQueryServiceImpl ..|> ShoppingListQueryService
-ShoppingListCommandServiceImpl ..> ShoppingListRepository : persists through port
-ShoppingListCommandServiceImpl ..> ShoppingList : invokes domain behavior
-ShoppingListQueryServiceImpl ..> ShoppingListRepository : reads through port
-ShoppingListQueryServiceImpl ..> BudgetStatusView : derives on query
-ShoppingListQueryServiceImpl ..> PurchaseProgressView : derives on query
-ShoppingListRepositoryImpl ..|> ShoppingListRepository
-ShoppingListRepositoryImpl ..> ShoppingListPersistenceRepository : delegates
-ShoppingListRepositoryImpl ..> ShoppingListPersistenceAssembler : maps
-ShoppingListPersistenceAssembler ..> ShoppingList : pure domain
-ShoppingListPersistenceAssembler ..> ShoppingListPersistenceEntity : persistence model
-ShoppingListPersistenceRepository ..> ShoppingListPersistenceEntity : stores
-ShoppingListPersistenceEntity "1" *-- "0..*" ShoppingListItemPersistenceEntity
-ShoppingListPersistenceEntity "1" *-- "0..1" PurchaseBudgetPersistenceEntity
-
-
+class TemplateItem <<Value Object>> {
+ -productId: Long {readOnly}
+ -requestedName: String {readOnly}
+ -quantity: Quantity {readOnly}
+}
+class FavoriteStore <<Aggregate>> {
+ -id: Long
+ -ownerId: Long
+ -storeId: Long
+ -active: Boolean
+ -version: Long
+ +add(): void
+ +remove(): void
+}
+class OfferSelection <<Value Object>> {
+ -productId: Long {readOnly}
+ -catalogEntryId: Long {readOnly}
+ -expectedOfferVersion: Long {readOnly}
+}
+class CurrentPriceSnapshot <<Value Object>> {
+ -productId: Long {readOnly}
+ -catalogEntryId: Long {readOnly}
+ -offerVersion: Long {readOnly}
+ -price: UnitPrice {readOnly}
+ -available: Boolean {readOnly}
+ -capturedAt: Instant {readOnly}
+}
+ShoppingTemplate "1" *-- "1..*" TemplateItem
+TemplateItem --> Quantity
+ShoppingTemplate ..> ShoppingList : copies completed source
+ShoppingList "0..*" --> "0..1" ShoppingTemplate : optional origin by identity
+CurrentPriceSnapshot --> UnitPrice
+OfferSelection ..> CurrentPriceSnapshot : selection must match trusted snapshot
+note bottom of ShoppingTemplate
+ Immutable snapshot of all requested products and quantities, owned by the buyer.
+ Source must be COMPLETED and nonempty, with expected list version.
+ No prices, purchase flags, members or budget are copied into the template.
+ A save-key retry returns the existing template; changed request -> conflict.
+end note
+note bottom of ShoppingList
+ New ordinary and template-based lists start ACTIVE; no unused DRAFT workflow.
+ Complete is explicit, idempotent and requires a nonempty ACTIVE list.
+ Completion does not assert every requested product was bought.
+ COMPLETED lists are read-only and eligible as template sources.
+ Template instantiation creates a new ACTIVE list with purchased=false for all items.
+ Validate one current, available, compatible selected offer per template product.
+ Missing/stale prices reject the whole operation; never reuse historical prices or zero.
+ Save complete clone atomically; its later changes cannot mutate template/source.
+end note
+note bottom of FavoriteStore
+ UNIQUE(ownerId, storeId); remove deactivates, re-add reactivates the same identity.
+ Repeated add/remove is idempotent and emits no duplicate domain event.
+ Removal needs ownership, not a live external store reference.
+ Preferences never alter prices, distance, coverage or store eligibility.
+end note
 
 @enduml
