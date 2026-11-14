@@ -1,54 +1,54 @@
 @startuml Preciazo_C4_Components_Backend
-
 !include <C4/C4_Component>
-
-LAYOUT_LEFT_RIGHT()
-
-title Preciazo - REST API Component Diagram
-
-Container(web, "Single-Page Application (SPA)", "Angular, TypeScript, Angular Material", "Responsive Preciazo web application used by Buyers and Merchants.")
-System_Ext(routing, "Mapping & Routing Service", "Provides geolocation, distances, travel times and optimized routes.")
-System_Ext(ruc, "RUC Verification Service", "Validates merchant fiscal information.")
-ContainerDb(database, "Relational Database", "Relational Database", "Persists operational data required by Preciazo.")
-
-Container_Boundary(api, "Preciazo REST API") {
-    Component(rest, "REST / API Layer", "Java, Spring Web, OpenAPI", "Translates HTTP requests into application use cases and returns API responses.")
-    Component(identity, "Identity and Access", "Java, Spring Boot", "Authenticates users and enforces Buyer and Merchant authorization rules.")
-    Component(shopping, "Shopping Planning", "Java, Spring Boot", "Manages shared shopping lists, purchase items, budgets and purchase progress.")
-    Component(catalog, "Catalog and Pricing", "Java, Spring Boot", "Manages products, unit prices, availability and comparison data.")
-    Component(route, "Route Planning", "Java, Spring Boot", "Builds multi-stop routes and calculates net savings considering transit overhead.")
-    Component(merchant, "Merchant Management", "Java, Spring Boot", "Manages retail stores, catalog, inventory, offers and merchant operations.")
-    Component(verification, "Community Price Verification", "Java, Spring Boot", "Registers price observations, discrepancies and community confirmations.")
-    Component(analytics, "Analytics and Engagement", "Java, Spring Boot", "Consolidates merchant traffic, lost sales and engagement metrics.")
-    Component(persistence, "Persistence Adapter", "Spring Data JPA", "Implements repository persistence access while preserving bounded context responsibilities.")
-    Component(mapping, "Mapping & Routing Adapter", "Java HTTP Client", "Adapts the external mapping and routing contract to Route Planning.")
-    Component(rucAdapter, "RUC Verification Adapter", "Java HTTP Client", "Adapts the external RUC verification contract to Merchant Management.")
+LAYOUT_TOP_DOWN()
+title Preciazo - REST API Components (AV2 Design Proposal)
+Container(web, "Single-Page Application (SPA)", "Angular / TypeScript", "Invokes API contracts. Client guards do not authorize server operations.")
+System_Ext(routing, "Mapping & Routing Service", "Travel matrix estimates, not Preciazo business optimization. Provider pending.")
+System_Ext(ruc, "RUC Verification Service", "Fiscal status, not store ownership. Provider pending.")
+System_Ext(securityCheck, "Security Check Provider (pending)", "Required proof verification; provider/protocol not implemented here.")
+ContainerDb(database, "Relational Database", "SQL", "One physical database proposal; tables and repository contracts remain owned by each context.")
+Container_Boundary(api, "Preciazo REST API - modular monolith") {
+ Component(security, "Request Security", "Spring Security / bearer filter", "Validates protected requests and loads current IAM status/permissions; explicit public-path allowlist.")
+ Component(rest, "REST Controllers and Assemblers", "Spring Web / OpenAPI", "Map Resources to immutable Commands/Queries and results/errors to Resources / ProblemDetail. Never serialize domain credentials.")
+ Component(catalog, "Catalog and Pricing", "Java / Spring Boot", "Owns canonical public prices and availability; comparison, normalized prices and history are queries.")
+ Component(route, "Route Planning", "Java / Spring Boot", "Optimizes feasible stop order using a travel matrix; preserves old plan on failed recalculation. Savings only with sufficient comparable data.")
+ Component(shopping, "Shopping Planning", "Java / Spring Boot", "Lists, items, advisory budgets and purchase progress. Budget warning is derived on query, never persisted as an event.")
+ Component(merchant, "Merchant Management", "Java / Spring Boot", "Owns fiscal profile, stores, opening windows, physical inventory, imports and promotion lifecycle. Catalog coordination remains pending.")
+ Component(verification, "Community Price Verification", "Java / Spring Boot", "Owns discrepancies, votes and resolution. Confidence thresholds are pending; no automatic Catalog write is implied.")
+ Component(analytics, "Analytics and Engagement", "Java / Spring Boot", "Owns accepted observations and immutable US27 reports. Queries count route suggestions and distinct promotion users; coverage remains UNKNOWN.")
+ Component(identity, "Identity and Access", "Java / Spring Boot", "Accounts, encoded password hashes, sign-in lock controls, roles and permissions. Signed JWT, without persisted token sessions.")
+ Component(mapping, "Mapping & Routing Adapter", "MappingRoutingRestAdapter / HTTP", "Implements RoutingGateway; validates travel matrix and distinguishes infeasible route from provider failure.")
+ Component(rucAdapter, "RUC Verification Adapter", "RucVerificationRestAdapter / HTTP", "Maps fiscal responses; a timeout leaves fiscal status pending.")
+ Component(proofAdapter, "Security Check Verifier Adapter (pending)", "SecurityCheckVerifier contract", "Required proof fails closed if verification is unavailable. No selected provider or implemented adapter is claimed.")
 }
-
-Rel(web, rest, "Invokes REST endpoints", "HTTPS / JSON")
-Rel(rest, identity, "Dispatches identity use cases")
-Rel(rest, shopping, "Dispatches shopping use cases")
-Rel(rest, catalog, "Dispatches catalog and pricing use cases")
-Rel(rest, route, "Dispatches route use cases")
-Rel(rest, merchant, "Dispatches merchant use cases")
-Rel(rest, verification, "Dispatches verification use cases")
-Rel(rest, analytics, "Dispatches analytics use cases")
-Rel(identity, persistence, "Uses repositories")
-Rel(shopping, catalog, "Resolves product and price information")
-Rel(shopping, persistence, "Uses repositories")
-Rel(catalog, persistence, "Uses repositories")
-Rel(route, catalog, "Reads availability and price information")
-Rel(route, mapping, "Requests optimized routes")
-Rel(route, persistence, "Uses repositories")
-Rel(merchant, rucAdapter, "Validates fiscal information")
-Rel(merchant, persistence, "Uses repositories")
-Rel(verification, catalog, "Provides validated price confidence")
-Rel(verification, persistence, "Uses repositories")
-Rel(analytics, persistence, "Reads metrics and events")
-Rel(persistence, database, "Reads and writes", "SQL")
-Rel(mapping, routing, "Requests geolocation and routes", "HTTPS / REST API")
-Rel(rucAdapter, ruc, "Requests fiscal validation", "HTTPS / REST API")
-
-SHOW_LEGEND()
-
+Rel(web, security, "Submits API request", "HTTPS / JSON")
+Rel(security, identity, "Loads current account and grants for protected requests")
+Rel(security, rest, "Passes permitted public or authorized protected request")
+Rel(rest, catalog, "Dispatches Commands / Queries")
+Rel(rest, route, "Dispatches Commands / Queries")
+Rel(rest, shopping, "Dispatches Commands / Queries")
+Rel(rest, merchant, "Dispatches Commands / Queries")
+Rel(rest, verification, "Dispatches Commands / Queries")
+Rel(rest, analytics, "Dispatches Commands / Queries")
+Rel(rest, identity, "Dispatches registration, sign-in and own-profile/access requests")
+Rel(catalog, database, "Own repository ports and JPA adapters", "SQL")
+Rel(route, database, "Own repository ports and JPA adapters", "SQL")
+Rel(shopping, database, "Own repository ports and JPA adapters", "SQL")
+Rel(merchant, database, "Own repository ports and JPA adapters", "SQL")
+Rel(verification, database, "Own repository ports and JPA adapters", "SQL")
+Rel(analytics, database, "Own repository ports and JPA adapters", "SQL")
+Rel(identity, database, "Own repository ports and JPA adapters", "SQL")
+Rel(route, mapping, "Requests travel matrix via RoutingGateway")
+Rel(mapping, routing, "Obtains estimates", "HTTPS / contract pending")
+Rel(merchant, rucAdapter, "Requests fiscal verification via port")
+Rel(rucAdapter, ruc, "Checks fiscal status", "HTTPS / contract pending")
+Rel(identity, proofAdapter, "Verifies required proof via SecurityCheckVerifier")
+Rel(proofAdapter, securityCheck, "Pending verification contract", "Protocol pending")
+note bottom of api
+ Each context owns its repository ports; only PersistenceEntity classes carry JPA.
+ DomainEventPublisher publishes and clears events after save, without a durable-delivery guarantee.
+ Trusted local input contracts remain pending provisioning. No direct cross-context API calls,
+ cross-context database joins for authorization, ACL, event broker or automatic subscriptions are asserted.
+ Resource ownership is also checked inside the context that owns the resource.
+end note
 @enduml

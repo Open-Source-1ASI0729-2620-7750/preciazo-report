@@ -1848,25 +1848,35 @@ La verificación del hash, la comprobación de seguridad y la firma del JWT son 
 
 ### 4.6.2. Software Architecture Context Diagram
 
-El diagrama de contexto C4 muestra el sistema **Preciazo** como elemento central rodeado por los usuarios (**Independent Buyer** y **Retail Merchant**) y los sistemas externos con los que interactúa (**Mapping & Routing Service** y **RUC Verification Service**).
+La propuesta C4 para AV2 muestra **Preciazo**, sus usuarios (**Independent Buyer** y **Retail Merchant**) y tres contratos externos requeridos por los diseños tácticos: estimaciones de desplazamiento de **Mapping & Routing Service**, estado fiscal de **RUC Verification Service** y verificación de prueba de **Security Check Provider**, este último pendiente de selección y protocolo para US06. Estos contratos no acreditan proveedores contratados o adaptadores ya implementados.
+
+Route Planning decide el orden de las paradas con la matriz de distancias/duraciones recibida; el proveedor aporta estimaciones y accesibilidad según modalidad. La verificación fiscal no prueba titularidad comercial. La comprobación de seguridad se requiere en el flujo posterior al bloqueo de login y no representa una ACL ni una integración de dominios de negocio.
 
 ![Preciazo Software Architecture Context Diagram](../assets/architecture/c4-context.png)
 
 ### 4.6.3. Software Architecture Container Diagrams
 
-El diagrama de contenedores describe la arquitectura lógica y las unidades de despliegue independientes de **Preciazo**. La **Landing Page** presenta el producto y proporciona acceso a la **Web Application**, contenedor web servidor encargado de entregar la **Single-Page Application (SPA)** desarrollada con Angular, TypeScript y Angular Material al navegador de los compradores y comerciantes. La SPA consume mediante HTTPS / JSON los endpoints de **Preciazo REST API**, una aplicación modular en Java / Spring Boot que persiste los datos operacionales en una base de datos relacional (**Database**) y se integra con **Mapping & Routing Service** y **RUC Verification Service**.
+El modelo propuesto contiene cuatro contenedores lógicos: **Landing Page**, **Single-Page Application (SPA)**, **Preciazo REST API** y **Relational Database**. La Landing Page presenta el producto y enlaza la aplicación. La SPA, desarrollada con Angular, TypeScript y Angular Material, se entrega como recursos web y se ejecuta en el navegador. El mecanismo de alojamiento estático no se representa como un servidor de negocio adicional ni se declara una topología de producción desplegada.
+
+La REST API se propone como un monolito modular Java/Spring Boot con los siete Bounded Contexts, sus contratos Command/Query y autorización en el servidor. Cada contexto posee sus tablas y accede mediante sus propios puertos y adaptadores de persistencia sobre una base relacional física común; este diagrama no selecciona un motor concreto ni autoriza consultas indiscriminadas entre módulos. Los clientes consumen HTTPS/JSON y envían bearer JWT en solicitudes protegidas. El backend administra la firma/validación del token y consulta el estado y permisos actuales de IAM, sin tabla de sesiones ni promesa de revocación individual.
+
+Las relaciones externas describen los contratos requeridos de mapas, fiscalidad y comprobación de seguridad. La provisión de referencias locales confiables y la coordinación de operaciones entre contextos siguen pendientes; no se añaden ACL, broker de eventos, refresh tokens o garantías de entrega durable. Esta vista sigue las fronteras y separación de responsabilidades de Learning Center Platform Guide, sin convertir sus ejemplos de endpoints o entidades en reglas ajenas a las historias de Preciazo.
 
 ![Preciazo Software Architecture Container Diagram](../assets/architecture/c4-container.png)
 
 ### 4.6.4. Software Architecture Components Diagrams
 
-Los diagramas de componentes detallan por separado la estructura interna de la **Web Application / Single-Page Application (SPA)** y de **Preciazo REST API**, manteniendo los siete Bounded Contexts definidos mediante Domain-Driven Design (ordenados de Core a Genérico) y nombrando cada módulo por su Bounded Context sin emplear el sufijo "UI".
+Las dos vistas de componentes muestran la SPA y la REST API propuestas para AV2, con los siete módulos nombrados por su Bounded Context y sin leyendas adicionales. Las clases y contratos detallados de cada módulo se encuentran en 4.7; los diagramas C4 resumen responsabilidades y dependencias a otra escala, sin acreditar componentes Angular o servicios Spring Boot implementados.
 
-En la SPA, compradores y comerciantes acceden a las funcionalidades mediante `Router / Guards`, que organiza la navegación según el rol del usuario. La aplicación se descompone en módulos de componentes por cada Bounded Context (**Catalog and Pricing Component**, **Route Planning Component**, **Shopping Planning Component**, **Merchant Management Component**, **Community Price Verification Component**, **Analytics and Engagement Component** e **Identity and Access Component**), los cuales utilizan el módulo transversal `Shared Component` y servicios de aplicación que encapsulan las llamadas HTTP hacia la REST API.
+En la SPA, `Router / Guards` organiza la navegación; `Shared Components` reúne formularios, mensajes y presentación reutilizable, y `Feature API Clients` agrupa los clientes HTTP por funcionalidad, mapeo de DTOs y respuesta a `ProblemDetail`. Los guards mejoran la navegación, mientras que el backend decide permisos y titularidad. El estado cliente del bearer token permite entrar/salir de la interfaz sin afirmar que eliminarlo invalide otras copias.
+
+Los módulos reflejan sus contratos: Shopping Planning consulta la advertencia de presupuesto y el acumulado en caja; Catalog and Pricing muestra comparativas y precios canónicos; Route Planning distingue cobertura, estimaciones y fallos de recálculo; Merchant Management presenta locales, inventario y promociones; Community Price Verification diferencia votos y resolución; Analytics and Engagement muestra apariciones en rutas y usuarios únicos observados para US27; Identity and Access gestiona registro, login y comprobación de seguridad requerida. Datos desconocidos no se convierten en ahorros, confianza o cobertura ficticios. Ningún rol, precio o flag fiscal suministrado por el cliente autoriza una escritura.
 
 ![Preciazo Frontend Component Diagram](../assets/architecture/c4-components-frontend.png)
 
-En el backend, la capa REST delega los casos de uso a los componentes de aplicación y dominio de los siete contextos, estructurados internamente bajo las cuatro capas tácticas de DDD (*Interfaces Layer*, *Application Layer*, *Domain Layer* e *Infrastructure Layer*). El `Persistence Adapter` implementa el acceso a repositorios mediante Spring Data JPA. **Route Planning** utiliza `Mapping & Routing Adapter` para las consultas de rutas, mientras que **Merchant Management** utiliza `RUC Verification Adapter` para la validación fiscal. Ambos adaptadores se comunican con sus respectivos servicios externos mediante HTTPS / REST API.
+En el backend, `Request Security` procesa el bearer y la lista explícita de rutas públicas. Los controllers y assemblers transforman Resources en Commands/Queries y sus resultados en Resources o `ProblemDetail`. Cada módulo integra su aplicación, dominio y adaptadores propios; las flechas hacia la base representan esos puertos/adaptadores, no acceso SQL desde el dominio. Se mantienen las cuatro capas DDD y los patrones de Learning Center: `handle(record)`, `Result<T, ApplicationError>` en Commands, clases de dominio sin JPA, `*RepositoryImpl`, `*PersistenceRepository` y `*PersistenceAssembler`, con JPA exclusivamente en `*PersistenceEntity`.
+
+`MappingRoutingRestAdapter` implementa el puerto de matriz de viajes de Route Planning y distingue inviabilidad de fallo del proveedor. `RucVerificationRestAdapter` conserva el estado fiscal pendiente ante timeout y no acredita propiedad. `SecurityCheckVerifierAdapter` se representa como contrato pendiente para IAM: sin verificación disponible, un ingreso que requiere prueba no se acepta. La publicación usa `DomainEventPublisher.publishAndClearEvents(saved)` tras guardar, sin inferir un bus durable ni suscripciones entre contextos por el solo hecho de dibujar un evento.
 
 | Bounded Context (Orden DDD) | Interfaces Layer (REST Controllers) | Application Layer (Command & Query Services) | Domain Layer (Aggregates) | Infrastructure Layer (JPA & Adapters) |
 | :--- | :--- | :--- | :--- | :--- |
@@ -1879,6 +1889,20 @@ En el backend, la capa REST delega los casos de uso a los componentes de aplicac
 | **7. Identity and Access** *(Genérico)* | `AuthenticationController`, `UsersController` | `UserCommandServiceImpl`, `UserQueryServiceImpl`, `RoleCommandServiceImpl` | `User`, `Role` | `UserRepositoryImpl` → `UserPersistenceRepository`, `RoleRepositoryImpl` → `RolePersistenceRepository`, `JwtTokenServiceAdapter` |
 
 ![Preciazo Backend Component Diagram](../assets/architecture/c4-components-backend.png)
+
+Las dependencias funcionales entre contextos se documentan como coordinación pendiente. No se dibujan como llamadas o suscripciones ya resueltas. Cada puerto de entrada y referencia pertenece al contexto consumidor; no existe un proveedor global compartido de modelos de dominio.
+
+| Contexto consumidor | Datos o coordinación necesarios | Estado del diseño AV2 |
+| --- | --- | --- |
+| Shopping Planning | Referencias de producto/precio y aplicación de sustitutos aceptados del Catálogo. | Coordinación pendiente; las Queries de Catálogo no modifican listas. US07 y US18 requieren ampliar posteriormente el diseño táctico de Shopping Planning. |
+| Catalog and Pricing | Identidad, titularidad, ubicación y afiliación de tiendas de Merchant Management. | Referencias locales previstas; provisión y actualización pendientes. |
+| Merchant Management | Escritura coordinada de precios canónicos de importación y aplicación pública de promociones en Catálogo. | Pendiente; un lote con precios no se responde aplicado sin completar la coordinación atómica acordada. |
+| Route Planning | Requisitos/versiones de lista, ofertas disponibles y horarios confiables. | Puertos de snapshots definidos; provisión, vigencia y coordinación pendientes. El cálculo no reserva stock ni modifica listas. |
+| Community Price Verification | Identidad de oferta y eventual uso del resultado aceptado por Catálogo. | Reporte/voto/resolución propios; no se presume escritura automática del precio canónico. Fórmula y umbrales de confianza pendientes. |
+| Analytics and Engagement | Hechos confiables de optimizaciones de ruta guardadas y observaciones explícitas de interacción. | Captura/deduplicación definidas; entrega y conciliación entre fuentes pendientes, con cobertura UNKNOWN. |
+| Contextos con recursos privados | Principal autenticado de IAM y comprobación de titularidad sobre su propio recurso. | El filtro de seguridad obtiene identidad/permisos; cada contexto verifica la titularidad con sus referencias confiables. Sin ACL o joins de autorización entre dominios. |
+
+Esta arquitectura global conserva el precio público en Catálogo, las cantidades físicas en inventario de Merchant Management, la optimización en Route Planning y las métricas de lectura en Analytics. Las decisiones pendientes permanecen visibles para implementar los contratos con coherencia, sin presentar el diseño documental como evidencia de integración o despliegue.
 
 ## 4.7. Software Object-Oriented Design
 
