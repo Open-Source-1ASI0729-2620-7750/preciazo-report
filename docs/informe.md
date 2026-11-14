@@ -2747,24 +2747,73 @@ A continuación, se presenta la documentación y evidencia de las entrevistas de
 
 ### 5.3.3. Evaluaciones según heurísticas
 
-Se presenta la matriz de evaluación de usabilidad basada en las **10 Heurísticas de Jakob Nielsen** para el Landing Page y el Frontend Web Application:
+Para evaluar la experiencia de usuario de **Preciazo**, se aplicará el formato
+**UX Heuristics & Principles Evaluation**, considerando criterios de
+**Usability**, **Inclusive Design** e **Information Architecture**, de acuerdo
+con el formato establecido para el proyecto.
 
-<!-- Si utilizan la plantilla Excel/imagen de heurísticas del curso, descomentar la línea inferior -->
-<!-- ![Evaluación Heurística](../assets/sprint-3/heuristic-evaluation.png) -->
+#### Datos de la evaluación
 
-| # | Heurística de Usabilidad (Jakob Nielsen) | Observaciones / Evidencia Evaluada | Severidad (0-4) | Acción de Mejora Propuesta | Puntaje (%) |
-| :---: | :--- | :--- | :---: | :--- | :---: |
-| **H01** | **Visibilidad del estado del sistema** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H02** | **Relación entre el sistema y el mundo real** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H03** | **Control y libertad del usuario** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H04** | **Consistencia y estándares** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H05** | **Prevención de errores** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H06** | **Reconocimiento antes que recuerdo** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H07** | **Flexibilidad y eficiencia de uso** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H08** | **Diseño estético y minimalista** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H09** | **Ayudar a reconocer, diagnosticar y recuperarse de errores** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H10** | **Ayuda y documentación** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| | **Promedio General de Usabilidad** | | | | **`[%]`** |
+| Campo | Descripción |
+| :--- | :--- |
+| **Carrera** | Ingeniería de Software |
+| **Curso** | Desarrollo de Aplicaciones Open Source |
+| **Sección** | 7750 |
+| **Auditor** | PeruTech |
+| **Cliente(s)** | `[Completar con participantes de las sesiones de validación]` |
+| **Site o App a evaluar** | Preciazo - Landing Page y Frontend Web Application |
+
+#### Tareas a evaluar
+
+`[Las tareas evaluadas se incorporarán en el siguiente avance de la evaluación.]`
+
+#### Tareas no incluidas en esta evaluación
+
+`[Las tareas fuera del alcance se especificarán de acuerdo con la versión evaluada.]`
+
+#### Escala de severidad
+
+Los problemas identificados durante la evaluación serán clasificados utilizando
+la escala de severidad establecida para el proyecto:
+
+| Nivel | Descripción |
+| :---: | :--- |
+| **1** | Problema superficial: puede ser superado fácilmente por el usuario o presenta una frecuencia muy baja. |
+| **2** | Problema menor: puede presentarse con mayor frecuencia o requerir mayor esfuerzo por parte del usuario. Se recomienda asignar una prioridad baja para su corrección. |
+| **3** | Problema mayor: ocurre con frecuencia o dificulta considerablemente que el usuario complete una tarea. Su corrección debe tener prioridad alta. |
+| **4** | Problema muy grave: impide que el usuario continúe utilizando correctamente la funcionalidad. Debe corregirse antes de la liberación del producto. |
+
+#### Tabla resumen de problemas
+
+| # | Problema identificado | Escala de severidad | Heurística / Principio violado |
+| :---: | :--- | :---: | :--- |
+| **1** | `[Por completar]` | `[1-4]` | `[Por completar]` |
+| **2** | `[Por completar]` | `[1-4]` | `[Por completar]` |
+| **3** | `[Por completar]` | `[1-4]` | `[Por completar]` |
+
+#### Descripción de problemas
+
+La siguiente sección documentará individualmente los problemas encontrados,
+incluyendo su severidad, el principio afectado, evidencia visual y la acción
+de mejora propuesta.
+
+##### Problema #1: `[Título del problema]`
+
+**Severidad:** `[1-4]`
+
+**Heurística / Principio violado:** `[Por completar]`
+
+**Problema:**
+
+`[Descripción del problema identificado durante la evaluación.]`
+
+**Evidencia:**
+
+<!-- ![Evidencia Problema 1](../assets/sprint-3/heuristics/problem-01.png) -->
+
+**Recomendación:**
+
+`[Acción de mejora propuesta.]`
 
 ---
 
