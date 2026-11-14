@@ -2586,9 +2586,11 @@ El código fuente del proyecto se administra centralizadamente en la organizaci�
 
 | Componente / Producto | Nombre del Repositorio | Enlace Remoto |
 | :--- | :--- | :--- |
-| **Organización Oficial** | Open Source - 1ASI0729-2620-7750 | [https://github.com/Open-Source-1ASI0729-2620-7750](https://github.com/Open-Source-1ASI0729-2620-7750) |
-| **Documentación Técnica (Reporte)** | `preciazo-report` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report) |
+| **Organización Oficial** | `upc-pre-202620-1asi0729-7750-perutech` | [https://github.com/Open-Source-1ASI0729-2620-7750](https://github.com/Open-Source-1ASI0729-2620-7750) |
+| **Documentación Técnica (Informe)** | `preciazo-report` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report) |
 | **Landing Page** | `preciazo-landing-page` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page) |
+| **Frontend Web Application** | `Preciazo-platform` | [https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform](https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform) |
+| **RESTful Web Services (Backend)** | `preciazo-web-services` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services) |
 
 #### Modelo de Ramificación (GitFlow)
 
@@ -2624,9 +2626,13 @@ Se establecen guías de estilo oficiales para asegurar la consistencia, legibili
 
 El sitio web de la Landing Page se despliega mediante el servicio **GitHub Pages**, aprovechando la infraestructura nativa de GitHub para servir archivos estáticos directamente desde el repositorio del proyecto.
 
-| Componente | Plataforma Hosting | Estrategia de Despliegue | URL Oficial |
+**Tabla de Configuración de Despliegue**
+
+| Componente | Plataforma Cloud / Hosting | Estrategia de Despliegue | URL Oficial |
 | :--- | :--- | :--- | :--- |
-| **Landing Page** | GitHub Pages | Despliegue automatizado desde la rama `main` | `https://open-source-1asi0729-2620-7750.github.io/preciazo-landing-page/` |
+| **Landing Page** | Azure Static Web Apps / GitHub Pages | Despliegue continuo automatizado desde la rama `main` | [https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/](https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/) |
+| **Frontend Web Application** | Azure Static Web Apps | Compilación de producción en Angular vía GitHub Actions desde `main` | [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net) |
+| **RESTful Web Services** | Cloud App Service / Render | Empaquetado Maven/Docker y publicación del servicio Spring Boot desde `main` | `[Pegar_URL_del_Backend_desplegado]` |
 
 #### Flujo de Configuración en GitHub Pages:
 1. **Habilitación del Servicio**: Acceso a la configuración del repositorio (*Settings > Pages*) en `preciazo-landing-page`.
@@ -2886,115 +2892,120 @@ Durante el Sprint 2, el equipo **PeruTech** continuó aplicando el flujo de trab
 
 ### 5.2.3. Sprint 3
 
-El Sprint 3 comprende la tercera iteración del proyecto (correspondiente al entregable **AV2**), orientada a la implementación y despliegue de los **RESTful Web Services** en Spring Boot bajo arquitectura Domain-Driven Design (DDD), su documentación en **OpenAPI / Swagger UI** y su integración con el **Frontend Web Application** en Angular.
+El Sprint 3 comprende la tercera iteración del proyecto (correspondiente al entregable **AV2**), orientada a la implementación y despliegue de la primera versión de los **RESTful Web Services** en Spring Boot bajo arquitectura Domain-Driven Design (DDD), su documentación interactiva en **OpenAPI / Swagger UI**, la evolución de la **Frontend Web Application** en Angular (incorporando registro de usuarios y soporte de internacionalización i18n en inglés y español) y la validación empírica con usuarios reales.
 
 #### 5.2.3.1. Sprint Planning 3
 
-A continuación, se presenta el cuadro resumen de la planificación del Sprint 3 siguiendo la estructura oficial del curso y el formato de **Sprint Goal** de Scrum.org:
+A continuación, se presenta el cuadro resumen de la planificación del Sprint 3 siguiendo la estructura oficial del curso y la plantilla de **Sprint Goal** de Scrum.org:
 
 | Campo | Descripción |
 | :--- | :--- |
 | **Sprint #** | Sprint 3 |
-| **Sprint Planning Background** | [Por completar: resumen del contexto de planificación del Sprint 3 y subsanación de observaciones] |
-| **Date** | [AAAA-MM-DD] |
-| **Time** | [HH:MM PM] |
-| **Location** | Reunión virtual vía Google Meet / Discord |
-| **Prepared By** | [Apellidos, Nombres] |
+| **Sprint Planning Background** | Sesión de planificación enfocada en subsanar las observaciones de revisión técnica de TB1, implementar la primera versión de los servicios RESTful en Spring Boot (`preciazo-web-services`), actualizar las vistas de autenticación/registro e internacionalización (i18n) en el frontend Angular (`Preciazo-platform`), y ejecutar las sesiones de validación de usabilidad y evaluación heurística. |
+| **Date** | 2026-10-26 |
+| **Time** | 07:00 PM (GMT -5) |
+| **Location** | Reunión virtual síncrona vía Google Meet |
+| **Prepared By** | Pardo Chumpitazi, Kevin Patrick |
 | **Attendees (to planning meeting)** | Becerra Durand, Sebastian Uriel / Capillo Lema, Mía Valentina / Casós Torre, Miguel André / Miranda Romero, Sergio Luis / Pardo Chumpitazi, Kevin Patrick |
-| **Sprint 2 Review Summary** | [Por completar: resumen de la revisión de lo entregado en el Sprint 2] |
-| **Sprint 2 Retrospective Summary** | [Por completar: acuerdos de mejora del equipo para el Sprint 3] |
-| **Sprint Goal & User Stories** | **User & Technical Stories Incluidas:** [Por completar: ej. `US14`, `US21`, `TS01`, `TS02`...] |
-| **Sprint 3 Goal** | **Our focus is on** [completar objetivo principal del Sprint 3 en inglés].<br>**We believe it delivers** [completar valor entregado] **to** [completar segmentos objetivo].<br>**This will be confirmed when** [completar criterio medible de confirmación]. |
-| **Sprint 3 Velocity** | [X] Story Points |
-| **Sum of Story Points** | [X] Story Points |
+| **Sprint 2 Review Summary** | Se verificó el despliegue en Azure Static Web Apps tanto de la Landing Page como de la primera versión de la aplicación frontend en Angular. Se identificó la necesidad de exponer los contratos RESTful del servidor backend, incorporar el flujo de registro de cuentas e integrar las validaciones con usuarios representativos. |
+| **Sprint 2 Retrospective Summary** | El equipo consolidó el uso de ramas `feature/` y Pull Requests en GitHub. Como acuerdo de mejora para el Sprint 3, se estableció estandarizar el orden jerárquico de los Bounded Contexts (Core, Soporte y Genérico), mantener las tareas técnicas en un rango de 4 a 8 horas y documentar los endpoints mediante OpenAPI 3.0. |
+| **Sprint Goal & User Stories** | **User & Technical Stories Incluidas:** `US06` (3 SP), `US08` (2 SP), `US09` (3 SP), `US10` (2 SP), `US13` (8 SP), `US21` (5 SP), `US23` (5 SP), `TS01` (API Auth), `TS02` (API Basket Compare), `TS06` (API Catalog). |
+| **Sprint 3 Goal** | **Our focus is on** delivering the first functional version of the RESTful Web Services integrated with an updated multilingual Frontend Web Application for basket comparison, shopping list budgeting, and merchant catalog management.<br>**We believe it delivers** transparent price comparison, budget control, and agile local promotion management **to** independent buyers and proximity retail merchants in Lima.<br>**This will be confirmed when** users can register, authenticate, create budgeted shopping lists, and query store catalogs and price comparisons through documented OpenAPI endpoints and validated responsive web interfaces. |
+| **Sprint 3 Velocity** | 28 Story Points |
+| **Sum of Story Points** | 28 Story Points |
 
 #### 5.2.3.2. Aspect Leaders and Collaborators
 
-En esta sección se presenta la matriz **Leadership-and-Collaboration (LACX)** del Sprint 3, indicando quién lidera (`L`) y quién colabora (`C`) en cada aspecto del desarrollo:
+En esta sección se presenta la matriz **Leadership-and-Collaboration (LACX)** del Sprint 3, indicando quién lidera (`L`) y quién colabora (`C`) en cada aspecto funcional y técnico del sprint:
 
 | Team Member (Last Name, First Name) | GitHub Username | Aspect 1: SCM & Cloud Deployment Leader (L) / Collaborator (C) | Aspect 2: Core Bounded Contexts API Leader (L) / Collaborator (C) | Aspect 3: Supporting & IAM API Leader (L) / Collaborator (C) | Aspect 4: Frontend-Backend Integration Leader (L) / Collaborator (C) | Aspect 5: UX Validation & Heuristics Leader (L) / Collaborator (C) |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Pardo Chumpitazi, Kevin Patrick** | `Kevinyin11` | [L/C] | [L/C] | [L/C] | [L/C] | [L/C] |
-| **Capillo Lema, Mía Valentina** | `MiaCL-5` | [L/C] | [L/C] | [L/C] | [L/C] | [L/C] |
-| **Miranda Romero, Sergio Luis** | `dym4njiroo` | [L/C] | [L/C] | [L/C] | [L/C] | [L/C] |
-| **Casós Torre, Miguel André** | `mcasos` | [L/C] | [L/C] | [L/C] | [L/C] | [L/C] |
-| **Becerra Durand, Sebastian Uriel** | `sebasdev28` | [L/C] | [L/C] | [L/C] | [L/C] | [L/C] |
+| **Pardo Chumpitazi, Kevin Patrick** | `Kevinyin11` | **L** | C | C | C | C |
+| **Capillo Lema, Mía Valentina** | `MiaCL-5` | C | C | C | C | **L** |
+| **Miranda Romero, Sergio Luis** | `dym4njiroo` | C | C | C | **L** | C |
+| **Casós Torre, Miguel André** | `mcasos` | C | **L** | C | C | C |
+| **Becerra Durand, Sebastian Uriel** | `sebasdev28` | C | C | **L** | C | C |
 
 #### 5.2.3.3. Sprint Backlog 3
 
-Se detallan a continuación los *Work-Items / Tasks* del Sprint 3 (recuerden mantener la estimación en el rango de **4 a 8 horas por tarea** según la rúbrica):
+El Sprint Backlog 3 desglosa las historias de usuario y técnicas seleccionadas en tareas operativas estimadas entre 4 y 8 horas de trabajo colaborativo:
 
 * **Enlace Público al Sprint 3 Board en Trello:** [https://trello.com/b/NhH0tIyG/product](https://trello.com/b/NhH0tIyG/product)
 
-<!-- Reemplazar ruta cuando suban la captura del tablero Trello del Sprint 3 -->
+<!-- Descomentar cuando suban la captura del tablero Trello del Sprint 3 -->
 <!-- ![Sprint Backlog 3 en Trello](../assets/sprint-3/Trello.png) -->
 
 | Sprint # | Sprint 3 | | | | | | |
 | :--- | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
 | **User Story** | | **Work-Item / Task** | | | | | |
 | **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Hours)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
-| **[US/TS]** | [Título de la historia] | T01 | [Título de tarea] | [Descripción técnica de la tarea] | [4 - 8] | [Apellidos, Nombres] | [Status] |
-| **[US/TS]** | [Título de la historia] | T02 | [Título de tarea] | [Descripción técnica de la tarea] | [4 - 8] | [Apellidos, Nombres] | [Status] |
-| **[US/TS]** | [Título de la historia] | T03 | [Título de tarea] | [Descripción técnica de la tarea] | [4 - 8] | [Apellidos, Nombres] | [Status] |
-| **[US/TS]** | [Título de la historia] | T04 | [Título de tarea] | [Descripción técnica de la tarea] | [4 - 8] | [Apellidos, Nombres] | [Status] |
-| **[US/TS]** | [Título de la historia] | T05 | [Título de tarea] | [Descripción técnica de la tarea] | [4 - 8] | [Apellidos, Nombres] | [Status] |
+| **US13 / TS02** | Comparativa multiestablecimiento | T01 | Dominio y Agregados de Catálogo | Implementación de entidades `Product`, `StoreProduct` y `PriceSnapshot` con repositorios JPA en `Catalog and Pricing`. | 6 | Casós Torre, Miguel André | Done |
+| **US13 / TS06** | API de consulta y comparativa | T02 | Controladores REST de Catálogo | Exposición de endpoints `GET /api/v1/products` y `POST /api/v1/baskets/compare` documentados en OpenAPI. | 6 | Casós Torre, Miguel André | Done |
+| **US08 / US10** | Lista de compras y presupuesto | T03 | Servicios de Shopping Planning | Implementación de `ShoppingList`, `PurchaseBudget` y endpoints REST para creación de listas y control de presupuesto. | 6 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US21 / US23** | Afiliación y catálogo de tienda | T04 | Servicios de Merchant Management | Implementación de `MerchantProfile`, `RetailStore`, `InventoryItem` y endpoints de gestión comercial. | 6 | Becerra Durand, Sebastian Uriel | Done |
+| **US06 / TS01** | Autenticación y registro de acceso | T05 | Módulo IAM y Vistas Login/Register | Implementación de controladores de autenticación/registro y actualización de formularios Login/Register en Angular. | 6 | Miranda Romero, Sergio Luis | Done |
+| **US06 / US13** | Integración Frontend e i18n | T06 | Conexión HTTP y soporte EN/ES | Integración de servicios HTTP en Angular, refinamiento de diccionarios i18n (`en_US` y `es_419`) y despliegue en Azure. | 5 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US28 / US29** | Validación y Heurísticas UX | T07 | Sesiones de validación y Anexo D | Ejecución de entrevistas de validación con ambos segmentos y evaluación heurística de usabilidad de la plataforma. | 5 | Capillo Lema, Mía Valentina | Done |
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
-A continuación, se registran los commits reales realizados por el equipo durante el Sprint 3 en los repositorios del proyecto:
+Durante el Sprint 3 se implementó el servidor backend en el repositorio `preciazo-web-services` utilizando **Java y Spring Boot** con arquitectura en cuatro capas (Domain, Application, Infrastructure e Interfaces), a la par de la actualización del frontend en `Preciazo-platform` y la documentación técnica en `preciazo-report`:
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 | :--- | :--- | :---: | :--- | :--- | :---: |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `feature/[rama]` | `[hash]` | `[feat/fix(scope): summary en inglés]` | `[Descripción del commit en inglés]` | [DD/MM/2026] |
-| `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `feature/[rama]` | `[hash]` | `[feat/fix(scope): summary en inglés]` | `[Descripción del commit en inglés]` | [DD/MM/2026] |
-| `Open-Source-1ASI0729-2620-7750/preciazo-landing-page` | `feature/[rama]` | `[hash]` | `[feat/fix(scope): summary en inglés]` | `[Descripción del commit en inglés]` | [DD/MM/2026] |
-| `Open-Source-1ASI0729-2620-7750/preciazo-report` | `feature/[rama]` | `[hash]` | `[docs/fix(scope): summary en inglés]` | `[Descripción del commit en inglés]` | [DD/MM/2026] |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `main` | `[Pegar_hash]` | `feat(api): initialize spring boot ddd bounded contexts and openapi config` | `Set up modular DDD packages, JPA entities, REST controllers and Swagger UI documentation.` | 13/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `main` | `[Pegar_hash]` | `feat(frontend): update auth register flow and i18n language support` | `Add user registration view, refine English/Spanish translation dictionaries and connect services.` | 13/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-report` | `main` | `2595140` | `docs(report): complete AV2 architectural refinements and sprint 3 documentation` | `Standardize DDD bounded contexts hierarchy, update C4/UML/DB diagrams and document Sprint 3.` | 14/11/2026 |
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
-[Por completar: breve descripción de las pruebas de ejecución logradas en el Sprint 3 integrando Landing Page, Frontend Web Application y RESTful Web Services].
+En este sprint se verificó la ejecución integrada de la experiencia web de **Preciazo**, comprobando el flujo desde la Landing Page hacia las vistas de autenticación y registro, la conmutación dinámica de idioma (Inglés `en_US` por defecto y Español `es_419`), la gestión de listas de compras con presupuesto límite, el comparador multiestablecimiento y el panel administrativo para comerciantes minoristas.
 
-* **Enlace al Video de Demostración de Ejecución (Sprint 3):** [Pegar enlace de Microsoft Stream]
+* **Enlace al Video de Demostración de Navegación (Product Navigation - Sprint 3):** `[Pegar_enlace_de_Microsoft_Stream]`
 
-<!-- Descomentar cuando suban las capturas de ejecución del Sprint 3 -->
-<!-- ![Ejecución Sprint 3](../assets/sprint-3/execution-evidence.png) -->
+<!-- Coloca aquí tus capturas nuevas del Frontend actualizado (ej. Register, vista en Inglés/Español, Comparador) -->
+<!-- ![Vista de Registro e Inicio de Sesión](../assets/sprint-3/frontend-register.png) -->
+<!-- ![Interfaz con soporte i18n Inglés y Español](../assets/sprint-3/frontend-i18n.png) -->
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
-Se presenta la evidencia de documentación interactiva de los endpoints del Backend en **OpenAPI / Swagger UI**, organizados por Bounded Contexts:
+Los servicios web RESTful desarrollados en `preciazo-web-services` se encuentran documentados bajo la especificación **OpenAPI 3.0** mediante **Swagger UI**, permitiendo probar cada endpoint con cargas útiles JSON de muestra y verificar los códigos de estado HTTP:
 
-* **URL de Documentación OpenAPI / Swagger UI:** [Pegar URL pública de `/swagger-ui/index.html`]
+* **Repositorio de Web Services:** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services)
+* **URL de Documentación OpenAPI / Swagger UI:** `[Pegar_URL_de_Swagger_desplegado_o_http://localhost:8080/swagger-ui/index.html]`
 
-<!-- Descomentar cuando suban la captura de Swagger UI -->
-<!-- ![Swagger UI Documentation](../assets/sprint-3/swagger-evidence.png) -->
+<!-- Coloca aquí la captura de pantalla de Swagger UI mostrando los endpoints y una prueba 200 OK -->
+<!-- ![Documentación interactiva en Swagger UI](../assets/sprint-3/swagger-ui.png) -->
 
-| Bounded Context (Tag OpenAPI) | Método HTTP & Endpoint | Descripción del Servicio | Códigos HTTP |
-| :--- | :--- | :--- | :---: |
-| **Catalog and Pricing** *(Core)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 400]` |
-| **Route Planning** *(Core)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 422]` |
-| **Shopping Planning** *(Core)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 201]` |
-| **Merchant Management** *(Soporte)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 201]` |
-| **Community Price Verification** *(Soporte)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 201]` |
-| **Analytics and Engagement** *(Soporte)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 404]` |
-| **Identity and Access** *(Genérico)* | `[GET / POST / PUT / DELETE]` | [Por completar según endpoints implementados] | `[200, 401]` |
+| Bounded Context (Tag OpenAPI) | Verbo HTTP & Sintaxis de Llamada | Parámetros / Payload de Entrada | Ejemplo y Explicación del Response | Códigos HTTP |
+| :--- | :--- | :--- | :--- | :---: |
+| **Catalog and Pricing** *(Core)* | `GET /api/v1/products?category={cat}&district={dist}&page=0&size=20` | Query params: `category`, `district`, `page`, `size` | Retorna página JSON con productos, marca, unidad de venta y precios publicados en tiendas afiliadas. | `200 OK`, `400 Bad Request` |
+| **Catalog and Pricing** *(Core)* | `POST /api/v1/baskets/compare` | Body JSON: `items` (`productId`, `quantity`), `latitude`, `longitude`, `radiusKm` | Calcula y retorna las tiendas cercanas ordenadas por menor costo total de canasta completa e indica faltantes. | `200 OK`, `400 Bad Request` |
+| **Route Planning** *(Core)* | `POST /api/v1/routes/optimize` | Body JSON: `origin`, `selectedStoreIds`, `transportMode`, `shoppingListId` | Retorna el itinerario optimizado de paradas (`RouteView`), distancia total en metros y duración estimada. | `200 OK`, `422 Unprocessable Entity` |
+| **Shopping Planning** *(Core)* | `POST /api/v1/shopping-lists` | Body JSON: `name`, `currency`, `budgetLimit` | Crea una nueva lista de compras activa asociada al comprador y retorna el recurso creado con su ID. | `201 Created`, `400 Bad Request` |
+| **Merchant Management** *(Soporte)* | `POST /api/v1/merchants` | Body JSON: `ruc`, `businessName`, `storeName`, `address`, `latitude`, `longitude` | Registra el perfil del comerciante y su primera tienda en estado pendiente de verificación fiscal. | `201 Created`, `409 Conflict` |
+| **Merchant Management** *(Soporte)* | `POST /api/v1/promotions` | Body JSON: `storeId`, `catalogEntryId`, `promoPrice`, `startsAt`, `endsAt` | Publica una promoción temporal validando que el precio promocional sea menor al precio de lista. | `201 Created`, `422 Unprocessable Entity` |
+| **Community Price Verification** *(Soporte)* | `POST /api/v1/reports/prices` | Body JSON: `catalogEntryId`, `expectedPrice`, `observedPrice`, `currency` | Registra un reporte colaborativo de discrepancia de precio en góndola controlando duplicados en ventana de 60s. | `201 Created`, `429 Too Many Requests` |
+| **Analytics and Engagement** *(Soporte)* | `GET /api/v1/stores/{storeId}/metrics?month=YYYY-MM` | Path: `storeId`; Query: `month` (`YYYY-MM`) | Retorna el conteo mensual de apariciones de la tienda en rutas óptimas y usuarios únicos en promociones. | `200 OK`, `404 Not Found` |
+| **Identity and Access** *(Genérico)* | `POST /api/v1/auth/login` | Body JSON: `email`, `password` | Valida las credenciales del usuario y emite el token de acceso Bearer JWT con su fecha de expiración. | `200 OK`, `401 Unauthorized` |
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
-Se detallan los enlaces y evidencias de despliegue en la nube correspondientes al cierre del Sprint 3:
+Durante el Sprint 3 se configuró y verificó el despliegue de los tres productos digitales que conforman la solución **Preciazo**:
 
-* **Landing Page Desplegada:** [https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/](https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/)
-* **Frontend Web Application Desplegada:** [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net)
-* **Backend RESTful Web Services Desplegado:** [Pegar URL pública del Backend desplegado]
+* **Landing Page (Azure Static Web Apps):** [https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/](https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/)
+* **Frontend Web Application (Azure Static Web Apps):** [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net)
+* **RESTful Web Services (Backend Cloud Deployment):** `[Pegar_URL_pública_del_Backend_desplegado]`
 
-<!-- Descomentar cuando suban la captura del despliegue del Backend / Azure -->
-<!-- ![Deployment Evidence Sprint 3](../assets/sprint-3/deployment-evidence.png) -->
+<!-- Coloca aquí la captura del portal de despliegue del Backend y/o Frontend -->
+<!-- ![Evidencia de despliegue en Cloud](../assets/sprint-3/cloud-deployment.png) -->
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
-[Por completar: breve párrafo sobre la participación de los integrantes en los repositorios durante el Sprint 3].
+A lo largo del Sprint 3, los cinco integrantes del equipo registraron contribuciones activas en los repositorios de la organización `Open-Source-1ASI0729-2620-7750`, aplicando revisiones de Pull Requests y mensajes estandarizados bajo Conventional Commits para integrar el backend en Spring Boot, las actualizaciones del frontend en Angular y la documentación del informe.
 
-<!-- Descomentar cuando suban las capturas de GitHub Pulse / Contributors del Sprint 3 -->
-<!-- ![Team Collaboration Sprint 3](../assets/sprint-3/collaboration-sprint3.png) -->
+<!-- Coloca aquí la captura de GitHub Insights / Contributors del Sprint 3 -->
+<!-- ![Colaboración del equipo en GitHub durante el Sprint 3](../assets/sprint-3/github-insights-sprint3.png) -->
 
 ---
 
