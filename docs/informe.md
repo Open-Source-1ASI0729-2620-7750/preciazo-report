@@ -3055,26 +3055,564 @@ A continuación, se presenta la documentación y evidencia de las entrevistas de
 
 ### 5.3.3. Evaluaciones según heurísticas
 
-Se presenta la matriz de evaluación de usabilidad basada en las **10 Heurísticas de Jakob Nielsen** para el Landing Page y el Frontend Web Application:
+Para evaluar la experiencia de usuario de **Preciazo**, se aplicará el formato
+**UX Heuristics & Principles Evaluation**, considerando criterios de
+**Usability**, **Inclusive Design** e **Information Architecture**, de acuerdo
+con el formato establecido para el proyecto.
 
-<!-- Si utilizan la plantilla Excel/imagen de heurísticas del curso, descomentar la línea inferior -->
-<!-- ![Evaluación Heurística](../assets/sprint-3/heuristic-evaluation.png) -->
+#### Datos de la evaluación
 
-| # | Heurística de Usabilidad (Jakob Nielsen) | Observaciones / Evidencia Evaluada | Severidad (0-4) | Acción de Mejora Propuesta | Puntaje (%) |
-| :---: | :--- | :--- | :---: | :--- | :---: |
-| **H01** | **Visibilidad del estado del sistema** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H02** | **Relación entre el sistema y el mundo real** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H03** | **Control y libertad del usuario** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H04** | **Consistencia y estándares** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H05** | **Prevención de errores** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H06** | **Reconocimiento antes que recuerdo** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H07** | **Flexibilidad y eficiencia de uso** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H08** | **Diseño estético y minimalista** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H09** | **Ayudar a reconocer, diagnosticar y recuperarse de errores** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| **H10** | **Ayuda y documentación** | `[Por completar]` | `[0-4]` | `[Por completar]` | `[%]` |
-| | **Promedio General de Usabilidad** | | | | **`[%]`** |
+| Campo | Descripción |
+| :--- | :--- |
+| **Carrera** | Ingeniería de Software |
+| **Curso** | Desarrollo de Aplicaciones Open Source |
+| **Sección** | 7750 |
+| **Auditor** | PeruTech |
+| **Cliente(s)** | `[Completar con participantes de las sesiones de validación]` |
+| **Site o App a evaluar** | Preciazo - Landing Page y Frontend Web Application |
+
+#### Tareas a evaluar
+
+El alcance de la evaluación heurística comprende los principales flujos de interacción
+de la **Landing Page** y de la **Frontend Web Application de Preciazo**, considerando
+las tareas representativas de ambos segmentos objetivo.
+
+**Landing Page**
+
+1. Identificar la propuesta de valor de Preciazo y reconocer el segmento de usuario correspondiente.
+2. Navegar desde los llamados a la acción de la Landing Page hacia la experiencia web correspondiente.
+
+**Compradores Independientes**
+
+3. Crear una lista de compras, agregar productos y establecer un presupuesto límite.
+4. Comparar el costo de la lista de compras entre diferentes establecimientos.
+5. Consultar la ruta de compra sugerida y reconocer el orden de las paradas.
+6. Confirmar o reportar información de precios y disponibilidad mediante la sección de verificación comunitaria.
+
+**Comerciantes Minoristas**
+
+7. Consultar la información principal presentada en el Dashboard del comercio.
+8. Revisar y actualizar precios y disponibilidad de productos desde el módulo de inventario.
+9. Crear una nueva promoción indicando producto, precio de oferta y periodo de vigencia.
+10. Consultar los datos del establecimiento y verificar la información comercial registrada.
+
+#### Tareas no incluidas en esta evaluación
+
+La presente evaluación se concentra en la experiencia de usuario y en los flujos
+visibles de la versión actual de Preciazo. Por ello, no se incluyen dentro de este
+alcance:
+
+1. La evaluación interna de endpoints o contratos de los RESTful Web Services.
+2. La configuración de infraestructura, despliegue continuo o recursos del proveedor cloud.
+3. La revisión del código fuente o de la arquitectura interna de los componentes.
+4. Pruebas de carga, estrés o concurrencia del sistema.
+5. Funcionalidades que todavía no formen parte de los flujos visibles disponibles para los segmentos evaluados.
+
+Estos aspectos corresponden a actividades técnicas de implementación y calidad de
+software, mientras que esta evaluación se enfoca específicamente en la experiencia
+de interacción de los usuarios con la interfaz.
+
+#### Escala de severidad
+
+Los problemas identificados durante la evaluación serán clasificados utilizando
+la escala de severidad establecida para el proyecto:
+
+| Nivel | Descripción |
+| :---: | :--- |
+| **1** | Problema superficial: puede ser superado fácilmente por el usuario o presenta una frecuencia muy baja. |
+| **2** | Problema menor: puede presentarse con mayor frecuencia o requerir mayor esfuerzo por parte del usuario. Se recomienda asignar una prioridad baja para su corrección. |
+| **3** | Problema mayor: ocurre con frecuencia o dificulta considerablemente que el usuario complete una tarea. Su corrección debe tener prioridad alta. |
+| **4** | Problema muy grave: impide que el usuario continúe utilizando correctamente la funcionalidad. Debe corregirse antes de la liberación del producto. |
+
+#### Tabla resumen de problemas
+
+| # | Problema identificado | Escala de severidad | Heurística / Principio violado |
+| :---: | :--- | :---: | :--- |
+| **1** | Falta de retroalimentación visible al completar una acción | **2** | Usabilidad - Visibilidad del estado del sistema |
+| **2** | Uso de abreviaciones que pueden dificultar la comprensión | **1** | Usabilidad - Correspondencia entre el sistema y el mundo real |
+| **3** | La ruta optimizada incluye un establecimiento cerrado sin una acción clara de corrección | **3** | Usabilidad - Control y libertad del usuario |
+| **4** | Uso inconsistente de etiquetas para las mismas secciones de navegación | **2** | Usabilidad - Consistencia y estándares |
+| **5** | Falta de validaciones preventivas en la creación de promociones | **3** | Usabilidad - Prevención de errores |
+| **6** | El indicador de mejor precio no cuenta con una explicación explícita | **1** | Usabilidad - Reconocimiento antes que recuerdo |
+| **7** | La actualización de inventario depende principalmente de acciones individuales | **2** | Usabilidad - Flexibilidad y eficiencia de uso |
+| **8** | La vista de comparación concentra demasiada información en un solo espacio | **2** | Usabilidad - Diseño estético y minimalista |
+| **9** | No se evidencia una opción clara para corregir una verificación realizada por error | **2** | Usabilidad - Ayudar al usuario a reconocer, diagnosticar y recuperarse de errores |
+| **10** | Los flujos complejos de la aplicación no presentan ayuda contextual visible | **2** | Usabilidad - Ayuda y documentación |
+| **11** | La información secundaria presenta una jerarquía visual con contraste reducido | **2** | Inclusive Design - Proporciona experiencias comparables |
+| **12** | La interfaz no se adapta correctamente a dispositivos móviles | **3** | Inclusive Design - Proporcionar experiencias comparables |
+| **13** | La navegación principal no facilita el acceso directo al perfil del usuario | **2** | Information Architecture - Is it findable? |
+| **14** | El portal del comerciante no muestra una ruta jerárquica clara de navegación | **2** | Information Architecture - Is it usable? |
+
+
+#### Descripción de problemas
+
+La siguiente sección documentará individualmente los problemas encontrados,
+incluyendo su severidad, el principio afectado, evidencia visual y la acción
+de mejora propuesta.
+
+## Problema #1: Falta de retroalimentación visible al completar una acción
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Visibilidad del estado del sistema
+
+**Problema:**
+
+Durante la revisión del flujo de creación de promociones se identificó que la interfaz
+permite completar los datos y ejecutar la acción **Publicar Oferta**, pero no se
+evidencia de forma clara un estado intermedio de procesamiento ni una confirmación
+visual inmediata que indique al usuario si la operación fue realizada correctamente.
+
+La ausencia de este tipo de retroalimentación puede generar incertidumbre y provocar
+que el usuario repita la acción al no saber si el sistema procesó la solicitud.
+
+**Evidencia:**
+
+![Evidencia H01 - Visibilidad del estado del sistema](../assets/sprint-3/heuristics/h01-system-status-01.png)
+
+ 
+
+![Evidencia H02 - Visibilidad del estado del sistema](../assets/sprint-3/heuristics/h01-system-status-02.png)
+
+**Recomendación:**
+
+Incorporar indicadores de estado durante el procesamiento de la acción, deshabilitando
+temporalmente el botón mientras se ejecuta la operación y mostrando posteriormente
+un mensaje visible de confirmación o error. Por ejemplo, se puede utilizar una
+notificación tipo snackbar con el mensaje **“Promoción publicada correctamente”**.
+
+## Problema #2: Uso de abreviaciones que pueden dificultar la comprensión
+
+**Severidad:** 1
+
+**Heurística / Principio violado:** Usabilidad - Correspondencia entre el sistema y el mundo real
+
+**Problema:**
+
+Durante la revisión de la vista **Comparar Precios** se identificó el uso de
+abreviaciones como **“disp.”**, **“paq.”**, **“unid.”** y **“Leche Evap.”** para
+representar disponibilidad, presentación y nombres de productos.
+
+Aunque estas abreviaciones permiten reducir el espacio ocupado en la interfaz,
+pueden exigir que algunos usuarios interpreten su significado antes de comprender
+completamente la información mostrada. Por ejemplo, la expresión **“7/7 disp.”**
+resulta menos directa que indicar explícitamente **“7 de 7 disponibles”**.
+
+**Evidencia:**
+
+![Evidencia H02 - Correspondencia entre el sistema y el mundo real](../assets/sprint-3/heuristics/h02-real-world-language.png)
+
+**Recomendación:**
+
+Utilizar términos completos y familiares siempre que el espacio disponible lo permita.
+Por ejemplo, reemplazar **“7/7 disp.”** por **“7 de 7 disponibles”** y utilizar
+**“paquete”** o **“unidad”** en lugar de abreviaciones cuando no comprometa la
+legibilidad. En dispositivos con menor espacio se pueden complementar las
+abreviaciones mediante etiquetas o ayudas contextuales.
+
+## Problema #3: La ruta optimizada incluye un establecimiento cerrado sin una acción clara de corrección
+
+**Severidad:** 3
+
+**Heurística / Principio violado:** Usabilidad - Control y libertad del usuario
+
+**Problema:**
+
+Durante la evaluación de la vista **Ruta** se identificó que el recorrido puede mostrar
+una parada correspondiente a un establecimiento marcado como **“Cerrado”**, aun
+cuando la ruta se presenta como **“Optimizada”**.
+
+En la interfaz evaluada no se observa una acción directa que permita al usuario
+eliminar dicha parada, reemplazarla por otro establecimiento o solicitar un nuevo
+cálculo de ruta. Esta situación limita el control del usuario sobre su recorrido y puede
+obligarlo a continuar con una planificación que ya no resulta válida.
+
+**Evidencia:**
+
+![Evidencia H03 - Control y libertad del usuario](../assets/sprint-3/heuristics/h03-user-control.png)
+
+**Recomendación:**
+
+Incorporar una acción visible para excluir o reemplazar establecimientos no disponibles.
+Al detectar una tienda cerrada, el sistema debería permitir al usuario recalcular la ruta
+manteniendo los productos pendientes y presentando una alternativa disponible antes
+de continuar con el recorrido.
+
+## Problema #4: Uso inconsistente de etiquetas para las mismas secciones de navegación
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Consistencia y estándares
+
+**Problema:**
+
+Durante la evaluación de las vistas correspondientes al comerciante se identificó
+que algunas secciones utilizan diferentes etiquetas dependiendo del elemento de
+navegación empleado.
+
+Por ejemplo, en la navegación superior se muestran las opciones **“Métricas”**,
+**“Inventario”** y **“Datos de Tienda”**, mientras que en la navegación inferior
+las mismas secciones aparecen como **“Métricas / Dashboard”**,
+**“Inventario y Precios”** y **“Tienda (RUC)”**, respectivamente.
+
+Aunque las opciones dirigen conceptualmente hacia las mismas áreas del sistema,
+la diferencia en su nomenclatura puede generar dudas sobre si representan
+funcionalidades distintas.
+
+**Evidencia:**
+
+![Evidencia H04 - Consistencia y estándares](../assets/sprint-3/heuristics/h04-consistency.png)
+
+**Recomendación:**
+
+Unificar las etiquetas utilizadas en todos los elementos de navegación de la
+aplicación. Cada sección debe conservar el mismo nombre independientemente de
+si el usuario accede desde la navegación superior o inferior.
+
+Se recomienda establecer una nomenclatura única, por ejemplo:
+**“Métricas”**, **“Inventario y Precios”**, **“Promociones”** y
+**“Datos de Tienda”**.
 
 ---
+
+## Problema #5: Falta de validaciones preventivas en la creación de promociones
+
+**Severidad:** 3
+
+**Heurística / Principio violado:** Usabilidad - Prevención de errores
+
+**Problema:**
+
+Durante la evaluación del formulario **Crear Promoción** se identificó que la interfaz
+permite ingresar el precio de oferta y las fechas de vigencia sin evidenciar restricciones
+preventivas antes de ejecutar la acción **Publicar Oferta**.
+
+En el diseño evaluado no se observa una validación visible que impida registrar una
+fecha de fin anterior a la fecha de inicio o introducir valores inconsistentes en el precio
+de la promoción. Esto puede ocasionar que el comerciante publique información
+incorrecta y tenga que corregirla posteriormente.
+
+**Evidencia:**
+
+![Evidencia H05 - Prevención de errores](../assets/sprint-3/heuristics/h05-error-prevention.png)
+
+**Recomendación:**
+
+Implementar validaciones antes de habilitar la publicación de la promoción. El sistema
+debe verificar que la fecha de fin sea posterior o igual a la fecha de inicio, que el precio
+de oferta sea un valor numérico válido y que los campos obligatorios estén completos.
+
+Mientras alguna condición no sea válida, el botón **Publicar Oferta** debería permanecer
+deshabilitado y la interfaz debería mostrar indicaciones específicas junto al campo
+correspondiente.
+
+## Problema #6: El indicador de mejor precio no cuenta con una explicación explícita
+
+**Severidad:** 1
+
+**Heurística / Principio violado:** Usabilidad - Reconocimiento antes que recuerdo
+
+**Problema:**
+
+Durante la evaluación de la vista **Comparar Precios** se identificó que algunos
+precios se encuentran acompañados por un ícono de estrella (**★**) utilizado para
+destacar una alternativa favorable dentro de la comparación.
+
+Sin embargo, en la vista evaluada no se observa una leyenda o explicación directa
+que indique qué representa este símbolo. El usuario puede inferir su significado a
+partir del contexto, pero debe interpretar por cuenta propia que la estrella señala
+el mejor precio disponible para un producto.
+
+**Evidencia:**
+
+![Evidencia H06 - Reconocimiento antes que recuerdo](../assets/sprint-3/heuristics/h06-recognition.png)
+
+**Recomendación:**
+
+Incorporar una leyenda visible que explique el significado del indicador, por ejemplo
+**“★ Mejor precio”**, o mostrar un tooltip descriptivo cuando el usuario interactúe
+con el símbolo.
+
+Esto permitiría reconocer inmediatamente el significado del elemento sin depender
+de la interpretación o conocimiento previo del usuario.
+
+## Problema #7: La actualización de inventario depende principalmente de acciones individuales
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Flexibilidad y eficiencia de uso
+
+**Problema:**
+
+Durante la evaluación del módulo **Inventario** se identificó que la actualización de
+precios, stock y disponibilidad se realiza principalmente de manera individual por
+producto.
+
+Este enfoque resulta adecuado para modificaciones puntuales, pero puede generar
+una carga operativa elevada cuando el comerciante necesita actualizar varios productos
+durante una misma jornada, especialmente ante cambios de precios, reposición de
+mercadería o revisión de artículos agotados.
+
+**Evidencia:**
+
+![Evidencia H07 - Flexibilidad y eficiencia de uso](../assets/sprint-3/heuristics/h07-efficiency.png)
+
+**Recomendación:**
+
+Incorporar mecanismos de edición masiva que permitan seleccionar varios productos
+y actualizar atributos comunes en una sola operación.
+
+También se recomienda mantener opciones como importación de datos y filtros de
+inventario para reducir la cantidad de pasos necesarios en tareas repetitivas y mejorar
+la eficiencia de los comerciantes que administran catálogos extensos.
+
+## Problema #8: La vista de comparación concentra demasiada información en un solo espacio
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Diseño estético y minimalista
+
+**Problema:**
+
+Durante la evaluación de la vista **Comparar Precios** se identificó una alta
+concentración de información dentro de una misma pantalla, incluyendo nombres de
+establecimientos, precios, disponibilidad, presentaciones de productos e indicadores
+de mejor alternativa.
+
+Aunque estos datos son relevantes para la comparación, su presentación simultánea
+puede aumentar la carga visual del usuario, especialmente en dispositivos con menor
+espacio de visualización, dificultando la identificación rápida de la opción más
+conveniente.
+
+**Evidencia:**
+
+![Evidencia H08 - Diseño estético y minimalista](../assets/sprint-3/heuristics/h08-minimalism.png)
+
+**Recomendación:**
+
+Reforzar la jerarquía visual priorizando el precio, la disponibilidad y la alternativa
+recomendada. La información secundaria puede mostrarse bajo demanda mediante
+elementos desplegables o vistas de detalle.
+
+También se recomienda reducir elementos repetitivos y mantener una separación
+visual clara entre productos y establecimientos para facilitar el escaneo rápido de
+la información.
+
+## Problema #9: No se evidencia una opción clara para corregir una verificación realizada por error
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Ayudar al usuario a reconocer, diagnosticar y recuperarse de errores
+
+**Problema:**
+
+Durante la evaluación de la sección **Verificación Comunitaria** se identificó que el
+usuario puede seleccionar las acciones **“No coincide”** o **“Confirmar precio”**
+para validar un reporte.
+
+Sin embargo, en la interfaz evaluada no se observa un mecanismo visible que permita
+corregir una selección realizada por error, ni una confirmación posterior que explique
+claramente el resultado de la acción ejecutada.
+
+Esta situación puede generar incertidumbre si el usuario confirma o rechaza
+accidentalmente un precio y desea modificar su decisión.
+
+**Evidencia:**
+
+![Evidencia H09 - Recuperación ante errores](../assets/sprint-3/heuristics/h09-error-recovery.png)
+
+**Recomendación:**
+
+Mostrar una confirmación inmediata después de registrar la verificación e incorporar
+una opción temporal de **“Deshacer”** que permita revertir la acción durante algunos
+segundos.
+
+También se recomienda indicar claramente el nuevo estado del reporte después de
+la interacción, de manera que el usuario pueda reconocer qué acción fue registrada.
+
+## Problema #10: Los flujos complejos de la aplicación no presentan ayuda contextual visible
+
+**Severidad:** 2
+
+**Heurística / Principio violado:** Usabilidad - Ayuda y documentación
+
+**Problema:**
+
+Durante la evaluación se identificó que la Landing Page de Preciazo dispone de una
+sección de preguntas frecuentes y soporte; sin embargo, en los principales flujos de
+la Frontend Web Application no se evidencia un mecanismo de ayuda contextual
+directamente asociado a las tareas que realiza el usuario.
+
+Funciones como la comparación de precios, el cálculo de rutas y la verificación
+comunitaria incorporan información y acciones específicas cuyo funcionamiento puede
+no resultar evidente para un usuario que interactúa con la plataforma por primera vez.
+
+Por ejemplo, en el módulo de **Verificación Comunitaria** el usuario debe decidir entre
+acciones como **“No coincide”** y **“Confirmar precio”**, pero no se muestra una ayuda
+visible que explique cómo estas decisiones afectan la información publicada en la
+plataforma.
+
+**Evidencia:**
+
+![Evidencia H10 - Ayuda y documentación](../assets/sprint-3/heuristics/h10-help-documentation.png)
+
+**Recomendación:**
+
+Incorporar ayuda contextual dentro de los flujos que requieren mayor explicación,
+mediante tooltips, íconos informativos, mensajes breves o enlaces hacia una sección
+de ayuda específica.
+
+En el módulo de Verificación Comunitaria, por ejemplo, podría incluirse una explicación
+breve indicando para qué sirve cada acción y cómo contribuye la validación del usuario
+a mantener actualizados los precios de Preciazo.
+
+# Hallazgos de Inclusive Design
+
+Además de las heurísticas de usabilidad, se evaluaron aspectos de diseño inclusivo
+con el objetivo de identificar barreras que puedan afectar la experiencia de usuarios
+con diferentes capacidades visuales y condiciones de uso.
+
+## Problema #11: La información secundaria presenta una jerarquía visual con contraste reducido
+
+**Severidad:** 2
+
+**Principio violado:** Inclusive Design - Proporciona experiencias comparables
+
+**Problema:**
+
+Durante la evaluación del módulo **Verificación Comunitaria** se identificó que
+diversos textos secundarios, como el tiempo transcurrido del reporte, las etiquetas
+de precios y la cantidad de usuarios que han confirmado una publicación, utilizan
+tonalidades grises de baja intensidad sobre fondos claros.
+
+Aunque esta información no corresponde a las acciones principales de la interfaz,
+forma parte del contexto necesario para evaluar la confiabilidad y actualidad de un
+reporte. Su baja prominencia visual puede dificultar la lectura para usuarios con
+capacidades visuales diversas o bajo condiciones de visualización desfavorables.
+
+**Evidencia:**
+
+![Evidencia Inclusive Design - Legibilidad de información secundaria](../assets/sprint-3/heuristics/id01-readable-content.png)
+
+**Recomendación:**
+
+Incrementar el contraste visual de los textos secundarios sin alterar la jerarquía
+general de la interfaz. Asimismo, se recomienda verificar los valores de contraste
+utilizados en texto y componentes durante las pruebas de accesibilidad de la versión
+implementada.
+
+La información relevante no debería depender únicamente de una diferencia sutil
+de tonalidad para poder ser identificada correctamente.
+
+## Problema #12: La interfaz no se adapta correctamente a dispositivos móviles
+
+**Severidad:** 3
+
+**Principio violado:** Inclusive Design - Proporcionar experiencias comparables
+
+**Problema:**
+
+Durante la evaluación de Preciazo en una resolución correspondiente a un dispositivo
+móvil se identificó que determinadas vistas no se adaptan correctamente al espacio
+disponible en pantalla.
+
+Algunos componentes mantienen dimensiones propias de una visualización de
+escritorio, provocando una distribución poco adecuada del contenido y dificultando
+la lectura y ejecución de las acciones principales.
+
+Esta situación genera una experiencia diferente para los usuarios que acceden desde
+un smartphone y puede dificultar el cumplimiento de tareas que sí pueden realizarse
+con mayor facilidad desde una pantalla de escritorio.
+
+**Evidencia:**
+
+![Evidencia Inclusive Design - Adaptabilidad móvil](../assets/sprint-3/heuristics/id02-responsive-layout.png)
+
+**Recomendación:**
+
+Implementar y revisar el comportamiento responsive de las principales vistas mediante
+breakpoints adecuados, reorganización de componentes y dimensiones relativas.
+
+Se recomienda validar especialmente las vistas de listas, comparación de precios,
+rutas, inventario y promociones en diferentes tamaños de pantalla, asegurando que
+el contenido permanezca legible y que las acciones principales puedan utilizarse
+sin desplazamientos o desbordamientos innecesarios.
+
+# Hallazgos de Information Architecture
+
+La evaluación también consideró la organización, etiquetado y facilidad para localizar
+las principales funciones dentro de Preciazo, tomando como referencia la arquitectura
+de información definida para la experiencia web.
+
+## Problema #13: La navegación principal no facilita el acceso directo al perfil del usuario
+
+**Severidad:** 2
+
+**Principio violado:** Information Architecture - Is it findable?
+
+**Problema:**
+
+Durante la evaluación de la navegación correspondiente al Comprador Independiente
+se identificó que la barra inferior prioriza las opciones **Inicio**, **Mis Listas**,
+**Comparar Precios**, **Ruta** y **Comunitaria**, pero no presenta un acceso visible
+a la sección **Perfil**.
+
+La arquitectura de información definida para Preciazo considera el Perfil como parte
+de la navegación primaria del comprador. Su ausencia en las vistas evaluadas puede
+dificultar que el usuario localice rápidamente funciones relacionadas con su cuenta,
+preferencias o información personal.
+
+**Evidencia:**
+
+![Evidencia Information Architecture - Findability del perfil](../assets/sprint-3/heuristics/ia01-profile-findability.png)
+
+**Recomendación:**
+
+Revisar la jerarquía de la navegación principal y garantizar un acceso consistente y
+fácilmente localizable hacia el perfil del usuario.
+
+Si funciones como **Comparar Precios** o **Comunitaria** deben mantenerse como
+accesos principales, se recomienda incorporar el Perfil mediante un elemento visible
+y persistente, evitando que su ubicación dependa de que el usuario recuerde una ruta
+alternativa.
+
+## Problema #14: El portal del comerciante no muestra una ruta jerárquica clara de navegación
+
+**Severidad:** 2
+
+**Principio violado:** Information Architecture - Is it usable?
+
+**Problema:**
+
+Durante la evaluación del portal del comerciante se identificó que la interfaz permite
+acceder a secciones como **Métricas**, **Inventario**, **Promociones** y
+**Datos de Tienda**, pero no presenta una ruta jerárquica visible que indique al
+usuario su ubicación dentro de la estructura de navegación.
+
+En vistas como **Inventario**, el usuario puede reconocer la sección activa, pero no
+se muestra un elemento tipo breadcrumb que permita comprender la relación entre
+la sede seleccionada, el módulo de gestión y la vista actual.
+
+Esta ausencia puede dificultar la orientación cuando se incorporen más niveles de
+navegación o funciones secundarias dentro del portal.
+
+**Evidencia:**
+
+![Evidencia Information Architecture - Orientación jerárquica](../assets/sprint-3/heuristics/ia02-navigation-hierarchy.png)
+
+**Recomendación:**
+
+Incorporar una estructura de navegación jerárquica visible en las vistas que incluyan
+subniveles funcionales, por ejemplo mediante breadcrumbs del tipo:
+
+**Metro Miraflores > Inventario y Precios**
+
+En futuros flujos secundarios podría ampliarse a:
+
+**Metro Miraflores > Inventario y Precios > Editar producto**
+
+Esto permitiría que el usuario identifique fácilmente su ubicación y pueda regresar a
+niveles anteriores sin depender únicamente de la navegación principal.
 
 ## 5.4. Video About-the-Product
 
