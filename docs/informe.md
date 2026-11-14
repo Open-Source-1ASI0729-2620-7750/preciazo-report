@@ -2632,7 +2632,7 @@ El sitio web de la Landing Page se despliega mediante el servicio **GitHub Pages
 | :--- | :--- | :--- | :--- |
 | **Landing Page** | Azure Static Web Apps / GitHub Pages | Despliegue continuo automatizado desde la rama `main` | [https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/](https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/) |
 | **Frontend Web Application** | Azure Static Web Apps | Compilación de producción en Angular vía GitHub Actions desde `main` | [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net) |
-| **RESTful Web Services** | Cloud App Service / Render | Empaquetado Maven/Docker y publicación del servicio Spring Boot desde `main` | `[Pegar_URL_del_Backend_desplegado]` |
+| **RESTful Web Services** | Azure App Service (Linux / Java 25) | Empaquetado Maven (`.jar`) y publicación en el grupo de recursos `rg-preciazo` | [https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net](https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net) |
 
 #### Flujo de Configuración en GitHub Pages:
 1. **Habilitación del Servicio**: Acceso a la configuración del repositorio (*Settings > Pages*) en `preciazo-landing-page`.
@@ -2930,10 +2930,12 @@ En esta sección se presenta la matriz **Leadership-and-Collaboration (LACX)** d
 
 El Sprint Backlog 3 desglosa las historias de usuario y técnicas seleccionadas en tareas operativas estimadas entre 4 y 8 horas de trabajo colaborativo:
 
-* **Enlace Público al Sprint 3 Board en Trello:** [https://trello.com/b/NhH0tIyG/product](https://trello.com/b/NhH0tIyG/product)
+* **Enlace Público al Sprint 3 Board en Trello:** [https://trello.com/b/IpWFADMg/preciazo-sprint-3](https://trello.com/b/IpWFADMg/preciazo-sprint-3)
 
-<!-- Descomentar cuando suban la captura del tablero Trello del Sprint 3 -->
-<!-- ![Sprint Backlog 3 en Trello](../assets/sprint-3/Trello.png) -->
+<div align="center">
+  <img src="../assets/trello2.png" alt="Sprint Backlog 3 en Trello" width="850">
+  <p><em>Figura 5.6: Estado de las tareas del Sprint 3 en el tablero Kanban de Trello.</em></p>
+</div>
 
 | Sprint # | Sprint 3 | | | | | | |
 | :--- | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
@@ -2953,29 +2955,33 @@ Durante el Sprint 3 se implementó el servidor backend en el repositorio `precia
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 | :--- | :--- | :---: | :--- | :--- | :---: |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `main` | `[Pegar_hash]` | `feat(api): initialize spring boot ddd bounded contexts and openapi config` | `Set up modular DDD packages, JPA entities, REST controllers and Swagger UI documentation.` | 13/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `main` | `[Pegar_hash]` | `feat(frontend): update auth register flow and i18n language support` | `Add user registration view, refine English/Spanish translation dictionaries and connect services.` | 13/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `main` | `8c4e1a9` | `feat(api): initialize spring boot ddd bounded contexts and openapi config` | `Set up modular DDD packages, JPA entities, REST controllers and Swagger UI documentation.` | 13/11/2026 || `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `main` | `5d2b9f3` | `feat(frontend): update auth register flow and i18n language support` | `Add user registration view, refine English/Spanish translation dictionaries and connect services.` | 13/11/2026 |
 | `Open-Source-1ASI0729-2620-7750/preciazo-report` | `main` | `2595140` | `docs(report): complete AV2 architectural refinements and sprint 3 documentation` | `Standardize DDD bounded contexts hierarchy, update C4/UML/DB diagrams and document Sprint 3.` | 14/11/2026 |
-
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
 En este sprint se verificó la ejecución integrada de la experiencia web de **Preciazo**, comprobando el flujo desde la Landing Page hacia las vistas de autenticación y registro, la conmutación dinámica de idioma (Inglés `en_US` por defecto y Español `es_419`), la gestión de listas de compras con presupuesto límite, el comparador multiestablecimiento y el panel administrativo para comerciantes minoristas.
 
-* **Enlace al Video de Demostración de Navegación (Product Navigation - Sprint 3):** `[Pegar_enlace_de_Microsoft_Stream]`
-
-<!-- Coloca aquí tus capturas nuevas del Frontend actualizado (ej. Register, vista en Inglés/Español, Comparador) -->
-<!-- ![Vista de Registro e Inicio de Sesión](../assets/sprint-3/frontend-register.png) -->
-<!-- ![Interfaz con soporte i18n Inglés y Español](../assets/sprint-3/frontend-i18n.png) -->
+* **Enlace a la Aplicación Web en Ejecución (Azure Static Web Apps):** [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net)
+* **Enlace al Video de Demostración de Navegación (Microsoft Stream):** [Ver Demostración de Navegación en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQCEOW9isi3LT7sIUmtoPLwAASmuwYzj-IDSyuesd5m1h3s?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=0Pq9Zi)
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
-Los servicios web RESTful desarrollados en `preciazo-web-services` se encuentran documentados bajo la especificación **OpenAPI 3.0** mediante **Swagger UI**, permitiendo probar cada endpoint con cargas útiles JSON de muestra y verificar los códigos de estado HTTP:
+Los servicios web RESTful desarrollados en `preciazo-web-services` se encuentran documentados bajo la especificación **OpenAPI 3.1** mediante **Swagger UI**, permitiendo probar cada endpoint con cargas útiles JSON de muestra y verificar los códigos de estado HTTP:
 
 * **Repositorio de Web Services:** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services)
-* **URL de Documentación OpenAPI / Swagger UI:** `[Pegar_URL_de_Swagger_desplegado_o_http://localhost:8080/swagger-ui/index.html]`
+* **URL de Documentación OpenAPI / Swagger UI:** [https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html](https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html)
 
-<!-- Coloca aquí la captura de pantalla de Swagger UI mostrando los endpoints y una prueba 200 OK -->
-<!-- ![Documentación interactiva en Swagger UI](../assets/sprint-3/swagger-ui.png) -->
+<div align="center">
+  <img src="../assets/backend.png" alt="Documentación interactiva en Swagger UI" width="850">
+  <p><em>Figura 5.7: Interfaz de Swagger UI (OpenAPI 3.1) de Preciazo REST API desplegada en Azure App Service.</em></p>
+</div>
+
+<br>
+
+<div align="center">
+  <img src="../assets/swagger-test.png" alt="Prueba de ejecución en Swagger UI" width="850">
+  <p><em>Figura 5.8: Evidencia de prueba y esquemas de datos en Swagger UI.</em></p>
+</div>
 
 | Bounded Context (Tag OpenAPI) | Verbo HTTP & Sintaxis de Llamada | Parámetros / Payload de Entrada | Ejemplo y Explicación del Response | Códigos HTTP |
 | :--- | :--- | :--- | :--- | :---: |
@@ -2991,14 +2997,12 @@ Los servicios web RESTful desarrollados en `preciazo-web-services` se encuentran
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
-Durante el Sprint 3 se configuró y verificó el despliegue de los tres productos digitales que conforman la solución **Preciazo**:
+Durante el Sprint 3 se configuró y verificó el despliegue de los tres productos digitales que conforman la solución **Preciazo** en **Microsoft Azure** (grupo de recursos `rg-preciazo`):
 
 * **Landing Page (Azure Static Web Apps):** [https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/](https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/)
 * **Frontend Web Application (Azure Static Web Apps):** [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net)
-* **RESTful Web Services (Backend Cloud Deployment):** `[Pegar_URL_pública_del_Backend_desplegado]`
-
-<!-- Coloca aquí la captura del portal de despliegue del Backend y/o Frontend -->
-<!-- ![Evidencia de despliegue en Cloud](../assets/sprint-3/cloud-deployment.png) -->
+* **RESTful Web Services (Azure App Service):** [https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net](https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net)
+* **Swagger UI en Producción (Azure App Service):** [https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html](https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html)
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
@@ -3052,32 +3056,32 @@ A continuación, se detallan las preguntas formuladas durante las sesiones de va
 
 ### 5.3.2. Registro de Entrevistas
 
-A continuación, se presenta la documentación y evidencia de las entrevistas de validación realizadas con usuarios reales pertenecientes a ambos segmentos objetivo, consolidadas en un único video continuo alojado en Microsoft Stream.
+A continuación, se presenta la documentación y evidencia de la sesión de validación realizada con una usuaria real perteneciente al segmento objetivo, alojada en Microsoft Stream.
 
 ---
 
 #### Segmento 1: Compradores Independientes
 
 * **Entrevista 1:**
-  * **Nombre y Apellidos:** `Avril Camila Lagos Arauco`
-  * **Edad:** `20` años
-  * **Distrito de residencia:** `[Salamaca, Lima]`
-  * **Ocupación:** `[Estudiate]`
-  * **Fecha de entrevista:** `[11/11/2026]`
+  * **Nombre y Apellidos:** Avril Camila Lagos Arauco
+  * **Edad:** 20 años
+  * **Distrito de residencia:** Salamanca (Ate), Lima
+  * **Ocupación:** Estudiante universitaria
+  * **Fecha de entrevista:** 11/11/2026
   * **Plataforma de video:** Microsoft Stream
   * **Enlace de Video Compilado:** [Ver Registro de Validación en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQC2EuYnDSstTb_WgZ7D9qPpAe2Y03qWWd-eGEnVOAetcIE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=Jz0xPI)
-  * **Timing de inicio y término:** `00:00 - XX:XX`
+  * **Timing de inicio y término:** `00:00 - 09:51`
   * **Duración:** `09:51 min`
   * **Perfil técnico y entorno digital:**
-    * *Dispositivos habituales:* `[Smartphone Android, tablet y Laptop]`
-    * *Navegador de preferencia:* `[ Google Chrome]`
-    * *Canales digitales e influencias:* `[Tiktok, youtube, x, yape]`
+    * *Dispositivos habituales:* Smartphone Android, tablet y laptop personal.
+    * *Navegador de preferencia:* Google Chrome.
+    * *Canales digitales e influencias:* TikTok, YouTube, X (Twitter) y Yape.
   * **Captura de evidencia:**
 
     ![Evidencia Entrevista 1 Comprador](../assets/validacion/comprador_entrevista1.png)
 
   * **Resumen de los principales aportes:**
-    > `[Durante la sesión, el usuario indicó que los colores utilizados en la interfaz son amigables y generan una experiencia visual agradable. Asimismo, señaló que el desplazamiento y la navegación a través de las distintas secciones de la plataforma resultaron claros e intuitivos, permitiendo ubicar la información de manera precisa. Tras explorar los flujos principales, manifestó que por el momento no halló fallas ni errores críticos en el funcionamiento del sistema.]`
+    > Durante la sesión, la usuaria indicó que los colores utilizados en la interfaz son amigables y generan una experiencia visual agradable. Asimismo, señaló que el desplazamiento y la navegación a través de las distintas secciones de la plataforma resultaron claros e intuitivos, permitiendo ubicar la información de manera precisa. Tras explorar los flujos principales, manifestó que por el momento no halló fallas ni errores críticos en el funcionamiento del sistema.
 
 <br>
 
@@ -3814,9 +3818,12 @@ La siguiente captura corresponde a la versión publicada del Video About-the-Pro
 
 # Conclusiones
 
-1. **[Conclusión sobre validación y valor de negocio]:** [Por completar con el equipo al cierre de las pruebas de validación].
-2. **[Conclusión sobre arquitectura DDD e implementación Full-Stack]:** [Por completar con el equipo tras el despliegue de los RESTful Web Services y su integración con Angular].
-3. **[Conclusión sobre gestión del proyecto, GitFlow y trabajo colaborativo]:** [Por completar con el equipo al cierre del Sprint 3].
+## Conclusiones y recomendaciones
+
+1. **Conclusión sobre validación y valor de negocio:** Las sesiones de investigación y validación empírica confirmaron que los compradores independientes requieren contrastar el costo consolidado de su canasta frente al gasto y tiempo de traslado urbano, mientras que los comerciantes minoristas necesitan un canal digital ágil y libre de comisiones abusivas para visibilizar sus ofertas locales. La interfaz de **Preciazo** y la evaluación heurística (que permitió identificar y documentar 14 oportunidades de mejora en usabilidad, diseño inclusivo y arquitectura de la información) validan la claridad de los flujos de presupuesto límite, comparación multitienda y gestión de inventario.
+2. **Conclusión sobre arquitectura DDD e implementación Full-Stack:** La organización del sistema en siete Bounded Contexts jerarquizados en Core (`Catalog and Pricing`, `Route Planning` y `Shopping Planning`), Soporte (`Merchant Management`, `Community Price Verification` y `Analytics and Engagement`) y Genérico (`Identity and Access`), implementados bajo una arquitectura por capas en **Java 25 con Spring Boot** (`preciazo-web-services`) y **Angular** (`Preciazo-platform`), garantizó el desacoplamiento del dominio y la exposición estandarizada de contratos RESTful documentados con OpenAPI 3.1 en **Microsoft Azure App Service**.
+3. **Conclusión sobre gestión del proyecto, GitFlow y trabajo colaborativo:** La aplicación rigurosa del marco de trabajo Scrum (mediante tableros Kanban en Trello por cada Sprint), el flujo de ramificación GitFlow (`main`, `develop` y ramas `feature/`) y la convención de *Conventional Commits* en los cuatro repositorios de la organización permitieron mantener trazabilidad continua, revisiones por pares efectivas y despliegues automatizados en la nube.
+
 # Bibliografía
 
 * Banco Central de Reserva del Perú. (2025). *Reporte de Inflación: Panorama actual y proyecciones macroeconómicas*. https://www.bcrp.gob.pe/publicaciones/reporte-de-inflacion.html
