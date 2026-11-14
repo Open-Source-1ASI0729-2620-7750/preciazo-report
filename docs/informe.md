@@ -1832,7 +1832,9 @@ TS07 exige rechazar reportes repetidos del mismo usuario sobre la misma oferta d
 
 #### Analytics and Engagement (Supporting Bounded Context)
 
-Modela la captura de eventos de interacción y el cálculo de indicadores de desempeño comercial mediante los agregados `MetricEvent` y `MerchantReport`. Las políticas reactivas (`StoreInteractionTrackingPolicy`) disparan `RecordAnalyticsEvent`, generando `MetricEventRecorded` y actualizando el modelo de lectura `MerchantKpiDashboardReadModel`.
+El diseño de AV2 para US27 sigue la secuencia de la Guía de Event Storming: Read Model → Actor → Command → Aggregate → Domain Event. Un Buyer registra una interacción explícita con una promoción y el Merchant puede generar un reporte inmutable a partir de sus métricas observadas. Consultar métricas o leer el reporte son Queries; no generan eventos de actualización ficticios.
+
+La captura de paradas sugeridas se muestra separadamente como contrato de un hecho externo confiable, una política y un comando interno. Requiere una optimización de ruta guardada con éxito; no se declara una suscripción a Route Planning ya implementada. Los Hotspots identifican provisión, entrega, retención y controles contra abuso pendientes, sin introducir ACL. El modelo no interpreta una interacción como visita física ni venta.
 
 ![Preciazo Analytics and Engagement Design-Level Event Storming](../assets/architecture/event-storming/analytics-engagement.png)
 
@@ -1871,7 +1873,7 @@ En el backend, la capa REST delega los casos de uso a los componentes de aplicac
 | **3. Shopping Planning** *(Core)* | `ShoppingListsController`, `BudgetsController` | `ShoppingListCommandServiceImpl`, `ShoppingListQueryServiceImpl` | `ShoppingList` (aggregate), `ShoppingListItem` y `PurchaseBudget` (entidades internas) | `ShoppingListRepositoryImpl`, `ShoppingListPersistenceRepository`, `ShoppingListPersistenceAssembler` |
 | **4. Merchant Management** *(Soporte)* | `MerchantsController`, `StoresController`, `PromotionsController` | `MerchantCommandServiceImpl`, `MerchantQueryServiceImpl` | `MerchantProfile`, `RetailStore`, `InventoryItem`, `Promotion`, `InventoryImportBatch` | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository`, assemblers y `RucVerificationRestAdapter` |
 | **5. Community Price Verification** *(Soporte)* | `PriceDiscrepanciesController` | `PriceVerificationCommandServiceImpl`, `PriceVerificationQueryServiceImpl` | `PriceDiscrepancy` (con observaciones y votos), `TrustProfile` | `PriceDiscrepancyRepositoryImpl`, `PriceDiscrepancyPersistenceRepository`, `PriceDiscrepancyPersistenceAssembler` |
-| **6. Analytics and Engagement** *(Soporte)* | `MerchantAnalyticsController` | `AnalyticsCommandServiceImpl`, `MetricsQueryServiceImpl` | `MetricEvent`, `MerchantReport` | `AnalyticsEventJpaRepository`, `MerchantMetricsJpaRepository` |
+| **6. Analytics and Engagement** *(Soporte)* | `MerchantAnalyticsController` | `AnalyticsCommandServiceImpl`, `MetricsQueryServiceImpl` | `MetricEvent`, `MerchantReport` | `MetricEventRepositoryImpl` → `MetricEventPersistenceRepository`, `MerchantReportRepositoryImpl` → `MerchantReportPersistenceRepository` |
 | **7. Identity and Access** *(Genérico)* | `AuthenticationController`, `UsersController` | `UserCommandServiceImpl`, `RoleQueryServiceImpl` | `User`, `AuthSession`, `Role` | `UserJpaRepository`, `RoleJpaRepository`, `JwtTokenServiceAdapter` |
 
 ![Preciazo Backend Component Diagram](../assets/architecture/c4-components-backend.png)
@@ -2209,15 +2211,48 @@ Siguiendo Learning Center, las respuestas de error usan `ProblemDetail` con `typ
 
 #### Analytics and Engagement (Supporting Bounded Context)
 
-El Bounded Context **Analytics and Engagement** se encarga de registrar eventos relevantes y transformarlos en métricas útiles para los comerciantes.
+La propuesta de AV2 se concentra en los dos indicadores de US27: cuántas veces una tienda fue sugerida como parada durante el mes y cuántos usuarios interactuaron con sus promociones. Se eliminan de este diseño el importe de ventas perdidas y el puntaje de engagement: las historias no definen sus fuentes, fórmula ni unidad. No se estiman ventas, compras o visitas físicas a partir de vistas de pantalla.
 
-`MetricEvent` representa interacciones como visitas a establecimientos, visualizaciones de productos, comparaciones de precios, ventas perdidas e interacciones con promociones, clasificadas mediante su relación con la enumeración `MetricEventType`.
+`MetricEvent` es un aggregate de observación inmutable, con tienda, fuente, identidad del hecho, huella del contenido, tiempo ocurrido y recibido, y referencias específicas según el tipo. `ROUTE_STOP_SUGGESTED` requiere routeId y routeVersion, sin promoción; `PROMOTION_INTERACTED` requiere promotionId y actorId, sin campos de ruta. No se almacena una referencia polimórfica ambigua `subject_id` ni metadatos arbitrarios como fuente de identidad. Los identificadores de otros contextos son referencias locales, sin importar sus aggregates.
 
-`AnalyticsService` registra dichos eventos y genera posteriormente objetos `MerchantMetrics` y `MerchantReport` (vinculado a la enumeración `ReportType`). La interfaz `MetricsCalculator` abstrae la lógica utilizada para calcular las métricas correspondientes a un período determinado.
+Una aparición en ruta significa una tienda seleccionada una vez dentro de una versión de optimización persistida exitosamente. `RouteGenerated` y `RouteRecalculated` podrían aportar esos hechos mediante un contrato futuro de entrega confiable. Un recálculo exitoso es una nueva sugerencia; abrir, confirmar o reintentar la misma versión no añade otra. El sourceKey de ruta se deriva de routeId y routeVersion, con storeId en la identidad única. El endpoint público de interacciones no permite registrar esos hechos internos.
 
-`ReportingPeriod` encapsula un intervalo inmutable cuyo inicio no supera el fin y se utiliza para consultar y evaluar eventos. `Money` expresa el importe de ventas perdidas. De esta manera, el contexto mantiene separada la recopilación de eventos de la generación de información analítica destinada al Merchant.
+Una interacción de promoción se acepta cuando el Buyer autenticado activa el control explícito de interacción de una promoción efectiva; no se registra por cada consulta al API. actorId y hora se obtienen en el servidor, y tienda y vigencia se verifican con referencias confiables. El sourceKey incorpora actorId y la clave UUID de interacción, dentro del alcance de la tienda. Un reintento con la misma identidad y contenido devuelve la observación original, sin añadir otro evento; reutilizarla con contenido distinto produce conflicto. La huella compara campos semánticos, excluyendo receivedAt y la nueva hora de un reintento. La aplicación busca primero duplicados antes de volver a validar la vigencia de una observación previamente aceptada, tras comprobar el actor y la identidad de la solicitud. La unicidad en base de datos resuelve carreras concurrentes, no basta un exists previo.
+
+`MetricsCalculator` construye `MerchantMetrics` y `PromotionMetrics` como vistas de lectura. Cuenta apariciones en rutas y, por promoción, interacciones aceptadas y usuarios distintos. Por ejemplo, si A interactúa dos veces con P1 y una con P2, y B una vez con P2, P1 tiene dos interacciones y un usuario; P2, dos interacciones y dos usuarios; la tienda tiene dos usuarios únicos. El total de usuarios de la tienda se obtiene con DISTINCT sobre todas sus promociones; no suma usuarios por promoción porque una persona puede aparecer en varias. Repetir interacciones legítimas aumenta su conteo, pero una persona sigue contando una sola vez dentro del período. Consultar estadísticas históricas no exige que la promoción siga activa; su cancelación o expiración no borra observaciones válidas anteriores.
+
+`ReportingPeriod` representa un mes calendario en la zona horaria confiable de la tienda y sus límites UTC semiabiertos `[fromInclusive, toExclusive)`. Los eventos se asignan por occurredAt, no por receivedAt. Las observaciones tardías pueden modificar la vista de un mes anterior. Los resultados indican evaluatedAt e `ingestionCoverage=UNKNOWN`: cero significa que no hay observaciones aceptadas en ese conjunto, no demuestra ausencia de actividad real. No se promete cobertura completa mientras falten entrega y conciliación de las fuentes. No se suministran listas de compradores ni sus identificadores al Merchant.
+
+`MerchantReport` conserva una fotografía inmutable de esos mismos conteos y del período. Su generación se mantiene como capacidad ya prevista del contexto, con alcance US27; no incorpora reportes financieros nuevos. Las filas por promoción se copian junto al resumen en una única transacción y desde una lectura consistente. Los datos tardíos cambian las métricas consultadas, sin reescribir reportes guardados. La clave de generación es única por tienda: repetirla con el mismo mes devuelve el mismo reporte, aunque existan datos más recientes; cambiar el mes con la misma clave produce 409.
 
 ![Analytics and Engagement Class Diagram](../assets/architecture/classes/analytics-engagement.png)
+
+![Analytics and Engagement Backend Contracts](../assets/architecture/classes/analytics-engagement-backend.png)
+
+Los contratos siguen Learning Center Platform Guide: Commands/Queries como records, `handle(...)` separado (ADR-0007), `Result<T, ApplicationError>` en comandos (ADR-0001), dominio sin JPA y adaptadores con assemblers (ADR-0002). `AnalyticsWriteReceipt` contiene resourceId y created: permite devolver 201 al crear y 200 al reconocer un reintento sin consultas adicionales propensas a carreras. Los contratos de aplicación propuestos son:
+
+| Contrato | Entrada y resultado |
+| --- | --- |
+| `RecordPromotionInteractionCommand` | actorId autenticado, promotionId y interactionKey; devuelve `Result<AnalyticsWriteReceipt, ApplicationError>` con el ID aceptado. storeId, source y occurredAt no son afirmaciones aceptadas del cuerpo HTTP. |
+| `RecordRouteStopSuggestionCommand` | Interno: routeId, routeVersion, storeId y occurredAt de una optimización confirmada como persistida por la fuente. Devuelve `Result<AnalyticsWriteReceipt, ApplicationError>`. La fuente se determina por el canal interno autorizado; no es un campo de confianza elegido por el cliente. |
+| `GenerateMerchantReportCommand` | ownerId autenticado, storeId, month y requestKey; devuelve `Result<AnalyticsWriteReceipt, ApplicationError>`. Se verifica la titularidad actual antes de devolver también un reporte repetido. |
+| `GetStoreMonthlyMetricsQuery` | ownerId, storeId y month; devuelve `MerchantMetrics` con conteos observados, período, evaluación y cobertura. |
+| `GetPromotionMonthlyMetricsQuery` | ownerId, storeId, promotionId y month; devuelve `Optional<PromotionMetrics>` enriquecida con período, evaluación y cobertura. Una promoción existente sin observaciones devuelve conteos cero; el opcional vacío representa ausencia del recurso. |
+| `GetMerchantReportByIdQuery` | ownerId y reportId; devuelve `Optional<MerchantReportView>`, incluyendo resumen y filas congeladas. |
+
+`AnalyticsReferenceProvider` define un puerto para titularidad, zona horaria y referencia de promoción efectiva o histórica. Su provisión sigue pendiente y no equivale a una ACL o a un cliente entre contextos implementado. La falta de datos necesarios produce 503; no se confía en ownerId, storeId, modalidad de fuente o tiempos enviados por el cliente para autorizar y atribuir eventos. No existe un endpoint público para fingir apariciones en rutas. El mecanismo de entrega desde Route Planning, la política de retención de actorId y las reglas contra interacciones artificiales son decisiones pendientes; la deduplicación de reintentos por sí sola no resuelve fraude ni robots.
+
+`MetricEventRepository` y `MerchantReportRepository` son puertos de dominio. Sus adaptadores `MetricEventRepositoryImpl` y `MerchantReportRepositoryImpl` usan los repositorios Spring Data `*PersistenceRepository` y `*PersistenceAssembler`. Solo `MetricEventPersistenceEntity`, `MerchantReportPersistenceEntity` y `PromotionReportRowPersistenceEntity` llevan JPA. Siguiendo ADR-0005, el adaptador llama `DomainEventPublisher.publishAndClearEvents(saved)` después del guardado de un aggregate nuevo. Un duplicado no se vuelve a guardar ni publica otro `MetricEventRecorded` o `MerchantReportGenerated`. Este patrón no acredita entrega durable, un outbox o una suscripción ya operativa. Las consultas y la generación de conteos usan una misma instantánea consistente; no actualizan un aggregate de métricas con cada lectura.
+
+| Endpoint propuesto | Resultado y control |
+| --- | --- |
+| `POST /api/v1/promotions/{promotionId}/interactions` | Buyer autenticado; `Idempotency-Key` obligatorio. 201 y Location para observación nueva; 200 para reintento equivalente. |
+| `GET /api/v1/stores/{storeId}/metrics?month=YYYY-MM` | 200 con `MerchantMetrics`; solo titular actual. |
+| `GET /api/v1/stores/{storeId}/promotions/{promotionId}/metrics?month=YYYY-MM` | 200 con estadísticas de la promoción y contexto temporal/cobertura; solo titular, incluso para promociones históricas. |
+| `POST /api/v1/stores/{storeId}/reports` | month en el cuerpo e `Idempotency-Key` obligatorio; solo titular. 201 y Location para reporte nuevo; 200 para reintento equivalente. |
+| `GET /api/v1/merchant-reports/{reportId}` | 200 con fotografía guardada; solo titular actual de la tienda. |
+
+Los assemblers convierten cuerpos en records y resultados en Resources; las consultas pueden propagar fallos de autorización o referencia mediante el manejo compartido de errores, sin convertirlos en una colección vacía. Los errores se expresan como `ApplicationError` y `ProblemDetail` localizable: 400 para mes o clave inválidos y datos internos inconsistentes; 401 sin autenticación; 403 para rol o titularidad insuficientes; 404 para tienda, promoción o reporte inexistente; 409 para clave reutilizada con otro contenido o promoción que ya no sea efectiva al registrar una interacción nueva. Se propone `ANALYTICS_FORBIDDEN` con mapeo explícito 403 y `ANALYTICS_REFERENCE_UNAVAILABLE` con mapeo explícito 503. Ningún fallo de captura se responde como éxito ni incrementa conteos. Estos son diseños para implementar en Spring Boot; el repositorio no contiene el backend operativo.
 
 #### Identity and Access (Generic Bounded Context)
 
@@ -2319,15 +2354,13 @@ Las referencias a usuarios y ofertas pertenecen a Identity and Access y Catalog 
 
 #### Analytics and Engagement (Supporting Bounded Context)
 
-El Bounded Context **Analytics and Engagement** almacena eventos de interacción y los resultados analíticos generados a partir de ellos.
+El esquema de AV2 persiste observaciones aceptadas y reportes inmutables. `MerchantMetrics` y `PromotionMetrics` se calculan como vistas de lectura; se retira la tabla `merchant_metrics` de esta propuesta, evitando almacenar contadores sin una regla de actualización o conciliación. El esquema del contexto y Database Overview coinciden.
 
-`analytics_events` registra eventos relevantes mediante un tipo, una fecha de ocurrencia, un sujeto asociado y metadatos adicionales.
+`analytics_events` identifica explícitamente tienda, fuente, tipo y sourceKey; guarda una huella semántica para detectar reintentos incompatibles, tiempos ocurrido/recibido y referencias tipadas de actor, promoción o ruta/versión. Exige `UNIQUE(source, source_key, event_type, store_id)` y coherencia por tipo: interacción requiere promoción y actor, sugerencia requiere ruta y versión. Los tiempos de ocurrencia deben provenir de una fuente confiable y no ser futuros al aceptar la observación. Los índices por tienda/período y promoción/período/actor respaldan los conteos y usuarios distintos.
 
-A partir de estos eventos pueden generarse registros `merchant_metrics`, los cuales consolidan indicadores como tráfico mensual, ventas perdidas y engagement dentro de un período determinado.
+`merchant_reports` registra solicitante, clave de generación, mes y zona horaria, límites UTC, conteos observados, cobertura desconocida y fecha de generación. `UNIQUE(store_id, request_key)` permite reintentos sin duplicar el reporte. `merchant_report_promotions` conserva el detalle congelado con `UNIQUE(report_id, promotion_id)`, conteos no negativos y usuarios distintos menores o iguales a interacciones. El total de usuarios de la tienda se calcula directamente sobre observaciones, no sumando filas por promoción.
 
-La tabla `merchant_reports` representa los reportes generados para un establecimiento, incluyendo el tipo de reporte, período analizado y fecha de generación.
-
-Los identificadores de establecimiento utilizados por métricas y reportes actúan como referencias hacia Merchant Management.
+El período es no vacío y semiabierto. La aplicación valida correspondencia tienda/promoción, permisos y referencias antes de escribir; reporte y detalle se guardan atómicamente desde una lectura consistente. Los identificadores de actor, tienda, promoción y ruta pertenecen a otros contextos; no se implementa sincronización automática ni ACL. La retención de identidades para el cálculo de usuarios únicos y la conciliación de fuentes se mantienen como decisiones pendientes, sin prometer integridad de la captura por el solo hecho de tener tablas.
 
 ![Analytics and Engagement Database Diagram](../assets/architecture/database/analytics-engagement.png)
 

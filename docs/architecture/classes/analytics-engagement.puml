@@ -1,100 +1,121 @@
 @startuml Preciazo_Analytics_Engagement_Classes
-
-title Preciazo - Analytics and Engagement Class Diagram
-
+title Preciazo - Analytics and Engagement Domain (AV2 - US27)
+set namespaceSeparator none
 skinparam classAttributeIconSize 0
 skinparam shadowing false
 skinparam linetype ortho
-
-interface AnalyticsEventStore {
-    +append(event: MetricEvent): void
-    +findBetween(period: ReportingPeriod): List<MetricEvent>
+class MetricEvent <<Aggregate>> {
+ -id: Long
+ -storeId: Long
+ -type: MetricEventType
+ -source: MetricSource
+ -sourceKey: String
+ -payloadFingerprint: String
+ -actorId: Long [0..1]
+ -promotionId: Long [0..1]
+ -routeId: Long [0..1]
+ -routeVersion: Long [0..1]
+ -occurredAt: Instant
+ -receivedAt: Instant
+ +record(): void
 }
-
-interface MetricsCalculator {
-    +calculate(events: List<MetricEvent>): MerchantMetrics
-}
-
-class AnalyticsService {
-    +record(event: MetricEvent): void
-    +generateMetrics(period: ReportingPeriod): MerchantMetrics
-    +generateReport(period: ReportingPeriod, type: ReportType): MerchantReport
-}
-
-class MetricEvent {
-    -id: Long
-    -type: MetricEventType
-    -occurredAt: DateTime
-    -subjectId: Long
-    +isWithin(period: ReportingPeriod): Boolean
-}
-
-class MerchantMetrics {
-    -period: ReportingPeriod
-    -monthlyTraffic: Integer
-    -lostSales: Money
-    -engagementScore: Decimal
-    +recordVisit(): void
-    +recordLostSale(value: Money): void
-    +calculateEngagement(): Decimal
-}
-
-class MerchantReport {
-    -id: Long
-    -type: ReportType
-    -generatedAt: DateTime
-    +summarize(metrics: MerchantMetrics): String
-    +isFor(type: ReportType): Boolean
-}
-
-class ReportingPeriod <<Value Object>> {
-    -from: DateTime {readOnly}
-    -to: DateTime {readOnly}
-    +contains(moment: DateTime): Boolean
-}
-
-class Money <<Value Object>> {
-    -amount: Decimal {readOnly}
-    -currency: String {readOnly}
-    +add(other: Money): Money
-    +subtract(other: Money): Money
-    +multiply(factor: Decimal): Money
-    +isLessThan(other: Money): Boolean
-    +isGreaterThan(other: Money): Boolean
-    +isDifferentFrom(other: Money): Boolean
-    +isPositive(): Boolean
-}
-
-note right of Money
-  Immutable; equality by amount and currency.
-  Arithmetic and comparisons require the same currency.
-  Operations return new values.
-end note
-
 enum MetricEventType {
-    STORE_VISIT
-    PRODUCT_VIEW
-    PRICE_COMPARISON
-    LOST_SALE
-    OFFER_INTERACTION
+ ROUTE_STOP_SUGGESTED
+ PROMOTION_INTERACTED
 }
-
-enum ReportType {
-    MONTHLY_TRAFFIC
-    LOST_SALES
-    ENGAGEMENT
+enum MetricSource {
+ ROUTE_PLANNING
+ AUTHENTICATED_UI
 }
-
-AnalyticsService ..> AnalyticsEventStore : persists events
-AnalyticsService ..> MetricsCalculator : calculates metrics
-MerchantMetrics "1" --> "1" ReportingPeriod : covers
-MerchantMetrics "1" --> "1" Money : totals lost sales
-MerchantReport "*" --> "1" MerchantMetrics : summarizes
-MetricEvent ..> ReportingPeriod : checks occurrence within
-
-note right of ReportingPeriod
-  Immutable; from <= to.
-  Equality by both endpoints.
+class MetricSourceIdentity <<Value Object>> {
+ -source: MetricSource {readOnly}
+ -sourceKey: String {readOnly}
+ -type: MetricEventType {readOnly}
+ -storeId: Long {readOnly}
+}
+class MerchantMetrics <<Read Model>> {
+ +storeId: Long
+ +period: ReportingPeriod
+ +routeSuggestionCount: Long
+ +distinctPromotionUsers: Long
+ +promotionMetrics: List<PromotionMetrics>
+ +evaluatedAt: Instant
+ +ingestionCoverage: IngestionCoverage
+}
+class PromotionMetrics <<Read Model>> {
+ +promotionId: Long
+ +interactionCount: Long
+ +distinctUserCount: Long
+ +period: ReportingPeriod
+ +evaluatedAt: Instant
+ +ingestionCoverage: IngestionCoverage
+}
+class ReportingPeriod <<Value Object>> {
+ -month: YearMonth {readOnly}
+ -timeZone: String {readOnly}
+ -fromInclusive: Instant {readOnly}
+ -toExclusive: Instant {readOnly}
+ +contains(moment: Instant): Boolean
+}
+class MerchantReport <<Aggregate>> {
+ -id: Long
+ -storeId: Long
+ -requestedBy: Long
+ -requestKey: String
+ -period: ReportingPeriod
+ -routeSuggestionCount: Long
+ -distinctPromotionUsers: Long
+ -ingestionCoverage: IngestionCoverage
+ -generatedAt: Instant
+ +generate(metrics: MerchantMetrics): void
+}
+class PromotionReportRow <<Value Object>> {
+ -promotionId: Long {readOnly}
+ -interactionCount: Long {readOnly}
+ -distinctUserCount: Long {readOnly}
+}
+enum IngestionCoverage {
+ UNKNOWN
+}
+interface MetricsCalculator <<domain policy>> {
+ +calculate(events: List<MetricEvent>, period: ReportingPeriod): MerchantMetrics
+}
+MetricEvent --> MetricSourceIdentity : deduplication identity
+MetricEvent ..> MetricEventType
+MetricEvent ..> MetricSource
+MerchantMetrics "1" --> "1" ReportingPeriod
+MerchantMetrics "1" *-- "0..*" PromotionMetrics
+MerchantReport "1" --> "1" ReportingPeriod
+MerchantReport "1" *-- "0..*" PromotionReportRow
+MerchantReport ..> MerchantMetrics : freezes observed values
+MetricsCalculator ..> MetricEvent
+MetricsCalculator ..> MerchantMetrics
+MerchantMetrics ..> IngestionCoverage
+note bottom of MetricEvent
+ Immutable accepted observation; no update/delete command.
+ UNIQUE(source, source_key, event_type, store_id).
+ Same key + same semantic payload: return original id, no new event.
+ Same key + changed payload: conflict; enforce atomically under concurrency.
+ Promotion requires actor + promotion; route requires route id + version.
+ Source, store, actor and occurrence time are validated by the server.
 end note
-
+note bottom of MetricsCalculator
+ Count each selected store once per saved route optimization version.
+ A successful replan is another suggestion; confirmation/read/retry is not.
+ Promotion users = COUNT DISTINCT actor_id, not number of requests.
+ Store-level users are distinct across promotions, never summed per promotion.
+ Month uses store time zone, with half-open UTC boundaries [from, to).
+ No inferred store visits, lost sales, purchases or engagement score.
+end note
+note bottom of MerchantReport
+ Immutable US27 summary, generated by the merchant owner.
+ Capture all counts in one consistent database snapshot.
+ Later observations may change live metrics, never the saved report.
+ No durable delivery or complete ingestion guarantee is implied.
+end note
+note bottom of MerchantMetrics
+ Observed counts only; zero means no accepted observations in this period.
+ UNKNOWN coverage remains explicit until source delivery is specified.
+ Current promotion status does not erase earlier valid interactions.
+end note
 @enduml

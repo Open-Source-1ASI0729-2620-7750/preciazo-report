@@ -1,49 +1,57 @@
 @startuml Preciazo_Event_Storming_analytics_engagement
-left to right direction
-title Preciazo - Design-Level Event Storming: Analytics and Engagement
+top to bottom direction
+title Preciazo - Design-Level Event Storming: Analytics and Engagement (AV2 - US27)
 skinparam shadowing false
 skinparam defaultFontSize 15
 skinparam defaultTextAlignment center
-skinparam nodesep 35
-skinparam ranksep 35
+skinparam nodesep 28
+skinparam ranksep 28
 skinparam rectanglePadding 12
-
-rectangle "Promotion Viewed" as n0_0 <<Domain Event>> #FFD0A1
-rectangle "Record Promotion\nInteraction" as n0_1 <<Policy>> #D4BFFA
-rectangle "Register Promotion\nInteraction" as n0_2 <<Command>> #ACDAFA
-rectangle "Merchant Metrics" as n0_3 <<Aggregate>> #FFF1AE
-rectangle "Merchant Metrics Updated" as n0_4 <<Domain Event>> #FFD0A1
-n0_0 --> n0_1
-n0_1 --> n0_2
-n0_2 --> n0_3
-n0_3 --> n0_4
-
-rectangle "Store Suggested" as n1_0 <<Domain Event>> #FFD0A1
-rectangle "Record Store Suggestion" as n1_1 <<Policy>> #D4BFFA
-rectangle "Register Store Suggestion" as n1_2 <<Command>> #ACDAFA
-rectangle "Merchant Metrics" as n1_3 <<Aggregate>> #FFF1AE
-rectangle "Merchant Metrics Updated" as n1_4 <<Domain Event>> #FFD0A1
-n1_0 --> n1_1
-n1_1 --> n1_2
-n1_2 --> n1_3
-n1_3 --> n1_4
-
-rectangle "Merchant" as n2_0 <<Actor>> #FFE08A
-rectangle "Get Promotion Metrics /\nGet Store Visibility\nMetrics / Get Merchant\nDashboard" as n2_1 <<Query>> #B3EDBE
-n2_0 --> n2_1
-
-n0_0 -[hidden,norank]down-> n1_0
-n1_0 -[hidden,norank]down-> n2_0
-
-legend bottom
-|= Color |= Element |
-|<back:#FFE08A>    </back>| Actor |
-|<back:#ACDAFA>    </back>| Command |
-|<back:#FFF1AE>    </back>| Aggregate |
-|<back:#FFD0A1>    </back>| Domain Event |
-|<back:#D4BFFA>    </back>| Policy |
-|<back:#B3EDBE>    </back>| Query |
-|<back:#FFB2DF>    </back>| External System |
-|<back:#FFB7AB>    </back>| Hotspot |
-endlegend
+rectangle "Visible Promotion\nEffective offer and interaction control" as read0 <<Read Model>> #B3EDBE
+rectangle "Buyer" as buyer <<Actor>> #FFE08A
+rectangle "Record Promotion Interaction" as cmd0 <<Command>> #ACDAFA
+rectangle "Metric Event" as agg0 <<Aggregate>> #FFF1AE
+rectangle "Metric Event Recorded" as evt0 <<Domain Event>> #FFD0A1
+read0 -right-> buyer
+buyer -right-> cmd0
+cmd0 -right-> agg0
+agg0 -right-> evt0
+rectangle "Observed Monthly Metrics\nRoute appearances, distinct promotion users, coverage" as read1 <<Read Model>> #B3EDBE
+rectangle "Merchant" as merchant <<Actor>> #FFE08A
+rectangle "Generate Merchant Report" as cmd1 <<Command>> #ACDAFA
+rectangle "Merchant Report" as agg1 <<Aggregate>> #FFF1AE
+rectangle "Merchant Report Generated" as evt1 <<Domain Event>> #FFD0A1
+read1 -right-> merchant
+merchant -right-> cmd1
+cmd1 -right-> agg1
+agg1 -right-> evt1
+read0 -[hidden]down-> read1
+buyer -[hidden]down-> merchant
+cmd0 -[hidden]down-> cmd1
+agg0 -[hidden]down-> agg1
+evt0 -[hidden]down-> evt1
+rectangle "Saved Route Optimization\nTrusted source contract; delivery not implemented" as fact <<External Fact>> #FFB2DF
+rectangle "Track Selected Stores\nOne observation per store and route version" as policy <<Policy>> #D4BFFA
+rectangle "Record Route Stop Suggestion" as cmd2 <<Internal Command>> #ACDAFA
+rectangle "Metric Event" as agg2 <<Aggregate>> #FFF1AE
+rectangle "Metric Event Recorded" as evt2 <<Domain Event>> #FFD0A1
+fact -right-> policy
+policy -right-> cmd2
+cmd2 -right-> agg2
+agg2 -right-> evt2
+read1 -[hidden]down-> fact
+merchant -[hidden]down-> policy
+cmd1 -[hidden]down-> cmd2
+agg1 -[hidden]down-> agg2
+evt1 -[hidden]down-> evt2
+rectangle "Merchant" as reader <<Actor>> #FFE08A
+rectangle "Get Store / Promotion Monthly Metrics\nGet Saved Merchant Report" as query <<Query>> #B3EDBE
+rectangle "Owner-only Dashboard or Saved Report\nObserved counts and evaluation time" as view <<Read Model>> #B3EDBE
+reader -right-> query
+query -right-> view
+fact -[hidden]down-> reader
+rectangle "No success event for retries, queries or failed writes.\nDistinct users are not page views, purchases or physical visits.\nA report freezes observed counts; live queries may include later observations." as rule <<Business Rule>> #FFF1AE
+rectangle "Define trusted source delivery, provisioning, retention and abuse controls.\nUNKNOWN coverage: an empty stream does not prove zero real-world activity.\nNo ACL, automatic cross-context subscription or invented engagement formula." as hotspot <<Hotspot>> #FFB7AB
+reader -[hidden]down-> rule
+rule -[hidden]down-> hotspot
 @enduml
