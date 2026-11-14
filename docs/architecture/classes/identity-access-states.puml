@@ -1,0 +1,35 @@
+@startuml Preciazo_Identity_Access_States
+title Preciazo - Sign-in Control States (AV2 - US06)
+skinparam shadowing false
+skinparam nodesep 80
+skinparam ranksep 60
+state "Ready for Sign-in" as READY
+state "Temporarily Blocked" as BLOCKED
+state "Security Check Required" as CHECK
+[*] --> READY : active registered account
+READY -down-> BLOCKED : failures reach configured threshold
+BLOCKED -down-> CHECK : now >= lockedUntil\n(derived on request)
+CHECK --> READY : valid proof + correct password\nreset all sign-in controls
+CHECK --> BLOCKED : valid proof + wrong password\nnew failure threshold reached
+note right of READY
+ Correct password: accepted decision; reset failures.
+ Wrong password below threshold: remain READY and record failure.
+end note
+note right of BLOCKED
+ Before expiry: remain BLOCKED, without extending the deadline.
+ Expiry is evaluated on request, not by a scheduled event.
+ Existing bearer tokens are not revoked by this sign-in block.
+end note
+note right of CHECK
+ Missing/invalid proof: remain CHECK; no token.
+ Valid proof + wrong password below threshold: remain CHECK.
+ First valid-proof attempt after expiry starts a new failure window;
+ further wrong passwords increment it, without restarting the window.
+ A fresh proof is required for each new request until successful sign-in.
+ Provider failure leaves controls unchanged and issues no token.
+end note
+note bottom of CHECK
+ SUSPENDED / DEACTIVATED status denies sign-in independently.
+ This diagram shows sign-in controls, not access-token lifecycle.
+end note
+@enduml

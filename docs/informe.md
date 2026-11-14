@@ -1840,7 +1840,9 @@ La captura de paradas sugeridas se muestra separadamente como contrato de un hec
 
 #### Identity and Access (Generic Bounded Context)
 
-Modela la seguridad transversal, el registro de cuentas, la asignación de roles (`ROLE_BUYER`, `ROLE_MERCHANT`) y la emisión de sesiones JWT mediante los agregados `User` y `AuthSession`. Los comandos `RegisterUserAccount`, `AuthenticateUser` y `RevokeSession` generan los eventos `UserRegistered`, `JwtSessionIssued` y `AccountLockedOnFailedAttempts` bajo `AccountLockoutPolicy`.
+El diseño propuesto para AV2 sigue US06 y TS01 y la notación de la Guía de Event Storming: Read Model → Actor → Command → Aggregate → Domain Event. El visitante registra una cuenta con una persona permitida y el comprador o comerciante solicita autenticación. Un intento incorrecto sobre una cuenta existente registra el fallo y, al alcanzar el umbral configurado, el bloqueo temporal. Consultar perfil o permisos es una Query y no una consecuencia automática encadenada al evento de autenticación.
+
+La verificación del hash, la comprobación de seguridad y la firma del JWT son operaciones de aplicación mediante puertos. El token es un resultado de la solicitud, no una sesión persistida ni el contenido de un evento. Expirar el plazo de bloqueo se evalúa al siguiente intento y no inventa un evento programado. Los Hotspots mantienen explícitos los parámetros de seguridad y el proveedor de comprobación pendientes, sin ACL ni asignación pública arbitraria de roles.
 
 ![Preciazo Identity and Access Design-Level Event Storming](../assets/architecture/event-storming/identity-access.png)
 
@@ -1874,7 +1876,7 @@ En el backend, la capa REST delega los casos de uso a los componentes de aplicac
 | **4. Merchant Management** *(Soporte)* | `MerchantsController`, `StoresController`, `PromotionsController` | `MerchantCommandServiceImpl`, `MerchantQueryServiceImpl` | `MerchantProfile`, `RetailStore`, `InventoryItem`, `Promotion`, `InventoryImportBatch` | Adaptadores `*RepositoryImpl`, repositorios `*PersistenceRepository`, assemblers y `RucVerificationRestAdapter` |
 | **5. Community Price Verification** *(Soporte)* | `PriceDiscrepanciesController` | `PriceVerificationCommandServiceImpl`, `PriceVerificationQueryServiceImpl` | `PriceDiscrepancy` (con observaciones y votos), `TrustProfile` | `PriceDiscrepancyRepositoryImpl`, `PriceDiscrepancyPersistenceRepository`, `PriceDiscrepancyPersistenceAssembler` |
 | **6. Analytics and Engagement** *(Soporte)* | `MerchantAnalyticsController` | `AnalyticsCommandServiceImpl`, `MetricsQueryServiceImpl` | `MetricEvent`, `MerchantReport` | `MetricEventRepositoryImpl` → `MetricEventPersistenceRepository`, `MerchantReportRepositoryImpl` → `MerchantReportPersistenceRepository` |
-| **7. Identity and Access** *(Genérico)* | `AuthenticationController`, `UsersController` | `UserCommandServiceImpl`, `RoleQueryServiceImpl` | `User`, `AuthSession`, `Role` | `UserJpaRepository`, `RoleJpaRepository`, `JwtTokenServiceAdapter` |
+| **7. Identity and Access** *(Genérico)* | `AuthenticationController`, `UsersController` | `UserCommandServiceImpl`, `UserQueryServiceImpl`, `RoleCommandServiceImpl` | `User`, `Role` | `UserRepositoryImpl` → `UserPersistenceRepository`, `RoleRepositoryImpl` → `RolePersistenceRepository`, `JwtTokenServiceAdapter` |
 
 ![Preciazo Backend Component Diagram](../assets/architecture/c4-components-backend.png)
 
@@ -2256,13 +2258,58 @@ Los assemblers convierten cuerpos en records y resultados en Resources; las cons
 
 #### Identity and Access (Generic Bounded Context)
 
-El Bounded Context **Identity and Access** concentra las responsabilidades relacionadas con autenticación, sesiones, roles y autorización.
+La propuesta para US06 y TS01 aplica Learning Center Platform Guide: dominio sin anotaciones JPA (ADR-0002), contratos de aplicación CQRS con `handle(record)` (ADR-0007), Commands con `Result<T, ApplicationError>` (ADR-0001), publicación tras guardar (ADR-0005) y JWT sin sesiones persistidas (ADR-0006). Se retiran `AuthSession` y su operación de revocación individual: no corresponden al modelo stateless elegido. Se conserva `/api/v1/auth/login` por el contrato explícito TS01; es una adaptación deliberada respecto de `/api/v1/tokens` de Learning Center, no un segundo flujo de autenticación.
 
-La clase `User` representa la identidad principal del sistema (vinculada a la enumeración `AccountStatus`) y permite realizar operaciones como autenticarse, asignar roles, desactivar la cuenta y comprobar permisos. Las sesiones generadas se representan mediante `AuthSession` (asociada a `SessionStatus`), mientras que `Role` (vinculada a `RoleName`) y `Permission` modelan el esquema de autorización.
+`User` es el aggregate de la cuenta. Conserva correo canónico, `PasswordHash`, estado, roles, contador de fallos, lockedUntil, securityCheckRequired y versión optimista. `EmailAddress` valida sintaxis, elimina espacios exteriores y normaliza el caso; registro y login usan exactamente la misma forma canónica, con unicidad en base de datos. `HashingService` codifica/verifica la contraseña fuera del dominio; el adaptador BCrypt sigue la guía. Solo se persiste el hash codificado; contraseña, prueba de seguridad y bearer token no aparecen en eventos, recursos, registros ni mensajes de error. Longitudes permitidas, parámetros del encoder y demás reglas de contraseña requieren configuración coherente, sin truncar silenciosamente entradas.
 
-Las interfaces `IdentityRepository` y `AccessPolicy` abstraen respectivamente la persistencia de identidades y las reglas utilizadas para determinar si una operación está autorizada. `EmailAddress` encapsula el correo y su validación de formato, y se utiliza tanto en `User` como en las operaciones de búsqueda y autenticación.
+`AccountLockoutPolicy` exige umbral positivo y duración positiva configurados; no se inventan valores. Cada contraseña incorrecta de una cuenta activa incrementa atómicamente los fallos. El intento que alcanza el umbral guarda lockedUntil y exige comprobación de seguridad; responde 429. Antes de ese instante, el intento incorrecto responde 401. Durante el bloqueo se rechaza el ingreso sin extender el plazo ni consumir otra prueba. Al llegar exactamente a lockedUntil se permite iniciar la comprobación, pero no se limpia por el solo transcurso del tiempo.
+
+Tras expirar el plazo, `SecurityCheckVerifier` debe validar una prueba vigente, de un solo uso y vinculada al sujeto/intento según el protocolo pendiente. No se acepta un booleano enviado por el cliente como prueba. El primer intento con prueba válida limpia el plazo antiguo e inicia una nueva ventana de fallos; si la contraseña es incorrecta, registra el primer fallo de esa ventana y mantiene securityCheckRequired. Los siguientes intentos siguen requiriendo pruebas nuevas y aumentan el contador, sin reiniciarlo en cada petición. Alcanzar de nuevo el umbral establece otro bloqueo. Únicamente contraseña correcta y comprobación requerida válida restablecen todo el control y permiten emitir un token. Proveedor, protocolo de prueba, plazo de respuesta y enlace al intento siguen pendientes; si no está disponible, no se permite saltar la comprobación y se devuelve 503 sin cambiar el control de la cuenta.
+
+| Condición de ingreso | Decisión y persistencia |
+| --- | --- |
+| Correo desconocido o contraseña incorrecta bajo el umbral | 401 con error genérico; una cuenta conocida incrementa fallos. Un correo inexistente no crea una cuenta. |
+| Se alcanza el umbral | 429; guarda contador, plazo y obligación de comprobación. |
+| Ahora es anterior a lockedUntil | 429 con Retry-After; conserva plazo y contador. |
+| Bloqueo expirado, prueba ausente o inválida | 401 con indicación de comprobación requerida; conserva estado y no emite token. |
+| Prueba requerida no verificable por indisponibilidad | 503; conserva estado y no emite token. |
+| Contraseña y prueba requerida válidas, cuenta activa | Restablece control, guarda la decisión y responde 200 con token firmado y expiración. |
+| Cuenta suspendida o desactivada | Deniega ingreso; el plazo temporal no reactiva el estado de cuenta. |
+
+El control de fallos debe persistirse incluso cuando el caso de uso devuelve un `Result` de autenticación fallida: no se provoca rollback por tratar ese resultado esperado como una excepción transaccional. Se comprueba la versión al escribir y se reevalúa el estado ante concurrencia; solo un intento confirmado con la versión vigente modifica el contador. Una prueba consumida se conserva como verificación local del intento en curso y no se envía nuevamente al proveedor durante reintentos internos; si no puede completarse la operación, el cliente necesita una nueva prueba. La firma y el guardado deben terminar correctamente antes de devolver el token; un fallo de infraestructura no devuelve autenticación exitosa. El evento `SignInAccepted` representa una decisión guardada, no acredita entrega del token al dispositivo. `SignInFailed` y `AccountTemporarilyLocked` describen cambios persistidos de una cuenta conocida; no se inventan eventos para correos inexistentes o el simple paso del tiempo.
+
+`Role` y `Permission` conservan membresías y capacidades por resource/action. Un seed interno idempotente prepara `BUYER`, `MERCHANT` y su catálogo permitido, manteniendo identificadores y asignaciones existentes. El registro acepta únicamente una persona de esa lista, no IDs de roles ni permisos arbitrarios. Los permisos de cada persona se limitan a los casos de uso de comprador o comerciante sobre recursos propios; la titularidad se valida además en el contexto propietario. La capacidad privilegiada `price-reports:resolve` no se concede por registro público ni por ser Merchant. Su aprovisionamiento y la administración del ciclo de vida de cuentas/roles quedan fuera de estos endpoints; no se inventa un rol administrador adicional. Ser MERCHANT no acredita RUC verificado ni titularidad de una tienda: Merchant Management conserva esas comprobaciones.
+
+`TokenService` firma un access token con sub igual al identificador estable de usuario y fechas de emisión/expiración. Clave desde el entorno, algoritmo permitido, emisor, audiencia y TTL requieren configuración; el adaptador valida firma, claims y vencimiento sin aceptar el algoritmo libremente desde el token. No se guardan tokens, refresh tokens ni listas de sesiones. Cerrar sesión elimina el token del cliente y no promete invalidar copias antes de expirar. El bloqueo temporal de US06 afecta al nuevo login, no revoca tokens previos. La suspensión/desactivación sí se aplica al cargar el usuario actual en cada solicitud protegida.
+
+`BearerAuthorizationRequestFilter` valida el bearer JWT y carga estado y permisos vigentes desde IAM. No usa roles aportados por el cuerpo HTTP ni confía en un grant antiguo del JWT. Stateless significa que no existe sesión autenticada persistida, no que se omita la consulta de autorización. Un usuario inexistente/inactivo o token inválido produce 401; identidad válida sin permisos produce 403. No se sustituyen esas decisiones por los guards del frontend. La autorización sobre lista, tienda, reporte o ruta se completa en sus propios contextos por identidad, sin ACL. No se expone un listado general de usuarios.
 
 ![Identity and Access Class Diagram](../assets/architecture/classes/identity-access.png)
+
+![Identity and Access Backend Contracts](../assets/architecture/classes/identity-access-backend.png)
+
+![Identity and Access Sign-in States](../assets/architecture/classes/identity-access-states.png)
+
+| Contrato de aplicación | Datos y resultado |
+| --- | --- |
+| `RegisterUserCommand` | email, contraseña transitoria y persona BUYER/MERCHANT; devuelve `Result<Long, ApplicationError>`. La aplicación valida política, codifica y registra usuario/rol atómicamente. |
+| `AuthenticateUserCommand` | email, contraseña transitoria y securityProof opcional; devuelve `Result<AccessTokenResult, ApplicationError>`. El cliente no fija estado, contador, roles, usuario sujeto ni expiración. |
+| `SeedAccessCatalogCommand` | Interno al arranque; catálogo fijo permitido, sin payload HTTP. Devuelve `Result<Boolean, ApplicationError>` indicando si hubo cambios; ausencia de configuración o seed requerido impide readiness satisfactoria. |
+| `GetMyProfileQuery` | userId del principal; devuelve `Optional<UserProfileView>` con ID, correo y estado, sin hash. |
+| `GetMyAccessQuery` | userId del principal; devuelve `UserAccessView` con roles y permisos actuales. No autoriza consultar otro usuario modificando un ID en la URL. |
+
+`UserCommandService` y `RoleCommandService` separan los Commands de `UserQueryService`; las implementaciones usan puertos `UserRepository` y `RoleRepository`. Los adaptadores `UserRepositoryImpl` y `RoleRepositoryImpl` delegan a `UserPersistenceRepository` y `RolePersistenceRepository` de Spring Data, con `UserPersistenceAssembler` y `RolePersistenceAssembler`. Solo las clases `*PersistenceEntity` llevan JPA. Tras guardar, el adaptador usa `DomainEventPublisher.publishAndClearEvents(saved)` según ADR-0005, con datos mínimos sin secretos y sin prometer entrega durable. Un seed sin cambios no reescribe membresías ni emite eventos ficticios; se conserva el ID persistido de cada rol.
+
+| Endpoint propuesto | Resultado y control |
+| --- | --- |
+| `POST /api/v1/users` | Registro público; 201 con perfil sin secretos y Location. Persona limitada a BUYER/MERCHANT. Es una capacidad de registro ya prevista en el diseño, sin confundirla con la suscripción de correo de US04. |
+| `POST /api/v1/auth/login` | Contrato TS01; 200 con accessToken, tokenType Bearer y expiresAt; 401 ante credenciales no coincidentes. US06 añade 429 durante bloqueo y 503 cuando no puede verificarse una prueba requerida. |
+| `GET /api/v1/users/me` | Bearer válido y usuario activo; 200 con perfil propio. |
+| `GET /api/v1/users/me/access` | Bearer válido y usuario activo; 200 con roles y permisos actuales propios. |
+
+Los cuerpos REST se transforman en records y los resultados en Resources mediante assemblers. Los errores usan `ApplicationError` y `ProblemDetail` localizable: 400 para formatos, persona o contraseña fuera de política; 401 `IAM_AUTHENTICATION_FAILED` para credenciales, cuenta inactiva o prueba requerida inválida; 403 `IAM_FORBIDDEN` para permisos; 409 para correo canónico duplicado; 429 `IAM_LOGIN_TEMPORARILY_BLOCKED`, con Retry-After derivado del plazo guardado; 503 `IAM_SECURITY_CHECK_UNAVAILABLE` o `IAM_AUTHORIZATION_UNAVAILABLE` para dependencias necesarias no disponibles. Los mapeos de 401/403/429/503 se especifican explícitamente antes de los sufijos genéricos de Learning Center. El error de autenticación no distingue entre correo inexistente y contraseña incorrecta; para el correo desconocido se verifica un hash ficticio configurado, sin afirmar igualdad perfecta de tiempos. Las validaciones de entrada no devuelven contraseñas ni pruebas en details.
+
+La protección de intentos para correos inexistentes, límites por origen, recuperación de cuenta, configuración exacta de contraseñas/JWT y proveedor de comprobación siguen pendientes del equipo. No se declara US06 implementada por haber dibujado el bloqueo. Este repositorio contiene la propuesta de diseño para Spring Boot y no una implementación del filtro, el proveedor o los endpoints.
 
 En conjunto, los Class Diagrams permiten representar la estructura interna de cada Bounded Context sin construir un único modelo global compartido. Esta separación mantiene alineado el diseño orientado a objetos con las fronteras establecidas mediante Domain-Driven Design y facilita que cada módulo evolucione manteniendo responsabilidades claramente delimitadas.
 
@@ -2366,11 +2413,13 @@ El período es no vacío y semiabierto. La aplicación valida correspondencia ti
 
 #### Identity and Access (Generic Bounded Context)
 
-El modelo de persistencia de **Identity and Access** administra la información necesaria para la identificación, autorización y manejo de sesiones.
+El esquema propuesto de AV2 sigue ADR-0006 de Learning Center: JWT sin sesiones de servidor. Se retira `auth_sessions` y no se añaden refresh tokens o revocaciones individuales sin un flujo que los justifique. Las vistas del contexto y Database Overview usan las mismas tablas y campos.
 
-La tabla `users` almacena las cuentas registradas, mientras que `roles` y `permissions` representan los mecanismos de autorización. Las tablas intermedias `user_roles` y `role_permissions` modelan las relaciones de muchos a muchos existentes entre usuarios, roles y permisos.
+`users` conserva correo canónico único, password_hash codificado, estado, failed_attempts, locked_until opcional, security_check_required y versión optimista. El contador no es negativo; un bloqueo exige plazo y obligación de comprobación. Al vencer el plazo, esa obligación permanece hasta completar correctamente el ingreso. La cuenta suspendida o desactivada no se reactiva por vencer un bloqueo. Las contraseñas, pruebas y JWT no se persisten en claro ni se incluyen en recursos o eventos.
 
-Finalmente, `auth_sessions` registra las sesiones asociadas a cada usuario, incluyendo su fecha de emisión, expiración y estado de revocación.
+`roles` y `permissions` definen nombres de rol únicos y capacidades con `UNIQUE(resource, action)`. `user_roles` y `role_permissions` utilizan claves primarias compuestas para impedir asignaciones repetidas. La transacción de registro exige al menos un rol permitido previamente provisionado, junto con la unicidad concurrente del correo normalizado. El seed conserva IDs y membresías; no borra asignaciones al reiniciar.
+
+Los fallos de autenticación esperados confirman la actualización de sus contadores aunque devuelvan un error de negocio. La versión evita perder incrementos concurrentes y permite reevaluar el bloqueo antes de aceptar otro intento. El guardado fallido no autoriza emitir una respuesta de autenticación exitosa. No existe una tabla de estado por token: la validación usa JWT y consulta estado/permisos actuales por usuario. Son contratos de persistencia propuestos, sin migraciones ni backend implementados.
 
 ![Identity and Access Database Diagram](../assets/architecture/database/identity-access.png)
 
