@@ -1,0 +1,14 @@
+@startuml C4_Components_Catalog
+!include <C4/C4_Component>
+LAYOUT_LEFT_RIGHT()
+title Component Diagram — Catalog and Pricing (Core Bounded Context)
+Container_Boundary(catalog, "Catalog and Pricing Bounded Context") {
+    Component(ctrl, "CatalogController", "Spring REST Controller", "Exposes /api/v1/catalog/products, /stores, /deals and /compare.")
+    Component(svc, "CatalogQueryService", "Application Query Service", "Filters products/stores, ranks multi-store baskets and seeds Lima catalog.")
+    Component(repo, "CatalogStorePriceRepository", "Spring Data JPA Repository", "Queries catalog_store_prices persistence table.")
+}
+ContainerDb(db, "MySQL Database", "MySQL 8.4", "catalog_store_prices")
+Rel(ctrl, svc, "Delegates queries")
+Rel(svc, repo, "Reads catalog entries")
+Rel(repo, db, "SQL SELECT")
+@enduml

@@ -1,0 +1,14 @@
+@startuml C4_Components_Verification
+!include <C4/C4_Component>
+LAYOUT_LEFT_RIGHT()
+title Component Diagram — Community Price Verification (Supporting Bounded Context)
+Container_Boundary(verif, "Community Price Verification Bounded Context") {
+    Component(ctrl, "PriceVerificationController", "Spring REST Controller", "Exposes GET/POST /api/v1/verifications, /{id}/confirm and /{id}/reject.")
+    Component(svc, "PriceVerificationService", "Application Service", "Records observed shelf prices and processes community confirmations/rejections.")
+    Component(repo, "PriceVerificationRepository", "Spring Data JPA", "Persists price_verifications table.")
+}
+ContainerDb(db, "MySQL Database", "MySQL 8.4", "price_verifications")
+Rel(ctrl, svc, "Delegates reports and votes")
+Rel(svc, repo, "Reads and persists")
+Rel(repo, db, "JPA / SQL")
+@enduml
