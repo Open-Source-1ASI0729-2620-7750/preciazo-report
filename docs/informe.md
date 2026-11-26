@@ -2642,8 +2642,8 @@ El código fuente del proyecto se administra centralizadamente en la organizaci�
 | **Organización Oficial** | `upc-pre-202620-1asi0729-7750-perutech` | [https://github.com/Open-Source-1ASI0729-2620-7750](https://github.com/Open-Source-1ASI0729-2620-7750) |
 | **Documentación Técnica (Informe)** | `preciazo-report` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report) |
 | **Landing Page** | `preciazo-landing-page` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page) |
-| **Frontend Web Application** | `Preciazo-platform` | [https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform](https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform) |
-| **RESTful Web Services (Backend)** | `preciazo-web-services` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services) |
+| **Frontend Web Application** | `preciazo-web-app` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-app](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-app) |
+| **RESTful Web Services (Backend)** | `preciazo-platform` | [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-platform](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-platform) |
 
 #### Modelo de Ramificación (GitFlow)
 
@@ -2882,7 +2882,7 @@ El Sprint Backlog 2 organiza las tareas de maquetación del frontend para ambos 
 Durante el Sprint 2, los avances en el informe y el código fuente se registraron formalmente en el repositorio. A continuación se presenta la trazabilidad exacta de los commits realizados durante la iteración:
 
 * **Repositorio de Reporte e Informe:** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report)
-* **Repositorio de la Plataforma Web / Frontend (Preciazo-platform):** [https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform](https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform) 
+* **Repositorio de la Plataforma Web / Frontend (preciazo-web-app):** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-app](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-app) 
 * **Repositorio de la Landing Page (PeruTech-Landing-Page):** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page)
 
 | Integrante (Usuario Git) | Hash de Commit | Mensaje de Confirmación | Descripción del Aporte Técnico |
@@ -2948,7 +2948,7 @@ A continuación, se presenta el cuadro resumen de la planificación del Sprint 3
 | Campo | Descripción |
 | :--- | :--- |
 | **Sprint #** | Sprint 3 |
-| **Sprint Planning Background** | Sesión de planificación enfocada en subsanar las observaciones de revisión técnica de TB1, implementar la primera versión de los servicios RESTful en Spring Boot (`preciazo-web-services`), actualizar las vistas de autenticación/registro e internacionalización (i18n) en el frontend Angular (`Preciazo-platform`), y ejecutar las sesiones de validación de usabilidad y evaluación heurística. |
+| **Sprint Planning Background** | Sesión de planificación enfocada en subsanar las observaciones de revisión técnica de TB1, implementar la primera versión de los servicios RESTful en Spring Boot (`preciazo-platform`), actualizar las vistas de autenticación/registro e internacionalización (i18n) en el frontend Angular (`preciazo-web-app`), y ejecutar las sesiones de validación de usabilidad y evaluación heurística. |
 | **Date** | 2026-10-26 |
 | **Time** | 07:00 PM (GMT -5) |
 | **Location** | Reunión virtual síncrona vía Google Meet |
@@ -2999,11 +2999,11 @@ El Sprint Backlog 3 desglosa las historias de usuario y técnicas seleccionadas 
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
-Durante el Sprint 3 se implementó el servidor backend en el repositorio `preciazo-web-services` utilizando **Java y Spring Boot** con arquitectura en cuatro capas (Domain, Application, Infrastructure e Interfaces), a la par de la actualización del frontend en `Preciazo-platform` y la documentación técnica en `preciazo-report`:
+Durante el Sprint 3 se implementó el servidor backend en el repositorio `preciazo-platform` utilizando **Java y Spring Boot** con arquitectura en cuatro capas (Domain, Application, Infrastructure e Interfaces), a la par de la actualización del frontend en `preciazo-web-app` y la documentación técnica en `preciazo-report`:
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 | :--- | :--- | :---: | :--- | :--- | :---: |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `main` | `8c4e1a9` | `feat(api): initialize spring boot ddd bounded contexts and openapi config` | `Set up modular DDD packages, JPA entities, REST controllers and Swagger UI documentation.` | 13/11/2026 || `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `main` | `5d2b9f3` | `feat(frontend): update auth register flow and i18n language support` | `Add user registration view, refine English/Spanish translation dictionaries and connect services.` | 13/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-platform` | `main` | `8c4e1a9` | `feat(api): initialize spring boot ddd bounded contexts and openapi config` | `Set up modular DDD packages, JPA entities, REST controllers and Swagger UI documentation.` | 13/11/2026 || `Open-Source-1ASI0729-2620-7750/preciazo-web-app` | `main` | `5d2b9f3` | `feat(frontend): update auth register flow and i18n language support` | `Add user registration view, refine English/Spanish translation dictionaries and connect services.` | 13/11/2026 |
 | `Open-Source-1ASI0729-2620-7750/preciazo-report` | `main` | `2595140` | `docs(report): complete AV2 architectural refinements and sprint 3 documentation` | `Standardize DDD bounded contexts hierarchy, update C4/UML/DB diagrams and document Sprint 3.` | 14/11/2026 |
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
@@ -3014,9 +3014,9 @@ En este sprint se verificó la ejecución integrada de la experiencia web de **P
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
-Los servicios web RESTful desarrollados en `preciazo-web-services` se encuentran documentados bajo la especificación **OpenAPI 3.1** mediante **Swagger UI**, permitiendo probar cada endpoint con cargas útiles JSON de muestra y verificar los códigos de estado HTTP:
+Los servicios web RESTful desarrollados en `preciazo-platform` se encuentran documentados bajo la especificación **OpenAPI 3.1** mediante **Swagger UI**, permitiendo probar cada endpoint con cargas útiles JSON de muestra y verificar los códigos de estado HTTP:
 
-* **Repositorio de Web Services:** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services)
+* **Repositorio de Web Services:** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-platform](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-platform)
 * **URL de Documentación OpenAPI / Swagger UI:** [https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html](https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html)
 
 <div align="center">
@@ -3061,7 +3061,7 @@ A lo largo del Sprint 3, los cinco integrantes del equipo registraron contribuci
 
 ### 5.2.4. Sprint 4
 
-El Sprint 4 corresponde al entregable final (**TB2 — Release Review**), enfocado en completar la integración full-stack de los siete Bounded Contexts en [`preciazo-web-services`](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services) con seguridad JWT (IAM) y servicio externo **OSRM**, conectar la totalidad de vistas de la aplicación Angular ([`Preciazo-platform`](https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform)) al backend real con soporte bilingüe (`en_US` por defecto y `es_419`) y publicar la nueva versión (`v3.0.0`) de la Landing Page ([`preciazo-landing-page`](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page)).
+El Sprint 4 corresponde al entregable final (**TB2 — Release Review**), enfocado en completar la integración full-stack de los siete Bounded Contexts en [`preciazo-platform`](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-platform) con seguridad JWT (IAM) y servicio externo **OSRM**, conectar la totalidad de vistas de la aplicación Angular ([`preciazo-web-app`](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-app)) al backend real con soporte bilingüe (`en_US` por defecto y `es_419`) y publicar la nueva versión (`v3.0.0`) de la Landing Page ([`preciazo-landing-page`](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page)).
 
 #### 5.2.4.1. Sprint Planning 4
 
@@ -3112,19 +3112,19 @@ El Sprint 4 corresponde al entregable final (**TB2 — Release Review**), enfoca
 
 | Repository | Branch | Commit Id | Commit Message | Committed on (Date) |
 | :--- | :--- | :---: | :--- | :---: |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `09a270a` | `chore(deps): add spring security and jjwt dependencies` | 26/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `826a5ad` | `feat(shared): configure openapi bearer auth and localized auth errors` | 26/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `9d02a52` | `feat(iam): implement jwt authentication, security filter and startup seeder` | 26/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `001679c` | `feat(shopping): add shopping list items and budget limit endpoints` | 26/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `4096221` | `feat(catalog): implement catalog search, deals and multi-store comparison` | 26/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `d60b621` | `feat(merchant): implement store profile, inventory and promotions api` | 26/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `45a0e46` | `feat(verification): add community price verification endpoints` | 26/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `ef03edc` | `feat(routing): add route optimization with osrm external integration` | 26/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `ab452e5` | `feat(analytics): add merchant analytics summary endpoint` | 26/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `110614a` | `test(api): update shopping contract tests for jwt and add e2e suite` | 26/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `develop` | `f4759b9` | `feat(core): add jwt auth service, http interceptor, api client and i18n` | 26/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `develop` | `bbed894` | `feat(ui): integrate login and sidebar with jwt auth, i18n and terms modal` | 26/11/2026 |
-| `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `develop` | `2894881` | `feat(pages): connect buyer and merchant pages to restful api endpoints` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-platform` | `develop` | `09a270a` | `chore(deps): add spring security and jjwt dependencies` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-platform` | `develop` | `826a5ad` | `feat(shared): configure openapi bearer auth and localized auth errors` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-platform` | `develop` | `9d02a52` | `feat(iam): implement jwt authentication, security filter and startup seeder` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-platform` | `develop` | `001679c` | `feat(shopping): add shopping list items and budget limit endpoints` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-platform` | `develop` | `4096221` | `feat(catalog): implement catalog search, deals and multi-store comparison` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-platform` | `develop` | `d60b621` | `feat(merchant): implement store profile, inventory and promotions api` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-platform` | `develop` | `45a0e46` | `feat(verification): add community price verification endpoints` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-platform` | `develop` | `ef03edc` | `feat(routing): add route optimization with osrm external integration` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-platform` | `develop` | `ab452e5` | `feat(analytics): add merchant analytics summary endpoint` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-platform` | `develop` | `110614a` | `test(api): update shopping contract tests for jwt and add e2e suite` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-app` | `develop` | `f4759b9` | `feat(core): add jwt auth service, http interceptor, api client and i18n` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-app` | `develop` | `bbed894` | `feat(ui): integrate login and sidebar with jwt auth, i18n and terms modal` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-app` | `develop` | `2894881` | `feat(pages): connect buyer and merchant pages to restful api endpoints` | 26/11/2026 |
 | `Open-Source-1ASI0729-2620-7750/preciazo-landing-page` | `main` | `3fe2981` | `feat(landing): add en_US/es_419 i18n, segment ctas, video embeds and terms modal` | 26/11/2026 |
 
 #### 5.2.4.5. Execution & Services Documentation Evidence for Sprint Review
@@ -3952,7 +3952,7 @@ La siguiente captura corresponde a la versión publicada del Video About-the-Pro
 ## Conclusiones y recomendaciones
 
 1. **Conclusión sobre validación y valor de negocio:** Las sesiones de investigación y validación empírica confirmaron que los compradores independientes requieren contrastar el costo consolidado de su canasta frente al gasto y tiempo de traslado urbano, mientras que los comerciantes minoristas necesitan un canal digital ágil y libre de comisiones abusivas para visibilizar sus ofertas locales. La interfaz de **Preciazo** y la evaluación heurística (que permitió identificar y documentar 14 oportunidades de mejora en usabilidad, diseño inclusivo y arquitectura de la información) validan la claridad de los flujos de presupuesto límite, comparación multitienda y gestión de inventario.
-2. **Conclusión sobre arquitectura DDD e implementación Full-Stack:** La organización del sistema en siete Bounded Contexts jerarquizados en Core (`Catalog and Pricing`, `Route Planning` y `Shopping Planning`), Soporte (`Merchant Management`, `Community Price Verification` y `Analytics and Engagement`) y Genérico (`Identity and Access`), implementados bajo una arquitectura por capas en **Java 25 con Spring Boot** (`preciazo-web-services`) y **Angular** (`Preciazo-platform`), garantizó el desacoplamiento del dominio y la exposición estandarizada de contratos RESTful documentados con OpenAPI 3.1 en **Microsoft Azure App Service**.
+2. **Conclusión sobre arquitectura DDD e implementación Full-Stack:** La organización del sistema en siete Bounded Contexts jerarquizados en Core (`Catalog and Pricing`, `Route Planning` y `Shopping Planning`), Soporte (`Merchant Management`, `Community Price Verification` y `Analytics and Engagement`) y Genérico (`Identity and Access`), implementados bajo una arquitectura por capas en **Java 25 con Spring Boot** (`preciazo-platform`) y **Angular** (`preciazo-web-app`), garantizó el desacoplamiento del dominio y la exposición estandarizada de contratos RESTful documentados con OpenAPI 3.1 en **Microsoft Azure App Service**.
 3. **Conclusión sobre gestión del proyecto, GitFlow y trabajo colaborativo:** La aplicación rigurosa del marco de trabajo Scrum (mediante tableros Kanban en Trello por cada Sprint), el flujo de ramificación GitFlow (`main`, `develop` y ramas `feature/`) y la convención de *Conventional Commits* en los cuatro repositorios de la organización permitieron mantener trazabilidad continua, revisiones por pares efectivas y despliegues automatizados en la nube.
 
 ## Video About-the-Team
@@ -3994,8 +3994,8 @@ En esta sección se documenta el **Video About-the-Team** del equipo **PeruTech*
 
 * **Anexo A — Repositorio de Documentación Técnica (`preciazo-report`):** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-report)
 * **Anexo B — Repositorio de Landing Page (`preciazo-landing-page`):** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page)
-* **Anexo C — Repositorio de Frontend Web Application (`Preciazo-platform`):** [https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform](https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform)
-* **Anexo D — Repositorio de RESTful Web Services (`preciazo-web-services`):** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services)
+* **Anexo C — Repositorio de Frontend Web Application (`preciazo-web-app`):** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-app](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-app)
+* **Anexo D — Repositorio de RESTful Web Services (`preciazo-platform`):** [https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-platform](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-platform)
 * **Anexo E — Tableros Ágiles en Trello:**
   * *Product Backlog General:* [https://trello.com/b/NhH0tIyG/product](https://trello.com/b/NhH0tIyG/product)
   * *Sprint 3 Backlog Board:* [https://trello.com/b/IpWFADMg/preciazo-sprint-3](https://trello.com/b/IpWFADMg/preciazo-sprint-3)
@@ -4008,7 +4008,7 @@ En esta sección se documenta el **Video About-the-Team** del equipo **PeruTech*
 
 ## Anexo G — Usuarios de Prueba por Segmento Objetivo
 
-Las siguientes cuentas de prueba se siembran automáticamente al iniciar `preciazo-web-services` (`ApplicationReadyEventHandler`) y permiten validar todos los flujos protegidos por JWT tanto desde la **Web Application** como desde **Swagger UI** (`POST /api/v1/authentication/sign-in`):
+Las siguientes cuentas de prueba se siembran automáticamente al iniciar `preciazo-platform` (`ApplicationReadyEventHandler`) y permiten validar todos los flujos protegidos por JWT tanto desde la **Web Application** como desde **Swagger UI** (`POST /api/v1/authentication/sign-in`):
 
 | Segmento Objetivo | Rol IAM | Nombre Completo | Correo Electrónico | Contraseña de Prueba | Vistas / Endpoints habilitados |
 | :--- | :--- | :--- | :--- | :--- | :--- |
