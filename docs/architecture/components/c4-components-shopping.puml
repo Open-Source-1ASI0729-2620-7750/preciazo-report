@@ -1,0 +1,21 @@
+@startuml C4_Components_Shopping
+!include <C4/C4_Component>
+LAYOUT_LEFT_RIGHT()
+title Component Diagram — Shopping Planning (Core Bounded Context)
+Container_Boundary(shopping, "Shopping Planning Bounded Context") {
+    Component(listCtrl, "ShoppingListsController", "Spring REST Controller", "Exposes POST/GET /api/v1/shopping-lists and /{id} with ETag.")
+    Component(itemCtrl, "ShoppingListItemsController", "Spring REST Controller", "Exposes /items CRUD and /budget endpoints.")
+    Component(cmdSvc, "ShoppingListCommandServiceImpl", "Command Service", "Handles CreateShoppingListCommand with Result<Long, ApplicationError>.")
+    Component(qrySvc, "ShoppingListQueryServiceImpl", "Query Service", "Handles GetSavedShoppingListsQuery and GetShoppingListByIdQuery.")
+    Component(itemSvc, "ShoppingListItemsService", "Application Service", "Manages line items and budget limit with owner enforcement.")
+    Component(repo, "ShoppingListRepositoryImpl & Item/Budget Repos", "JPA Adapters", "Persists ShoppingList, items and budget limits; publishes ShoppingListCreated.")
+}
+ContainerDb(db, "MySQL Database", "MySQL 8.4", "shopping_lists, shopping_list_items, shopping_list_budgets")
+Rel(listCtrl, cmdSvc, "Commands")
+Rel(listCtrl, qrySvc, "Queries")
+Rel(itemCtrl, itemSvc, "Item & budget operations")
+Rel(cmdSvc, repo, "Persists aggregate")
+Rel(qrySvc, repo, "Reads lists")
+Rel(itemSvc, repo, "Reads/writes items & budget")
+Rel(repo, db, "JPA / SQL")
+@enduml

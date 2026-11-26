@@ -1,0 +1,12 @@
+@startuml C4_Components_Analytics
+!include <C4/C4_Component>
+LAYOUT_LEFT_RIGHT()
+title Component Diagram — Analytics and Engagement (Supporting Bounded Context)
+Container_Boundary(analytics, "Analytics and Engagement Bounded Context") {
+    Component(ctrl, "AnalyticsController", "Spring REST Controller", "Exposes GET /api/v1/analytics/merchant-summary.")
+}
+Component(merchantSvc, "MerchantManagementService", "Internal Query Port", "Provides store inventory and promotion counts.")
+Component(verifSvc, "PriceVerificationService", "Internal Query Port", "Provides pending community verification count.")
+Rel(ctrl, merchantSvc, "Reads inventory & promotion stats")
+Rel(ctrl, verifSvc, "Reads verification metrics")
+@enduml

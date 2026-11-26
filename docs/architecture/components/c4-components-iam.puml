@@ -1,0 +1,22 @@
+@startuml C4_Components_IAM
+!include <C4/C4_Component>
+LAYOUT_LEFT_RIGHT()
+title Component Diagram — Identity and Access Management (Generic Bounded Context)
+Container_Boundary(iam, "Identity and Access Bounded Context") {
+    Component(authCtrl, "AuthenticationController", "Spring REST Controller", "Exposes POST /api/v1/authentication/sign-up and /sign-in.")
+    Component(userCtrl, "UsersController & RolesController", "Spring REST Controllers", "Exposes GET /api/v1/users/me, /users, /roles.")
+    Component(cmdSvc, "UserCommandServiceImpl & RoleCommandServiceImpl", "Command Services", "Handles SignUpCommand, SignInCommand and SeedRolesCommand.")
+    Component(qrySvc, "UserQueryServiceImpl & RoleQueryServiceImpl", "Query Services", "Queries users and roles.")
+    Component(sec, "WebSecurityConfiguration & BearerAuthorizationRequestFilter", "Spring Security", "Stateless CORS/JWT filter chain authenticating Bearer tokens.")
+    Component(jwt, "JwtTokenService & BCryptHashingService", "Outbound Security Adapters", "Signs/validates HMAC-SHA JWTs and hashes passwords with BCrypt.")
+    Component(repo, "UserRepositoryImpl & RoleRepositoryImpl", "JPA Adapters", "Persists iam_users, iam_roles and iam_user_roles.")
+}
+ContainerDb(db, "MySQL Database", "MySQL 8.4", "iam_users, iam_roles, iam_user_roles")
+Rel(authCtrl, cmdSvc, "Sign-up / Sign-in")
+Rel(userCtrl, qrySvc, "Profile / directory queries")
+Rel(sec, jwt, "Validates JWT")
+Rel(cmdSvc, jwt, "Hashes password & issues JWT")
+Rel(cmdSvc, repo, "Persists users/roles")
+Rel(qrySvc, repo, "Queries users/roles")
+Rel(repo, db, "JPA / SQL")
+@enduml

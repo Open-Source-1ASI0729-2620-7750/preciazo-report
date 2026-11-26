@@ -14,9 +14,9 @@
   <p><strong>Curso:</strong> 1ASI0729 - Desarrollo de Aplicaciones Open Source</p>
   <p><strong>NRC:</strong> 7750</p>
 
-  <h2><strong>Informe de Trabajo Final</strong></h2>
-
   <p><strong>Docente:</strong><br>Bautista Ubillús, Efraín Ricardo</p>
+
+  <h2><strong>Informe de Trabajo Final</strong></h2>
 
   <p><strong>Startup:</strong><br>PeruTech</p>
 
@@ -88,6 +88,7 @@
 | **2.4** | 14/11/2026 | Becerra Durand, Sebastian Uriel | Documentación de bitácoras y observaciones de las sesiones de validación de campo con comerciantes locales. |
 | **2.5** | 14/11/2026 | Miranda Romero, Sergio Luis | Actualización y sincronización final del tablero Kanban del Sprint 3 en Trello y trazabilidad de historias de usuario. |
 | **2.6** | 14/11/2026 | Casós Torre, Miguel André | Refinamiento de la arquitectura orientada al dominio (DDD), diagramas C4 y documentación de contratos OpenAPI de servicios. |
+| **3.0** | 26/11/2026 | Casós Torre, Miguel André | Subsanación integral de observaciones de AV2 y consolidación de TB2 (Sprint 4): orden oficial de Carátula, Hypothesis Statements en español, C4 con contenedor Web Application y 7 diagramas de componentes por Bounded Context, Sprint Goals de negocio en formato Scrum.org, Sprint Backlogs con tareas de 4–8 h, sección Video About-the-Team y Anexos con usuarios de prueba por segmento y Videos de Exposiciones. |
 
 <div style="page-break-before: always;"></div>
 
@@ -477,28 +478,28 @@ El proceso de Lean UX adoptado por PeruTech establece un marco de validación co
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
 *   **Hypothesis Statement 1 (basado en Feature Assumption 1: Comparador de Canasta Multi-establecimiento):**
-    *   **We believe we will achieve** a 70% rate of active users completing at least one guided purchase in their first month and an overall platform user retention above 40%
-    *   **If** independent buyers managing a tight budget
-    *   **Attain** an accurate, pre-calculated total cost of their entire shopping list before leaving home
-    *   **With** a comprehensive multi-store basket comparison engine (**Comparador de Canasta Multi-establecimiento**).
+    *   **Creemos que lograremos** una tasa del 70% de usuarios activos completando al menos una compra guiada en su primer mes y una retención general de plataforma superior al 40%
+    *   **Si** los compradores independientes que administran un presupuesto ajustado
+    *   **Alcanzan** conocer de manera precisa y precalculada el costo total de su lista de compras completa antes de salir de casa
+    *   **Con** un motor integral de comparación de canasta multi-establecimiento (**Comparador de Canasta Multi-establecimiento**).
 
 *   **Hypothesis Statement 2 (basado en Feature Assumption 2: Optimizador de Rutas según Presupuesto Límite):**
-    *   **We believe we will achieve** an average reduction of 25% in the time users spend completing multi-store purchases
-    *   **If** busy urban independent buyers looking to maximize both their time and money
-    *   **Attain** optimized shopping itineraries that strictly respect their maximum budget and transportation choices
-    *   **With** an interactive route calculator with budget caps (**Optimizador de Rutas según Presupuesto Límite**).
+    *   **Creemos que lograremos** una reducción promedio del 25% en el tiempo que los usuarios invierten al completar compras en múltiples establecimientos
+    *   **Si** los compradores independientes urbanos con poco tiempo que buscan maximizar tanto su dinero como su tiempo
+    *   **Alcanzan** itinerarios de compra optimizados que respeten estrictamente su presupuesto límite y su medio de transporte preferido
+    *   **Con** una calculadora interactiva de rutas con límite de presupuesto (**Optimizador de Rutas según Presupuesto Límite**).
 
 *   **Hypothesis Statement 3 (basado en Feature Assumption 3: Módulo de Verificación Colaborativa de Precios):**
-    *   **We believe we will achieve** an 80% price verification accuracy rate between reported shelf prices and actual checkout counter costs
-    *   **If** active members of the shopping community
-    *   **Attain** high trust in platform data accuracy and recognition for contributing real-time updates
-    *   **With** a crowd-sourced price reporting and verification system (**Módulo de Verificación Colaborativa de Precios**).
+    *   **Creemos que lograremos** una tasa de precisión del 80% entre los precios reportados en góndola y los costos reales verificados en caja
+    *   **Si** los miembros activos de la comunidad de compradores
+    *   **Alcanzan** una alta confianza en la exactitud de los datos de la plataforma y reconocimiento por aportar actualizaciones en tiempo real
+    *   **Con** un sistema colaborativo de reporte y validación comunitaria de precios (**Módulo de Verificación Colaborativa de Precios**).
 
 *   **Hypothesis Statement 4 (basado en Feature Assumption 4: Consola de Gestión y Promociones para Comerciantes):**
-    *   **We believe we will achieve** a 20% drop in food waste/expiration and a 60% rate of partner stores reporting increased foot traffic
-    *   **If** proximity retail merchants dealing with overstocked inventory
-    *   **Attain** immediate local visibility for time-sensitive discounts to draw nearby shoppers into their physical stores
-    *   **With** a fast-publishing promotion dashboard for store managers (**Consola de Gestión y Promociones para Comerciantes**).
+    *   **Creemos que lograremos** una reducción del 20% en merma de productos próximos a vencer y un 60% de comercios aliados reportando mayor afluencia de clientes
+    *   **Si** los comerciantes minoristas de proximidad que manejan sobrestock de inventario
+    *   **Alcanzan** visibilidad local inmediata para descuentos por tiempo limitado que atraigan compradores cercanos hacia su establecimiento físico
+    *   **Con** un panel ágil de publicación de ofertas e inventario para administradores de tienda (**Consola de Gestión y Promociones para Comerciantes**).
 
 #### 1.2.2.4. Lean UX Canvas
 
@@ -1894,11 +1895,11 @@ Route Planning decide el orden de las paradas con la matriz de distancias/duraci
 
 ### 4.6.3. Software Architecture Container Diagrams
 
-El modelo propuesto contiene cuatro contenedores lógicos: **Landing Page**, **Single-Page Application (SPA)**, **Preciazo REST API** y **Relational Database**. La Landing Page presenta el producto y enlaza la aplicación. La SPA, desarrollada con Angular, TypeScript y Angular Material, se entrega como recursos web y se ejecuta en el navegador. El mecanismo de alojamiento estático no se representa como un servidor de negocio adicional ni se declara una topología de producción desplegada.
+El modelo de contenedores C4 de **Preciazo** está conformado por cuatro contenedores independientes: **Landing Page** (HTML5/CSS3/JS con soporte bilingüe `en_US`/`es_419`), **Web Application (Angular SPA)** (aplicación web responsiva en Angular 22, TypeScript y Angular Material que atiende los portales de Comprador Independiente y Comerciante Minorista), **Preciazo RESTful Web Services** (monolito modular en Java 27 / Spring Boot 4.1.2 con 7 Bounded Contexts, seguridad JWT y OpenAPI 3.1) y **Relational Database** (MySQL 8.4 con tablas aisladas lógicamente por contexto).
 
-La REST API se propone como un monolito modular Java/Spring Boot con los siete Bounded Contexts, sus contratos Command/Query y autorización en el servidor. Cada contexto posee sus tablas y accede mediante sus propios puertos y adaptadores de persistencia sobre una base relacional física común; este diagrama no selecciona un motor concreto ni autoriza consultas indiscriminadas entre módulos. Los clientes consumen HTTPS/JSON y envían bearer JWT en solicitudes protegidas. El backend administra la firma/validación del token y consulta el estado y permisos actuales de IAM, sin tabla de sesiones ni promesa de revocación individual.
+La Landing Page presenta el modelo de negocio y redirige mediante CTAs diferenciados por segmento hacia la **Web Application** (`#/login?role=buyer` y `#/login?role=merchant`). La **Web Application** consume los endpoints de **Preciazo RESTful Web Services** mediante HTTPS/JSON enviando el token Bearer JWT y el encabezado `Accept-Language`. En el lado externo, el backend integra el servicio de terceros **OSRM (OpenStreetMap Routing Machine)** para distancias y tiempos reales de ruta multiparada, además del contrato de verificación fiscal RUC.
 
-Las relaciones externas describen los contratos requeridos de mapas, fiscalidad y comprobación de seguridad. La provisión de referencias locales confiables y la coordinación de operaciones entre contextos siguen pendientes; no se añaden ACL, broker de eventos, refresh tokens o garantías de entrega durable. Esta vista sigue las fronteras y separación de responsabilidades de Learning Center Platform Guide, sin convertir sus ejemplos de endpoints o entidades en reglas ajenas a las historias de Preciazo.
+> **Diagrama-as-Code actualizado:** [`docs/architecture/c4-container.puml`](./architecture/c4-container.puml)
 
 ![Preciazo Software Architecture Container Diagram](../assets/architecture/c4-container.png)
 
@@ -1927,6 +1928,20 @@ En el backend, `Request Security` procesa el bearer y la lista explícita de rut
 | **7. Identity and Access** *(Genérico)* | `AuthenticationController`, `UsersController` | `UserCommandServiceImpl`, `UserQueryServiceImpl`, `RoleCommandServiceImpl` | `User`, `Role` | `UserRepositoryImpl` → `UserPersistenceRepository`, `RoleRepositoryImpl` → `RolePersistenceRepository`, `JwtTokenServiceAdapter` |
 
 ![Preciazo Backend Component Diagram](../assets/architecture/c4-components-backend.png)
+
+#### Diagramas de Componentes C4 por Bounded Context (Diagram-as-Code PlantUML)
+
+Para subsanar la granularidad arquitectónica a nivel de componentes, cada uno de los siete Bounded Contexts cuenta con su propio diagrama C4 de componentes en formato PlantUML dentro de `docs/architecture/components/`:
+
+| # | Bounded Context | Clasificación DDD | Archivo PlantUML (C4 Component Diagram) | Componentes principales |
+| :---: | :--- | :---: | :--- | :--- |
+| 1 | **Catalog and Pricing** | Core | [`c4-components-catalog.puml`](./architecture/components/c4-components-catalog.puml) | `CatalogController`, `CatalogQueryService`, `CatalogStorePriceRepository` |
+| 2 | **Route Planning** | Core | [`c4-components-routing.puml`](./architecture/components/c4-components-routing.puml) | `RoutePlanningController`, `OsrmRoutingClient` (integración OSRM) |
+| 3 | **Shopping Planning** | Core | [`c4-components-shopping.puml`](./architecture/components/c4-components-shopping.puml) | `ShoppingListsController`, `ShoppingListItemsController`, `ShoppingListCommandServiceImpl`, `ShoppingListQueryServiceImpl`, `ShoppingListItemsService`, adaptadores JPA |
+| 4 | **Merchant Management** | Soporte | [`c4-components-merchant.puml`](./architecture/components/c4-components-merchant.puml) | `MerchantController`, `MerchantManagementService`, repositorios Store/Inventory/Promotion |
+| 5 | **Community Price Verification** | Soporte | [`c4-components-verification.puml`](./architecture/components/c4-components-verification.puml) | `PriceVerificationController`, `PriceVerificationService`, `PriceVerificationRepository` |
+| 6 | **Analytics and Engagement** | Soporte | [`c4-components-analytics.puml`](./architecture/components/c4-components-analytics.puml) | `AnalyticsController`, puertos de consulta hacia `MerchantManagementService` y `PriceVerificationService` |
+| 7 | **Identity and Access (IAM)** | Genérico | [`c4-components-iam.puml`](./architecture/components/c4-components-iam.puml) | `AuthenticationController`, `UsersController`, `RolesController`, `UserCommandServiceImpl`, `WebSecurityConfiguration`, `BearerAuthorizationRequestFilter`, `JwtTokenService`, `BCryptHashingService` |
 
 Las dependencias funcionales entre contextos se documentan como coordinación pendiente. No se dibujan como llamadas o suscripciones ya resueltas. Cada puerto de entrada y referencia pertenece al contexto consumidor; no existe un proveedor global compartido de modelos de dominio.
 
@@ -2701,7 +2716,7 @@ El Sprint 1 comprende el ciclo inicial de desarrollo enfocado en establecer las 
 | **Attendees (to planning meeting)** | Becerra Durand, Sebastian Uriel; Capillo Lema, Mía Valentina; Casós Torre, Miguel André; Miranda Romero, Sergio Luis; Pardo Chumpitazi, Kevin Patrick. |
 | **Sprint 0 Review Summary** | Al tratarse de la iteración inicial del ciclo académico, no existe una revisión formal de un sprint previo. Se toma como insumo el conjunto de requisitos del Capítulo III y los artefactos de diseño UX/UI. |
 | **Sprint 0 Retrospective Summary** | Se consolidaron los hallazgos del Needfinding y se validaron los wireframes de baja fidelidad. Se determinó priorizar una arquitectura web modular con HTML5 semántico, CSS3 adaptable y JavaScript nativo para garantizar tiempos de carga reducidos en GitHub Pages. |
-| **Sprint Goal & User Stories** | **Sprint 1 Goal:** Implementar, documentar y desplegar en producción el sitio web de la Landing Page para la plataforma **Preciazo** mediante GitHub Pages, comunicando la propuesta de valor del producto como una **solución web mixta (web responsive con acceso instantáneo desde navegadores móviles de smartphones y computadoras de escritorio, sin descargas obligatorias de tiendas de aplicaciones)**, cumpliendo con criterios de diseño adaptativo, accesibilidad semántica y captura de clientes potenciales para Compradores Independientes y Comerciantes Minoristas.<br><br>**User Stories Seleccionadas:**<br>• **US01:** Landing: Propuesta de valor (1 SP)<br>• **US02:** Landing: Segmentos objetivo (1 SP)<br>• **US03:** Landing: Red de comercios aliados (1 SP)<br>• **US04:** Landing: Registro de interés (2 SP)<br>• **US05:** Landing: Preguntas frecuentes y soporte (2 SP) |
+| **Sprint Goal & User Stories** | **Sprint 1 Goal:**<br>**Nuestro enfoque está en** presentar la propuesta de valor de Preciazo y habilitar un canal claro de registro de interés para compradores independientes y comerciantes minoristas de Lima Metropolitana.<br>**Creemos que entrega** claridad inmediata sobre los beneficios de comparar precios y atraer clientes cercanos **a** los compradores independientes y comerciantes minoristas.<br>**Esto se confirmará cuando** visitantes de ambos segmentos comprendan el modelo de negocio, resuelvan sus dudas frecuentes y completen su registro de interés en menos de tres pasos.<br><br>**User Stories Seleccionadas:**<br>• **US01:** Landing: Propuesta de valor (1 SP)<br>• **US02:** Landing: Segmentos objetivo (1 SP)<br>• **US03:** Landing: Red de comercios aliados (1 SP)<br>• **US04:** Landing: Registro de interés (2 SP)<br>• **US05:** Landing: Preguntas frecuentes y soporte (2 SP) |
 | **Sprint 1 Velocity** | 7 Story Points |
 | **Sum of Story Points** | 7 Story Points |
 
@@ -2732,25 +2747,20 @@ Para la administración operativa del ciclo de desarrollo se utilizó Trello com
 
 **Desglose Detallado del Sprint Backlog 1:**
 
-| User Story Id | Title | Task Id | Task Title | Description | Estimation (Hours) | Assigned To | Status |
+| User Story Id | Title | Task Id | Task Title | Description | Estimation (Hours) | Assigned To | Status (To-Do / In-Process / To-Review / Done) |
 | :---: | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
-| **US01** | Landing: Propuesta de valor | T01 | Maquetación Hero Section | Maquetación semántica del contenedor principal y titulares de valor con HTML5. | 3 | Pardo Chumpitazi, Kevin Patrick | Done |
-| **US01** | Landing: Propuesta de valor | T02 | Estilización diferencial | Aplicación de hojas de estilo CSS3 para evidenciar la optimización de compras y tiempos. | 2 | Pardo Chumpitazi, Kevin Patrick | Done |
-| **US01** | Landing: Propuesta de valor | T03 | Diseño Mobile-First | Implementación de media queries para adaptación visual fluida en dispositivos móviles. | 3 | Pardo Chumpitazi, Kevin Patrick | Done |
-| **US02** | Landing: Segmentos objetivo | T04 | Tarjetas informativas | Estructuración modular de los perfiles Comprador Independiente y Comerciante. | 3 | Capillo Lema, Mía Valentina | Done |
-| **US02** | Landing: Segmentos objetivo | T05 | Llamados a la acción (CTA) | Configuración de enlaces hacia los flujos de registro respectivos de cada segmento. | 2 | Capillo Lema, Mía Valentina | Done |
-| **US02** | Landing: Segmentos objetivo | T06 | Accesibilidad y contraste | Validación de contrastes de color y jerarquía visual conforme a estándares WCAG 2.1. | 2 | Becerra Durand, Sebastian Uriel | Done |
-| **US03** | Landing: Red de aliados | T07 | Módulo de cobertura | Maquetación del bloque interactivo de sectores urbanos y comercios minoristas. | 2 | Miranda Romero, Sergio Luis | Done |
-| **US03** | Landing: Red de aliados | T08 | Optimización gráfica | Incorporación y compresión de logotipos vectoriales de bodegas en formato SVG. | 2 | Becerra Durand, Sebastian Uriel | Done |
-| **US04** | Landing: Registro de interés | T09 | Formulario de suscripción | Creación de campos semánticos para captura de correo electrónico de visitantes. | 2 | Miranda Romero, Sergio Luis | Done |
-| **US04** | Landing: Registro de interés | T10 | Validación de sintaxis | Script en JavaScript con expresiones regulares (RegEx) para comprobación de correo. | 3 | Pardo Chumpitazi, Kevin Patrick | Done |
-| **US04** | Landing: Registro de interés | T11 | Notificación accesible | Implementación del mensaje interactivo de confirmación tras envío exitoso. | 2 | Casós Torre, Miguel André | Done |
-| **US05** | Landing: FAQ y soporte | T12 | Acordeón informativo | Estructuración semántica de preguntas frecuentes con elementos nativos HTML5. | 2 | Casós Torre, Miguel André | Done |
-| **US05** | Landing: FAQ y soporte | T13 | Lógica de colapso interactivo | Desarrollo de funciones JavaScript para apertura y cierre accesible de tópicos. | 2 | Pardo Chumpitazi, Kevin Patrick | Done |
-| **US05** | Landing: FAQ y soporte | T14 | Formulario de contacto | Integración del canal de comunicación directa para consultas de soporte. | 2 | Capillo Lema, Mía Valentina | Done |
-| **TS01** | Despliegue en GitHub Pages | T15 | Inicialización GitFlow | Configuración del repositorio `preciazo-landing-page` y esquema de ramas. | 2 | Pardo Chumpitazi, Kevin Patrick | Done |
-| **TS01** | Despliegue en GitHub Pages | T16 | Pipeline de despliegue | Configuración de la acción automática para compilación y hosting en GitHub Pages. | 1 | Casós Torre, Miguel André | Done |
-| **TS01** | Despliegue en GitHub Pages | T17 | Auditoría Lighthouse | Comprobación de métricas de rendimiento y SEO superando el 90% de puntaje. | 2 | Miranda Romero, Sergio Luis | Done |
+| **US01** | Landing: Propuesta de valor | T01 | Maquetación semántica Hero Section | Estructuración semántica del bloque principal, titulares de valor y diseño adaptable móvil-escritorio. | 5 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US01** | Landing: Propuesta de valor | T02 | Estilización visual y sistema de diseño | Aplicación de variables CSS3, paleta institucional y pruebas de adaptabilidad en distintos anchos de pantalla. | 4 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US02** | Landing: Segmentos objetivo | T03 | Tarjetas de perfiles y CTAs | Maquetación de las tarjetas de Comprador Independiente y Comerciante Minorista con llamados a la acción diferenciados. | 5 | Capillo Lema, Mía Valentina | Done |
+| **US02** | Landing: Segmentos objetivo | T04 | Accesibilidad y contraste WCAG | Validación de atributos ARIA, jerarquía de encabezados y contraste de color conforme a WCAG 2.1. | 4 | Becerra Durand, Sebastian Uriel | Done |
+| **US03** | Landing: Red de aliados | T05 | Módulo de cobertura distrital | Implementación de la sección de cobertura de Lima Metropolitana y estadísticas de comercios aliados. | 4 | Miranda Romero, Sergio Luis | Done |
+| **US03** | Landing: Red de aliados | T06 | Recursos gráficos e iconos vectoriales | Optimización de iconos vectoriales y elementos visuales de la red de establecimientos. | 4 | Becerra Durand, Sebastian Uriel | Done |
+| **US04** | Landing: Registro de interés | T07 | Formulario y validación de correo | Creación del formulario de registro anticipado con validación de formato en cliente y prevención de envíos vacíos. | 5 | Miranda Romero, Sergio Luis | Done |
+| **US04** | Landing: Registro de interés | T08 | Confirmación accesible en vivo | Implementación de mensajes de confirmación con regiones `aria-live="polite"` y pruebas de interacción. | 4 | Casós Torre, Miguel André | Done |
+| **US05** | Landing: FAQ y soporte | T09 | Acordeón interactivo de preguntas | Estructuración y lógica de despliegue/colapso accesible (`aria-expanded`, `aria-controls`) para preguntas frecuentes. | 5 | Casós Torre, Miguel André | Done |
+| **US05** | Landing: FAQ y soporte | T10 | Formulario de contacto y soporte | Maquetación, validación y estado de envío del formulario de contacto en el pie de la página. | 4 | Capillo Lema, Mía Valentina | Done |
+| **TS01** | Publicación de Landing Page | T11 | Configuración GitFlow y publicación | Inicialización del repositorio `preciazo-landing-page`, configuración de ramas y publicación continua. | 4 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **TS01** | Publicación de Landing Page | T12 | Auditoría Lighthouse y QA | Evaluación de rendimiento, accesibilidad, buenas prácticas y SEO superando el 90% en cada categoría. | 4 | Miranda Romero, Sergio Luis | Done |
 
 #### 5.2.1.4. Development Evidence for Sprint Review
 
@@ -2825,7 +2835,7 @@ El Sprint 2 corresponde a la siguiente fase del cronograma de desarrollo del pro
 | **Attendees (to planning meeting)** | Becerra Durand, Sebastian Uriel; Capillo Lema, Mía Valentina; Casós Torre, Miguel André; Miranda Romero, Sergio Luis; Pardo Chumpitazi, Kevin Patrick. |
 | **Sprint 1 Review Summary** | Se revisó el primer despliegue de la Landing Page y las observaciones del informe técnico. Se identificó la necesidad de iniciar la maquetación de las vistas principales de la aplicación para ambos segmentos objetivo, mejorar elementos visuales de la Landing Page e incorporar internacionalización. |
 | **Sprint 1 Retrospective Summary** | El equipo mantuvo una buena comunicación mediante GitFlow y Trello. Como oportunidad de mejora, se acordó realizar revisiones cruzadas más minuciosas antes de integrar cambios al informe y al código fuente para evitar inconsistencias en el entregable. |
-| **Sprint Goal & User Stories** | **Sprint 2 Goal:** Desarrollar e integrar las vistas iniciales del frontend para el primer y segundo segmento de usuarios, publicar la versión actualizada de la Landing Page de **Preciazo** en GitHub Pages con soporte i18n (Español / Inglés) y subsanar las observaciones documentales del informe técnico.<br><br>**User Stories y Technical Stories Seleccionadas:**<br>• **US01:** Landing: Propuesta de valor (Optimización) (1 SP)<br>• **US04:** Landing: Registro de interés y feedback (2 SP)<br>• **US05:** Landing: Preguntas frecuentes y soporte (2 SP)<br>• **US06:** Vistas Frontend: Primer Segmento Objetivo (3 SP)<br>• **US07:** Vistas Frontend: Segundo Segmento Objetivo (3 SP)<br>• **TS02:** Actualización y corrección del informe técnico (2 SP)<br>• **TS03:** Redespliegue y auditoría de calidad (1 SP)<br>• **TS04:** Implementación de soporte i18n (Español / Inglés) (2 SP) |
+| **Sprint Goal & User Stories** | **Sprint 2 Goal:**<br>**Nuestro enfoque está en** ofrecer a compradores independientes y comerciantes minoristas una primera experiencia interactiva de la aplicación web junto con una página de presentación bilingüe.<br>**Creemos que entrega** una visualización clara de listas de compra, comparación de precios y gestión comercial inicial **a** ambos segmentos objetivo en Lima Metropolitana.<br>**Esto se confirmará cuando** un visitante pueda pasar desde la página de presentación a la aplicación web y recorrer los flujos principales de comprador y comerciante en inglés y español.<br><br>**User Stories y Technical Stories Seleccionadas:**<br>• **US01:** Landing: Propuesta de valor (Optimización) (1 SP)<br>• **US04:** Landing: Registro de interés y feedback (2 SP)<br>• **US05:** Landing: Preguntas frecuentes y soporte (2 SP)<br>• **US06:** Vistas Frontend: Primer Segmento Objetivo (3 SP)<br>• **US07:** Vistas Frontend: Segundo Segmento Objetivo (3 SP)<br>• **TS02:** Actualización y corrección del informe técnico (2 SP)<br>• **TS04:** Implementación de soporte i18n (Inglés / Español) (2 SP) |
 | **Sprint 2 Velocity** | 16 Story Points |
 | **Sum of Story Points** | 16 Story Points |
 
@@ -2854,19 +2864,18 @@ El Sprint Backlog 2 organiza las tareas de maquetación del frontend para ambos 
 
 **Desglose Detallado del Sprint Backlog 2:**
 
-| User Story Id | Title | Task Id | Task Title | Description | Estimation (Hours) | Assigned To | Status |
+| User Story Id | Title | Task Id | Task Title | Description | Estimation (Hours) | Assigned To | Status (To-Do / In-Process / To-Review / Done) |
 | :---: | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
-| **US01** | Landing: Propuesta de valor | T01 | Ajuste visual del Hero | Refinamiento de estilos CSS y jerarquía de textos en la cabecera principal. | 2 | Pardo Chumpitazi, Kevin Patrick | Done |
-| **US01** | Landing: Propuesta de valor | T02 | Corrección de Layout Mobile | Corrección de desbordamientos en resoluciones pequeñas y dispositivos móviles. | 2 | Pardo Chumpitazi, Kevin Patrick | Done |
-| **US04** | Landing: Registro de interés | T03 | Mejora en validación JS | Optimización de mensajes de error y respuesta accesible en el formulario. | 2 | Miranda Romero, Sergio Luis | Done |
-| **US05** | Landing: FAQ y soporte | T04 | Actualización de contenidos | Refinamiento de preguntas frecuentes según las dudas identificadas de usuarios. | 2 | Capillo Lema, Mía Valentina | Done |
-| **US06** | Frontend: Primer Segmento | T05 | Maquetación de vistas | Desarrollo de componentes e interfaz principal para el primer segmento objetivo. | 4 | Miranda Romero, Sergio Luis | Done |
-| **US07** | Frontend: Segundo Segmento | T06 | Maquetación de vistas | Desarrollo de componentes e interfaz principal para el segundo segmento objetivo. | 4 | Becerra Durand, Sebastian Uriel | Done |
-| **TS02** | Correcciones del Informe | T07 | Revisión de Secciones | Subsanación de observaciones en la documentación del informe técnico. | 3 | Casós Torre, Miguel André | Done |
-| **TS02** | Correcciones del Informe | T08 | Actualización de Artefactos | Inserción de imágenes, diagramas y tablas corregidas en el informe. | 2 | Capillo Lema, Mía Valentina | Done |
-| **TS03** | Redespliegue GitHub Pages | T09 | Verificación del Pipeline | Confirmación de la ejecución automática de despliegue tras merges en `main`. | 1 | Casós Torre, Miguel André | Done |
-| **TS04** | Soporte i18n | T10 | Estructura de diccionarios | Creación de archivos JSON de traducción para Español (es) e Inglés (en). | 3 | Becerra Durand, Sebastian Uriel | Done |
-| **TS04** | Soporte i18n | T11 | Lógica de cambio de idioma | Implementación de selector de idioma interactivo en JavaScript. | 3 | Miranda Romero, Sergio Luis | Done |
+| **US01** | Landing: Propuesta de valor | T01 | Refinamiento visual del Hero | Ajuste de tipografía, espaciado y jerarquía visual en escritorio. | 4 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US01** | Landing: Propuesta de valor | T02 | Corrección responsiva en móvil | Eliminación de desbordamientos horizontales y ajuste de navegación móvil. | 4 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US06** | Frontend: Portal del Comprador | T03 | Maquetación de Inicio y Listas | Implementación de las vistas Home y Mis Listas con presupuesto límite en Angular. | 6 | Miranda Romero, Sergio Luis | Done |
+| **US06** | Frontend: Portal del Comprador | T04 | Maquetación de Comparador y Ruta | Implementación de las vistas Comparar Precios, Ruta y Verificación Comunitaria. | 6 | Casós Torre, Miguel André | Done |
+| **US07** | Frontend: Portal del Comerciante | T05 | Maquetación de Dashboard e Inventario | Construcción de pestañas de métricas y tabla de inventario del comerciante. | 6 | Becerra Durand, Sebastian Uriel | Done |
+| **US07** | Frontend: Portal del Comerciante | T06 | Maquetación de Promociones y Datos | Implementación del modal de promociones y ficha de datos del establecimiento. | 5 | Capillo Lema, Mía Valentina | Done |
+| **TS02** | Correcciones del Informe | T07 | Subsanación de Capítulos I–IV | Revisión de arquetipos, historias de usuario y artefactos UX según observaciones de AV1. | 5 | Casós Torre, Miguel André | Done |
+| **TS02** | Correcciones del Informe | T08 | Actualización de diagramas e imágenes | Generación e inserción de wireflows, user flows y capturas actualizadas. | 4 | Capillo Lema, Mía Valentina | Done |
+| **TS04** | Soporte i18n (en_US / es_419) | T09 | Estructura de diccionarios i18n | Definición de claves de traducción base en inglés (`en_US`) y español (`es_419`). | 4 | Becerra Durand, Sebastian Uriel | Done |
+| **TS04** | Soporte i18n (en_US / es_419) | T10 | Selector interactivo de idioma | Implementación del conmutador de idioma y persistencia en almacenamiento local. | 4 | Miranda Romero, Sergio Luis | Done |
 
 #### 5.2.2.4. Development Evidence for Sprint Review
 
@@ -2948,7 +2957,7 @@ A continuación, se presenta el cuadro resumen de la planificación del Sprint 3
 | **Sprint 2 Review Summary** | Se verificó el despliegue en Azure Static Web Apps tanto de la Landing Page como de la primera versión de la aplicación frontend en Angular. Se identificó la necesidad de exponer los contratos RESTful del servidor backend, incorporar el flujo de registro de cuentas e integrar las validaciones con usuarios representativos. |
 | **Sprint 2 Retrospective Summary** | El equipo consolidó el uso de ramas `feature/` y Pull Requests en GitHub. Como acuerdo de mejora para el Sprint 3, se estableció estandarizar el orden jerárquico de los Bounded Contexts (Core, Soporte y Genérico), mantener las tareas técnicas en un rango de 4 a 8 horas y documentar los endpoints mediante OpenAPI 3.0. |
 | **Sprint Goal & User Stories** | **User & Technical Stories Incluidas:** `US06` (3 SP), `US08` (2 SP), `US09` (3 SP), `US10` (2 SP), `US13` (8 SP), `US21` (5 SP), `US23` (5 SP), `TS01` (API Auth), `TS02` (API Basket Compare), `TS06` (API Catalog). |
-| **Sprint 3 Goal** | **Our focus is on** delivering the first functional version of the RESTful Web Services integrated with an updated multilingual Frontend Web Application for basket comparison, shopping list budgeting, and merchant catalog management.<br>**We believe it delivers** transparent price comparison, budget control, and agile local promotion management **to** independent buyers and proximity retail merchants in Lima.<br>**This will be confirmed when** users can register, authenticate, create budgeted shopping lists, and query store catalogs and price comparisons through documented OpenAPI endpoints and validated responsive web interfaces. |
+| **Sprint 3 Goal** | **Nuestro enfoque está en** habilitar la primera versión operativa del respaldo de servicios de Preciazo y validar la experiencia de compra con usuarios representativos de ambos segmentos.<br>**Creemos que entrega** persistencia real de listas de compra y evidencia directa de usabilidad **a** compradores independientes y comerciantes minoristas de Lima Metropolitana.<br>**Esto se confirmará cuando** un comprador pueda crear y consultar sus listas desde el servicio web documentado y se recolecten hallazgos de validación heurística con usuarios de ambos perfiles. |
 | **Sprint 3 Velocity** | 28 Story Points |
 | **Sum of Story Points** | 28 Story Points |
 
@@ -2979,13 +2988,14 @@ El Sprint Backlog 3 desglosa las historias de usuario y técnicas seleccionadas 
 | :--- | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
 | **User Story** | | **Work-Item / Task** | | | | | |
 | **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Hours)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
-| **US13 / TS02** | Comparativa multiestablecimiento | T01 | Dominio y Agregados de Catálogo | Implementación de entidades `Product`, `StoreProduct` y `PriceSnapshot` con repositorios JPA en `Catalog and Pricing`. | 6 | Casós Torre, Miguel André | Done |
-| **US13 / TS06** | API de consulta y comparativa | T02 | Controladores REST de Catálogo | Exposición de endpoints `GET /api/v1/products` y `POST /api/v1/baskets/compare` documentados en OpenAPI. | 6 | Casós Torre, Miguel André | Done |
-| **US08 / US10** | Lista de compras y presupuesto | T03 | Servicios de Shopping Planning | Implementación de `ShoppingList`, `PurchaseBudget` y endpoints REST para creación de listas y control de presupuesto. | 6 | Pardo Chumpitazi, Kevin Patrick | Done |
-| **US21 / US23** | Afiliación y catálogo de tienda | T04 | Servicios de Merchant Management | Implementación de `MerchantProfile`, `RetailStore`, `InventoryItem` y endpoints de gestión comercial. | 6 | Becerra Durand, Sebastian Uriel | Done |
-| **US06 / TS01** | Autenticación y registro de acceso | T05 | Módulo IAM y Vistas Login/Register | Implementación de controladores de autenticación/registro y actualización de formularios Login/Register en Angular. | 6 | Miranda Romero, Sergio Luis | Done |
-| **US06 / US13** | Integración Frontend e i18n | T06 | Conexión HTTP y soporte EN/ES | Integración de servicios HTTP en Angular, refinamiento de diccionarios i18n (`en_US` y `es_419`) y despliegue en Azure. | 5 | Pardo Chumpitazi, Kevin Patrick | Done |
-| **US28 / US29** | Validación y Heurísticas UX | T07 | Sesiones de validación y Anexo D | Ejecución de entrevistas de validación con ambos segmentos y evaluación heurística de usabilidad de la plataforma. | 5 | Capillo Lema, Mía Valentina | Done |
+| **US08** | Crear y consultar listas de compra | T01 | Dominio y agregados de Shopping | Implementación del agregado `ShoppingList`, evento `ShoppingListCreated` y reglas de moneda ISO 4217 sin acoplamiento JPA. | 6 | Casós Torre, Miguel André | Done |
+| **US08** | Crear y consultar listas de compra | T02 | Persistencia y REST de Shopping | Implementación de `ShoppingListRepositoryImpl`, `ShoppingListsController` con `ETag` y pruebas de contrato API. | 6 | Casós Torre, Miguel André | Done |
+| **TS01** | Base compartida y errores RFC 9457 | T03 | Patrón Result y GlobalExceptionHandler | Implementación de `Result<T, ApplicationError>`, `ProblemDetail` localizado (`en`/`es`) y `DomainEventPublisher`. | 6 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **TS01** | Base compartida y errores RFC 9457 | T04 | Configuración OpenAPI y despliegue Azure | Configuración de `OpenApiConfiguration`, perfiles `dev`/`prod`/`test` y publicación en Azure App Service. | 5 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US28** | Validación con Compradores | T05 | Ejecución de entrevistas Segmento 1 | Sesiones de prueba de usabilidad libre con compradores independientes y registro de observaciones. | 5 | Capillo Lema, Mía Valentina | Done |
+| **US28** | Validación con Compradores | T06 | Evaluación heurística Segmento 1 | Documentación de problemas de usabilidad, severidad (1–4) y recomendaciones según Anexo D. | 5 | Miranda Romero, Sergio Luis | Done |
+| **US29** | Validación con Comerciantes | T07 | Ejecución de entrevistas Segmento 2 | Sesiones de validación de campo con comerciantes minoristas sobre inventario y promociones. | 5 | Becerra Durand, Sebastian Uriel | Done |
+| **US29** | Validación con Comerciantes | T08 | Consolidación de hallazgos e informe | Consolidación de las 14 oportunidades de mejora de usabilidad, diseño inclusivo y arquitectura de información. | 5 | Capillo Lema, Mía Valentina | Done |
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
@@ -3048,6 +3058,89 @@ A lo largo del Sprint 3, los cinco integrantes del equipo registraron contribuci
 
 <!-- Coloca aquí la captura de GitHub Insights / Contributors del Sprint 3 -->
 <!-- ![Colaboración del equipo en GitHub durante el Sprint 3](../assets/sprint-3/github-insights-sprint3.png) -->
+
+### 5.2.4. Sprint 4
+
+El Sprint 4 corresponde al entregable final (**TB2 — Release Review**), enfocado en completar la integración full-stack de los siete Bounded Contexts en [`preciazo-web-services`](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-web-services) con seguridad JWT (IAM) y servicio externo **OSRM**, conectar la totalidad de vistas de la aplicación Angular ([`Preciazo-platform`](https://github.com/Open-Source-1ASI0729-2620-7750/Preciazo-platform)) al backend real con soporte bilingüe (`en_US` por defecto y `es_419`) y publicar la nueva versión (`v3.0.0`) de la Landing Page ([`preciazo-landing-page`](https://github.com/Open-Source-1ASI0729-2620-7750/preciazo-landing-page)).
+
+#### 5.2.4.1. Sprint Planning 4
+
+| Campo | Descripción |
+| :--- | :--- |
+| **Sprint #** | Sprint 4 |
+| **Sprint Planning Background** | Sesión orientada a subsanar todas las observaciones de AV2, completar la integración real entre Frontend Angular, Landing Page y Backend RESTful API (7 Bounded Contexts + OSRM), habilitar autenticación JWT con cuentas sembradas por segmento y preparar el release final de TB2. |
+| **Date** | 2026-11-18 |
+| **Time** | 07:00 PM (GMT -5) |
+| **Location** | Reunión virtual síncrona vía Google Meet |
+| **Prepared By** | Casós Torre, Miguel André |
+| **Attendees (to planning meeting)** | Becerra Durand, Sebastian Uriel / Capillo Lema, Mía Valentina / Casós Torre, Miguel André / Miranda Romero, Sergio Luis / Pardo Chumpitazi, Kevin Patrick |
+| **Sprint 3 Review Summary** | Se validó el arranque del backend Spring Boot y el primer flujo de listas de compra; el docente observó la necesidad de completar IAM/JWT, exponer el resto de contextos en el API, sacar nuevas versiones de Landing Page y Web App integradas, y subsanar Carátula, Hypothesis Statements en español, C4 por Bounded Context, Sprint Goals/Backlogs y Anexos. |
+| **Sprint 3 Retrospective Summary** | Se acordó alinear cada Bounded Context al patrón DDD/CQRS de *Learning Center Platform*, exigir tareas de 4 a 8 horas en el backlog y verificar cada entrega mediante pruebas automatizadas (`mvnw clean verify` y `ng build`). |
+| **Sprint 4 Goal** | **Nuestro enfoque está en** entregar la experiencia integrada de extremo a extremo de Preciazo para que compradores y comerciantes operen con cuentas reales, comparación de precios, rutas optimizadas y gestión comercial en producción.<br>**Creemos que entrega** ahorro verificable en la canasta básica, rutas realistas en Lima Metropolitana y control ágil de inventario y promociones **a** compradores independientes y comerciantes minoristas.<br>**Esto se confirmará cuando** un usuario pueda ingresar desde la Landing Page bilingüe hacia la aplicación web, autenticarse con su rol de segmento, gestionar listas con presupuesto, comparar canastas, optimizar rutas con OSRM y administrar su tienda conectándose al API RESTful documentado. |
+| **Sprint 4 Velocity** | 34 Story Points |
+| **Sum of Story Points** | 34 Story Points |
+
+#### 5.2.4.2. Aspect Leaders and Collaborators
+
+| Team Member (Last Name, First Name) | GitHub Username | IAM & Backend API (7 BCs) | Frontend HTTP & i18n | Landing v3.0.0 & CTAs | C4, Report & Releases |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Casós Torre, Miguel André** | `mcasos` | **L** | C | C | **L** |
+| **Pardo Chumpitazi, Kevin Patrick** | `Kevinyin11` | C | **L** | C | C |
+| **Miranda Romero, Sergio Luis** | `dym4njiroo` | C | C | **L** | C |
+| **Becerra Durand, Sebastian Uriel** | `sebasdev28` | C | C | C | C |
+| **Capillo Lema, Mía Valentina** | `MiaCL-5` | C | C | C | C |
+
+#### 5.2.4.3. Sprint Backlog 4
+
+| Sprint # | Sprint 4 | | | | | | |
+| :--- | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
+| **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Hours)** | **Assigned To** | **Status (To-Do / In-Process / To-Review / Done)** |
+| **US06** | Autenticación segura por segmento | T01 | Dominio y persistencia IAM | Implementación de agregados `User`/`Role`, adaptadores JPA y hashing `BCrypt` en `iam`. | 6 | Casós Torre, Miguel André | Done |
+| **US06** | Autenticación segura por segmento | T02 | Filtro JWT, CORS y seeding | Implementación de `JwtTokenService`, `BearerAuthorizationRequestFilter`, CORS y sembrado de cuentas demo. | 6 | Casós Torre, Miguel André | Done |
+| **US09 / US10** | Ítems y presupuesto de lista | T03 | Endpoints de ítems y presupuesto | Implementación de CRUD `/items` y `GET/PATCH /budget` con validación de propietario JWT. | 5 | Casós Torre, Miguel André | Done |
+| **US09 / US10** | Ítems y presupuesto de lista | T04 | Integración de Mis Listas en Angular | Conexión de `Lists` a `PreciazoApiService` con persistencia de presupuesto e ítems. | 5 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US13 / US19** | Comparador y rutas OSRM | T05 | API de Catálogo y Comparador | Exposición de `/api/v1/catalog/products`, `/stores`, `/deals` y `/compare`. | 6 | Casós Torre, Miguel André | Done |
+| **US13 / US19** | Comparador y rutas OSRM | T06 | Integración externa OSRM | Implementación de `OsrmRoutingClient` y `POST /api/v1/routes/optimize` con fallback Haversine. | 5 | Casós Torre, Miguel André | Done |
+| **US21 / US27** | Portal del Comerciante y Verificación | T07 | APIs Merchant, Verification y Analytics | Exposición de `/api/v1/merchant/*`, `/api/v1/verifications/*` y `/api/v1/analytics/merchant-summary`. | 6 | Becerra Durand, Sebastian Uriel | Done |
+| **US21 / US27** | Portal del Comerciante y Verificación | T08 | Integración Frontend, i18n y T&C | Integración de `HttpClient`, `authInterceptor`, i18n (`en_US`/`es_419`), ARIA y Términos ACM/IEEE-CIP. | 6 | Pardo Chumpitazi, Kevin Patrick | Done |
+| **US01 / US02** | Nueva versión de Landing Page | T09 | Soporte bilingüe y CTAs a Web App | Actualización de `preciazo-landing-page` a `en_US` por defecto, toggle `es_419` y CTAs por segmento. | 5 | Miranda Romero, Sergio Luis | Done |
+| **US01 / US02** | Nueva versión de Landing Page | T10 | Videos incrustados y Términos | Inserción de sección de videos YouTube y modal accesible de Términos y Condiciones. | 4 | Capillo Lema, Mía Valentina | Done |
+| **TS07** | Pruebas automatizadas y QA | T11 | Suite E2E Backend y build Angular | Implementación de `PreciazoEndToEndApiTest` (30 pruebas en Java 27) y verificación `ng build`. | 5 | Casós Torre, Miguel André | Done |
+| **TS07** | Pruebas automatizadas y QA | T12 | Subsanación integral del Informe y C4 | Corrección de Carátula, hipótesis en español, 7 diagramas C4 por contexto y Anexos. | 5 | Casós Torre, Miguel André | Done |
+
+#### 5.2.4.4. Development Evidence for Sprint Review
+
+| Repository | Branch | Commit Id | Commit Message | Committed on (Date) |
+| :--- | :--- | :---: | :--- | :---: |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `09a270a` | `chore(deps): add spring security and jjwt dependencies` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `826a5ad` | `feat(shared): configure openapi bearer auth and localized auth errors` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `9d02a52` | `feat(iam): implement jwt authentication, security filter and startup seeder` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `001679c` | `feat(shopping): add shopping list items and budget limit endpoints` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `4096221` | `feat(catalog): implement catalog search, deals and multi-store comparison` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `d60b621` | `feat(merchant): implement store profile, inventory and promotions api` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `45a0e46` | `feat(verification): add community price verification endpoints` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `ef03edc` | `feat(routing): add route optimization with osrm external integration` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `ab452e5` | `feat(analytics): add merchant analytics summary endpoint` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-web-services` | `develop` | `110614a` | `test(api): update shopping contract tests for jwt and add e2e suite` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `develop` | `f4759b9` | `feat(core): add jwt auth service, http interceptor, api client and i18n` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `develop` | `bbed894` | `feat(ui): integrate login and sidebar with jwt auth, i18n and terms modal` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/Preciazo-platform` | `develop` | `2894881` | `feat(pages): connect buyer and merchant pages to restful api endpoints` | 26/11/2026 |
+| `Open-Source-1ASI0729-2620-7750/preciazo-landing-page` | `main` | `3fe2981` | `feat(landing): add en_US/es_419 i18n, segment ctas, video embeds and terms modal` | 26/11/2026 |
+
+#### 5.2.4.5. Execution & Services Documentation Evidence for Sprint Review
+
+* **Verificación automatizada del Backend (`mvnw clean verify`, Java 27.0.1):** **30 pruebas ejecutadas, 0 fallos, 0 errores, 0 omitidos** (`PreciazoEndToEndApiTest`, `ShoppingListApiTest`, `BackendHttpTest`, pruebas de dominio/eventos).
+* **Verificación de producción del Frontend (`ng build`, Angular 22.2.2):** Compilación de producción completada sin errores (`dist/preciazo-frontend-app`, 2.78 s).
+
+| Bounded Context (Tag OpenAPI) | Endpoints implementados | Autenticación | Códigos HTTP |
+| :--- | :--- | :---: | :---: |
+| **Authentication / Roles / Users** | `POST /api/v1/authentication/sign-up`, `POST /api/v1/authentication/sign-in`, `GET /api/v1/roles`, `GET /api/v1/users/me`, `GET /api/v1/users`, `GET /api/v1/users/{id}` | Público (sign-up/sign-in/roles) / Bearer JWT (`/users`) | `200`, `201`, `401`, `409` |
+| **Shopping Lists** | `POST/GET /api/v1/shopping-lists`, `GET /api/v1/shopping-lists/{id}`, `GET/POST /items`, `PATCH/DELETE /items/{itemId}`, `GET/PATCH /budget` | Bearer JWT (control de propietario) | `200`, `201`, `204`, `401`, `403`, `404` |
+| **Catalog & Pricing** | `GET /api/v1/catalog/products`, `GET /api/v1/catalog/stores`, `GET /api/v1/catalog/deals`, `GET /api/v1/catalog/compare` | Público | `200` |
+| **Merchant Management** | `GET/PUT /api/v1/merchant/store`, `GET/POST/PATCH /api/v1/merchant/inventory`, `GET/POST/DELETE /api/v1/merchant/promotions` | Bearer JWT | `200`, `201`, `204`, `401`, `404` |
+| **Community Price Verification** | `GET/POST /api/v1/verifications`, `POST /api/v1/verifications/{id}/confirm`, `POST /api/v1/verifications/{id}/reject` | Público (`GET`) / Bearer JWT (`POST`) | `200`, `201`, `401`, `404` |
+| **Route Planning (OSRM)** | `POST /api/v1/routes/optimize` (integración externa **OSRM OpenStreetMap** con fallback Haversine) | Bearer JWT | `200`, `401` |
+| **Analytics & Engagement** | `GET /api/v1/analytics/merchant-summary` | Bearer JWT | `200`, `401` |
 
 ---
 
@@ -3862,6 +3955,32 @@ La siguiente captura corresponde a la versión publicada del Video About-the-Pro
 2. **Conclusión sobre arquitectura DDD e implementación Full-Stack:** La organización del sistema en siete Bounded Contexts jerarquizados en Core (`Catalog and Pricing`, `Route Planning` y `Shopping Planning`), Soporte (`Merchant Management`, `Community Price Verification` y `Analytics and Engagement`) y Genérico (`Identity and Access`), implementados bajo una arquitectura por capas en **Java 25 con Spring Boot** (`preciazo-web-services`) y **Angular** (`Preciazo-platform`), garantizó el desacoplamiento del dominio y la exposición estandarizada de contratos RESTful documentados con OpenAPI 3.1 en **Microsoft Azure App Service**.
 3. **Conclusión sobre gestión del proyecto, GitFlow y trabajo colaborativo:** La aplicación rigurosa del marco de trabajo Scrum (mediante tableros Kanban en Trello por cada Sprint), el flujo de ramificación GitFlow (`main`, `develop` y ramas `feature/`) y la convención de *Conventional Commits* en los cuatro repositorios de la organización permitieron mantener trazabilidad continua, revisiones por pares efectivas y despliegues automatizados en la nube.
 
+## Video About-the-Team
+
+En esta sección se documenta el **Video About-the-Team** del equipo **PeruTech**, el cual presenta la retrospectiva del proceso de ingeniería de software aplicado durante los Sprints 1 al 4 (reuniones de planificación, diseño DDD/C4, desarrollo colaborativo bajo GitFlow y pruebas integradas) junto con el testimonio ante cámara de cada integrante sobre su contribución, el logro del *Student Outcome 3* (ABET) y las competencias desarrolladas en el curso.
+
+### Información del Video
+
+| Elemento | Información |
+| :--- | :--- |
+| **Nombre de archivo (Anexo C)** | `upc-pre-202620-1asi0729-7750-PeruTech-about-the-team-sprint-4.mp4` |
+| **Formato** | MP4 (Full HD 1080p) |
+| **Duración estimada** | `00:10:00` (5 min de retrospectiva grupal + 1 min por integrante) |
+| **Microsoft Stream** | *Pendiente de publicar enlace final de Sprint 4 en el canal del curso* |
+| **YouTube (incrustado en Landing Page)** | *Pendiente de publicar enlace final de Sprint 4* |
+
+### Pauta de Secuencias de Contenido
+
+| Secuencia | Timing de inicio | Descripción del contenido | Participantes |
+| :--- | :---: | :--- | :--- |
+| **1. Introducción y Branding PeruTech** | `00:00:00` | Presentación de la startup PeruTech, identidad de Preciazo y resumen del reto de negocio. | Equipo completo (voz en off) |
+| **2. Retrospectiva del Proceso (Sprints 1–4)** | `00:00:45` | Escenas reales de sesiones de trabajo en Google Meet, Trello, Figma, IntelliJ IDEA y GitHub mostrando la evolución desde Needfinding y C4 hasta el despliegue integrado. | Equipo completo |
+| **3. Testimonio — Integrante 1** | `00:05:00` | Participación en diseño UX/UI, entrevistas de validación y autoevaluación del Outcome 3. | Capillo Lema, Mía Valentina |
+| **4. Testimonio — Integrante 2** | `00:06:00` | Participación en SCM/GitFlow, despliegue en Azure e integración Frontend. | Pardo Chumpitazi, Kevin Patrick |
+| **5. Testimonio — Integrante 3** | `00:07:00` | Participación en entrevistas de campo, internacionalización i18n y accesibilidad a11y. | Becerra Durand, Sebastian Uriel |
+| **6. Testimonio — Integrante 4** | `00:08:00` | Participación en especificación de requisitos, Scrum backlogs y Landing Page. | Miranda Romero, Sergio Luis |
+| **7. Testimonio — Integrante 5 y Cierre** | `00:09:00` | Participación en arquitectura DDD/C4, RESTful API con IAM/JWT y OSRM, y conclusiones del equipo. | Casós Torre, Miguel André |
+
 # Bibliografía
 
 * Banco Central de Reserva del Perú. (2025). *Reporte de Inflación: Panorama actual y proyecciones macroeconómicas*. https://www.bcrp.gob.pe/publicaciones/reporte-de-inflacion.html
@@ -3884,4 +4003,27 @@ La siguiente captura corresponde a la versión publicada del Video About-the-Pro
   * *Landing Page:* [https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/](https://preciazo-landing-btabfbeqbrg3cjbc.westus-01.azurewebsites.net/)
   * *Frontend Web Application:* [https://purple-sand-0df2c4410.6.azurestaticapps.net](https://purple-sand-0df2c4410.6.azurestaticapps.net)
   * *RESTful Web Services (Swagger UI):* [https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html](https://preciazo-web-services-dubhfubzcmb9b3dq.westus3-01.azurewebsites.net/swagger-ui/index.html)
+
+<div style="page-break-before: always;"></div>
+
+## Anexo G — Usuarios de Prueba por Segmento Objetivo
+
+Las siguientes cuentas de prueba se siembran automáticamente al iniciar `preciazo-web-services` (`ApplicationReadyEventHandler`) y permiten validar todos los flujos protegidos por JWT tanto desde la **Web Application** como desde **Swagger UI** (`POST /api/v1/authentication/sign-in`):
+
+| Segmento Objetivo | Rol IAM | Nombre Completo | Correo Electrónico | Contraseña de Prueba | Vistas / Endpoints habilitados |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Segmento 1: Comprador Independiente** | `ROLE_BUYER` | Carlos Mendoza | `carlos.mendoza@preciazo.pe` | `Preciazo2026!` | `/home`, `/lists`, `/compare`, `/route`, `/verification` y endpoints `/shopping-lists`, `/routes/optimize`, `/verifications` |
+| **Segmento 2: Comerciante Minorista** | `ROLE_MERCHANT` | Alberto Ramos | `alberto.ramos@preciazo.pe` | `Preciazo2026!` | `/merchant` (Métricas, Inventario, Promociones, Datos) y endpoints `/merchant/*`, `/analytics/merchant-summary` |
+| **Administrador de Plataforma** | `ROLE_ADMIN`, `ROLE_BUYER`, `ROLE_MERCHANT` | PeruTech Admin | `admin@preciazo.pe` | `Preciazo2026!` | Acceso completo a ambos portales y consulta de directorio `/api/v1/users` |
+
+<div style="page-break-before: always;"></div>
+
+## Anexo H — Videos de Exposiciones
+
+| Entrega | Título de la Exposición | Enlace en Microsoft Stream / Clipchamp |
+| :--- | :--- | :--- |
+| **AV1** | Exposición Avance 1 — Needfinding, Diseño UX y Landing Page | *Adjuntar enlace privado de Microsoft Stream (AV1)* |
+| **TB1** | Exposición Trabajo Parcial 1 — Frontend Web App y Landing Page v2 | *Adjuntar enlace privado de Microsoft Stream (TB1)* |
+| **AV2** | Exposición Avance 2 — RESTful Web Services, Validación Heurística y About the Product | [Ver video de navegación en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c101_upc_edu_pe/IQCEOW9isi3LT7sIUmtoPLwAASmuwYzj-IDSyuesd5m1h3s?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=0Pq9Zi) |
+| **TB2** | Exposición Final — Solución Integrada Full-Stack Preciazo (Release Review) | *Adjuntar enlace privado de Microsoft Stream (TB2)* |
 

@@ -1,0 +1,12 @@
+@startuml C4_Components_Routing
+!include <C4/C4_Component>
+LAYOUT_LEFT_RIGHT()
+title Component Diagram — Route Planning (Core Bounded Context)
+Container_Boundary(routing, "Route Planning Bounded Context") {
+    Component(ctrl, "RoutePlanningController", "Spring REST Controller", "Exposes POST /api/v1/routes/optimize with transport mode and exclusions.")
+    Component(osrm, "OsrmRoutingClient", "External HTTP Adapter", "Calls OSRM Public API with timeout and Haversine fallback.")
+}
+System_Ext(ext, "OSRM (OpenStreetMap)", "External road routing API")
+Rel(ctrl, osrm, "Requests road distance & duration")
+Rel(osrm, ext, "HTTPS GET /route/v1/{profile}/{coords}")
+@enduml

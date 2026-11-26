@@ -1,0 +1,14 @@
+@startuml C4_Components_Merchant
+!include <C4/C4_Component>
+LAYOUT_LEFT_RIGHT()
+title Component Diagram — Merchant Management (Supporting Bounded Context)
+Container_Boundary(merchant, "Merchant Management Bounded Context") {
+    Component(ctrl, "MerchantController", "Spring REST Controller", "Exposes /api/v1/merchant/store, /inventory and /promotions.")
+    Component(svc, "MerchantManagementService", "Application Service", "Manages store profile, SKU availability/pricing and discount campaigns.")
+    Component(repo, "MerchantStore/Inventory/Promotion Repositories", "Spring Data JPA", "Persists merchant_stores, merchant_inventory and merchant_promotions.")
+}
+ContainerDb(db, "MySQL Database", "MySQL 8.4", "merchant_* tables")
+Rel(ctrl, svc, "Delegates store/inventory/promo ops")
+Rel(svc, repo, "Reads and writes")
+Rel(repo, db, "JPA / SQL")
+@enduml
