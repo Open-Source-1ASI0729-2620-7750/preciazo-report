@@ -1943,6 +1943,27 @@ Para subsanar la granularidad arquitectónica a nivel de componentes, cada uno d
 | 6 | **Analytics and Engagement** | Soporte | [`c4-components-analytics.puml`](./architecture/components/c4-components-analytics.puml) | `AnalyticsController`, puertos de consulta hacia `MerchantManagementService` y `PriceVerificationService` |
 | 7 | **Identity and Access (IAM)** | Genérico | [`c4-components-iam.puml`](./architecture/components/c4-components-iam.puml) | `AuthenticationController`, `UsersController`, `RolesController`, `UserCommandServiceImpl`, `WebSecurityConfiguration`, `BearerAuthorizationRequestFilter`, `JwtTokenService`, `BCryptHashingService` |
 
+##### 1. Catalog and Pricing — Component Diagram
+![C4 Component Diagram — Catalog and Pricing](../assets/architecture/components/c4-components-catalog.png)
+
+##### 2. Route Planning — Component Diagram
+![C4 Component Diagram — Route Planning](../assets/architecture/components/c4-components-routing.png)
+
+##### 3. Shopping Planning — Component Diagram
+![C4 Component Diagram — Shopping Planning](../assets/architecture/components/c4-components-shopping.png)
+
+##### 4. Merchant Management — Component Diagram
+![C4 Component Diagram — Merchant Management](../assets/architecture/components/c4-components-merchant.png)
+
+##### 5. Community Price Verification — Component Diagram
+![C4 Component Diagram — Community Price Verification](../assets/architecture/components/c4-components-verification.png)
+
+##### 6. Analytics and Engagement — Component Diagram
+![C4 Component Diagram — Analytics and Engagement](../assets/architecture/components/c4-components-analytics.png)
+
+##### 7. Identity and Access (IAM) — Component Diagram
+![C4 Component Diagram — Identity and Access](../assets/architecture/components/c4-components-iam.png)
+
 Las dependencias funcionales entre contextos se documentan como coordinación pendiente. No se dibujan como llamadas o suscripciones ya resueltas. Cada puerto de entrada y referencia pertenece al contexto consumidor; no existe un proveedor global compartido de modelos de dominio.
 
 | Contexto consumidor | Datos o coordinación necesarios | Estado del diseño AV2 |
